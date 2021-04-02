@@ -8,7 +8,7 @@ changed_files=$(pbpaste)
 
 commit_message="updated: ${changed_files}"
 
-git commit -m $commit_message
+git commit -m "${commit_message}"
 
 git push -u origin master
 

@@ -65,9 +65,13 @@ but to prevent misunderstanding it is important to know the author's intentions.
 この本にはたくさんの例題があります。これらの中で使われているほとんどのものは、その文脈から明らかなはずです。
 しかし、誤解を防ぐためには、作者の意図を知ることが大切です。
 
+////
 When command-line examples are given we may include BASH comments (starting with `#`), and will
 usually include the standard user UNIX prompt of `$` to indicate separation of the command
 from its output.
+////
+コマンドラインの例を示す場合、（# で始まる）BASH のコメントを含めることがあります。
+また、通常は、コマンドとその出力を分離するために、標準的なユーザーUNIXのプロンプトである$を含めます。$をその出力から分離することを意味します。
 
 ```bash
 # A comment. This command lists files:
