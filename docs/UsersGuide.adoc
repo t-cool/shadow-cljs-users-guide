@@ -81,51 +81,82 @@ project.clj
 ...
 ```
 
+////
 Many of the examples are of the configuration file for the compiler. This file contains an EDN map. Where we have already discussed required options we will often elide them for clarity. In this case we'll usually include an ellipsis to indicate "content that is required but isn't in our current focus":
+////
 
+
+////
 .Example 1. Specify dependencies
+////
+
 ```
 {:dependencies [[lib "1.0"]]}
 ```
 
+////
 .Example 2. Add source paths
+////
+
 ```
 {...
  :source-paths ["src"]
  ...}
 ```
 
+////
 This allows us to concisely include enough context to understand the nesting of the configuration of
 interest:
+////
 
+
+////
 .Example 3. Nested option
+////
+
 ```
 {...
  :builds {:build-id {...
                      :output-dir "resources/public/js"}}}
 ```
 
+////
 Code examples may be similarly shortened.
+////
 
 
 = Installation
 
 == Standalone via `npm`
 
+////
 You will need:
+////
 
+////
 - https://nodejs.org[`node.js`] (v6.0.0+, most recent version preferred)
 - https://www.npmjs.com[`npm`] or https://www.yarnpkg.com[`yarn`]
 - Any Java SDK (Version 8 or higher). http://openjdk.java.net/install/[OpenJDK] or http://www.oracle.com/technetwork/java/javase/downloads/index.html[Oracle]
+////
 
+////
 In your project directory you'll need a `package.json`. If you do not have one yet you can create one by running `npm init -y`. If you don't have a project directory yet consider creating it by running
+////
+
+
 ```
 $ npx create-cljs-project my-project
 ```
 
+////
 This will create all the necessary basic files and you can skip the following commands.
+////
 
+
+////
 If you have a `package.json` already and just want to add `shadow-cljs` run
+////
+
 
 .NPM
 ```bash
@@ -137,16 +168,27 @@ $ npm install --save-dev shadow-cljs
 $ yarn add --dev shadow-cljs
 ```
 
+////
 For convenience you can run `npm install -g shadow-cljs` or `yarn global add shadow-cljs`. This will let you run the `shadow-cljs` command directly later. There should always be a shadow-cljs version installed in your project, the global install is optional.
+////
+
 
 == Library
 
+////
 Although it is recommended to run the standalone version via `npm` you can also embed `shadow-cljs` into any other Clojure JVM tool (eg. `lein`, `boot`, ...).
+////
 
+
+////
 The artifact can be found at:
+////
 
+
+////
 image::https://img.shields.io/clojars/v/thheller/shadow-cljs.svg[link=https://clojars.org/thheller/shadow-cljs]
 image::https://img.shields.io/npm/v/shadow-cljs.svg[link=https://github.com/thheller/shadow-cljs]
+////
 
 include::usage.adoc[]
 
@@ -154,9 +196,12 @@ include::repl.adoc[]
 
 = Configuration [[config]]
 
+////
 `shadow-cljs` is configured by a `shadow-cljs.edn` file in your project root directory. You can
 create a default one by running `shadow-cljs init`. It should contain a map with some global
 configuration and a `:builds` entry for all your builds.
+////
+
 
 ```
 {:source-paths [...]
@@ -164,7 +209,10 @@ configuration and a `:builds` entry for all your builds.
  :builds {...}}
 ```
 
+////
 An example config could look like this:
+////
+
 
 ```clojure
 {:dependencies
@@ -180,7 +228,10 @@ An example config could look like this:
         :modules {:main {:entries [my.app]}}}}}
 ```
 
+////
 The file structure for this example should look like this:
+////
+
 ```text
 .
 ├── package.json
@@ -192,17 +243,29 @@ The file structure for this example should look like this:
 
 == Source Paths [[source-paths]]
 
+////
 `:source-paths` configures your JVM classpath. The compiler will use this config to find Clojure(Script) source files (eg. `.cljs`).
+////
 
+
+////
 It is fine to put everything into one source path but you can use multiple if you want to "group" source files in certain ways. It is useful if you want to keep your tests separate for example.
+////
 
+
+////
 .Using multiple source paths
+////
+
 ```
 {:source-paths ["src/main" "src/test"]
  ...}
 ```
 
+////
 .File Structure
+////
+
 ```text
 .
 ├── package.json
@@ -216,38 +279,68 @@ It is fine to put everything into one source path but you can use multiple if yo
             └── app_test.cljs
 ```
 
+////
 It is not recommended to separate source files by extension (eg. `src/clj`, `src/cljs`, `src/cljc`). For some reason this is widely used in CLJS project templates but it just makes things harder to use.
+////
+
 
 == Dependencies
 
 === Clojure(Script)
 
+////
 Your dependencies are managed via the `:dependencies` key at the root of the `shadow-cljs.edn` config file. They are declared in the same notation that other Clojure tools like `lein` or `boot` use.
+////
 
+
+////
 Each dependency is written as a vector using `[library-name "version-string"]` nested in one outer vector.
+////
 
+
+////
 .Example :dependencies
+////
+
 ```clojure
 {:source-paths ["src"]
  :dependencies [[reagent "0.9.1"]]
  :builds ...}
 ```
 
+////
 Notice that the source path is *only* specified once in the entire configuration. The system will use namespace dependency graphs to determine what code is needed in the final output of any given build.
+////
+
 
 === JavaScript [[npm-install]]
 
+////
 `shadow-cljs` integrates fully with the https://www.npmjs.com/[`npm`] ecosystem to manage JavaScript dependencies.
+////
 
+
+////
 You can use `npm` or `yarn` to manage your dependencies, please refer to their respective documentation.
+////
 
+
+////
 [horizontal]
 npm:: https://docs.npmjs.com/
 yarn:: https://yarnpkg.com/en/docs
+////
 
+
+////
 Both manage your dependencies via a `package.json` file in your project directory.  Almost every package available via `npm` will explain how to install it. Those instructions now apply to `shadow-cljs` as well.
+////
 
+
+////
 .Installing a JavaScript package
+////
+
 ```bash
 # npm
 $ npm install the-thing
@@ -256,39 +349,65 @@ $ npm install the-thing
 $ yarn add the-thing
 ```
 
+////
 Nothing more is required. Dependencies will be added to the `package.json` file and this will be used to manage them.
+////
 
+
+////
 TIP: If you don’t have a `package.json` yet run `npm init` from a command line.
+////
+
 
 ==== Missing JS Dependency?
 
+////
 You might run into errors related to missing JS dependencies. Most ClojureScript libraries do not yet declare the `npm` packages they use since they still expect to use <<cljsjs, CLJSJS>>. We want to use `npm` directly which means you must manually install the `npm` packages until libraries properly declare the `:npm-deps` themselves.
+////
+
 
 ```text
 The required JS dependency "react" is not available, it was required by ...
 ```
 
+////
 This means that you should `npm install react`.
+////
 
+
+////
 TIP: In the case of `react` you probably need these 3 packages: `npm install react react-dom create-react-class`.
+////
 
 
 == User Configuration [[user-config]]
 
+////
 Most configuration will be done in the projects themselves via `shadow-cljs.edn` but some config may be user-dependent. Tools like https://docs.cider.mx[CIDER] may require the additional `cider-nrepl` dependency which would be useless for a different team member using Cursive when adding that dependency via `shadow-cljs.edn`.
+////
 
+////
 A restricted set of config options can be added to `~/.shadow-cljs/config.edn` which will then apply to all projects built on this users machine.
+////
 
+////
 Adding dependencies is allowed via the usual `:dependencies` key. Note that dependencies added here will apply to ALL projects. Keep them to a minimum and only put tool related dependencies here. Everything that is relevant to a build should remain in `shadow-cljs.edn` as otherwise things may not compile for other users. These dependencies will automatically be added when using `deps.edn` or `lein` as well.
+////
 
+////
 .Example ~/.shadow-cljs/config.edn
+////
+
 ```
 {:dependencies
  [[cider/cider-nrepl "0.21.1"]]}
 ;; this version may be out of date, check whichever is available
 ```
 
+////
 When using `deps.edn` to resolve dependencies you may sometimes want to activate additional aliases. This can be done via `:deps-aliases`.
+////
+
 
 ```
 ;; shadow-cljs.edn in project
@@ -297,19 +416,32 @@ When using `deps.edn` to resolve dependencies you may sometimes want to activate
 ;; ~/.shadow-cljs/config.edn
 {:deps-aliases [:cider]}
 ```
+
+////
 This will make the `shadow-cljs` command use the `[:cider :cljs]` aliases in projects using `deps.edn`. This might be useful if you have an additional `:cider` alias in your `~/.clojure/deps.edn`.
+////
 
+
+////
 By default the `shadow-cljs` server-mode will launch an embedded nREPL server which you might not need. You can disable this by setting `:nrepl false` in user config.
+////
 
+
+////
 The only other currently accepted value in the user config is the <<open-file-command, :open-file-command>>. No other options are currently have any effect.
+////
 
 == Server Options
 
+////
 This section is for other options that configure the `shadow-cljs` server instance. They are optional.
+////
 
 === nREPL [[nREPL]]
 
+////
 The `shadow-cljs` <<server-mode, server>> provides a https://nrepl.org[nREPL] server via TCP. If you look at the startup message you'll see the port of nREPL, and the port will also be stored in `target/shadow-cljs/nrepl.port`:
+////
 
 ```bash
 $ shadow-cljs watch app
@@ -321,7 +453,10 @@ shadow-cljs - watching build :app
 [:app] Compiling ...
 ```
 
+////
 You can configure the port and additional middleware with `shadow-cljs.edn`:
+////
+
 
 ```clojure
 {...
@@ -330,11 +465,19 @@ You can configure the port and additional middleware with `shadow-cljs.edn`:
  ...}
 ```
 
+////
 The default global config file in `~/.nrepl/nrepl.edn` or the local `.nrepl.edn` will also be loaded on startup and can be used to configure `:middleware`.
+////
 
+
+////
 If the popular middleware https://github.com/clojure-emacs/cider-nrepl[cider-nrepl] is found on the classpath (e.g. it's included in `:dependencies`), it will be used automatically. No additional configuration required. This can be disabled by setting `:nrepl {:cider false}`.
+////
 
+
+////
 You may configure the namespace you start in when connecting by setting `:init-ns` in the `:nrepl` options. It defaults to `shadow.user`.
+////
 
 ```clojure
 {...
@@ -342,11 +485,16 @@ You may configure the namespace you start in when connecting by setting `:init-n
  ...}
 ```
 
+////
 The nREPL server can be disabled by setting `:nrepl false`.
+////
+
 
 ==== nREPL Usage
 
+////
 When connecting to the nREPL server the connection always starts out as a Clojure REPL. Switching to a CLJS REPL works similarly to the <<cljs-repl, non-nREPL version>>. First the `watch` for the given build needs to be started and then we need to select this build to switch the current nREPL session to that build. After selecting the build everything will be eval'd in ClojureScript instead of Clojure.
+////
 
 
 ```repl
@@ -354,13 +502,22 @@ When connecting to the nREPL server the connection always starts out as a Clojur
 (shadow/repl :the-build)
 ```
 
+////
 TIP: Use `:cljs/quit` to return to Clojure.
+////
+
 
 ==== Embedded nREPL Server
 
+////
 When you use `shadow-cljs` embedded in other tools that provide their own nREPL server (eg. `lein`) you need to configure the `shadow-cljs` middleware. Otherwise you won't be able to switch between CLJ and CLJS REPLs.
+////
 
+
+////
 .Example Leiningen `project.clj`
+////
+
 ```clojure
 (defproject my-amazing-project "1.0.0"
   ...
@@ -371,13 +528,22 @@ When you use `shadow-cljs` embedded in other tools that provide their own nREPL 
   ...)
 ```
 
+////
 TIP: You still need to start the <<embedded, embedded server>> manually before using the CLJS REPL.
+////
+
 
 === Socket REPL [[socket-repl]]
 
+////
 A Clojure Socket REPL is started automatically in server-mode and uses a random port by default. Tools can find the port it was started under by checking `.shadow-cljs/socket-repl.port` which will contain the port number.
+////
 
+
+////
 You can also set a fixed port by via `shadow-cljs.edn`.
+////
+
 
 ```clojure
 {...
@@ -386,13 +552,22 @@ You can also set a fixed port by via `shadow-cljs.edn`.
  ...}
 ```
 
+////
 The Socket REPL can be disabled by setting `:socket-repl false`.
+////
+
 
 === SSL
 
+////
 The `shadow-cljs` HTTP servers support SSL. It requires a Java Keystore that provides a matching private key and certificate.
+////
 
+
+////
 .`shadow-cljs.edn` with SSL configured
+////
+
 ```
 {...
  :ssl {:keystore "ssl/keystore.jks"
@@ -400,40 +575,71 @@ The `shadow-cljs` HTTP servers support SSL. It requires a Java Keystore that pro
  ...}
 ```
 
+////
 The above are the defaults so if you want to use those it is fine to just set `:ssl {}`.
+////
 
 
+////
 You can create a Keystore using the java `keytool` command. Creating a trusted self-signed certificate is also possible but somewhat complicated.
+////
 
+
+////
 - https://gist.github.com/jchandra74/36d5f8d0e11960dd8f80260801109ab0[OpenSSL] instructions for Linux and Windows (via WSL)
 - https://certsimple.com/blog/localhost-ssl-fix[macOS] instructions
+////
 
+
+////
 The created `Certificates.p12` (macOS) or `localhost.pfx` (Linux, Windows) file can be turned into the required `keystore.jks` via the `keytool` utility.
+////
 
 ```bash
 $ keytool -importkeystore -destkeystore keystore.jks -srcstoretype PKCS12 -srckeystore localhost.pfx
 ```
 
+////
 IMPORTANT: You must generate the Certificate with a SAN (Subject Alternative Name) for "localhost" (or whichever host you want to use). SAN is required to get Chrome to trust the Certificate and not show warnings. The password used when exporting must match the password assigned to the Keystore.
+////
+
 
 // TODO: full guide, other platforms
 
 === Primary HTTP(S) [[http]]
 
+////
 The `shadow-cljs` server starts one primary HTTP server. It is used to serve the UI and websockets used for Hot Reload and REPL clients. By default it listens on Port 9630. If that Port is in use it will increment by one and attempt again until an open Port is found.
+////
 
+
+////
 .Startup message indicating the Port used
+////
+
 ```bash
 shadow-cljs - server running at http://0.0.0.0:9630
 ```
 
+////
 When `:ssl` is configured the server will be available via `https://` instead.
+////
 
+
+////
 TIP: The server automatically supports HTTP/2 when using `:ssl`.
+////
 
+
+////
 If you prefer to set your own port instead you can do this via the `:http` config.
+////
 
+
+////
 .`shadow-cljs.edn` with `:http` config
+////
+
 ```
 {...
  :http {:port 12345
@@ -453,53 +659,95 @@ If you prefer to set your own port instead you can do this via the `:http` confi
 
 === Development HTTP(S) [[dev-http]]
 
+////
 `shadow-cljs` can provide additional basic HTTP servers via the `:dev-http` config entry. By default these will serve all static files from the configured paths, and fall back to `index.html` when a resource is not found (this is what you typically want when developing an application which uses browser push state).
+////
 
+
+////
 These servers are started automatically when `shadow-cljs` is running in server mode. They are not specific to any build and can be used to serve files for multiple builds as long as a unique `:output-dir` is used for each.
+////
 
+
+////
 IMPORTANT:: These are just generic web servers that server static files. They are not required for any live-reload or REPL logic. Any webserver will do, these are just provided for convenience.
+////
 
+
+////
 .Basic example serving the `public` directory via `http://localhost:8000`
+////
+
 ```
 {...
  :dev-http {8000 "public"}
  :builds {...}}
 ```
 
+////
 `:dev-http` expects a map of `port-number` to `config`. The `config` supports several shortcuts for the most common scenarios.
+////
 
+
+////
 .Serve directory from filesystem root
+////
+
 ```
 :dev-http {8000 "public"}
 ```
 
+////
 .Serve from classpath root
+////
+
 ```
 :dev-http {8000 "classpath:public"}
 ```
 
+////
 This would attempt to find a request to `/index.html` via `public/index.html` on the classpath. Which may include files in `.jar` files.
+////
 
+
+////
 .Serve from multiple roots
+////
+
 ```
 :dev-http {8000 ["a" "b" "classpath:c"]}
 ```
 
+////
 This would first attempt to find `<project-root>/a/index.html` then `<project-root>/b/index.html` then `c/index.html` on the classpath. If nothing is found the default handler will be called.
+////
 
+
+////
 The longer config version expects a map and the supported options are:
+////
 
+
+////
 `:root`:: (String) The path from which to serve requests. Paths starting with `classpath:` will serve from the classpath instead of the filesystem. All filesystem paths are relative to the project root.
 `:roots`:: (Vector of Strings) If you need multiple root paths, use instead of `:root`.
 `:ssl-port`:: When `:ssl` is configured use this port for ssl connections and server normal HTTP on the regular port. If `:ssl-port` is not set but `:ssl` is configured the default port will only server SSL requests.
 `:host`:: Optional. The hostname to listen on. Defaults to localhost.
 `:handler`:: Optional. A fully qualified symbol. A `(defn handler [req] resp)` that is used
 if a resource is not found for the given request. Defaults to `shadow.http.push-state/handle`.
+////
 
+
+////
 The following two options only apply when using the default, built-in handler and typically do not need to be changed:
+////
 
+
+////
 `:push-state/headers`:: (optional) A map of HTTP headers to respond with. Defaults to `text/html` standard headers.
 `:push-state/index`:: (optional) The file to serve. Defaults to `index.html`.
+////
+
 
 
 ```clojure
@@ -511,7 +759,10 @@ The following two options only apply when using the default, built-in handler an
 
 ==== Reverse Proxy Support [[dev-http-proxy]]
 
+////
 By default the dev server will attempt to serve requests locally but sometimes you may want to use an external web server to serve requests (eg. API request). This can be configured via `:proxy-url`.
+////
+
 
 ```
 {...
@@ -521,23 +772,37 @@ By default the dev server will attempt to serve requests locally but sometimes y
    :proxy-url "https://some.host"}}}
 ```
 
+////
 A request going to `http://localhost:8000/api/foo` will serve the content returned by `https://some.host/api/foo` instead. All request that do not have a local file will be served by the proxied server.
+////
 
+
+////
 Additional optional Options to configure the connection handling are:
 [Horizontal]
 `:proxy-rewrite-host-header`:: boolean, defaults to true. Determines whether the original Host header will be used or the one from the `:proxy-url`. `localhost` vs `some.host` using the example above.
 `:proxy-reuse-x-forwarded`:: boolean, defaults to false. Configures if the proxy should add itself to `X-Forwarded-For` list or start a new one.
 `:proxy-max-connection-retries`:: int, defaults to 1.
 `:proxy-max-request-time`:: ms as int, defaults to 30000. 30sec request timeout.
+////
 
 
 == JVM Configuration [[jvm-opts]]
 
+////
 When `shadow-cljs.edn` is used in charge of starting the JVM you can configure additional command line arguments to be passed directly to the JVM. For example you may want to decrease or increase the amount of RAM used by shadow-cljs.
+////
 
+
+////
 This is done by configuring `:jvm-opts` at the root of `shadow-cljs.edn` expecting a vector of strings.
+////
 
+
+////
 .Example limited RAM use to 1GB
+////
+
 ```clojure
 {:source-paths [...]
  :dependencies [...]
@@ -545,9 +810,15 @@ This is done by configuring `:jvm-opts` at the root of `shadow-cljs.edn` expecti
  :builds ...}
 ```
 
+////
 The arguments that can be passed to the JVM vary depending on the version but you can find an example list https://docs.oracle.com/javase/8/docs/technotes/tools/windows/java.html[here]. Please note that assigning too little or too much RAM can degrade performance. The defaults are usually good enough.
+////
 
+
+////
 IMPORTANT: When using `deps.edn` or `project.clj` the `:jvm-opts` need to be configured there.
+////
+
 
 = Build Configuration
 
@@ -588,13 +859,24 @@ include::target-npm-module.adoc[]
 
 = Testing
 
+////
 `shadow-cljs` provides a few utility targets to make building tests a little easier.
+////
 
+
+////
 All test targets generate a test runner and automatically add all namespaces matching the configurable `:ns-regexp`. The default test runners were built for `cljs.test` but you can create custom runners if you prefer to use other test frameworks.
+////
 
+
+////
 The default `:ns-regexp` is `"-test$"`, so your first test could look like:
+////
 
+////
 .File: `src/test/demo/app_test.cljs`
+////
+
 ```clojure
 (ns demo.app-test
   (:require [cljs.test :refer (deftest is)]))
@@ -603,7 +885,10 @@ The default `:ns-regexp` is `"-test$"`, so your first test could look like:
   (is (= 1 2)))
 ```
 
+////
 In the Clojure world it is common to keep test files in their own source paths so the above example assumes you have configured `:source-paths ["src/main" "src/test"]` in your `shadow-cljs.edn` config. Your usual app code goes into `src/main` and the tests go into `src/test`. This however is optional and it is totally fine to keep everything in `src` and just use `:source-paths ["src"]`.
+////
+
 
 == Testing in node.js [[target-node-test]]
 
@@ -639,18 +924,29 @@ include::maven-publish.adoc[]
 
 = What to do when things don’t work?
 
+////
 Since the JS world is still evolving rapidly and not everyone is using the same way to write and
 distribute code there are some things `shadow-cljs` cannot work around automatically. These
 can usually be solved with custom `:resolve` configs, but there may also be bugs or oversights.
+////
 
+
+////
 If you cannot resolve such an issue with the instructions in this chapter, then try asking on the
 https://clojurians.slack.com/messages/C6N245JGG[`#shadow-cljs` Slack channel].
+////
+
 
 = Hacking
 
 == Patching Libraries
 
+////
 The `shadow-cljs` compiler ensures that things on your source paths are compiled first, overriding files from JARs. This means that you can copy a source file from a library, patch it, and include it in your own source directory.
+////
 
+
+////
 This is a convenient way to test out fixes (even to `shadow-cljs` itself!) without having to clone
 that project and understand its setup, build, etc.
+////

@@ -977,37 +977,24 @@ project.clj
 ...</code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p>Many of the examples are of the configuration file for the compiler. This file contains an EDN map. Where we have already discussed required options we will often elide them for clarity. In this case we&#8217;ll usually include an ellipsis to indicate "content that is required but isn&#8217;t in our current focus":</p>
-</div>
 <div class="listingblock">
-<div class="title">Example 1. Specify dependencies</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="symbol">:dependencies</span> [[lib <span class="string"><span class="delimiter">&quot;</span><span class="content">1.0</span><span class="delimiter">&quot;</span></span>]]}</code></pre>
 </div>
 </div>
 <div class="listingblock">
-<div class="title">Example 2. Add source paths</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
  <span class="symbol">:source-paths</span> [<span class="string"><span class="delimiter">&quot;</span><span class="content">src</span><span class="delimiter">&quot;</span></span>]
  <span class="keyword">..</span><span class="keyword">.</span>}</code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p>This allows us to concisely include enough context to understand the nesting of the configuration of
-interest:</p>
-</div>
 <div class="listingblock">
-<div class="title">Example 3. Nested option</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
  <span class="symbol">:builds</span> {<span class="symbol">:build-id</span> {<span class="keyword">..</span><span class="keyword">.</span>
                      <span class="symbol">:output-dir</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">resources/public/js</span><span class="delimiter">&quot;</span></span>}}}</code></pre>
 </div>
-</div>
-<div class="paragraph">
-<p>Code examples may be similarly shortened.</p>
 </div>
 </div>
 </div>
@@ -1018,35 +1005,10 @@ interest:</p>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="_standalone_via_code_npm_code"><a class="anchor" href="#_standalone_via_code_npm_code"></a><a class="link" href="#_standalone_via_code_npm_code">2.1. Standalone via <code>npm</code></a></h3>
-<div class="paragraph">
-<p>You will need:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://nodejs.org"><code>node.js</code></a> (v6.0.0+, most recent version preferred)</p>
-</li>
-<li>
-<p><a href="https://www.npmjs.com"><code>npm</code></a> or <a href="https://www.yarnpkg.com"><code>yarn</code></a></p>
-</li>
-<li>
-<p>Any Java SDK (Version 8 or higher). <a href="http://openjdk.java.net/install/">OpenJDK</a> or <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">Oracle</a></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>In your project directory you&#8217;ll need a <code>package.json</code>. If you do not have one yet you can create one by running <code>npm init -y</code>. If you don&#8217;t have a project directory yet consider creating it by running</p>
-</div>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">$ npx create-cljs-project my-project</code></pre>
 </div>
-</div>
-<div class="paragraph">
-<p>This will create all the necessary basic files and you can skip the following commands.</p>
-</div>
-<div class="paragraph">
-<p>If you have a <code>package.json</code> already and just want to add <code>shadow-cljs</code> run</p>
 </div>
 <div class="listingblock">
 <div class="title">NPM</div>
@@ -1060,28 +1022,10 @@ interest:</p>
 <pre class="CodeRay highlight"><code data-lang="bash">$ yarn add --dev shadow-cljs</code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p>For convenience you can run <code>npm install -g shadow-cljs</code> or <code>yarn global add shadow-cljs</code>. This will let you run the <code>shadow-cljs</code> command directly later. There should always be a shadow-cljs version installed in your project, the global install is optional.</p>
-</div>
 </div>
 <div class="sect2">
 <h3 id="_library"><a class="anchor" href="#_library"></a><a class="link" href="#_library">2.2. Library</a></h3>
-<div class="paragraph">
-<p>Although it is recommended to run the standalone version via <code>npm</code> you can also embed <code>shadow-cljs</code> into any other Clojure JVM tool (eg. <code>lein</code>, <code>boot</code>, &#8230;&#8203;).</p>
-</div>
-<div class="paragraph">
-<p>The artifact can be found at:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<a class="image" href="https://clojars.org/thheller/shadow-cljs"><img src="https://img.shields.io/clojars/v/thheller/shadow-cljs.svg" alt="shadow cljs"></a>
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<a class="image" href="https://github.com/thheller/shadow-cljs"><img src="https://img.shields.io/npm/v/shadow-cljs.svg" alt="shadow cljs"></a>
-</div>
-</div>
+
 </div>
 </div>
 </div>
@@ -1727,20 +1671,12 @@ If you want to switch to a CLJS REPL this may require additional setup in the to
 <div class="sect1">
 <h2 id="config"><a class="anchor" href="#config"></a><a class="link" href="#config">5. Configuration</a></h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p><code>shadow-cljs</code> is configured by a <code>shadow-cljs.edn</code> file in your project root directory. You can
-create a default one by running <code>shadow-cljs init</code>. It should contain a map with some global
-configuration and a <code>:builds</code> entry for all your builds.</p>
-</div>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="symbol">:source-paths</span> [<span class="keyword">..</span><span class="keyword">.</span>]
  <span class="symbol">:dependencies</span> [<span class="keyword">..</span><span class="keyword">.</span>]
  <span class="symbol">:builds</span> {<span class="keyword">..</span><span class="keyword">.</span>}}</code></pre>
 </div>
-</div>
-<div class="paragraph">
-<p>An example config could look like this:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1757,9 +1693,6 @@ configuration and a <code>:builds</code> entry for all your builds.</p>
         <span class="symbol">:modules</span> {<span class="symbol">:main</span> {<span class="symbol">:entries</span> [my.app]}}}}}</code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p>The file structure for this example should look like this:</p>
-</div>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="text">.
@@ -1772,21 +1705,13 @@ configuration and a <code>:builds</code> entry for all your builds.</p>
 </div>
 <div class="sect2">
 <h3 id="source-paths"><a class="anchor" href="#source-paths"></a><a class="link" href="#source-paths">5.1. Source Paths</a></h3>
-<div class="paragraph">
-<p><code>:source-paths</code> configures your JVM classpath. The compiler will use this config to find Clojure(Script) source files (eg. <code>.cljs</code>).</p>
-</div>
-<div class="paragraph">
-<p>It is fine to put everything into one source path but you can use multiple if you want to "group" source files in certain ways. It is useful if you want to keep your tests separate for example.</p>
-</div>
 <div class="listingblock">
-<div class="title">Using multiple source paths</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="symbol">:source-paths</span> [<span class="string"><span class="delimiter">&quot;</span><span class="content">src/main</span><span class="delimiter">&quot;</span></span> <span class="string"><span class="delimiter">&quot;</span><span class="content">src/test</span><span class="delimiter">&quot;</span></span>]
  <span class="keyword">..</span><span class="keyword">.</span>}</code></pre>
 </div>
 </div>
 <div class="listingblock">
-<div class="title">File Structure</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="text">.
 ├── package.json
@@ -1800,65 +1725,22 @@ configuration and a <code>:builds</code> entry for all your builds.</p>
             └── app_test.cljs</code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p>It is not recommended to separate source files by extension (eg. <code>src/clj</code>, <code>src/cljs</code>, <code>src/cljc</code>). For some reason this is widely used in CLJS project templates but it just makes things harder to use.</p>
-</div>
 </div>
 <div class="sect2">
 <h3 id="_dependencies"><a class="anchor" href="#_dependencies"></a><a class="link" href="#_dependencies">5.2. Dependencies</a></h3>
 <div class="sect3">
 <h4 id="_clojure_script"><a class="anchor" href="#_clojure_script"></a><a class="link" href="#_clojure_script">5.2.1. Clojure(Script)</a></h4>
-<div class="paragraph">
-<p>Your dependencies are managed via the <code>:dependencies</code> key at the root of the <code>shadow-cljs.edn</code> config file. They are declared in the same notation that other Clojure tools like <code>lein</code> or <code>boot</code> use.</p>
-</div>
-<div class="paragraph">
-<p>Each dependency is written as a vector using <code>[library-name "version-string"]</code> nested in one outer vector.</p>
-</div>
 <div class="listingblock">
-<div class="title">Example :dependencies</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="symbol">:source-paths</span> [<span class="string"><span class="delimiter">&quot;</span><span class="content">src</span><span class="delimiter">&quot;</span></span>]
  <span class="symbol">:dependencies</span> [[reagent <span class="string"><span class="delimiter">&quot;</span><span class="content">0.9.1</span><span class="delimiter">&quot;</span></span>]]
  <span class="symbol">:builds</span> <span class="keyword">..</span><span class="keyword">.</span>}</code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p>Notice that the source path is <strong>only</strong> specified once in the entire configuration. The system will use namespace dependency graphs to determine what code is needed in the final output of any given build.</p>
-</div>
 </div>
 <div class="sect3">
 <h4 id="npm-install"><a class="anchor" href="#npm-install"></a><a class="link" href="#npm-install">5.2.2. JavaScript</a></h4>
-<div class="paragraph">
-<p><code>shadow-cljs</code> integrates fully with the <a href="https://www.npmjs.com/"><code>npm</code></a> ecosystem to manage JavaScript dependencies.</p>
-</div>
-<div class="paragraph">
-<p>You can use <code>npm</code> or <code>yarn</code> to manage your dependencies, please refer to their respective documentation.</p>
-</div>
-<div class="hdlist">
-<table>
-<tr>
-<td class="hdlist1">
-npm
-</td>
-<td class="hdlist2">
-<p><a href="https://docs.npmjs.com/" class="bare">https://docs.npmjs.com/</a></p>
-</td>
-</tr>
-<tr>
-<td class="hdlist1">
-yarn
-</td>
-<td class="hdlist2">
-<p><a href="https://yarnpkg.com/en/docs" class="bare">https://yarnpkg.com/en/docs</a></p>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Both manage your dependencies via a <code>package.json</code> file in your project directory.  Almost every package available via <code>npm</code> will explain how to install it. Those instructions now apply to <code>shadow-cljs</code> as well.</p>
-</div>
 <div class="listingblock">
-<div class="title">Installing a JavaScript package</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="bash"># npm
 $ npm install the-thing
@@ -1867,70 +1749,24 @@ $ npm install the-thing
 $ yarn add the-thing</code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p>Nothing more is required. Dependencies will be added to the <code>package.json</code> file and this will be used to manage them.</p>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Tip</div>
-</td>
-<td class="content">
-If you don’t have a <code>package.json</code> yet run <code>npm init</code> from a command line.
-</td>
-</tr>
-</table>
-</div>
 <div class="sect4">
 <h5 id="_missing_js_dependency"><a class="anchor" href="#_missing_js_dependency"></a><a class="link" href="#_missing_js_dependency">Missing JS Dependency?</a></h5>
-<div class="paragraph">
-<p>You might run into errors related to missing JS dependencies. Most ClojureScript libraries do not yet declare the <code>npm</code> packages they use since they still expect to use <a href="#cljsjs">CLJSJS</a>. We want to use <code>npm</code> directly which means you must manually install the <code>npm</code> packages until libraries properly declare the <code>:npm-deps</code> themselves.</p>
-</div>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="text">The required JS dependency &quot;react&quot; is not available, it was required by ...</code></pre>
 </div>
-</div>
-<div class="paragraph">
-<p>This means that you should <code>npm install react</code>.</p>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Tip</div>
-</td>
-<td class="content">
-In the case of <code>react</code> you probably need these 3 packages: <code>npm install react react-dom create-react-class</code>.
-</td>
-</tr>
-</table>
 </div>
 </div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="user-config"><a class="anchor" href="#user-config"></a><a class="link" href="#user-config">5.3. User Configuration</a></h3>
-<div class="paragraph">
-<p>Most configuration will be done in the projects themselves via <code>shadow-cljs.edn</code> but some config may be user-dependent. Tools like <a href="https://docs.cider.mx">CIDER</a> may require the additional <code>cider-nrepl</code> dependency which would be useless for a different team member using Cursive when adding that dependency via <code>shadow-cljs.edn</code>.</p>
-</div>
-<div class="paragraph">
-<p>A restricted set of config options can be added to <code>~/.shadow-cljs/config.edn</code> which will then apply to all projects built on this users machine.</p>
-</div>
-<div class="paragraph">
-<p>Adding dependencies is allowed via the usual <code>:dependencies</code> key. Note that dependencies added here will apply to ALL projects. Keep them to a minimum and only put tool related dependencies here. Everything that is relevant to a build should remain in <code>shadow-cljs.edn</code> as otherwise things may not compile for other users. These dependencies will automatically be added when using <code>deps.edn</code> or <code>lein</code> as well.</p>
-</div>
 <div class="listingblock">
-<div class="title">Example ~/.shadow-cljs/config.edn</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="symbol">:dependencies</span>
  [[cider/cider-nrepl <span class="string"><span class="delimiter">&quot;</span><span class="content">0.21.1</span><span class="delimiter">&quot;</span></span>]]}
 <span class="comment">;; this version may be out of date, check whichever is available</span></code></pre>
 </div>
-</div>
-<div class="paragraph">
-<p>When using <code>deps.edn</code> to resolve dependencies you may sometimes want to activate additional aliases. This can be done via <code>:deps-aliases</code>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1941,26 +1777,11 @@ In the case of <code>react</code> you probably need these 3 packages: <code>npm 
 {<span class="symbol">:deps-aliases</span> [<span class="symbol">:cider</span>]}</code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p>This will make the <code>shadow-cljs</code> command use the <code>[:cider :cljs]</code> aliases in projects using <code>deps.edn</code>. This might be useful if you have an additional <code>:cider</code> alias in your <code>~/.clojure/deps.edn</code>.</p>
-</div>
-<div class="paragraph">
-<p>By default the <code>shadow-cljs</code> server-mode will launch an embedded nREPL server which you might not need. You can disable this by setting <code>:nrepl false</code> in user config.</p>
-</div>
-<div class="paragraph">
-<p>The only other currently accepted value in the user config is the <a href="#open-file-command">:open-file-command</a>. No other options are currently have any effect.</p>
-</div>
 </div>
 <div class="sect2">
 <h3 id="_server_options"><a class="anchor" href="#_server_options"></a><a class="link" href="#_server_options">5.4. Server Options</a></h3>
-<div class="paragraph">
-<p>This section is for other options that configure the <code>shadow-cljs</code> server instance. They are optional.</p>
-</div>
 <div class="sect3">
 <h4 id="nREPL"><a class="anchor" href="#nREPL"></a><a class="link" href="#nREPL">5.4.1. nREPL</a></h4>
-<div class="paragraph">
-<p>The <code>shadow-cljs</code> <a href="#server-mode">server</a> provides a <a href="https://nrepl.org">nREPL</a> server via TCP. If you look at the startup message you&#8217;ll see the port of nREPL, and the port will also be stored in <code>target/shadow-cljs/nrepl.port</code>:</p>
-</div>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="bash">$ shadow-cljs watch app
@@ -1972,9 +1793,6 @@ shadow-cljs - watching build :app
 [:app] Compiling ...</code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p>You can configure the port and additional middleware with <code>shadow-cljs.edn</code>:</p>
-</div>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
@@ -1983,15 +1801,6 @@ shadow-cljs - watching build :app
  <span class="keyword">..</span><span class="keyword">.</span>}</code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p>The default global config file in <code>~/.nrepl/nrepl.edn</code> or the local <code>.nrepl.edn</code> will also be loaded on startup and can be used to configure <code>:middleware</code>.</p>
-</div>
-<div class="paragraph">
-<p>If the popular middleware <a href="https://github.com/clojure-emacs/cider-nrepl">cider-nrepl</a> is found on the classpath (e.g. it&#8217;s included in <code>:dependencies</code>), it will be used automatically. No additional configuration required. This can be disabled by setting <code>:nrepl {:cider false}</code>.</p>
-</div>
-<div class="paragraph">
-<p>You may configure the namespace you start in when connecting by setting <code>:init-ns</code> in the <code>:nrepl</code> options. It defaults to <code>shadow.user</code>.</p>
-</div>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
@@ -1999,40 +1808,18 @@ shadow-cljs - watching build :app
  <span class="keyword">..</span><span class="keyword">.</span>}</code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p>The nREPL server can be disabled by setting <code>:nrepl false</code>.</p>
-</div>
 <div class="sect4">
 <h5 id="_nrepl_usage"><a class="anchor" href="#_nrepl_usage"></a><a class="link" href="#_nrepl_usage">nREPL Usage</a></h5>
-<div class="paragraph">
-<p>When connecting to the nREPL server the connection always starts out as a Clojure REPL. Switching to a CLJS REPL works similarly to the <a href="#cljs-repl">non-nREPL version</a>. First the <code>watch</code> for the given build needs to be started and then we need to select this build to switch the current nREPL session to that build. After selecting the build everything will be eval&#8217;d in ClojureScript instead of Clojure.</p>
-</div>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="repl">(shadow/watch :the-build)
 (shadow/repl :the-build)</code></pre>
 </div>
 </div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Tip</div>
-</td>
-<td class="content">
-Use <code>:cljs/quit</code> to return to Clojure.
-</td>
-</tr>
-</table>
-</div>
 </div>
 <div class="sect4">
 <h5 id="_embedded_nrepl_server"><a class="anchor" href="#_embedded_nrepl_server"></a><a class="link" href="#_embedded_nrepl_server">Embedded nREPL Server</a></h5>
-<div class="paragraph">
-<p>When you use <code>shadow-cljs</code> embedded in other tools that provide their own nREPL server (eg. <code>lein</code>) you need to configure the <code>shadow-cljs</code> middleware. Otherwise you won&#8217;t be able to switch between CLJ and CLJS REPLs.</p>
-</div>
 <div class="listingblock">
-<div class="title">Example Leiningen <code>project.clj</code></div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">(defproject my-amazing-project <span class="string"><span class="delimiter">&quot;</span><span class="content">1.0.0</span><span class="delimiter">&quot;</span></span>
   <span class="keyword">..</span><span class="keyword">.</span>
@@ -2043,28 +1830,10 @@ Use <code>:cljs/quit</code> to return to Clojure.
   <span class="keyword">..</span><span class="keyword">.</span>)</code></pre>
 </div>
 </div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Tip</div>
-</td>
-<td class="content">
-You still need to start the <a href="#embedded">embedded server</a> manually before using the CLJS REPL.
-</td>
-</tr>
-</table>
-</div>
 </div>
 </div>
 <div class="sect3">
 <h4 id="socket-repl"><a class="anchor" href="#socket-repl"></a><a class="link" href="#socket-repl">5.4.2. Socket REPL</a></h4>
-<div class="paragraph">
-<p>A Clojure Socket REPL is started automatically in server-mode and uses a random port by default. Tools can find the port it was started under by checking <code>.shadow-cljs/socket-repl.port</code> which will contain the port number.</p>
-</div>
-<div class="paragraph">
-<p>You can also set a fixed port by via <code>shadow-cljs.edn</code>.</p>
-</div>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
@@ -2073,17 +1842,10 @@ You still need to start the <a href="#embedded">embedded server</a> manually bef
  <span class="keyword">..</span><span class="keyword">.</span>}</code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p>The Socket REPL can be disabled by setting <code>:socket-repl false</code>.</p>
-</div>
 </div>
 <div class="sect3">
 <h4 id="_ssl"><a class="anchor" href="#_ssl"></a><a class="link" href="#_ssl">5.4.3. SSL</a></h4>
-<div class="paragraph">
-<p>The <code>shadow-cljs</code> HTTP servers support SSL. It requires a Java Keystore that provides a matching private key and certificate.</p>
-</div>
 <div class="listingblock">
-<div class="title"><code>shadow-cljs.edn</code> with SSL configured</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
  <span class="symbol">:ssl</span> {<span class="symbol">:keystore</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">ssl/keystore.jks</span><span class="delimiter">&quot;</span></span>
@@ -2091,74 +1853,20 @@ You still need to start the <a href="#embedded">embedded server</a> manually bef
  <span class="keyword">..</span><span class="keyword">.</span>}</code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p>The above are the defaults so if you want to use those it is fine to just set <code>:ssl {}</code>.</p>
-</div>
-<div class="paragraph">
-<p>You can create a Keystore using the java <code>keytool</code> command. Creating a trusted self-signed certificate is also possible but somewhat complicated.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://gist.github.com/jchandra74/36d5f8d0e11960dd8f80260801109ab0">OpenSSL</a> instructions for Linux and Windows (via WSL)</p>
-</li>
-<li>
-<p><a href="https://certsimple.com/blog/localhost-ssl-fix">macOS</a> instructions</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>The created <code>Certificates.p12</code> (macOS) or <code>localhost.pfx</code> (Linux, Windows) file can be turned into the required <code>keystore.jks</code> via the <code>keytool</code> utility.</p>
-</div>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="bash">$ keytool -importkeystore -destkeystore keystore.jks -srcstoretype PKCS12 -srckeystore localhost.pfx</code></pre>
 </div>
 </div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Important</div>
-</td>
-<td class="content">
-You must generate the Certificate with a SAN (Subject Alternative Name) for "localhost" (or whichever host you want to use). SAN is required to get Chrome to trust the Certificate and not show warnings. The password used when exporting must match the password assigned to the Keystore.
-</td>
-</tr>
-</table>
-</div>
 </div>
 <div class="sect3">
 <h4 id="http"><a class="anchor" href="#http"></a><a class="link" href="#http">5.4.4. Primary HTTP(S)</a></h4>
-<div class="paragraph">
-<p>The <code>shadow-cljs</code> server starts one primary HTTP server. It is used to serve the UI and websockets used for Hot Reload and REPL clients. By default it listens on Port 9630. If that Port is in use it will increment by one and attempt again until an open Port is found.</p>
-</div>
 <div class="listingblock">
-<div class="title">Startup message indicating the Port used</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="bash">shadow-cljs - server running at http://0.0.0.0:9630</code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p>When <code>:ssl</code> is configured the server will be available via <code>https://</code> instead.</p>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Tip</div>
-</td>
-<td class="content">
-The server automatically supports HTTP/2 when using <code>:ssl</code>.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>If you prefer to set your own port instead you can do this via the <code>:http</code> config.</p>
-</div>
 <div class="listingblock">
-<div class="title"><code>shadow-cljs.edn</code> with <code>:http</code> config</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
  <span class="symbol">:http</span> {<span class="symbol">:port</span> <span class="integer">12345</span>
@@ -2181,97 +1889,27 @@ The server automatically supports HTTP/2 when using <code>:ssl</code>.
 </div>
 <div class="sect3">
 <h4 id="dev-http"><a class="anchor" href="#dev-http"></a><a class="link" href="#dev-http">5.4.5. Development HTTP(S)</a></h4>
-<div class="paragraph">
-<p><code>shadow-cljs</code> can provide additional basic HTTP servers via the <code>:dev-http</code> config entry. By default these will serve all static files from the configured paths, and fall back to <code>index.html</code> when a resource is not found (this is what you typically want when developing an application which uses browser push state).</p>
-</div>
-<div class="paragraph">
-<p>These servers are started automatically when <code>shadow-cljs</code> is running in server mode. They are not specific to any build and can be used to serve files for multiple builds as long as a unique <code>:output-dir</code> is used for each.</p>
-</div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">IMPORTANT</dt>
-<dd>
-<p>These are just generic web servers that server static files. They are not required for any live-reload or REPL logic. Any webserver will do, these are just provided for convenience.</p>
-</dd>
-</dl>
-</div>
 <div class="listingblock">
-<div class="title">Basic example serving the <code>public</code> directory via <code><a href="http://localhost:8000" class="bare">http://localhost:8000</a></code></div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
  <span class="symbol">:dev-http</span> {<span class="integer">8000</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">public</span><span class="delimiter">&quot;</span></span>}
  <span class="symbol">:builds</span> {<span class="keyword">..</span><span class="keyword">.</span>}}</code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p><code>:dev-http</code> expects a map of <code>port-number</code> to <code>config</code>. The <code>config</code> supports several shortcuts for the most common scenarios.</p>
-</div>
 <div class="listingblock">
-<div class="title">Serve directory from filesystem root</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure"><span class="symbol">:dev-http</span> {<span class="integer">8000</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">public</span><span class="delimiter">&quot;</span></span>}</code></pre>
 </div>
 </div>
 <div class="listingblock">
-<div class="title">Serve from classpath root</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure"><span class="symbol">:dev-http</span> {<span class="integer">8000</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">classpath:public</span><span class="delimiter">&quot;</span></span>}</code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p>This would attempt to find a request to <code>/index.html</code> via <code>public/index.html</code> on the classpath. Which may include files in <code>.jar</code> files.</p>
-</div>
 <div class="listingblock">
-<div class="title">Serve from multiple roots</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure"><span class="symbol">:dev-http</span> {<span class="integer">8000</span> [<span class="string"><span class="delimiter">&quot;</span><span class="content">a</span><span class="delimiter">&quot;</span></span> <span class="string"><span class="delimiter">&quot;</span><span class="content">b</span><span class="delimiter">&quot;</span></span> <span class="string"><span class="delimiter">&quot;</span><span class="content">classpath:c</span><span class="delimiter">&quot;</span></span>]}</code></pre>
 </div>
-</div>
-<div class="paragraph">
-<p>This would first attempt to find <code>&lt;project-root&gt;/a/index.html</code> then <code>&lt;project-root&gt;/b/index.html</code> then <code>c/index.html</code> on the classpath. If nothing is found the default handler will be called.</p>
-</div>
-<div class="paragraph">
-<p>The longer config version expects a map and the supported options are:</p>
-</div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"><code>:root</code></dt>
-<dd>
-<p>(String) The path from which to serve requests. Paths starting with <code>classpath:</code> will serve from the classpath instead of the filesystem. All filesystem paths are relative to the project root.</p>
-</dd>
-<dt class="hdlist1"><code>:roots</code></dt>
-<dd>
-<p>(Vector of Strings) If you need multiple root paths, use instead of <code>:root</code>.</p>
-</dd>
-<dt class="hdlist1"><code>:ssl-port</code></dt>
-<dd>
-<p>When <code>:ssl</code> is configured use this port for ssl connections and server normal HTTP on the regular port. If <code>:ssl-port</code> is not set but <code>:ssl</code> is configured the default port will only server SSL requests.</p>
-</dd>
-<dt class="hdlist1"><code>:host</code></dt>
-<dd>
-<p>Optional. The hostname to listen on. Defaults to localhost.</p>
-</dd>
-<dt class="hdlist1"><code>:handler</code></dt>
-<dd>
-<p>Optional. A fully qualified symbol. A <code>(defn handler [req] resp)</code> that is used
-if a resource is not found for the given request. Defaults to <code>shadow.http.push-state/handle</code>.</p>
-</dd>
-</dl>
-</div>
-<div class="paragraph">
-<p>The following two options only apply when using the default, built-in handler and typically do not need to be changed:</p>
-</div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"><code>:push-state/headers</code></dt>
-<dd>
-<p>(optional) A map of HTTP headers to respond with. Defaults to <code>text/html</code> standard headers.</p>
-</dd>
-<dt class="hdlist1"><code>:push-state/index</code></dt>
-<dd>
-<p>(optional) The file to serve. Defaults to <code>index.html</code>.</p>
-</dd>
-</dl>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2283,9 +1921,6 @@ if a resource is not found for the given request. Defaults to <code>shadow.http.
 </div>
 <div class="sect4">
 <h5 id="dev-http-proxy"><a class="anchor" href="#dev-http-proxy"></a><a class="link" href="#dev-http-proxy">Reverse Proxy Support</a></h5>
-<div class="paragraph">
-<p>By default the dev server will attempt to serve requests locally but sometimes you may want to use an external web server to serve requests (eg. API request). This can be configured via <code>:proxy-url</code>.</p>
-</div>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
@@ -2295,66 +1930,18 @@ if a resource is not found for the given request. Defaults to <code>shadow.http.
    <span class="symbol">:proxy-url</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">https://some.host</span><span class="delimiter">&quot;</span></span>}}}</code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p>A request going to <code><a href="http://localhost:8000/api/foo" class="bare">http://localhost:8000/api/foo</a></code> will serve the content returned by <code><a href="https://some.host/api/foo" class="bare">https://some.host/api/foo</a></code> instead. All request that do not have a local file will be served by the proxied server.</p>
-</div>
-<div class="paragraph">
-<p>Additional optional Options to configure the connection handling are:</p>
-</div>
-<div class="dlist Horizontal">
-<dl>
-<dt><code>:proxy-rewrite-host-header</code></dt>
-<dd>
-<p>boolean, defaults to true. Determines whether the original Host header will be used or the one from the <code>:proxy-url</code>. <code>localhost</code> vs <code>some.host</code> using the example above.</p>
-</dd>
-<dt><code>:proxy-reuse-x-forwarded</code></dt>
-<dd>
-<p>boolean, defaults to false. Configures if the proxy should add itself to <code>X-Forwarded-For</code> list or start a new one.</p>
-</dd>
-<dt><code>:proxy-max-connection-retries</code></dt>
-<dd>
-<p>int, defaults to 1.</p>
-</dd>
-<dt><code>:proxy-max-request-time</code></dt>
-<dd>
-<p>ms as int, defaults to 30000. 30sec request timeout.</p>
-</dd>
-</dl>
-</div>
 </div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="jvm-opts"><a class="anchor" href="#jvm-opts"></a><a class="link" href="#jvm-opts">5.5. JVM Configuration</a></h3>
-<div class="paragraph">
-<p>When <code>shadow-cljs.edn</code> is used in charge of starting the JVM you can configure additional command line arguments to be passed directly to the JVM. For example you may want to decrease or increase the amount of RAM used by shadow-cljs.</p>
-</div>
-<div class="paragraph">
-<p>This is done by configuring <code>:jvm-opts</code> at the root of <code>shadow-cljs.edn</code> expecting a vector of strings.</p>
-</div>
 <div class="listingblock">
-<div class="title">Example limited RAM use to 1GB</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="symbol">:source-paths</span> [<span class="keyword">..</span><span class="keyword">.</span>]
  <span class="symbol">:dependencies</span> [<span class="keyword">..</span><span class="keyword">.</span>]
  <span class="symbol">:jvm-opts</span> [<span class="string"><span class="delimiter">&quot;</span><span class="content">-Xmx1G</span><span class="delimiter">&quot;</span></span>]
  <span class="symbol">:builds</span> <span class="keyword">..</span><span class="keyword">.</span>}</code></pre>
 </div>
-</div>
-<div class="paragraph">
-<p>The arguments that can be passed to the JVM vary depending on the version but you can find an example list <a href="https://docs.oracle.com/javase/8/docs/technotes/tools/windows/java.html">here</a>. Please note that assigning too little or too much RAM can degrade performance. The defaults are usually good enough.</p>
-</div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Important</div>
-</td>
-<td class="content">
-When using <code>deps.edn</code> or <code>project.clj</code> the <code>:jvm-opts</code> need to be configured there.
-</td>
-</tr>
-</table>
 </div>
 </div>
 </div>
@@ -4828,17 +4415,7 @@ ns.bar()<span class="comment">;</span></code></pre>
 <div class="sect1">
 <h2 id="_testing"><a class="anchor" href="#_testing"></a><a class="link" href="#_testing">11. Testing</a></h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p><code>shadow-cljs</code> provides a few utility targets to make building tests a little easier.</p>
-</div>
-<div class="paragraph">
-<p>All test targets generate a test runner and automatically add all namespaces matching the configurable <code>:ns-regexp</code>. The default test runners were built for <code>cljs.test</code> but you can create custom runners if you prefer to use other test frameworks.</p>
-</div>
-<div class="paragraph">
-<p>The default <code>:ns-regexp</code> is <code>"-test$"</code>, so your first test could look like:</p>
-</div>
 <div class="listingblock">
-<div class="title">File: <code>src/test/demo/app_test.cljs</code></div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">(<span class="keyword">ns</span> <span class="namespace">demo.app-test</span>
   (<span class="symbol">:require</span> [cljs.test <span class="symbol">:refer</span> (deftest is)]))
@@ -4846,9 +4423,6 @@ ns.bar()<span class="comment">;</span></code></pre>
 (deftest a-failing-test
   (is (<span class="keyword">=</span> <span class="integer">1</span> <span class="integer">2</span>)))</code></pre>
 </div>
-</div>
-<div class="paragraph">
-<p>In the Clojure world it is common to keep test files in their own source paths so the above example assumes you have configured <code>:source-paths ["src/main" "src/test"]</code> in your <code>shadow-cljs.edn</code> config. Your usual app code goes into <code>src/main</code> and the tests go into <code>src/test</code>. This however is optional and it is totally fine to keep everything in <code>src</code> and just use <code>:source-paths ["src"]</code>.</p>
 </div>
 <div class="sect2">
 <h3 id="target-node-test"><a class="anchor" href="#target-node-test"></a><a class="link" href="#target-node-test">11.1. Testing in node.js</a></h3>
@@ -6973,15 +6547,7 @@ You can and should verify that everything is clean by running <code>lein jar</co
 <div class="sect1">
 <h2 id="_what_to_do_when_things_don_t_work"><a class="anchor" href="#_what_to_do_when_things_don_t_work"></a><a class="link" href="#_what_to_do_when_things_don_t_work">17. What to do when things don’t work?</a></h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>Since the JS world is still evolving rapidly and not everyone is using the same way to write and
-distribute code there are some things <code>shadow-cljs</code> cannot work around automatically. These
-can usually be solved with custom <code>:resolve</code> configs, but there may also be bugs or oversights.</p>
-</div>
-<div class="paragraph">
-<p>If you cannot resolve such an issue with the instructions in this chapter, then try asking on the
-<a href="https://clojurians.slack.com/messages/C6N245JGG"><code>#shadow-cljs</code> Slack channel</a>.</p>
-</div>
+
 </div>
 </div>
 <div class="sect1">
@@ -6989,13 +6555,7 @@ can usually be solved with custom <code>:resolve</code> configs, but there may a
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="_patching_libraries"><a class="anchor" href="#_patching_libraries"></a><a class="link" href="#_patching_libraries">18.1. Patching Libraries</a></h3>
-<div class="paragraph">
-<p>The <code>shadow-cljs</code> compiler ensures that things on your source paths are compiled first, overriding files from JARs. This means that you can copy a source file from a library, patch it, and include it in your own source directory.</p>
-</div>
-<div class="paragraph">
-<p>This is a convenient way to test out fixes (even to <code>shadow-cljs</code> itself!) without having to clone
-that project and understand its setup, build, etc.</p>
-</div>
+
 </div>
 </div>
 </div>
@@ -7003,7 +6563,7 @@ that project and understand its setup, build, etc.</p>
 <div id="footer">
 <div id="footer-text">
 Version 1.0<br>
-Last updated 2021-04-03 08:04:43 JST
+Last updated 2021-04-03 08:15:21 JST
 </div>
 </div>
 </body>
