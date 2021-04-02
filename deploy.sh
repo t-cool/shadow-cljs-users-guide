@@ -1,4 +1,4 @@
-make
+bundle exec asciidoctor -o docs/UsersGuide.html -b html5 -r asciidoctor-diagram docs/UsersGuide.adoc
 
 git add .
 
