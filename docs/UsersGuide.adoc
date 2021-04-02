@@ -62,6 +62,8 @@ This source for this book is hosted on https://github.com/shadow-cljs/shadow-clj
 There are many examples in this book. Most things used in these should be obvious from their context,
 but to prevent misunderstanding it is important to know the author's intentions.
 ////
+この本にはたくさんの例題があります。これらの中で使われているほとんどのものは、その文脈から明らかなはずです。
+しかし、誤解を防ぐためには、作者の意図を知ることが大切です。
 
 When command-line examples are given we may include BASH comments (starting with `#`), and will
 usually include the standard user UNIX prompt of `$` to indicate separation of the command

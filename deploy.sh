@@ -4,7 +4,9 @@ git add .
 
 git diff --name-only origin/master | perl -pe 's/\n/ /'| pbcopy
 
-commit_message="update: $(pbpaste)"
+changed_files=$(pbpaste)
+
+commit_message="updated: ${changed_files}"
 
 git commit -m $commit_message
 
