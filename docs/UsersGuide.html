@@ -531,16 +531,16 @@ table.CodeRay td.code>pre{padding:0}
 <li><a href="#_はじめに">1. はじめに</a>
 <ul class="sectlevel2">
 <li><a href="#_高水準の概要">1.1. 高水準の概要</a></li>
-<li><a href="#_basic_workflow">1.2. Basic Workflow</a>
+<li><a href="#_基本的なワークフロー">1.2. 基本的なワークフロー</a>
 <ul class="sectlevel3">
-<li><a href="#_development_mode">1.2.1. Development Mode</a></li>
-<li><a href="#_release_mode">1.2.2. Release Mode</a></li>
+<li><a href="#_development_モード">1.2.1. development モード</a></li>
+<li><a href="#_release_モード">1.2.2. release モード</a></li>
 </ul>
 </li>
-<li><a href="#_important_concepts">1.3. Important Concepts</a>
+<li><a href="#_重要な概念">1.3. 重要な概念</a>
 <ul class="sectlevel3">
-<li><a href="#_the_classpath">1.3.1. The Classpath</a></li>
-<li><a href="#_server_mode">1.3.2. Server Mode</a></li>
+<li><a href="#_classpath">1.3.1. Classpath</a></li>
+<li><a href="#_server_モード">1.3.2. server モード</a></li>
 <li><a href="#_repl">1.3.3. REPL</a></li>
 </ul>
 </li>
@@ -840,110 +840,107 @@ table.CodeRay td.code>pre{padding:0}
 <div class="sect2">
 <h3 id="_高水準の概要"><a class="anchor" href="#_高水準の概要"></a><a class="link" href="#_高水準の概要">1.1. 高水準の概要</a></h3>
 <div class="paragraph">
-<p><code>shadow-cljs</code> is composed of 2 parts:</p>
+<p>shadow-cljs は2つの部分から構成されています。</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The <a href="https://clojars.org/thheller/shadow-cljs">shadow-cljs</a> Clojure library which handles all the actual work.</p>
-</li>
-<li>
-<p>The <a href="https://www.npmjs.com/package/shadow-cljs">shadow-cljs</a> <code>npm</code> package which provides a convenient interface for running most of the build functionality directly from command line.</p>
+<p>The <a href="https://clojars.org/thheller/shadow-cljs">shadow-cljs</a>
+まずは、実際の仕事をすべて行うClojureライブラリです。</p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p>If desired you can easily integrate the <code>shadow-cljs</code> Clojure library into any other Clojure/JVM build tool (eg. <a href="https://leiningen.org/">leiningen</a> or the <a href="https://clojure.org/guides/deps_and_cli">Clojure CLI</a> tools).</p>
-</div>
-<div class="paragraph">
-<p>It is recommended to use the <code>npm</code> package as that provides a more optimized development experience tailored towards CLJS development.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_basic_workflow"><a class="anchor" href="#_basic_workflow"></a><a class="link" href="#_basic_workflow">1.2. Basic Workflow</a></h3>
-<div class="paragraph">
-<p>When working with <code>shadow-cljs</code> you will be defining one or more builds in the <code>shadow-cljs.edn</code> configuration file. Each build will have a <code>:target</code> property which represents a configuration preset optimized for the target environment (eg. the Browser, a <code>node.js</code> application or a Chrome Extension).</p>
-</div>
-<div class="paragraph">
-<p>Each build can either produce development or release output depending on the command used to trigger the compilation. The standard build commands are: <code>compile</code>, <code>watch</code> and <code>release</code>.</p>
-</div>
-<div class="sect3">
-<h4 id="_development_mode"><a class="anchor" href="#_development_mode"></a><a class="link" href="#_development_mode">1.2.1. Development Mode</a></h4>
-<div class="paragraph">
-<p>You can either <code>compile</code> a development build once or run a <code>watch</code> process which will monitor your source files and re-compile them automatically (and live-reload the code if desired).</p>
-</div>
-<div class="paragraph">
-<p>All development builds are optimized for the developer experience with fast feedback cycles and other features like a REPL to directly interact with your running code.</p>
-</div>
-<div class="paragraph">
-<p>A development build should never be shipped publicly since they can become quite large and may only work on the machine they were compiled on depending on the <code>:target</code>.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_release_mode"><a class="anchor" href="#_release_mode"></a><a class="link" href="#_release_mode">1.2.2. Release Mode</a></h4>
-<div class="paragraph">
-<p>Creating a <code>release</code> build will strip out all the development related code and finally run the code through the Closure Compiler. This is an optimizing Compiler for JavaScript which will significantly reduce the overall size of the code.</p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_important_concepts"><a class="anchor" href="#_important_concepts"></a><a class="link" href="#_important_concepts">1.3. Important Concepts</a></h3>
-<div class="paragraph">
-<p>There are several important concepts that you should familiarize yourself with when using <code>shadow-cljs</code>. They are integral to understanding how everything fits together and how the tool works with your code.</p>
-</div>
-<div class="sect3">
-<h4 id="_the_classpath"><a class="anchor" href="#_the_classpath"></a><a class="link" href="#_the_classpath">1.3.1. The Classpath</a></h4>
-<div class="paragraph">
-<p><code>shadow-cljs</code> uses the Java Virtual Machine (JVM) and its "classpath" when working with files. This is a virtual filesystem composed of many classpath entries. Each entry is either</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>A local filesystem directory, managed by <code>:source-paths</code> entry in the configuration.</p>
-</li>
-<li>
-<p>Or a <code>.jar</code> file, representing Clojure(Script) or JVM libraries. These are compressed archives containing many files (basically just a <code>.zip</code> file). These are added by your <code>:dependencies</code>.</p>
+<p>The <a href="https://www.npmjs.com/package/shadow-cljs">shadow-cljs</a>
+もう一方は、ビルド機能の大半をコマンドラインから直接実行するための便利なインターフェースを提供するnpmパッケージです。</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>In the Clojure(Script) everything is namespaced and each name is expected to resolve to a file. If you have a <code>(ns demo.app)</code> namespace the compiler expects to find a <code>demo/app.cljs</code> (or <code>.cljc</code>) on the classpath. The classpath will be searched in order until it is found. Suppose you configured the <code>:source-paths ["src/main" "src/test"]</code> the compiler will first look for a <code>src/main/demo/app.cljs</code> and then <code>src/test/demo/app.cljs</code>. When the file is not found on any source path the JVM will begin looking into the <code>.jar</code> files on the classpath. When it finds a <code>demo/app.cljs</code> at the root of any of the libraries that file it will be used.</p>
-</div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Important</div>
-</td>
-<td class="content">
-When a filename exists multiple times on the classpath then only the first one is used. Everything on the JVM and Clojure(Script) is namespaced to avoid such conflicts. Very similar to <code>npm</code> where each package must have a unique name.
-</td>
-</tr>
-</table>
+<p>必要であれば、Clojureライブラリであるshadow-cljsを、他のClojure/JVMビルドツール（例えば、https://leiningen.org/[leiningen]や、https://clojure.org/guides/deps_and_cli[Clojure CLI]ツール）に簡単に統合することができます。</p>
 </div>
 <div class="paragraph">
-<p>It is therefore recommended to be very disciplined about the names you choose and properly namespacing everything. It may seem repetitive to always use <code>(ns your-company.components.foo)</code> over <code>(ns components.foo)</code> but it will save you from lot of headaches later on.</p>
+<p>CLJSの開発に合わせて、より最適化された開発環境を提供するので、npmパッケージを使用することをお勧めします。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_基本的なワークフロー"><a class="anchor" href="#_基本的なワークフロー"></a><a class="link" href="#_基本的なワークフロー">1.2. 基本的なワークフロー</a></h3>
+<div class="paragraph">
+<p>shadow-cljs を使用する際には、設定ファイル shadow-cljs.edn で 1 つ以上のビルドを定義します。それぞれのビルドは、ターゲットとなる環境（例えば、ブラウザ、node.jsアプリケーション、Chrome拡張機能等）に最適化された構成プリセットを表す :target プロパティをもちます。</p>
 </div>
 <div class="paragraph">
-<p>This is unlike <code>npm</code> where the package name itself is never used inside the package itself and only relative paths are used.</p>
+<p>各ビルドは、コンパイルのトリガーとなったコマンドに応じて、開発用またはリリース用の出力を生成します。標準的なビルドコマンドは、compile、watch、release です。</p>
+</div>
+<div class="sect3">
+<h4 id="_development_モード"><a class="anchor" href="#_development_モード"></a><a class="link" href="#_development_モード">1.2.1. development モード</a></h4>
+<div class="paragraph">
+<p>開発ビルドを一度だけコンパイルすることも、watch プロセスを実行してソースファイルを監視して自動的に再コンパイルすることもできます（必要に応じてコードをライブロードすることもできます）。</p>
+</div>
+<div class="paragraph">
+<p>すべての開発ビルドは、高速なフィードバックサイクルや、実行中のコードと直接やりとりできるREPLなどの機能により、開発者の体験を最適化します。</p>
+</div>
+<div class="paragraph">
+<p>開発用のビルドは、非常に大きなサイズになる可能性があり、:targetに応じてコンパイルされたマシンでしか動作しない可能性があるため、決して一般に配布してはいけません。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_server_mode"><a class="anchor" href="#_server_mode"></a><a class="link" href="#_server_mode">1.3.2. Server Mode</a></h4>
+<h4 id="_release_モード"><a class="anchor" href="#_release_モード"></a><a class="link" href="#_release_モード">1.2.2. release モード</a></h4>
 <div class="paragraph">
-<p><code>shadow-cljs</code> can be started in "server" mode which is required for long-running tasks such as <code>watch</code>. A <code>watch</code> will implicitly start the server instance if it is not already running. The server will provide the Websocket endpoint that builds will connect to as well as all the other endpoints for nREPL, Socket REPL and the development HTTP servers.</p>
+<p>リリース (release) ビルドを作成すると、開発モード関連のコードがすべて取り除かれ、最後にClosure Compilerにコードを通します。これにより、JavaScript用の最適化コンパイラが、コードの全体的なサイズを大幅に削減します。</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_重要な概念"><a class="anchor" href="#_重要な概念"></a><a class="link" href="#_重要な概念">1.3. 重要な概念</a></h3>
+<div class="paragraph">
+<p>shadow-cljsを使用する際には、いくつかの重要な概念を理解しておく必要があります。これらの概念は、すべてがどのように組み合わされるのか、また、このツールがあなたのコードとどのように連動するのかを理解するために不可欠です。</p>
+</div>
+<div class="sect3">
+<h4 id="_classpath"><a class="anchor" href="#_classpath"></a><a class="link" href="#_classpath">1.3.1. Classpath</a></h4>
+<div class="paragraph">
+<p>shadow-cljsは、ファイルを扱う際に、Java Virtual Machine (JVM) とそのclasspathを使用します。これは、多くのclasspathのエントリからなる仮想ファイルシステムです。各エントリは次のいずれかです。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>設定の:source-pathsエントリで管理される、ローカルファイルシステムのディレクトリです。</p>
+</li>
+<li>
+<p>あるいは、Clojure(Script)やJVMのライブラリを表す.jar`ファイルです。これらは、多くのファイルを含む圧縮アーカイブです(基本的には.zipファイルです)。これらは:dependenciesによって追加されます。</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p>When using the <code>shadow-cljs</code> CLI all commands will re-use a running server instance JVM instead of starting a new JVM. This is substantially faster since start-up time can be quite slow.</p>
+<p>Clojure(Script)では、すべてが名前空間化されていて、それぞれの名前がファイルに解決することが期待されています。(ns demo.app)という名前空間があれば、コンパイラはクラスパス上にdemo/app.cljs(または`.cljc`)があることを期待します。クラスパスは、それが見つかるまで順番に検索されます。例えば、<code>:source-paths ["src/main" "src/test"]</code> を設定したとすると、コンパイラはまず <code>src/main/demo/app.cljs</code> を探し、次に <code>src/test/demo/app.cljs</code> を探します。どのソースパスにもファイルが見つからない場合、JVMはクラスパス上の.jarファイルを探し始めます。そして、いずれかのライブラリのルートにdemo/app.cljsが見つかると、そのファイルが使用されます。</p>
 </div>
 <div class="paragraph">
-<p>Once the server is running however you only have to restart it whenever your <code>:dependencies</code> change and everything else can be done via the REPL.</p>
+<p>重要：あるファイル名がクラスパス上に複数回存在する場合、最初のものだけが使用されます。JVMとClojure(Script)上のすべてのものは、このような衝突を避けるために名前空間が設けられています。各パッケージが一意の名前を持たなければならないnpmと非常によく似ています。</p>
+</div>
+<div class="paragraph">
+<p>そのため、名前の選択には細心の注意を払い、すべてのものに適切な名前空間をつけることをお勧めします。(ns component.foo)よりも(ns your-company.components.foo)を常に使うことは反復的に見えるかもしれませんが、後で多くの頭痛の種をなくすことができます。</p>
+</div>
+<div class="paragraph">
+<p>これはnpmとは異なり、パッケージ名自体がパッケージ内部で使用されることはなく、相対パスのみが使用されます。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_server_モード"><a class="anchor" href="#_server_モード"></a><a class="link" href="#_server_モード">1.3.2. server モード</a></h4>
+<div class="paragraph">
+<p>shadow-cljs` はserverモードで起動することができます。これはwatchのような長時間稼働するタスクに必要です。watchは、サーバーインスタンスがまだ起動していなければ、暗黙のうちに起動します。serverは、ビルドが接続するWebsocketのエンドポイントを提供します。また、nREPL、Socket REPL、開発用HTTPサーバーの他のすべてのエンドポイントも同様に提供します。</p>
+</div>
+<div class="paragraph">
+<p>CLI のshadow-cljsを使用する場合、すべてのコマンドは新しいJVMを起動する代わりに、実行中のサーバインスタンスのJVMを再利用します。起動時間がかなり遅くなることがあるため、動作が大幅に速くなります。</p>
+</div>
+<div class="paragraph">
+<p>しかし、いったんサーバが稼働すれば、:dependenciesに変更があったときに再起動するだけで、あとはすべてREPLで行うことができます。</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_repl"><a class="anchor" href="#_repl"></a><a class="link" href="#_repl">1.3.3. REPL</a></h4>
 <div class="paragraph">
-<p>The REPL is at the heart of all Clojure(Script) development and every CLI command can also be used directly from the REPL as well. It is absolutely worth getting comfortable with the REPL even if the command line may seem more familiar.</p>
+<p>REPLは、すべてのClojure(Script)開発の中心であり、すべてのCLIコマンドはREPLから直接使用することもできます。コマンドラインの方が馴染みがあるように見えても、REPLを使いこなすことには、絶対に価値があります。</p>
 </div>
 </div>
 </div>
