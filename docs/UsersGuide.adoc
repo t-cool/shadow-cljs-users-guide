@@ -56,10 +56,12 @@ This source for this book is hosted on https://github.com/shadow-cljs/shadow-clj
 この本のソースは、https://github.com/shadow-cljs/shadow-cljs.github.io[Github] にあります。
 
 
-=== Conventions Used
+=== 使用した規約
 
+////
 There are many examples in this book. Most things used in these should be obvious from their context,
 but to prevent misunderstanding it is important to know the author's intentions.
+////
 
 When command-line examples are given we may include BASH comments (starting with `#`), and will
 usually include the standard user UNIX prompt of `$` to indicate separation of the command
