@@ -40,15 +40,21 @@ endif::[]
 
 include::intro.adoc[]
 
-== About this Book
+== 本書について
 
-=== Work in Progress
-
+=== 進行中
+////
 This is a work in progress. If you find an error, please submit a PR to fix it, or an issue with details of the problem.
+////
+これは現在進行中の作業です。エラーを発見した場合は、それを修正するためのPR、または問題の詳細を記載したissueを提出してください。
 
-=== Contributing
+=== 貢献
 
+////
 This source for this book is hosted on https://github.com/shadow-cljs/shadow-cljs.github.io[Github].
+////
+この本のソースは、https://github.com/shadow-cljs/shadow-cljs.github.io[Github] にあります。
+
 
 === Conventions Used
 
