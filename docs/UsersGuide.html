@@ -586,12 +586,12 @@ table.CodeRay td.code>pre{padding:0}
 <ul class="sectlevel3">
 <li><a href="#node-repl">4.1.1. Node REPL</a></li>
 <li><a href="#browser-repl">4.1.2. Browser REPL</a></li>
-<li><a href="#build-repl">4.1.3. Build-specific REPL</a></li>
+<li><a href="#build-repl">4.1.3. ビルドに特化した REPL</a></li>
 </ul>
 </li>
 <li><a href="#_clojure_repl">4.2. Clojure REPL</a>
 <ul class="sectlevel3">
-<li><a href="#embedded">4.2.1. Embedded</a></li>
+<li><a href="#embedded">4.2.1. 組み込み</a></li>
 </ul>
 </li>
 </ul>
@@ -1457,15 +1457,15 @@ $ shadow-cljs run my.build/release</code></pre>
 <h2 id="_repl_2"><a class="anchor" href="#_repl_2"></a><a class="link" href="#_repl_2">4. REPL</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The REPL is a very powerful tool to have when working with Clojure(Script) code. <code>shadow-cljs</code> provides several built-in variants that let you get started quickly as well as variants that are integrated into your standard builds.</p>
+<p>REPLは、Clojure(Script)のコードを扱う際に、非常に強力なツールです。shadow-cljs` は、すぐに始められるいくつかのビルトインバージョンと、標準的なビルドに統合されるバージョンを提供します。</p>
 </div>
 <div class="paragraph">
-<p>When you quickly want to test out some code the built-in REPLs should be enough. If you need more complex setups that also do stuff on their own it is best to use an actual build.</p>
+<p>いくつかのコードをすぐにテストしたい場合は、内蔵のREPLで十分です。自分で何かをするような、より複雑なセットアップが必要な場合は、実際のビルドを使うのが一番です。</p>
 </div>
 <div class="sect2">
 <h3 id="_clojurescript_repl"><a class="anchor" href="#_clojurescript_repl"></a><a class="link" href="#_clojurescript_repl">4.1. ClojureScript REPL</a></h3>
 <div class="paragraph">
-<p>By default you can choose between a <code>node-repl</code> and a <code>browser-repl</code>. They both work similarly and the differentiating factor is that one runs in a managed <code>node.js</code> process while the others opens a Browser Window that will be used to eval the actual code.</p>
+<p>デフォルトでは、<code>node-repl`と`browser-repl`のどちらかを選択することができます。どちらも似たような動作をしますが、違いは、一方がマネージドな `node.js</code> プロセスで動作するのに対し、他方は実際のコードを評価するために使用されるブラウザウィンドウを開くことです。</p>
 </div>
 <div class="sect3">
 <h4 id="node-repl"><a class="anchor" href="#node-repl"></a><a class="link" href="#node-repl">4.1.1. Node REPL</a></h4>
@@ -1475,22 +1475,13 @@ $ shadow-cljs run my.build/release</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>This starts a blank CLJS REPL with an already connected <code>node</code> process.</p>
-</div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Important</div>
-</td>
-<td class="content">
-If you exit the Node REPL the <code>node</code> process is also killed!
-</td>
-</tr>
-</table>
+<p>これは、すでに接続されている <code>node</code> プロセスで、空の CLJS REPL を開始します。</p>
 </div>
 <div class="paragraph">
-<p><code>node-repl</code> lets you get started without any additional configuration. It has access to all your code via the usual means, ie. <code>(require '[your.core :as x])</code>. Since it is not connected to any build it does not do any automatic rebuilding of code when your files change and does not provide hot-reload.</p>
+<p>重要：Node REPLを終了すると、`node`プロセスもキルされます。</p>
+</div>
+<div class="paragraph">
+<p>node-repl`を使えば、追加の設定をすることなく、すぐに使い始めることができます。node-replは、`(require '[your.core :as x])`という通常の方法で、あなたのすべてのコードにアクセスします。ビルドに接続されていないので、ファイルが変更されてもコードの自動再構築は行われず、ホットリロードも提供されません。</p>
 </div>
 </div>
 <div class="sect3">
@@ -1501,41 +1492,26 @@ If you exit the Node REPL the <code>node</code> process is also killed!
 </div>
 </div>
 <div class="paragraph">
-<p>This starts a blank CLJS REPL and will open an associated Browser window where the code will execute. Besides running in the Browser this has all the same functionality as the above <code>node-repl</code>.</p>
+<p>これは、空のCLJS REPLを起動し、コードが実行される関連するブラウザのウィンドウを開きます。ブラウザ上で実行されるだけでなく、上記の <code>node-repl</code> と同じ機能を持っています。</p>
 </div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Important</div>
-</td>
-<td class="content">
-If you close the Browser window the REPL will stop working.
-</td>
-</tr>
-</table>
+<div class="paragraph">
+<p>重要：ブラウザウィンドウを閉じると、REPLは動作しなくなります。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="build-repl"><a class="anchor" href="#build-repl"></a><a class="link" href="#build-repl">4.1.3. Build-specific REPL</a></h4>
+<h4 id="build-repl"><a class="anchor" href="#build-repl"></a><a class="link" href="#build-repl">4.1.3. ビルドに特化した REPL</a></h4>
 <div class="paragraph">
-<p><code>node-repl</code> and <code>browser-repl</code> work without any specific build configuration. That means they&#8217;ll only do whatever you tell them to do but nothing on their own.</p>
+<p>node-repl`と`browser-repl`は、特定のビルド構成なしに動作します。つまり、あなたが指示したことだけを実行し、自分では何もしないということです。</p>
 </div>
 <div class="paragraph">
-<p>If you want to build a specific thing you should configure a build using one of the provided build-targets. Most of them automatically inject the necessary code for a ClojureScript REPL. It should not require any additional configuration. For the build CLJS REPL to work you need 2 things</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>a running <code>watch</code> for your build</p>
-</li>
-<li>
-<p>connect the JS runtime of the <code>:target</code>. Meaning if you are using the <code>:browser</code> target you need to open a Browser that has the generated JS loaded. For node.js builds that means running the <code>node</code> process.</p>
-</li>
-</ol>
+<p>特定のものをビルドしたい場合は、提供されているビルドターゲットの1つを使ってビルドを設定する必要があります。それらのほとんどは、ClojureScript REPLに必要なコードを自動的に注入します。それは追加の設定を必要としないはずです。ビルドCLJS REPLが動作するためには、次の2つが必要です。</p>
 </div>
 <div class="paragraph">
-<p>Once you have both you can connect to the CLJS REPL via the command line or from the Clojure REPL.</p>
+<p>ビルドのための実行中の <code>watch</code> です。
+ターゲットのJSランタイムを接続します。つまり、`:browser`ターゲットを使用している場合、生成されたJSがロードされているブラウザを開く必要があります。node.jsのビルドの場合は、`node`プロセスの実行を意味します。</p>
+</div>
+<div class="paragraph">
+<p>両方を入手したら、コマンドラインまたはClojure REPLからCLJS REPLに接続できます。</p>
 </div>
 <div class="listingblock">
 <div class="title">CLI</div>
@@ -1543,7 +1519,10 @@ If you close the Browser window the REPL will stop working.
 <pre class="CodeRay highlight"><code data-lang="bash">$ shadow-cljs watch build-id
 ...
 
+////
 # different terminal
+////
+# 異なるターミナル
 $ shadow-cljs cljs-repl build-id
 shadow-cljs - connected to server
 [3:1]~cljs.user=&gt;</code></pre>
@@ -1570,42 +1549,33 @@ shadow-cljs - connected to server
 <div class="title">Tip</div>
 </td>
 <td class="content">
-Type <code>:repl/quit</code> to exit the REPL. This will only exit the REPL, the <code>watch</code> will remain running.
+REPLを終了するには、<code>:repl/quit`と入力してください。これは REPL を終了するだけで、`watch</code> は引き続き実行されます。
 </td>
 </tr>
 </table>
 </div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Tip</div>
-</td>
-<td class="content">
-You may run multiple <code>watch</code> "workers" in parallel and connect/disconnect to their REPLs at any given time.
-</td>
-</tr>
-</table>
+<div class="paragraph">
+<p>ヒント: 複数の <code>watch</code> 「ワーカー」を並行して実行し、任意の時間にそれらの REPL に接続/切断することができます。</p>
 </div>
 <div class="listingblock">
-<div class="title">No connected runtime error.</div>
+<div class="title">No connected のランタイムエラーが発生しました。</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="text">[3:1]~cljs.user=&gt; (js/alert &quot;foo&quot;)
 There is no connected JS runtime.</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>If you see this you need to open your App in the Browser or start the <code>node</code> process.</p>
+<p>これが表示された場合、ブラウザでアプリを開くか、`node`プロセスを開始する必要があります。</p>
 </div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_clojure_repl"><a class="anchor" href="#_clojure_repl"></a><a class="link" href="#_clojure_repl">4.2. Clojure REPL</a></h3>
 <div class="paragraph">
-<p>A Clojure REPL is also provided in addition to the provided ClojureScript REPLs. This is can be used to control the <code>shadow-cljs</code> process and run all other build commands through it. You can start with a Clojure REPL and then upgrade it to a CLJS REPL at any point (and switch back).</p>
+<p>提供されているClojureScript REPLに加えて、Clojure REPLも提供されています。これは、`shadow-cljs`プロセスを制御し、他のすべてのビルドコマンドを実行するために使用できます。Clojure REPLから始めて、いつでもCLJS REPLにアップグレードすることができます(そして元に戻すこともできます)。</p>
 </div>
 <div class="listingblock">
-<div class="title">Running from the CLI</div>
+<div class="title">CLIからの実行</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="bash">$ shadow-cljs clj-repl
 ...
@@ -1614,43 +1584,44 @@ shadow-cljs - REPL - see (help), :repl/quit to exit
 </div>
 </div>
 <div class="paragraph">
-<p>The <code>shadow.cljs.devtools.api</code> namespace has functions that map more or less 1:1 to the CLI counterparts. It is aliased as <code>shadow</code> by default.</p>
+<p>名前空間 <code>shadow.cljs.devtools.api</code> には、CLI に対応する関数とほぼ1対1に対応する関数があります。デフォルトでは <code>shadow</code> という名前でエイリアスされています。</p>
 </div>
 <div class="listingblock">
-<div class="title">Example commands</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure"><span class="comment">;; shadow-cljs watch foo</span>
 (shadow.cljs.devtools.api/watch <span class="symbol">:foo</span>)
-<span class="comment">;; this is identical, due to the provided ns alias</span>
+
+<span class="comment">;; これは、nsのエイリアスが用意されているため、同じです。</span>
 (shadow/watch <span class="symbol">:foo</span>)
+
 <span class="comment">;; shadow-cljs watch foo --verbose</span>
 (shadow/watch <span class="symbol">:foo</span> {<span class="symbol">:verbose</span> <span class="predefined-constant">true</span>})
+
 <span class="comment">;; shadow-cljs compile foo</span>
 (shadow/compile <span class="symbol">:foo</span>)
+
 <span class="comment">;; shadow-cljs release foo</span>
 (shadow/release <span class="symbol">:foo</span>)
 
 <span class="comment">;; shadow-cljs browser-repl</span>
 (shadow/browser-repl)
+
 <span class="comment">;; shadow-cljs node-repl</span>
 (shadow/node-repl)
+
 <span class="comment">;; shadow-cljs cljs-repl foo</span>
 (shadow/repl <span class="symbol">:foo</span>)
 
-<span class="comment">;; Once you are in a CLJS REPL you can use</span>
-<span class="symbol">:repl/quit</span>
-<span class="comment">;; or</span>
-<span class="symbol">:cljs/quit</span>
-<span class="comment">;; to drop back down to CLJ.</span></code></pre>
+<span class="comment">;; CLJS REPLに入ったら、:repl/quit や cljs/quit を使ってCLJに戻ることができます。</span></code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="embedded"><a class="anchor" href="#embedded"></a><a class="link" href="#embedded">4.2.1. Embedded</a></h4>
+<h4 id="embedded"><a class="anchor" href="#embedded"></a><a class="link" href="#embedded">4.2.1. 組み込み</a></h4>
 <div class="paragraph">
-<p>It is also possible to use <code>shadow-cljs</code> entirely from within any other CLJ process. As long as the <code>thheller/shadow-cljs</code> artifact was loaded on the classpath you are good to go.</p>
+<p>また、他の CLJ プロセスの中から完全に <code>shadow-cljs</code> を使用することも可能です。クラスパスに <code>thheller/shadow-cljs</code> がロードされていれば、問題ありません。</p>
 </div>
 <div class="listingblock">
-<div class="title">Example using <code>lein repl</code></div>
+<div class="title">lein repl`を使った例</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="bash">$ lein repl
 nREPL server started on port 57098 on host 127.0.0.1 - nrepl://127.0.0.1:57098
@@ -1670,19 +1641,10 @@ user=&gt; (shadow/compile :foo)
 </div>
 </div>
 <div class="paragraph">
-<p>You can stop the embedded server by running <code>(shadow.cljs.devtools.server/stop!)</code>. This will also stop all running build processes.</p>
+<p>(shadow.cljs.devtools.server/stop!)`を実行することで、組み込みサーバを停止することができます。これにより、実行中のすべてのビルドプロセスも停止します。</p>
 </div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Important</div>
-</td>
-<td class="content">
-If you want to switch to a CLJS REPL this may require additional setup in the tool you used to start the server in. Since <code>lein</code> will default to using nREPL it will require configuring additional nREPL <code>:middleware</code>. When using <code>clj</code> you are good to go since it doesn&#8217;t use nREPL.
-</td>
-</tr>
-</table>
+<div class="paragraph">
+<p>重要: CLJS REPLに切り替えたい場合は、サーバーの起動に使用したツールで追加の設定が必要になる場合があります。lein` はデフォルトで nREPL を使用するので、追加の nREPL <code>:middleware</code> を設定する必要があります。clj`を使用する場合は、nREPLを使用しないので、問題ありません。</p>
 </div>
 </div>
 </div>
