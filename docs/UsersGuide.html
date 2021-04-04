@@ -553,15 +553,15 @@ table.CodeRay td.code>pre{padding:0}
 </li>
 </ul>
 </li>
-<li><a href="#_installation">2. Installation</a>
+<li><a href="#_インストール">2. インストール</a>
 <ul class="sectlevel2">
-<li><a href="#_standalone_via_code_npm_code">2.1. Standalone via <code>npm</code></a></li>
-<li><a href="#_library">2.2. Library</a></li>
+<li><a href="#_npm_によるスタンドアロン化">2.1. npm によるスタンドアロン化</a></li>
+<li><a href="#_ライブラリ">2.2. ライブラリ</a></li>
 </ul>
 </li>
-<li><a href="#_usage">3. Usage</a>
+<li><a href="#_利用法">3. 利用法</a>
 <ul class="sectlevel2">
-<li><a href="#_command_line">3.1. Command Line</a>
+<li><a href="#_コマンドライン">3.1. コマンドライン</a>
 <ul class="sectlevel3">
 <li><a href="#server-mode">3.1.1. Server Mode</a></li>
 </ul>
@@ -977,38 +977,75 @@ project.clj
 ...</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>例題の多くは、コンパイラの設定ファイルです。このファイルには、EDNマップが含まれています。必要なオプションについてすでに説明している場合は、わかりやすくするために省略することがあります。この場合、「必要だが、現在の焦点ではない内容」を示すために省略記号を入れるのが普通です。</p>
+</div>
 <div class="listingblock">
+<div class="title">Example 1. 依存関係の指定</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="symbol">:dependencies</span> [[lib <span class="string"><span class="delimiter">&quot;</span><span class="content">1.0</span><span class="delimiter">&quot;</span></span>]]}</code></pre>
 </div>
 </div>
 <div class="listingblock">
+<div class="title">Example 2. ソースパスの追加</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
  <span class="symbol">:source-paths</span> [<span class="string"><span class="delimiter">&quot;</span><span class="content">src</span><span class="delimiter">&quot;</span></span>]
  <span class="keyword">..</span><span class="keyword">.</span>}</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>これにより、対象となる構成の入れ子を理解するのに十分なコンテキストを簡潔に含めることができます。</p>
+</div>
 <div class="listingblock">
+<div class="title">Example 3. ネストのオプション</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
  <span class="symbol">:builds</span> {<span class="symbol">:build-id</span> {<span class="keyword">..</span><span class="keyword">.</span>
                      <span class="symbol">:output-dir</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">resources/public/js</span><span class="delimiter">&quot;</span></span>}}}</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>コード例も同様に短くすることができます。</p>
+</div>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_installation"><a class="anchor" href="#_installation"></a><a class="link" href="#_installation">2. Installation</a></h2>
+<h2 id="_インストール"><a class="anchor" href="#_インストール"></a><a class="link" href="#_インストール">2. インストール</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_standalone_via_code_npm_code"><a class="anchor" href="#_standalone_via_code_npm_code"></a><a class="link" href="#_standalone_via_code_npm_code">2.1. Standalone via <code>npm</code></a></h3>
+<h3 id="_npm_によるスタンドアロン化"><a class="anchor" href="#_npm_によるスタンドアロン化"></a><a class="link" href="#_npm_によるスタンドアロン化">2.1. npm によるスタンドアロン化</a></h3>
+<div class="paragraph">
+<p>以下のことが必要となります。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://nodejs.org"><code>node.js</code></a> (v6.0.0+, 最新のバージョンが望ましいです)</p>
+</li>
+<li>
+<p><a href="https://www.npmjs.com"><code>npm</code></a> or <a href="https://www.yarnpkg.com"><code>yarn</code></a></p>
+</li>
+<li>
+<p>任意のJava SDK (バージョン8以上) <a href="http://openjdk.java.net/install/">OpenJDK</a> or <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">Oracle</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>プロジェクトのディレクトリには、package.json が必要です。まだない場合は、<code>npm init -y</code> を実行して作成することができます。プロジェクトディレクトリがない場合は、次のコマンドを実行して作成してください。</p>
+</div>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">$ npx create-cljs-project my-project</code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>これで必要な基本ファイルがすべて作成されるので、以下のコマンドは省略できます。</p>
+</div>
+<div class="paragraph">
+<p>すでに <code>package.json</code> があり、<code>shadow-cljs</code> を追加したいだけの場合は、以下を実行します。</p>
 </div>
 <div class="listingblock">
 <div class="title">NPM</div>
@@ -1022,29 +1059,37 @@ project.clj
 <pre class="CodeRay highlight"><code data-lang="bash">$ yarn add --dev shadow-cljs</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>便宜上、<code>npm install -g shadow-cljs</code> または <code>yarn global add shadow-cljs</code> を実行することができます。これにより、後で <code>shadow-cljs</code> コマンドを直接実行できるようになります。あなたのプロジェクトには常に shadow-cljs のバージョンがインストールされている必要があり、グローバル・インストールはオプションです。</p>
+</div>
 </div>
 <div class="sect2">
-<h3 id="_library"><a class="anchor" href="#_library"></a><a class="link" href="#_library">2.2. Library</a></h3>
-
+<h3 id="_ライブラリ"><a class="anchor" href="#_ライブラリ"></a><a class="link" href="#_ライブラリ">2.2. ライブラリ</a></h3>
+<div class="paragraph">
+<p>スタンドアロン版は <code>npm</code> 経由で実行することが推奨されますが、<code>shadow-cljs</code> を他の Clojure JVM ツール (例えば lein や boot 等) に組み込むこともできます。</p>
+</div>
+<div class="paragraph">
+<p>このアーティファクトは以下のサイトでご覧いただけます。</p>
+</div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_usage"><a class="anchor" href="#_usage"></a><a class="link" href="#_usage">3. Usage</a></h2>
+<h2 id="_利用法"><a class="anchor" href="#_利用法"></a><a class="link" href="#_利用法">3. 利用法</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><code>shadow-cljs</code> can be used in many different ways but the general workflow stays the same.</p>
+<p>shadow-cljs は様々な方法で使用できますが、一般的なワークフローは同じです。</p>
 </div>
 <div class="paragraph">
-<p>During development you have the option to <code>compile</code> a build once or run a <code>watch</code> worker which watches your source files for changes and re-compiles them automatically. When <a href="#devtools">enabled</a> the <code>watch</code> will also hot-reload your code and provide a REPL. During development the focus is on developer experience with fast feedback cycles. Development code should never be shipped to the public.</p>
+<p>開発中には、ビルドを一度だけ <code>compile</code> するか、ソースファイルの変更を監視して自動的に再コンパイルする <code>watch</code> ワーカーを実行するかのオプションがあります。このワーカーはソースファイルの変更を監視し、自動的に再コンパイルします。<a href="#devtools">enabled</a> の場合、<code>watch</code> はコードをホットリロードし、REPLを提供します。開発中は、迅速なフィードバックサイクルによる開発者の経験に重点を置いています。開発コードは決して一般に出荷してはいけません。</p>
 </div>
 <div class="paragraph">
-<p>When it is time to get serious you create a <a href="#release"><code>release</code></a> build which creates an optimized build suitable for production. For this the <a href="https://developers.google.com/closure/compiler/">Closure Compiler</a> is used which applies some seriously <code>:advanced</code> optimizations to your code to create the most optimal output available. This may require some <a href="#externs">tuning</a> to work properly when using lots of interop with native JavaScript but works flawlessly for ClojureScript (and the code from the <a href="https://developers.google.com/closure/library/">Closure Library</a>).</p>
+<p>本格的に開発する場合には、<a href="#release"><code>release</code></a>というビルドを作成し、本番環境に適した最適化されたビルドを作成します。これには、https://developers.google.com/closure/compiler/[Closure Compiler] が使用され、利用可能な最も最適な出力を作成するために、コードに深刻な <code>:advanced</code> 最適化を適用します。ネイティブJavaScriptとのインターロップを多用している場合には、適切に動作させるためにいくつかの<a href="#externs">tuning</a>が必要になるかもしれませんが、ClojureScript(およびhttps://developers.google.com/closure/library/[Closure Library]のコード)では完璧に動作します。</p>
 </div>
 <div class="sect2">
-<h3 id="_command_line"><a class="anchor" href="#_command_line"></a><a class="link" href="#_command_line">3.1. Command Line</a></h3>
+<h3 id="_コマンドライン"><a class="anchor" href="#_コマンドライン"></a><a class="link" href="#_コマンドライン">3.1. コマンドライン</a></h3>
 <div class="paragraph">
-<p>If <a href="#_installation">installed</a> globally, you can use the <code>shadow-cljs</code> command directly.</p>
+<p>グローバル環境にインストールされている場合は、`shadow-cljs`コマンドを直接使用することができます。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1052,7 +1097,7 @@ project.clj
 </div>
 </div>
 <div class="paragraph">
-<p>If you prefer to only use the local <code>npm</code> install you can invoke it via <code>npx</code> or <code>yarn</code>.</p>
+<p>ローカルにインストールした`npm`のみを使用したい場合は、`npx`や`yarn`を介して起動することができます。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1067,36 +1112,40 @@ $ ./node_modules/.bin/shadow-cljs help</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The guide will assume there is a global install to keep examples short but this is not required.</p>
+<p>このガイドでは、例を短くするためにグローバルインストールを前提としていますが、これは必須ではありません。</p>
+</div>
+<div class="paragraph">
+<p>開発中によく使う shadow-cljs コマンドは以下の通りです。</p>
 </div>
 <div class="listingblock">
-<div class="title">Commonly used shadow-cljs commands during development</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="bash"># compile a build once and exit
+<pre class="CodeRay highlight"><code data-lang="bash"># ビルドを一度コンパイルして終了
 $ shadow-cljs compile app
 
-# compile and watch
+# コンパイルと監視
 $ shadow-cljs watch app
 
-# connect to REPL for the build (available while watch is running)
-$ shadow-cljs cljs-repl app
+# ビルド用のREPLに接続 (watchの実行中に利用可能)$ shadow-cljs cljs-repl app
 
-# connect to standalone node repl
+# スタンドアロンの Node repl への接続
 $ shadow-cljs node-repl</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>次のように、本番使用に最適化されたリリースビルドを実行します。</p>
+</div>
 <div class="listingblock">
-<div class="title">Running a release build optimized for production use.</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">$ shadow-cljs release app</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Sometimes you may run into some release issues due to <code>:advanced</code> compilation. These
-commands can help track down the causes.</p>
+<p>`:advanced`のコンパイルが原因で、リリース上の問題に遭遇することがあります。これらのコマンドは、その原因を追跡するのに役立ちます。</p>
+</div>
+<div class="paragraph">
+<p>Release デバッグコマンド</p>
 </div>
 <div class="listingblock">
-<div class="title">Release debugging commands.</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">$ shadow-cljs check app
 $ shadow-cljs release app --debug</code></pre>
@@ -6563,7 +6612,7 @@ You can and should verify that everything is clean by running <code>lein jar</co
 <div id="footer">
 <div id="footer-text">
 Version 1.0<br>
-Last updated 2021-04-03 08:15:21 JST
+Last updated 2021-04-04 17:03:10 JST
 </div>
 </div>
 </body>

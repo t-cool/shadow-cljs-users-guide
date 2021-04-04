@@ -84,12 +84,13 @@ project.clj
 ////
 Many of the examples are of the configuration file for the compiler. This file contains an EDN map. Where we have already discussed required options we will often elide them for clarity. In this case we'll usually include an ellipsis to indicate "content that is required but isn't in our current focus":
 ////
+例題の多くは、コンパイラの設定ファイルです。このファイルには、EDNマップが含まれています。必要なオプションについてすでに説明している場合は、わかりやすくするために省略することがあります。この場合、「必要だが、現在の焦点ではない内容」を示すために省略記号を入れるのが普通です。
 
 
 ////
 .Example 1. Specify dependencies
 ////
-
+.Example 1. 依存関係の指定
 ```
 {:dependencies [[lib "1.0"]]}
 ```
@@ -97,6 +98,7 @@ Many of the examples are of the configuration file for the compiler. This file c
 ////
 .Example 2. Add source paths
 ////
+.Example 2. ソースパスの追加
 
 ```
 {...
@@ -105,14 +107,14 @@ Many of the examples are of the configuration file for the compiler. This file c
 ```
 
 ////
-This allows us to concisely include enough context to understand the nesting of the configuration of
-interest:
+This allows us to concisely include enough context to understand the nesting of the configuration of interest:
 ////
-
+これにより、対象となる構成の入れ子を理解するのに十分なコンテキストを簡潔に含めることができます。
 
 ////
 .Example 3. Nested option
 ////
+.Example 3. ネストのオプション
 
 ```
 {...
@@ -123,25 +125,33 @@ interest:
 ////
 Code examples may be similarly shortened.
 ////
+コード例も同様に短くすることができます。
 
 
-= Installation
+= インストール
 
-== Standalone via `npm`
+== npm によるスタンドアロン化
 
 ////
 You will need:
 ////
+以下のことが必要となります。
+
 
 ////
 - https://nodejs.org[`node.js`] (v6.0.0+, most recent version preferred)
 - https://www.npmjs.com[`npm`] or https://www.yarnpkg.com[`yarn`]
 - Any Java SDK (Version 8 or higher). http://openjdk.java.net/install/[OpenJDK] or http://www.oracle.com/technetwork/java/javase/downloads/index.html[Oracle]
 ////
+- https://nodejs.org[`node.js`] (v6.0.0+, 最新のバージョンが望ましいです)
+- https://www.npmjs.com[`npm`] or https://www.yarnpkg.com[`yarn`]
+- 任意のJava SDK (バージョン8以上) http://openjdk.java.net/install/[OpenJDK] or http://www.oracle.com/technetwork/java/javase/downloads/index.html[Oracle]
+
 
 ////
 In your project directory you'll need a `package.json`. If you do not have one yet you can create one by running `npm init -y`. If you don't have a project directory yet consider creating it by running
 ////
+プロジェクトのディレクトリには、package.json が必要です。まだない場合は、`npm init -y` を実行して作成することができます。プロジェクトディレクトリがない場合は、次のコマンドを実行して作成してください。
 
 
 ```
@@ -151,12 +161,12 @@ $ npx create-cljs-project my-project
 ////
 This will create all the necessary basic files and you can skip the following commands.
 ////
-
+これで必要な基本ファイルがすべて作成されるので、以下のコマンドは省略できます。
 
 ////
 If you have a `package.json` already and just want to add `shadow-cljs` run
 ////
-
+すでに `package.json` があり、`shadow-cljs` を追加したいだけの場合は、以下を実行します。
 
 .NPM
 ```bash
@@ -171,18 +181,20 @@ $ yarn add --dev shadow-cljs
 ////
 For convenience you can run `npm install -g shadow-cljs` or `yarn global add shadow-cljs`. This will let you run the `shadow-cljs` command directly later. There should always be a shadow-cljs version installed in your project, the global install is optional.
 ////
+便宜上、`npm install -g shadow-cljs` または `yarn global add shadow-cljs` を実行することができます。これにより、後で `shadow-cljs` コマンドを直接実行できるようになります。あなたのプロジェクトには常に shadow-cljs のバージョンがインストールされている必要があり、グローバル・インストールはオプションです。
 
 
-== Library
+== ライブラリ
 
 ////
 Although it is recommended to run the standalone version via `npm` you can also embed `shadow-cljs` into any other Clojure JVM tool (eg. `lein`, `boot`, ...).
 ////
-
+スタンドアロン版は `npm` 経由で実行することが推奨されますが、`shadow-cljs` を他の Clojure JVM ツール (例えば lein や boot 等) に組み込むこともできます。
 
 ////
 The artifact can be found at:
 ////
+このアーティファクトは以下のサイトでご覧いただけます。
 
 
 ////
