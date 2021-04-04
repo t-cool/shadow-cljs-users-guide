@@ -563,19 +563,19 @@ table.CodeRay td.code>pre{padding:0}
 <ul class="sectlevel2">
 <li><a href="#_コマンドライン">3.1. コマンドライン</a>
 <ul class="sectlevel3">
-<li><a href="#server-mode">3.1.1. Server Mode</a></li>
+<li><a href="#server-mode">3.1.1. サーバ・モード</a></li>
 </ul>
 </li>
-<li><a href="#_build_tool_integration">3.2. Build Tool Integration</a>
+<li><a href="#_ビルドツールの統合">3.2. ビルドツールの統合</a>
 <ul class="sectlevel3">
 <li><a href="#Leiningen">3.2.1. Leiningen</a></li>
 <li><a href="#deps-edn">3.2.2. tools.deps / deps.edn</a></li>
 <li><a href="#_boot">3.2.3. Boot</a></li>
 </ul>
 </li>
-<li><a href="#clj-run">3.3. Running Clojure Code</a>
+<li><a href="#clj-run">3.3. Clojureコードの実行</a>
 <ul class="sectlevel3">
-<li><a href="#_calling_watch_via_clj_run">3.3.1. Calling watch via clj-run</a></li>
+<li><a href="#_clj_run_による_watch_の呼び出し">3.3.1. clj-run による watch の呼び出し</a></li>
 </ul>
 </li>
 </ul>
@@ -1152,27 +1152,29 @@ $ shadow-cljs release app --debug</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="server-mode"><a class="anchor" href="#server-mode"></a><a class="link" href="#server-mode">3.1.1. Server Mode</a></h4>
+<h4 id="server-mode"><a class="anchor" href="#server-mode"></a><a class="link" href="#server-mode">3.1.1. サーバ・モード</a></h4>
 <div class="paragraph">
-<p>A <code>shadow-cljs</code> command can be fairly slow to start. To improve this <code>shadow-cljs</code> can run in "server mode" which means that a dedicated process is started which all other commands can use to execute a lot faster since they won&#8217;t have to start a new JVM/Clojure instance.</p>
+<p>shadow-cljs コマンドは起動にかなり時間がかかります。これを改善するために、<code>shadow-cljs</code> は "サーバ・モード" で動作させることができます。これは、専用のプロセスが開始され、他のすべてのコマンドがそれを利用して、新しい JVM/Clojure インスタンスを開始する必要がないため、より速く実行できることを意味します。</p>
 </div>
 <div class="paragraph">
-<p>Commands that do long-running things implicitly start a server instance (eg. <code>watch</code>) but it is often advisable to have
-a dedicated server process running.</p>
+<p>長時間実行される処理を行うコマンドは、暗黙のうちにサーバーインスタンスを起動しますが（例：<code>watch</code>）、多くの場合、専用のサーバ・プロセスを起動することが望ましいでしょう。専用のサーバ・プロセスを実行することが望ましい場合もあります。</p>
 </div>
 <div class="paragraph">
-<p>You can run the process in the foreground in a dedicated terminal. Use <code>CTRL+C</code> to terminate the server.</p>
+<p>専用端末のフォアグラウンドでプロセスを実行することができます。サーバを終了するには <code>CTRL+C</code> を押してください。</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="bash">$ shadow-cljs server
 
+////
 # or (if you'd like REPL to control the server process)
+////
+#または（REPLにサーバープロセスを制御させたい場合
 $ shadow-cljs clj-repl</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>You can also run the server in the background controlled via the common <code>start|stop|restart</code> functions.</p>
+<p>また、一般的な`start|stop|restart` 関数を使って、バックグランドでサーバーを制御することもできます。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1182,42 +1184,42 @@ $ shadow-cljs restart</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Once any server is running every other command will use that and run much faster.</p>
+<p>いずれかのサーバーが起動していれば、他のすべてのコマンドはそのサーバーを使用し、より速く動作します。</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_build_tool_integration"><a class="anchor" href="#_build_tool_integration"></a><a class="link" href="#_build_tool_integration">3.2. Build Tool Integration</a></h3>
+<h3 id="_ビルドツールの統合"><a class="anchor" href="#_ビルドツールの統合"></a><a class="link" href="#_ビルドツールの統合">3.2. ビルドツールの統合</a></h3>
 <div class="paragraph">
-<p><code>shadow-cljs</code> can integrate with other Clojure tools since the primary distribution is just a <code>.jar</code> file available via <a href="https://clojars.org/thheller/shadow-cljs">Clojars</a>. By default your <code>:dependencies</code> are managed via <code>shadow-cljs.edn</code> but you can use other builds tools to manage your dependencies as well.</p>
+<p><code>shadow-cljs</code> は他の Clojure ツールと統合することができます。なぜなら、主要な配布物は <a href="https://clojars.org/thheller/shadow-cljs">Clojars</a> を通じて入手できる <code>.jar</code> ファイルだからです。デフォルトでは <code>:dependencies</code> は <code>shadow-cljs.edn</code> で管理されますが、他のビルドツールを使って依存関係を管理することもできます。</p>
 </div>
-<div class="admonitionblock caution">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Caution</div>
-</td>
-<td class="content">
-It is strongly recommended to use the standalone <code>shadow-cljs</code> version. The command does a lot of things to optimize the user experience (e.g. faster startup) which are not done by other tools. You&#8217;ll also save yourself a lot of headaches dealing with dependency conflicts and other related errors.
-</td>
-</tr>
-</table>
+<div class="paragraph">
+<p>注意: スタンドアロンの <code>shadow-cljs</code> バージョンを使用することを強くお勧めします。このコマンドは、UX を最適化するために、他のツールでは行われない多くのことを行います (例えば、起動の高速化など)。また、依存関係の衝突やその他の関連するエラーに対処するための多くの頭痛の種を避けることができるでしょう。</p>
 </div>
 <div class="sect3">
 <h4 id="Leiningen"><a class="anchor" href="#Leiningen"></a><a class="link" href="#Leiningen">3.2.1. Leiningen</a></h4>
 <div class="paragraph">
-<p>If you&#8217;d like to use <a href="https://leiningen.org/">Leiningen</a> to manage your dependencies, you can do so by adding a <code>:lein</code> entry to your <code>shadow-cljs.edn</code> config. With this setting, the <code>shadow-cljs</code> command will use <code>lein</code> to launch the JVM, ignoring any <code>:source-paths</code> and <code>:dependencies</code> in <code>shadow-cljs.edn</code>; relying instead on <code>lein</code> to set them from <code>project.clj</code>.</p>
+<p><a href="https://leiningen.org/">Leiningen</a> を使って依存関係を管理したい場合は、<code>shadow-cljs.edn</code> の設定に <code>:lein</code> エントリを追加することで可能になります。この設定により、<code>shadow-cljs</code> コマンドは JVM を起動する際に <code>lein</code> を使用し、<code>shadow-cljs.edn</code> 内の <code>:source-paths</code> や <code>:dependencies</code> は一切無視し、代わりに <code>project.clj</code> から設定された <code>lein</code> を使用します。</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="symbol">:lein</span> <span class="predefined-constant">true</span>
+////
  <span class="comment">; :source-paths and :dependencies are now ignored in this file</span>
+////
+<span class="comment">; :source-paths と :dependencies はこのファイルでは無視されます</span>
+
+////
  <span class="comment">; configure them via project.clj</span>
+////
+<span class="error">こ</span><span class="error">れ</span><span class="error">ら</span><span class="error">を</span>project.clj<span class="error">で</span><span class="error">設</span><span class="error">定</span><span class="error">す</span><span class="error">る</span>
  <span class="symbol">:builds</span> { <span class="keyword">..</span><span class="keyword">.</span> }</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>専用の <code>lein</code> プロファイルの使用</p>
+</div>
 <div class="listingblock">
-<div class="title">Using a dedicated <code>lein</code> profile</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="symbol">:lein</span> {<span class="symbol">:profile</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">+cljs</span><span class="delimiter">&quot;</span></span>}
  <span class="symbol">:builds</span> {<span class="keyword">..</span><span class="keyword">.</span>}}</code></pre>
@@ -1236,45 +1238,31 @@ It is strongly recommended to use the standalone <code>shadow-cljs</code> versio
 </div>
 </div>
 <div class="paragraph">
-<p>When using <code>project.clj</code> to manage your <code>:dependencies</code> you must manually include the <a href="https://clojars.org/thheller/shadow-cljs">thheller/shadow-cljs</a> artifact in your <code>:dependencies</code> (directly or in a profile).</p>
+<p>project.clj を使って :dependencies を管理する場合、 <a href="https://clojars.org/thheller/shadow-cljs">thheller/shadow-cljs</a> アーティファクトを :dependencies に (直接またはプロファイルで) 手動で含める必要があります。</p>
 </div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Important</div>
-</td>
-<td class="content">
-When you are running into weird Java Stackstraces when starting <code>shadow-cljs</code> or trying compile builds you may have a dependency conflict. It is very important that <code>shadow-cljs</code> is used with proper matching <code>org.clojure/clojurescript</code> and <code>closure-compiler</code> versions. You can check via <code>lein deps :tree</code> and the required versions are listed on <a href="https://clojars.org/thheller/shadow-cljs">clojars</a> (on the right side).
-</td>
-</tr>
-</table>
+<div class="paragraph">
+<p>重要: <code>shadow-cljs</code> の起動時やコンパイル・ビルド時に奇妙な Java Stackstraces に遭遇した場合、依存関係の衝突が考えられます。重要なのは、<code>shadow-cljs</code> が、適切にマッチした <code>org.clojure/clojurescript</code> と <code>closure-compiler</code> のバージョンと一緒に使われていることです。必要なバージョンは <a href="https://clojars.org/thheller/shadow-cljs">clojars</a> (右側)にリストアップされていますので、 <code>lein deps :tree</code> で確認できます。</p>
 </div>
 <div class="sect4">
-<h5 id="_running_tasks_directly_from_leiningen"><a class="anchor" href="#_running_tasks_directly_from_leiningen"></a><a class="link" href="#_running_tasks_directly_from_leiningen">Running Tasks Directly From Leiningen</a></h5>
+<h5 id="_leiningen_から直接タスクを実行する"><a class="anchor" href="#_leiningen_から直接タスクを実行する"></a><a class="link" href="#_leiningen_から直接タスクを実行する">Leiningen から直接タスクを実行する</a></h5>
 <div class="paragraph">
-<p>You may also directly execute <code>shadow-cljs</code> commands via <code>lein</code> if you prefer to not use the <code>shadow-cljs</code> command itself.</p>
+<p>また、`shadow-cljs`コマンド自体を使いたくない場合は、`lein`を使って`shadow-cljs`コマンドを直接実行することもできます。</p>
 </div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Important</div>
-</td>
-<td class="content">
-It is recommended to still use the <code>shadow-cljs</code> command to run commands since that will take full advantage of a running server mode instance. This will run commands substantially faster than launching additional JVMs when using <code>lein</code> directly.
-</td>
-</tr>
-</table>
+<div class="paragraph">
+<p>重要: コマンドを実行する際には、引き続き <code>shadow-cljs</code> コマンドを使用することをお勧めします。このコマンドは、実行中のサーバーモードのインスタンスを最大限に活用します。これにより、`lein`を直接使用して追加のJVMを起動するよりも、大幅に速くコマンドを実行することができます。</p>
+</div>
+<div class="paragraph">
+<p>REPLやライブリロードは不要で、devモードで一度コンパイルするだけです。</p>
 </div>
 <div class="listingblock">
-<div class="title">Just compile :dev mode once, no REPL or live-reload:</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="bash">$ lein run -m shadow.cljs.devtools.cli compile build-id</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>リリースモードに最適化されたビルドを作成します。</p>
+</div>
 <div class="listingblock">
-<div class="title">Create a :release mode optimized build:</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="bash">$ lein run -m shadow.cljs.devtools.cli release build-id</code></pre>
 </div>
@@ -1284,49 +1272,46 @@ It is recommended to still use the <code>shadow-cljs</code> command to run comma
 <div class="sect3">
 <h4 id="deps-edn"><a class="anchor" href="#deps-edn"></a><a class="link" href="#deps-edn">3.2.2. tools.deps / deps.edn</a></h4>
 <div class="paragraph">
-<p>The new <a href="https://clojure.org/guides/deps_and_cli">deps.edn</a> can also be used to manage your <code>:dependencies</code> and <code>:source-paths</code> instead of using the built-in methods or <code>lein</code>. All <code>shadow-cljs</code> commands will then be launched via the new <code>clojure</code> utility instead.</p>
-</div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Important</div>
-</td>
-<td class="content">
-<code>tools.deps</code> is still changing quite frequently. Make sure you are using the latest version.
-</td>
-</tr>
-</table>
+<p>新しい <a href="https://clojure.org/guides/deps_and_cli">deps.edn</a> は、ビルトインのメソッドや <code>lein</code> を使用する代わりに、<code>:dependencies</code> や <code>:source-paths</code> を管理するのにも使用できます。すべての <code>shadow-cljs</code> コマンドは、代わりに新しい <code>clojure</code> ユーティリティを介して起動されます。</p>
 </div>
 <div class="paragraph">
-<p>To use this set the <code>:deps true</code> property in your config. It is also possible to configure which <code>deps.edn</code> aliases should be used.</p>
+<p>重要: <code>tools.deps</code> は現在も頻繁に変更されています。必ず最新のバージョンを使用してください。</p>
 </div>
 <div class="paragraph">
-<p>You must add the <code>thheller/shadow-cljs</code> artifact to your <code>deps.edn</code> manually.</p>
+<p>これを使うには、設定で <code>:deps true</code> プロパティを設定します。また、どの <code>deps.edn</code> のエイリアスを使用するかを設定することもできます。</p>
+</div>
+<div class="paragraph">
+<p><code>thheller/shadow-cljs</code> の artifact(成果物) を手動で <code>deps.edn</code> に追加する必要があります。</p>
+</div>
+<div class="paragraph">
+<p>シンプルな shadow-cljs.edn の例</p>
 </div>
 <div class="listingblock">
-<div class="title">Simple <code>shadow-cljs.edn</code> example</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="symbol">:deps</span> <span class="predefined-constant">true</span>
  <span class="symbol">:builds</span> <span class="keyword">..</span><span class="keyword">.</span>}</code></pre>
 </div>
 </div>
 <div class="listingblock">
-<div class="title">Simple <code>deps.edn</code> example</div>
+<div class="title">シンプルな <code>deps.edn</code> の例</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="symbol">:paths</span> [<span class="keyword">..</span><span class="keyword">.</span>]
  <span class="symbol">:deps</span> {thheller/shadow-cljs {<span class="symbol">:mvn/version</span> &lt;latest&gt;}}}</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>例 <code>shadow-cljs.edn</code> に :cljs のエイリアスをつけたもの</p>
+</div>
 <div class="listingblock">
-<div class="title">Example <code>shadow-cljs.edn</code> with :cljs alias</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="symbol">:deps</span> {<span class="symbol">:aliases</span> [<span class="symbol">:cljs</span>]}
  <span class="symbol">:builds</span> <span class="keyword">..</span><span class="keyword">.</span>}</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>deps.edn の例</p>
+</div>
 <div class="listingblock">
-<div class="title">Example <code>deps.edn</code></div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="symbol">:paths</span> [<span class="keyword">..</span><span class="keyword">.</span>]
  <span class="symbol">:deps</span> {<span class="keyword">..</span><span class="keyword">.</span>}
@@ -1336,7 +1321,7 @@ It is recommended to still use the <code>shadow-cljs</code> command to run comma
 </div>
 </div>
 <div class="paragraph">
-<p>Running with <code>clj</code> directly.</p>
+<p>clj で直接実行する。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1354,41 +1339,32 @@ It is recommended to still use the <code>shadow-cljs</code> command to run comma
 </div>
 </div>
 <div class="paragraph">
-<p>You may also specify additional aliases via the command line using <code>-A</code>, eg. <code>shadow-cljs -A:foo:bar &#8230;&#8203;</code>.</p>
+<p>また、<code>shadow-cljs -A:foo:bar &#8230;&#8203;</code> のように、コマンドラインで <code>-A</code> を使って追加のエイリアスを指定することもできます。</p>
 </div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Important</div>
-</td>
-<td class="content">
-Aliases are only applied when a new instance/server is started. They do not apply when connecting to a running server using the <code>shadow-cljs</code> command. Running via <code>clj</code> will always start a new JVM and does not support server-mode.
-</td>
-</tr>
-</table>
+<div class="paragraph">
+<p>重要：エイリアスは、新しいインスタンか/サーバを起動したときにのみ適用されます。shadow-cljs コマンドを使って稼働中のサーバに接続するときには適用されません。clj`で起動すると、常に新しいJVMを起動することになり、サーバ・モードをサポートしません。</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_boot"><a class="anchor" href="#_boot"></a><a class="link" href="#_boot">3.2.3. Boot</a></h4>
 <div class="paragraph">
-<p>The authors have little Boot experience, so this chapter is in need of contributions. We understand
-that Boot allows you to build your tool chain out of functions. Since <code>shadow-cljs</code> is a normal
-JVM library, you can call functions within it to invoke tasks.</p>
+<p>著者はBootの経験がほとんどないため、この章は貢献を必要としています。私たちはBootでは、関数からツールチェーンを構築できることを理解しています。shadow-cljsは普通のJVM ライブラリなので、その中の関数を呼び出してタスクを起動することができます。</p>
 </div>
 <div class="paragraph">
-<p>Some boot tasks are available here:
+<p>いくつかの Boot タスクはここで利用可能です。
 <a href="https://github.com/jgdavey/boot-shadow-cljs" class="bare">https://github.com/jgdavey/boot-shadow-cljs</a></p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="clj-run"><a class="anchor" href="#clj-run"></a><a class="link" href="#clj-run">3.3. Running Clojure Code</a></h3>
+<h3 id="clj-run"><a class="anchor" href="#clj-run"></a><a class="link" href="#clj-run">3.3. Clojureコードの実行</a></h3>
 <div class="paragraph">
-<p>You can use the <code>shadow-cljs</code> CLI to call specific Clojure functions from the command line. This is useful when you want to run some code before/after certain tasks. Suppose you wanted to <code>rsync</code> the output of your <code>release</code> build to a remote server.</p>
+<p>コマンドラインから特定のClojure関数を呼び出すために、`shadow-cljs`というCLIを使うことができます。これは、あるタスクの前後にコードを実行したいときに便利です。例えば、`release`ビルドの出力をリモートサーバに`rsync`したいとします。</p>
+</div>
+<div class="paragraph">
+<p>例 `src/my/build.clj`における Clojure の名前空間</p>
 </div>
 <div class="listingblock">
-<div class="title">Example Clojure Namespace in <code>src/my/build.clj</code></div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">(<span class="keyword">ns</span> <span class="namespace">my.build</span>
   (<span class="symbol">:require</span>
@@ -1400,19 +1376,23 @@ JVM library, you can call functions within it to invoke tasks.</p>
   (sh <span class="string"><span class="delimiter">&quot;</span><span class="content">rsync</span><span class="delimiter">&quot;</span></span> <span class="string"><span class="delimiter">&quot;</span><span class="content">-arzt</span><span class="delimiter">&quot;</span></span> <span class="string"><span class="delimiter">&quot;</span><span class="content">path/to/output-dir</span><span class="delimiter">&quot;</span></span> <span class="string"><span class="delimiter">&quot;</span><span class="content">my@server.com:some/path</span><span class="delimiter">&quot;</span></span>))</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>release 関数の実行</p>
+</div>
 <div class="listingblock">
-<div class="title">Running the <code>release</code> function</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="bash">$ shadow-cljs clj-run my.build/release
-# or
+# または
 $ shadow-cljs run my.build/release</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>You can pass arguments to the invoked functions via the command line.</p>
+<p>呼び出された関数には、コマンドラインから引数を渡すことができます。</p>
+</div>
+<div class="paragraph">
+<p>通常のClojure fnの引数を使った引数の使用</p>
 </div>
 <div class="listingblock">
-<div class="title">Using arguments via normal Clojure fn args</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure"><span class="keyword">..</span><span class="keyword">.</span>
 (<span class="keyword">defn</span> <span class="function">release</span> [server]
@@ -1420,58 +1400,49 @@ $ shadow-cljs run my.build/release</code></pre>
   (sh <span class="string"><span class="delimiter">&quot;</span><span class="content">rsync</span><span class="delimiter">&quot;</span></span> <span class="string"><span class="delimiter">&quot;</span><span class="content">-arzt</span><span class="delimiter">&quot;</span></span> <span class="string"><span class="delimiter">&quot;</span><span class="content">path/to/output-dir</span><span class="delimiter">&quot;</span></span> server))</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>コマンドラインからのサーバーの受け渡し</p>
+</div>
 <div class="listingblock">
-<div class="title">Passing the server from the command line</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="bash">$ shadow-cljs clj-run my.build/release my@server.com:some/path</code></pre>
 </div>
 </div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Tip</div>
-</td>
-<td class="content">
-The usual <code>(defn release [&amp; args])</code> structure also works if you want to parse the args with something like <a href="https://github.com/clojure/tools.cli">tools.cli</a>.
-</td>
-</tr>
-</table>
+<div class="paragraph">
+<p>ヒント: <a href="https://github.com/clojure/tools.cli">tools.cli</a>のように引数を解析したい場合は、通常の <code>(defn release [&amp; args])</code> の構造でも動作します。</p>
 </div>
 <div class="paragraph">
-<p>You have access to the full power of Clojure here. You can build entire tools on top of this if you like. As a bonus everything you write this way is also directly available via the Clojure REPL.</p>
+<p>ここでは、Clojureのフルパワーにアクセスできます。必要に応じて、この上にツール全体を構築することができます。おまけに、この方法で書いたものはすべて、Clojure REPLで直接利用できます。</p>
 </div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Important</div>
-</td>
-<td class="content">
-When the <a href="#server-mode">server</a> is running the namespace will not be reloaded automatically, it will only be loaded once. It is recommended to do the development using a REPL and reload the file as usual (eg. <code>(require 'my.build :reload)</code>). You may also run <code>shadow-cljs clj-eval "(require 'my.build :reload)"</code> to reload manually from the command line.
-</td>
-</tr>
-</table>
+<div class="paragraph">
+<p>重要：<a href="#server-mode">server</a> が実行されている場合、名前空間は自動的にはリロードされず、一度だけロードされます。REPLを使って開発を行い、通常通りファイルをリロードすることをお勧めします（例：<code>(require 'my.build :reload)</code>)。
+`shadow-cljs clj-eval "(require 'my.build :reload)"`を実行して、コマンドラインから手動でリロードすることもできます。</p>
 </div>
 <div class="sect3">
-<h4 id="_calling_watch_via_clj_run"><a class="anchor" href="#_calling_watch_via_clj_run"></a><a class="link" href="#_calling_watch_via_clj_run">3.3.1. Calling watch via clj-run</a></h4>
+<h4 id="_clj_run_による_watch_の呼び出し"><a class="anchor" href="#_clj_run_による_watch_の呼び出し"></a><a class="link" href="#_clj_run_による_watch_の呼び出し">3.3.1. clj-run による watch の呼び出し</a></h4>
 <div class="paragraph">
-<p>By default the functions called by <code>clj-run</code> only have access to a minimal <code>shadow-cljs</code> runtime which is enough to run <code>compile</code>, <code>release</code> and any other Clojure functionality. The JVM will terminate when your function completes.</p>
+<p>デフォルトでは、<code>clj-run</code> から呼び出された関数は、<code>compile</code>, <code>release</code> やその他の Clojure 機能を実行するのに十分な、最小限の <code>shadow-cljs</code> ランタイムにしかアクセスできません。関数が完了すると、JVMは終了します。</p>
 </div>
 <div class="paragraph">
-<p>If you want to start a <code>watch</code> for a given build you need to declare that the function you are calling requires a full server. This will cause the process to stay alive until you explicitly call <code>(shadow.cljs.devtools.server/stop!)</code> or <code>CTRL+C</code> the process.</p>
+<p>あるビルドに対して <code>watch</code> を開始したい場合は、呼び出している関数が完全なサーバを必要とすることを宣言する必要があります。これにより、あなたが明示的に <code>(shadow.cljs.devtools.server/stop!)</code> を呼び出すか、<code>CTRL+C</code> でプロセスを停止させるまで、そのプロセスは生き続けます。</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">(<span class="keyword">ns</span> <span class="namespace">demo.run</span>
   (<span class="symbol">:require</span> [shadow.cljs.devtools.api <span class="symbol">:as</span> shadow]))
 
+////
 <span class="comment">;; this fails because a full server instance is missing</span>
+////
+<span class="comment">;; これは完全なサーバ・インスタンスがないために失敗します</span>
 (<span class="keyword">defn</span> <span class="function">foo</span>
   [&amp; args]
   (shadow/watch <span class="symbol">:my-build</span>))
 
+////
 <span class="comment">;; this metadata will ensure that the server is started so watch works</span>
+////
+<span class="comment">;; このメタデータは、時計が動作するようにサーバーを起動することを保証します</span>
 (<span class="keyword">defn</span> <span class="function">foo</span>
   {<span class="symbol">:shadow/requires-server</span> <span class="predefined-constant">true</span>}
   [&amp; args]
