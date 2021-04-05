@@ -28,12 +28,12 @@ Controlling what code is actually exported is done via one of the following opti
 - `:exports-fn` - a fully qualified symbol
 ////
 
-=== Single static "default" export
+=== 単一で静的な "デフォルト" エクスポート
+//Single static "default" export
 
 ////
 `:exports-var` will just return whatever is declared under that var. It can point to a `defn` or normal `def`.
 ////
-
 
 
 ////
@@ -74,7 +74,8 @@ It is effectively generating `module.exports = demo.ns.f;`
 ////
 
 
-=== Multiple static named exports
+=== 複数の静的な名前付きエクスポート
+//Multiple static named exports
 
 ////
 .Build configuration with multiple exports
@@ -136,7 +137,8 @@ In addition you may specify `:exports-fn` as a fully qualified symbol. This shou
 NOTE: The exports config automatically tracks exported symbols and passes them on to the optimization stage. This means that anything listed in `:exports` will not be renamed by Google Closure optimizations.
 ////
 
-=== Full Example
+=== 完全な例
+//Full Example
 
 ////
 The example below creates a `lib.js` file intended to be consumed via the normal Node `require` mechanism.

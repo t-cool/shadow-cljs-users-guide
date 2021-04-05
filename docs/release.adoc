@@ -19,7 +19,8 @@ may use <<NameHashing, filename hashing>> to improve caching characteristics on 
 $ shadow-cljs release build-id
 ```
 
-== Release Configuration
+== リリースの構成
+//Release Configuration
 
 ////
 Usually you won't need to add any extra configuration to create a release version for your build. The default config already captures everything necessary and should only require extra configuration if you want to override the defaults.
@@ -29,7 +30,8 @@ Usually you won't need to add any extra configuration to create a release versio
 Each `:target` already provides good defaults optimized for each platform so you'll have less to worry about.
 ////
 
-=== Optimizations [[Optimization]]
+=== 最適化 [[Optimization]]
+//Optimizations [[Optimization]]
 
 ////
 You can choose the optimization level using the `:compiler-options` section of the configuration:
@@ -56,7 +58,8 @@ See the https://developers.google.com/closure/compiler/docs/compilation_levels[t
 for more information on available optimization levels.
 ////
 
-=== Release-Specific vs. Development Configuration
+=== release に特異 vs 開発環境
+//Release-Specific vs. Development Configuration
 
 ////
 If you wish to have separate configuration values in a build when running a release build then you
@@ -84,7 +87,8 @@ can override settings by including a `:dev` and/or `:release` section in the bui
    :release {:compiler-options {:optimizations :simple}}}}}
 ```
 
-== Externs [[externs]]
+== エクスターン [[externs]]
+// Externs [[externs]]
 
 ////
 Since we want builds to be fully optimized by the Closure Compiler `:advanced` compilation we need to deal with https://developers.google.com/closure/compiler/docs/api-tutorial3[Externs]. Externs represent pieces of code that are not included when doing `:advanced` compilation. `:advanced` works by doing whole program optimizations but some code we just won't be able to include so Externs inform the Compiler about this code. Without Externs the Compiler may rename or remove some code that it shouldn't.
@@ -98,7 +102,8 @@ Typically all JS Dependencies are foreign and won't be passed through `:advanced
 TIP: Externs are only required for `:advanced`, they are not required in `:simple` mode.
 ////
 
-=== Externs Inference [[infer-externs]]
+=== エクスターンズの推論 [[infer-externs]]
+//Externs Inference [[infer-externs]]
 
 ////
 To help deal with Externs the `shadow-cljs` compiler provides enhanced externs inference which can be enabled by setting `:infer-externs :auto` for your build.
@@ -227,7 +232,8 @@ Calls on `:require` bindings are also inferred automatically.
 (createElement "div" nil "hello world")
 ```
 
-=== Manual Externs
+=== マニュアルのエクスターン
+//Manual Externs
 
 ////
 Some libraries provide Externs as separate `.js` files. You can include them into your build via the `:externs` compiler options.
@@ -251,7 +257,8 @@ Some libraries provide Externs as separate `.js` files. You can include them int
 TIP: The compiler looks for files relative to the project root first. It will also attempt to load them from the classpath if no file is found.
 ////
 
-=== Simplified Externs
+=== 簡易なエクスターン
+//Simplified Externs
 
 ////
 Writing Externs by hand can be challenging and `shadow-cljs` provides a way to write a more convenient way to write them. In combination with `shadow-cljs check <your-build>` you can quickly add the missing Externs.
@@ -276,7 +283,8 @@ global:SomeGlobalVariable
 In this example the compiler will stop renaming `something.foo()`, `something.bar()`.
 ////
 
-== Code Stripping
+== コード・ストリッピング
+//Code Stripping
 
 ////
 The Closure Compiler supports removing unwanted code by name. This allows removing code that normal dead-code removal can't or won't remove. This is quite dangerous as it can remove code you actually care about but it can remove a lot of dev only code easily. It is grouped into 4 separate options of which pretty much only `:strip-type-prefixes` is relevant to ClojureScript but other may be useful as well.
@@ -315,7 +323,8 @@ Each of these options is specified as a Set of Strings. Please note that all the
 ////
 
 
-== Build Report [[build-report]] 
+== ビルドレポート [[build-report]]
+//Build Report [[build-report]] 
 
 ////
 `shadow-cljs` can generate a detailed report for your `release` builds which includes a detailed breakdown of the included sources and how much they each contributed to the overall size.

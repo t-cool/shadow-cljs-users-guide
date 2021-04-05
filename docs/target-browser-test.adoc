@@ -64,7 +64,9 @@ It just has `init`, `start`, `stop` methods. `init` will be called once on start
 TIP: `:runner-ns` is optional, just leave it out to use the default.
 ////
 
-=== Generated output in `:test-dir`
+=== :test-dir に生成された出力
+
+//Generated output in `:test-dir`
 
 ////
 The output includes two primary artifacts in your `test-dir` folder:

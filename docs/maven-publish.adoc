@@ -1,4 +1,6 @@
-# Publishing Libraries [[publish]]
+# ライブラリの publish [[publish]]
+
+//Publishing Libraries [[publish]]
 
 ////
 ClojureScript libraries are published to `maven` repositories just like Clojure. Most commonly they are published to https://clojars.org/[Clojars] but all other standard maven repositories work too.
@@ -64,7 +66,8 @@ Assuming you are already using the recommended project structure where all your 
 This will generate the required `pom.xml` and put all sources from `src/main` into the published `.jar` file. All you need to run is `lein deploy clojars` to publish it. When doing this for the first time you'll first need to setup proper authentication. Please refer to the official  https://github.com/technomancy/leiningen/blob/stable/doc/DEPLOY.md[Leiningen] and https://github.com/clojars/clojars-web/wiki/Tutorial[Clojars] documentation on how to set that up.
 ////
 
-### Disable JAR Signing
+### JAR署名の無効化
+//Disable JAR Signing
 
 ////
 Leiningen defaults to signing libraries via GPG before publishing which is a good default but given that this can be a hassle to setup and not many people are actually verifying the signatures you can disable that step via adding a simple `:repositories` config to the `project.clj`.
@@ -79,7 +82,8 @@ Leiningen defaults to signing libraries via GPG before publishing which is a goo
   ...)
 ```
 
-### Keep your JAR clean
+### JARをクリーンに保つ
+//Keep your JAR clean
 
 ////
 If you write tests or user other development related code for your library make sure to keep them in `src/dev` or `src/test` to avoid publishing them together with the library.
@@ -93,7 +97,8 @@ Also avoid generating output to `resources/*` since Leiningen and other tools ma
 IMPORTANT: You can and should verify that everything is clean by running `lein jar` and inspecting the files that end up in it via `jar -tvf target/library-1.0.0.jar`.
 ////
 
-## Declaring JS dependencies [[publish-deps-cljs]]
+## JSの依存関係を宣言する [[publish-deps-cljs]]
+// Declaring JS dependencies [[publish-deps-cljs]]
 
 ////
 Please note that currently only `shadow-cljs` has a clean automatic interop story with `npm`. That may represent a problem for users of your libraries using other tools. You may want to consider providing a CLJSJS fallback and/or publishing extra documentation for `webpack` related workflows.

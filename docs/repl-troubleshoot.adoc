@@ -6,7 +6,8 @@ Getting a CLJS REPL working can sometimes be tricky and a lot can go wrong since
 
 image::shadow-cljs-repl.png[]
 
-### Anatomy of the CLJS REPL [[cljs-repl-anatomy]]
+### CLJS REPLの分析 [[cljs-repl-anatomy]]
+//Anatomy of the CLJS REPL [[cljs-repl-anatomy]]
 
 ////
 A REPL in Clojure does exactly what the name implies: Read one form, Eval it, Print the result, Loop to do it again.
@@ -53,7 +54,8 @@ First you'll need a REPL client. This could just be the CLI (eg. `shadow-cljs cl
 ////
 
 
-### JavaScript Runtimes
+### JavaScript のランタイム
+//JavaScript Runtimes
 
 ////
 The `shadow-cljs` JVM side of things will require one running `watch` for a given build which will handle all the related REPL commands as well. It uses a dedicated thread and manages all the given events that can happen during development (eg. REPL input, changing files, etc).

@@ -5,7 +5,8 @@ and supported test runner that can do this for you, and `shadow-cljs` includes a
 can add the appropriate wrappers around your tests so they will work in it.
 ////
 
-=== Installing Karma
+=== Karmaのインストール
+//Installing Karma
 
 ////
 See their http://karma-runner.github.io[website] for full instructions. You'll typically need
@@ -32,7 +33,8 @@ something like this is your `package.json`:
 So, you need Karma, a browser launcher, and the cljs-test integration.
 ////
 
-=== The Build
+=== Build
+// The Build
 
 ////
 The build options are:

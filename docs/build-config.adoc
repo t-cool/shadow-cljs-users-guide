@@ -1,6 +1,11 @@
+////
 `shadow-cljs.edn` will also need a `:builds` section. Builds should be a map of builds *keyed* by build ID:
+////
 
+////
 .A configuration file with a build map.
+////
+
 ```
 {:dependencies [[some-library "1.2.1"] ...]
  :source-paths ["src"]
@@ -11,16 +16,27 @@
           ... karma-specific options ...}}}
 ```
 
+////
 Each build describes artifacts that the compiler will build. The build target is an extensible feature of `shadow-cljs`, and the compiler comes with quite a few of them already.
+////
 
-== Build Target
+== ビルドターゲット
 
+//Build Target
+
+////
 Each build in `shadow-cljs` must define a `:target` which defines where you intend your code to be executed. There are default built-ins for the <<target-browser,browser>> and <<target-node,`node.js`>>. They all share the basic concept of having `:dev` and `:release` modes. `:dev` mode provides all the usual development goodies like fast compilation, live code reloading and a REPL. `:release` mode will produce optimized output intended for production.
+////
 
+////
 Targets are covered in separate chapters.
+////
 
+////
 Here are some of them:
+////
 
+////
 [Horizontal]
 <<target-browser, `:browser`>>:: Output code suitable for running in a web browser.
 <<target-bootstrap, `:bootstrap`>>:: Output code suitable for running in bootstrapped cljs environment.
@@ -29,21 +45,33 @@ Here are some of them:
 <<target-node-library, `:node-library`>>:: Output code suitable for use as a node library.
 <<target-node-script, `:node-script`>>:: Output code suitable for use as a node script.
 <<target-npm-module, `:npm-module`>>:: Output code suitable for use as an NPM module.
+////
 
+////
 Each target is covered in more detail in its own chapter since the remaining build options vary on
 the target you select.
+////
 
 
-== Development Options [[devtools]]
+== 開発オプション [[devtools]]
 
+//Development Options [[devtools]]
+
+////
 Each build `:target` typically provides some development support. They are grouped under the `:devtools` key for each `:build`.
+////
 
 === REPL
 
+////
 When running `watch` code for the REPL is injected automatically and usually does not require additional configuration. Additional options are available to control REPL behavior:
+////
 
+////
 - `:repl-init-ns` allows configuring which namespace the REPL will start in. It defaults to `cljs.user`.
 - `:repl-pprint` makes the REPL use `cljs.pprint` instead of the regular `pr-str` when printing eval results. Defaults to false.
+////
+
 ```
 {...
  :builds
@@ -54,15 +82,21 @@ When running `watch` code for the REPL is injected automatically and usually doe
 ```
 
 
-=== Preloads
+=== プリロード
 
+//Preloads
+
+////
 As a developer most of your time is spent in development mode. You're probably familiar with tools like `figwheel`,
 `boot-reload`, and `devtools`. It's almost certain that you want one or more of these in your builds.
+////
 
+////
 Preloads are used to force certain namespaces into the front of your generated Javascript. This is
 generally used to inject tools and instrumentation before the application actually loads and runs. The
 preloads option is simply a list of namespaces in the `:devtools`/`:preloads` section of
 `shadow-cljs-edn`:
+////
 
 ```
 {...
@@ -72,34 +106,53 @@ preloads option is simply a list of namespaces in the `:devtools`/`:preloads` se
                    ...}}}}
 ```
 
+////
 NOTE: Since version 2.0.130 shadow-cljs automatically adds `cljs-devtools` to the preloads in
 `watch` and `compile` if they are on the classpath. All you need to do is make sure `binaryage/devtools` is in your
 `dependencies` list. (Note, *not* binaryage/**cljs-**devtools.) If you don't want to have `cljs-devtools` in
 specific targets, you can suppress this by adding `:console-support false` to the `:devtools` section of
 those targets.
+////
 
-=== Hot Code Reload
+=== ホットコードリロード
+//Hot Code Reload
 
+////
 The React and ClojureScript ecosystems combine to make this kind of thing super useful. The `shadow-cljs`
 system includes everything you need to do your hot code reload, without needing to resort to external tools.
+////
 
+////
 In order to use it you simply run:
+////
 
 ```
 shadow-cljs watch build-id
 ```
 
-=== Lifecycle Hooks
+=== ライフサイクルフック
 
+//Lifecycle Hooks
+
+////
 You can configure the compiler to run functions just before hot code reload brings in updated code, and just after. These are useful for stopping/starting things that would otherwise close over old code.
+////
 
+////
 These can be configured via the `:devtools` section in your build config or directly in your code via metadata tags.
+////
 
-==== Metadata
+==== メタデータ
+//Metadata
 
+////
 You can set certain metadata on normal CLJS `defn` vars to inform the compiler that these functions should be called at a certain time when live reloading.
+////
 
+////
 .hook config via metadata
+////
+
 ```clojure
 (ns my.app)
 
@@ -110,11 +163,18 @@ You can set certain metadata on normal CLJS `defn` vars to inform the compiler t
   (js/console.log "start"))
 ```
 
+////
 This would call `my.app/stop` before loading any new code and `my.app/start` when all new code was loaded. You can tag multiple functions like this and they will be called in dependency order of their namespaces.
+////
 
+////
 There are also async variants of these in case you need to do some async work that should complete before proceeding with the reload process.
+////
 
+////
 .async hooks example
+////
+
 ```clojure
 (ns my.app)
 
@@ -133,20 +193,32 @@ There are also async variants of these in case you need to do some async work th
       (done)))
 ```
 
+////
 IMPORTANT: The functions will receive one callback function that must be called when their work is completed. If the callback function is not called the reload process will not proceed.
+////
 
+////
 It is possible to tag namespaces with metadata so they will never be reloaded even if they are recompiled.
+////
 
+////
 .A non-reloadable ns
+////
+
 ```
 (ns ^:dev/once my.thing)
 
 (js/console.warn "will only execute once")
 ```
 
+////
 Namespaces can also be tagged to always reload.
+////
 
+////
 .An always-reloadable ns
+////
+
 ```
 (ns ^:dev/always my.thing)
 
@@ -154,10 +226,14 @@ Namespaces can also be tagged to always reload.
 ```
 
 
-==== Config
+==== 設定
+//Config
 
+////
 In addition to the metadata you can configure the lifecycle hooks via `shadow-cljs.edn`.
+////
 
+////
 [Horizontal]
 `:before-load`:: A symbol (with namespace) of a function to run just before refreshing
 files that have been recompiled.  This function *must* be synchronous in nature.
@@ -166,8 +242,12 @@ files that have been recompiled.  This function *must* be synchronous in nature.
 `:after-load-async`:: A symbol (with namespace) of a function `(fn [done])` to run after hot code reload is complete. This function can do async processing, but *must* call `(done)` to indicate it is complete.
 `:autoload`:: A boolean controlling whether code should be hot loaded. Implicitly set to `true` if either of the callbacks is set. Always enabled for the `:browser` target by default, set to `false` to disable.
 `:ignore-warnings`:: A boolean controlling whether code with warnings should be reloaded. Defaults to `false`.
+////
 
+////
 .A sample of lifecycle hooks.
+////
+
 ```
 {...
  :builds
@@ -177,18 +257,30 @@ files that have been recompiled.  This function *must* be synchronous in nature.
                    ...}}}}
 ```
 
+////
 IMPORTANT: Hooks cannot be declared in the `cljs.user` namespace. Hooks are only used if the namespace containing them is actually included in the build. If you use an extra namespace make sure to include it via `:preloads`.
+////
 
+////
 TIP: If neither `:after-load` nor `:before-load` are set the compiler will only attempt to hot reload the code in the `:browser` target. If you still want hot reloading but don't need any of the callbacks you can set `:autoload true` instead.
+////
 
 
-== Build Hooks [[build-hooks]]
+== ビルドフック [[build-hooks]]
+//Build Hooks [[build-hooks]]
 
+////
 It is sometimes desirable to execute some custom code at a specific stage in the compilation pipeline. `:build-hooks` let you declare which functions should be called and they have full access to the build state at that time. This is quite powerful and opens up many possible tool options.
+////
 
+////
 They are configured per build under the `:build-hooks` key
+////
 
+////
 .Exampe :build-hooks
+////
+
 ```clojure
 {...
  :builds
@@ -198,7 +290,10 @@ They are configured per build under the `:build-hooks` key
         ...}}}}
 ```
 
+////
 .Example hook code
+////
+
 ```clojure
 (ns my.util)
 
@@ -209,58 +304,94 @@ They are configured per build under the `:build-hooks` key
   build-state)
 ```
 
+////
 This example would call `(my.util/hook build-state 1 2 3)` after the build completed the `:flush` <<compilation-stages, stage>> (ie. written to disk). The example would print `[:hello-world (1 2 3)]` but please do something more useful in actual hooks.
+////
 
+////
 The hook is a just a normal *Clojure* function with some additional metadata. The `{:shadow.build/stage :flush}` metadata informs the compiler to call this hook for `:flush` only. You may instead configure `{:shadow.build/stages #{:configure :flush}}` if the hook should be called after multiple stages. At least one configured stage is required since the hook otherwise would never do anything.
+////
 
+////
 All build hooks will be called after the `:target` work is done. They will receive the `build-state` (a clojure map with all the current build data) as their first argument and *must* return this `build-state` modified or unmodified. When using multiple stages you can add additional data to the `build-state` that later stages can see. It is strongly advised to use namespaced keys only to ensure not accidentally breaking the entire build.
+////
 
+////
 The `build-state` has some important entries which might be useful for your hooks:
+////
 
+////
 - `:shadow.build/build-id` - the id of the current build (eg. `:app`)
 - `:shadow.build/mode` - `:dev` or `:release`
 - `:shadow.build/stage` - the current stage
 - `:shadow.build/config` - the build config. You can either store config data for the hook in the build config directly or pass it as arguments in the hook itself
+////
 
+////
 IMPORTANT: With a running `watch` all hooks will be called repeatedly for each build. Avoid doing too much work as they can considerably impact your build performance.
+////
 
-=== Compilation Stages [[compile-stages]]
+=== コンパイル・ステージ [[compile-stages]]
+//Compilation Stages [[compile-stages]]
 
+////
 The possible stages the `:build-hooks` can use are:
+////
 
+////
 - `:configure` - initial `:target` specific configuration
 - `:compile-prepare` - called before any compilation is done
 - `:compile-finish` - called after all compilation finishes
 - `:optimize-prepare` - called before running the Closure Compiler optimization phase (`:release` only)
 - `:optimize-finish` - called after Closure is done (`:release` only)
 - `:flush` - called after everything was flushed to disk
+////
 
+////
 With a running `watch` the `:configure` is only called once. Any of the others may be called
 again (in order) for each re-compile. The `build-state` will be re-used until the build config changes at which point it will be thrown away and a fresh one will be created.
+////
 
-== Compiler Cache
+== コンパイラ・キャッシュ
+//Compiler Cache
 
+////
 `shadow-cljs` will cache all compilation results by default. The cache is invalidated whenever anything relevant to the individual source files changes (eg. changed compiler setting, changed dependencies, etc.). This greatly improves the developer experience since incremental compilation will be **much** faster than starting from scratch.
+////
 
+////
 Invalidating the cache however can not always be done reliably if you are using a lot of macros with side-effects (reading files, storing things outside the compiler state, etc.). In those cases you might need to disable caching entirely.
+////
 
+////
 Namespaces that are known to include side-effecting macros can be blocked from caching. They won't be cached themselves and namespaces requiring them will not be cached as well. The https://github.com/cerner/clara-rules[clara-rules] library has side-effecting macros and is blocked by default. You can specify which namespaces to block globally via the `:cache-blockers` configuration. It expects a set of namespace symbols.
+////
 
+////
 .clara.rules cache blocking example (this is done by default)
+////
+
 ```
 {...
  :cache-blockers #{clara.rules}
  :builds {...}}
 ```
 
+////
 In addition you can control how much caching is done more broadly via the `:build-options` `:cache-level` entry. The supported options are:
+////
 
+////
 [horizontal]
 `:all`:: The default, all CLJS files are cached
 `:jars`:: Only caches files from libraries, ie. source files in `.jar` files
 `:off`:: Does not cache any CLJS compilation results (by far the slowest option)
+////
 
+////
 .Compiling without Cache
+////
+
 ```
 {...
  :builds
@@ -271,14 +402,21 @@ In addition you can control how much caching is done more broadly via the `:buil
    {:cache-level :off}}}}
 ```
 
+////
 The cache files are stored in a dedicated directory for each build so the cache is never shared between builds. A build with the id `:app` will have the `:dev` cache in the directory:
+////
 
+////
 .Cache location for `cljs/core.cljs`
+////
+
 ```
 target/shadow-cljs/builds/app/dev/ana/cljs/core.cljs.cache.transit.json
 ```
 
+////
 The `:cache-root` setting defaults to `target/shadow-cljs` and controls where ALL cache files will be written. It can only be configured globally, not per build.
+////
 
 ```
 {:source-paths [...]
@@ -290,13 +428,20 @@ The `:cache-root` setting defaults to `target/shadow-cljs` and controls where AL
 ;; .shadow-cljs/builds/app/dev/ana/cljs/core.cljs.cache.transit.json
 ```
 
+////
 The `:cache-root` is always resolved relative to the project directory. You can also specify absolute paths (eg. `/tmp/shadow-cljs`).
+////
 
-== Closure Defines [[closure-defines]]
+== クロージャの定義 [[closure-defines]]
+//Closure Defines [[closure-defines]]
 
+////
 The Closure Library & Compiler allow you to define variables that are essentially compile time constants. You can use these to configure certain features of your build. Since the Closure compiler treats these as constants when running `:advanced` optimizations they are fully supported in the Dead-Code-Elimination passes and can be used to remove certain parts of the code that should not be included in `release` builds.
+////
 
+////
 You can define them in your code
+////
 
 ```clojure
 (ns your.app)
@@ -307,7 +452,9 @@ You can define them in your code
   (println "Hello World"))
 ```
 
+////
 This defines the `your.app/VERBOSE` variable as `false` by default. This will cause the `println` to be removed in `:advanced` compilation. You can toggle this to `true` via the `:closure-defines` options which will enable the `println`. This can either be done for development only or always.
+////
 
 ```clojure
 {...
@@ -325,18 +472,29 @@ This defines the `your.app/VERBOSE` variable as `false` by default. This will ca
    }}
 ```
 
+////
 TIP: It is generally safer to use the "disabled" variant as the default since it makes things less likely to be included in a `release` build when they shouldn't be. Forgetting to set a `:closure-defines` variable should almost always result in less code being used not more.
+////
 
+////
 *Closure Defines from the Closure Library*
+////
 
+////
 - `goog.DEBUG`: The Closure Library uses this for many development features. `shadow-cljs` automatically sets this to `false` for `release` builds.
 - `goog.LOCALE` can be used to configure certain localization features like `goog.i18n.DateTimeFormat`. It accepts a standard locale string and defaults to `en`. Pretty much all locales are supported, see https://github.com/google/closure-library/blob/master/closure/goog/i18n/datetimesymbols.js[here] and https://github.com/google/closure-library/blob/master/closure/goog/i18n/datetimesymbolsext.js[here].
+////
 
-== Compiler Options [[compiler-options]]
+== コンパイラのオプション [[compiler-options]]
+//Compiler Options [[compiler-options]]
 
+////
 The CLJS compiler supports several options to influence how some code is generated. For the most part `shadow-cljs` will pick some good defaults for each `:target` but you might occasionally want to change some of them.
+////
 
+////
 These are all grouped under the `:compiler-options` key in your build config.
+////
 
 ```clojure
 {:dependencies [...]
@@ -347,10 +505,15 @@ These are all grouped under the `:compiler-options` key in your build config.
    :compiler-options {:fn-invoke-direct true}}}}
 ```
 
+////
 Most of the standard ClojureScript https://clojurescript.org/reference/compiler-options[Compiler Options] are either enabled by default or do not apply. So very few of them actually have an effect. A lot of them are also specific to certain `:target` types and do not apply universally (e.g. `:compiler-options {:output-wrapper true}` is only relevant for `:target :browser`).
+////
 
+////
 Currently supported options include
+////
 
+////
 - `:optimizations` supports `:advanced`, `:simple` or `:whitespace`, defaults to `:advanced`. `:none` is the default for development and cannot be set manually. `release` with `:none` won't work.
 - `:infer-externs` `:all`, `:auto`, `true` or `false`, defaults to `true`
 - `:static-fns` (Boolean) defaults to `true`
@@ -365,11 +528,17 @@ Currently supported options include
 - `:anon-fn-naming-policy`
 - `:rename-prefix` and `:rename-prefix-namespace`
 - `:warnings` as a map of `{warning-type true|false}`, eg. `:warnings {:undeclared-var false}` to turn off specific warnings.
+////
 
+////
 *Unsupported or non-applicable Options*
+////
 
+////
 Options that don't have any effect at all include
+////
 
+////
 - `:verbose` is controlled by running `shadow-cljs compile app --verbose` not in the build config.
 - `:foreign-libs` and `:libs`
 - `:stable-names` always enabled, cannot be disabled
@@ -386,12 +555,19 @@ Options that don't have any effect at all include
 - `:package-json-resolution` see <<js-resolve, :js-options :resolve>> instead
 - `:watch-fn`
 - `:process-shim`
+////
 
-=== Warnings as Errors [[warnigs-as-errors]]
+=== エラーとしてのワーニング [[warnigs-as-errors]]
+//Warnings as Errors [[warnigs-as-errors]]
 
+////
 It is sometimes desireable to fail a build with warnings rather than continuing with the build (eg. in CI envs). You can use the `:warnings-as-errors` compiler options to customize how that is handled.
+////
 
+////
 .Treat all warnings as errors
+////
+
 ```
 {...
  :builds
@@ -400,7 +576,10 @@ It is sometimes desireable to fail a build with warnings rather than continuing 
    :compiler-options {:warnings-as-errors true}}}}
 ```
 
+////
 .Only throw certain warnings
+////
+
 ```
 {...
  :builds
@@ -409,9 +588,14 @@ It is sometimes desireable to fail a build with warnings rather than continuing 
    :compiler-options {:warnings-as-errors #{:undeclared-var}}}}
 ```
 
+////
 A set of possible warning-type keywords can be found https://github.com/clojure/clojurescript/blob/5ad96a8b3ae2e3616a19715ba9ba2471a36933a2/src/main/clojure/cljs/analyzer.cljc#L124-L163[here].
+////
 
+////
 .Only throw for certain namespaces
+////
+
 ```
 {...
  :builds
@@ -421,29 +605,47 @@ A set of possible warning-type keywords can be found https://github.com/clojure/
                                            :warnings-types #{:undeclared-var}}}
 ```
 
+////
 `:ignore` takes a set of symbols refering to namespaces. Either direct matches or `.*` wildcards are allowed. `:warning-types` has the same functionality as above, not specifying it means all warnings will throw except the ignored namespaces.
+////
 
 
-== Output Language Options
+== 出力言語オプション
+//Output Language Options
 
+////
 By default the generated JS output will be compatible with ES5 and all "newer" features will be transpiled to compatible code using polyfills. This is currently the safest default and supports most browsers in active use (including IE10+).
+////
 
+////
 You can select other output options if you only care about more modern environments and want to keep the original code without replacements (eg. `node`, Chrome Extensions, ...)
+////
 
+////
 IMPORTANT: Note that this mostly affects imported JS code from <<npm, npm>> or `.js` files from the <<classpath-js, classpath>>. CLJS will currently only generate ES5 output and is not affected by setting higher options.
+////
 
+////
 You can configure this via the `:output-feature-set` in `:compiler-options`. The older `:language-out` option should not be used as `:output-feature-set` replaced it.
+////
 
+////
 Supported options are:
+////
 
+////
 - `:es3`
 - `:es5`
 - `:es6` - `class`, `const`, `let`, ...
 - `:es7` - exponent `**` operator
 - `:es8` - `async/await`, `generators`, object literals with spread, ...
 - `:es-next` - all the features the Closure Compiler currently supports
+////
 
+////
 .Example
+////
+
 ```
 {...
  :builds
@@ -454,16 +656,25 @@ Supported options are:
    :compiler-options {:output-feature-set :es7}}}}
 ```
 
+////
 Documentation on these options is a bit sparse and is mostly documented in the code https://github.com/google/closure-compiler/blob/master/src/com/google/javascript/jscomp/parsing/parser/FeatureSet.java[here].
+////
 
 
 == Conditional Reading
+//Conditional Reading
 
+////
 CAUTION: This feature only works in `shadow-cljs`. It was officially https://dev.clojure.org/jira/browse/CLJS-2396[rejected] by the ClojureScript project. It will still compile fine in CLJS but only the official branches work (e.g. `:cljs`). It might still be https://groups.google.com/d/msg/clojure-dev/8YJJM8lJuQs/hR5_vUZPCQAJ[supported] one day but as of now it is not.
+////
 
+////
 `shadow-cljs` lets you configure additional reader features in `.cljc` files. By default you can only use reader conditionals to generate separate code for `:clj`, `:cljs` or `:cljr`. In many CLJS builds however it is also desirable to select which code is generated based on your `:target`.
+////
 
+////
 Example: Some `npm` packages only work when targeting the `:browser`, but you may have a `ns` that you also want to use in a `:node-script` build. This might happen frequently when trying to use Server-Side Rendering (SSR) with your React App. `codemirror` is one such package.
+////
 
 ```clojure
 (ns my.awesome.component
@@ -479,9 +690,13 @@ Example: Some `npm` packages only work when targeting the `:browser`, but you ma
 ...
 ```
 
+////
 This namespace will compile fine for both builds (`:node-script` and `:browser`) but when trying to run the `:node-script` it will fail since the `codemirror` package tries to access the DOM. Since `react-dom/server` does not use refs the `init-cm` function will never be called anyways.
+////
 
+////
 While you can use <<closure-defines, :closure-defines>> to conditionally compile away the `init-cm` fn you can not use it to get rid of the extra `:require`. Reader conditionals let you do this easily.
+////
 
 ```clojure
 (ns my.awesome.component
@@ -503,7 +718,10 @@ While you can use <<closure-defines, :closure-defines>> to conditionally compile
 ...
 ```
 
+////
 .`:reader-features` config examples
+////
+
 ```clojure
 {...
  :builds
@@ -519,7 +737,9 @@ While you can use <<closure-defines, :closure-defines>> to conditionally compile
    {:reader-features #{:node}}}}}
 ```
 
+////
 The `:server` build will then no longer have the `codemirror` require and the `init-cm` function is removed. Becoming only
+////
 
 ```clojure
 (ns my.awesome.component
@@ -533,15 +753,25 @@ The `:server` build will then no longer have the `codemirror` require and the `i
 ...
 ```
 
+////
 IMPORTANT: This feature is only available in `.cljc` files and will fail in `.cljs` files.
+////
 
-== Overriding from the CLI [[config-merge]]
+== CLIからのオーバーライド [[config-merge]]
+//Overriding from the CLI [[config-merge]]
 
+////
 It is sometimes desirable to make small adjustments to the build configuration from the command line with values that can't be added statically to the `shadow-cljs.edn` config or may change depending on the environment you are in.
+////
 
+////
 You can pass additional config data via the `--config-merge {:some "data"}` command line option which will be merged into the build config. Data added from the CLI will override data from the `shadow-cljs.edn` file.
+////
 
+////
 .Example `shadow-cljs.edn` config
+////
+
 ```
 {...
  :builds
@@ -551,25 +781,41 @@ You can pass additional config data via the `--config-merge {:some "data"}` comm
    ...}}}
 ```
 
+////
 .Overriding the `:output-dir` from the CLI
+////
+
 ```bash
 $ shadow-cljs release app --config-merge '{:output-dir "somewhere/else"}'
 ```
 
+////
 .Overriding the `:closure-defines` from the CLI
+////
+
 ```bash
 $ shadow-cljs release app --config-merge '{:closure-defines {your.app/DEBUG true}}'
 ```
 
+////
 `--config-merge` expects one EDN map and can be used multiple times, they will be merged left to right. The data added is also visible to build-hooks.
+////
 
+////
 IMPORTANT: If you specify multiple build ids the data will be merged into all specified builds. `shadow-cljs release frontend backend --config-merge '{:hello "world"}'` will be applied to both.
+////
 
-== Using Environment Variables [[shadow-env]]
+== 環境変数の使用 [[shadow-env]]
+//Using Environment Variables [[shadow-env]]
 
+////
 It is possible to use environment variables to set configuration values in `shadow-cljs.edn` but you should consider using `--config-merge` instead. If you really must use an environment variable you can do so via the `#shadow/env "FOO"` reader tag. You can also use the shorter `#env`.
+////
 
+////
 .Example `shadow-cljs.edn` config
+////
+
 ```
 {...
  :builds
@@ -580,7 +826,9 @@ It is possible to use environment variables to set configuration values in `shad
    ...}}}
 ```
 
+////
 The are also a few more supported forms that you can use `#shadow/env` with.
+////
 
 ```
 #shadow/env "APP_URL"
@@ -592,17 +840,30 @@ The are also a few more supported forms that you can use `#shadow/env` with.
 #shadow/env ["PORT" :as :int :default 8080]
 ```
 
+////
 Supported `:as` coercions are `:int`, `:bool`, `:keyword`, `:symbol`. Supplied `:default` values will not be converted and are expected to be in the correct type already.
+////
 
+////
 IMPORTANT: The environment variables used when the `shadow-cljs` process was started are used. If a server process is used its environment variables will be used over those potentially set by other commands. This is mostly relevant during development but may be confusing. `--config-merge` does not have this limitation.
+////
 
-== Build and Target defaults [[build-target-defaults]]
+== ビルドとターゲットのデフォルト [[build-target-defaults]]
 
+//Build and Target defaults [[build-target-defaults]]
+
+////
 It is possible to use set defaults that will be used for all builds, or for all targets of a certain type.
+////
 
+////
 Configuration merge order is as follows `:build-defaults` -> `:target-defaults` -> actual build config -> extra config overrides.
+////
 
+////
 .Example `shadow-cljs.edn` config
+////
+
 ```
 {...
  :build-defaults
@@ -621,6 +882,10 @@ Configuration merge order is as follows `:build-defaults` -> `:target-defaults` 
    ...}}}
 ```
 
+////
 In this example the `:app` target will inherit both `:build-defaults` and the `:target-defaults` for `:browser`.
+////
 
+////
 IMPORTANT: Configs later in the merge order can override, but not remove previous configuration items. Once a default is set, the only way to remove it is by overriding it.
+////

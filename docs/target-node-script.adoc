@@ -10,7 +10,8 @@ The code is just ClojureScript, and an entry point is easy to define:
   (prn "hello world"))
 ```
 
-=== Build Options
+=== ビルドオプション
+//Build Options
 
 ////
 You will need the same basic <<config,main configuration>> as in other targets (like
@@ -45,7 +46,8 @@ function on startup. This only ever produces the file specified in `:output-to`.
 (e.g. for development mode) are written to a temporary support directory.
 ////
 
-=== Hot Code Reload [[NodeHotCodeReload]]
+=== ホットコードリロード [[NodeHotCodeReload]]
+//Hot Code Reload [[NodeHotCodeReload]]
 
 ////
 You will often write scripts that run as servers or some other long-running process. Hot code reload can
