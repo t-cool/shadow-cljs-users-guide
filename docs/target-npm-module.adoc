@@ -1,11 +1,18 @@
+////
 There is an additional target that is intended to integrate CLJS into an existing JS project. The output can seamlessly integrate with existing JS tools (eg. webpack, browserify, babel,
 create-react-app, ...) with little configuration.
+////
 
+////
 [horizontal]
 `:output-dir`:: The path for the output files are written to, defaults to `node_modules/shadow-cljs`.
 `:entries`:: (required) A vector of namespace symbols that should be compiled
+////
 
+////
 .Example `shadow-cljs.edn` config
+////
+
 ```
 {...
  :builds
@@ -14,17 +21,25 @@ create-react-app, ...) with little configuration.
    :entries [demo.foo]}}}
 ```
 
+////
 If you use the default `:output-dir` of `"node_modules/shadow-cljs"` you can access the declared namespaces by using `require("shadow-cljs/demo.foo")` in JS. When using something not in `node_modules` you must include them using a relative path. With `:output-dir "out"` that would be `require("./out/demo.foo")` from your project root.
+////
 
+////
 If you plan to distribute code on NPM, then you may want to use the <<NodeLibrary, `:node-library` target>> instead since it allows for a finer level of control over exports and optimization.
+////
 
 == Working with Optimizations
 
+////
 Unlike the `:node-library` target, the module target does not know what you want to call the
 symbols you're exporting, so it just exports them as-is. If you use advanced compilation, then everything
 will get a minified munged name!
+////
 
+////
 This is easy to remedy, simply add `:export` metadata on any symbols that you want to preserve:
+////
 
 ```
 (ns demo.foo)
@@ -34,8 +49,10 @@ This is easy to remedy, simply add `:export` metadata on any symbols that you wa
 (defn ^:export bar [] ...)
 ```
 
+////
 This is a standard annotation that is understood by ClojureScript and prevents Google Closure from
 renaming an artifact. JS code will still be able to access them after optimizations. Without the `^:export` hint the closure-compiler will likely have removed or renamed them.
+////
 
 ```
 var ns = require("shadow-cljs/demo.foo");

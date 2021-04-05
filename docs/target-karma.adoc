@@ -1,12 +1,16 @@
+////
 When you want to run your CLJS tests against a browser on some kind of CI server you'll need to
 be able to run the tests from a command line and get back a status code. Karma is a well-known
 and supported test runner that can do this for you, and `shadow-cljs` includes a target that
 can add the appropriate wrappers around your tests so they will work in it.
+////
 
 === Installing Karma
 
+////
 See their http://karma-runner.github.io[website] for full instructions. You'll typically need
 something like this is your `package.json`:
+////
 
 ```json
 {
@@ -24,19 +28,24 @@ something like this is your `package.json`:
   "license": "MIT"
 }
 ```
-
+////
 So, you need Karma, a browser launcher, and the cljs-test integration.
+////
 
 === The Build
 
+////
 The build options are:
+////
 
 [horizontal]
 `:target`::     `:karma`
 `:output-to`::  A path/filename for the js file.
 `:ns-regexp`::  (optional) A regex to match the test namespaces, defaults to "-test$
 
+////
 So you might have something like this:
+////
 
 ```
 {...
@@ -47,7 +56,9 @@ So you might have something like this:
    :ns-regexp  "-spec$"}}}
 ```
 
+////
 You also need a `karma.conf.js`:
+////
 
 ```javascript
 module.exports = function (config) {
@@ -69,7 +80,9 @@ module.exports = function (config) {
 };
 ```
 
+////
 then you can run the tests as follows (assuming you've installed global executables of the tools):
+////
 
 ```bash
 $ shadow-cljs compile ci

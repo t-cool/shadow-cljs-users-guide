@@ -1,29 +1,47 @@
+////
 Development mode always outputs individual files for each namespace so that they can be hot loaded
 in isolation. When you're ready to deploy code to a real server you want to run the Closure Compiler
 on it to generate a single minified result for each <<Modules, module>>.
+////
 
+////
 By default the release mode output file should just be a drop-in replacements for the
 development mode file: there is no difference in the way you include them in your HTML. You
 may use <<NameHashing, filename hashing>> to improve caching characteristics on browser targets.
+////
 
+////
 .Generating Minified Output
+////
+
+
 ```
 $ shadow-cljs release build-id
 ```
 
 == Release Configuration
 
+////
 Usually you won't need to add any extra configuration to create a release version for your build. The default config already captures everything necessary and should only require extra configuration if you want to override the defaults.
+////
 
+////
 Each `:target` already provides good defaults optimized for each platform so you'll have less to worry about.
+////
 
 === Optimizations [[Optimization]]
 
+////
 You can choose the optimization level using the `:compiler-options` section of the configuration:
+////
 
+////
 IMPORTANT: You do not usually need to set `:optimizations` since the `:target` already sets it to an appropriate level.
+////
 
+////
 IMPORTANT: `:optimizations` only apply when using the `release` command. Development builds are never optimized by the Closure Compiler. Development builds are always set to `:none`.
+////
 
 ```clojure
 {...
@@ -33,15 +51,22 @@ IMPORTANT: `:optimizations` only apply when using the `release` command. Develop
       :compiler-options {:optimizations :simple}}}}
 ```
 
+////
 See the https://developers.google.com/closure/compiler/docs/compilation_levels[the Closure compiler's documentation]
 for more information on available optimization levels.
+////
 
 === Release-Specific vs. Development Configuration
 
+////
 If you wish to have separate configuration values in a build when running a release build then you
 can override settings by including a `:dev` and/or `:release` section in the build section:
+////
 
+////
 .Example `shadow-cljs.edn` build config
+////
+
 ```clojure
 {:source-paths ["src"]
  :dependencies []
@@ -61,17 +86,28 @@ can override settings by including a `:dev` and/or `:release` section in the bui
 
 == Externs [[externs]]
 
+////
 Since we want builds to be fully optimized by the Closure Compiler `:advanced` compilation we need to deal with https://developers.google.com/closure/compiler/docs/api-tutorial3[Externs]. Externs represent pieces of code that are not included when doing `:advanced` compilation. `:advanced` works by doing whole program optimizations but some code we just won't be able to include so Externs inform the Compiler about this code. Without Externs the Compiler may rename or remove some code that it shouldn't.
+////
 
+////
 Typically all JS Dependencies are foreign and won't be passed through `:advanced` and thus require Externs.
+////
 
+////
 TIP: Externs are only required for `:advanced`, they are not required in `:simple` mode.
+////
 
 === Externs Inference [[infer-externs]]
 
+////
 To help deal with Externs the `shadow-cljs` compiler provides enhanced externs inference which can be enabled by setting `:infer-externs :auto` for your build.
+////
 
+////
 .Example Config
+////
+
 ```clojure
 {...
  :builds
@@ -82,11 +118,18 @@ To help deal with Externs the `shadow-cljs` compiler provides enhanced externs i
    }}}}
 ```
 
+////
 With `:auto` the compiler will perform additional checks at compile time for your files only. It won't warn you about possible externs issues in library code. `:all` will enable it for everthing but be aware that you may get a lot of warnings.
+////
 
+////
 When enabled you'll get warnings whenever the Compiler cannot figure out whether you are working with JS or CLJS code.
+////
 
+////
 .Example Code
+////
+
 ```
 (defn wrap-baz [x]
   (.baz x))
@@ -105,48 +148,77 @@ When enabled you'll get warnings whenever the Compiler cannot figure out whether
 --------------------------------------------------------------------------------
 ```
 
+////
 In `:advanced` the compiler will be renaming `.baz` to something "shorter" and Externs inform the Compiler that this is an external property that should not be renamed.
+////
 
+////
 `shadow-cljs` can generate the appropriate externs if you add a typehint to the object you are performing native interop on.
+////
 
+////
 .Type-hint to help externs generation
+////
+
 ```clojure
 (defn wrap-baz [x]
   (.baz ^js x))
 ```
 
+////
 The `^js` typehint will cause the compiler to generate proper externs and the warning will go away. The property is now safe from renaming.
+////
 
+////
 .Multiple interop calls
+////
+
 ```clojure
 (defn wrap-baz [x]
   (.foo ^js x)
   (.baz ^js x))
 ```
 
+////
 It can get tedious to annotate every single interop call so you can annotate the variable binding itself. It will be used in the entire scope for this variable. Externs for both calls will still be generated.
+////
 
+////
 .Annotate `x` directly
+////
+
 ```clojure
 (defn wrap-baz [^js x]
   (.foo x)
   (.baz x))
 ```
 
+////
 IMPORTANT: Don't annotate everything with `^js`. Sometimes you may be doing interop on CLJS or ClosureJS objects. Those do not require externs. If you are certain you are working with a CLJS Object prefer using the `^clj` hint.
  It is not the end of the world when using `^js` incorrectly but it may affect some optimizations when a variable is not renamed when it could be.
+////
 
 
+////
 Calls on globals do not require a typehint when using direct `js/` calls.
+////
 
+////
 .No hint required, externs inferred automatically
+////
+
 ```
 (js/Some.Thing.coolFunction)
 ```
 
+////
 Calls on `:require` bindings are also inferred automatically.
+////
 
+////
 .No hint required for `:as` and `:refer` bindings
+////
+
 ```
 (ns my.app
   (:require ["react" :as react :refer (createElement)]))
@@ -157,9 +229,14 @@ Calls on `:require` bindings are also inferred automatically.
 
 === Manual Externs
 
+////
 Some libraries provide Externs as separate `.js` files. You can include them into your build via the `:externs` compiler options.
+////
 
+////
 .Manual Externs Config
+////
+
 ```
 {...
  :builds
@@ -170,15 +247,24 @@ Some libraries provide Externs as separate `.js` files. You can include them int
    }}}
 ```
 
+////
 TIP: The compiler looks for files relative to the project root first. It will also attempt to load them from the classpath if no file is found.
+////
 
 === Simplified Externs
 
+////
 Writing Externs by hand can be challenging and `shadow-cljs` provides a way to write a more convenient way to write them. In combination with `shadow-cljs check <your-build>` you can quickly add the missing Externs.
+////
 
+////
 Start by creating a `externs/<your-build>.txt`, so build `:app` would be `externs/app.txt`. In that file each line should be one word specifying a JS property that should not be renamed. Global variables should be prefixed by `global:`
+////
 
+////
 .Example externs/app.txt
+////
+
 ```
 # this is a comment
 foo
@@ -186,13 +272,20 @@ bar
 global:SomeGlobalVariable
 ```
 
+////
 In this example the compiler will stop renaming `something.foo()`, `something.bar()`.
+////
 
 == Code Stripping
 
+////
 The Closure Compiler supports removing unwanted code by name. This allows removing code that normal dead-code removal can't or won't remove. This is quite dangerous as it can remove code you actually care about but it can remove a lot of dev only code easily. It is grouped into 4 separate options of which pretty much only `:strip-type-prefixes` is relevant to ClojureScript but other may be useful as well.
+////
 
+////
 .Example removing all uses of `cljs.pprint`
+////
+
 ```
 {...
  :builds
@@ -203,24 +296,34 @@ The Closure Compiler supports removing unwanted code by name. This allows removi
    }}}
 ```
 
+////
 Each of these options is specified as a Set of Strings. Please note that all the names specified here are JS names so certain CLJS names must be munged. `my-lib.core` becomes `my_lib.core`.
+////
 
+////
 [Horizontal]
 `:strip-types`:: Allows removing deftype/defrecord declarations or uses. `#{"my.ns.FooBar}` removes `(defrecord FooBar [])`.
 `:strip-type-prefixes`:: Removes everything starting with any of the given Prefixes. Allows removing entire CLJS namespaces.
 `:strip-name-prefixes`:: Allows removing properties by prefix. `#{"log"}` removes `this.logX` or `(defn log-me [...])`
 `:strip-name-suffixes`:: Allows removing properties by suffix. `#{"log"}` removes `this.myLog` or `(defn my-log [...])`
+////
 
+////
 ****
 *DANGER: Be careful with these options. They apply to your entire build and may remove code you actually need. You may accidentally remove code in libraries not written by you. Always consider other options before using this.*
 ****
+////
 
 
 == Build Report [[build-report]] 
 
+////
 `shadow-cljs` can generate a detailed report for your `release` builds which includes a detailed breakdown of the included sources and how much they each contributed to the overall size.
+////
 
+////
 A sample report can be found https://code.thheller.com/demos/build-report/huge.html[here].
+////
 
 ```bash
 $ npx shadow-cljs run shadow.cljs.build-report <build-id> <path/to/output.html>
@@ -228,6 +331,11 @@ $ npx shadow-cljs run shadow.cljs.build-report <build-id> <path/to/output.html>
 $ npx shadow-cljs run shadow.cljs.build-report app report.html
 ```
 
+////
 The above example will generate a `report.html` in the project directory for the `:app` build.
+////
 
+////
 TIP: The generated `report.html` is entirely self-contained and includes all the required data/js/css. No other external sources are required.
+////
+

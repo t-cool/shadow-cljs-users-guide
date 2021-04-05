@@ -1,5 +1,7 @@
+////
 The `:target :node-script` produces single-file stand-alone output that can be run using `node.js`.
 The code is just ClojureScript, and an entry point is easy to define:
+////
 
 ```
 (ns demo.script)
@@ -10,8 +12,10 @@ The code is just ClojureScript, and an entry point is easy to define:
 
 === Build Options
 
+////
 You will need the same basic <<config,main configuration>> as in other targets (like
 `:source-paths`), but you'll need some node-specific build target options:
+////
 
 [horizontal]
 `:main`:: (required). The namespace-qualified symbol of your script's entry point function.
@@ -20,7 +24,10 @@ You will need the same basic <<config,main configuration>> as in other targets (
 
 // TODO: Thomas mentioned that node can be picky and sometimes output-dir is useful...an example would be nice.
 
+////
 .Sample node script build
+////
+
 ```
 {:source-paths [...]
  ...
@@ -31,22 +38,33 @@ You will need the same basic <<config,main configuration>> as in other targets (
    :output-to "out/demo-script/script.js"}}}
 ```
 
+////
 When compiled this results in a standalone `out/demo-script/script.js` file intended to be called
 via `node script.js <command line args>`. When run it will call `(demo.script/main <command line args>)`
 function on startup. This only ever produces the file specified in `:output-to`. Any other support files
 (e.g. for development mode) are written to a temporary support directory.
+////
 
 === Hot Code Reload [[NodeHotCodeReload]]
 
+////
 You will often write scripts that run as servers or some other long-running process. Hot code reload can
 be quite useful when working with these, and it is simple to set up:
+////
 
+////
 . Add start/stop callback functions.
 . Configure the build use those hooks.
+////
 
+////
 Here is an example http server in node:
+////
 
+////
 .Sample node script with start/stop hooks for hot code reload.
+////
+
 ```
 (ns demo.script
   (:require ["http" :as http]))
@@ -90,9 +108,14 @@ Here is an example http server in node:
 (js/console.log "__filename" js/__filename)
 ```
 
+////
 The associated configuration is (`shadow-cljs.edn`):
+////
 
+////
 .Adding hooks for hot code reload.
+////
+
 ```
 {...
  :builds
@@ -103,7 +126,10 @@ The associated configuration is (`shadow-cljs.edn`):
                          :after-load demo.script/start}}}}
 ```
 
+////
 WARNING: Many libraries hide state or do actions that prevent hot code reloading from working well. There
 is nothing the compiler can do to improve this since it has no idea what those libraries are doing.
 Hot code reload will only work well in situations where you can cleanly "stop" and "restart" the
 artifacts used.
+////
+

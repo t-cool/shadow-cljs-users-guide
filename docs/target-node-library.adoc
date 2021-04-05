@@ -1,37 +1,56 @@
+////
 The `:target :node-library` emits code that can be used (via `require`) as a standard node library, and is
 useful for publishing your code for re-use as a compiled Javascript artifact.
+////
 
+////
 As with other modes the <<config, main configuration options>> apply and must be set.
 The target-specific options are:
+////
 
 [horizontal]
 `:target`:: Use :node-library
 `:output-to`:: (required). The path and filename for the generated library.
 `:output-dir`:: (optional). The path for supporting files in development mode. Defaults to a cache directory.
 
+////
 The hot code reload story is similar to <<NodeHotCodeReload, the script target>>, but may not work as well
 since it cannot as easily control all of the code that is loaded.
+////
 
+////
 Controlling what code is actually exported is done via one of the following options:
+////
 
+////
 - `:exports` -  a map of keyword to fully qualified symbols
 - `:exports-var` - a fully qualified symbol
 - `:exports-fn` - a fully qualified symbol
+////
 
 === Single static "default" export
 
+////
 `:exports-var` will just return whatever is declared under that var. It can point to a `defn` or normal `def`.
+////
 
 
 
+////
 .Build config using `:exports-var`
+////
+
 ```
 {...
  :builds {:lib {:output-to "lib.js"
                 :exports-var demo.ns/f
                 ...}}}
 ```
+
+////
 .Example CLJS
+////
+
 ```
 (ns demo.ns)
 
@@ -40,18 +59,27 @@ Controlling what code is actually exported is done via one of the following opti
 (def f #js {:foo ...})
 ```
 
+////
 .Consuming the generated code
+////
+
 ```bash
 $ node
 > var f = require('./lib.js');
 f(); // the actual demo.ns/f function
 ```
 
+////
 It is effectively generating `module.exports = demo.ns.f;`
+////
+
 
 === Multiple static named exports
 
+////
 .Build configuration with multiple exports
+////
+
 ```
 {...
  :builds {:lib {:exports {:g       demo.ns/f
@@ -60,8 +88,11 @@ It is effectively generating `module.exports = demo.ns.f;`
                 ...}}}
 ```
 
+////
 The keyword is used as the name of the entry in the exported object. *No munging is done* to this keyword name
 (but namespaces are dropped). So, the above example maps cljs `f` to `g`, etc.:
+////
+
 
 ```bash
 $ node
@@ -70,7 +101,9 @@ lib.g(); // call demo-ns/f
 lib["ok?"](); // call another-ns/ok?
 ```
 
+////
 You can achieve the exact same thing by using `:exports-var` pointing to a `def`
+////
 
 ```
 (def exports #js {:g f
@@ -79,7 +112,9 @@ You can achieve the exact same thing by using `:exports-var` pointing to a `def`
 
 === "Dynamic" exports
 
+////
 In addition you may specify `:exports-fn` as a fully qualified symbol. This should point to a function with no arguments which should return a JS object (or function). This function will only ever be called ONCE as `node` caches the return value.
+////
 
 ```clojure
 (ns demo.ns
@@ -97,11 +132,15 @@ In addition you may specify `:exports-fn` as a fully qualified symbol. This shou
                 ...}}}
 ```
 
+////
 NOTE: The exports config automatically tracks exported symbols and passes them on to the optimization stage. This means that anything listed in `:exports` will not be renamed by Google Closure optimizations.
+////
 
 === Full Example
 
+////
 The example below creates a `lib.js` file intended to be consumed via the normal Node `require` mechanism.
+////
 
 ```
 (ns demo.lib)
@@ -111,7 +150,9 @@ The example below creates a `lib.js` file intended to be consumed via the normal
   "hello")
 ```
 
+////
 The build configuration would be:
+////
 
 ```
 {...
@@ -120,7 +161,9 @@ The build configuration would be:
                     :exports   {:hello demo.lib/hello}}}}
 ```
 
+////
 and the runtime use is as you would expect:
+////
 
 ```
 $ cd out/demo-library
@@ -132,6 +175,10 @@ hello
 'hello'
 ```
 
+////
 As `:node-script` this will only create the file specified in `:output-to`. The `:exports` map maps CLJS vars to the name they should be exported to.
+////
 
+////
 NOTE: Development mode has the <<NodeModes,same setup>> as for node scripts (extra dependencies).
+////

@@ -1,6 +1,10 @@
+////
 The `:browser` target produces output intended to run in a Browser environment. During development it supports live code reloading, REPL, CSS reloading. The `release` output will be minified by the Closure Compiler with `:advanced` optimizations.
+////
 
+////
 A basic browser configuration looks like this:
+////
 
 ```
 {:dependencies [...]
@@ -15,45 +19,68 @@ A basic browser configuration looks like this:
 
 == Output Settings
 
+////
 The browser target outputs a lot of files, and a directory is needed for them all. You'll need to serve
 these assets with some kind of server, and the Javascript loading code needs to know the server-centric
 path to these assets. The options you need to specify are:
+////
 
+////
 [Horizontal]
 `:output-dir`:: The directory to use for all compiler output.
 `:asset-path`:: The relative path from *web server's root* to the resources in `:output-dir`.
+////
 
+////
 Your entry point javascript file and all related JS files will appear in `:output-dir`.
+////
 
+////
 WARNING: Each build requires its own :output-dir, you may not put multiple builds into the same directory.
 This directory should also be exclusively owned by the build. There should be no other files in there.
 While `shadow-cljs` won't delete anything it is safer to leave it alone. Compilation
 creates many more files than just the main entry point javascript file during development:
 source maps, original sources, and generated sources.
+////
 
+////
 The `:asset-path` is a prefix that gets added to the paths of module loading code inside of the
 generated javascript. It allows you to output your javascript module to a particular subdirectory
 of your web server's root. The dynamic loading during development (hot code reload) and production
 (code splitting) need this to correctly locate files.
+////
 
+////
 Locating your generated files in a directory and asset path like this make it so that other assets
 (images, css, etc.) can easily co-exist on the same server without accidental collisions.
+////
 
+////
 For example: if your web server will serve the folder `public/x` when asked for the URI `/x`,
 and your `output-dir` for a module is `public/assets/app/js` then your asset-path should be `/assets/app/js`.
 You are not required to use an absolute asset path, but it is highly recommended.
+////
 
 == Modules
 
+////
 Modules configure how the compiled sources are bundled together and how the final `.js` are generated. Each Module declares a list of Entry Namespace and from that dependency graph is built. When using multiple Modules the code is split so that the maximum amount of code is moved to the outer edges of the graph. The goal is to minimize the amount of code the browser has to load initially and loading the rest on-demand.
+////
 
+////
 TIP: Don't worry too much about :modules in the beginning. Start with one and split them later.
+////
 
+////
 The `:modules` section of the config is always a map keyed by module ID. The module ID is also used
 to generate the Javascript filename. Module `:main` will generate `main.js` in `:output-dir`.
+////
 
+////
 The available options in a module are:
+////
 
+////
 [horizontal]
 `:entries`:: The namespaces that serve as the root nodes of the dependency graph for the output code of this module.
 `:init-fn`:: Fully qualified symbol pointing to a function that should be called when the module is loaded initially.
@@ -62,10 +89,16 @@ The available options in a module are:
 `:append`:: String content that will be appended to the js output. Useful for comments, copyright notice, etc.
 `:prepend-js`:: A string to prepend to the module output containing valid javascript that will be run through Closure optimizer.
 `:append-js`:: A string to append to the module output containing valid javascript that will be run through Closure optimizer.
+////
 
+////
 The following example shows a minimum module configuration:
+////
 
+////
 .Example :browser config
+////
+
 ```
 {...
  :builds
@@ -75,7 +108,10 @@ The following example shows a minimum module configuration:
         :modules {:main {:entries [my.app]}}}}}
 ```
 
+////
 .Example :browser config with :init-fn
+////
+
 ```
 {...
  :builds
@@ -84,27 +120,43 @@ The following example shows a minimum module configuration:
         ...
         :modules {:main {:init-fn my.app/init}}}}}
 ```
-
+////
 `shadow-cljs` will follow the dependency graph from the root set of code entry points in the `:entries`
 to find everything needed to actually compile and include in the output. Namespaces that are not required will not be included.
+////
 
+////
 The above config will create a `public/js/main.js` file. During development there will be an additional `public/js/cljs-runtime` directory with lots of files. This directory is not required for `release` builds.
+////
 
 == Code Splitting [[CodeSplitting]]
 
+////
 Declaring more than one Module requires a tiny bit of additional static configuration so the Compiler can figure out how the Modules are related to each other and how you will be loading them later.
+////
 
+////
 In addition to `:entries` you'll need to declare which module depends on which (via `:depends-on`). How you structure this is entirely up to your needs and there is no one-size-fits-all solution unfortunately.
+////
 
+////
 Say you have a traditional website with actual different pages.
+////
 
+////
 - `www.acme.com` - serving the homepage
 - `www.acme.com/login` - serving the login form
 - `www.acme.com/protected` - protected section that is only available once the user is logged in
+////
 
+////
 One good configuration for this would be to have one common module that is shared between all the pages. Then one for each page.
+////
 
+////
 .Example config with multiple `:modules`
+////
+
 ```clojure
 {...
  :output-dir "public/js"
@@ -122,9 +174,14 @@ One good configuration for this would be to have one common module that is share
    :depends-on #{:shared}}
 ```
 
+////
 TIP: You can leave the `:entries` of the `:shared` module empty to let the compiler figure out which namespaces are shared between the other modules.
+////
 
+////
 .Generated file structure
+////
+
 ```text
 .
 └── public
@@ -135,27 +192,42 @@ TIP: You can leave the `:entries` of the `:shared` module empty to let the compi
         └── protected.js
 ```
 
+////
 In your HTML for the Homepage you'd then always include the `shared.js` on each page and the others conditionally depending on which page the user is on.
+////
 
+////
 .HTML for the `/login` page
+////
+
 ```html
 <script src="/js/shared.js"></script>
 <script src="/js/login.js"></script>
 ```
 
+////
 IMPORTANT: The `.js` files must be included in the correct order. The <<BrowserManifest, `manifest.edn`>> can help with this.
+////
 
 === Loading code dynamically
 
+////
 These days Single-Page-Apps (SPA) are becoming more popular and they work similarly only that instead of letting the Server decide which JS to include to Client does it by itself.
+////
 
 ==== Using shadow-cljs's built-in Loader Support
 
+////
 The compiler supports generating the required data for using the `shadow.loader` utility namespace. It exposes a simple interface to let you load modules on-demand at runtime.
+////
 
+////
 You only need to add `:module-loader true` to your build config. The loader will always be injected into the default module (the one everything else depends on).
+////
 
+////
 At runtime you may use the `shadow.loader` namespace to load modules. You may also load a module eagerly by just using a `<script>` tag in your page.
+////
 
 ```
 {...
@@ -169,7 +241,9 @@ At runtime you may use the `shadow.loader` namespace to load modules. You may al
                         :depends-on #{:main}}}}}}
 ```
 
+////
 If you had the following for your main entry point:
+////
 
 ```
 (ns my.app
@@ -182,9 +256,14 @@ If you had the following for your main entry point:
   (js/console.log "extra load failed"))
 ```
 
+////
 Then the following expressions can be used for loading code:
+////
 
+////
 .Loading a module
+////
+
 ```
 ;; load returns a goog.async.Deferred, and can be used like a promise
 (-> (loader/load "extra")
@@ -197,35 +276,52 @@ Then the following expressions can be used for loading code:
 (loader/load-many #js ["foo" "bar"])
 ```
 
+////
 .Including a callback
+////
+
 ```
 (loader/with-module "extra" fn-to-call-on-load)
 ```
 
+////
 You can check if a module is loaded using `(loaded? "module-name")`.
+////
 
 ===== Loader Costs
 
+////
 Using the loader is very lightweight. It has a few dependencies which you may not be otherwise using. In practice using `:module-loader true` adds about 8KB gzip'd to the default module. This will vary depending on how much of `goog.net` and `goog.events` you are already using, and what level of optimization you use for your release builds.
+////
 
 ==== Using the Standard ClojureScript API
 
+////
 The generated code is capable of using the standard ClojureScript `cljs.loader` API. See the
 https://clojurescript.org/news/2017-07-10-code-splitting[documentation] on the ClojureScript
 website for instructions.
+////
 
+////
 The advantage of using the standard API is that your code will play well with others. This
 may be of particular importance to library authors. The disadvantage is that the dynamic module
 loading API in the standard distribution is currently somewhat less easy-to-use than the
 support in `shadow-cljs`.
+////
 
 == Output Wrapper [[output-wrapper]]
 
+////
 *Release builds only*: The code generated by the Closure Compiler `:advanced` compilation will create a lot of global variables which has the potential to create conflicts with other JS running in your page. To isolate the created variables the code can be wrapped in an anonymous function to the variables only apply in that scope.
+////
 
+////
 `release` builds for `:browser` with only one `:modules` are wrapped in `(function(){<the-code>}).call(this);` by default. So no global variables are created.
+////
 
+////
 When using multiple `:modules` (a.k.a <<CodeSplitting, code splitting>>) this is not enabled by default since each module must be able to access the variables created by the modules it depends on. The Closure Compiler supports an additional option to enable the use of an output wrapper in combination with multiple `:modules` named `:rename-prefix-namespace`. This will cause the Compiler to scope all "global" variables used by the build into one actual global variable. By default this is set to `:rename-prefix-namespace "$APP"` when `:output-wrapper` is set to `true`.
+////
 
 ```clojure
 {...
@@ -237,20 +333,29 @@ When using multiple `:modules` (a.k.a <<CodeSplitting, code splitting>>) this is
    :rename-prefix-namespace "MY_APP"}}}
 ```
 
+////
 This will only create the `MY_APP` global variable. Since every "global" variable will now be prefixed by `MY_APP.` (e.g. `MY_APP.a` instead of just `a`) the code size can go up substantially. It is important to keep this short. Browser compression (e.g. `gzip`) helps reduce the overhead of the extra code but depending on the amount of global variables in your build this can still produce a noticeable increase.
+////
 
+////
 IMPORTANT: Note that the created variable isn't actually useful directly. It will contain a lot of munged/minified properties. All exported (eg. `^:export`) variables will still be exported into the global scope and are not affect by this setting. The setting only serves to limit the amount of global variables created, nothing else. Do not use it directly.
+////
 
 
 == Web Workers
 
+////
 The `:modules` configuration may also be used to generate files intended to be used as a Web Workers.
 You may declare any module as a Web Worker by setting `:web-worker true`. The
 generated file will contain some additional bootstrap code which will load its dependencies
 automatically. The way `:modules` work also ensures that code used only by the worker will also only
 be in the final file for the worker. Each worker should have a dedicated CLJS namespace.
+////
 
+////
 .An example of generating a web worker script
+////
+
 ```
 {...
  :builds
@@ -272,14 +377,21 @@ be in the final file for the worker. Each worker should have a dedicated CLJS na
    }}}
 ```
 
+////
 The above configuration will generate `worker.js` which you can use to start the Web Worker.
 It will have all code from the `:shared` module available (but not `:main`). The code in the
 `my.app.worker` namespace will only ever execute in the worker. Worker generation happens in
 both development and release modes.
+////
 
+////
 Note that the empty `:entries []` in the `:shared` module will make it collect all the code shared between the `:main` and `:worker` modules.
+////
 
+////
 .Sample echo worker
+////
+
 ```
 (ns my.app.worker)
 
@@ -289,7 +401,10 @@ Note that the empty `:entries []` in the `:shared` module will make it collect a
       (js/postMessage (.. e -data)))))
 ```
 
+////
 .Sample using the worker
+////
+
 ```
 (ns my.app)
 
@@ -299,9 +414,14 @@ Note that the empty `:entries []` in the `:shared` module will make it collect a
     (.. worker (postMessage "hello world"))))
 ```
 
+////
 IMPORTANT: Since we now have a `:shared` module you must ensure to load it properly in your HTML. If you just load `main.js` you will get an error.
+////
 
+////
 .HTML Loading shared.js and main.js
+////
+
 ```
 <script src="/js/shared.js"></script>
 <script src="/js/main.js"></script>
@@ -309,19 +429,26 @@ IMPORTANT: Since we now have a `:shared` module you must ensure to load it prope
 
 == Cacheable Output
 
+////
 In a web setting it is desirable to cache `.js` files for a very long time to avoid extra request. It is common
 practice the generate a unique name for the `.js` file for every released version. This changes the URL used to
 access it and thereby is safe to cache forever.
+////
 
 === Release Versions [[release-version]]
 
+////
 Creating unique filenames for each release can be done via the `:release-version` config setting. Generally you'll pass this in from the command line via <<config-merge, --config-merge>>.
+////
 
 ```
 shadow-cljs release app --config-merge '{:release-version "v1"}'
 ```
 
+////
 .Example :modules config
+////
+
 ```
 {...
  :builds
@@ -335,21 +462,32 @@ shadow-cljs release app --config-merge '{:release-version "v1"}'
                         :depends-on #{:main}}}}}}
 ```
 
+////
 This would create the `main.v1.js` and `extra.v1.js` files in `public/js` instead of the usual `main.js` and `extra.js`.
+////
 
+////
 You can use manual versions or something automated like the `git` sha at the time of the build. Just make sure that you bump whatever it is once you shipped something out to the user since with caching they won't be requesting newer versions of old files.
+////
 
 === Filenames with Fingerprint-Hash [[NameHashing]]
 
+////
 You can add `:module-hash-names true` to your build config to automatically create a MD5
 signature for each generated output module file. That means that a `:main` module will generate
 a `main.<md5hash>.js` instead of just the default `main.js`.
+////
 
+////
 `:module-hash-names true` will include the full 32-length md5 hash, if you prefer a shorter version you can specify a
 number between 1-32 instead (eg. `:module-hash-names 8`). Be aware that shortening the hash may increase the chances
 of generating conflicts. I recommend using the full hash.
+////
 
+////
 .Example :module-hash-names config
+////
+
 ```
 {...
  :builds
@@ -364,18 +502,27 @@ of generating conflicts. I recommend using the full hash.
                         :depends-on #{:main}}}}}}
 ```
 
+////
 Instead of generating `main.js` it will now generate `main.<hash>.js` in the `:output-dir`.
+////
 
+////
 Since the filename can change with every release it gets a little bit more complicated to include them
 in your HTML. The <<BrowserManifest, Output Manifest>> can help with that.
+////
 
 == Output Manifest [[BrowserManifest]]
 
+////
 `shadow-cljs` generates a `manifest.edn` file in the configured `:output-dir`.
 This file contains a description of the module config together with an extra `:output-name` property which
 maps the original module name to actual filename (important when using the `:module-hash-names` feature).
+////
 
+////
 .Sample output of manifest.edn when using hashed filenames.
+////
+
 ```
 [{:module-id :common,
   :name :common,
@@ -392,18 +539,27 @@ maps the original module name to actual filename (important when using the `:mod
  ...]
 ```
 
+////
 The manifest contains all `:modules` sorted in dependency order. You can use it to map the `:module-id` back to the
 actual generated filename.
+////
 
+////
 Development builds also produce this file and you may check if for modifications to
 know when a new build completed. `:module-hash-names` does not apply during development so you'll get the usual
 filenames.
+////
 
+////
 You can configure the name of the generated manifest file via the `:build-options :manifest-name` entry. It defaults to
 `manifest.edn`. If you configure a filename with `.json` ending the output will be JSON instead of EDN. The file will
 be relative to the configured `:output-dir`.
+////
 
+////
 .Example manifest.json config
+////
+
 ```
 {...
  :builds
@@ -418,37 +574,60 @@ be relative to the configured `:output-dir`.
 
 == Development Support
 
+////
 The `:devtools` section of the configuration for `:browser` supports a few additional
 options for configuring an optional dev-time HTTP server for a build and CSS reloading.
+////
 
 === Heads-Up Display (HUD) [[hud]]
 
+////
 The `:browser` target now uses a HUD to display a loading indicator when a build is started. It will also display warnings and errors if there are any.
+////
 
+////
 You can disable it completely by setting `:hud false` in the `:devtools` section.
+////
 
+////
 You may also toggle certain features by specifying which features you care about via setting `:hud #{:errors :warnings}`. This will show errors/warnings but no progress indicator. Available options are `:errors`, `:warnings`, `:progress`. Only options included will be enabled, all other will be disabled.
+////
 
 ==== Opening Files [[open-file-command]]
 
+////
 Warnings include a link to source location which can be clicked to open the file in your editor. For this a little bit of config is required.
+////
 
+////
 You can either configure this in your `shadow-cljs.edn` config for the project or globally in your home directory under `~/.shadow-cljs/config.edn`.
+////
 
+////
 .`:open-file-command` configuration
+////
+
 ```clojure
 {:open-file-command
  ["idea" :pwd "--line" :line :file]}
 ```
 
+////
 The `:open-file-command` expects a vector representing a very simple DSL. Strings are kept as they are and keyword are replaced by their respective values. A nested vector can be used in case you need to combine multiple params, using `clojure.core/format` style pattern.
+////
 
+////
 The above example would execute
+////
+
 ```bash
 $ idea /path/to/project-root --line 3 /path/to/project-root/src/main/demo/foo.cljs
 ```
 
+////
 .`emacsclient` example
+////
+
 ```
 {:open-file-command
  ["emacsclient" "-n" ["+%s:%s" :line :column] :file]}
@@ -458,7 +637,9 @@ $ idea /path/to/project-root --line 3 /path/to/project-root/src/main/demo/foo.cl
 $ emacsclient -n +3:1 /path/to/project-root/src/main/demo/foo.cljs
 ```
 
+////
 The available replacement variables are:
+////
 
 [Horizontal]
 `:pwd`::
@@ -483,35 +664,57 @@ Translated `:pwd`
 
 === CSS Reloading
 
+////
 The Browser devtools can also reload CSS for you. This is enabled by default and in most cases requires no additional
 configuration when you are using the built-in <<dev-http, development HTTP servers>>.
+////
 
+////
 Any stylesheet included in a page will be reloaded if modified on the filesystem. Prefer using absolute paths but relative paths should work as well.
+////
 
+////
 .Example HTML snippet
+////
+
 ```html
 <link rel="stylesheet" href="/css/main.css"/>
 ```
 
+////
 .Example Hiccup since we aren't savages
+////
+
 ```
 [:link {:rel "stylesheet" :href "/css/main.css"}]
 ```
 
+////
 .Using the built-in dev HTTP server
+////
+
 ```
 :dev-http {8000 "public"}
 ```
 
+////
 This will cause the browser to reload `/css/main.css` when `public/css/main.css` is changed.
+////
 
+////
 `shadow-cljs` currently provides no support for directly compiling CSS but the usual tools will work and should
 be run separately. Just make sure the output is generated into the correct places.
+////
 
+////
 When you are not using the built-in HTTP Server you can specify `:watch-dir` instead which should be a path to the
 document root used to serve your content.
+////
 
+////
 .Example :watch-dir config
+////
+
 ```clojure
 {...
     {:builds
@@ -519,9 +722,14 @@ document root used to serve your content.
              :devtools {:watch-dir "public"}}}}
 ```
 
+////
 When your HTTP Server is serving the files from a virtual directory and the filesystem paths don't exactly match the path used in the HTML you may adjust the path by setting `:watch-path` which will be used as a prefix.
+////
 
+////
 .Example `public/css/main.css` being served under `/foo/css/main.css`
+////
+
 ```clojure
 {...
  {:builds
@@ -533,7 +741,9 @@ When your HTTP Server is serving the files from a virtual directory and the file
 
 === Proxy Support [[proxy-support]]
 
+////
 By default the devtools client will attempt to connect to the `shadow-cljs` process via the configured <<http, HTTP server>> (usually `localhost`). If you are using a reverse proxy to serve your HTML that might not be possible. You can set `:devtools-url` to configure which URL to use.
+////
 
 ```
 {...
@@ -545,19 +755,32 @@ By default the devtools client will attempt to connect to the `shadow-cljs` proc
                    ...}}}}
 ```
 
+////
 `shadow-cljs` will then use the `:devtools-url` as the base when making requests. It is not the final URL so you must ensure that all requests starting with the path you configured (eg. `/shadow-cljs/*`) are forwarded to the host `shadow-cljs` is running on.
+////
 
 
+////
 .Incoming Request to Proxy
+////
+
 ```text
 https://some.host/shadow-cljs/ws/foo/bar?asdf
 ```
+
+////
 .must forward to
+////
+
 ```
 http://localhost:9630/foo/bar?asdf
 ```
 
+////
 The client will make WebSocket request as well as normal XHR requests to load files. Ensure that your proxy properly upgrades WebSockets.
+////
 
+////
 IMPORTANT: The requests must be forwarded to the main <<http, HTTP server>>, not the one configured in the build itself.
+////
 
