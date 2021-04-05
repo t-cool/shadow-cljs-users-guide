@@ -597,8 +597,6 @@ table.CodeRay td.code>pre{padding:0}
 </ul>
 </li>
 <li><a href="#config">5. 設定</a></li>
-<li><a href="#target-npm-module">6. Embedding in the JS Ecosystem&#8201;&#8212;&#8201;The <code>:npm-module</code> Target</a></li>
-<li><a href="#release">7. Generating Production Code&#8201;&#8212;&#8201;All Targets</a></li>
 </ul>
 </div>
 </div>
@@ -1793,11 +1791,9 @@ script, and also for code that is intended to be used as a library. See the
 section on <a href="#config">common configuration</a> for the base settings needed in
 a configuration file.</p>
 </div>
+<div class="paragraph">
+<p>Embedding in the JS Ecosystem&#8201;&#8212;&#8201;The <code>:npm-module</code> Target <a id="target-npm-module"></a></p>
 </div>
-</div>
-<div class="sect1">
-<h2 id="target-npm-module"><a class="anchor" href="#target-npm-module"></a><a class="link" href="#target-npm-module">6. Embedding in the JS Ecosystem&#8201;&#8212;&#8201;The <code>:npm-module</code> Target</a></h2>
-<div class="sectionbody">
 <div class="paragraph">
 <p><code>shadow-cljs</code> provides a few utility targets to make building tests a little easier.</p>
 </div>
@@ -1811,11 +1807,9 @@ a configuration file.</p>
 <div class="title">File: <code>src/test/demo/app_test.cljs</code></div>
 <p>In the Clojure world it is common to keep test files in their own source paths so the above example assumes you have configured <code>:source-paths ["src/main" "src/test"]</code> in your <code>shadow-cljs.edn</code> config. Your usual app code goes into <code>src/main</code> and the tests go into <code>src/test</code>. This however is optional and it is totally fine to keep everything in <code>src</code> and just use <code>:source-paths ["src"]</code>.</p>
 </div>
+<div class="paragraph">
+<p>Generating Production Code&#8201;&#8212;&#8201;All Targets <a id="release"></a></p>
 </div>
-</div>
-<div class="sect1">
-<h2 id="release"><a class="anchor" href="#release"></a><a class="link" href="#release">7. Generating Production Code&#8201;&#8212;&#8201;All Targets</a></h2>
-<div class="sectionbody">
 <div class="paragraph">
 <p>Since the JS world is still evolving rapidly and not everyone is using the same way to write and
 distribute code there are some things <code>shadow-cljs</code> cannot work around automatically. These
@@ -1838,7 +1832,7 @@ that project and understand its setup, build, etc.</p>
 <div id="footer">
 <div id="footer-text">
 Version 1.0<br>
-Last updated 2021-04-05 12:01:12 JST
+Last updated 2021-04-05 21:48:57 JST
 </div>
 </div>
 </body>

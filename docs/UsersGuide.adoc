@@ -963,17 +963,18 @@ include::target-node-script.adoc[]
 include::target-node-library.adoc[]
 
 
-== `npm` パッケージの作成
+== npm パッケージの作成
 
 // TODO: Thomas: I think it would be useful to show a package.json and a little bit of an example
 // on how you could set up to deploy this on NPM.
 
+= JSエコシステムへの組み込み -- `:npm-module` ターゲット [[target-npm-module]]
+
 ////
-= Embedding in the JS Ecosystem -- The `:npm-module` Target [[target-npm-module]]
+Embedding in the JS Ecosystem -- The `:npm-module` Target [[target-npm-module]]
 ////
 
 = JSエコシステムへの組み込み - :npm-module ターゲット [[target-npm-module]]
-
 
 include::target-npm-module.adoc[]
 
@@ -1033,9 +1034,10 @@ include::target-karma.adoc[]
 include::js-deps.adoc[]
 
 ////
-= Generating Production Code -- All Targets [[release]]
+Generating Production Code -- All Targets [[release]]
 ////
-プロダクションコードの生成 -- 全ターゲット [[release]]
+
+= プロダクションコードの生成 -- 全ターゲット [[release]]
 
 include::release.adoc[]
 
