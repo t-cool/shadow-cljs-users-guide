@@ -596,7 +596,238 @@ table.CodeRay td.code>pre{padding:0}
 </li>
 </ul>
 </li>
-<li><a href="#config">5. 設定</a></li>
+<li><a href="#config">5. 設定</a>
+<ul class="sectlevel2">
+<li><a href="#source-paths">5.1. ソースのパス</a></li>
+<li><a href="#_依存関係">5.2. 依存関係</a>
+<ul class="sectlevel3">
+<li><a href="#_clojure_script">5.2.1. Clojure(Script)</a></li>
+<li><a href="#npm-install">5.2.2. JavaScript</a></li>
+</ul>
+</li>
+<li><a href="#user-config">5.3. ユーザの設定</a></li>
+<li><a href="#_サーバのオプション">5.4. サーバのオプション</a>
+<ul class="sectlevel3">
+<li><a href="#nREPL">5.4.1. nREPL</a></li>
+<li><a href="#socket-repl">5.4.2. Socket REPL</a></li>
+<li><a href="#_ssl">5.4.3. SSL</a></li>
+<li><a href="#http">5.4.4. Primary HTTP(S)</a></li>
+<li><a href="#dev-http">5.4.5. 開発の HTTP(S)</a></li>
+</ul>
+</li>
+<li><a href="#jvm-opts">5.5. JVM の設定</a></li>
+</ul>
+</li>
+<li><a href="#_ビルドの設定">6. ビルドの設定</a>
+<ul class="sectlevel2">
+<li><a href="#_ビルドターゲット">6.1. ビルドターゲット</a></li>
+<li><a href="#devtools">6.2. 開発オプション</a>
+<ul class="sectlevel3">
+<li><a href="#_repl_3">6.2.1. REPL</a></li>
+<li><a href="#_プリロード">6.2.2. プリロード</a></li>
+<li><a href="#_ホットコードリロード">6.2.3. ホットコードリロード</a></li>
+<li><a href="#_ライフサイクルフック">6.2.4. ライフサイクルフック</a></li>
+</ul>
+</li>
+<li><a href="#build-hooks">6.3. ビルドフック</a>
+<ul class="sectlevel3">
+<li><a href="#compile-stages">6.3.1. コンパイル・ステージ</a></li>
+</ul>
+</li>
+<li><a href="#_コンパイラ_キャッシュ">6.4. コンパイラ・キャッシュ</a></li>
+<li><a href="#closure-defines">6.5. クロージャの定義</a></li>
+<li><a href="#compiler-options">6.6. コンパイラのオプション</a>
+<ul class="sectlevel3">
+<li><a href="#warnigs-as-errors">6.6.1. エラーとしてのワーニング</a></li>
+</ul>
+</li>
+<li><a href="#_出力言語オプション">6.7. 出力言語オプション</a></li>
+<li><a href="#_conditional_reading">6.8. Conditional Reading</a></li>
+<li><a href="#config-merge">6.9. CLIからのオーバーライド</a></li>
+<li><a href="#shadow-env">6.10. 環境変数の使用</a></li>
+<li><a href="#build-target-defaults">6.11. ビルドとターゲットのデフォルト</a></li>
+</ul>
+</li>
+<li><a href="#target-browser">7. ブラウザを対象とする</a>
+<ul class="sectlevel2">
+<li><a href="#_出力設定">7.1. 出力設定</a></li>
+<li><a href="#_モジュール">7.2. モジュール</a></li>
+<li><a href="#CodeSplitting">7.3. コード・スプリッティング</a>
+<ul class="sectlevel3">
+<li><a href="#_動的にコードを読み込む">7.3.1. 動的にコードを読み込む</a></li>
+</ul>
+</li>
+<li><a href="#output-wrapper">7.4. アウトプット・ラッパー</a></li>
+<li><a href="#_ウェブワーカー">7.5. ウェブワーカー</a></li>
+<li><a href="#_キャッシュ可能な出力">7.6. キャッシュ可能な出力</a>
+<ul class="sectlevel3">
+<li><a href="#release-version">7.6.1. リリースバージョン</a></li>
+<li><a href="#NameHashing">7.6.2. フィンガープリント・ハッシュを使ったファイル名</a></li>
+</ul>
+</li>
+<li><a href="#BrowserManifest">7.7. 出力マニフェスト</a></li>
+<li><a href="#_開発サポート">7.8. 開発サポート</a>
+<ul class="sectlevel3">
+<li><a href="#hud">7.8.1. ヘッドアップディスプレイ（HUD）</a></li>
+<li><a href="#_css_リローディング">7.8.2. CSS リローディング</a></li>
+<li><a href="#proxy-support">7.8.3. プロキシサポート</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#target-react-native">8. React Nativeをターゲットにする</a>
+<ul class="sectlevel2">
+<li><a href="#_react_native">8.1. React Native</a></li>
+<li><a href="#_expo">8.2. Expo</a></li>
+</ul>
+</li>
+<li><a href="#target-node">9. node.jsを対象とする</a>
+<ul class="sectlevel2">
+<li><a href="#target-node-script">9.1. node.js のスクリプト</a>
+<ul class="sectlevel3">
+<li><a href="#_ビルドオプション">9.1.1. ビルドオプション</a></li>
+<li><a href="#NodeHotCodeReload">9.1.2. ホットコードリロード</a></li>
+</ul>
+</li>
+<li><a href="#target-node-library">9.2. node.js ライブラリ</a>
+<ul class="sectlevel3">
+<li><a href="#_単一で静的な_デフォルト_エクスポート">9.2.1. 単一で静的な "デフォルト" エクスポート</a></li>
+<li><a href="#_複数の静的な名前付きエクスポート">9.2.2. 複数の静的な名前付きエクスポート</a></li>
+<li><a href="#_dynamic_exports">9.2.3. "Dynamic" exports</a></li>
+<li><a href="#_完全な例">9.2.4. 完全な例</a></li>
+</ul>
+</li>
+<li><a href="#_npm_パッケージの作成">9.3. npm パッケージの作成</a></li>
+</ul>
+</li>
+<li><a href="#target-npm-module">10. JSエコシステムへの組み込み&#8201;&#8212;&#8201;<code>:npm-module</code> ターゲット</a></li>
+<li><a href="#target-npm-module">11. JSエコシステムへの組み込み - :npm-module ターゲット</a>
+<ul class="sectlevel2">
+<li><a href="#_working_with_optimizations">11.1. Working with Optimizations</a></li>
+</ul>
+</li>
+<li><a href="#_テスト">12. テスト</a>
+<ul class="sectlevel2">
+<li><a href="#_node_js_におけるテスト_a_id_target_node_test_a">12.1. node.js におけるテスト　<a id="target-node-test"></a></a></li>
+<li><a href="#target-browser-test">12.2. ブラウザにおけるテスト</a>
+<ul class="sectlevel3">
+<li><a href="#_test_dir_に生成された出力">12.2.1. :test-dir に生成された出力</a></li>
+</ul>
+</li>
+<li><a href="#target-karma">12.3. 継続的インテグレーションのためにテストをKarmaにターゲットする</a>
+<ul class="sectlevel3">
+<li><a href="#_karmaのインストール">12.3.1. Karmaのインストール</a></li>
+<li><a href="#_build">12.3.2. Build</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#js-deps">13. JavaScript との統合</a>
+<ul class="sectlevel2">
+<li><a href="#npm">13.1. NPM</a>
+<ul class="sectlevel3">
+<li><a href="#_npmパッケージの使用">13.1.1. npmパッケージの使用</a></li>
+<li><a href="#js-provider">13.1.2. パッケージプロバイダ</a></li>
+<li><a href="#js-entry-keys">13.1.3. CommonJS vs ESM</a></li>
+<li><a href="#js-resolve">13.1.4. パッケージを解決する</a></li>
+<li><a href="#alt-node-modules">13.1.5. 代替モジュールのディレクトリ</a></li>
+</ul>
+</li>
+<li><a href="#classpath-js">13.2. .jsファイルへの対応</a>
+<ul class="sectlevel3">
+<li><a href="#_jsをrequrieする">13.2.1. JSをrequrieする</a></li>
+<li><a href="#_言語サポート">13.2.2. 言語サポート</a></li>
+<li><a href="#_javascriptの方言">13.2.3. JavaScriptの方言</a></li>
+<li><a href="#_jsからcljsへのアクセス">13.2.4. JSからCLJSへのアクセス</a></li>
+</ul>
+</li>
+<li><a href="#cljsjs">13.3. cljsjs.* の移行について</a>
+<ul class="sectlevel3">
+<li><a href="#_cljsjsを使ってみませんか">13.3.1. CLJSJSを使ってみませんか?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#release">14. プロダクションコードの生成&#8201;&#8212;&#8201;全ターゲット</a>
+<ul class="sectlevel2">
+<li><a href="#_リリースの構成">14.1. リリースの構成</a>
+<ul class="sectlevel3">
+<li><a href="#Optimization">14.1.1. 最適化</a></li>
+<li><a href="#_release_に特異_vs_開発環境">14.1.2. release に特異 vs 開発環境</a></li>
+</ul>
+</li>
+<li><a href="#externs">14.2. エクスターン</a>
+<ul class="sectlevel3">
+<li><a href="#infer-externs">14.2.1. エクスターンズの推論</a></li>
+<li><a href="#_マニュアルのエクスターン">14.2.2. マニュアルのエクスターン</a></li>
+<li><a href="#_簡易なエクスターン">14.2.3. 簡易なエクスターン</a></li>
+</ul>
+</li>
+<li><a href="#_コード_ストリッピング">14.3. コード・ストリッピング</a></li>
+<li><a href="#build-report">14.4. ビルドレポート</a></li>
+</ul>
+</li>
+<li><a href="#_エディタの統合">15. エディタの統合</a>
+<ul class="sectlevel2">
+<li><a href="#_cursive">15.1. Cursive</a></li>
+<li><a href="#cider">15.2. Emacs / CIDER</a>
+<ul class="sectlevel3">
+<li><a href="#_clojurescript_replの起動">15.2.1. ClojureScript REPLの起動</a></li>
+<li><a href="#_dir_localによるスタートアップの簡素化">15.2.2. dir-localによるスタートアップの簡素化</a></li>
+</ul>
+</li>
+<li><a href="#_proto_repl_atom">15.3. Proto REPL (Atom)</a></li>
+<li><a href="#_chlorine_atom">15.4. Chlorine (Atom)</a></li>
+<li><a href="#_calva_vs_code">15.5. Calva (VS Code)</a>
+<ul class="sectlevel3">
+<li><a href="#_依存関係_2">15.5.1. 依存関係</a></li>
+<li><a href="#_calvaとreplの接続">15.5.2. CalvaとREPLの接続</a></li>
+<li><a href="#_特徴">15.5.3. 特徴</a></li>
+</ul>
+</li>
+<li><a href="#_fireplace_vim_vim_neovim">15.6. Fireplace.vim (Vim/Neovim)</a>
+<ul class="sectlevel3">
+<li><a href="#_依存関係_3">15.6.1. 依存関係</a></li>
+<li><a href="#_アプリの準備">15.6.2. アプリの準備</a></li>
+<li><a href="#_fireplace_vimとreplサーバーの接続">15.6.3. Fireplace.vimとREPLサーバーの接続</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_トラブルシューティング">16. トラブルシューティング</a>
+<ul class="sectlevel2">
+<li><a href="#failed-to-load">16.1. 起動時のエラー</a>
+<ul class="sectlevel3">
+<li><a href="#_deps_edn_tools_deps">16.1.1. deps.edn / tools.deps</a></li>
+<li><a href="#_project_clj_leiningen">16.1.2. project.clj / Leiningen</a></li>
+</ul>
+</li>
+<li><a href="#repl-troubleshooting">16.2. REPL</a>
+<ul class="sectlevel3">
+<li><a href="#cljs-repl-anatomy">16.2.1. CLJS REPLの分析</a></li>
+<li><a href="#_javascript_のランタイム">16.2.2. JavaScript のランタイム</a></li>
+<li><a href="#missing-js-runtime">16.2.3. Missing JS runtime</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#publish">17. ライブラリの publish</a>
+<ul class="sectlevel2">
+<li><a href="#publish-lein">17.1. Leiningen</a>
+<ul class="sectlevel3">
+<li><a href="#_jar署名の無効化">17.1.1. JAR署名の無効化</a></li>
+<li><a href="#_jarをクリーンに保つ">17.1.2. JARをクリーンに保つ</a></li>
+</ul>
+</li>
+<li><a href="#publish-deps-cljs">17.2. JSの依存関係を宣言する</a></li>
+</ul>
+</li>
+<li><a href="#_上手くいかない場合はどうすればいいか">18. 上手くいかない場合はどうすればいいか</a></li>
+<li><a href="#_hacking">19. Hacking</a>
+<ul class="sectlevel2">
+<li><a href="#_ライブラリーのパッチ適用">19.1. ライブラリーのパッチ適用</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -1424,72 +1655,145 @@ user=&gt; (shadow/compile :foo)
 <h2 id="config"><a class="anchor" href="#config"></a><a class="link" href="#config">5. 設定</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>///
-Configuration <a id="config"></a></p>
+<p>shadow-cljs` は、プロジェクトのルートディレクトリにある <code>shadow-cljs.edn</code> ファイルによって設定されます。デフォルトのファイルを作成するには
+shadow-cljs init` を実行することで、デフォルトのファイルを作成することができます。このファイルには、いくつかのグローバルな設定を含むマップと
+マップと、すべてのビルドのための <code>:builds</code> エントリが含まれています。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{<span class="symbol">:source-paths</span> [<span class="keyword">..</span><span class="keyword">.</span>]
+ <span class="symbol">:dependencies</span> [<span class="keyword">..</span><span class="keyword">.</span>]
+ <span class="symbol">:builds</span> {<span class="keyword">..</span><span class="keyword">.</span>}}</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p><code>shadow-cljs</code> is configured by a <code>shadow-cljs.edn</code> file in your project root directory. You can
-create a default one by running <code>shadow-cljs init</code>. It should contain a map with some global
-configuration and a <code>:builds</code> entry for all your builds.</p>
+<p>設定例は以下のようになります。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{<span class="symbol">:dependencies</span>
+ [[reagent <span class="string"><span class="delimiter">&quot;</span><span class="content">0.8.0-alpha2</span><span class="delimiter">&quot;</span></span>]]
+
+ <span class="symbol">:source-paths</span>
+ [<span class="string"><span class="delimiter">&quot;</span><span class="content">src</span><span class="delimiter">&quot;</span></span>]
+
+ <span class="symbol">:builds</span>
+ {<span class="symbol">:app</span> {<span class="symbol">:target</span> <span class="symbol">:browser</span>
+        <span class="symbol">:output-dir</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">public/js</span><span class="delimiter">&quot;</span></span>
+        <span class="symbol">:asset-path</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">/js</span><span class="delimiter">&quot;</span></span>
+        <span class="symbol">:modules</span> {<span class="symbol">:main</span> {<span class="symbol">:entries</span> [my.app]}}}}}</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>An example config could look like this:</p>
+<p>この例のファイル構造は次のようになります。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="text">.
+├── package.json
+├── shadow-cljs.edn
+└── src
+    └── my
+        └── app.cljs</code></pre>
+</div>
+</div>
+<div class="sect2">
+<h3 id="source-paths"><a class="anchor" href="#source-paths"></a><a class="link" href="#source-paths">5.1. ソースのパス</a></h3>
+<div class="paragraph">
+<p>:source-paths` は、JVMのクラスパスを設定します。コンパイラはこの設定を使って、Clojure(Script)のソースファイル(例：.cljs`)を探します。</p>
 </div>
 <div class="paragraph">
-<p>The file structure for this example should look like this:</p>
+<p>すべてを1つのソースパスにまとめても問題ありませんが、ソースファイルを特定の方法で「グループ化」したい場合は、複数のソースパスを使用することができます。例えば、テストを別々にしたい場合などに便利です。</p>
+</div>
+<div class="listingblock">
+<div class="title">複数のソースパスの使用</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{<span class="symbol">:source-paths</span> [<span class="string"><span class="delimiter">&quot;</span><span class="content">src/main</span><span class="delimiter">&quot;</span></span> <span class="string"><span class="delimiter">&quot;</span><span class="content">src/test</span><span class="delimiter">&quot;</span></span>]
+ <span class="keyword">..</span><span class="keyword">.</span>}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="text">.
+├── package.json
+├── shadow-cljs.edn
+└── src
+    └── main
+        └── my
+            └── app.cljs
+    └── test
+        └── my
+            └── app_test.cljs</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p><code>:source-paths</code> configures your JVM classpath. The compiler will use this config to find Clojure(Script) source files (eg. <code>.cljs</code>).</p>
+<p>ソースファイルを拡張子で分けることはお勧めしません（例：<code>src/clj</code>, <code>src/cljs</code>, <code>src/cljc</code>）。なぜかCLJSのプロジェクトテンプレートではこの方法が広く使われていますが、使いにくくなるだけです。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_依存関係"><a class="anchor" href="#_依存関係"></a><a class="link" href="#_依存関係">5.2. 依存関係</a></h3>
+<div class="sect3">
+<h4 id="_clojure_script"><a class="anchor" href="#_clojure_script"></a><a class="link" href="#_clojure_script">5.2.1. Clojure(Script)</a></h4>
+<div class="paragraph">
+<p>依存関係は、<code>shadow-cljs.edn</code> 設定ファイルのルートにある <code>:dependencies</code> キーによって管理されます。これらは <code>lein</code> や <code>boot</code> のような他の Clojure ツールが使用するのと同じ記法で宣言されます。</p>
 </div>
 <div class="paragraph">
-<p>It is fine to put everything into one source path but you can use multiple if you want to "group" source files in certain ways. It is useful if you want to keep your tests separate for example.</p>
+<p>各依存関係は`[ライブラリ名 "バージョン-文字列"]`を使ったベクターとして書かれ、1つの外側のベクターに入れ子になっています。</p>
+</div>
+<div class="listingblock">
+<div class="title">例 :dependencies</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{<span class="symbol">:source-paths</span> [<span class="string"><span class="delimiter">&quot;</span><span class="content">src</span><span class="delimiter">&quot;</span></span>]
+ <span class="symbol">:dependencies</span> [[reagent <span class="string"><span class="delimiter">&quot;</span><span class="content">0.9.1</span><span class="delimiter">&quot;</span></span>]]
+ <span class="symbol">:builds</span> <span class="keyword">..</span><span class="keyword">.</span>}</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<div class="title">File Structure</div>
-<p>It is not recommended to separate source files by extension (eg. <code>src/clj</code>, <code>src/cljs</code>, <code>src/cljc</code>). For some reason this is widely used in CLJS project templates but it just makes things harder to use.</p>
+<p>ソースパスは設定全体で一度しか指定されていないことに注意してください。システムは名前空間の依存関係グラフを使って、どのようなコードがビルドの最終出力に必要かを判断します。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="npm-install"><a class="anchor" href="#npm-install"></a><a class="link" href="#npm-install">5.2.2. JavaScript</a></h4>
+<div class="paragraph">
+<p><code>shadow-cljs</code> は、https://www.npmjs.com/[<code>npm</code>] エコシステムと完全に統合して、JavaScript の依存関係を管理します。</p>
 </div>
 <div class="paragraph">
-<p>Your dependencies are managed via the <code>:dependencies</code> key at the root of the <code>shadow-cljs.edn</code> config file. They are declared in the same notation that other Clojure tools like <code>lein</code> or <code>boot</code> use.</p>
+<p>依存関係の管理には、`npm`や`yarn`を使うことができますが、それぞれのドキュメントを参照してください。</p>
 </div>
 <div class="paragraph">
-<p>Each dependency is written as a vector using <code>[library-name "version-string"]</code> nested in one outer vector.</p>
+<p>どちらも、プロジェクトディレクトリ内の <code>package.json</code> ファイルで依存関係を管理します。 npm` で入手できるほとんどすべてのパッケージには、そのインストール方法が説明されています。これらの説明は、現在では <code>shadow-cljs</code> にも適用されています。</p>
+</div>
+<div class="listingblock">
+<div class="title">JavaScriptパッケージのインストール</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash"># npm
+$ npm install the-thing
+
+# yarn
+$ yarn add the-thing</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<div class="title">Example :dependencies</div>
-<p>Notice that the source path is <strong>only</strong> specified once in the entire configuration. The system will use namespace dependency graphs to determine what code is needed in the final output of any given build.</p>
+<p>それ以上は何も必要ありません。依存関係は <code>package.json</code> ファイルに追加され、これを使って管理されます。</p>
 </div>
 <div class="paragraph">
-<p><code>shadow-cljs</code> integrates fully with the <a href="https://www.npmjs.com/"><code>npm</code></a> ecosystem to manage JavaScript dependencies.</p>
+<p>ヒント: <code>package.json</code> がまだない場合は、コマンドラインから <code>npm init</code> を実行してください。</p>
+</div>
+<div class="sect4">
+<h5 id="_missing_js_dependency"><a class="anchor" href="#_missing_js_dependency"></a><a class="link" href="#_missing_js_dependency">Missing JS Dependency?</a></h5>
+<div class="paragraph">
+<p>JSの依存関係の欠落に関連するエラーに遭遇するかもしれません。ほとんどの ClojureScript ライブラリは、使用する <code>npm</code> パッケージをまだ宣言していません。なぜなら、彼らはまだ <a href="#cljsjs">CLJSJS</a> を使用することを期待しているからです。私たちは <code>npm</code> を直接使用したいと考えています。つまり、ライブラリが適切に <code>:npm-deps</code> を宣言するまで、<code>npm</code> パッケージを手動でインストールする必要があります。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="text">The required JS dependency &quot;react&quot; is not available, it was required by ...</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>You can use <code>npm</code> or <code>yarn</code> to manage your dependencies, please refer to their respective documentation.</p>
-</div>
-<div class="hdlist">
-<table>
-<tr>
-<td class="hdlist1">
-npm
-</td>
-<td class="hdlist2">
-<p><a href="https://docs.npmjs.com/" class="bare">https://docs.npmjs.com/</a></p>
-</td>
-</tr>
-<tr>
-<td class="hdlist1">
-yarn
-</td>
-<td class="hdlist2">
-<p><a href="https://yarnpkg.com/en/docs" class="bare">https://yarnpkg.com/en/docs</a></p>
-</td>
-</tr>
-</table>
+<p>必要なJSの依存関係である "react "が利用できません。これは、&#8230;&#8203;によって必要とされていました。</p>
 </div>
 <div class="paragraph">
-<p>Both manage your dependencies via a <code>package.json</code> file in your project directory.  Almost every package available via <code>npm</code> will explain how to install it. Those instructions now apply to <code>shadow-cljs</code> as well.</p>
-</div>
-<div class="paragraph">
-<div class="title">Installing a JavaScript package</div>
-<p>Nothing more is required. Dependencies will be added to the <code>package.json</code> file and this will be used to manage them.</p>
+<p>これは、`npm install react`ということです。</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -1498,333 +1802,2648 @@ yarn
 <div class="title">Tip</div>
 </td>
 <td class="content">
-If you don’t have a <code>package.json</code> yet run <code>npm init</code> from a command line.
+<code>react</code> の場合は、おそらく以下の3つのパッケージが必要です。npm install react react-dom create-react-class`.
 </td>
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p>You might run into errors related to missing JS dependencies. Most ClojureScript libraries do not yet declare the <code>npm</code> packages they use since they still expect to use <a href="#cljsjs">CLJSJS</a>. We want to use <code>npm</code> directly which means you must manually install the <code>npm</code> packages until libraries properly declare the <code>:npm-deps</code> themselves.</p>
 </div>
-<div class="paragraph">
-<p>This means that you should <code>npm install react</code>.</p>
 </div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Tip</div>
-</td>
-<td class="content">
-In the case of <code>react</code> you probably need these 3 packages: <code>npm install react react-dom create-react-class</code>.
-</td>
-</tr>
-</table>
+</div>
+<div class="sect2">
+<h3 id="user-config"><a class="anchor" href="#user-config"></a><a class="link" href="#user-config">5.3. ユーザの設定</a></h3>
+<div class="paragraph">
+<p>ほとんどの設定はプロジェクト自身で <code>shadow-cljs.edn</code> を通して行われますが、いくつかの設定はユーザーに依存しているかもしれません。https://docs.cider.mx[CIDER] のようなツールは、追加の <code>cider-nrepl</code> 依存関係を必要とするかもしれませんが、<code>shadow-cljs.edn</code> 経由でその依存関係を追加しても、Cursive を使用している別のチームメンバーには意味がありません。</p>
 </div>
 <div class="paragraph">
-<p>Most configuration will be done in the projects themselves via <code>shadow-cljs.edn</code> but some config may be user-dependent. Tools like <a href="https://docs.cider.mx">CIDER</a> may require the additional <code>cider-nrepl</code> dependency which would be useless for a different team member using Cursive when adding that dependency via <code>shadow-cljs.edn</code>.</p>
+<p>制限された設定オプションのセットを <code>~/.shadow-cljs/config.edn</code> に追加することで、このユーザーのマシン上でビルドされたすべてのプロジェクトに適用されます。</p>
 </div>
 <div class="paragraph">
-<p>A restricted set of config options can be added to <code>~/.shadow-cljs/config.edn</code> which will then apply to all projects built on this users machine.</p>
+<p>依存関係を追加するには、通常の <code>:dependencies</code> キーを使用します。ここで追加された依存関係は、すべてのプロジェクトに適用されることに注意してください。依存関係は最小限にして、ツール関連の依存関係だけをここに置くようにしてください。ビルドに関連するものはすべて <code>shadow-cljs.edn</code> に置いておくべきで、そうしないと他のユーザーがコンパイルできない可能性があります。これらの依存関係は、<code>deps.edn</code> や <code>lein</code> を使用する際にも自動的に追加されます。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{<span class="symbol">:dependencies</span>
+ [[cider/cider-nrepl <span class="string"><span class="delimiter">&quot;</span><span class="content">0.21.1</span><span class="delimiter">&quot;</span></span>]]}
+<span class="comment">;; this version may be out of date, check whichever is available</span></code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>Adding dependencies is allowed via the usual <code>:dependencies</code> key. Note that dependencies added here will apply to ALL projects. Keep them to a minimum and only put tool related dependencies here. Everything that is relevant to a build should remain in <code>shadow-cljs.edn</code> as otherwise things may not compile for other users. These dependencies will automatically be added when using <code>deps.edn</code> or <code>lein</code> as well.</p>
+<p>deps.edn` を使って依存関係を解決する際に、追加のエイリアスを有効にしたい場合があります。これは <code>:deps-aliases</code> で行うことができます。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure"><span class="comment">;; プロジェクト内のshadow-cljs.edn</span>
+{<span class="symbol">:deps</span> {<span class="symbol">:aliases</span> [<span class="symbol">:cljs</span>]}}
+
+<span class="comment">;; ~/.shadow-cljs/config.edn</span>
+{<span class="symbol">:deps-aliases</span> [<span class="symbol">:cider</span>]}</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<div class="title">例 ~/.shadow-cljs/config.edn</div>
-<p>When using <code>deps.edn</code> to resolve dependencies you may sometimes want to activate additional aliases. This can be done via <code>:deps-aliases</code>.</p>
+<p>これにより、<code>deps.edn</code> を使用しているプロジェクトでは、<code>shadow-cljs</code> コマンドが <code>[:cider :cljs]</code> のエイリアスを使用するようになります。これは、あなたの <code>~/.clojure/deps.edn</code> に追加の <code>:cider</code> エイリアスがある場合に便利かもしれません。</p>
 </div>
 <div class="paragraph">
-<p>This will make the <code>shadow-cljs</code> command use the <code>[:cider :cljs]</code> aliases in projects using <code>deps.edn</code>. This might be useful if you have an additional <code>:cider</code> alias in your <code>~/.clojure/deps.edn</code>.</p>
+<p>デフォルトでは、<code>shadow-cljs</code> サーバーモードでは、組み込まれた nREPL サーバーが起動しますが、これは必要ないかもしれません。これを無効にするには、ユーザー設定で <code>:nrepl false</code> を設定します。</p>
 </div>
 <div class="paragraph">
-<p>By default the <code>shadow-cljs</code> server-mode will launch an embedded nREPL server which you might not need. You can disable this by setting <code>:nrepl false</code> in user config.</p>
+<p>ユーザー設定で現在受け入れられている値は、<a href="#open-file-command">:open-file-command</a>のみです。他のオプションは現在のところ何の効果もありません。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_サーバのオプション"><a class="anchor" href="#_サーバのオプション"></a><a class="link" href="#_サーバのオプション">5.4. サーバのオプション</a></h3>
+<div class="paragraph">
+<p>このセクションでは、<code>shadow-cljs</code> サーバーインスタンスを構成するその他のオプションについて説明します。これらはオプションです。</p>
+</div>
+<div class="sect3">
+<h4 id="nREPL"><a class="anchor" href="#nREPL"></a><a class="link" href="#nREPL">5.4.1. nREPL</a></h4>
+<div class="paragraph">
+<p><code>shadow-cljs</code> <a href="#server-mode">server</a> は TCP 経由で <a href="https://nrepl.org">nREPL</a> サーバを提供しています。起動メッセージを見ると、nREPLのポートが表示され、そのポートは`target/shadow-cljs/nrepl.port`にも保存されます。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">$ shadow-cljs watch app
+shadow-cljs - HTTP server available at http://localhost:8600
+shadow-cljs - server version: &lt;version&gt; running at http://localhost:9630
+shadow-cljs - nREPL server started on port 64967
+shadow-cljs - watching build :app
+[:app] Configuring build.
+[:app] Compiling ...</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>The only other currently accepted value in the user config is the <a href="#open-file-command">:open-file-command</a>. No other options are currently have any effect.</p>
+<p>shadow-cljs.edn`でポートや追加のミドルウェアを設定することができます。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
+ <span class="symbol">:nrepl</span> {<span class="symbol">:port</span> <span class="integer">9000</span>
+         <span class="symbol">:middleware</span> []} <span class="comment">; optional list of namespace-qualified symbols</span>
+ <span class="keyword">..</span><span class="keyword">.</span>}</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>This section is for other options that configure the <code>shadow-cljs</code> server instance. They are optional.</p>
+<p>~/.nrepl/nrepl.edn` にあるデフォルトのグローバルコンフィグファイルや、ローカルの <code>.nrepl.edn</code> も起動時に読み込まれ、<code>:middleware</code> の設定に使用できます。</p>
 </div>
 <div class="paragraph">
-<p>The <code>shadow-cljs</code> <a href="#server-mode">server</a> provides a <a href="https://nrepl.org">nREPL</a> server via TCP. If you look at the startup message you&#8217;ll see the port of nREPL, and the port will also be stored in <code>target/shadow-cljs/nrepl.port</code>:</p>
+<p>人気のミドルウェア <a href="https://github.com/clojure-emacs/cider-nrepl">cider-nrepl</a> がクラスパス上にあれば（例：<code>:dependencies</code> に含まれている）、自動的に使用されます。追加の設定は必要ありません。これを無効にするには、`:nrepl {:cider false}`を設定します。</p>
 </div>
 <div class="paragraph">
-<p>You can configure the port and additional middleware with <code>shadow-cljs.edn</code>:</p>
+<p>nrepl`オプションで`:init-ns`を設定することで、接続時に起動する名前空間を設定することができます。デフォルトでは <code>shadow.user</code> となります。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
+ <span class="symbol">:nrepl</span> {<span class="symbol">:init-ns</span> my.repl}
+ <span class="keyword">..</span><span class="keyword">.</span>}</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>The default global config file in <code>~/.nrepl/nrepl.edn</code> or the local <code>.nrepl.edn</code> will also be loaded on startup and can be used to configure <code>:middleware</code>.</p>
+<p>nREPLサーバーは、`:nrepl false`を設定することで無効にすることができます。</p>
+</div>
+<div class="sect4">
+<h5 id="_nrepl_usage"><a class="anchor" href="#_nrepl_usage"></a><a class="link" href="#_nrepl_usage">nREPL Usage</a></h5>
+<div class="paragraph">
+<p>nREPLサーバーに接続すると、接続は常にClojure REPLとして開始されます。CLJS REPLへの切り替えは、<a href="#cljs-repl">non-nREPL version</a>と同様に動作します。まず、与えられたビルドの <code>watch</code> を開始する必要があり、次に現在の nREPL セッションをそのビルドに切り替えるために、このビルドを選択する必要があります。ビルドを選択すると、すべての評価はClojureではなくClojureScriptで行われます。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="repl">(shadow/watch :the-build)
+(shadow/repl :the-build)</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>If the popular middleware <a href="https://github.com/clojure-emacs/cider-nrepl">cider-nrepl</a> is found on the classpath (e.g. it&#8217;s included in <code>:dependencies</code>), it will be used automatically. No additional configuration required. This can be disabled by setting <code>:nrepl {:cider false}</code>.</p>
+<p>ヒント: Clojure に戻るには <code>:cljs/quit</code> を使います。</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_組み込み型nreplサーバ"><a class="anchor" href="#_組み込み型nreplサーバ"></a><a class="link" href="#_組み込み型nreplサーバ">組み込み型nREPLサーバ</a></h5>
+<div class="paragraph">
+<p>////Embedded nREPL Server////</p>
 </div>
 <div class="paragraph">
-<p>You may configure the namespace you start in when connecting by setting <code>:init-ns</code> in the <code>:nrepl</code> options. It defaults to <code>shadow.user</code>.</p>
+<p>独自のnREPLサーバを提供する他のツール（例：<code>lein</code>）に`shadow-cljs`を組み込んで使用する場合は、`shadow-cljs`ミドルウェアを設定する必要があります。そうしないと、CLJとCLJSのREPLの間で切り替えることができません。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">(defproject my-amazing-project <span class="string"><span class="delimiter">&quot;</span><span class="content">1.0.0</span><span class="delimiter">&quot;</span></span>
+  <span class="keyword">..</span><span class="keyword">.</span>
+  <span class="symbol">:repl-options</span>
+  {<span class="symbol">:init-ns</span> shadow.user <span class="comment">;; or any of your choosing</span>
+   <span class="symbol">:nrepl-middleware</span>
+   [shadow.cljs.devtools.server.nrepl/middleware]}
+  <span class="keyword">..</span><span class="keyword">.</span>)</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>The nREPL server can be disabled by setting <code>:nrepl false</code>.</p>
+<p>ヒント：CLJS REPLを使用する前に、<a href="#embedded">embedded server</a>を手動で起動する必要があります。</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="socket-repl"><a class="anchor" href="#socket-repl"></a><a class="link" href="#socket-repl">5.4.2. Socket REPL</a></h4>
+<div class="paragraph">
+<p>Clojure Socket REPLは、サーバーモードで自動的に起動され、デフォルトでランダムなポートを使用します。ツールは、ポート番号を含む <code>.shadow-cljs/socket-repl.port</code> をチェックすることで、起動されたポートを見つけることができます。</p>
 </div>
 <div class="paragraph">
-<p>When connecting to the nREPL server the connection always starts out as a Clojure REPL. Switching to a CLJS REPL works similarly to the <a href="#cljs-repl">non-nREPL version</a>. First the <code>watch</code> for the given build needs to be started and then we need to select this build to switch the current nREPL session to that build. After selecting the build everything will be eval&#8217;d in ClojureScript instead of Clojure.</p>
+<p>また、`shadow-cljs.edn`で固定のポートを設定することもできます。</p>
 </div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Tip</div>
-</td>
-<td class="content">
-Use <code>:cljs/quit</code> to return to Clojure.
-</td>
-</tr>
-</table>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
+ <span class="symbol">:socket-repl</span>
+ {<span class="symbol">:port</span> <span class="integer">9000</span>}
+ <span class="keyword">..</span><span class="keyword">.</span>}</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>When you use <code>shadow-cljs</code> embedded in other tools that provide their own nREPL server (eg. <code>lein</code>) you need to configure the <code>shadow-cljs</code> middleware. Otherwise you won&#8217;t be able to switch between CLJ and CLJS REPLs.</p>
+<p>Socket REPLは、`:socket-repl false`を設定することで無効にすることができます。</p>
 </div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Tip</div>
-</td>
-<td class="content">
-<div class="title">例 Leiningen <code>project.clj</code></div>
-You still need to start the <a href="#embedded">embedded server</a> manually before using the CLJS REPL.
-</td>
-</tr>
-</table>
+</div>
+<div class="sect3">
+<h4 id="_ssl"><a class="anchor" href="#_ssl"></a><a class="link" href="#_ssl">5.4.3. SSL</a></h4>
+<div class="paragraph">
+<p>shadow-cljs`のHTTPサーバはSSLをサポートしています。そのためには、一致する秘密鍵と証明書を提供するJava Keystoreが必要です。</p>
+</div>
+<div class="listingblock">
+<div class="title">`shadow-cljs.edn`にSSLが設定されています。</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
+ <span class="symbol">:ssl</span> {<span class="symbol">:keystore</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">ssl/keystore.jks</span><span class="delimiter">&quot;</span></span>
+       <span class="symbol">:password</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">shadow-cljs</span><span class="delimiter">&quot;</span></span>}
+ <span class="keyword">..</span><span class="keyword">.</span>}</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>A Clojure Socket REPL is started automatically in server-mode and uses a random port by default. Tools can find the port it was started under by checking <code>.shadow-cljs/socket-repl.port</code> which will contain the port number.</p>
+<p>上記はデフォルトなので、これらを使用したい場合は、`:ssl {}`を設定するだけで問題ありません。</p>
 </div>
 <div class="paragraph">
-<p>You can also set a fixed port by via <code>shadow-cljs.edn</code>.</p>
+<p>java <code>keytool</code> コマンドを使ってキーストアを作成することができます。信頼できる自己署名証明書を作成することも可能ですが、やや複雑です。</p>
 </div>
 <div class="paragraph">
-<p>The Socket REPL can be disabled by setting <code>:socket-repl false</code>.</p>
+<p>作成された <code>Certificates.p12</code> (macOS) または <code>localhost.pfx</code> (Linux, Windows) ファイルは、<code>keytool</code> ユーティリティーを使って、必要な <code>keystore.jks</code> にすることができます。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">$ keytool -importkeystore -destkeystore keystore.jks -srcstoretype PKCS12 -srckeystore localhost.pfx</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>The <code>shadow-cljs</code> HTTP servers support SSL. It requires a Java Keystore that provides a matching private key and certificate.</p>
+<p>重要：「localhost」（または使用するホスト）のSAN（Subject Alternative Name）を含む証明書を作成する必要があります。SANは、Chromeが証明書を信頼して警告を表示しないようにするために必要です。エクスポート時に使用するパスワードは、キーストアに割り当てられたパスワードと一致する必要があります。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="http"><a class="anchor" href="#http"></a><a class="link" href="#http">5.4.4. Primary HTTP(S)</a></h4>
+<div class="paragraph">
+<p>shadow-cljs`サーバは、1つのプライマリHTTPサーバを起動します。このサーバは、ホットリロードやREPLクライアントで使用されるUIやウェブソケットを提供するために使用されます。デフォルトでは、9630番ポートで待ち受けます。もしそのポートが使用中であれば、1つ増やして、開いているポートが見つかるまで再試行します。</p>
+</div>
+<div class="listingblock">
+<div class="title">使用するポートを示すスタートアップメッセージ</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">shadow-cljs - server running at http://0.0.0.0:9630</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<div class="title"><code>shadow-cljs.edn</code> with SSL configured</div>
-<p>The above are the defaults so if you want to use those it is fine to just set <code>:ssl {}</code>.</p>
+<p>ssl`が設定されている場合、サーバーは代わりに`https://`を介して利用できます。</p>
 </div>
 <div class="paragraph">
-<p>You can create a Keystore using the java <code>keytool</code> command. Creating a trusted self-signed certificate is also possible but somewhat complicated.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://gist.github.com/jchandra74/36d5f8d0e11960dd8f80260801109ab0">OpenSSL</a> instructions for Linux and Windows (via WSL)</p>
-</li>
-<li>
-<p><a href="https://certsimple.com/blog/localhost-ssl-fix">macOS</a> instructions</p>
-</li>
-</ul>
+<p>ヒント: <code>:ssl</code> を使用すると、サーバーは自動的に HTTP/2 をサポートします。</p>
 </div>
 <div class="paragraph">
-<p>The created <code>Certificates.p12</code> (macOS) or <code>localhost.pfx</code> (Linux, Windows) file can be turned into the required <code>keystore.jks</code> via the <code>keytool</code> utility.</p>
+<p>代わりに独自のポートを設定したい場合は、`:http`の設定で行うことができます。</p>
 </div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Important</div>
-</td>
-<td class="content">
-You must generate the Certificate with a SAN (Subject Alternative Name) for "localhost" (or whichever host you want to use). SAN is required to get Chrome to trust the Certificate and not show warnings. The password used when exporting must match the password assigned to the Keystore.
-</td>
-</tr>
-</table>
+<div class="listingblock">
+<div class="title">shadow-cljs.edn`に`:http`の設定をする。</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
+ <span class="symbol">:http</span> {<span class="symbol">:port</span> <span class="integer">12345</span>
+        <span class="symbol">:host</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">my.machine.local</span><span class="delimiter">&quot;</span></span>}
+ <span class="keyword">..</span><span class="keyword">.</span>}</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>The <code>shadow-cljs</code> server starts one primary HTTP server. It is used to serve the UI and websockets used for Hot Reload and REPL clients. By default it listens on Port 9630. If that Port is in use it will increment by one and attempt again until an open Port is found.</p>
+<p><code>:ssl</code> は、サーバーを <code>https://</code> のみに切り替えます。もし、<code>http://</code> のバージョンを維持したい場合は、別の <code>:ssl-port</code> を設定することができます。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
+ <span class="symbol">:http</span> {<span class="symbol">:port</span> <span class="integer">12345</span>
+        <span class="symbol">:ssl-port</span> <span class="integer">23456</span>
+        <span class="symbol">:host</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">localhost</span><span class="delimiter">&quot;</span></span>}
+ <span class="keyword">..</span><span class="keyword">.</span>}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="dev-http"><a class="anchor" href="#dev-http"></a><a class="link" href="#dev-http">5.4.5. 開発の HTTP(S)</a></h4>
+<div class="paragraph">
+<p>shadow-cljs`では、<code>:dev-http`という設定項目で、追加の基本的なHTTPサーバを提供することができます。デフォルトでは、これらは設定されたパスからすべての静的ファイルを提供し、リソースが見つからない場合は `index.html</code> にフォールバックします (これは、ブラウザのプッシュステートを使用するアプリケーションを開発する際に、一般的に求められるものです)。</p>
 </div>
 <div class="paragraph">
-<div class="title">Startup message indicating the Port used</div>
-<p>When <code>:ssl</code> is configured the server will be available via <code>https://</code> instead.</p>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Tip</div>
-</td>
-<td class="content">
-The server automatically supports HTTP/2 when using <code>:ssl</code>.
-</td>
-</tr>
-</table>
+<p>これらのサーバは <code>shadow-cljs</code> がサーバモードで動作しているときに自動的に開始されます。これらのサーバーはどのビルドにも特定されず、それぞれにユニークな <code>:output-dir</code> が使用されている限り、複数のビルドのファイルを提供するために使用することができます。</p>
 </div>
 <div class="paragraph">
-<p>If you prefer to set your own port instead you can do this via the <code>:http</code> config.</p>
+<p>重要なことです。これらは、静的ファイルをサーバーする一般的なウェブサーバーです。これらはライブリロードやREPLのロジックには必要ありません。どのようなウェブサーバでも使用できますが、これらは単に利便性のために提供されています。</p>
+</div>
+<div class="listingblock">
+<div class="title">基本的な例では、`http://localhost:8000`を介して`public`ディレクトリを提供しています。</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
+ <span class="symbol">:dev-http</span> {<span class="integer">8000</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">public</span><span class="delimiter">&quot;</span></span>}
+ <span class="symbol">:builds</span> {<span class="keyword">..</span><span class="keyword">.</span>}}</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<div class="title"><code>shadow-cljs.edn</code> with <code>:http</code> config</div>
-<p><code>:ssl</code> switches the server to server <code>https://</code> only. If you want to keep the <code>http://</code> version you can configure a separate <code>:ssl-port</code> as well.</p>
+<p><code>:dev-http</code> は <code>port-number</code> から <code>config</code> へのマップを期待しています。この <code>config</code> は、最も一般的なシナリオに対応したいくつかのショートカットをサポートしています。</p>
 </div>
 <div class="paragraph">
-<p><code>shadow-cljs</code> can provide additional basic HTTP servers via the <code>:dev-http</code> config entry. By default these will serve all static files from the configured paths, and fall back to <code>index.html</code> when a resource is not found (this is what you typically want when developing an application which uses browser push state).</p>
+<p>ファイルシステムルートからディレクトリを serve する</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure"><span class="symbol">:dev-http</span> {<span class="integer">8000</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">public</span><span class="delimiter">&quot;</span></span>}</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>These servers are started automatically when <code>shadow-cljs</code> is running in server mode. They are not specific to any build and can be used to serve files for multiple builds as long as a unique <code>:output-dir</code> is used for each.</p>
+<p>クラスルートから serve する</p>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">IMPORTANT</dt>
-<dd>
-<p>These are just generic web servers that server static files. They are not required for any live-reload or REPL logic. Any webserver will do, these are just provided for convenience.</p>
-</dd>
-</dl>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure"><span class="symbol">:dev-http</span> {<span class="integer">8000</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">classpath:public</span><span class="delimiter">&quot;</span></span>}</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<div class="title">Basic example serving the <code>public</code> directory via <code><a href="http://localhost:8000" class="bare">http://localhost:8000</a></code></div>
-<p><code>:dev-http</code> expects a map of <code>port-number</code> to <code>config</code>. The <code>config</code> supports several shortcuts for the most common scenarios.</p>
+<p>これは、クラスパス上の <code>public/index.html</code> から <code>/index.html</code> へのリクエストを見つけようとするものです。これは <code>.jar</code> ファイルの中のファイルを含む可能性があります。</p>
 </div>
 <div class="paragraph">
-<div class="title">Serve from classpath root</div>
-<p>This would attempt to find a request to <code>/index.html</code> via <code>public/index.html</code> on the classpath. Which may include files in <code>.jar</code> files.</p>
+<p>複数のルートから serve する</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure"><span class="symbol">:dev-http</span> {<span class="integer">8000</span> [<span class="string"><span class="delimiter">&quot;</span><span class="content">a</span><span class="delimiter">&quot;</span></span> <span class="string"><span class="delimiter">&quot;</span><span class="content">b</span><span class="delimiter">&quot;</span></span> <span class="string"><span class="delimiter">&quot;</span><span class="content">classpath:c</span><span class="delimiter">&quot;</span></span>]}</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<div class="title">Serve from multiple roots</div>
-<p>This would first attempt to find <code>&lt;project-root&gt;/a/index.html</code> then <code>&lt;project-root&gt;/b/index.html</code> then <code>c/index.html</code> on the classpath. If nothing is found the default handler will be called.</p>
+<p>これはまず、クラスパス上の <code>&lt;project-root&gt;/a/index.html</code> 、 <code>&lt;project-root&gt;/b/index.html</code> 、 <code>c/index.html</code> の順に検索を試みます。もし何も見つからなければ、デフォルトのハンドラが呼び出されます。</p>
 </div>
 <div class="paragraph">
-<p>The longer config version expects a map and the supported options are:</p>
+<p>長いバージョンのコンフィグでは、マップが要求され、サポートされているオプションは次のとおりです。</p>
 </div>
 <div class="dlist">
 <dl>
 <dt class="hdlist1"><code>:root</code></dt>
 <dd>
-<p>(String) The path from which to serve requests. Paths starting with <code>classpath:</code> will serve from the classpath instead of the filesystem. All filesystem paths are relative to the project root.</p>
+<p>(String) リクエストを処理するためのパスです。classpath:` で始まるパスは、ファイルシステムではなく、クラスパスからリクエストを処理します。すべてのファイルシステムのパスは、プロジェクトのルートからの相対パスです。</p>
 </dd>
 <dt class="hdlist1"><code>:roots</code></dt>
 <dd>
-<p>(Vector of Strings) If you need multiple root paths, use instead of <code>:root</code>.</p>
+<p>複数のルートパスが必要な場合は、<code>:root</code> の代わりに使用します。</p>
 </dd>
 <dt class="hdlist1"><code>:ssl-port</code></dt>
 <dd>
-<p>When <code>:ssl</code> is configured use this port for ssl connections and server normal HTTP on the regular port. If <code>:ssl-port</code> is not set but <code>:ssl</code> is configured the default port will only server SSL requests.</p>
+<p>(文字列のベクトル) ssl`が設定されている場合、ssl接続にはこのポートを使用し、通常のHTTPサーバーは通常のポートを使用します。ssl-port` が設定されておらず、<code>:ssl</code> が設定されている場合、デフォルトのポートは SSL リクエストのみをサーバーします。</p>
 </dd>
 <dt class="hdlist1"><code>:host</code></dt>
 <dd>
-<p>Optional. The hostname to listen on. Defaults to localhost.</p>
+<p>オプションです。リッスンするホスト名を指定します。デフォルトでは localhost になります。</p>
 </dd>
 <dt class="hdlist1"><code>:handler</code></dt>
 <dd>
-<p>Optional. A fully qualified symbol. A <code>(defn handler [req] resp)</code> that is used
-if a resource is not found for the given request. Defaults to <code>shadow.http.push-state/handle</code>.</p>
+<p>オプションです。完全に修飾されたシンボルです。与えられたリクエストに対してリソースが見つからない場合に使用される <code>(defn handler [req] resp)</code> です。
+(defn handler [req] resp)` は、与えられたリクエストに対してリソースが見つからない場合に使用されます。デフォルトでは <code>shadow.http.push-state/handle</code> となります。</p>
 </dd>
 </dl>
 </div>
 <div class="paragraph">
-<p>The following two options only apply when using the default, built-in handler and typically do not need to be changed:</p>
+<p>以下の2つのオプションは、デフォルトの組み込みハンドラを使用する場合にのみ適用され、通常は変更する必要はありません。</p>
 </div>
 <div class="dlist">
 <dl>
 <dt class="hdlist1"><code>:push-state/headers</code></dt>
 <dd>
-<p>(optional) A map of HTTP headers to respond with. Defaults to <code>text/html</code> standard headers.</p>
+<p>(オプション) 応答する HTTP ヘッダーのマップです。デフォルトでは、<code>text/html</code> という標準的なヘッダーを使用します。</p>
 </dd>
 <dt class="hdlist1"><code>:push-state/index</code></dt>
 <dd>
-<p>(optional) The file to serve. Defaults to <code>index.html</code>.</p>
+<p>(オプション) サービスを提供するファイルです。デフォルトでは <code>index.html</code> が使用されます。</p>
 </dd>
 </dl>
 </div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
+ <span class="symbol">:dev-http</span>
+ {<span class="integer">8080</span> {<span class="symbol">:root</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">public</span><span class="delimiter">&quot;</span></span>
+        <span class="symbol">:handler</span> my.app/handler}}}</code></pre>
+</div>
+</div>
+<div class="sect4">
+<h5 id="dev-http-proxy"><a class="anchor" href="#dev-http-proxy"></a><a class="link" href="#dev-http-proxy">Reverse Proxy Support</a></h5>
 <div class="paragraph">
-<p>By default the dev server will attempt to serve requests locally but sometimes you may want to use an external web server to serve requests (eg. API request). This can be configured via <code>:proxy-url</code>.</p>
+<p>デフォルトでは、開発サーバーはローカルでリクエストを処理しようとしますが、外部のWebサーバーを使ってリクエストを処理したい場合もあります（例：APIリクエスト）。これは <code>:proxy-url</code> で設定できます。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
+ <span class="symbol">:dev-http</span>
+ {<span class="integer">8000</span>
+  {<span class="symbol">:root</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">public</span><span class="delimiter">&quot;</span></span>
+   <span class="symbol">:proxy-url</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">https://some.host</span><span class="delimiter">&quot;</span></span>}}}</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>A request going to <code><a href="http://localhost:8000/api/foo" class="bare">http://localhost:8000/api/foo</a></code> will serve the content returned by <code><a href="https://some.host/api/foo" class="bare">https://some.host/api/foo</a></code> instead. All request that do not have a local file will be served by the proxied server.</p>
+<p><a href="http://localhost:8000/api/foo`" class="bare">http://localhost:8000/api/foo`</a> へのリクエストは、代わりに <code><a href="https://some.host/api/foo" class="bare">https://some.host/api/foo</a></code> が返すコンテンツを提供します。ローカルファイルを持たないすべてのリクエストは、プロキシされたサーバーによって提供されます。</p>
 </div>
 <div class="paragraph">
-<p>Additional optional Options to configure the connection handling are:</p>
+<p>追加オプション 接続処理を設定するオプションは以下の通りです。
+[横型].
+<code>:proxy-rewrite-host-header</code>:: boolean, デフォルトは true です。オリジナルの Host ヘッダーを使用するか、<code>:proxy-url</code> からのヘッダーを使用するかを決定します。上記の例では、<code>localhost</code> と <code>some.host</code> のどちらを使用するかを決定します。
+<code>:proxy-reuse-x-forwarded</code>:: boolean, デフォルトは false です。プロキシが自分自身を <code>X-Forwarded-For</code> リストに追加するか、新しいリストを開始するかを設定します。
+<code>:proxy-max-connection-retries</code>:: int, デフォルトは1です。
+<code>:proxy-max-request-time</code>:: intとしてのミリ秒、デフォルトは30000です。30秒のリクエストタイムアウトです。</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="jvm-opts"><a class="anchor" href="#jvm-opts"></a><a class="link" href="#jvm-opts">5.5. JVM の設定</a></h3>
+<div class="paragraph">
+<p>JVM の起動に <code>shadow-cljs.edn</code> を使用する場合、JVM に直接渡される追加のコマンドライン引数を設定することができます。例えば、shadow-cljs.edn が使用する RAM の量を減らしたり増やしたりしたい場合があります。</p>
+</div>
+<div class="paragraph">
+<p>これは、<code>shadow-cljs.edn</code> のルートに <code>:jvm-opts</code> を設定して、文字列のベクトルを期待することで行われます。</p>
+</div>
+<div class="listingblock">
+<div class="title">例：RAM使用量を1GBに制限</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{<span class="symbol">:source-paths</span> [<span class="keyword">..</span><span class="keyword">.</span>]
+ <span class="symbol">:dependencies</span> [<span class="keyword">..</span><span class="keyword">.</span>]
+ <span class="symbol">:jvm-opts</span> [<span class="string"><span class="delimiter">&quot;</span><span class="content">-Xmx1G</span><span class="delimiter">&quot;</span></span>]
+ <span class="symbol">:builds</span> <span class="keyword">..</span><span class="keyword">.</span>}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>JVMに渡すことができる引数はバージョンによって異なりますが、https://docs.oracle.com/javase/8/docs/technotes/tools/windows/java.html[here]のリストの例があります。RAMの割り当てが少なすぎたり多すぎたりすると、パフォーマンスが低下することがありますのでご注意ください。通常は、デフォルトの設定で十分です。</p>
+</div>
+<div class="paragraph">
+<p>重要: <code>deps.edn</code> や <code>project.clj</code> を使用する場合は、<code>:jvm-opts</code> を設定する必要があります。</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ビルドの設定"><a class="anchor" href="#_ビルドの設定"></a><a class="link" href="#_ビルドの設定">6. ビルドの設定</a></h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{<span class="symbol">:dependencies</span> [[some-library <span class="string"><span class="delimiter">&quot;</span><span class="content">1.2.1</span><span class="delimiter">&quot;</span></span>] <span class="keyword">..</span><span class="keyword">.</span>]
+ <span class="symbol">:source-paths</span> [<span class="string"><span class="delimiter">&quot;</span><span class="content">src</span><span class="delimiter">&quot;</span></span>]
+ <span class="symbol">:builds</span>
+ {<span class="symbol">:app</span>   {<span class="symbol">:target</span>     <span class="symbol">:browser</span>
+          <span class="keyword">..</span><span class="keyword">.</span> browser-specific options <span class="keyword">..</span><span class="keyword">.</span>}
+  <span class="symbol">:tests</span> {<span class="symbol">:target</span> <span class="symbol">:karma</span>
+          <span class="keyword">..</span><span class="keyword">.</span> karma-specific options <span class="keyword">..</span><span class="keyword">.</span>}}}</code></pre>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_ビルドターゲット"><a class="anchor" href="#_ビルドターゲット"></a><a class="link" href="#_ビルドターゲット">6.1. ビルドターゲット</a></h3>
+
+</div>
+<div class="sect2">
+<h3 id="devtools"><a class="anchor" href="#devtools"></a><a class="link" href="#devtools">6.2. 開発オプション</a></h3>
+<div class="sect3">
+<h4 id="_repl_3"><a class="anchor" href="#_repl_3"></a><a class="link" href="#_repl_3">6.2.1. REPL</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
+ <span class="symbol">:builds</span>
+ {<span class="symbol">:app</span> {<span class="keyword">..</span><span class="keyword">.</span>
+        <span class="symbol">:devtools</span> {<span class="symbol">:repl-init-ns</span> my.app
+                   <span class="symbol">:repl-pprint</span> <span class="predefined-constant">true</span>
+                   <span class="keyword">..</span><span class="keyword">.</span>}}}}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_プリロード"><a class="anchor" href="#_プリロード"></a><a class="link" href="#_プリロード">6.2.2. プリロード</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
+ <span class="symbol">:builds</span>
+ {<span class="symbol">:app</span> {<span class="keyword">..</span><span class="keyword">.</span>
+        <span class="symbol">:devtools</span> {<span class="symbol">:preloads</span> [fulcro.inspect.preload]
+                   <span class="keyword">..</span><span class="keyword">.</span>}}}}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_ホットコードリロード"><a class="anchor" href="#_ホットコードリロード"></a><a class="link" href="#_ホットコードリロード">6.2.3. ホットコードリロード</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">shadow-cljs watch build-id</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_ライフサイクルフック"><a class="anchor" href="#_ライフサイクルフック"></a><a class="link" href="#_ライフサイクルフック">6.2.4. ライフサイクルフック</a></h4>
+<div class="sect4">
+<h5 id="_メタデータ"><a class="anchor" href="#_メタデータ"></a><a class="link" href="#_メタデータ">メタデータ</a></h5>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">(<span class="keyword">ns</span> <span class="namespace">my.app</span>)
+
+(<span class="keyword">defn</span> ^<span class="symbol">:dev/before-load</span> stop []
+  (js/console.log <span class="string"><span class="delimiter">&quot;</span><span class="content">stop</span><span class="delimiter">&quot;</span></span>))
+
+(<span class="keyword">defn</span> ^<span class="symbol">:dev/after-load</span> start []
+  (js/console.log <span class="string"><span class="delimiter">&quot;</span><span class="content">start</span><span class="delimiter">&quot;</span></span>))</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">(<span class="keyword">ns</span> <span class="namespace">my.app</span>)
+
+(<span class="keyword">defn</span> ^<span class="symbol">:dev/before-load-async</span> stop [done]
+  (js/console.log <span class="string"><span class="delimiter">&quot;</span><span class="content">stop</span><span class="delimiter">&quot;</span></span>)
+  (js/setTimeout
+    (<span class="keyword">fn</span> []
+      (js/console.log <span class="string"><span class="delimiter">&quot;</span><span class="content">stop complete</span><span class="delimiter">&quot;</span></span>)
+      (done)))
+
+(<span class="keyword">defn</span> ^<span class="symbol">:dev/after-load-async</span> start [done]
+  (js/console.log <span class="string"><span class="delimiter">&quot;</span><span class="content">start</span><span class="delimiter">&quot;</span></span>)
+  (js/setTimeout
+    (<span class="keyword">fn</span> []
+      (js/console.log <span class="string"><span class="delimiter">&quot;</span><span class="content">start complete</span><span class="delimiter">&quot;</span></span>)
+      (done)))</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">(<span class="keyword">ns</span> ^<span class="symbol">:dev/once</span> my.thing)
+
+(js/console.warn <span class="string"><span class="delimiter">&quot;</span><span class="content">will only execute once</span><span class="delimiter">&quot;</span></span>)</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">(<span class="keyword">ns</span> ^<span class="symbol">:dev/always</span> my.thing)
+
+(js/console.warn <span class="string"><span class="delimiter">&quot;</span><span class="content">will execute on every code change</span><span class="delimiter">&quot;</span></span>)</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_設定"><a class="anchor" href="#_設定"></a><a class="link" href="#_設定">設定</a></h5>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
+ <span class="symbol">:builds</span>
+ {<span class="symbol">:app</span> {<span class="keyword">..</span><span class="keyword">.</span>
+        <span class="symbol">:devtools</span> {<span class="symbol">:before-load</span>  my.app/stop
+                   <span class="symbol">:after-load</span>   my.app/start
+                   <span class="keyword">..</span><span class="keyword">.</span>}}}}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="build-hooks"><a class="anchor" href="#build-hooks"></a><a class="link" href="#build-hooks">6.3. ビルドフック</a></h3>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
+ <span class="symbol">:builds</span>
+ {<span class="symbol">:app</span> {<span class="symbol">:target</span> <span class="keyword">..</span><span class="keyword">.</span>
+        <span class="symbol">:build-hooks</span>
+        [(my.util/hook <span class="integer">1</span> <span class="integer">2</span> <span class="integer">3</span>)]
+        <span class="keyword">..</span><span class="keyword">.</span>}}}}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">(<span class="keyword">ns</span> <span class="namespace">my.util</span>)
+
+(<span class="keyword">defn</span> <span class="function">hook</span>
+  {<span class="symbol">:shadow.build/stage</span> <span class="symbol">:flush</span>}
+  [build-state &amp; args]
+  (<span class="keyword">prn</span> [<span class="symbol">:hello-world</span> args])
+  build-state)</code></pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="compile-stages"><a class="anchor" href="#compile-stages"></a><a class="link" href="#compile-stages">6.3.1. コンパイル・ステージ</a></h4>
+
+</div>
+</div>
+<div class="sect2">
+<h3 id="_コンパイラ_キャッシュ"><a class="anchor" href="#_コンパイラ_キャッシュ"></a><a class="link" href="#_コンパイラ_キャッシュ">6.4. コンパイラ・キャッシュ</a></h3>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
+ <span class="symbol">:cache-blockers</span> #{clara.rules}
+ <span class="symbol">:builds</span> {<span class="keyword">..</span><span class="keyword">.</span>}}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
+ <span class="symbol">:builds</span>
+ {<span class="symbol">:app</span>
+  {<span class="symbol">:target</span> <span class="symbol">:browser</span>
+   <span class="keyword">..</span><span class="keyword">.</span>
+   <span class="symbol">:build-options</span>
+   {<span class="symbol">:cache-level</span> <span class="symbol">:off</span>}}}}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">target/shadow-cljs/builds/app/dev/ana/cljs/core.cljs.cache.transit.json</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{<span class="symbol">:source-paths</span> [<span class="keyword">..</span><span class="keyword">.</span>]
+ <span class="symbol">:dependencies</span> [<span class="keyword">..</span><span class="keyword">.</span>]
+ <span class="symbol">:cache-root</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">.shadow-cljs</span><span class="delimiter">&quot;</span></span>
+ <span class="symbol">:builds</span> <span class="keyword">..</span><span class="keyword">.</span>}
+
+<span class="comment">;; cache then goes to</span>
+<span class="comment">;; .shadow-cljs/builds/app/dev/ana/cljs/core.cljs.cache.transit.json</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="closure-defines"><a class="anchor" href="#closure-defines"></a><a class="link" href="#closure-defines">6.5. クロージャの定義</a></h3>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">(<span class="keyword">ns</span> <span class="namespace">your.app</span>)
+
+(goog-define VERBOSE <span class="predefined-constant">false</span>)
+
+(<span class="keyword">when</span> VERBOSE
+  (<span class="keyword">println</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">Hello World</span><span class="delimiter">&quot;</span></span>))</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
+ <span class="symbol">:builds</span>
+ {<span class="symbol">:app</span>
+  {<span class="symbol">:target</span> <span class="symbol">:browser</span>
+   <span class="keyword">..</span><span class="keyword">.</span>
+   <span class="symbol">:modules</span> {<span class="symbol">:app</span> {<span class="symbol">:entries</span> [your.app]}}
+   <span class="comment">;; to enable in development only</span>
+   <span class="symbol">:dev</span> {<span class="symbol">:closure-defines</span> {your.app/VERBOSE <span class="predefined-constant">true</span>}}
+   <span class="comment">;; to enable always</span>
+   <span class="symbol">:closure-defines</span> {your.app/VERBOSE <span class="predefined-constant">true</span>}
+   <span class="comment">;; you may also enable it for release as well</span>
+   <span class="symbol">:release</span> {<span class="symbol">:closure-defines</span> {your.app/VERBOSE <span class="predefined-constant">true</span>}}
+   }}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="compiler-options"><a class="anchor" href="#compiler-options"></a><a class="link" href="#compiler-options">6.6. コンパイラのオプション</a></h3>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{<span class="symbol">:dependencies</span> [<span class="keyword">..</span><span class="keyword">.</span>]
+ <span class="symbol">:builds</span>
+ {<span class="symbol">:app</span>
+  {<span class="symbol">:target</span> <span class="symbol">:browser</span>
+   <span class="keyword">..</span><span class="keyword">.</span>
+   <span class="symbol">:compiler-options</span> {<span class="symbol">:fn-invoke-direct</span> <span class="predefined-constant">true</span>}}}}</code></pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="warnigs-as-errors"><a class="anchor" href="#warnigs-as-errors"></a><a class="link" href="#warnigs-as-errors">6.6.1. エラーとしてのワーニング</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
+ <span class="symbol">:builds</span>
+ {<span class="symbol">:app</span>
+  {<span class="keyword">..</span><span class="keyword">.</span>
+   <span class="symbol">:compiler-options</span> {<span class="symbol">:warnings-as-errors</span> <span class="predefined-constant">true</span>}}}}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
+ <span class="symbol">:builds</span>
+ {<span class="symbol">:app</span>
+  {<span class="keyword">..</span><span class="keyword">.</span>
+   <span class="symbol">:compiler-options</span> {<span class="symbol">:warnings-as-errors</span> #{<span class="symbol">:undeclared-var</span>}}}}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
+ <span class="symbol">:builds</span>
+ {<span class="symbol">:app</span>
+  {<span class="keyword">..</span><span class="keyword">.</span>
+   <span class="symbol">:compiler-options</span> {<span class="symbol">:warnings-as-errors</span> {<span class="symbol">:ignore</span> #{some.ns some.library.*}
+                                           <span class="symbol">:warnings-types</span> #{<span class="symbol">:undeclared-var</span>}}}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_出力言語オプション"><a class="anchor" href="#_出力言語オプション"></a><a class="link" href="#_出力言語オプション">6.7. 出力言語オプション</a></h3>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
+ <span class="symbol">:builds</span>
+ {<span class="symbol">:script</span>
+  {<span class="symbol">:target</span> <span class="symbol">:node-script</span>
+   <span class="symbol">:main</span> foo.bar/main
+   <span class="keyword">..</span><span class="keyword">.</span>
+   <span class="symbol">:compiler-options</span> {<span class="symbol">:output-feature-set</span> <span class="symbol">:es7</span>}}}}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_conditional_reading"><a class="anchor" href="#_conditional_reading"></a><a class="link" href="#_conditional_reading">6.8. Conditional Reading</a></h3>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">(<span class="keyword">ns</span> <span class="namespace">my.awesome.component</span>
+  (<span class="symbol">:require</span>
+    [<span class="string"><span class="delimiter">&quot;</span><span class="content">react</span><span class="delimiter">&quot;</span></span> <span class="symbol">:as</span> react]
+    [<span class="string"><span class="delimiter">&quot;</span><span class="content">codemirror</span><span class="delimiter">&quot;</span></span> <span class="symbol">:as</span> CodeMirror]))
+
+<span class="comment">;; suppose you create a CodeMirror instance on some React :ref</span>
+(<span class="keyword">defn</span> <span class="function">init-cm</span> [dom-node]
+  (<span class="keyword">let</span> [cm (CodeMirror/fromTextArea dom-node <span class="error">#</span>js {<span class="keyword">..</span><span class="keyword">.</span>})]
+    <span class="keyword">..</span><span class="keyword">.</span>))
+
+<span class="keyword">..</span><span class="keyword">.</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">(<span class="keyword">ns</span> <span class="namespace">my.awesome.component</span>
+ (<span class="symbol">:require</span>
+   [<span class="string"><span class="delimiter">&quot;</span><span class="content">react</span><span class="delimiter">&quot;</span></span> <span class="symbol">:as</span> react]
+   <span class="comment">;; NOTE: The order here matters. Only the first applicable</span>
+   <span class="comment">;; branch is used. If :cljs is used first it will still be</span>
+   <span class="comment">;; taken by the :server build</span>
+   <span class="error">#</span>?@(<span class="symbol">:node</span> [[]]
+       <span class="symbol">:cljs</span> [[<span class="string"><span class="delimiter">&quot;</span><span class="content">codemirror</span><span class="delimiter">&quot;</span></span> <span class="symbol">:as</span> CodeMirror]])))
+
+<span class="error">#</span>?(<span class="symbol">:node</span> <span class="comment">;; node platform override</span>
+   (<span class="keyword">defn</span> <span class="function">init-cm</span> [dom-node]
+    <span class="symbol">:no-op</span>)
+   <span class="symbol">:cljs</span> <span class="comment">;; default impl</span>
+   (<span class="keyword">defn</span> <span class="function">init-cm</span> [dom-node]
+     <span class="keyword">..</span><span class="keyword">.</span> actual impl <span class="keyword">..</span><span class="keyword">.</span>))
+
+<span class="keyword">..</span><span class="keyword">.</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
+ <span class="symbol">:builds</span>
+ <span class="comment">;; app build configured normally, no adjustments required</span>
+ {<span class="symbol">:app</span>
+  {<span class="symbol">:target</span> <span class="symbol">:browser</span>
+   <span class="keyword">..</span><span class="keyword">.</span>}
+  <span class="comment">;; for the server we add the :node reader feature</span>
+  <span class="comment">;; it will then be used instead of the default :cljs</span>
+  <span class="symbol">:server</span>
+  {<span class="symbol">:target</span> <span class="symbol">:node-script</span>
+   <span class="symbol">:compiler-options</span>
+   {<span class="symbol">:reader-features</span> #{<span class="symbol">:node</span>}}}}}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">(<span class="keyword">ns</span> <span class="namespace">my.awesome.component</span>
+  (<span class="symbol">:require</span>
+    [<span class="string"><span class="delimiter">&quot;</span><span class="content">react</span><span class="delimiter">&quot;</span></span> <span class="symbol">:as</span> react]))
+
+<span class="comment">;; this will likely be removed as dead code if</span>
+<span class="comment">;; its never actually called anywhere</span>
+
+(<span class="keyword">defn</span> <span class="function">init-cm</span> [dom-node] <span class="symbol">:no-op</span>)
+<span class="keyword">..</span><span class="keyword">.</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="config-merge"><a class="anchor" href="#config-merge"></a><a class="link" href="#config-merge">6.9. CLIからのオーバーライド</a></h3>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
+ <span class="symbol">:builds</span>
+ {<span class="symbol">:app</span>
+  {<span class="symbol">:target</span> <span class="symbol">:browser</span>
+   <span class="symbol">:output-dir</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">public/js</span><span class="delimiter">&quot;</span></span>
+   <span class="keyword">..</span><span class="keyword">.</span>}}}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">$ shadow-cljs release app --config-merge '{:output-dir &quot;somewhere/else&quot;}'</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">$ shadow-cljs release app --config-merge '{:closure-defines {your.app/DEBUG true}}'</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="shadow-env"><a class="anchor" href="#shadow-env"></a><a class="link" href="#shadow-env">6.10. 環境変数の使用</a></h3>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
+ <span class="symbol">:builds</span>
+ {<span class="symbol">:app</span>
+  {<span class="symbol">:target</span> <span class="symbol">:browser</span>
+   <span class="symbol">:output-dir</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">public/js</span><span class="delimiter">&quot;</span></span>
+   <span class="symbol">:closure-defines</span> {your.app/URL <span class="error">#</span>shadow/env <span class="string"><span class="delimiter">&quot;</span><span class="content">APP_URL</span><span class="delimiter">&quot;</span></span>}
+   <span class="keyword">..</span><span class="keyword">.</span>}}}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure"><span class="error">#</span>shadow/env <span class="string"><span class="delimiter">&quot;</span><span class="content">APP_URL</span><span class="delimiter">&quot;</span></span>
+<span class="error">#</span>shadow/env [<span class="string"><span class="delimiter">&quot;</span><span class="content">APP_URL</span><span class="delimiter">&quot;</span></span>]
+<span class="comment">;; with default value, used if env variable is not set</span>
+<span class="error">#</span>shadow/env [<span class="string"><span class="delimiter">&quot;</span><span class="content">APP_URL</span><span class="delimiter">&quot;</span></span> <span class="string"><span class="delimiter">&quot;</span><span class="content">default-value</span><span class="delimiter">&quot;</span></span>]
+<span class="error">#</span>shadow/env [<span class="string"><span class="delimiter">&quot;</span><span class="content">APP_URL</span><span class="delimiter">&quot;</span></span> <span class="symbol">:default</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">default-value</span><span class="delimiter">&quot;</span></span>]
+<span class="comment">;; turn PORT env into an integer, with default</span>
+<span class="error">#</span>shadow/env [<span class="string"><span class="delimiter">&quot;</span><span class="content">PORT</span><span class="delimiter">&quot;</span></span> <span class="symbol">:as</span> <span class="symbol">:int</span> <span class="symbol">:default</span> <span class="integer">8080</span>]</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="build-target-defaults"><a class="anchor" href="#build-target-defaults"></a><a class="link" href="#build-target-defaults">6.11. ビルドとターゲットのデフォルト</a></h3>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
+ <span class="symbol">:build-defaults</span>
+ {<span class="symbol">:closure-defines</span>
+   {your.app/VERBOSE <span class="predefined-constant">true</span>}}
+
+ <span class="symbol">:target-defaults</span>
+ {<span class="symbol">:browser</span>
+   {<span class="symbol">:js-options</span>
+     {<span class="symbol">:resolve</span> {<span class="string"><span class="delimiter">&quot;</span><span class="content">react</span><span class="delimiter">&quot;</span></span> {<span class="symbol">:target</span> <span class="symbol">:global</span>
+                         <span class="symbol">:global</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">React</span><span class="delimiter">&quot;</span></span>}}}}}
+
+ <span class="symbol">:builds</span>
+ {<span class="symbol">:app</span>
+  {<span class="symbol">:target</span> <span class="symbol">:browser</span>
+   <span class="keyword">..</span><span class="keyword">.</span>}}}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="target-browser"><a class="anchor" href="#target-browser"></a><a class="link" href="#target-browser">7. ブラウザを対象とする</a></h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{<span class="symbol">:dependencies</span> [<span class="keyword">..</span><span class="keyword">.</span>]
+ <span class="symbol">:source-paths</span> [<span class="keyword">..</span><span class="keyword">.</span>]
+
+ <span class="symbol">:builds</span>
+ {<span class="symbol">:app</span> {<span class="symbol">:target</span> <span class="symbol">:browser</span>
+        <span class="symbol">:output-dir</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">public/assets/app/js</span><span class="delimiter">&quot;</span></span>
+        <span class="symbol">:asset-path</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">/assets/app/js</span><span class="delimiter">&quot;</span></span>
+        <span class="symbol">:modules</span> {<span class="symbol">:main</span> {<span class="symbol">:entries</span> [my.app]}}}]}</code></pre>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_出力設定"><a class="anchor" href="#_出力設定"></a><a class="link" href="#_出力設定">7.1. 出力設定</a></h3>
+
+</div>
+<div class="sect2">
+<h3 id="_モジュール"><a class="anchor" href="#_モジュール"></a><a class="link" href="#_モジュール">7.2. モジュール</a></h3>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
+ <span class="symbol">:builds</span>
+ {<span class="symbol">:app</span> {<span class="symbol">:target</span> <span class="symbol">:browser</span>
+        <span class="symbol">:output-dir</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">public/js</span><span class="delimiter">&quot;</span></span>
+        <span class="keyword">..</span><span class="keyword">.</span>
+        <span class="symbol">:modules</span> {<span class="symbol">:main</span> {<span class="symbol">:entries</span> [my.app]}}}}}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
+ <span class="symbol">:builds</span>
+ {<span class="symbol">:app</span> {<span class="symbol">:target</span> <span class="symbol">:browser</span>
+        <span class="symbol">:output-dir</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">public/js</span><span class="delimiter">&quot;</span></span>
+        <span class="keyword">..</span><span class="keyword">.</span>
+        <span class="symbol">:modules</span> {<span class="symbol">:main</span> {<span class="symbol">:init-fn</span> my.app/init}}}}}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="CodeSplitting"><a class="anchor" href="#CodeSplitting"></a><a class="link" href="#CodeSplitting">7.3. コード・スプリッティング</a></h3>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
+ <span class="symbol">:output-dir</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">public/js</span><span class="delimiter">&quot;</span></span>
+ <span class="symbol">:modules</span>
+ {<span class="symbol">:shared</span>
+  {<span class="symbol">:entries</span> [my.app.common]}
+  <span class="symbol">:home</span>
+  {<span class="symbol">:entries</span> [my.app.home]
+   <span class="symbol">:depends-on</span> #{<span class="symbol">:shared</span>}}
+  <span class="symbol">:login</span>
+  {<span class="symbol">:entries</span> [my.app.login]
+   <span class="symbol">:depends-on</span> #{<span class="symbol">:shared</span>}}
+  <span class="symbol">:protected</span>
+  {<span class="symbol">:entries</span> [my.app.protected]
+   <span class="symbol">:depends-on</span> #{<span class="symbol">:shared</span>}}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="text">.
+└── public
+    └── js
+        ├── shared.js
+        ├── home.js
+        ├── login.js
+        └── protected.js</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="html"><span class="tag">&lt;script</span> <span class="attribute-name">src</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">/js/shared.js</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span><span class="tag">&lt;/script&gt;</span>
+<span class="tag">&lt;script</span> <span class="attribute-name">src</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">/js/login.js</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span><span class="tag">&lt;/script&gt;</span></code></pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_動的にコードを読み込む"><a class="anchor" href="#_動的にコードを読み込む"></a><a class="link" href="#_動的にコードを読み込む">7.3.1. 動的にコードを読み込む</a></h4>
+<div class="sect4">
+<h5 id="_shadow_cljsに組み込まれたloader_supportの使用"><a class="anchor" href="#_shadow_cljsに組み込まれたloader_supportの使用"></a><a class="link" href="#_shadow_cljsに組み込まれたloader_supportの使用">shadow-cljsに組み込まれたLoader Supportの使用</a></h5>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
+ <span class="symbol">:builds</span>
+   {<span class="symbol">:app</span>
+     {<span class="symbol">:target</span> <span class="symbol">:browser</span>
+      <span class="keyword">..</span><span class="keyword">.</span>
+      <span class="symbol">:module-loader</span> <span class="predefined-constant">true</span>
+      <span class="symbol">:modules</span> {<span class="symbol">:main</span>  {<span class="symbol">:entries</span> [my.app]}
+                <span class="symbol">:extra</span> {<span class="symbol">:entries</span> [my.app.extra]
+                        <span class="symbol">:depends-on</span> #{<span class="symbol">:main</span>}}}}}}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">(<span class="keyword">ns</span> <span class="namespace">my.app</span>
+  (<span class="symbol">:require</span> [shadow.loader <span class="symbol">:as</span> loader]))
+
+(<span class="keyword">defn</span> <span class="function">fn-to-call-on-load</span> []
+  (js/console.log <span class="string"><span class="delimiter">&quot;</span><span class="content">extra loaded</span><span class="delimiter">&quot;</span></span>))
+
+(<span class="keyword">defn</span> <span class="function">fn-to-call-on-error</span> []
+  (js/console.log <span class="string"><span class="delimiter">&quot;</span><span class="content">extra load failed</span><span class="delimiter">&quot;</span></span>))</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure"><span class="comment">;; load returns a goog.async.Deferred, and can be used like a promise</span>
+(<span class="keyword">-&gt;</span> (loader/load <span class="string"><span class="delimiter">&quot;</span><span class="content">extra</span><span class="delimiter">&quot;</span></span>)
+    (<span class="keyword">.</span>then fn-to-call-on-load fn-to-call-on-error))</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Loading many modules</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure"><span class="comment">;; must be a JS array, also returns goog.async.Deferred</span>
+(loader/load-many <span class="error">#</span>js [<span class="string"><span class="delimiter">&quot;</span><span class="content">foo</span><span class="delimiter">&quot;</span></span> <span class="string"><span class="delimiter">&quot;</span><span class="content">bar</span><span class="delimiter">&quot;</span></span>])</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">(loader/with-module <span class="string"><span class="delimiter">&quot;</span><span class="content">extra</span><span class="delimiter">&quot;</span></span> fn-to-call-on-load)</code></pre>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_ローダーのコスト"><a class="anchor" href="#_ローダーのコスト"></a><a class="link" href="#_ローダーのコスト">ローダーのコスト</a></h6>
+
+</div>
+</div>
+<div class="sect4">
+<h5 id="_標準的なclojurescript_apiの使用"><a class="anchor" href="#_標準的なclojurescript_apiの使用"></a><a class="link" href="#_標準的なclojurescript_apiの使用">標準的なClojureScript APIの使用</a></h5>
+
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="output-wrapper"><a class="anchor" href="#output-wrapper"></a><a class="link" href="#output-wrapper">7.4. アウトプット・ラッパー</a></h3>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
+ <span class="symbol">:builds</span>
+ {<span class="symbol">:target</span> <span class="symbol">:browser</span>
+  <span class="keyword">..</span><span class="keyword">.</span>
+  <span class="symbol">:compiler-options</span>
+  {<span class="symbol">:output-wrapper</span> <span class="predefined-constant">true</span>
+   <span class="symbol">:rename-prefix-namespace</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">MY_APP</span><span class="delimiter">&quot;</span></span>}}}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_ウェブワーカー"><a class="anchor" href="#_ウェブワーカー"></a><a class="link" href="#_ウェブワーカー">7.5. ウェブワーカー</a></h3>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
+ <span class="symbol">:builds</span>
+ {<span class="symbol">:app</span>
+  {<span class="symbol">:target</span> <span class="symbol">:browser</span>
+   <span class="symbol">:output-dir</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">public/js</span><span class="delimiter">&quot;</span></span>
+   <span class="symbol">:asset-path</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">/js</span><span class="delimiter">&quot;</span></span>
+   <span class="keyword">..</span><span class="keyword">.</span>
+   <span class="symbol">:modules</span>
+   {<span class="symbol">:shared</span>
+    {<span class="symbol">:entries</span> []}
+    <span class="symbol">:main</span>
+    {<span class="symbol">:init-fn</span> my.app/init
+     <span class="symbol">:depends-on</span> #{<span class="symbol">:shared</span>}}
+    <span class="symbol">:worker</span>
+    {<span class="symbol">:init-fn</span> my.app.worker/init
+     <span class="symbol">:depends-on</span> #{<span class="symbol">:shared</span>}
+     <span class="symbol">:web-worker</span> <span class="predefined-constant">true</span>}}
+   }}}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">(<span class="keyword">ns</span> <span class="namespace">my.app.worker</span>)
+
+(<span class="keyword">defn</span> <span class="function">init</span> []
+  (js/self.addEventListener <span class="string"><span class="delimiter">&quot;</span><span class="content">message</span><span class="delimiter">&quot;</span></span>
+    (<span class="keyword">fn</span> [^js e]
+      (js/postMessage (<span class="keyword">..</span> e -data)))))</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">(<span class="keyword">ns</span> <span class="namespace">my.app</span>)
+
+(<span class="keyword">defn</span> <span class="function">init</span> []
+  (<span class="keyword">let</span> [worker (js/Worker. <span class="string"><span class="delimiter">&quot;</span><span class="content">/js/worker.js</span><span class="delimiter">&quot;</span></span>)]
+    (<span class="keyword">..</span> worker (addEventListener <span class="string"><span class="delimiter">&quot;</span><span class="content">message</span><span class="delimiter">&quot;</span></span> (<span class="keyword">fn</span> [e] (js/console.log e))))
+    (<span class="keyword">..</span> worker (postMessage <span class="string"><span class="delimiter">&quot;</span><span class="content">hello world</span><span class="delimiter">&quot;</span></span>))))</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">&lt;script src<span class="keyword">=</span><span class="string"><span class="delimiter">&quot;</span><span class="content">/js/shared.js</span><span class="delimiter">&quot;</span></span>&gt;&lt;/script&gt;
+&lt;script src<span class="keyword">=</span><span class="string"><span class="delimiter">&quot;</span><span class="content">/js/main.js</span><span class="delimiter">&quot;</span></span>&gt;&lt;/script&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_キャッシュ可能な出力"><a class="anchor" href="#_キャッシュ可能な出力"></a><a class="link" href="#_キャッシュ可能な出力">7.6. キャッシュ可能な出力</a></h3>
+<div class="sect3">
+<h4 id="release-version"><a class="anchor" href="#release-version"></a><a class="link" href="#release-version">7.6.1. リリースバージョン</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">shadow-cljs release app --config-merge '{<span class="symbol">:release-version</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">v1</span><span class="delimiter">&quot;</span></span>}'</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
+ <span class="symbol">:builds</span>
+   {<span class="symbol">:app</span>
+     {<span class="symbol">:target</span> <span class="symbol">:browser</span>
+      <span class="keyword">..</span><span class="keyword">.</span>
+      <span class="symbol">:output-dir</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">public/js</span><span class="delimiter">&quot;</span></span>
+      <span class="symbol">:asset-path</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">/js</span><span class="delimiter">&quot;</span></span>
+      <span class="symbol">:modules</span> {<span class="symbol">:main</span>  {<span class="symbol">:entries</span> [my.app]}
+                <span class="symbol">:extra</span> {<span class="symbol">:entries</span> [my.app.extra]
+                        <span class="symbol">:depends-on</span> #{<span class="symbol">:main</span>}}}}}}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="NameHashing"><a class="anchor" href="#NameHashing"></a><a class="link" href="#NameHashing">7.6.2. フィンガープリント・ハッシュを使ったファイル名</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
+ <span class="symbol">:builds</span>
+   {<span class="symbol">:app</span>
+     {<span class="symbol">:target</span> <span class="symbol">:browser</span>
+      <span class="keyword">..</span><span class="keyword">.</span>
+      <span class="symbol">:output-dir</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">public/js</span><span class="delimiter">&quot;</span></span>
+      <span class="symbol">:asset-path</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">/js</span><span class="delimiter">&quot;</span></span>
+      <span class="symbol">:module-hash-names</span> <span class="predefined-constant">true</span>
+      <span class="symbol">:modules</span> {<span class="symbol">:main</span>  {<span class="symbol">:entries</span> [my.app]}
+                <span class="symbol">:extra</span> {<span class="symbol">:entries</span> [my.app.extra]
+                        <span class="symbol">:depends-on</span> #{<span class="symbol">:main</span>}}}}}}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="BrowserManifest"><a class="anchor" href="#BrowserManifest"></a><a class="link" href="#BrowserManifest">7.7. 出力マニフェスト</a></h3>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">[{<span class="symbol">:module-id</span> <span class="symbol">:common</span>,
+  <span class="symbol">:name</span> <span class="symbol">:common</span>,
+  <span class="symbol">:output-name</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">common.15D142F7841E2838B46283EA558634EE.js</span><span class="delimiter">&quot;</span></span>,
+  <span class="symbol">:entries</span> [<span class="keyword">..</span><span class="keyword">.</span>],
+  <span class="symbol">:depends-on</span> #{},
+  <span class="symbol">:sources</span> [<span class="keyword">..</span><span class="keyword">.</span>]}
+ {<span class="symbol">:module-id</span> <span class="symbol">:page-a</span>,
+  <span class="symbol">:name</span> <span class="symbol">:page-a</span>,
+  <span class="symbol">:output-name</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">page-a.D8844E305644135CBD5CBCF7E359168A.js</span><span class="delimiter">&quot;</span></span>,
+  <span class="symbol">:entries</span> [<span class="keyword">..</span><span class="keyword">.</span>],
+  <span class="symbol">:depends-on</span> #{<span class="symbol">:common</span>},
+  <span class="symbol">:sources</span> [<span class="keyword">..</span><span class="keyword">.</span>]}
+ <span class="keyword">..</span><span class="keyword">.</span>]</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
+ <span class="symbol">:builds</span>
+   {<span class="symbol">:app</span>
+     {<span class="symbol">:target</span> <span class="symbol">:browser</span>
+      <span class="keyword">..</span><span class="keyword">.</span>
+      <span class="symbol">:build-options</span> {<span class="symbol">:manifest-name</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">manifest.json</span><span class="delimiter">&quot;</span></span>}
+      <span class="symbol">:modules</span> {<span class="symbol">:main</span>  {<span class="symbol">:entries</span> [my.app]}
+                <span class="symbol">:extra</span> {<span class="symbol">:entries</span> [my.app.extra]
+                        <span class="symbol">:depends-on</span> #{<span class="symbol">:main</span>}}}}}}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_開発サポート"><a class="anchor" href="#_開発サポート"></a><a class="link" href="#_開発サポート">7.8. 開発サポート</a></h3>
+<div class="sect3">
+<h4 id="hud"><a class="anchor" href="#hud"></a><a class="link" href="#hud">7.8.1. ヘッドアップディスプレイ（HUD）</a></h4>
+<div class="sect4">
+<h5 id="open-file-command"><a class="anchor" href="#open-file-command"></a><a class="link" href="#open-file-command">ファイルを開く</a></h5>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{<span class="symbol">:open-file-command</span>
+ [<span class="string"><span class="delimiter">&quot;</span><span class="content">idea</span><span class="delimiter">&quot;</span></span> <span class="symbol">:pwd</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">--line</span><span class="delimiter">&quot;</span></span> <span class="symbol">:line</span> <span class="symbol">:file</span>]}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">$ idea /path/to/project-root --line 3 /path/to/project-root/src/main/demo/foo.cljs</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{<span class="symbol">:open-file-command</span>
+ [<span class="string"><span class="delimiter">&quot;</span><span class="content">emacsclient</span><span class="delimiter">&quot;</span></span> <span class="string"><span class="delimiter">&quot;</span><span class="content">-n</span><span class="delimiter">&quot;</span></span> [<span class="string"><span class="delimiter">&quot;</span><span class="content">+%s:%s</span><span class="delimiter">&quot;</span></span> <span class="symbol">:line</span> <span class="symbol">:column</span>] <span class="symbol">:file</span>]}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">$ emacsclient -n +3:1 /path/to/project-root/src/main/demo/foo.cljs</code></pre>
+</div>
 </div>
 <div class="dlist Horizontal">
 <dl>
-<dt><code>:proxy-rewrite-host-header</code></dt>
+<dt><code>:pwd</code></dt>
 <dd>
-<p>boolean, defaults to true. Determines whether the original Host header will be used or the one from the <code>:proxy-url</code>. <code>localhost</code> vs <code>some.host</code> using the example above.</p>
+<p>Process Working Directory (aka project root)</p>
 </dd>
-<dt><code>:proxy-reuse-x-forwarded</code></dt>
+<dt><code>:file</code></dt>
 <dd>
-<p>boolean, defaults to false. Configures if the proxy should add itself to <code>X-Forwarded-For</code> list or start a new one.</p>
+<p>Absolute File Path</p>
 </dd>
-<dt><code>:proxy-max-connection-retries</code></dt>
+<dt><code>:line</code></dt>
 <dd>
-<p>int, defaults to 1.</p>
+<p>Line Number of Warning/Error</p>
 </dd>
-<dt><code>:proxy-max-request-time</code></dt>
+<dt><code>:column</code></dt>
 <dd>
-<p>ms as int, defaults to 30000. 30sec request timeout.</p>
+<p>Column Number</p>
+</dd>
+<dt><code>:wsl-file</code></dt>
+<dd>
+<p>Translated WSL file path. Useful when running <code>shadow-cljs</code> via WSL Bash. Translates a <code>/mnt/c/Users/someone/code/project/src/main/demo/foo.cljs</code> path into <code>C:\Users...</code></p>
+</dd>
+<dt><code>:wsl-pwd</code></dt>
+<dd>
+<p>Translated <code>:pwd</code></p>
 </dd>
 </dl>
 </div>
-<div class="paragraph">
-<p>When <code>shadow-cljs.edn</code> is used in charge of starting the JVM you can configure additional command line arguments to be passed directly to the JVM. For example you may want to decrease or increase the amount of RAM used by shadow-cljs.</p>
 </div>
-<div class="paragraph">
-<p>This is done by configuring <code>:jvm-opts</code> at the root of <code>shadow-cljs.edn</code> expecting a vector of strings.</p>
 </div>
-<div class="paragraph">
-<div class="title">Example limited RAM use to 1GB</div>
-<p>The arguments that can be passed to the JVM vary depending on the version but you can find an example list <a href="https://docs.oracle.com/javase/8/docs/technotes/tools/windows/java.html">here</a>. Please note that assigning too little or too much RAM can degrade performance. The defaults are usually good enough.</p>
+<div class="sect3">
+<h4 id="_css_リローディング"><a class="anchor" href="#_css_リローディング"></a><a class="link" href="#_css_リローディング">7.8.2. CSS リローディング</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="html"><span class="tag">&lt;link</span> <span class="attribute-name">rel</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">stylesheet</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">href</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">/css/main.css</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span></code></pre>
 </div>
-<div class="admonitionblock important">
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">[<span class="symbol">:link</span> {<span class="symbol">:rel</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">stylesheet</span><span class="delimiter">&quot;</span></span> <span class="symbol">:href</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">/css/main.css</span><span class="delimiter">&quot;</span></span>}]</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure"><span class="symbol">:dev-http</span> {<span class="integer">8000</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">public</span><span class="delimiter">&quot;</span></span>}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
+    {<span class="symbol">:builds</span>
+      {<span class="symbol">:app</span> {<span class="keyword">..</span><span class="keyword">.</span>
+             <span class="symbol">:devtools</span> {<span class="symbol">:watch-dir</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">public</span><span class="delimiter">&quot;</span></span>}}}}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
+ {<span class="symbol">:builds</span>
+  {<span class="symbol">:app</span>
+   {<span class="keyword">..</span><span class="keyword">.</span>
+    <span class="symbol">:devtools</span> {<span class="symbol">:watch-dir</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">public</span><span class="delimiter">&quot;</span></span>
+               <span class="symbol">:watch-path</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">/foo</span><span class="delimiter">&quot;</span></span>}}}}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="proxy-support"><a class="anchor" href="#proxy-support"></a><a class="link" href="#proxy-support">7.8.3. プロキシサポート</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
+ <span class="symbol">:builds</span>
+ {<span class="symbol">:app</span> {<span class="keyword">..</span><span class="keyword">.</span>
+        <span class="symbol">:devtools</span> {<span class="symbol">:before-load</span>  my.app/stop
+                   <span class="symbol">:after-load</span>   my.app/start
+                   <span class="symbol">:devtools-url</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">https://some.host/shadow-cljs</span><span class="delimiter">&quot;</span></span>
+                   <span class="keyword">..</span><span class="keyword">.</span>}}}}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="text">https://some.host/shadow-cljs/ws/foo/bar?asdf</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">http<span class="symbol">://localhost</span><span class="error">:</span><span class="integer">9630</span>/foo/bar?asdf</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="target-react-native"><a class="anchor" href="#target-react-native"></a><a class="link" href="#target-react-native">8. React Nativeをターゲットにする</a></h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{<span class="symbol">:source-paths</span> [<span class="keyword">..</span><span class="keyword">.</span>]
+ <span class="symbol">:dependencies</span> [<span class="keyword">..</span><span class="keyword">.</span>]
+ <span class="keyword">..</span><span class="keyword">.</span>
+ <span class="symbol">:builds</span>
+ {<span class="symbol">:app</span>
+  {<span class="symbol">:target</span> <span class="symbol">:react-native</span>
+   <span class="symbol">:init-fn</span> demo.app/init
+   <span class="symbol">:output-dir</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">app</span><span class="delimiter">&quot;</span></span>}}}</code></pre>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_react_native"><a class="anchor" href="#_react_native"></a><a class="link" href="#_react_native">8.1. React Native</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/thheller/reagent-react-native" class="bare">https://github.com/thheller/reagent-react-native</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_expo"><a class="anchor" href="#_expo"></a><a class="link" href="#_expo">8.2. Expo</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/thheller/fulcro-expo" class="bare">https://github.com/thheller/fulcro-expo</a></p>
+</li>
+<li>
+<p><a href="https://github.com/thheller/reagent-expo" class="bare">https://github.com/thheller/reagent-expo</a></p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{
+  <span class="string"><span class="delimiter">&quot;</span><span class="content">expo</span><span class="delimiter">&quot;</span></span><span class="error">:</span> {
+    <span class="string"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span><span class="error">:</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">hello-world</span><span class="delimiter">&quot;</span></span>,
+    <span class="string"><span class="delimiter">&quot;</span><span class="content">slug</span><span class="delimiter">&quot;</span></span><span class="error">:</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">reagent-expo</span><span class="delimiter">&quot;</span></span>,
+    <span class="keyword">..</span><span class="keyword">.</span>
+    <span class="string"><span class="delimiter">&quot;</span><span class="content">entryPoint</span><span class="delimiter">&quot;</span></span><span class="error">:</span><span class="string"><span class="delimiter">&quot;</span><span class="content">./app/index.js</span><span class="delimiter">&quot;</span></span>,
+    <span class="keyword">..</span><span class="keyword">.</span>
+  }
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">(<span class="keyword">defn</span> <span class="function">start</span>
+  {<span class="symbol">:dev/after-load</span> <span class="predefined-constant">true</span>}
+  []
+  (expo/render-root (r/as-element [root])))
+
+(<span class="keyword">defn</span> <span class="function">init</span> []
+  (start))</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="target-node"><a class="anchor" href="#target-node"></a><a class="link" href="#target-node">9. node.jsを対象とする</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>スタンドアロンのスクリプトとして使用するためのコードや、ライブラリとして使用するためのコードを生成する機能が組み込まれています。
+スクリプトとして使用するためのコードや、ライブラリとして使用するためのコードの生成がサポートされています。コード生成に必要な基本設定については
+設定ファイルに必要な基本的な設定については、<a href="#config">共通設定</a>のセクションを参照してください。
+設定ファイルに必要な基本的な設定については</p>
+</div>
+<div class="sect2">
+<h3 id="target-node-script"><a class="anchor" href="#target-node-script"></a><a class="link" href="#target-node-script">9.1. node.js のスクリプト</a></h3>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">(<span class="keyword">ns</span> <span class="namespace">demo.script</span>)
+
+(<span class="keyword">defn</span> <span class="function">main</span> [&amp; cli-args]
+  (<span class="keyword">prn</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">hello world</span><span class="delimiter">&quot;</span></span>))</code></pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_ビルドオプション"><a class="anchor" href="#_ビルドオプション"></a><a class="link" href="#_ビルドオプション">9.1.1. ビルドオプション</a></h4>
+<div class="hdlist">
 <table>
 <tr>
-<td class="icon">
-<div class="title">Important</div>
+<td class="hdlist1">
+<code>:main</code>
 </td>
-<td class="content">
-When using <code>deps.edn</code> or <code>project.clj</code> the <code>:jvm-opts</code> need to be configured there.
+<td class="hdlist2">
+<p>(required). The namespace-qualified symbol of your script&#8217;s entry point function.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>:output-to</code>
+</td>
+<td class="hdlist2">
+<p>(required). The path and filename for the generated script.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>:output-dir</code>
+</td>
+<td class="hdlist2">
+<p>(optional). The path for supporting files in development mode. Defaults to a cache directory.</p>
 </td>
 </tr>
 </table>
 </div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{<span class="symbol">:source-paths</span> [<span class="keyword">..</span><span class="keyword">.</span>]
+ <span class="keyword">..</span><span class="keyword">.</span>
+ <span class="symbol">:builds</span>
+ {<span class="symbol">:script</span>
+  {<span class="symbol">:target</span> <span class="symbol">:node-script</span>
+   <span class="symbol">:main</span> demo.script/main
+   <span class="symbol">:output-to</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">out/demo-script/script.js</span><span class="delimiter">&quot;</span></span>}}}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="NodeHotCodeReload"><a class="anchor" href="#NodeHotCodeReload"></a><a class="link" href="#NodeHotCodeReload">9.1.2. ホットコードリロード</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">(<span class="keyword">ns</span> <span class="namespace">demo.script</span>
+  (<span class="symbol">:require</span> [<span class="string"><span class="delimiter">&quot;</span><span class="content">http</span><span class="delimiter">&quot;</span></span> <span class="symbol">:as</span> http]))
+
+(<span class="keyword">defn</span> <span class="function">request-handler</span> [req res]
+  (<span class="keyword">.</span>end res <span class="string"><span class="delimiter">&quot;</span><span class="content">foo</span><span class="delimiter">&quot;</span></span>))
+
+<span class="comment">; a place to hang onto the server so we can stop/start it</span>
+(<span class="keyword">defonce</span> <span class="function">server-ref</span>
+  (volatile! <span class="predefined-constant">nil</span>))
+
+(<span class="keyword">defn</span> <span class="function">main</span> [&amp; args]
+  (js/console.log <span class="string"><span class="delimiter">&quot;</span><span class="content">starting server</span><span class="delimiter">&quot;</span></span>)
+  (<span class="keyword">let</span> [server (http/createServer #(request-handler %1 %2))]
+
+    (<span class="keyword">.</span>listen server <span class="integer">3000</span>
+      (<span class="keyword">fn</span> [err]
+        (<span class="keyword">if</span> err
+          (js/console.error <span class="string"><span class="delimiter">&quot;</span><span class="content">server start failed</span><span class="delimiter">&quot;</span></span>)
+          (js/console.info <span class="string"><span class="delimiter">&quot;</span><span class="content">http server running</span><span class="delimiter">&quot;</span></span>))
+        ))
+
+    (vreset! server-ref server)))
+
+(<span class="keyword">defn</span> <span class="function">start</span>
+  <span class="string"><span class="delimiter">&quot;</span><span class="content">Hook to start. Also used as a hook for hot code reload.</span><span class="delimiter">&quot;</span></span>
+  []
+  (js/console.warn <span class="string"><span class="delimiter">&quot;</span><span class="content">start called</span><span class="delimiter">&quot;</span></span>)
+  (main))
+
+(<span class="keyword">defn</span> <span class="function">stop</span>
+  <span class="string"><span class="delimiter">&quot;</span><span class="content">Hot code reload hook to shut down resources so hot code reload can work</span><span class="delimiter">&quot;</span></span>
+  [done]
+  (js/console.warn <span class="string"><span class="delimiter">&quot;</span><span class="content">stop called</span><span class="delimiter">&quot;</span></span>)
+  (when-some [srv @server-ref]
+    (<span class="keyword">.</span>close srv
+      (<span class="keyword">fn</span> [err]
+        (js/console.log <span class="string"><span class="delimiter">&quot;</span><span class="content">stop completed</span><span class="delimiter">&quot;</span></span> err)
+        (done)))))
+
+(js/console.log <span class="string"><span class="delimiter">&quot;</span><span class="content">__filename</span><span class="delimiter">&quot;</span></span> js/__filename)</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
+ <span class="symbol">:builds</span>
+   { <span class="symbol">:script</span> {<span class="keyword">..</span><span class="keyword">.</span> as before
+
+              <span class="comment">; add in reload hooks</span>
+              <span class="symbol">:devtools</span> {<span class="symbol">:before-load-async</span> demo.script/stop
+                         <span class="symbol">:after-load</span> demo.script/start}}}}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="target-node-library"><a class="anchor" href="#target-node-library"></a><a class="link" href="#target-node-library">9.2. node.js ライブラリ</a></h3>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+<code>:target</code>
+</td>
+<td class="hdlist2">
+<p>Use :node-library</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>:output-to</code>
+</td>
+<td class="hdlist2">
+<p>(required). The path and filename for the generated library.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>:output-dir</code>
+</td>
+<td class="hdlist2">
+<p>(optional). The path for supporting files in development mode. Defaults to a cache directory.</p>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_単一で静的な_デフォルト_エクスポート"><a class="anchor" href="#_単一で静的な_デフォルト_エクスポート"></a><a class="link" href="#_単一で静的な_デフォルト_エクスポート">9.2.1. 単一で静的な "デフォルト" エクスポート</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
+ <span class="symbol">:builds</span> {<span class="symbol">:lib</span> {<span class="symbol">:output-to</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">lib.js</span><span class="delimiter">&quot;</span></span>
+                <span class="symbol">:exports-var</span> demo.ns/f
+                <span class="keyword">..</span><span class="keyword">.</span>}}}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">(<span class="keyword">ns</span> <span class="namespace">demo.ns</span>)
+
+(<span class="keyword">defn</span> <span class="function">f</span> [<span class="keyword">..</span><span class="keyword">.</span>] <span class="keyword">..</span><span class="keyword">.</span>)
+<span class="comment">;; OR</span>
+(<span class="keyword">def</span> <span class="function">f</span> <span class="error">#</span>js {<span class="symbol">:foo</span> <span class="keyword">..</span><span class="keyword">.</span>})</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">$ node
+&gt; var f = require('./lib.js');
+f(); // the actual demo.ns/f function</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_複数の静的な名前付きエクスポート"><a class="anchor" href="#_複数の静的な名前付きエクスポート"></a><a class="link" href="#_複数の静的な名前付きエクスポート">9.2.2. 複数の静的な名前付きエクスポート</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
+ <span class="symbol">:builds</span> {<span class="symbol">:lib</span> {<span class="symbol">:exports</span> {<span class="symbol">:g</span>       demo.ns/f
+                          <span class="symbol">:h</span>       other.ns/thing
+                          <span class="symbol">:ns/ok?</span>  another.ns/ok?}
+                <span class="keyword">..</span><span class="keyword">.</span>}}}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">$ node
+&gt; var lib = require('./lib.js');
+lib.g(); // call demo-ns/f
+lib[&quot;ok?&quot;](); // call another-ns/ok?</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">(<span class="keyword">def</span> <span class="function">exports</span> <span class="error">#</span>js {<span class="symbol">:g</span> f
+                  <span class="keyword">..</span><span class="keyword">.</span>})</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_dynamic_exports"><a class="anchor" href="#_dynamic_exports"></a><a class="link" href="#_dynamic_exports">9.2.3. "Dynamic" exports</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">(<span class="keyword">ns</span> <span class="namespace">demo.ns</span>
+  (<span class="symbol">:require</span> [demo.other <span class="symbol">:as</span> other]))
+
+(<span class="keyword">defn</span> <span class="function">generate-exports</span> []
+  <span class="error">#</span>js {<span class="symbol">:hello</span> hello
+       <span class="symbol">:foo</span> other/foo})</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
+ <span class="symbol">:builds</span> {<span class="symbol">:lib</span> {<span class="symbol">:exports-fn</span> demo.ns/generate-exports
+                <span class="keyword">..</span><span class="keyword">.</span>}}}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_完全な例"><a class="anchor" href="#_完全な例"></a><a class="link" href="#_完全な例">9.2.4. 完全な例</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">(<span class="keyword">ns</span> <span class="namespace">demo.lib</span>)
+
+(<span class="keyword">defn</span> <span class="function">hello</span> []
+  (<span class="keyword">prn</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">hello</span><span class="delimiter">&quot;</span></span>)
+  <span class="string"><span class="delimiter">&quot;</span><span class="content">hello</span><span class="delimiter">&quot;</span></span>)</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
+ <span class="symbol">:builds</span> {<span class="symbol">:library</span> {<span class="symbol">:target</span>    <span class="symbol">:node-library</span>
+                    <span class="symbol">:output-to</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">out/demo-library/lib.js</span><span class="delimiter">&quot;</span></span>
+                    <span class="symbol">:exports</span>   {<span class="symbol">:hello</span> demo.lib/hello}}}}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">$ cd out/demo-library
+$ node
+<span class="keyword">&gt;</span> <span class="keyword">var</span> x <span class="keyword">=</span> <span class="keyword">require</span>('<span class="keyword">.</span>/lib')<span class="comment">;</span>
+undefined
+<span class="keyword">&gt;</span> x.hello()
+hello
+'hello'</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_npm_パッケージの作成"><a class="anchor" href="#_npm_パッケージの作成"></a><a class="link" href="#_npm_パッケージの作成">9.3. npm パッケージの作成</a></h3>
+
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="target-npm-module"><a class="anchor" href="#target-npm-module"></a><a class="link" href="#target-npm-module">10. JSエコシステムへの組み込み&#8201;&#8212;&#8201;<code>:npm-module</code> ターゲット</a></h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="target-npm-module"><a class="anchor" href="#target-npm-module"></a><a class="link" href="#target-npm-module">11. JSエコシステムへの組み込み - :npm-module ターゲット</a></h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
+ <span class="symbol">:builds</span>
+ {<span class="symbol">:code</span>
+  {<span class="symbol">:target</span> <span class="symbol">:npm-module</span>
+   <span class="symbol">:entries</span> [demo.foo]}}}</code></pre>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_working_with_optimizations"><a class="anchor" href="#_working_with_optimizations"></a><a class="link" href="#_working_with_optimizations">11.1. Working with Optimizations</a></h3>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">(<span class="keyword">ns</span> <span class="namespace">demo.foo</span>)
+
+(<span class="keyword">def</span> ^<span class="symbol">:export</span> foo <span class="float">5.662</span>)
+
+(<span class="keyword">defn</span> ^<span class="symbol">:export</span> bar [] <span class="keyword">..</span><span class="keyword">.</span>)</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure"><span class="keyword">var</span> <span class="keyword">ns</span> <span class="namespace">=</span> <span class="keyword">require</span>(<span class="string"><span class="delimiter">&quot;</span><span class="content">shadow-cljs/demo.foo</span><span class="delimiter">&quot;</span></span>)<span class="comment">;</span>
+
+ns.foo<span class="comment">;</span>
+ns.bar()<span class="comment">;</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_テスト"><a class="anchor" href="#_テスト"></a><a class="link" href="#_テスト">12. テスト</a></h2>
+<div class="sectionbody">
 <div class="paragraph">
-<p>There is built-in support for generating code that is intended to be used as a stand-alone
-script, and also for code that is intended to be used as a library. See the
-section on <a href="#config">common configuration</a> for the base settings needed in
-a configuration file.</p>
+<p><code>shadow-cljs</code> は、テストの構築を少しでも簡単にするために、いくつかのユーティリティターゲットを提供しています。</p>
 </div>
 <div class="paragraph">
-<p>Embedding in the JS Ecosystem&#8201;&#8212;&#8201;The <code>:npm-module</code> Target <a id="target-npm-module"></a></p>
+<p>すべてのテストターゲットはテストランナーを生成し、設定可能な <code>:ns-regexp</code> にマッチするすべての名前空間を自動的に追加します。デフォルトのテストランナーは <code>cljs.test</code> 用に作られていますが、他のテストフレームワークを使いたい場合は、カスタムランナーを作ることができます。</p>
 </div>
 <div class="paragraph">
-<p><code>shadow-cljs</code> provides a few utility targets to make building tests a little easier.</p>
+<p>デフォルトの <code>:ns-regexp</code> は <code>"-test$"</code> なので、最初のテストは以下のようになります。</p>
+</div>
+<div class="listingblock">
+<div class="title">ファイル： <code>src/test/demo/app_test.cljs</code>.</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">(<span class="keyword">ns</span> <span class="namespace">demo.app-test</span>
+  (<span class="symbol">:require</span> [cljs.test <span class="symbol">:refer</span> (deftest is)]))
+
+(deftest a-failing-test
+  (is (<span class="keyword">=</span> <span class="integer">1</span> <span class="integer">2</span>)))</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>All test targets generate a test runner and automatically add all namespaces matching the configurable <code>:ns-regexp</code>. The default test runners were built for <code>cljs.test</code> but you can create custom runners if you prefer to use other test frameworks.</p>
+<p>Clojureの世界では、テストファイルをそれぞれのソースパスに置いておくのが一般的なので、上記の例では、<code>shadow-cljs.edn`の設定で</code>:source-paths <code class=""src/main" "src/test"">を設定していると仮定しています。通常のアプリのコードは `src/main</code> に入り、テストは <code>src/test</code> に入ります。ただし、これはオプションで、すべてを`src`に置いて、`:source-paths ["src"]`を使うだけでも全く問題ありません。</p>
+</div>
+<div class="sect2">
+<h3 id="_node_js_におけるテスト_a_id_target_node_test_a"><a class="anchor" href="#_node_js_におけるテスト_a_id_target_node_test_a"></a><a class="link" href="#_node_js_におけるテスト_a_id_target_node_test_a">12.1. node.js におけるテスト　<a id="target-node-test"></a></a></h3>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
+ <span class="symbol">:builds</span>
+ {<span class="symbol">:test</span>
+  {<span class="symbol">:target</span>    <span class="symbol">:node-test</span>
+   <span class="symbol">:output-to</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">out/node-tests.js</span><span class="delimiter">&quot;</span></span>
+   <span class="symbol">:ns-regexp</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">-spec$</span><span class="delimiter">&quot;</span></span>
+   <span class="symbol">:autorun</span>   <span class="predefined-constant">true</span>}}}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">$ shadow-cljs compile test
+# or
+$ shadow-cljs release test
+
+# run tests manually, :autorun will do this automatically
+$ node out/node-tests.js
+
+# compile &amp; test combined
+$ shadow-cljs compile test &amp;&amp; node out/node-tests.js</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="target-browser-test"><a class="anchor" href="#target-browser-test"></a><a class="link" href="#target-browser-test">12.2. ブラウザにおけるテスト</a></h3>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
+ <span class="symbol">:builds</span> {<span class="symbol">:test</span>     {<span class="symbol">:target</span>    <span class="symbol">:browser-test</span>
+                     <span class="symbol">:test-dir</span>  <span class="string"><span class="delimiter">&quot;</span><span class="content">resources/public/js/test</span><span class="delimiter">&quot;</span></span>
+                     <span class="symbol">:ns-regexp</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">-spec$</span><span class="delimiter">&quot;</span></span>
+                     <span class="symbol">:runner-ns</span> tests.client-test-main
+                     <span class="symbol">:devtools</span>  {<span class="symbol">:http-port</span>          <span class="integer">8021</span>
+                                 <span class="symbol">:http-root</span>          <span class="string"><span class="delimiter">&quot;</span><span class="content">resources/public/js/test</span><span class="delimiter">&quot;</span></span>}}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">(<span class="keyword">ns</span> <span class="namespace">tests.client-test-main</span>)
+
+(<span class="keyword">defn</span> <span class="function">start</span> []
+  <span class="keyword">..</span><span class="keyword">.</span> run the tests.<span class="keyword">..</span>)
+
+(<span class="keyword">defn</span> <span class="function">stop</span> [done]
+  <span class="comment">; tests can be async. You must call done so that the runner knows you actually finished</span>
+  (done))
+
+(<span class="keyword">defn</span> ^<span class="symbol">:export</span> init []
+  (start))</code></pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_test_dir_に生成された出力"><a class="anchor" href="#_test_dir_に生成された出力"></a><a class="link" href="#_test_dir_に生成された出力">12.2.1. :test-dir に生成された出力</a></h4>
+
+</div>
+</div>
+<div class="sect2">
+<h3 id="target-karma"><a class="anchor" href="#target-karma"></a><a class="link" href="#target-karma">12.3. 継続的インテグレーションのためにテストをKarmaにターゲットする</a></h3>
+<div class="sect3">
+<h4 id="_karmaのインストール"><a class="anchor" href="#_karmaのインストール"></a><a class="link" href="#_karmaのインストール">12.3.1. Karmaのインストール</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="json">{
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">CITests</span><span class="delimiter">&quot;</span></span>,
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">version</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">1.0.0</span><span class="delimiter">&quot;</span></span>,
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">description</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Testing</span><span class="delimiter">&quot;</span></span>,
+  <span class="error">.</span><span class="error">.</span><span class="error">.</span>
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">devDependencies</span><span class="delimiter">&quot;</span></span>: {
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">karma</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">^2.0.0</span><span class="delimiter">&quot;</span></span>,
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">karma-chrome-launcher</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">^2.2.0</span><span class="delimiter">&quot;</span></span>,
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">karma-cljs-test</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">^0.1.0</span><span class="delimiter">&quot;</span></span>,
+    <span class="error">.</span><span class="error">.</span><span class="error">.</span>
+  },
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">author</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>,
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">license</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">MIT</span><span class="delimiter">&quot;</span></span>
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_build"><a class="anchor" href="#_build"></a><a class="link" href="#_build">12.3.2. Build</a></h4>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+<code>:target</code>
+</td>
+<td class="hdlist2">
+<p><code>:karma</code></p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>:output-to</code>
+</td>
+<td class="hdlist2">
+<p>A path/filename for the js file.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>:ns-regexp</code>
+</td>
+<td class="hdlist2">
+<p>(optional) A regex to match the test namespaces, defaults to "-test$</p>
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
+ <span class="symbol">:builds</span>
+ {<span class="symbol">:ci</span>
+  {<span class="symbol">:target</span> <span class="symbol">:karma</span>
+   <span class="symbol">:output-to</span>  <span class="string"><span class="delimiter">&quot;</span><span class="content">target/ci.js</span><span class="delimiter">&quot;</span></span>
+   <span class="symbol">:ns-regexp</span>  <span class="string"><span class="delimiter">&quot;</span><span class="content">-spec$</span><span class="delimiter">&quot;</span></span>}}}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="javascript">module.<span class="function">exports</span> = <span class="keyword">function</span> (config) {
+    config.set({
+        <span class="key">browsers</span>: [<span class="string"><span class="delimiter">'</span><span class="content">ChromeHeadless</span><span class="delimiter">'</span></span>],
+        <span class="comment">// The directory where the output file lives</span>
+        <span class="key">basePath</span>: <span class="string"><span class="delimiter">'</span><span class="content">target</span><span class="delimiter">'</span></span>,
+        <span class="comment">// The file itself</span>
+        <span class="key">files</span>: [<span class="string"><span class="delimiter">'</span><span class="content">ci.js</span><span class="delimiter">'</span></span>],
+        <span class="key">frameworks</span>: [<span class="string"><span class="delimiter">'</span><span class="content">cljs-test</span><span class="delimiter">'</span></span>],
+        <span class="key">plugins</span>: [<span class="string"><span class="delimiter">'</span><span class="content">karma-cljs-test</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">karma-chrome-launcher</span><span class="delimiter">'</span></span>],
+        <span class="key">colors</span>: <span class="predefined-constant">true</span>,
+        <span class="key">logLevel</span>: config.LOG_INFO,
+        <span class="key">client</span>: {
+            <span class="key">args</span>: [<span class="string"><span class="delimiter">&quot;</span><span class="content">shadow.test.karma.init</span><span class="delimiter">&quot;</span></span>],
+            <span class="key">singleRun</span>: <span class="predefined-constant">true</span>
+        }
+    })
+};</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">$ shadow-cljs compile ci
+$ karma start --single-run
+12 01 2018 01:19:24.222:INFO [karma]: Karma v2.0.0 server started at http://0.0.0.0:9876/
+12 01 2018 01:19:24.224:INFO [launcher]: Launching browser ChromeHeadless with unlimited concurrency
+12 01 2018 01:19:24.231:INFO [launcher]: Starting browser ChromeHeadless
+12 01 2018 01:19:24.478:INFO [HeadlessChrome 0.0.0 (Mac OS X 10.12.6)]: Connected on socket TcfrjxVKmx7xN6enAAAA with id 85554456
+LOG: 'Testing boo.sample-spec'
+HeadlessChrome 0.0.0 (Mac OS X 10.12.6): Executed 1 of 1 SUCCESS (0.007 secs / 0.002 secs)</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="js-deps"><a class="anchor" href="#js-deps"></a><a class="link" href="#js-deps">13. JavaScript との統合</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="npm"><a class="anchor" href="#npm"></a><a class="link" href="#npm">13.1. NPM</a></h3>
+<div class="sect3">
+<h4 id="_npmパッケージの使用"><a class="anchor" href="#_npmパッケージの使用"></a><a class="link" href="#_npmパッケージの使用">13.1.1. npmパッケージの使用</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="js"><span class="keyword">var</span> react = require(<span class="string"><span class="delimiter">&quot;</span><span class="content">react</span><span class="delimiter">&quot;</span></span>);</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">(<span class="keyword">ns</span> <span class="namespace">my.app</span>
+  (<span class="symbol">:require</span> [<span class="string"><span class="delimiter">&quot;</span><span class="content">react</span><span class="delimiter">&quot;</span></span> <span class="symbol">:as</span> react]))</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">(react/createElement <span class="string"><span class="delimiter">&quot;</span><span class="content">div</span><span class="delimiter">&quot;</span></span> <span class="predefined-constant">nil</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">hello world</span><span class="delimiter">&quot;</span></span>)</code></pre>
+</div>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">ES6 Import</th>
+<th class="tableblock halign-left valign-top">CLJS Require</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>import defaultExport from "module-name";</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>(:require ["module-name" :default defaultExport])</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>import * as name from "module-name";</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>(:require ["module-name" :as name])</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>import { export } from "module-name";</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>(:require ["module-name" :refer (export)])</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>import { export as alias } from "module-name";</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>(:require ["module-name" :rename {export alias}])</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>import { export1 , export2 } from "module-name";</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>(:require ["module-name" :refer (export1 export2)])</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>import { export1 , export2 as alias2 , [&#8230;&#8203;] } from "module-name";</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>(:require ["module-name" :refer (export1) :rename {export2 alias2}])</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>import defaultExport, { export [ , [&#8230;&#8203;] ] } from "module-name";</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>(:require ["module-name" :refer (export) :default defaultExport])</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>import defaultExport, * as name from "module-name";</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>(:require ["module-name" :as name :default defaultExport])</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>import "module-name";</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>(:require ["module-name"])</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="js"><span class="comment">// You can import any component you want as a named export from 'react-virtualized', eg</span>
+<span class="reserved">import</span> { Column, Table } from <span class="string"><span class="delimiter">'</span><span class="content">react-virtualized</span><span class="delimiter">'</span></span>
+
+<span class="comment">// But if you only use a few react-virtualized components,</span>
+<span class="comment">// And you're concerned about increasing your application's bundle size,</span>
+<span class="comment">// You can directly import only the components you need, like so:</span>
+<span class="reserved">import</span> AutoSizer from <span class="string"><span class="delimiter">'</span><span class="content">react-virtualized/dist/commonjs/AutoSizer</span><span class="delimiter">'</span></span>
+<span class="reserved">import</span> List from <span class="string"><span class="delimiter">'</span><span class="content">react-virtualized/dist/commonjs/List</span><span class="delimiter">'</span></span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">(<span class="keyword">ns</span> <span class="namespace">my-ns</span>
+  <span class="comment">;; all</span>
+  (<span class="symbol">:require</span> [<span class="string"><span class="delimiter">&quot;</span><span class="content">react-virtualized</span><span class="delimiter">&quot;</span></span> <span class="symbol">:refer</span> (Column Table)])
+  <span class="comment">;; OR one by one</span>
+  (<span class="symbol">:require</span> [<span class="string"><span class="delimiter">&quot;</span><span class="content">react-virtualized/dist/commonjs/AutoSizer</span><span class="delimiter">&quot;</span></span> <span class="symbol">:default</span> virtual-auto-sizer]
+            [<span class="string"><span class="delimiter">&quot;</span><span class="content">react-virtualized/dist/commonjs/List</span><span class="delimiter">&quot;</span></span> <span class="symbol">:default</span> virtual-list]))</code></pre>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_概要_default_exports"><a class="anchor" href="#_概要_default_exports"></a><a class="link" href="#_概要_default_exports">概要 :default Exports</a></h5>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">$ shadow-cljs browser-repl (<span class="keyword">or</span> node-repl)
+<span class="keyword">..</span><span class="keyword">.</span>
+[<span class="integer">1</span><span class="error">:</span><span class="integer">1</span>]~cljs.user=&gt; (<span class="keyword">require</span> '[<span class="string"><span class="delimiter">&quot;</span><span class="content">react-tooltip</span><span class="delimiter">&quot;</span></span> <span class="symbol">:as</span> x])
+<span class="predefined-constant">nil</span>
+[<span class="integer">1</span><span class="error">:</span><span class="integer">1</span>]~cljs.user=&gt; x
+<span class="error">#</span>object[e]
+[<span class="integer">1</span><span class="error">:</span><span class="integer">1</span>]~cljs.user=&gt; (goog/typeOf x)
+<span class="string"><span class="delimiter">&quot;</span><span class="content">function</span><span class="delimiter">&quot;</span></span>
+[<span class="integer">1</span><span class="error">:</span><span class="integer">1</span>]~cljs.user=&gt; (js/console.dir x)
+<span class="predefined-constant">nil</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="js-provider"><a class="anchor" href="#js-provider"></a><a class="link" href="#js-provider">13.1.2. パッケージプロバイダ</a></h4>
+<div class="sidebarblock">
+<div class="content">
+<div class="title"><code>:shadow</code> vs <code>:closure</code></div>
+<div class="paragraph">
+<p>Ideally we want to use <code>:closure</code> as our primary JS Provider since that will run the entire application through <code>:advanced</code> giving us the most optimized output. In practice however lots of code available via <code>npm</code> is not compatible with the aggressive optimizations that <code>:advanced</code> compilation does. They either fail to compile at all or expose subtle bugs at runtime that are very hard to identify.</p>
 </div>
 <div class="paragraph">
-<p>The default <code>:ns-regexp</code> is <code>"-test$"</code>, so your first test could look like:</p>
+<p><code>:shadow</code> is sort of a stopgap solution that only processes code via <code>:simple</code> and achieves much more reliable support while still getting reasonably optimized code. The output is comparable (or often better) to what other tools like <code>webpack</code> generate.</p>
 </div>
 <div class="paragraph">
-<div class="title">File: <code>src/test/demo/app_test.cljs</code></div>
-<p>In the Clojure world it is common to keep test files in their own source paths so the above example assumes you have configured <code>:source-paths ["src/main" "src/test"]</code> in your <code>shadow-cljs.edn</code> config. Your usual app code goes into <code>src/main</code> and the tests go into <code>src/test</code>. This however is optional and it is totally fine to keep everything in <code>src</code> and just use <code>:source-paths ["src"]</code>.</p>
+<p>Until support in Closure gets more reliable <code>:shadow</code> is the recommend JS Provider for <code>:browser</code> builds.</p>
+</div>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
+ <span class="symbol">:builds</span>
+ {<span class="symbol">:app</span>
+  {<span class="symbol">:target</span> <span class="symbol">:browser</span>
+   <span class="keyword">..</span><span class="keyword">.</span>
+   <span class="symbol">:js-options</span> {<span class="symbol">:js-provider</span> <span class="symbol">:closure</span>}
+   }}}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="js-entry-keys"><a class="anchor" href="#js-entry-keys"></a><a class="link" href="#js-entry-keys">13.1.3. CommonJS vs ESM</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
+ <span class="symbol">:builds</span>
+ {<span class="symbol">:app</span>
+  {<span class="symbol">:target</span> <span class="symbol">:browser</span>
+   <span class="keyword">..</span><span class="keyword">.</span>
+   <span class="symbol">:js-options</span> {<span class="symbol">:entry-keys</span> [<span class="string"><span class="delimiter">&quot;</span><span class="content">module</span><span class="delimiter">&quot;</span></span> <span class="string"><span class="delimiter">&quot;</span><span class="content">browser</span><span class="delimiter">&quot;</span></span> <span class="string"><span class="delimiter">&quot;</span><span class="content">main</span><span class="delimiter">&quot;</span></span>]} <span class="comment">;; try &quot;module&quot; first</span>
+   }}}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="js-resolve"><a class="anchor" href="#js-resolve"></a><a class="link" href="#js-resolve">13.1.4. パッケージを解決する</a></h4>
+<div class="sect4">
+<h5 id="js-resolve-global"><a class="anchor" href="#js-resolve-global"></a><a class="link" href="#js-resolve-global">CDNの利用</a></h5>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
+ <span class="symbol">:builds</span>
+ {<span class="symbol">:app</span>
+  {<span class="symbol">:target</span> <span class="symbol">:browser</span>
+   <span class="keyword">..</span><span class="keyword">.</span>
+   <span class="symbol">:js-options</span>
+   {<span class="symbol">:resolve</span> {<span class="string"><span class="delimiter">&quot;</span><span class="content">react</span><span class="delimiter">&quot;</span></span> {<span class="symbol">:target</span> <span class="symbol">:global</span>
+                       <span class="symbol">:global</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">React</span><span class="delimiter">&quot;</span></span>}}}}
+
+  <span class="symbol">:server</span>
+  {<span class="symbol">:target</span> <span class="symbol">:node-script</span>
+   <span class="keyword">..</span><span class="keyword">.</span>}}}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="js-resolve-npm"><a class="anchor" href="#js-resolve-npm"></a><a class="link" href="#js-resolve-npm">require をリダイレクトする</a></h5>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
+ <span class="symbol">:builds</span>
+ {<span class="symbol">:app</span>
+  {<span class="symbol">:target</span> <span class="symbol">:browser</span>
+   <span class="keyword">..</span><span class="keyword">.</span>
+   <span class="symbol">:js-options</span>
+   {<span class="symbol">:resolve</span> {<span class="string"><span class="delimiter">&quot;</span><span class="content">react</span><span class="delimiter">&quot;</span></span> {<span class="symbol">:target</span> <span class="symbol">:npm</span>
+                       <span class="symbol">:require</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">preact-compat</span><span class="delimiter">&quot;</span></span>}}}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
+ <span class="symbol">:builds</span>
+ {<span class="symbol">:app</span>
+  {<span class="symbol">:target</span> <span class="symbol">:browser</span>
+   <span class="keyword">..</span><span class="keyword">.</span>
+   <span class="symbol">:js-options</span>
+   {<span class="symbol">:resolve</span> {<span class="string"><span class="delimiter">&quot;</span><span class="content">react</span><span class="delimiter">&quot;</span></span> {<span class="symbol">:target</span> <span class="symbol">:file</span>
+                       <span class="symbol">:file</span>   <span class="string"><span class="delimiter">&quot;</span><span class="content">src/main/override-react.js</span><span class="delimiter">&quot;</span></span>}}}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="js-resolve-limitations"><a class="anchor" href="#js-resolve-limitations"></a><a class="link" href="#js-resolve-limitations">制限事項</a></h5>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
+ <span class="symbol">:builds</span>
+ {<span class="symbol">:app</span>
+  {<span class="symbol">:target</span> <span class="symbol">:node-script</span>
+   <span class="keyword">..</span><span class="keyword">.</span>
+   <span class="symbol">:js-options</span>
+   {<span class="symbol">:resolve</span> {<span class="string"><span class="delimiter">&quot;</span><span class="content">react</span><span class="delimiter">&quot;</span></span> {<span class="symbol">:target</span> <span class="symbol">:npm</span>
+                       <span class="symbol">:require</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">preact-compat</span><span class="delimiter">&quot;</span></span>}}}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">(<span class="keyword">ns</span> <span class="namespace">my.app</span>
+  (<span class="symbol">:require</span>
+    [<span class="string"><span class="delimiter">&quot;</span><span class="content">react-table</span><span class="delimiter">&quot;</span></span> <span class="symbol">:as</span> rt]))</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="alt-node-modules"><a class="anchor" href="#alt-node-modules"></a><a class="link" href="#alt-node-modules">13.1.5. 代替モジュールのディレクトリ</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
+ <span class="symbol">:js-options</span> {<span class="symbol">:js-package-dirs</span> [<span class="string"><span class="delimiter">&quot;</span><span class="content">node_modules</span><span class="delimiter">&quot;</span></span> <span class="string"><span class="delimiter">&quot;</span><span class="content">../node_modules</span><span class="delimiter">&quot;</span></span>]}
+ <span class="keyword">..</span><span class="keyword">.</span>}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
+ <span class="symbol">:builds</span>
+ {<span class="symbol">:app</span>
+  {<span class="keyword">..</span><span class="keyword">.</span>
+   <span class="symbol">:js-options</span> {<span class="symbol">:js-package-dirs</span> [<span class="string"><span class="delimiter">&quot;</span><span class="content">node_modules</span><span class="delimiter">&quot;</span></span> <span class="string"><span class="delimiter">&quot;</span><span class="content">../node_modules</span><span class="delimiter">&quot;</span></span>]}}}}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="classpath-js"><a class="anchor" href="#classpath-js"></a><a class="link" href="#classpath-js">13.2. .jsファイルへの対応</a></h3>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p><strong>DANGER: This feature is an experiment!</strong> It is currently only supported in <code>shadow-cljs</code> and other CLJS tools will yell at you if you attempt to use it. Use at your own risk. The feature was initially rejected from CLJS core but I think it is useful and should not have been <a href="https://dev.clojure.org/jira/browse/CLJS-2061?focusedCommentId=46191&amp;page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-46191">dismissed</a> without further discussion.</p>
 </div>
 <div class="paragraph">
-<p>Generating Production Code&#8201;&#8212;&#8201;All Targets <a id="release"></a></p>
+<p>CLJS has an alternate <a href="https://clojurescript.org/guides/javascript-modules">implementation</a> which in turn is not supported by <code>shadow-cljs</code>. I found this implementation to be lacking in certain aspects so I opted for the different solution. Happy to discuss the pros/cons of both approaches though.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_jsをrequrieする"><a class="anchor" href="#_jsをrequrieする"></a><a class="link" href="#_jsをrequrieする">13.2.1. JSをrequrieする</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">(<span class="keyword">ns</span> <span class="namespace">demo.app</span>
+  (<span class="symbol">:require</span>
+    [<span class="string"><span class="delimiter">&quot;</span><span class="content">/some-library/components/foo</span><span class="delimiter">&quot;</span></span> <span class="symbol">:as</span> foo]
+    [<span class="string"><span class="delimiter">&quot;</span><span class="content">./bar</span><span class="delimiter">&quot;</span></span> <span class="symbol">:as</span> bar <span class="symbol">:refer</span> (myComponent)]))</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="text">.
+├── package.json
+├── shadow-cljs.edn
+└── src
+    └── main
+        └── demo
+            └── app.cljs
+    └── js
+        └── demo
+            └── bar.js</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_言語サポート"><a class="anchor" href="#_言語サポート"></a><a class="link" href="#_言語サポート">13.2.2. 言語サポート</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="js"><span class="comment">// regular JS require</span>
+<span class="reserved">import</span> Foo, { something } from <span class="string"><span class="delimiter">&quot;</span><span class="content">./other.js</span><span class="delimiter">&quot;</span></span>;
+
+<span class="comment">// npm require</span>
+<span class="reserved">import</span> React from <span class="string"><span class="delimiter">&quot;</span><span class="content">react</span><span class="delimiter">&quot;</span></span>;
+
+<span class="comment">// require CLJS or Closure Library JS</span>
+<span class="reserved">import</span> cljs from <span class="string"><span class="delimiter">&quot;</span><span class="content">goog:cljs.core</span><span class="delimiter">&quot;</span></span>;
+
+<span class="reserved">export</span> <span class="keyword">function</span> <span class="function">inc</span>(num) {
+  <span class="keyword">return</span> cljs.inc(<span class="integer">1</span>);
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_javascriptの方言"><a class="anchor" href="#_javascriptの方言"></a><a class="link" href="#_javascriptの方言">13.2.3. JavaScriptの方言</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{<span class="symbol">:source-paths</span>
+ [<span class="string"><span class="delimiter">&quot;</span><span class="content">src/main</span><span class="delimiter">&quot;</span></span>
+  <span class="string"><span class="delimiter">&quot;</span><span class="content">src/gen</span><span class="delimiter">&quot;</span></span>]
+ <span class="keyword">..</span><span class="keyword">.</span>}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="text">.
+├── package.json
+├── shadow-cljs.edn
+└── src
+    └── main
+        └── demo
+            └── app.cljs
+    └── js
+        ├── .babelrc
+        └── demo
+            └── bar.jsx</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">src/js/demo/bar.jsx</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="jsx">import React from &quot;react&quot;;
+
+function myComponent() {
+  return &lt;h1&gt;JSX!&lt;/h1&gt;;
+}
+
+export { myComponent };</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">$ babel src/js --out-dir src/gen
+# or during development
+$ babel src/js --out-dir src/gen --watch</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="json">{
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">plugins</span><span class="delimiter">&quot;</span></span>: [<span class="string"><span class="delimiter">&quot;</span><span class="content">transform-react-jsx</span><span class="delimiter">&quot;</span></span>]
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_jsからcljsへのアクセス"><a class="anchor" href="#_jsからcljsへのアクセス"></a><a class="link" href="#_jsからcljsへのアクセス">13.2.4. JSからCLJSへのアクセス</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure"><span class="keyword">import</span> cljs, { <span class="keyword">keyword</span> } from <span class="string"><span class="delimiter">&quot;</span><span class="content">goog:cljs.core</span><span class="delimiter">&quot;</span></span><span class="comment">;</span>
+
+// construct {<span class="symbol">:foo</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">hello world</span><span class="delimiter">&quot;</span></span>} in JS
+cljs.array_map(<span class="keyword">keyword</span>(<span class="string"><span class="delimiter">&quot;</span><span class="content">foo</span><span class="delimiter">&quot;</span></span>), <span class="string"><span class="delimiter">&quot;</span><span class="content">hello world</span><span class="delimiter">&quot;</span></span>)<span class="comment">;</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="cljsjs"><a class="anchor" href="#cljsjs"></a><a class="link" href="#cljsjs">13.3. cljsjs.* の移行について</a></h3>
+<div class="paragraph">
+<p>Migrating cljsjs.* <a id="cljsjs"></a></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">(<span class="keyword">ns</span> <span class="namespace">cljsjs.react</span>
+  (<span class="symbol">:require</span> [<span class="string"><span class="delimiter">&quot;</span><span class="content">react</span><span class="delimiter">&quot;</span></span> <span class="symbol">:as</span> react]
+            [<span class="string"><span class="delimiter">&quot;</span><span class="content">create-react-class</span><span class="delimiter">&quot;</span></span> <span class="symbol">:as</span> crc]))</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">(js/goog.object.set react <span class="string"><span class="delimiter">&quot;</span><span class="content">createClass</span><span class="delimiter">&quot;</span></span> crc)
+(js/goog.exportSymbol <span class="string"><span class="delimiter">&quot;</span><span class="content">React</span><span class="delimiter">&quot;</span></span> react)</code></pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cljsjsを使ってみませんか"><a class="anchor" href="#_cljsjsを使ってみませんか"></a><a class="link" href="#_cljsjsを使ってみませんか">13.3.1. CLJSJSを使ってみませんか?</a></h4>
+
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="release"><a class="anchor" href="#release"></a><a class="link" href="#release">14. プロダクションコードの生成&#8201;&#8212;&#8201;全ターゲット</a></h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">$ shadow-cljs release build-id</code></pre>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_リリースの構成"><a class="anchor" href="#_リリースの構成"></a><a class="link" href="#_リリースの構成">14.1. リリースの構成</a></h3>
+<div class="sect3">
+<h4 id="Optimization"><a class="anchor" href="#Optimization"></a><a class="link" href="#Optimization">14.1.1. 最適化</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
+ <span class="symbol">:build</span>
+   {<span class="symbol">:build-id</span>
+     {<span class="keyword">..</span><span class="keyword">.</span>
+      <span class="symbol">:compiler-options</span> {<span class="symbol">:optimizations</span> <span class="symbol">:simple</span>}}}}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_release_に特異_vs_開発環境"><a class="anchor" href="#_release_に特異_vs_開発環境"></a><a class="link" href="#_release_に特異_vs_開発環境">14.1.2. release に特異 vs 開発環境</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{<span class="symbol">:source-paths</span> [<span class="string"><span class="delimiter">&quot;</span><span class="content">src</span><span class="delimiter">&quot;</span></span>]
+ <span class="symbol">:dependencies</span> []
+ <span class="symbol">:builds</span>
+ {<span class="symbol">:app</span>
+  {<span class="symbol">:target</span> <span class="symbol">:browser</span>
+   <span class="symbol">:output-dir</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">public/js</span><span class="delimiter">&quot;</span></span>
+   <span class="symbol">:asset-path</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">/js</span><span class="delimiter">&quot;</span></span>
+   <span class="symbol">:modules</span> {<span class="symbol">:base</span> {<span class="symbol">:entries</span> [my.app.core]}}
+
+   <span class="comment">;; Here is some dev-specific config</span>
+   <span class="symbol">:dev</span> {<span class="symbol">:compiler-options</span> {<span class="symbol">:devcards</span> <span class="predefined-constant">true</span>}}
+
+   <span class="comment">;; Here is some production config</span>
+   <span class="symbol">:release</span> {<span class="symbol">:compiler-options</span> {<span class="symbol">:optimizations</span> <span class="symbol">:simple</span>}}}}}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="externs"><a class="anchor" href="#externs"></a><a class="link" href="#externs">14.2. エクスターン</a></h3>
+<div class="sect3">
+<h4 id="infer-externs"><a class="anchor" href="#infer-externs"></a><a class="link" href="#infer-externs">14.2.1. エクスターンズの推論</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
+ <span class="symbol">:builds</span>
+ {<span class="symbol">:app</span>
+  {<span class="symbol">:target</span> <span class="symbol">:browser</span>
+   <span class="keyword">..</span><span class="keyword">.</span>
+   <span class="symbol">:compiler-options</span> {<span class="symbol">:infer-externs</span> <span class="symbol">:auto</span>}
+   }}}}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">(<span class="keyword">defn</span> <span class="function">wrap-baz</span> [x]
+  (<span class="keyword">.</span>baz x))</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Example Warning</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="text">------ WARNING #1 --------------------------------------------------------------
+ File: ~/project/src/demo/thing.cljs:23:3
+--------------------------------------------------------------------------------
+  21 |
+  22 | (defn wrap-baz [x]
+  23 |   (.baz x))
+---------^----------------------------------------------------------------------
+ Cannot infer target type in expression (. x baz)
+--------------------------------------------------------------------------------</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">(<span class="keyword">defn</span> <span class="function">wrap-baz</span> [x]
+  (<span class="keyword">.</span>baz ^js x))</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">(<span class="keyword">defn</span> <span class="function">wrap-baz</span> [x]
+  (<span class="keyword">.</span>foo ^js x)
+  (<span class="keyword">.</span>baz ^js x))</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">(<span class="keyword">defn</span> <span class="function">wrap-baz</span> [^js x]
+  (<span class="keyword">.</span>foo x)
+  (<span class="keyword">.</span>baz x))</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">(js/Some.Thing.coolFunction)</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">(<span class="keyword">ns</span> <span class="namespace">my.app</span>
+  (<span class="symbol">:require</span> [<span class="string"><span class="delimiter">&quot;</span><span class="content">react</span><span class="delimiter">&quot;</span></span> <span class="symbol">:as</span> react <span class="symbol">:refer</span> (createElement)]))
+
+(react/createElement <span class="string"><span class="delimiter">&quot;</span><span class="content">div</span><span class="delimiter">&quot;</span></span> <span class="predefined-constant">nil</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">hello world</span><span class="delimiter">&quot;</span></span>)
+(createElement <span class="string"><span class="delimiter">&quot;</span><span class="content">div</span><span class="delimiter">&quot;</span></span> <span class="predefined-constant">nil</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">hello world</span><span class="delimiter">&quot;</span></span>)</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_マニュアルのエクスターン"><a class="anchor" href="#_マニュアルのエクスターン"></a><a class="link" href="#_マニュアルのエクスターン">14.2.2. マニュアルのエクスターン</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
+ <span class="symbol">:builds</span>
+ {<span class="symbol">:app</span>
+  {<span class="symbol">:target</span> <span class="symbol">:browser</span>
+   <span class="keyword">..</span><span class="keyword">.</span>
+   <span class="symbol">:compiler-options</span> {<span class="symbol">:externs</span> [<span class="string"><span class="delimiter">&quot;</span><span class="content">path/to/externs.js</span><span class="delimiter">&quot;</span></span> <span class="keyword">..</span><span class="keyword">.</span>]}
+   }}}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_簡易なエクスターン"><a class="anchor" href="#_簡易なエクスターン"></a><a class="link" href="#_簡易なエクスターン">14.2.3. 簡易なエクスターン</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure"><span class="error">#</span> this is a <span class="keyword">comment</span>
+foo
+bar
+global<span class="symbol">:SomeGlobalVariable</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_コード_ストリッピング"><a class="anchor" href="#_コード_ストリッピング"></a><a class="link" href="#_コード_ストリッピング">14.3. コード・ストリッピング</a></h3>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
+ <span class="symbol">:builds</span>
+ {<span class="symbol">:app</span>
+  {<span class="symbol">:target</span> <span class="symbol">:browser</span>
+   <span class="keyword">..</span><span class="keyword">.</span>
+   <span class="symbol">:compiler-options</span> {<span class="symbol">:strip-type-prefixes</span> #{<span class="string"><span class="delimiter">&quot;</span><span class="content">cljs.pprint</span><span class="delimiter">&quot;</span></span>}
+   }}}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="build-report"><a class="anchor" href="#build-report"></a><a class="link" href="#build-report">14.4. ビルドレポート</a></h3>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">$ npx shadow-cljs run shadow.cljs.build-report &lt;build-id&gt; &lt;path/to/output.html&gt;
+# example
+$ npx shadow-cljs run shadow.cljs.build-report app report.html</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_エディタの統合"><a class="anchor" href="#_エディタの統合"></a><a class="link" href="#_エディタの統合">15. エディタの統合</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_cursive"><a class="anchor" href="#_cursive"></a><a class="link" href="#_cursive">15.1. Cursive</a></h3>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">$ shadow-cljs pom</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">(defproject your/project <span class="string"><span class="delimiter">&quot;</span><span class="content">0.0.0</span><span class="delimiter">&quot;</span></span>
+  <span class="symbol">:dependencies</span>
+  [[thheller/shadow-cljs <span class="string"><span class="delimiter">&quot;</span><span class="content">X.Y.Z</span><span class="delimiter">&quot;</span></span>]]
+
+  <span class="symbol">:source-paths</span>
+  [<span class="string"><span class="delimiter">&quot;</span><span class="content">src</span><span class="delimiter">&quot;</span></span>])</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="cider"><a class="anchor" href="#cider"></a><a class="link" href="#cider">15.2. Emacs / CIDER</a></h3>
+<div class="sect3">
+<h4 id="_clojurescript_replの起動"><a class="anchor" href="#_clojurescript_replの起動"></a><a class="link" href="#_clojurescript_replの起動">15.2.1. ClojureScript REPLの起動</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="console">M-x cider-jack-in-cljs</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="console">Select ClojureScript REPL type:</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="console">Select shadow-cljs build:</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="console">shadow.user&gt; To quit, type: :cljs/quit
+[:selected :app]
+cljs.repl&gt;</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="console">cljs.repl&gt; (js/alert &quot;Jurassic Park!&quot;)</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_dir_localによるスタートアップの簡素化"><a class="anchor" href="#_dir_localによるスタートアップの簡素化"></a><a class="link" href="#_dir_localによるスタートアップの簡素化">15.2.2. dir-localによるスタートアップの簡素化</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">((<span class="predefined-constant">nil</span> <span class="keyword">.</span> ((cider-default-cljs-repl <span class="keyword">.</span> shadow)
+         (cider-shadow-default-options <span class="keyword">.</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">&lt;your-build-name-here&gt;</span><span class="delimiter">&quot;</span></span>))))</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_proto_repl_atom"><a class="anchor" href="#_proto_repl_atom"></a><a class="link" href="#_proto_repl_atom">15.3. Proto REPL (Atom)</a></h3>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure"> (<span class="keyword">ns</span> <span class="namespace">user</span>)
+
+ (<span class="keyword">defn</span> <span class="function">reset</span> [])</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_chlorine_atom"><a class="anchor" href="#_chlorine_atom"></a><a class="link" href="#_chlorine_atom">15.4. Chlorine (Atom)</a></h3>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">$ shadow-cljs watch app</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_calva_vs_code"><a class="anchor" href="#_calva_vs_code"></a><a class="link" href="#_calva_vs_code">15.5. Calva (VS Code)</a></h3>
+<div class="sect3">
+<h4 id="_依存関係_2"><a class="anchor" href="#_依存関係_2"></a><a class="link" href="#_依存関係_2">15.5.1. 依存関係</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">[cider/cider-nrepl <span class="string"><span class="delimiter">&quot;</span><span class="content">0.21.0</span><span class="delimiter">&quot;</span></span>]</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_calvaとreplの接続"><a class="anchor" href="#_calvaとreplの接続"></a><a class="link" href="#_calvaとreplの接続">15.5.2. CalvaとREPLの接続</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">$ shadow-cljs watch app</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_特徴"><a class="anchor" href="#_特徴"></a><a class="link" href="#_特徴">15.5.3. 特徴</a></h4>
+<div class="sect4">
+<h5 id="_intellisense_など"><a class="anchor" href="#_intellisense_など"></a><a class="link" href="#_intellisense_など">Intellisense など</a></h5>
+
+</div>
+<div class="sect4">
+<h5 id="_ファイル_フォーム_セレクションの評価"><a class="anchor" href="#_ファイル_フォーム_セレクションの評価"></a><a class="link" href="#_ファイル_フォーム_セレクションの評価">ファイル、フォーム、セレクションの評価</a></h5>
+
+</div>
+<div class="sect4">
+<h5 id="_テストの実行"><a class="anchor" href="#_テストの実行"></a><a class="link" href="#_テストの実行">テストの実行</a></h5>
+
+</div>
+<div class="sect4">
+<h5 id="_ターミナルの_repl"><a class="anchor" href="#_ターミナルの_repl"></a><a class="link" href="#_ターミナルの_repl">ターミナルの REPL</a></h5>
+
+</div>
+<div class="sect4">
+<h5 id="_cljc_のファイル群"><a class="anchor" href="#_cljc_のファイル群"></a><a class="link" href="#_cljc_のファイル群">Cljc のファイル群</a></h5>
+
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_fireplace_vim_vim_neovim"><a class="anchor" href="#_fireplace_vim_vim_neovim"></a><a class="link" href="#_fireplace_vim_vim_neovim">15.6. Fireplace.vim (Vim/Neovim)</a></h3>
+<div class="sect3">
+<h4 id="_依存関係_3"><a class="anchor" href="#_依存関係_3"></a><a class="link" href="#_依存関係_3">15.6.1. 依存関係</a></h4>
+
+</div>
+<div class="sect3">
+<h4 id="_アプリの準備"><a class="anchor" href="#_アプリの準備"></a><a class="link" href="#_アプリの準備">15.6.2. アプリの準備</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure"><span class="comment">;; shadow-cljs configuration</span>
+{<span class="symbol">:source-paths</span>
+ [<span class="string"><span class="delimiter">&quot;</span><span class="content">src/dev</span><span class="delimiter">&quot;</span></span>
+  <span class="string"><span class="delimiter">&quot;</span><span class="content">src/main</span><span class="delimiter">&quot;</span></span>
+  <span class="string"><span class="delimiter">&quot;</span><span class="content">src/test</span><span class="delimiter">&quot;</span></span>]
+
+ <span class="comment">;; ADD - CIDER-nREPL middleware required by Fireplace.vim</span>
+ <span class="symbol">:dependencies</span>
+ [[cider/cider-nrepl <span class="string"><span class="delimiter">&quot;</span><span class="content">0.22.4</span><span class="delimiter">&quot;</span></span>]]
+
+ <span class="comment">;; ADD - a port (e.g., 3333) for the REPL server to which Fireplace.vim connects</span>
+ <span class="symbol">:nrepl</span>
+ {<span class="symbol">:port</span> <span class="integer">3333</span>}
+
+ <span class="comment">;; ADD - a port (e.g., 8080) for the development-time HTTP server that serves the app</span>
+ <span class="symbol">:dev-http</span>
+ {<span class="integer">8080</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">public</span><span class="delimiter">&quot;</span></span>}
+
+ <span class="symbol">:builds</span>
+ {<span class="symbol">:frontend</span>  <span class="comment">; NOTE - This is the build ID referenced at various places below.</span>
+  {<span class="symbol">:target</span> <span class="symbol">:browser</span>
+   <span class="symbol">:modules</span> {<span class="symbol">:main</span> {<span class="symbol">:init-fn</span> acme.frontend.app/init}}}}}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="sh">npx shadow-cljs watch frontend</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">No application has connected to the REPL server.
+Make sure your JS environment has loaded your compiled ClojureScript code.</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_fireplace_vimとreplサーバーの接続"><a class="anchor" href="#_fireplace_vimとreplサーバーの接続"></a><a class="link" href="#_fireplace_vimとreplサーバーの接続">15.6.3. Fireplace.vimとREPLサーバーの接続</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure"><span class="symbol">:Connect</span> <span class="integer">3333</span>
+=&gt;
+Connected to nrepl<span class="symbol">://localhost</span><span class="error">:</span><span class="integer">3333</span><span class="keyword">/</span>
+Scope connection to<span class="error">:</span> ~/code/clojurescript/acme-app (ENTER)</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure"><span class="symbol">:CljEval</span> (shadow/repl <span class="symbol">:frontend</span>)
+=&gt;
+To quit, <span class="keyword">type</span><span class="error">:</span> <span class="symbol">:cljs/quit</span>
+[<span class="symbol">:selected</span> <span class="symbol">:frontend</span>]
+Press ENTER <span class="keyword">or</span> <span class="keyword">type</span> command to continue</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_トラブルシューティング"><a class="anchor" href="#_トラブルシューティング"></a><a class="link" href="#_トラブルシューティング">16. トラブルシューティング</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="failed-to-load"><a class="anchor" href="#failed-to-load"></a><a class="link" href="#failed-to-load">16.1. 起動時のエラー</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://clojars.org/thheller/shadow-cljs" class="bare">https://clojars.org/thheller/shadow-cljs</a></p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="_deps_edn_tools_deps"><a class="anchor" href="#_deps_edn_tools_deps"></a><a class="link" href="#_deps_edn_tools_deps">16.1.1. deps.edn / tools.deps</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">$ clj -A:dev:cljs -Stree</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_project_clj_leiningen"><a class="anchor" href="#_project_clj_leiningen"></a><a class="link" href="#_project_clj_leiningen">16.1.2. project.clj / Leiningen</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure"><span class="error">#</span> no profile
+$ lein deps <span class="symbol">:tree</span>
+
+<span class="error">#</span> with profile
+$ lein with-profiles +cljs deps <span class="symbol">:tree</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="repl-troubleshooting"><a class="anchor" href="#repl-troubleshooting"></a><a class="link" href="#repl-troubleshooting">16.2. REPL</a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="assets/img/shadow-cljs-repl.png" alt="shadow cljs repl">
+</div>
+</div>
+<div class="sect3">
+<h4 id="cljs-repl-anatomy"><a class="anchor" href="#cljs-repl-anatomy"></a><a class="link" href="#cljs-repl-anatomy">16.2.1. CLJS REPLの分析</a></h4>
+
+</div>
+<div class="sect3">
+<h4 id="_javascript_のランタイム"><a class="anchor" href="#_javascript_のランタイム"></a><a class="link" href="#_javascript_のランタイム">16.2.2. JavaScript のランタイム</a></h4>
+
+</div>
+<div class="sect3">
+<h4 id="missing-js-runtime"><a class="anchor" href="#missing-js-runtime"></a><a class="link" href="#missing-js-runtime">16.2.3. Missing JS runtime</a></h4>
+<div class="sect4">
+<h5 id="repl-trouble-browser"><a class="anchor" href="#repl-trouble-browser"></a><a class="link" href="#repl-trouble-browser">:target :browser</a></h5>
+
+</div>
+<div class="sect4">
+<h5 id="repl-trouble-node"><a class="anchor" href="#repl-trouble-node"></a><a class="link" href="#repl-trouble-node">:target :node-script, :node-library</a></h5>
+
+</div>
+<div class="sect4">
+<h5 id="repl-trouble-react-native"><a class="anchor" href="#repl-trouble-react-native"></a><a class="link" href="#repl-trouble-react-native">:target :react-native</a></h5>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="publish"><a class="anchor" href="#publish"></a><a class="link" href="#publish">17. ライブラリの publish</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="publish-lein"><a class="anchor" href="#publish-lein"></a><a class="link" href="#publish-lein">17.1. Leiningen</a></h3>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">(defproject your.cool/library <span class="string"><span class="delimiter">&quot;</span><span class="content">1.0.0</span><span class="delimiter">&quot;</span></span>
+  <span class="symbol">:description</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">Does cool stuff</span><span class="delimiter">&quot;</span></span>
+  <span class="symbol">:url</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">https://the.inter.net/wherever</span><span class="delimiter">&quot;</span></span>
+
+  <span class="comment">;; this is optional, add what you want or remove it</span>
+  <span class="symbol">:license</span> {<span class="symbol">:name</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">Eclipse Public License</span><span class="delimiter">&quot;</span></span>
+            <span class="symbol">:url</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">http://www.eclipse.org/legal/epl-v10.html</span><span class="delimiter">&quot;</span></span>}
+
+  <span class="symbol">:dependencies</span>
+  <span class="comment">;; always use &quot;provided&quot; for Clojure(Script)</span>
+  [[org.clojure/clojurescript <span class="string"><span class="delimiter">&quot;</span><span class="content">1.10.520</span><span class="delimiter">&quot;</span></span> <span class="symbol">:scope</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">provided</span><span class="delimiter">&quot;</span></span>]
+   [some.other/library <span class="string"><span class="delimiter">&quot;</span><span class="content">1.0.0</span><span class="delimiter">&quot;</span></span>]
+
+  <span class="symbol">:source-paths</span>
+  [<span class="string"><span class="delimiter">&quot;</span><span class="content">src/main</span><span class="delimiter">&quot;</span></span>])</code></pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_jar署名の無効化"><a class="anchor" href="#_jar署名の無効化"></a><a class="link" href="#_jar署名の無効化">17.1.1. JAR署名の無効化</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">(defproject your.cool/library <span class="string"><span class="delimiter">&quot;</span><span class="content">1.0.0</span><span class="delimiter">&quot;</span></span>
+  <span class="keyword">..</span><span class="keyword">.</span>
+  <span class="symbol">:repositories</span>
+  {<span class="string"><span class="delimiter">&quot;</span><span class="content">clojars</span><span class="delimiter">&quot;</span></span> {<span class="symbol">:url</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">https://clojars.org/repo</span><span class="delimiter">&quot;</span></span>
+              <span class="symbol">:sign-releases</span> <span class="predefined-constant">false</span>}}
+  <span class="keyword">..</span><span class="keyword">.</span>)</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_jarをクリーンに保つ"><a class="anchor" href="#_jarをクリーンに保つ"></a><a class="link" href="#_jarをクリーンに保つ">17.1.2. JARをクリーンに保つ</a></h4>
+
+</div>
+</div>
+<div class="sect2">
+<h3 id="publish-deps-cljs"><a class="anchor" href="#publish-deps-cljs"></a><a class="link" href="#publish-deps-cljs">17.2. JSの依存関係を宣言する</a></h3>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{<span class="symbol">:npm-deps</span> {<span class="string"><span class="delimiter">&quot;</span><span class="content">the-thing</span><span class="delimiter">&quot;</span></span> <span class="string"><span class="delimiter">&quot;</span><span class="content">1.0.0</span><span class="delimiter">&quot;</span></span>}}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_上手くいかない場合はどうすればいいか"><a class="anchor" href="#_上手くいかない場合はどうすればいいか"></a><a class="link" href="#_上手くいかない場合はどうすればいいか">18. 上手くいかない場合はどうすればいいか</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>JSの世界は今でも急速に進化しており、誰もが同じ方法でコードを書いたり配布したりしているわけではありません。
+shadow-cljs`では自動的に回避できないものがあります。これらは
+通常はカスタムの <code>:resolve</code> 設定で解決できますが、バグや見落としもあるかもしれません。</p>
 </div>
 <div class="paragraph">
-<p>Since the JS world is still evolving rapidly and not everyone is using the same way to write and
-distribute code there are some things <code>shadow-cljs</code> cannot work around automatically. These
-can usually be solved with custom <code>:resolve</code> configs, but there may also be bugs or oversights.</p>
+<p>この章の説明で解決できない場合は、次のような場所で質問してみてください。
+<a href="https://clojurians.slack.com/messages/C6N245JGG"><code>#shadow-cljs</code> Slackチャンネル</a>で聞いてみてください。</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_hacking"><a class="anchor" href="#_hacking"></a><a class="link" href="#_hacking">19. Hacking</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_ライブラリーのパッチ適用"><a class="anchor" href="#_ライブラリーのパッチ適用"></a><a class="link" href="#_ライブラリーのパッチ適用">19.1. ライブラリーのパッチ適用</a></h3>
+<div class="paragraph">
+<p>shadow-cljs`コンパイラは、あなたのソースパス上にあるものが最初にコンパイルされるようにし、JARからのファイルを優先します。つまり、ライブラリからソースファイルをコピーしてパッチを当て、それを自分のソースディレクトリにインクルードすることができるのです。</p>
 </div>
 <div class="paragraph">
-<p>If you cannot resolve such an issue with the instructions in this chapter, then try asking on the
-<a href="https://clojurians.slack.com/messages/C6N245JGG"><code>#shadow-cljs</code> Slack channel</a>.</p>
+<p>これは、そのプロジェクトをクローンして、そのセットアップやビルドなどを理解しなくても、修正（`shadow-cljs`自体も！）をテストするための便利な方法です。
+プロジェクトをクローンして、そのセットアップやビルドなどを理解することなく、修正をテストする便利な方法です。</p>
 </div>
-<div class="paragraph">
-<p>The <code>shadow-cljs</code> compiler ensures that things on your source paths are compiled first, overriding files from JARs. This means that you can copy a source file from a library, patch it, and include it in your own source directory.</p>
-</div>
-<div class="paragraph">
-<p>This is a convenient way to test out fixes (even to <code>shadow-cljs</code> itself!) without having to clone
-that project and understand its setup, build, etc.</p>
 </div>
 </div>
 </div>
@@ -1832,7 +4451,7 @@ that project and understand its setup, build, etc.</p>
 <div id="footer">
 <div id="footer-text">
 Version 1.0<br>
-Last updated 2021-04-05 21:48:57 JST
+Last updated 2021-04-05 21:51:07 JST
 </div>
 </div>
 </body>

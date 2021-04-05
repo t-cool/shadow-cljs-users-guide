@@ -208,9 +208,7 @@ include::repl.adoc[]
 
 = 設定 [[config]]
 
-///
-Configuration [[config]]
-////
+// Configuration [[config]]
 
 ////
 `shadow-cljs` is configured by a `shadow-cljs.edn` file in your project root directory. You can
