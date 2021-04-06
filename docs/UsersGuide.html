@@ -2194,7 +2194,11 @@ shadow-cljs - watching build :app
 <div class="sect1">
 <h2 id="_ビルドの設定"><a class="anchor" href="#_ビルドの設定"></a><a class="link" href="#_ビルドの設定">6. ビルドの設定</a></h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p><code>shadow-cljs.edn</code> には、<code>:builds</code> セクションも必要です。ビルドは、ビルド ID をキーにしたビルドのマップでなければなりません。</p>
+</div>
 <div class="listingblock">
+<div class="title">ビルドマップの設定ファイル</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="symbol">:dependencies</span> [[some-library <span class="string"><span class="delimiter">&quot;</span><span class="content">1.2.1</span><span class="delimiter">&quot;</span></span>] <span class="keyword">..</span><span class="keyword">.</span>]
  <span class="symbol">:source-paths</span> [<span class="string"><span class="delimiter">&quot;</span><span class="content">src</span><span class="delimiter">&quot;</span></span>]
@@ -2205,14 +2209,74 @@ shadow-cljs - watching build :app
           <span class="keyword">..</span><span class="keyword">.</span> karma-specific options <span class="keyword">..</span><span class="keyword">.</span>}}}</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>各ビルドには、コンパイラがビルドする成果物が記述されています。ビルドターゲットは <code>shadow-cljs</code> の拡張可能な機能であり、コンパイラにはすでにかなりの数が付属しています。</p>
+</div>
 <div class="sect2">
 <h3 id="_ビルドターゲット"><a class="anchor" href="#_ビルドターゲット"></a><a class="link" href="#_ビルドターゲット">6.1. ビルドターゲット</a></h3>
-
+<div class="paragraph">
+<p>shadow-cljs` の各ビルドでは、コードをどこで実行するかを定義する <code>:target</code> を定義する必要があります。<a href="#target-browser">browser</a> と <a href="#target-node"><code>node.js</code></a> のデフォルトのビルドインがあります。これらはすべて、<code>:dev`モードと</code>:release`モードを持つという基本的なコンセプトを共有しています。dev`モードでは、高速なコンパイル、ライブコードリロード、REPLなど、通常の開発に必要な機能をすべて提供します。release`モードでは、プロダクション向けに最適化された出力が得られます。</p>
+</div>
+<div class="paragraph">
+<p>ターゲットについては別の章で説明しています。</p>
+</div>
+<div class="paragraph">
+<p>その一部をご紹介します。</p>
+</div>
+<div class="dlist Horizontal">
+<dl>
+<dt><a href="#target-browser"><code>:browser</code></a></dt>
+<dd>
+<p>Webブラウザでの実行に適したコードを出力します。
+<a href="#target-bootstrap"><code>:bootstrap</code></a>::ブートストラップされた cljs 環境で実行するのに適したコードを出力します。</p>
+</dd>
+<dt><a href="#target-browser-test"><code>:browser-test</code></a></dt>
+<dd>
+<p>テストをスキャンして必要なファイルを決定し、ブラウザで実行するのに適したテストを出力します。</p>
+</dd>
+<dt><a href="#target-karma"><code>:karma</code></a></dt>
+<dd>
+<p>テストをスキャンして必要なファイルを決定し、karma-runner互換のテストを出力します。http://karma-runner.github.io/2.0/index.html[Karma]を参照してください。</p>
+</dd>
+<dt><a href="#target-node-library"><code>:node-library</code></a></dt>
+<dd>
+<p>ノードライブラリとして使用するのに適したコードを出力します。</p>
+</dd>
+<dt><a href="#target-node-script"><code>:node-script</code></a></dt>
+<dd>
+<p>ノードスクリプトとして使用するのに適したコードを出力します。</p>
+</dd>
+<dt><a href="#target-npm-module"><code>:npm-module</code></a></dt>
+<dd>
+<p>ノードスクリプトとしての使用に適したコードを出力します。NPMモジュールとして使用するのに適したコードを出力します。</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>各ターゲットについては、それぞれの章で詳しく説明します。
+ターゲットを選択すると、残りのビルドオプションが変わるからです。</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="devtools"><a class="anchor" href="#devtools"></a><a class="link" href="#devtools">6.2. 開発オプション</a></h3>
+<div class="paragraph">
+<p>各ビルド <code>:target</code> は通常、いくつかの開発サポートを提供します。それらは、各 <code>:build</code> の <code>:devtools</code> キーの下にまとめられています。</p>
+</div>
 <div class="sect3">
 <h4 id="_repl_3"><a class="anchor" href="#_repl_3"></a><a class="link" href="#_repl_3">6.2.1. REPL</a></h4>
+<div class="paragraph">
+<p>watch`を実行すると、REPL用のコードが自動的に注入され、通常は追加の設定は必要ありません。REPLの動作を制御するための追加オプションも用意されています。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>:repl-init-ns</code> では、REPLをどの名前空間で起動するかを設定することができます。デフォルトでは <code>cljs.user</code> となります。</p>
+</li>
+<li>
+<p>repl-pprint` では、REPLがevalの結果を印刷するときに、通常の <code>pr-str</code> の代わりに <code>cljs.pprint</code> を使用します。デフォルトは false です。</p>
+</li>
+</ul>
+</div>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
@@ -2226,6 +2290,16 @@ shadow-cljs - watching build :app
 </div>
 <div class="sect3">
 <h4 id="_プリロード"><a class="anchor" href="#_プリロード"></a><a class="link" href="#_プリロード">6.2.2. プリロード</a></h4>
+<div class="paragraph">
+<p>開発者は、そのほとんどの時間を開発モードで過ごします。おそらく、<code>figwheel</code>、<code>boot-reload</code>、<code>devtools`などのツールに精通していることでしょう。
+boot-reload</code>、`devtools`などのツールをご存知でしょう。これらのツールの1つ以上を自分のビルドに使用することはほぼ確実でしょう。</p>
+</div>
+<div class="paragraph">
+<p>プリロードは、生成されたJavascriptの先頭に特定の名前空間を強制的に導入するために使用されます。これは
+一般的には、アプリケーションが実際にロードされて実行される前に、ツールやインスツルメンテーションを注入するために使用されます。プリロードは
+preloads オプションは、単に <code>:devtools</code>/<code>:preloads</code> セクションの名前空間のリストです。
+shadow-cljs-edn`:</p>
+</div>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
@@ -2235,9 +2309,19 @@ shadow-cljs - watching build :app
                    <span class="keyword">..</span><span class="keyword">.</span>}}}}</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>注意: バージョン 2.0.130 以降の shadow-cljs は、<code>watch</code> と <code>compile</code> のクラスパス上に <code>cljs-devtools</code> がある場合、自動的にそのプリロードに <code>cljs-devtools</code> を追加します。必要なことは、<code>binaryage/devtools</code> があなたの <code>dependencies</code> リストにあることを確認するだけです。(注意: <strong>not</strong> binaryage/<strong>cljs-</strong>devtools.) もし、特定のターゲットに <code>cljs-devtools</code> を入れたくない場合は、それらのターゲットの <code>:devtools</code> セクションに <code>:console-support false</code> を追加することで、これを抑制することができます。</p>
+</div>
 </div>
 <div class="sect3">
 <h4 id="_ホットコードリロード"><a class="anchor" href="#_ホットコードリロード"></a><a class="link" href="#_ホットコードリロード">6.2.3. ホットコードリロード</a></h4>
+<div class="paragraph">
+<p>ReactとClojureScriptのエコシステムを組み合わせることで、このようなことが超便利になります。shadow-cljs`。
+システムには、外部ツールに頼ることなく、ホットコードリロードを行うために必要なものがすべて含まれています。</p>
+</div>
+<div class="paragraph">
+<p>使うには、単に実行するだけです。</p>
+</div>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">shadow-cljs watch build-id</code></pre>
@@ -2246,8 +2330,24 @@ shadow-cljs - watching build :app
 </div>
 <div class="sect3">
 <h4 id="_ライフサイクルフック"><a class="anchor" href="#_ライフサイクルフック"></a><a class="link" href="#_ライフサイクルフック">6.2.4. ライフサイクルフック</a></h4>
+<div class="paragraph">
+<p>ホットコードリロードで更新されたコードが入ってくる直前と直後に関数を実行するようにコンパイラを設定することができます。これは、古いコードの上で閉じてしまうような処理を停止/開始するのに便利です。</p>
+</div>
+<div class="paragraph">
+<p>これらの設定は、ビルド設定の <code>:devtools</code> セクションを介して、またはメタデータタグを介してコード内で直接行うことができます。</p>
+</div>
 <div class="sect4">
 <h5 id="_メタデータ"><a class="anchor" href="#_メタデータ"></a><a class="link" href="#_メタデータ">メタデータ</a></h5>
+<div class="paragraph">
+<p>通常のCLJSの`defn`変数に特定のメタデータを設定することで、ライブリロード時にこれらの関数が特定のタイミングで呼び出されるべきであることをコンパイラに知らせることができます。</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>メタデータを利用したhookの設定</p>
+</li>
+</ol>
+</div>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">(<span class="keyword">ns</span> <span class="namespace">my.app</span>)
@@ -2259,7 +2359,14 @@ shadow-cljs - watching build :app
   (js/console.log <span class="string"><span class="delimiter">&quot;</span><span class="content">start</span><span class="delimiter">&quot;</span></span>))</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>これは、新しいコードを読み込む前に <code>my.app/stop</code> を呼び出し、新しいコードがすべて読み込まれたときに <code>my.app/start</code> を呼び出します。このように複数の関数をタグ付けすることができ、それらは名前空間の依存関係の順に呼び出されます。</p>
+</div>
+<div class="paragraph">
+<p>また、リロード処理を行う前に完了すべき非同期処理を行う必要がある場合は、これらの非同期版もあります。</p>
+</div>
 <div class="listingblock">
+<div class="title">asyncフックの例</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">(<span class="keyword">ns</span> <span class="namespace">my.app</span>)
 
@@ -2278,12 +2385,21 @@ shadow-cljs - watching build :app
       (done)))</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>重要：各関数には、それぞれの作業が完了したときに呼び出されるべきコールバック関数が1つあります。このコールバック関数が呼び出されないと、リロード処理は進みません。</p>
+</div>
+<div class="paragraph">
+<p>名前空間にメタデータをタグ付けすることで、再コンパイルされても再読み込みされないようにすることが可能です。</p>
+</div>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">(<span class="keyword">ns</span> ^<span class="symbol">:dev/once</span> my.thing)
 
 (js/console.warn <span class="string"><span class="delimiter">&quot;</span><span class="content">will only execute once</span><span class="delimiter">&quot;</span></span>)</code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>名前空間は常にリロードするようにタグ付けすることもできます。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2295,7 +2411,44 @@ shadow-cljs - watching build :app
 </div>
 <div class="sect4">
 <h5 id="_設定"><a class="anchor" href="#_設定"></a><a class="link" href="#_設定">設定</a></h5>
+<div class="paragraph">
+<p>メタデータに加えて、ライフサイクルフックを <code>shadow-cljs.edn</code> で設定することができます。</p>
+</div>
+<div class="dlist Horizontal">
+<dl>
+<dt><code>:before-load</code></dt>
+<dd>
+<p>再コンパイルされたファイルを更新する直前に実行される関数のシンボル（名前空間付き）です。
+関数のシンボル（名前空間付き）です。 この関数は本質的に同期的でなければなりません。</p>
+</dd>
+<dt><code>:before-load-async</code></dt>
+<dd>
+<p>リフレッシュする直前に実行する関数 <code>(fn [done])</code> のシンボル（名前空間付き）です。この関数は非同期処理を行うことができますが、処理が完了したことを示すために、`(done)`を必ず*呼び出さなければなりません。</p>
+</dd>
+<dt><code>:after-load</code></dt>
+<dd>
+<p>ホットコードのリロードが完了した後に実行する関数のシンボル(名前空間付き)です。</p>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code>:after-load-async</code></dt>
+<dd>
+<p>ホットコードのリロードが完了した後に実行される関数 <code>(fn [done])</code> のシンボル(名前空間を含む)です。この関数は非同期処理を行うことができますが、完了したことを示すために、`(done)`を必ず*呼び出さなければなりません。</p>
+</dd>
+</dl>
+</div>
+</dd>
+<dt><code>:autoload</code></dt>
+<dd>
+<p>コードをホットロードするかどうかを制御するブール値です。いずれかのコールバックが設定されると、暗黙的に <code>true</code> に設定されます。デフォルトでは <code>:browser</code> ターゲットに対して常に有効で、無効にするには <code>false</code> を設定します。</p>
+</dd>
+<dt><code>:deignore-warnings</code></dt>
+<dd>
+<p>警告を含むコードをリロードするかどうかを制御するブール値です。デフォルトでは <code>false</code> に設定されます。</p>
+</dd>
+</dl>
+</div>
 <div class="listingblock">
+<div class="title">ライフサイクルフックの例</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
  <span class="symbol">:builds</span>
@@ -2305,12 +2458,25 @@ shadow-cljs - watching build :app
                    <span class="keyword">..</span><span class="keyword">.</span>}}}}</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>重要：フックは <code>cljs.user</code> 名前空間では宣言できません。フックは、それを含む名前空間が実際にビルドに含まれている場合にのみ使用されます。追加の名前空間を使用する場合は、必ず <code>:preloads</code> でインクルードしてください。</p>
+</div>
+<div class="paragraph">
+<p>ヒント: <code>:after-load</code> や <code>:before-load</code> が設定されていない場合、コンパイラは <code>:browser</code> ターゲットのコードのホットリロードのみを試みます。もし、ホットリロードを行いたいが、コールバックが不要な場合は、代わりに <code>:autoload true</code> を設定してください。</p>
+</div>
 </div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="build-hooks"><a class="anchor" href="#build-hooks"></a><a class="link" href="#build-hooks">6.3. ビルドフック</a></h3>
+<div class="paragraph">
+<p>カスタムコードをコンパイルパイプラインの特定の段階で実行したい場合があります。<code>:build-hooks</code> では、どの関数を呼び出すかを宣言することができ、その関数はその時点でのビルド状態に完全にアクセスすることができます。これは非常に強力で、様々なツールのオプションが可能になります。</p>
+</div>
+<div class="paragraph">
+<p>ビルドごとに <code>:build-hooks</code> キーで設定されます。</p>
+</div>
 <div class="listingblock">
+<div class="title">例 :build-hooks</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
  <span class="symbol">:builds</span>
@@ -2321,6 +2487,7 @@ shadow-cljs - watching build :app
 </div>
 </div>
 <div class="listingblock">
+<div class="title">例 hook code</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">(<span class="keyword">ns</span> <span class="namespace">my.util</span>)
 
@@ -2331,21 +2498,122 @@ shadow-cljs - watching build :app
   build-state)</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>この例では、ビルドが <code>:flush</code> <a href="#compilation-stages">stage</a> を完了した(つまりディスクに書き込まれた)後に <code>(my.util/hook build-state 1 2 3)</code> を呼び出します。この例では <code>[:hello-world (1 2 3)]</code> と表示されますが、実際のフックではもっと便利なことをしてください。</p>
+</div>
+<div class="paragraph">
+<p>フックは通常の <strong>Clojure</strong> 関数にいくつかのメタデータを追加したものです。shadow.build/stage :flush}` メタデータは、このフックを <code>:flush</code> でのみ呼び出すようにコンパイラに通知します。フックが複数のステージの後に呼び出されるべきであれば、代わりに <code>{:shadow.build/stages #{:configure :flush}}</code> を設定することができます。そうしないとフックは何もしないので、少なくともひとつの設定済みステージが必要です。</p>
+</div>
+<div class="paragraph">
+<p>すべてのビルドフックは、<code>:target</code> の作業が終わった後に呼び出されます。これらのフックは、最初の引数として <code>build-state</code> (現在のすべてのビルドデータを含む clojure マップ) を受け取り、*必ず*この <code>build-state</code> を修正して、または修正しないで返します。複数のステージを使用する場合、後のステージが見ることができる追加データを <code>build-state</code> に追加することができます。誤ってビルド全体を壊してしまわないように、名前付きのキーのみを使用することを強くお勧めします。</p>
+</div>
+<div class="paragraph">
+<p>build-state`には、フックに有用ないくつかの重要なエントリがあります。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>:shadow.build/build-id</code> - 現在のビルドのID（例：<code>:app</code>）。</p>
+</li>
+<li>
+<p><code>:shadow.build/mode</code> - <code>:dev</code> または <code>:release</code> です。</p>
+</li>
+<li>
+<p><code>:shadow.build/stage</code> - 現在のステージです。</p>
+</li>
+<li>
+<p><code>:shadow.build/config</code> - ビルドの設定。フック用の設定データは、ビルドコンフィグに直接格納するか、フック自体の引数として渡すことができます。</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>重要: <code>watch</code> を実行していると、すべてのフックがビルドのたびに繰り返し呼び出されます。ビルドのパフォーマンスに大きな影響を与える可能性がありますので、あまり多くの作業を行わないようにしてください。</p>
+</div>
 <div class="sect3">
 <h4 id="compile-stages"><a class="anchor" href="#compile-stages"></a><a class="link" href="#compile-stages">6.3.1. コンパイル・ステージ</a></h4>
-
+<div class="paragraph">
+<p><code>:build-hooks</code> が使用できるステージは以下の通りです。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>:configure</code> - 初期の <code>:target</code> 特定のコンフィギュレーション</p>
+</li>
+<li>
+<p><code>:compile-prepare</code> - コンパイルが行われる前に呼び出されます。</p>
+</li>
+<li>
+<p><code>:compile-finish</code> - すべてのコンパイルが終了した後に呼び出されます。</p>
+</li>
+<li>
+<p>optimize-prepare` - Closure Compiler の最適化フェーズを実行する前に呼び出されます (<code>:release</code> のみ)</p>
+</li>
+<li>
+<p><code>:optime-finish</code> - Closure が終了した後に呼び出されます (<code>:release</code> のみ)</p>
+</li>
+<li>
+<p><code>:flush</code> - すべてがディスクにフラッシュされた後に呼び出されます。</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>ウォッチ」を実行していると、「:configure」は一度しか呼ばれません。再コンパイルのたびに、他の項目が
+再コンパイルのたびに（順番に）呼び出されます。build-state` はビルドコンフィグが変更されるまで再利用され、その時点で破棄されて新しいものが作成されることになる。</p>
+</div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_コンパイラ_キャッシュ"><a class="anchor" href="#_コンパイラ_キャッシュ"></a><a class="link" href="#_コンパイラ_キャッシュ">6.4. コンパイラ・キャッシュ</a></h3>
+<div class="paragraph">
+<p>shadow-cljs` はデフォルトで全てのコンパイル結果をキャッシュします。このキャッシュは、個々のソースファイルに関連する何かが変更されるたびに無効になります（例：コンパイラの設定変更、依存関係の変更など）。これにより、インクリメンタルなコンパイルはスクラッチから始めるよりも <strong>はるかに</strong> 早くなるので、開発者の経験が大幅に改善されます。</p>
+</div>
+<div class="paragraph">
+<p>しかし、キャッシュを無効にすることは、副作用のあるマクロ（ファイルの読み込み、コンパイラの状態外での保存など）を多く使用している場合、常に確実に実行できるとは限りません。そのような場合には、キャッシュを完全に無効にする必要があります。</p>
+</div>
+<div class="paragraph">
+<p>副作用のあるマクロが含まれていることがわかっている名前空間は、キャッシュからブロックすることができます。その名前空間自体はキャッシュされず、それを必要とする名前空間もキャッシュされません。https://github.com/cerner/clara-rules[clara-rules]ライブラリには副作用のあるマクロが含まれており、デフォルトでブロックされます。どの名前空間をグローバルにブロックするかは、<code>:cache-blockers</code> 設定で指定できます。この設定には、名前空間のシンボルのセットが必要です。</p>
+</div>
 <div class="listingblock">
+<div class="title">clara.rulesのキャッシュブロックの例（これはデフォルトで行われます)</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
  <span class="symbol">:cache-blockers</span> #{clara.rules}
  <span class="symbol">:builds</span> {<span class="keyword">..</span><span class="keyword">.</span>}}</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>さらに、<code>:build-options</code> <code>:cache-level</code> エントリーを使って、どの程度のキャッシングが行われるかをより広範囲に渡ってコントロールすることができます。サポートされているオプションは次のとおりです。</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+<code>:all</code>
+</td>
+<td class="hdlist2">
+<p>デフォルトでは、すべてのCLJSファイルがキャッシュされます。</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>:jars</code>
+</td>
+<td class="hdlist2">
+<p>ライブラリからのファイル、つまり <code>.jar</code> ファイル内のソースファイルのみをキャッシュします。</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>:off</code>
+</td>
+<td class="hdlist2">
+<p>CLJSのコンパイル結果を一切キャッシュしません（圧倒的に遅いオプションです）。</p>
+</td>
+</tr>
+</table>
+</div>
 <div class="listingblock">
+<div class="title">キャッシュを使わずにコンパイルする</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
  <span class="symbol">:builds</span>
@@ -2356,10 +2624,17 @@ shadow-cljs - watching build :app
    {<span class="symbol">:cache-level</span> <span class="symbol">:off</span>}}}}</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>キャッシュファイルは、ビルドごとに専用のディレクトリに保存されるので、ビルド間でキャッシュが共有されることはありません。idが <code>:app</code> のビルドには、<code>:dev</code> のキャッシュがディレクトリに格納されます。</p>
+</div>
 <div class="listingblock">
+<div class="title">cljs/core.cljs`のキャッシュ場所</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">target/shadow-cljs/builds/app/dev/ana/cljs/core.cljs.cache.transit.json</code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>:cache-root` の設定は、デフォルトでは <code>target/shadow-cljs</code> となり、すべてのキャッシュファイルがどこに書き込まれるかを制御します。これはグローバルにのみ設定可能で、ビルドごとに設定することはできません。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2368,13 +2643,21 @@ shadow-cljs - watching build :app
  <span class="symbol">:cache-root</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">.shadow-cljs</span><span class="delimiter">&quot;</span></span>
  <span class="symbol">:builds</span> <span class="keyword">..</span><span class="keyword">.</span>}
 
-<span class="comment">;; cache then goes to</span>
-<span class="comment">;; .shadow-cljs/builds/app/dev/ana/cljs/core.cljs.cache.transit.json</span></code></pre>
+<span class="comment">;; キャッシュは、.shadow-cljs/builds/app/dev/ana/cljs/core.cljs.cache.transit.json になります。</span></code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>また、<code>:cache-root`は常にプロジェクトディレクトリからの相対パスで指定します。絶対パスを指定することもできます (例: `/tmp/shadow-cljs</code>)。</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="closure-defines"><a class="anchor" href="#closure-defines"></a><a class="link" href="#closure-defines">6.5. クロージャの定義</a></h3>
+<div class="paragraph">
+<p>Closure Library &amp; Compilerでは、基本的にコンパイル時の定数である変数を定義することができます。これを使って、ビルドの特定の機能を設定することができます。Closureコンパイラは、`:advanced`最適化を実行する際にこれらを定数として扱うため、Dead-Code-Eliminationパスが完全にサポートされており、`release`ビルドに含めるべきではないコードの特定の部分を削除するために使用することができます。</p>
+</div>
+<div class="paragraph">
+<p>コードの中で定義することができます。</p>
+</div>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">(<span class="keyword">ns</span> <span class="namespace">your.app</span>)
@@ -2384,6 +2667,9 @@ shadow-cljs - watching build :app
 (<span class="keyword">when</span> VERBOSE
   (<span class="keyword">println</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">Hello World</span><span class="delimiter">&quot;</span></span>))</code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>これにより、<code>your.app/VERBOSE`変数がデフォルトで`false`と定義されます。これにより、</code>:advanced` のコンパイル時に <code>println</code> が削除されます。これを <code>:closure-defines</code> オプションで <code>true</code> に変更すると、<code>println</code> が有効になります。これは、開発時のみ、または常に行うことができます。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2402,9 +2688,31 @@ shadow-cljs - watching build :app
    }}</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>ヒント: 一般的には、「disabled」バリアントをデフォルトで使用する方が安全です。なぜなら、「release」ビルドに含まれるべきでないものが含まれる可能性が低くなるからです。また、`:closure-defines`変数の設定を忘れると、ほとんどの場合、使用されるコードが増えるのではなく、減ることになります。</p>
+</div>
+<div class="paragraph">
+<p>クロージャ・ライブラリのクロージャ定義</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>goog.DEBUG</code> です。Closure Libraryでは、多くの開発機能でこれを使用しています。shadow-cljs` は、<code>release</code> のビルドでは、自動的にこれを <code>false</code> に設定します。</p>
+</li>
+<li>
+<p>goog.LOCALE`: <code>goog.i18n.DateTimeFormat</code> のような、ある種のローカリゼーション機能を設定するために使用されます。これは標準的なロケール文字列を受け入れ、デフォルトでは <code>en</code> となります。ほとんどすべてのロケールがサポートされています。https://github.com/google/closure-library/blob/master/closure/goog/i18n/datetimesymbols.js[ここ]とhttps://github.com/google/closure-library/blob/master/closure/goog/i18n/datetimesymbolsext.js[ここ]を参照してください。</p>
+</li>
+</ul>
+</div>
 </div>
 <div class="sect2">
 <h3 id="compiler-options"><a class="anchor" href="#compiler-options"></a><a class="link" href="#compiler-options">6.6. コンパイラのオプション</a></h3>
+<div class="paragraph">
+<p>CLJS コンパイラは、コードの生成方法に影響を与えるいくつかのオプションをサポートしています。ほとんどの場合、<code>shadow-cljs</code> は各 <code>:target</code> に対して良いデフォルトを選んでくれますが、時折それらのいくつかを変更したいと思うかもしれません。</p>
+</div>
+<div class="paragraph">
+<p>これらはすべて、ビルド設定の <code>:compiler-options</code> キーにまとめられています。</p>
+</div>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="symbol">:dependencies</span> [<span class="keyword">..</span><span class="keyword">.</span>]
@@ -2415,9 +2723,123 @@ shadow-cljs - watching build :app
    <span class="symbol">:compiler-options</span> {<span class="symbol">:fn-invoke-direct</span> <span class="predefined-constant">true</span>}}}}</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>標準的なClojureScript <a href="https://clojurescript.org/reference/compiler-options">Compiler Options</a>のほとんどは、デフォルトで有効になっているか、適用されていません。そのため、実際に効果があるものはほとんどありません。また、多くのオプションは特定の <code>:target</code> タイプに固有のもので、普遍的に適用されるわけではありません (例えば、<code>:compiler-options {:output-wrapper true}</code> は <code>:target :browser</code> にのみ関係します)。</p>
+</div>
+<div class="paragraph">
+<p>現在サポートされているオプションは以下の通りです。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>:optimizations</code> は <code>:advanced</code>, <code>:simple</code>, <code>:whitespace</code> のいずれかをサポートしていますが、デフォルトは <code>:advanced</code> です。none` は開発時のデフォルトで、手動で設定することはできません。none` を指定した <code>release</code> は動作しません。</p>
+</li>
+<li>
+<p><code>:infer-externs</code> <code>:all</code>, <code>:auto</code>, <code>true</code> または <code>false</code>, デフォルトは <code>true</code> です。</p>
+</li>
+<li>
+<p><code>:static-fns</code> (ブール値) デフォルトでは <code>true</code> です。</p>
+</li>
+<li>
+<p><code>:fn-invoke-direct</code> (Boolean) デフォルトは <code>false</code> です。</p>
+</li>
+<li>
+<p><code>:ide-asserts</code> (Boolean) のデフォルトは、開発版では <code>false</code> 、<code>release</code> ビルドでは <code>true</code> です。</p>
+</li>
+<li>
+<p><code>:pretty-print</code> と <code>:pseudo-names</code> はデフォルトで <code>false</code> になります。shadow-cljs release app --debug` を使用すると、設定に手を加えることなく、一時的に両方を有効にすることができます。これは <code>release</code> のビルドで問題が発生したときにとても便利です。</p>
+</li>
+<li>
+<p><code>:source-map</code> (Boolean) 開発中のデフォルトは <code>true</code> で、<code>release</code> では <code>false</code> です。</p>
+</li>
+<li>
+<p><code>:source-map-include-sources-content</code> (Boolean) デフォルトは <code>true</code> で、ソースマップが <code>.map</code> ファイルに直接ソースを含めるかどうかを決定します。</p>
+</li>
+<li>
+<p><code>:source-map-detail-level</code> <code>:all</code> または <code>:symbols</code> (<code>:symbols</code> は全体のサイズを少し小さくしますが、精度も少し低くなります)</p>
+</li>
+<li>
+<p><code>:externs</code> パスのベクトル、デフォルトでは <code>[]</code> です。</p>
+</li>
+<li>
+<p><code>:checked-arrays</code> (Boolean), デフォルトは <code>false</code> です。</p>
+</li>
+<li>
+<p><code>:anon-fn-naming-policy</code> (論理値)</p>
+</li>
+<li>
+<p><code>:rename-prefix</code> と <code>:rename-prefix-namespace</code> の対応表です。</p>
+</li>
+<li>
+<p>例えば、<code>:warnings {:undeclared-var false}</code> とすると、特定の警告を消すことができます。</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>サポートされていない、または適用されていないオプション</p>
+</div>
+<div class="paragraph">
+<p>全く効果がない選択肢は、以下の通りです。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>:verbose`は、`shadow-cljs compile app --verbose`を実行することで制御されますが、ビルド設定にはありません。</p>
+</li>
+<li>
+<p><code>:foreign-libs</code> と <code>:libs</code> です。</p>
+</li>
+<li>
+<p><code>:stable-names</code> は常に有効で、無効にすることはできません。</p>
+</li>
+<li>
+<p><code>:install-deps</code> (インストールディプス)</p>
+</li>
+<li>
+<p><code>:source-map-path</code>, <code>:source-asset-path</code>, <code>:source-map-timestamp</code> です。</p>
+</li>
+<li>
+<p><code>:cache-analysis</code> 常に有効で、無効にすることはできません。</p>
+</li>
+<li>
+<p><code>:recompile-dependents</code> (リコンパイル依存)</p>
+</li>
+<li>
+<p><code>:preamble</code> (前置き)</p>
+</li>
+<li>
+<p><code>:hashbang</code> (<code>:node-script</code> ターゲットはこれをサポートしていますが、他のターゲットはサポートしていません)</p>
+</li>
+<li>
+<p><code>:compiler-stats</code> 詳細な情報を得るには、代わりに <code>--verbose</code> を使用してください。</p>
+</li>
+<li>
+<p><code>:optimize-constants</code> は <code>release</code> のビルドでは常に行われ、無効にはできません。</p>
+</li>
+<li>
+<p><code>:parallel-build</code> は常に有効です。</p>
+</li>
+<li>
+<p><code>:aot-cache</code> (キャッシュ)</p>
+</li>
+<li>
+<p><code>:package-json-resolution</code> 代わりに <a href="#js-resolve">:js-options :resolve</a> を参照してください。</p>
+</li>
+<li>
+<p><code>:watch-fn</code></p>
+</li>
+<li>
+<p><code>:process-shim</code> (プロセスシム)</p>
+</li>
+</ul>
+</div>
 <div class="sect3">
 <h4 id="warnigs-as-errors"><a class="anchor" href="#warnigs-as-errors"></a><a class="link" href="#warnigs-as-errors">6.6.1. エラーとしてのワーニング</a></h4>
+<div class="paragraph">
+<p>ビルドを続行するのではなく、警告を表示してビルドを失敗させたい場合があります（例：CI環境など）。warnings-as-errors`コンパイラーオプションを使って、その処理方法をカスタマイズすることができます。</p>
+</div>
 <div class="listingblock">
+<div class="title">すべての警告をエラーとして扱う</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
  <span class="symbol">:builds</span>
@@ -2427,6 +2849,7 @@ shadow-cljs - watching build :app
 </div>
 </div>
 <div class="listingblock">
+<div class="title">特定の警告のみを表示する</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
  <span class="symbol">:builds</span>
@@ -2435,7 +2858,11 @@ shadow-cljs - watching build :app
    <span class="symbol">:compiler-options</span> {<span class="symbol">:warnings-as-errors</span> #{<span class="symbol">:undeclared-var</span>}}}}</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>可能な警告タイプのキーワードのセットは、https://github.com/clojure/clojurescript/blob/5ad96a8b3ae2e3616a19715ba9ba2471a36933a2/src/main/clojure/cljs/analyzer.cljc#L124-L163[こちら]にあります。</p>
+</div>
 <div class="listingblock">
+<div class="title">特定の名前空間にのみエラーを投げる</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
  <span class="symbol">:builds</span>
@@ -2445,11 +2872,52 @@ shadow-cljs - watching build :app
                                            <span class="symbol">:warnings-types</span> #{<span class="symbol">:undeclared-var</span>}}}</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>ignore`には、名前空間を参照するシンボルのセットを指定します。直接マッチするか、または <code>.*</code> のワイルドカードを使用することができます。<code>:warning-types</code> は上記と同じ機能を持っています。これを指定しないと、無視された名前空間以外のすべての警告がスローされます。</p>
+</div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_出力言語オプション"><a class="anchor" href="#_出力言語オプション"></a><a class="link" href="#_出力言語オプション">6.7. 出力言語オプション</a></h3>
+<div class="paragraph">
+<p>デフォルトでは、生成されるJS出力はES5と互換性があり、すべての「より新しい」機能はポリフィルを使用して互換性のあるコードに変換されます。これは現在のところ最も安全なデフォルトであり、現在使用されているほとんどのブラウザ（IE10+を含む）をサポートしています。</p>
+</div>
+<div class="paragraph">
+<p>よりモダンな環境にのみ関心があり、置換せずに元のコードを維持したい場合は、他の出力オプションを選択することができます（例：<code>node</code>、Chrome Extensions、&#8230;&#8203;）。</p>
+</div>
+<div class="paragraph">
+<p>重要：これは主に<a href="#npm">npm</a>からインポートされたJSコードや<a href="#classpath-js">classpath</a>からの`.js`ファイルに影響することに注意してください。CLJSは現在、ES5の出力のみを生成し、より高いオプションを設定しても影響を受けません。</p>
+</div>
+<div class="paragraph">
+<p>これは <code>:compiler-options</code> の <code>:output-feature-set</code> で設定できます。古い <code>:language-out</code> オプションは <code>:output-feature-set</code> に置き換わるので、使用しないでください。</p>
+</div>
+<div class="paragraph">
+<p>サポートされているオプションは以下の通りです。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>:es3</code></p>
+</li>
+<li>
+<p><code>:es5</code> - <code>class</code>, <code>const</code>, <code>let</code>, &#8230;&#8203;</p>
+</li>
+<li>
+<p><code>:es6</code> - <code>class</code>, <code>const</code>, <code>let</code>, &#8230;&#8203;</p>
+</li>
+<li>
+<p><code>:es7</code> - 指数演算子 <code>**</code> 。</p>
+</li>
+<li>
+<p><code>:es8</code> - <code>async/await</code>, <code>generators</code>, スプレッド付きオブジェクトリテラル, &#8230;&#8203;</p>
+</li>
+<li>
+<p>es-next` - クロージャ・コンパイラが現在サポートしているすべての機能です。</p>
+</li>
+</ul>
+</div>
 <div class="listingblock">
+<div class="title">例</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
  <span class="symbol">:builds</span>
@@ -2460,9 +2928,30 @@ shadow-cljs - watching build :app
    <span class="symbol">:compiler-options</span> {<span class="symbol">:output-feature-set</span> <span class="symbol">:es7</span>}}}}</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>これらのオプションに関するドキュメントは少し少なく、ほとんどがコード <a href="https://github.com/google/closure-compiler/blob/master/src/com/google/javascript/jscomp/parsing/parser/FeatureSet.java">here</a>に記載されています。</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_conditional_reading"><a class="anchor" href="#_conditional_reading"></a><a class="link" href="#_conditional_reading">6.8. Conditional Reading</a></h3>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Caution</div>
+</td>
+<td class="content">
+この機能は <code>shadow-cljs</code> でのみ動作します。これは ClojureScript プロジェクトによって公式に <a href="https://dev.clojure.org/jira/browse/CLJS-2396">rejected</a> されました。CLJSでもコンパイルは可能ですが、公式のブランチでのみ動作します(例: <code>:cljs</code>)。いつかは <a href="https://groups.google.com/d/msg/clojure-dev/8YJJM8lJuQs/hR5_vUZPCQAJ">support</a> になるかもしれませんが、今のところはそうではありません。
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>shadow-cljs` では、<code>.cljc</code> ファイルに追加のリーダー機能を設定することができます。デフォルトでは、リーダーの条件式を使用して、<code>:clj</code>、<code>:cljs</code>、または <code>:cljr</code> 用の個別のコードを生成することしかできません。しかし、多くのCLJSのビルドでは、`:target`に基づいて、どのコードを生成するかを選択することも望ましいことです。</p>
+</div>
+<div class="paragraph">
+<p>例 一部の <code>npm</code> パッケージは <code>:browser</code> をターゲットにしたときにのみ動作しますが、<code>:node-script</code> のビルドでも使用したい <code>ns</code> があるかもしれません。これは、Reactアプリでサーバーサイドレンダリング(SSR)を使おうとしているときに頻繁に起こるかもしれません。codemirror` はそのようなパッケージの一つです。</p>
+</div>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">(<span class="keyword">ns</span> <span class="namespace">my.awesome.component</span>
@@ -2477,6 +2966,12 @@ shadow-cljs - watching build :app
 
 <span class="keyword">..</span><span class="keyword">.</span></code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>この名前空間は、両方のビルド(<code>:node-script</code> と <code>:browser</code>)で正常にコンパイルされますが、<code>:node-script</code> を実行しようとすると、<code>codemirror</code> パッケージが DOM にアクセスしようとするため、失敗します。しかし、<code>:node-script</code> を実行しようとすると、<code>codemirror</code> パッケージが DOM にアクセスしようとするので失敗します。</p>
+</div>
+<div class="paragraph">
+<p><a href="#closure-defines">:closure-defines</a> を使って条件付きで <code>init-cm</code> fn をコンパイルすることはできますが、余分な <code>:require</code> を取り除くために使うことはできません。リーダーの条件式を使えば、これが簡単にできます。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2500,6 +2995,7 @@ shadow-cljs - watching build :app
 </div>
 </div>
 <div class="listingblock">
+<div class="title"><code>:reader-features</code> 設定例</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
  <span class="symbol">:builds</span>
@@ -2515,6 +3011,9 @@ shadow-cljs - watching build :app
    {<span class="symbol">:reader-features</span> #{<span class="symbol">:node</span>}}}}}</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>これにより、<code>:server</code> のビルドには <code>codemirror</code> の必要性がなくなり、<code>init-cm</code> の機能も削除されます。ベコミングのみ</p>
+</div>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">(<span class="keyword">ns</span> <span class="namespace">my.awesome.component</span>
@@ -2528,10 +3027,20 @@ shadow-cljs - watching build :app
 <span class="keyword">..</span><span class="keyword">.</span></code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>重要：この機能は、<code>.cljc`ファイルでのみ利用可能で、</code>.cljs`ファイルでは失敗します。</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="config-merge"><a class="anchor" href="#config-merge"></a><a class="link" href="#config-merge">6.9. CLIからのオーバーライド</a></h3>
+<div class="paragraph">
+<p>shadow-cljs.edn`の設定に静的に追加できない値や、環境によって変わる可能性のある値を使って、コマンドラインからビルド構成を少しずつ調整したい場合があります。</p>
+</div>
+<div class="paragraph">
+<p>追加の設定データを <code>--config-merge {:some "data"}</code> コマンドラインオプションで渡すことができ、ビルド時の設定にマージされます。CLIから追加されたデータは、`shadow-cljs.edn`ファイルからのデータよりも優先されます。</p>
+</div>
 <div class="listingblock">
+<div class="title">例 <code>shadow-cljs.edn</code> の設定</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
  <span class="symbol">:builds</span>
@@ -2542,19 +3051,31 @@ shadow-cljs - watching build :app
 </div>
 </div>
 <div class="listingblock">
+<div class="title">CLIからの`:output-dir`をオーバーライドする</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="bash">$ shadow-cljs release app --config-merge '{:output-dir &quot;somewhere/else&quot;}'</code></pre>
 </div>
 </div>
 <div class="listingblock">
+<div class="title">CLIからの`:closure-defines`をオーバーライドする</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="bash">$ shadow-cljs release app --config-merge '{:closure-defines {your.app/DEBUG true}}'</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>--config-merge`は1つのEDNマップを想定していますが、複数回使用することができ、左から右に向かってマージされます。追加されたデータはbuild-hooksでも確認できます。</p>
+</div>
+<div class="paragraph">
+<p>重要：複数のビルドIDを指定した場合、データは指定したすべてのビルドにマージされます。<code>shadow-cljs release frontend backend --config-merge '{:hello "world"}'</code> を指定すると、両方に適用されます。</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="shadow-env"><a class="anchor" href="#shadow-env"></a><a class="link" href="#shadow-env">6.10. 環境変数の使用</a></h3>
+<div class="paragraph">
+<p>環境変数を使って <code>shadow-cljs.edn</code> の設定値を設定することは可能ですが、代わりに <code>--config-merge</code> の使用を検討すべきです。どうしても環境変数を使わなければならない場合は、<code>#shadow/env "FOO"</code> というリーダータグを使って設定することができます。また、より短い <code>#env</code> も使用できます。</p>
+</div>
 <div class="listingblock">
+<div class="title">例 `shadow-cljs.edn`の設定</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
  <span class="symbol">:builds</span>
@@ -2564,6 +3085,9 @@ shadow-cljs - watching build :app
    <span class="symbol">:closure-defines</span> {your.app/URL <span class="error">#</span>shadow/env <span class="string"><span class="delimiter">&quot;</span><span class="content">APP_URL</span><span class="delimiter">&quot;</span></span>}
    <span class="keyword">..</span><span class="keyword">.</span>}}}</code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>また、<code>#shadow/env</code> を使用できるサポートされたフォームもいくつかあります。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2576,10 +3100,23 @@ shadow-cljs - watching build :app
 <span class="error">#</span>shadow/env [<span class="string"><span class="delimiter">&quot;</span><span class="content">PORT</span><span class="delimiter">&quot;</span></span> <span class="symbol">:as</span> <span class="symbol">:int</span> <span class="symbol">:default</span> <span class="integer">8080</span>]</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>サポートされている <code>:as</code> のコアーソンは <code>:int</code>, <code>:bool</code>, <code>:keyword</code>, <code>:symbol</code> です。与えられた <code>:default</code> の値は変換されず、すでに正しい型になっていることが期待されます。</p>
+</div>
+<div class="paragraph">
+<p>重要: <code>shadow-cljs</code> プロセスが開始されたときに使用された環境変数が使用されます。サーバプロセスが使用されている場合、その環境変数は他のコマンドで設定されたものよりも優先して使用されます。これは主に開発中に関係することですが、混乱を招くかもしれません。また、<code>--config-merge</code> にはこのような制限はありません。</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="build-target-defaults"><a class="anchor" href="#build-target-defaults"></a><a class="link" href="#build-target-defaults">6.11. ビルドとターゲットのデフォルト</a></h3>
+<div class="paragraph">
+<p>すべてのビルド、または特定のタイプのすべてのターゲットに使用されるデフォルトの設定を使用することができます。</p>
+</div>
+<div class="paragraph">
+<p>コンフィギュレーションのマージ順序は以下の通りです。 <code>:build-defaults</code> &#8594; <code>:target-defaults</code> &#8594; 実際のビルドコンフィグ &#8594; エクストラコンフィグのオーバーライド。</p>
+</div>
 <div class="listingblock">
+<div class="title">例 `shadow-cljs.edn`の設定</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
  <span class="symbol">:build-defaults</span>
@@ -2597,6 +3134,12 @@ shadow-cljs - watching build :app
   {<span class="symbol">:target</span> <span class="symbol">:browser</span>
    <span class="keyword">..</span><span class="keyword">.</span>}}}</code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>この例では、<code>:app`ターゲットは、</code>:build-defaults`と`:browser`の`:target-defaults`の両方を継承します。</p>
+</div>
+<div class="paragraph">
+<p>重要：マージ順で後の方の設定は、前の設定項目を上書きすることはできても、削除することはできません。いったんデフォルトが設定されると、それを削除するにはオーバーライドするしかありません。</p>
 </div>
 </div>
 </div>
