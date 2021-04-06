@@ -970,7 +970,7 @@ include::target-node-library.adoc[]
 = JSエコシステムへの組み込み -- `:npm-module` ターゲット [[target-npm-module]]
 
 ////
-Embedding in the JS Ecosystem -- The `:npm-module` Target [[target-npm-module]]
+Embedding in the JS Ecosystem -- The `:npm-module` Target 
 ////
 
 = JSエコシステムへの組み込み - :npm-module ターゲット [[target-npm-module]]

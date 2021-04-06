@@ -615,7 +615,7 @@ TIP: The `goog:` prefix currently only works for ES6 file. `require("goog:cljs.c
 ////
 
 == cljsjs.* の移行について [[cljsjs]]
-Migrating cljsjs.* [[cljsjs]]
+//Migrating cljsjs.* [[cljsjs]]
 
 ////
 > CLJSJS is an effort to package Javascript libraries to be able to use them from within ClojureScript.
