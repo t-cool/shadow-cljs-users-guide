@@ -3,17 +3,23 @@ Development mode always outputs individual files for each namespace so that they
 in isolation. When you're ready to deploy code to a real server you want to run the Closure Compiler
 on it to generate a single minified result for each <<Modules, module>>.
 ////
+開発モードでは、常にネームスペースごとに個別のファイルが出力され、ホットロードが可能になります。
+を分離してホットロードすることができます。実際のサーバにコードをデプロイする準備ができたら、Closure Compilerを実行したいと思います。
+を実行して、各 <<Modules, module>> に対して単一のminified結果を生成したいと思います。
 
 ////
 By default the release mode output file should just be a drop-in replacements for the
 development mode file: there is no difference in the way you include them in your HTML. You
 may use <<NameHashing, filename hashing>> to improve caching characteristics on browser targets.
 ////
+デフォルトでは、リリースモードの出力ファイルは、開発モードの出力ファイルをそのまま置き換えるようになっています。
+これらのファイルをHTMLにインクルードする方法に違いはありません。また
+ブラウザターゲットでのキャッシュ特性を改善するために <<NameHashing, filename hashing>> を使用することができます。
 
 ////
 .Generating Minified Output
 ////
-
+.最小化された出力の生成
 
 ```
 $ shadow-cljs release build-id
@@ -25,10 +31,12 @@ $ shadow-cljs release build-id
 ////
 Usually you won't need to add any extra configuration to create a release version for your build. The default config already captures everything necessary and should only require extra configuration if you want to override the defaults.
 ////
+通常、ビルド用のリリースバージョンを作成するために、追加の設定をする必要はありません。デフォルトの設定は必要なものをすべて含んでおり、追加の設定が必要になるのは、デフォルトを上書きしたい場合だけです。
 
 ////
 Each `:target` already provides good defaults optimized for each platform so you'll have less to worry about.
 ////
+各 `:target` には、各プラットフォームに最適化された優れたデフォルトがすでに用意されているので、心配する必要はありません。
 
 === 最適化 [[Optimization]]
 //Optimizations [[Optimization]]
@@ -36,14 +44,17 @@ Each `:target` already provides good defaults optimized for each platform so you
 ////
 You can choose the optimization level using the `:compiler-options` section of the configuration:
 ////
+最適化レベルは、コンフィギュレーションの `:compiler-options` セクションで選択できます。
 
 ////
 IMPORTANT: You do not usually need to set `:optimizations` since the `:target` already sets it to an appropriate level.
 ////
+重要：`:target`ではすでに適切なレベルに設定されているので、通常は`:optimizations`を設定する必要はありません。
 
 ////
 IMPORTANT: `:optimizations` only apply when using the `release` command. Development builds are never optimized by the Closure Compiler. Development builds are always set to `:none`.
 ////
+重要: `:optimizations` は `release` コマンドを使ったときにのみ適用されます。開発用のビルドはClosure Compilerによって最適化されることはありません。開発用のビルドは常に `:none` に設定されます。
 
 ```clojure
 {...
@@ -54,9 +65,9 @@ IMPORTANT: `:optimizations` only apply when using the `release` command. Develop
 ```
 
 ////
-See the https://developers.google.com/closure/compiler/docs/compilation_levels[the Closure compiler's documentation]
-for more information on available optimization levels.
+See the https://developers.google.com/closure/compiler/docs/compilation_levels[the Closure compiler's documentation] for more information on available optimization levels.
 ////
+利用可能な最適化レベルの詳細については、https://developers.google.com/closure/compiler/docs/compilation_levels[Closureコンパイラのドキュメント]を参照してください。
 
 === release に特異 vs 開発環境
 //Release-Specific vs. Development Configuration
@@ -65,10 +76,13 @@ for more information on available optimization levels.
 If you wish to have separate configuration values in a build when running a release build then you
 can override settings by including a `:dev` and/or `:release` section in the build section:
 ////
+リリース用のビルドを実行する際に、ビルド内で別々の設定値を使用したい場合は
+ビルドセクションに `:dev` や `:release` セクションを含めることで設定を上書きすることができます。
 
 ////
 .Example `shadow-cljs.edn` build config
 ////
+.例 shadow-cljs.edn ビルド設定
 
 ```clojure
 {:source-paths ["src"]
@@ -93,14 +107,17 @@ can override settings by including a `:dev` and/or `:release` section in the bui
 ////
 Since we want builds to be fully optimized by the Closure Compiler `:advanced` compilation we need to deal with https://developers.google.com/closure/compiler/docs/api-tutorial3[Externs]. Externs represent pieces of code that are not included when doing `:advanced` compilation. `:advanced` works by doing whole program optimizations but some code we just won't be able to include so Externs inform the Compiler about this code. Without Externs the Compiler may rename or remove some code that it shouldn't.
 ////
+Closure Compiler `:advanced` のコンパイルによってビルドを完全に最適化したいので、https://developers.google.com/closure/compiler/docs/api-tutorial3[Externs]を扱う必要があります。Externsは、`:advanced`のコンパイルの際に含まれないコードの断片を表します。advanced`はプログラム全体の最適化を行いますが、どうしても含まれないコードもあるため、Externsはコンパイラーにそのコードを知らせます。Externsがないと、コンパイラーは含めるべきでないコードの名前を変えたり、削除したりすることがあります。
 
 ////
 Typically all JS Dependencies are foreign and won't be passed through `:advanced` and thus require Externs.
 ////
+通常、すべてのJS Dependenciesは外国のものであり、`:advanced`ではパスされないため、Externsが必要となります。
 
 ////
 TIP: Externs are only required for `:advanced`, they are not required in `:simple` mode.
 ////
+ヒント: エクスターンが必要なのは `:advanced` モードのみで、`:simple` モードでは必要ありません。
 
 === エクスターンズの推論 [[infer-externs]]
 //Externs Inference [[infer-externs]]
@@ -108,10 +125,12 @@ TIP: Externs are only required for `:advanced`, they are not required in `:simpl
 ////
 To help deal with Externs the `shadow-cljs` compiler provides enhanced externs inference which can be enabled by setting `:infer-externs :auto` for your build.
 ////
+Externs を扱うために、`shadow-cljs` コンパイラは強化された externs 推論を提供しています。
 
 ////
 .Example Config
 ////
+.例 Config
 
 ```clojure
 {...
@@ -126,14 +145,17 @@ To help deal with Externs the `shadow-cljs` compiler provides enhanced externs i
 ////
 With `:auto` the compiler will perform additional checks at compile time for your files only. It won't warn you about possible externs issues in library code. `:all` will enable it for everthing but be aware that you may get a lot of warnings.
 ////
+auto`では、コンパイラーはコンパイル時にあなたのファイルだけを対象に追加のチェックを行います。また、ライブラリコードに含まれる externs の問題については警告しません。all`では、すべてのファイルに対して有効になりますが、多くの警告を受ける可能性があることに注意してください。
 
 ////
 When enabled you'll get warnings whenever the Compiler cannot figure out whether you are working with JS or CLJS code.
 ////
+有効にすると、コンパイラーがJSとCLJSのどちらのコードを使用しているかを判断できない場合に警告が表示されます。
 
 ////
 .Example Code
 ////
+.例 Code
 
 ```
 (defn wrap-baz [x]
@@ -156,14 +178,17 @@ When enabled you'll get warnings whenever the Compiler cannot figure out whether
 ////
 In `:advanced` the compiler will be renaming `.baz` to something "shorter" and Externs inform the Compiler that this is an external property that should not be renamed.
 ////
+advanced`では、コンパイラが `.baz` を「より短い」ものにリネームしますが、Externs はこれがリネームしてはいけない外部プロパティであることをコンパイラに知らせます。
 
 ////
 `shadow-cljs` can generate the appropriate externs if you add a typehint to the object you are performing native interop on.
 ////
+`shadow-cljs` は、ネイティブな相互運用を行うオブジェクトに typehint を追加すると、適切な externs を生成することができます。
 
 ////
 .Type-hint to help externs generation
 ////
+.エクスターンの生成を助ける型ヒント
 
 ```clojure
 (defn wrap-baz [x]
@@ -173,10 +198,12 @@ In `:advanced` the compiler will be renaming `.baz` to something "shorter" and E
 ////
 The `^js` typehint will cause the compiler to generate proper externs and the warning will go away. The property is now safe from renaming.
 ////
+typehint の `^js` を指定すると、コンパイラが適切な externs を生成するようになり、警告が消えます。これで、このプロパティは名前を変えても大丈夫です。
 
 ////
 .Multiple interop calls
 ////
+.複数のInteropコール
 
 ```clojure
 (defn wrap-baz [x]
@@ -187,10 +214,12 @@ The `^js` typehint will cause the compiler to generate proper externs and the wa
 ////
 It can get tedious to annotate every single interop call so you can annotate the variable binding itself. It will be used in the entire scope for this variable. Externs for both calls will still be generated.
 ////
+Interopコールをいちいちアノテーションするのは面倒なので、変数のバインディング自体をアノテーションすることができます。この変数は、この変数のスコープ全体で使用されます。両方の呼び出しのエクスターンはまだ生成されます。
 
 ////
 .Annotate `x` directly
 ////
+.x を直接アノテーションする
 
 ```clojure
 (defn wrap-baz [^js x]
@@ -207,10 +236,13 @@ IMPORTANT: Don't annotate everything with `^js`. Sometimes you may be doing inte
 ////
 Calls on globals do not require a typehint when using direct `js/` calls.
 ////
+重要：すべてを`^js`でアノテーションしないでください。時には、CLJS や ClosureJS のオブジェクトでインターロップを行うことがあります。これらはエクスターンを必要としません。CLJSオブジェクトを扱うことが確実な場合は、`^clj`のヒントを使うことをお勧めします。
+間違って `^js` を使用しても世界の終わりではありませんが、変数の名前を変更できるのに変更されない場合、いくつかの最適化に影響を与える可能性があります。
 
 ////
 .No hint required, externs inferred automatically
 ////
+.ヒントは不要、エクスターンは自動的に推測される
 
 ```
 (js/Some.Thing.coolFunction)
@@ -219,10 +251,12 @@ Calls on globals do not require a typehint when using direct `js/` calls.
 ////
 Calls on `:require` bindings are also inferred automatically.
 ////
+また、`:require` バインディングの呼び出しも自動的に推論されます。
 
 ////
 .No hint required for `:as` and `:refer` bindings
 ////
+.as`と`:refer`のバインディングにヒントは必要ありません。
 
 ```
 (ns my.app
@@ -238,10 +272,12 @@ Calls on `:require` bindings are also inferred automatically.
 ////
 Some libraries provide Externs as separate `.js` files. You can include them into your build via the `:externs` compiler options.
 ////
+一部のライブラリでは、エクスターンを個別の `.js` ファイルとして提供しています。Externsは、`:externs`コンパイラオプションを使って、ビルドに組み込むことができます。
 
 ////
 .Manual Externs Config
 ////
+.マニュアルのエクスターン設定
 
 ```
 {...
@@ -256,6 +292,7 @@ Some libraries provide Externs as separate `.js` files. You can include them int
 ////
 TIP: The compiler looks for files relative to the project root first. It will also attempt to load them from the classpath if no file is found.
 ////
+ヒント：コンパイラーは、プロジェクトルートに相対するファイルを最初に探します。ファイルが見つからない場合は、クラスパスからの読み込みも試みます。
 
 === 簡易なエクスターン
 //Simplified Externs
@@ -263,14 +300,17 @@ TIP: The compiler looks for files relative to the project root first. It will al
 ////
 Writing Externs by hand can be challenging and `shadow-cljs` provides a way to write a more convenient way to write them. In combination with `shadow-cljs check <your-build>` you can quickly add the missing Externs.
 ////
+Externsを手で書くことは困難ですが、`shadow-cljs`はより便利な書き方を提供します。また、`shadow-cljs check <your-build>` と組み合わせることで、不足している Externs を素早く追加することができます。
 
 ////
 Start by creating a `externs/<your-build>.txt`, so build `:app` would be `externs/app.txt`. In that file each line should be one word specifying a JS property that should not be renamed. Global variables should be prefixed by `global:`
 ////
+まず、`externs/<your-build>.txt`を作成します。ビルド `:app` は `externs/app.txt` となります。このファイルの各行は、名前を変更してはいけないJSのプロパティを1つの単語で指定します。グローバル変数の前には、`global:`を付けてください。
 
 ////
 .Example externs/app.txt
 ////
+.例 externs/app.txt
 
 ```
 # this is a comment
@@ -282,6 +322,7 @@ global:SomeGlobalVariable
 ////
 In this example the compiler will stop renaming `something.foo()`, `something.bar()`.
 ////
+この例では、コンパイラは `something.foo()`, `something.bar()` という名前の変更を止めます。
 
 == コード・ストリッピング
 //Code Stripping
@@ -289,10 +330,12 @@ In this example the compiler will stop renaming `something.foo()`, `something.ba
 ////
 The Closure Compiler supports removing unwanted code by name. This allows removing code that normal dead-code removal can't or won't remove. This is quite dangerous as it can remove code you actually care about but it can remove a lot of dev only code easily. It is grouped into 4 separate options of which pretty much only `:strip-type-prefixes` is relevant to ClojureScript but other may be useful as well.
 ////
+クロージャ・コンパイラは、不要なコードを名前で削除することをサポートしています。これにより、通常のデッドコード除去では除去できない、あるいは除去したくないコードを除去することができます。これは、実際に気になるコードが削除される可能性があるため非常に危険ですが、多くの開発者専用コードを簡単に削除することができます。これは4つのオプションに分類されていて、そのうちClojureScriptに関連するのはほぼ `:strip-type-prefixes` だけですが、他にも有用なオプションがあるかもしれません。
 
 ////
 .Example removing all uses of `cljs.pprint`
 ////
+.例 cljs.pprint のすべての使用を削除する。
 
 ```
 {...
@@ -307,6 +350,7 @@ The Closure Compiler supports removing unwanted code by name. This allows removi
 ////
 Each of these options is specified as a Set of Strings. Please note that all the names specified here are JS names so certain CLJS names must be munged. `my-lib.core` becomes `my_lib.core`.
 ////
+これらのオプションは、それぞれ「文字列のセット」として指定されます。ここで指定されている名前はすべてJSの名前なので、特定のCLJSの名前はマングされなければならないことに注意してください。`my-lib.core` は `my_lib.core` となります。
 
 ////
 [Horizontal]
@@ -315,13 +359,20 @@ Each of these options is specified as a Set of Strings. Please note that all the
 `:strip-name-prefixes`:: Allows removing properties by prefix. `#{"log"}` removes `this.logX` or `(defn log-me [...])`
 `:strip-name-suffixes`:: Allows removing properties by suffix. `#{"log"}` removes `this.myLog` or `(defn my-log [...])`
 ////
+[Horizontal]
+`:strip-types`:: deftype/defrecordの宣言や使用を削除できるようにします。`#{"my.ns.FooBar}` は `(defrecord FooBar [])` を削除します。
+`:strip-type-prefixes`:: 与えられたPrefixのいずれかで始まるものをすべて削除します。CLJSの名前空間全体を削除することができます。
+`:strip-name-prefixes`:: 与えられたプレフィックスで始まるすべてのプロパティを削除します。プレフィックスでプロパティを削除することができます。`#{"log"}` は `this.logX` や `(defn log-me [...])` を削除します。
+`:strip-name-suffixes`:: サフィックスでプロパティを削除することができます。`#{"log"}` は `this.myLog` または `(defn my-log [...])` を削除します。
 
 ////
 ****
 *DANGER: Be careful with these options. They apply to your entire build and may remove code you actually need. You may accidentally remove code in libraries not written by you. Always consider other options before using this.*
 ****
 ////
-
+****
+*DANGER: これらのオプションには注意が必要です。これらのオプションはビルド全体に適用され、実際に必要なコードが削除される可能性があります。また、自分が書いたものではないライブラリのコードを誤って削除してしまう可能性もあります。このオプションを使用する前に、必ず他のオプションを検討してください。*
+****
 
 == ビルドレポート [[build-report]]
 //Build Report [[build-report]] 
@@ -329,10 +380,13 @@ Each of these options is specified as a Set of Strings. Please note that all the
 ////
 `shadow-cljs` can generate a detailed report for your `release` builds which includes a detailed breakdown of the included sources and how much they each contributed to the overall size.
 ////
+shadow-cljs` では、`release` のビルドに対して、含まれているソースの詳細な内訳と、それぞれが全体のサイズにどれだけ貢献しているかを含む、詳細なレポートを生成することができます。
 
 ////
 A sample report can be found https://code.thheller.com/demos/build-report/huge.html[here].
 ////
+レポートのサンプルは、https://code.thheller.com/demos/build-report/huge.html[こちら]をご覧ください。
+
 
 ```bash
 $ npx shadow-cljs run shadow.cljs.build-report <build-id> <path/to/output.html>
@@ -343,8 +397,10 @@ $ npx shadow-cljs run shadow.cljs.build-report app report.html
 ////
 The above example will generate a `report.html` in the project directory for the `:app` build.
 ////
+上記の例では、`:app`をビルドする際に、プロジェクトディレクトリに`report.html`を生成します。
 
 ////
 TIP: The generated `report.html` is entirely self-contained and includes all the required data/js/css. No other external sources are required.
 ////
+ヒント: 生成される `report.html` は完全に自己完結型で、必要なデータ/js/css をすべて含んでいます。他の外部ソースは必要ありません。
 

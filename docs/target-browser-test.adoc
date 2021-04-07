@@ -3,10 +3,14 @@ This target is meant for gathering up namespaces that contain tests (based on a 
 and triggering a test runner. It contains a built-in runner that will automatically scan for `cljs.test`
 tests and run them.
 ////
+このターゲットは、（ファイル名のパターンマッチに基づいて）テストを含む名前空間を集めるためのものです。
+テストランナーを起動するためのものです。このターゲットには、自動的に `cljs.test` テストをスキャンして実行するビルトインのランナーが含まれています。
+テストを自動的にスキャンして実行します。
 
 ////
 The relevant configuration options are:
 ////
+関連する設定オプションは以下の通りです。
 
 ////
 [horizontal]
@@ -17,11 +21,20 @@ will not scan jars. Defaults to "-test$".
 `:runner-ns`:: (optional) A namespace that can contain a start, stop, and init function. Defaults to
 `shadow.test.browser`.
 ////
+[horizontal]
+`:target`:: `:browser-test` (ブラウザテスト)
+`:test-dir`::  ファイルを出力するフォルダです。以下を参照してください。
+`:ns-regexp`:: (オプション) プロジェクトファイルの名前空間にマッチする正規表現です。これはファイルをスキャンするだけで、jarファイルはスキャンしません。
+ジャーのスキャンは行いません。デフォルトは"-test$"です。
+`:runner-ns`: (オプション) (オプション) start、stop、init関数を含むことができる名前空間です。デフォルトは
+shadow.test.browser`.
 
 ////
 The normal `:devtools` options are supported, so you will usually create an http server to serve the files.
 In general you will need a config that looks like this:
 ////
+通常の `:devtools` オプションはサポートされていますので、通常はファイルを提供するための http サーバーを作成します。
+一般的には、次のような設定が必要です。
 
 ```
 {...
@@ -37,10 +50,12 @@ In general you will need a config that looks like this:
 ////
 Remember that the test directory will have the index.html, and a js folder.
 ////
+testディレクトリには、index.htmlとjsフォルダがあることを覚えておいてください。
 
 ////
 If you choose to supply a custom `:runner-ns`, it might look like this:
 ////
+カスタムの `:runner-ns` を指定する場合は、以下のようになります。
 
 ```
 (ns tests.client-test-main)
@@ -59,10 +74,12 @@ If you choose to supply a custom `:runner-ns`, it might look like this:
 ////
 It just has `init`, `start`, `stop` methods. `init` will be called once on startup, `stop` will be called before any code is reloaded and `start` will be called after all code was reloaded.
 ////
+これには `init`, `start`, `stop` というメソッドがあります。init` は起動時に一度だけ呼び出され、`stop` はコードがリロードされる前に呼び出され、`start` はすべてのコードがリロードされた後に呼び出されます。
 
 ////
 TIP: `:runner-ns` is optional, just leave it out to use the default.
 ////
+TIP: `:runner-ns` はオプションで、デフォルトを使用するには省略してください。
 
 === :test-dir に生成された出力
 
@@ -71,6 +88,7 @@ TIP: `:runner-ns` is optional, just leave it out to use the default.
 ////
 The output includes two primary artifacts in your `test-dir` folder:
 ////
+出力には、`test-dir`フォルダにある2つの主要なアーティファクトが含まれます。
 
 ////
 * `index.html` - If and only if there was not already an `index.html` file present. By default the generated
@@ -79,4 +97,8 @@ not be overwritten.
 * `js/test.js` - The Javascript tests. The tests will always have this name. The entries for the module are
 auto-generated.
 ////
-
+* `index.html` - `index.html` ファイルがまだ存在していない場合に限ります。デフォルトでは、生成された
+ファイルはテストをロードし、`:runner-ns`で`init`を実行します。上書きされないカスタムバージョンを編集または追加することができます。
+上書きされません。
+* `js/test.js` - Javascriptのテストです。テストは常にこの名前になります。このモジュールのエントリは
+自動生成されます。

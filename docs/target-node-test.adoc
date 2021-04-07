@@ -1,10 +1,12 @@
 ////
 This target will create a test runner including all test namespaces matching the given regular expression.
 ////
+このターゲットは、指定された正規表現にマッチするすべてのテスト名前空間を含むテストランナーを作成します。
 
 ////
 The relevant configuration options are:
 ////
+関連する設定オプションは以下の通りです。
 
 ////
 [horizontal]
@@ -14,10 +16,17 @@ The relevant configuration options are:
 `:autorun`:: (boolean, optional) Run the tests via `node` when a build completes. This is mostly meant to be used in combination with `watch`. The `node` process exit code will not be returned as that would have to forcefully kill the running JVM.
 `:main`:: (qualified symbol, optional) Function called on startup to run the tests, defaults to `shadow.test.node/main` which runs tests using `cljs.test`.
 ////
+[horizontal]
+`:target`:: `:node-test` (ノードテスト)
+`:output-to`::: テストの実行に使用される最終的な出力ファイルです。
+`:ns-regexp`:: (オプション) プロジェクトファイルの名前空間にマッチする正規表現です。これはファイルをスキャンするだけで、ジャーはスキャンしません。デフォルトでは `"-test$"` となります。
+`:autorun`: (オプション) (boolean, optional) ビルドが完了した際に、`node`を介してテストを実行します。これは主に `watch` と組み合わせて使用することを想定しています。実行中のJVMを強制的に終了させる必要があるため、`node`プロセスの終了コードは返されません。
+`:main`:: デフォルトは `shadow.test.node/main` で、これは `cljs.test` を使ってテストを実行します。
 
 ////
 .Test config matching all `*-spec` namespaces
 ////
+.すべての `*-spec` 名前空間にマッチするテストコンフィグ
 
 ```
 {...
@@ -31,6 +40,7 @@ The relevant configuration options are:
 ////
 The `:node-test` target only generates the test file. You can run it via `node`.
 ////
+node-test`ターゲットは、テストファイルを生成するだけです。これを `node` 経由で実行することができます。
 
 ////
 ```bash
@@ -48,13 +58,13 @@ $ shadow-cljs compile test && node out/node-tests.js
 
 ```bash
 $ shadow-cljs compile test
-# or
+# または
 $ shadow-cljs release test
 
-# run tests manually, :autorun will do this automatically
+# 手動でテストを実行する場合、:autorunで自動的に実行されます。
 $ node out/node-tests.js
 
-# compile & test combined
+# コンパイルとテストの結合
 $ shadow-cljs compile test && node out/node-tests.js
 ```
 
@@ -62,3 +72,4 @@ $ shadow-cljs compile test && node out/node-tests.js
 ////
 The `node` process exit code will be set to `0` when successful and `1` on any failures. (The `node` process exit code will not be returned when using `:autorun`.)
 ////
+成功すると `node` プロセスの終了コードは `0` に設定され、失敗すると `1` に設定されます。(`:autorun` を使用している場合は、`node` プロセスの終了コードは返されません)。
