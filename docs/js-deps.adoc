@@ -254,7 +254,7 @@ Nowadays many `npm` packages ship multiple build variants. `shadow-cljs` will by
 ////
 It is largely dependent on the packages you use whether this will work or not. You can configure `shadow-cljs`  to prefer the `module` entry via the `:entry-keys` JS option. It takes a vector of string keys found in `package.json` which will be tried in order. The default is `"["browser" "main" "module"]`.
 ////
-これが機能するかどうかは、使用しているパッケージに大きく依存します。JS オプションの `:entry-keys` を使って、 `module` エントリを優先するように `shadow-cljs` を設定することができます。これは `package.json` に含まれる文字列キーのベクトルを受け取り、順番に試行されます。デフォルトでは `"["browser" "main" "module"]` となっています。
+これが機能するかどうかは、使用しているパッケージに大きく依存します。JS オプションの `:entry-keys` を使って、 `module` エントリを優先するように `shadow-cljs` を設定することができます。これは `package.json` に含まれる文字列キーのベクトルを https://では `"["browser" "main" "module"]"` となっています。
 
 ////
 .Example config for using `:closure` in a `:browser` build.
@@ -267,7 +267,7 @@ It is largely dependent on the packages you use whether this will work or not. Y
  {:app
   {:target :browser
    ...
-   :js-options {:entry-keys ["module" "browser" "main"]} ;; try "module" first
+   :js-options {:entry-keys ["module" "browser" "main"]} ;; まずは "module"を試す
    }}}
 ```
 
@@ -359,7 +359,7 @@ You can also use a file to override the dependency, the path is relative to the 
 ////
 The `:shadow-js` and `:closure` have full control over `:resolve` and everything mentioned above works without any downsides. The `:js-provider :require` however is more limited. Only the initial require can be influenced since the standard `require` is in control after that. This means it is not possible to influence what a package might `require` internally. It is therefore not recommended to be used with targets that use `require` directly (eg. `:node-script`).
 ////
-shadow-js` と `:closure` は `:resolve` を完全に制御することができ、上記のすべてが欠点なく動作します。しかし、 `:js-provider :require` はより限定的です。最初のrequireにのみ影響を与えることができ、それ以降は標準の `require` が制御します。つまり、パッケージが内部で `require` するものに影響を与えることはできません。したがって、 `require` を直接使用するターゲット（例：`:node-script`）と一緒に使用することはお勧めできません。
+`shadow-js` と `:closure` は `:resolve` を完全に制御することができ、上記のすべてが欠点なく動作します。しかし、 `:js-provider :require` はより限定的です。最初のrequireにのみ影響を与えることができ、それ以降は標準の `require` が制御します。つまり、パッケージが内部で `require` するものに影響を与えることはできません。したがって、 `require` を直接使用するターゲット（例：`:node-script`）と一緒に使用することはお勧めできません。
 
 ////
 .Redirecting "react" to "preact"
@@ -409,7 +409,8 @@ Relative paths will be resolved relative to the project root directory. Paths wi
 ////
 .Global config in `shadow-cljs.edn`
 ////
-shadow-cljs.edn のグローバル設定
+
+. shadow-cljs.edn のグローバル設定
 
 ```
 {...
@@ -443,7 +444,7 @@ CLJS has an alternate https://clojurescript.org/guides/javascript-modules[implem
 ////
 
 ****
-*DANGER: この機能は実験的なものです！* 現在は `shadow-cljs` でのみサポートされており、これを使おうとすると他の CLJS ツールに怒られます。自分の責任で使用してください。この機能は当初、CLJSのコアでは拒否されていましたが、私は便利だと思いますし、さらなる議論なしにhttps://dev.clojure.org/jira/browse/CLJS-2061?focusedCommentId=46191&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-46191[dismissed]されるべきではなかったと思います。
+*DANGER: この機能は実験的なものです！* 現在は `shadow-cljs` でのみサポートされており、これを使おうとすると他の CLJS ツールに怒られます。自分の責任で使用してください。この機能は当初、CLJSのコアでは拒否されていましたが、私は便利だと思いますし、さらなる議論なしに https://dev.clojure.org/jira/browse/CLJS-2061?focusedCommentId=46191&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-46191[dismissed] されるべきではなかったと思います。
 
 CLJSには https://clojurescript.org/guides/javascript-modules[implementation] という別の実装がありますが、これは `shadow-cljs` ではサポートされていません。私はこの実装がある種の面で不足していると感じたので、別の解決策を選びました。しかし、両方のアプローチの長所・短所を議論するのは楽しいことです。
 ****
@@ -567,7 +568,7 @@ IMPORTANT: Due to strict checking of the Closure Compiler it is not possible to 
 ////
 Since there are many popular JavaScript dialects (JSX, CoffeeScript, etc) that are not directly parsable by the Closure Compiler we need to pre-process them before putting them onto the classpath. https://babeljs.io/[babel] is commonly used in the JavaScript world so we are going to use `babel` to process `.jsx` files as an example here.
 ////
-一般的なJavaScriptの方言（JSX、CoffeeScriptなど）には、Closure Compilerでは直接解析できないものが多いため、クラスパスに置く前に前処理を行う必要があります。https://babeljs.io/[babel] はJavaScriptの世界でよく使われているので、ここでは例として `.jsx` ファイルを処理するために `babel` を使用します。
+一般的なJavaScriptの方言（JSX、CoffeeScriptなど）には、Closure Compilerでは直接解析できないものが多いため、クラスパスに置く前に前処理を行う必要があります。 https://babeljs.io/[babel] はJavaScriptの世界でよく使われているので、ここでは例として `.jsx` ファイルを処理するために `babel` を使用します。
 
 ////
 .Example shadow-cljs.edn Config
@@ -733,7 +734,7 @@ CLJSJSのパッケージは、基本的に `npm` からパッケージを取り�
 ////
 This was very useful when we had no access to `npm` directly but has certain issues since not all packages are easily combined with others. A package might rely on `react` but instead of expressing this via `npm` https://github.com/cljsjs/packages/tree/master/material-ui[they] bundle their own `react`. If you are not careful you could end up including 2 different `react` versions in your build which may lead to very confusing errors or at the very least increase the build size substantially.
 ////
-これは、 `npm` に直接アクセスできないときには非常に便利でしたが、すべてのパッケージが他のパッケージと簡単に結合できるわけではないので、ある種の問題があります。あるパッケージは `react` に依存しているかもしれませんが、 `npm` を通してこれを表現するのではなく、 https://github.com/cljsjs/packages/tree/master/material-ui[彼らは] 自分自身の `react` をバンドルします。注意しないと、2つの異なる `react` バージョンをビルドに含めることになり、非常に紛らわしいエラーが発生したり、少なくともビルドサイズが大幅に大きくなったりする可能性があります。
+これは、 `npm` に直接アクセスできないときには非常に便利でしたが、すべてのパッケージが他のパッケージと簡単に結合できるわけではないので、ある種の問題があります。あるパッケージは `react` に依存しているかもしれませんが、 `npm` を通してこれを表現するのではなく、 https://github.com/cljsjs/packages/tree/master/material-ui[それらは] 自分自身の `react` をバンドルします。注意しないと、2つの異なる `react` バージョンをビルドに含めることになり、非常に紛らわしいエラーが発生したり、少なくともビルドサイズが大幅に大きくなったりする可能性があります。
 
 ////
 Apart from that not every `npm` package is available via CLJSJS and keeping the package versions in sync requires manual work, which means packages are often out of date.
@@ -743,7 +744,7 @@ Apart from that not every `npm` package is available via CLJSJS and keeping the 
 ////
 `shadow-cljs` does not support CLJSJS at all to avoid conflicts in your code. One library might attempt to use the "old" `cljsjs.react` while another uses the newer `(:require ["react"])` directly. This would again lead to 2 versions of `react` on your page again.
 ////
-`shadow-cljs` は、コード内の競合を避けるために、CLJSJS を全くサポートしません。あるライブラリが古い`cljsjs.react` を使おうとする一方で、別のライブラリはより新しい `(:require ["react"])` を直接使うかもしれません。そうすると、再びページ上に2つのバージョンの `react` が存在することになります。
+`shadow-cljs` は、コード内の競合を避けるために、CLJSJS を全くサポートしません。あるライブラリが古い `cljsjs.react` を使おうとする一方で、別のライブラリはより新しい `(:require ["react"])` を直接使うかもしれません。そうすると、再びページ上に2つのバージョンの `react` が存在することになります。
 
 ////
 So the only thing we are missing are the bundled Externs. In many instances these are not required due to improved <<infer-externs, externs inference>>. Often those Externs are generated using third-party tools which means they are not totally accurate anyways.

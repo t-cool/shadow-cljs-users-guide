@@ -443,7 +443,7 @@ Invalidating the cache however can not always be done reliably if you are using 
 ////
 Namespaces that are known to include side-effecting macros can be blocked from caching. They won't be cached themselves and namespaces requiring them will not be cached as well. The https://github.com/cerner/clara-rules[clara-rules] library has side-effecting macros and is blocked by default. You can specify which namespaces to block globally via the `:cache-blockers` configuration. It expects a set of namespace symbols.
 ////
-副作用のあるマクロが含まれていることがわかっている名前空間は、キャッシュからブロックすることができます。その名前空間自体はキャッシュされず、それを必要とする名前空間もキャッシュされません。https://github.com/cerner/clara-rules[clara-rules] ライブラリには副作用のあるマクロが含まれており、デフォルトでブロックされます。どの名前空間をグローバルにブロックするかは、 `:cache-blockers` 設定で指定できます。この設定には、名前空間のシンボルのセットが必要です。
+副作用のあるマクロが含まれていることがわかっている名前空間は、キャッシュからブロックすることができます。その名前空間自体はキャッシュされず、それを必要とする名前空間もキャッシュされません。 https://github.com/cerner/clara-rules[clara-rules] ライブラリには副作用のあるマクロが含まれており、デフォルトでブロックされます。どの名前空間をグローバルにブロックするかは、 `:cache-blockers` 設定で指定できます。この設定には、名前空間のシンボルのセットが必要です。
 
 ////
 .clara.rules cache blocking example (this is done by default)
@@ -593,7 +593,7 @@ Closure Defines from the Closure Library
 - `goog.LOCALE` can be used to configure certain localization features like `goog.i18n.DateTimeFormat`. It accepts a standard locale string and defaults to `en`. Pretty much all locales are supported, see https://github.com/google/closure-library/blob/master/closure/goog/i18n/datetimesymbols.js[here] and https://github.com/google/closure-library/blob/master/closure/goog/i18n/datetimesymbolsext.js[here] .
 ////
 - `goog.DEBUG` です。Closure Libraryでは、多くの開発機能でこれを使用しています。 `shadow-cljs` は、 `release` のビルドでは、自動的にこれを `false` に設定します。
-- goog.LOCALE`: `goog.i18n.DateTimeFormat` のような、ある種のローカリゼーション機能を設定するために使用されます。これは標準的なロケール文字列を受け入れ、デフォルトでは `en` となります。ほとんどすべてのロケールがサポートされています。https://github.com/google/closure-library/blob/master/closure/goog/i18n/datetimesymbols.js[こちら] とhttps://github.com/google/closure-library/blob/master/closure/goog/i18n/datetimesymbolsext.js[こちら] を参照してください。
+- goog.LOCALE`: `goog.i18n.DateTimeFormat` のような、ある種のローカリゼーション機能を設定するために使用されます。これは標準的なロケール文字列を受け入れ、デフォルトでは `en` となります。ほとんどすべてのロケールがサポートされています。 https://github.com/google/closure-library/blob/master/closure/goog/i18n/datetimesymbols.js[こちら] と https://github.com/google/closure-library/blob/master/closure/goog/i18n/datetimesymbolsext.js[こちら] を参照してください。
 
 == コンパイラのオプション [[compiler-options]]
 //Compiler Options [[compiler-options]]

@@ -2573,7 +2573,7 @@ preloads オプションは、単に <code>:devtools</code>/<code>:preloads</cod
 <p>しかし、キャッシュを無効にすることは、副作用のあるマクロ（ファイルの読み込み、コンパイラの状態外での保存など）を多く使用している場合、常に確実に実行できるとは限りません。そのような場合には、キャッシュを完全に無効にする必要があります。</p>
 </div>
 <div class="paragraph">
-<p>副作用のあるマクロが含まれていることがわかっている名前空間は、キャッシュからブロックすることができます。その名前空間自体はキャッシュされず、それを必要とする名前空間もキャッシュされません。https://github.com/cerner/clara-rules[clara-rules] ライブラリには副作用のあるマクロが含まれており、デフォルトでブロックされます。どの名前空間をグローバルにブロックするかは、 <code>:cache-blockers</code> 設定で指定できます。この設定には、名前空間のシンボルのセットが必要です。</p>
+<p>副作用のあるマクロが含まれていることがわかっている名前空間は、キャッシュからブロックすることができます。その名前空間自体はキャッシュされず、それを必要とする名前空間もキャッシュされません。 <a href="https://github.com/cerner/clara-rules">clara-rules</a> ライブラリには副作用のあるマクロが含まれており、デフォルトでブロックされます。どの名前空間をグローバルにブロックするかは、 <code>:cache-blockers</code> 設定で指定できます。この設定には、名前空間のシンボルのセットが必要です。</p>
 </div>
 <div class="listingblock">
 <div class="title">clara.rulesのキャッシュブロックの例（これはデフォルトで行われます)</div>
@@ -2702,7 +2702,7 @@ preloads オプションは、単に <code>:devtools</code>/<code>:preloads</cod
 <p><code>goog.DEBUG</code> です。Closure Libraryでは、多くの開発機能でこれを使用しています。 <code>shadow-cljs</code> は、 <code>release</code> のビルドでは、自動的にこれを <code>false</code> に設定します。</p>
 </li>
 <li>
-<p>goog.LOCALE`: <code>goog.i18n.DateTimeFormat</code> のような、ある種のローカリゼーション機能を設定するために使用されます。これは標準的なロケール文字列を受け入れ、デフォルトでは <code>en</code> となります。ほとんどすべてのロケールがサポートされています。https://github.com/google/closure-library/blob/master/closure/goog/i18n/datetimesymbols.js[こちら] とhttps://github.com/google/closure-library/blob/master/closure/goog/i18n/datetimesymbolsext.js[こちら] を参照してください。</p>
+<p>goog.LOCALE`: <code>goog.i18n.DateTimeFormat</code> のような、ある種のローカリゼーション機能を設定するために使用されます。これは標準的なロケール文字列を受け入れ、デフォルトでは <code>en</code> となります。ほとんどすべてのロケールがサポートされています。 <a href="https://github.com/google/closure-library/blob/master/closure/goog/i18n/datetimesymbols.js">こちら</a> と <a href="https://github.com/google/closure-library/blob/master/closure/goog/i18n/datetimesymbolsext.js">こちら</a> を参照してください。</p>
 </li>
 </ul>
 </div>
@@ -4932,7 +4932,7 @@ HeadlessChrome 0.0.0 (Mac OS X 10.12.6): Executed 1 of 1 SUCCESS (0.007 secs / 0
 <p>最近では、多くの <code>npm</code> パッケージが複数のビルドバリアントを出荷しています。 <code>shadow-cljs</code> はデフォルトで、 <code>package.json</code> の <code>main</code> または <code>browser</code> キーの下にリンクされているバリアントを選択します。これはほとんどの場合、CommonJS のコードを指しています。最近のパッケージの中には、 <code>module</code> エントリを提供しているものもありますが、これは通常 ECMAScript のコード (つまりモダンなJS) を指しています。CommonJS と ESM の間の相互運用は難しいので、 <code>shadow-cljs</code> のデフォルトは CommonJS を使用するようになっていますが、ESM を使用することが有益な場合もあります。</p>
 </div>
 <div class="paragraph">
-<p>これが機能するかどうかは、使用しているパッケージに大きく依存します。JS オプションの <code>:entry-keys</code> を使って、 <code>module</code> エントリを優先するように <code>shadow-cljs</code> を設定することができます。これは <code>package.json</code> に含まれる文字列キーのベクトルを受け取り、順番に試行されます。デフォルトでは <code>"["browser" "main" "module"]</code> となっています。</p>
+<p>これが機能するかどうかは、使用しているパッケージに大きく依存します。JS オプションの <code>:entry-keys</code> を使って、 <code>module</code> エントリを優先するように <code>shadow-cljs</code> を設定することができます。これは <code>package.json</code> に含まれる文字列キーのベクトルを <a href="https://では" class="bare">https://では</a> <code>"["browser" "main" "module"]"</code> となっています。</p>
 </div>
 <div class="listingblock">
 <div class="title">例 :browser のビルドで :closure を使用するための設定</div>
@@ -4942,7 +4942,7 @@ HeadlessChrome 0.0.0 (Mac OS X 10.12.6): Executed 1 of 1 SUCCESS (0.007 secs / 0
  {<span class="symbol">:app</span>
   {<span class="symbol">:target</span> <span class="symbol">:browser</span>
    <span class="keyword">..</span><span class="keyword">.</span>
-   <span class="symbol">:js-options</span> {<span class="symbol">:entry-keys</span> [<span class="string"><span class="delimiter">&quot;</span><span class="content">module</span><span class="delimiter">&quot;</span></span> <span class="string"><span class="delimiter">&quot;</span><span class="content">browser</span><span class="delimiter">&quot;</span></span> <span class="string"><span class="delimiter">&quot;</span><span class="content">main</span><span class="delimiter">&quot;</span></span>]} <span class="comment">;; try &quot;module&quot; first</span>
+   <span class="symbol">:js-options</span> {<span class="symbol">:entry-keys</span> [<span class="string"><span class="delimiter">&quot;</span><span class="content">module</span><span class="delimiter">&quot;</span></span> <span class="string"><span class="delimiter">&quot;</span><span class="content">browser</span><span class="delimiter">&quot;</span></span> <span class="string"><span class="delimiter">&quot;</span><span class="content">main</span><span class="delimiter">&quot;</span></span>]} <span class="comment">;; まずは &quot;module&quot;を試す</span>
    }}}</code></pre>
 </div>
 </div>
@@ -5016,7 +5016,7 @@ HeadlessChrome 0.0.0 (Mac OS X 10.12.6): Executed 1 of 1 SUCCESS (0.007 secs / 0
 <div class="sect4">
 <h5 id="js-resolve-limitations"><a class="anchor" href="#js-resolve-limitations"></a><a class="link" href="#js-resolve-limitations">制限事項</a></h5>
 <div class="paragraph">
-<p>shadow-js` と <code>:closure</code> は <code>:resolve</code> を完全に制御することができ、上記のすべてが欠点なく動作します。しかし、 <code>:js-provider :require</code> はより限定的です。最初のrequireにのみ影響を与えることができ、それ以降は標準の <code>require</code> が制御します。つまり、パッケージが内部で <code>require</code> するものに影響を与えることはできません。したがって、 <code>require</code> を直接使用するターゲット（例：<code>:node-script</code>）と一緒に使用することはお勧めできません。</p>
+<p><code>shadow-js</code> と <code>:closure</code> は <code>:resolve</code> を完全に制御することができ、上記のすべてが欠点なく動作します。しかし、 <code>:js-provider :require</code> はより限定的です。最初のrequireにのみ影響を与えることができ、それ以降は標準の <code>require</code> が制御します。つまり、パッケージが内部で <code>require</code> するものに影響を与えることはできません。したがって、 <code>require</code> を直接使用するターゲット（例：<code>:node-script</code>）と一緒に使用することはお勧めできません。</p>
 </div>
 <div class="paragraph">
 <p>react を preact にリダイレクトする</p>
@@ -5054,8 +5054,12 @@ HeadlessChrome 0.0.0 (Mac OS X 10.12.6): Executed 1 of 1 SUCCESS (0.007 secs / 0
 <div class="paragraph">
 <p>相対パスは、プロジェクトのルートディレクトリを基準に解決されます。パスは左から右に向かって試行され、最初にマッチしたパッケージが使用されます。</p>
 </div>
-<div class="paragraph">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
 <p>shadow-cljs.edn のグローバル設定</p>
+</li>
+</ol>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -5081,7 +5085,7 @@ HeadlessChrome 0.0.0 (Mac OS X 10.12.6): Executed 1 of 1 SUCCESS (0.007 secs / 0
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<p><strong>DANGER: この機能は実験的なものです！</strong> 現在は <code>shadow-cljs</code> でのみサポートされており、これを使おうとすると他の CLJS ツールに怒られます。自分の責任で使用してください。この機能は当初、CLJSのコアでは拒否されていましたが、私は便利だと思いますし、さらなる議論なしにhttps://dev.clojure.org/jira/browse/CLJS-2061?focusedCommentId=46191&amp;page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-46191[dismissed]されるべきではなかったと思います。</p>
+<p><strong>DANGER: この機能は実験的なものです！</strong> 現在は <code>shadow-cljs</code> でのみサポートされており、これを使おうとすると他の CLJS ツールに怒られます。自分の責任で使用してください。この機能は当初、CLJSのコアでは拒否されていましたが、私は便利だと思いますし、さらなる議論なしに <a href="https://dev.clojure.org/jira/browse/CLJS-2061?focusedCommentId=46191&amp;page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-46191">dismissed</a> されるべきではなかったと思います。</p>
 </div>
 <div class="paragraph">
 <p>CLJSには <a href="https://clojurescript.org/guides/javascript-modules">implementation</a> という別の実装がありますが、これは <code>shadow-cljs</code> ではサポートされていません。私はこの実装がある種の面で不足していると感じたので、別の解決策を選びました。しかし、両方のアプローチの長所・短所を議論するのは楽しいことです。</p>
@@ -5175,7 +5179,7 @@ HeadlessChrome 0.0.0 (Mac OS X 10.12.6): Executed 1 of 1 SUCCESS (0.007 secs / 0
 <div class="sect3">
 <h4 id="_javascriptの方言"><a class="anchor" href="#_javascriptの方言"></a><a class="link" href="#_javascriptの方言">13.2.3. JavaScriptの方言</a></h4>
 <div class="paragraph">
-<p>一般的なJavaScriptの方言（JSX、CoffeeScriptなど）には、Closure Compilerでは直接解析できないものが多いため、クラスパスに置く前に前処理を行う必要があります。https://babeljs.io/[babel] はJavaScriptの世界でよく使われているので、ここでは例として <code>.jsx</code> ファイルを処理するために <code>babel</code> を使用します。</p>
+<p>一般的なJavaScriptの方言（JSX、CoffeeScriptなど）には、Closure Compilerでは直接解析できないものが多いため、クラスパスに置く前に前処理を行う必要があります。 <a href="https://babeljs.io/">babel</a> はJavaScriptの世界でよく使われているので、ここでは例として <code>.jsx</code> ファイルを処理するために <code>babel</code> を使用します。</p>
 </div>
 <div class="listingblock">
 <div class="title">例 shadow-cljs.edn の設定</div>
@@ -5304,13 +5308,13 @@ cljs.array_map(<span class="keyword">keyword</span>(<span class="string"><span c
 <p>CLJSJSのパッケージは、基本的に <code>npm</code> からパッケージを取り出し、 <code>.jar</code> に入れて <a href="https://clojars.org">clojars</a> で再公開するだけです。おまけにExternsもバンドルされています。コンパイラはこれらのファイルに対して何もせず、生成された出力の先頭に追加するだけです。</p>
 </div>
 <div class="paragraph">
-<p>これは、 <code>npm</code> に直接アクセスできないときには非常に便利でしたが、すべてのパッケージが他のパッケージと簡単に結合できるわけではないので、ある種の問題があります。あるパッケージは <code>react</code> に依存しているかもしれませんが、 <code>npm</code> を通してこれを表現するのではなく、 <a href="https://github.com/cljsjs/packages/tree/master/material-ui">彼らは</a> 自分自身の <code>react</code> をバンドルします。注意しないと、2つの異なる <code>react</code> バージョンをビルドに含めることになり、非常に紛らわしいエラーが発生したり、少なくともビルドサイズが大幅に大きくなったりする可能性があります。</p>
+<p>これは、 <code>npm</code> に直接アクセスできないときには非常に便利でしたが、すべてのパッケージが他のパッケージと簡単に結合できるわけではないので、ある種の問題があります。あるパッケージは <code>react</code> に依存しているかもしれませんが、 <code>npm</code> を通してこれを表現するのではなく、 <a href="https://github.com/cljsjs/packages/tree/master/material-ui">それらは</a> 自分自身の <code>react</code> をバンドルします。注意しないと、2つの異なる <code>react</code> バージョンをビルドに含めることになり、非常に紛らわしいエラーが発生したり、少なくともビルドサイズが大幅に大きくなったりする可能性があります。</p>
 </div>
 <div class="paragraph">
 <p>また、すべての <code>npm</code> パッケージがCLJSJSで利用できるわけではなく、パッケージのバージョンを同期させるには手作業が必要なため、パッケージが古くなってしまうこともあります。</p>
 </div>
 <div class="paragraph">
-<p><code>shadow-cljs</code> は、コード内の競合を避けるために、CLJSJS を全くサポートしません。あるライブラリが古い`cljsjs.react` を使おうとする一方で、別のライブラリはより新しい <code>(:require ["react"])</code> を直接使うかもしれません。そうすると、再びページ上に2つのバージョンの <code>react</code> が存在することになります。</p>
+<p><code>shadow-cljs</code> は、コード内の競合を避けるために、CLJSJS を全くサポートしません。あるライブラリが古い <code>cljsjs.react</code> を使おうとする一方で、別のライブラリはより新しい <code>(:require ["react"])</code> を直接使うかもしれません。そうすると、再びページ上に2つのバージョンの <code>react</code> が存在することになります。</p>
 </div>
 <div class="paragraph">
 <p>そのため、唯一欠けているのはバンドルされているExternsです。多くの場合、<a href="#infer-externs">externs inference</a>が改善されたため、これらは必要ありません。また、これらのExternsはサードパーティのツールを使って生成されていることが多いので、いずれにしても完全には正確ではありません。</p>
@@ -5326,9 +5330,7 @@ cljs.array_map(<span class="keyword">keyword</span>(<span class="string"><span c
 <h2 id="release"><a class="anchor" href="#release"></a><a class="link" href="#release">14. プロダクションコードの生成&#8201;&#8212;&#8201;全ターゲット</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>開発モードでは、常にネームスペースごとに個別のファイルが出力され、ホットロードが可能になります。
-を分離してホットロードすることができます。実際のサーバにコードをデプロイする準備ができたら、Closure Compilerを実行したいと思います。
-を実行して、各 <a href="#Modules">module</a> に対して単一のminified結果を生成したいと思います。</p>
+<p>開発モードでは、常に各々の名前空間に対して個別のファイルを出力するため、それらを分離してホットロードすることができます。実際のサーバにコードをデプロイする準備ができたら、Closure Compilerを実行して、それぞれの <a href="#Modules">module</a> に対して単一の最小化された結果を生成します。</p>
 </div>
 <div class="paragraph">
 <p>デフォルトでは、リリースモードの出力ファイルは、開発モードの出力ファイルをそのまま置き換えるようになっています。
