@@ -31,7 +31,7 @@ Each build describes artifacts that the compiler will build. The build target is
 ////
 Each build in `shadow-cljs` must define a `:target` which defines where you intend your code to be executed. There are default built-ins for the <<target-browser,browser>> and <<target-node,`node.js`>>. They all share the basic concept of having `:dev` and `:release` modes. `:dev` mode provides all the usual development goodies like fast compilation, live code reloading and a REPL. `:release` mode will produce optimized output intended for production.
 ////
-shadow-cljs` の各ビルドでは、コードをどこで実行するかを定義する `:target` を定義する必要があります。<<target-browser,browser>> と <<target-node,`node.js`>> のデフォルトのビルドインがあります。これらはすべて、 `:dev` モードと `:release` モードを持つという基本的なコンセプトを共有しています。dev` モードでは、高速なコンパイル、ライブコードリロード、REPLなど、通常の開発に必要な機能をすべて提供します。release` モードでは、プロダクション向けに最適化された出力が得られます。
+`shadow-cljs` の各ビルドでは、コードをどこで実行するかを定義する `:target` を定義する必要があります。<<target-browser,browser>> と <<target-node,`node.js`>> のデフォルトのビルドインがあります。これらはすべて、 `:dev` モードと `:release` モードを持つという基本的なコンセプトを共有しています。dev` モードでは、高速なコンパイル、ライブコードリロード、REPLなど、通常の開発に必要な機能をすべて提供します。release` モードでは、プロダクション向けに最適化された出力が得られます。
 
 ////
 Targets are covered in separate chapters.
@@ -433,7 +433,7 @@ again (in order) for each re-compile. The `build-state` will be re-used until th
 ////
 `shadow-cljs` will cache all compilation results by default. The cache is invalidated whenever anything relevant to the individual source files changes (eg. changed compiler setting, changed dependencies, etc.). This greatly improves the developer experience since incremental compilation will be **much** faster than starting from scratch.
 ////
-shadow-cljs` はデフォルトで全てのコンパイル結果をキャッシュします。このキャッシュは、個々のソースファイルに関連する何かが変更されるたびに無効になります（例：コンパイラの設定変更、依存関係の変更など）。これにより、インクリメンタルなコンパイルはスクラッチから始めるよりも **はるかに** 早くなるので、開発者の経験が大幅に改善されます。
+`shadow-cljs` はデフォルトで全てのコンパイル結果をキャッシュします。このキャッシュは、個々のソースファイルに関連する何かが変更されるたびに無効になります（例：コンパイラの設定変更、依存関係の変更など）。これにより、インクリメンタルなコンパイルはスクラッチから始めるよりも **はるかに** 早くなるので、開発者の経験が大幅に改善されます。
 
 ////
 Invalidating the cache however can not always be done reliably if you are using a lot of macros with side-effects (reading files, storing things outside the compiler state, etc.). In those cases you might need to disable caching entirely.
@@ -837,7 +837,7 @@ CAUTION: この機能は `shadow-cljs` でのみ動作します。これは Cloj
 ////
 `shadow-cljs` lets you configure additional reader features in `.cljc` files. By default you can only use reader conditionals to generate separate code for `:clj`, `:cljs` or `:cljr`. In many CLJS builds however it is also desirable to select which code is generated based on your `:target`.
 ////
-shadow-cljs` では、 `.cljc` ファイルに追加のリーダ機能を設定することができます。デフォルトでは、リーダの条件式を使用して、 `:clj`、 `:cljs`、または `:cljr` 用の個別のコードを生成することしかできません。しかし、多くのCLJSのビルドでは、 `:target` に基づいて、どのコードを生成するかを選択することも望ましいことです。
+`shadow-cljs` では、 `.cljc` ファイルに追加のリーダ機能を設定することができます。デフォルトでは、リーダの条件式を使用して、 `:clj`、 `:cljs`、または `:cljr` 用の個別のコードを生成することしかできません。しかし、多くのCLJSのビルドでは、 `:target` に基づいて、どのコードを生成するかを選択することも望ましいことです。
 
 ////
 Example: Some `npm` packages only work when targeting the `:browser`, but you may have a `ns` that you also want to use in a `:node-script` build. This might happen frequently when trying to use Server-Side Rendering (SSR) with your React App. `codemirror` is one such package.

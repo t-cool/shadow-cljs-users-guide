@@ -929,7 +929,7 @@ table.CodeRay td.code>pre{padding:0}
 <div class="sect3">
 <h4 id="_server_モード"><a class="anchor" href="#_server_モード"></a><a class="link" href="#_server_モード">1.3.2. server モード</a></h4>
 <div class="paragraph">
-<p>shadow-cljs` はserverモードで起動することができます。これはwatchのような長時間稼働するタスクに必要です。watchは、サーバインスタンスがまだ起動していなければ、暗黙のうちに起動します。serverは、ビルドが接続するWebsocketのエンドポイントを提供します。また、nREPL、Socket REPL、開発用HTTPサーバの他のすべてのエンドポイントも同様に提供します。</p>
+<p><code>shadow-cljs</code> はserverモードで起動することができます。これはwatchのような長時間稼働するタスクに必要です。watchは、サーバインスタンスがまだ起動していなければ、暗黙のうちに起動します。serverは、ビルドが接続するWebsocketのエンドポイントを提供します。また、nREPL、Socket REPL、開発用HTTPサーバの他のすべてのエンドポイントも同様に提供します。</p>
 </div>
 <div class="paragraph">
 <p>CLI のshadow-cljsを使用する場合、すべてのコマンドは新しいJVMを起動する代わりに、実行中のサーバインスタンスのJVMを再利用します。起動時間がかなり遅くなることがあるため、動作が大幅に速くなります。</p>
@@ -1957,7 +1957,7 @@ shadow-cljs - watching build :app
 <div class="sect3">
 <h4 id="_ssl"><a class="anchor" href="#_ssl"></a><a class="link" href="#_ssl">5.4.3. SSL</a></h4>
 <div class="paragraph">
-<p>shadow-cljs` のHTTPサーバはSSLをサポートしています。そのためには、一致する秘密鍵と証明書を提供するJava Keystoreが必要です。</p>
+<p><code>shadow-cljs</code> のHTTPサーバはSSLをサポートしています。そのためには、一致する秘密鍵と証明書を提供するJava Keystoreが必要です。</p>
 </div>
 <div class="listingblock">
 <div class="title"><code>shadow-cljs.edn</code> にSSLが設定されています。</div>
@@ -1989,7 +1989,7 @@ shadow-cljs - watching build :app
 <div class="sect3">
 <h4 id="http"><a class="anchor" href="#http"></a><a class="link" href="#http">5.4.4. Primary HTTP(S)</a></h4>
 <div class="paragraph">
-<p>shadow-cljs` サーバは、1つのプライマリHTTPサーバを起動します。このサーバは、ホットリロードやREPLクライアントで使用されるUIやウェブソケットを提供するために使用されます。デフォルトでは、9630番ポートで待ち受けます。もしそのポートが使用中であれば、1つ増やして、開いているポートが見つかるまで再試行します。</p>
+<p><code>shadow-cljs</code> サーバは、1つのプライマリHTTPサーバを起動します。このサーバは、ホットリロードやREPLクライアントで使用されるUIやウェブソケットを提供するために使用されます。デフォルトでは、9630番ポートで待ち受けます。もしそのポートが使用中であれば、1つ増やして、開いているポートが見つかるまで再試行します。</p>
 </div>
 <div class="listingblock">
 <div class="title">使用するポートを示すスタートアップメッセージ</div>
@@ -2031,7 +2031,7 @@ shadow-cljs - watching build :app
 <div class="sect3">
 <h4 id="dev-http"><a class="anchor" href="#dev-http"></a><a class="link" href="#dev-http">5.4.5. 開発の HTTP(S)</a></h4>
 <div class="paragraph">
-<p>shadow-cljs` では、 <code>:dev-http</code> という設定項目で、追加の基本的なHTTPサーバを提供することができます。デフォルトでは、これらは設定されたパスからすべての静的ファイルを提供し、リソースが見つからない場合は <code>index.html</code> にフォールバックします (これは、ブラウザのプッシュステートを使用するアプリケーションを開発する際に、一般的に求められるものです)。</p>
+<p><code>shadow-cljs</code> では、 <code>:dev-http</code> という設定項目で、追加の基本的なHTTPサーバを提供することができます。デフォルトでは、これらは設定されたパスからすべての静的ファイルを提供し、リソースが見つからない場合は <code>index.html</code> にフォールバックします (これは、ブラウザのプッシュステートを使用するアプリケーションを開発する際に、一般的に求められるものです)。</p>
 </div>
 <div class="paragraph">
 <p>これらのサーバは <code>shadow-cljs</code> がサーバモードで動作しているときに自動的に開始されます。これらのサーバはどのビルドにも特定されず、それぞれにユニークな <code>:output-dir</code> が使用されている限り、複数のビルドのファイルを提供するために使用することができます。</p>
@@ -2209,7 +2209,7 @@ shadow-cljs - watching build :app
 <div class="sect2">
 <h3 id="_ビルドターゲット"><a class="anchor" href="#_ビルドターゲット"></a><a class="link" href="#_ビルドターゲット">6.1. ビルドターゲット</a></h3>
 <div class="paragraph">
-<p>shadow-cljs` の各ビルドでは、コードをどこで実行するかを定義する <code>:target</code> を定義する必要があります。<a href="#target-browser">browser</a> と <a href="#target-node"><code>node.js</code></a> のデフォルトのビルドインがあります。これらはすべて、 <code>:dev</code> モードと <code>:release</code> モードを持つという基本的なコンセプトを共有しています。dev` モードでは、高速なコンパイル、ライブコードリロード、REPLなど、通常の開発に必要な機能をすべて提供します。release` モードでは、プロダクション向けに最適化された出力が得られます。</p>
+<p><code>shadow-cljs</code> の各ビルドでは、コードをどこで実行するかを定義する <code>:target</code> を定義する必要があります。<a href="#target-browser">browser</a> と <a href="#target-node"><code>node.js</code></a> のデフォルトのビルドインがあります。これらはすべて、 <code>:dev</code> モードと <code>:release</code> モードを持つという基本的なコンセプトを共有しています。dev` モードでは、高速なコンパイル、ライブコードリロード、REPLなど、通常の開発に必要な機能をすべて提供します。release` モードでは、プロダクション向けに最適化された出力が得られます。</p>
 </div>
 <div class="paragraph">
 <p>ターゲットについては別の章で説明しています。</p>
@@ -2559,7 +2559,7 @@ shadow-cljs-edn`:</p>
 <div class="sect2">
 <h3 id="_コンパイラ_キャッシュ"><a class="anchor" href="#_コンパイラ_キャッシュ"></a><a class="link" href="#_コンパイラ_キャッシュ">6.4. コンパイラ・キャッシュ</a></h3>
 <div class="paragraph">
-<p>shadow-cljs` はデフォルトで全てのコンパイル結果をキャッシュします。このキャッシュは、個々のソースファイルに関連する何かが変更されるたびに無効になります（例：コンパイラの設定変更、依存関係の変更など）。これにより、インクリメンタルなコンパイルはスクラッチから始めるよりも <strong>はるかに</strong> 早くなるので、開発者の経験が大幅に改善されます。</p>
+<p><code>shadow-cljs</code> はデフォルトで全てのコンパイル結果をキャッシュします。このキャッシュは、個々のソースファイルに関連する何かが変更されるたびに無効になります（例：コンパイラの設定変更、依存関係の変更など）。これにより、インクリメンタルなコンパイルはスクラッチから始めるよりも <strong>はるかに</strong> 早くなるので、開発者の経験が大幅に改善されます。</p>
 </div>
 <div class="paragraph">
 <p>しかし、キャッシュを無効にすることは、副作用のあるマクロ（ファイルの読み込み、コンパイラの状態外での保存など）を多く使用している場合、常に確実に実行できるとは限りません。そのような場合には、キャッシュを完全に無効にする必要があります。</p>
@@ -2941,7 +2941,7 @@ shadow-cljs-edn`:</p>
 </table>
 </div>
 <div class="paragraph">
-<p>shadow-cljs` では、 <code>.cljc</code> ファイルに追加のリーダ機能を設定することができます。デフォルトでは、リーダの条件式を使用して、 <code>:clj</code>、 <code>:cljs</code>、または <code>:cljr</code> 用の個別のコードを生成することしかできません。しかし、多くのCLJSのビルドでは、 <code>:target</code> に基づいて、どのコードを生成するかを選択することも望ましいことです。</p>
+<p><code>shadow-cljs</code> では、 <code>.cljc</code> ファイルに追加のリーダ機能を設定することができます。デフォルトでは、リーダの条件式を使用して、 <code>:clj</code>、 <code>:cljs</code>、または <code>:cljr</code> 用の個別のコードを生成することしかできません。しかし、多くのCLJSのビルドでは、 <code>:target</code> に基づいて、どのコードを生成するかを選択することも望ましいことです。</p>
 </div>
 <div class="paragraph">
 <p>例 一部の <code>npm</code> パッケージは <code>:browser</code> をターゲットにしたときにのみ動作しますが、 <code>:node-script</code> のビルドでも使用したい <code>ns</code> があるかもしれません。これは、Reactアプリでサーバサイドレンダリング(SSR)を使おうとしているときに頻繁に起こるかもしれません。codemirror` はそのようなパッケージの一つです。</p>
@@ -3175,7 +3175,7 @@ shadow-cljs-edn`:</p>
 <div class="paragraph">
 <p>警告: 各ビルドにはそれぞれ :output-dir が必要で、複数のビルドを同じディレクトリに置くことはできません。
 また、このディレクトリは、そのビルドが独占的に所有するものでなければなりません。そこには他のファイルがあってはいけません。
-shadow-cljs` は何も削除しませんが、そのままにしておいた方が安全です。コンパイル
+<code>shadow-cljs</code> は何も削除しませんが、そのままにしておいた方が安全です。コンパイル
 は、開発中にメインのエントリーポイントとなる javascript ファイル以外にも、ソースマップ、オリジナルソース、生成ソースなど、多くのファイルを作成します。</p>
 </div>
 <div class="paragraph">
@@ -3718,7 +3718,7 @@ HTMLに含めるのは少し複雑です。<a href="#BrowserManifest">Output Man
 </div>
 </div>
 <div class="paragraph">
-<p>open-file-command` では、非常にシンプルなDSLを表すベクターを想定しています。文字列はそのままで、キーワードはそれぞれの値で置き換えられます。clojure.core/format` スタイルのパターンを使用して、複数のパラメータを組み合わせる必要がある場合には、ネストしたベクターを使用することができます。</p>
+<p>open-file-command` では、非常にシンプルなDSLを表すベクターを想定しています。文字列はそのままで、キーワードはそれぞれの値で置き換えられます。 <code>clojure.core/format</code> スタイルのパターンを使用して、複数のパラメータを組み合わせる必要がある場合には、ネストしたベクターを使用することができます。</p>
 </div>
 <div class="paragraph">
 <p>上記の例では、以下のように実行されます。</p>
@@ -3794,7 +3794,7 @@ HTMLに含めるのは少し複雑です。<a href="#BrowserManifest">Output Man
 </div>
 </div>
 <div class="paragraph">
-<p>これにより、 <code>public/css/main.css</code> が変更されると、ブラウザは <code>/css/main.css</code> を再読み込みします。</p>
+<p>これにより、public/css/main.css` が変更されると、ブラウザは <code>/css/main.css</code> を再読み込みします。</p>
 </div>
 <div class="paragraph">
 <p>現在、 <code>shadow-cljs</code> は CSS を直接コンパイルすることをサポートしていませんが、通常のツールは動作します。
@@ -3831,7 +3831,7 @@ HTMLに含めるのは少し複雑です。<a href="#BrowserManifest">Output Man
 <div class="sect3">
 <h4 id="proxy-support"><a class="anchor" href="#proxy-support"></a><a class="link" href="#proxy-support">7.8.3. プロキシサポート</a></h4>
 <div class="paragraph">
-<p>デフォルトでは、devtools クライアントは、設定された <a href="#http">HTTP server</a> (通常は <code>localhost</code>) 経由で <code>shadow-cljs</code> プロセスへの接続を試みます。リバースプロキシを使用して HTML を配信している場合は、それができない場合があります。また、 <code>:devtools-url</code> を設定することで、使用するURLを設定することができます。</p>
+<p>デフォルトでは、devtools クライアントは、設定された <a href="#http">HTTP server</a> (通常は <code>localhost</code> ) 経由で <code>shadow-cljs</code> プロセスへの接続を試みます。リバースプロキシを使用して HTML を配信している場合は、それができない場合があります。また、 <code>:devtools-url</code> を設定することで、使用するURLを設定することができます。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4737,7 +4737,7 @@ HeadlessChrome 0.0.0 (Mac OS X 10.12.6): Executed 1 of 1 SUCCESS (0.007 secs / 0
 </div>
 </div>
 <div class="paragraph">
-<p>shadow-cljs` では。<strong>常に <code>ns</code> 形式と、あなたが提供した <code>:as</code> のエイリアスを使用してください。</strong> また、 <code>:refer</code> や <code>:rename</code> を使用することもできます。これは、 <code>:foreign-libs</code>/CLJSJSが行う、名前空間にものをインクルードしても、コードの中ではグローバルな <code>js/Thing</code> を使用するというものとは異なります。</p>
+<p><code>shadow-cljs</code> では。<strong>常に <code>ns</code> 形式と、あなたが提供した <code>:as</code> のエイリアスを使用してください。</strong> また、 <code>:refer</code> や <code>:rename</code> を使用することもできます。これは、 <code>:foreign-libs</code>/CLJSJSが行う、名前空間にものをインクルードしても、コードの中ではグローバルな <code>js/Thing</code> を使用するというものとは異なります。</p>
 </div>
 <div class="paragraph">
 <p>パッケージの中には、1つの関数をエクスポートするものもあります。
@@ -5344,7 +5344,7 @@ cljs.array_map(<span class="keyword">keyword</span>(<span class="string"><span c
 <p>最適化レベルは、コンフィギュレーションの <code>:compiler-options</code> セクションで選択できます。</p>
 </div>
 <div class="paragraph">
-<p>重要：<code>:target</code> ではすでに適切なレベルに設定されているので、通常は`:optimizations` を設定する必要はありません。</p>
+<p>重要：<code>:target</code> ではすでに適切なレベルに設定されているので、通常は <code>:optimizations</code> を設定する必要はありません。</p>
 </div>
 <div class="paragraph">
 <p>重要: <code>:optimizations</code> は <code>release</code> コマンドを使ったときにのみ適用されます。開発用のビルドはClosure Compilerによって最適化されることはありません。開発用のビルドは常に <code>:none</code> に設定されます。</p>
@@ -5480,7 +5480,7 @@ cljs.array_map(<span class="keyword">keyword</span>(<span class="string"><span c
 </div>
 </div>
 <div class="paragraph">
-<p>重要：すべてを`^js` でアノテーションしないでください。時には、CLJS や ClosureJS のオブジェクトでインターロップを行うことがあります。これらはエクスターンを必要としません。CLJSオブジェクトを扱うことが確実な場合は、 <code>^clj</code> のヒントを使うことをお勧めします。
+<p>重要：すべてを <code>^js</code> でアノテーションしないでください。時には、CLJS や ClosureJS のオブジェクトでインターロップを行うことがあります。これらはエクスターンを必要としません。CLJSオブジェクトを扱うことが確実な場合は、 <code>^clj</code> のヒントを使うことをお勧めします。
 間違って <code>^js</code> を使用しても世界の終わりではありませんが、変数の名前を変更できるのに変更されない場合、いくつかの最適化に影響を与える可能性があります。</p>
 </div>
 <div class="listingblock">
@@ -5493,7 +5493,7 @@ cljs.array_map(<span class="keyword">keyword</span>(<span class="string"><span c
 <p>また、 <code>:require</code> バインディングの呼び出しも自動的に推論されます。</p>
 </div>
 <div class="listingblock">
-<div class="title">as` と`:refer` のバインディングにヒントは必要ありません。</div>
+<div class="title">as` と <code>:refer</code> のバインディングにヒントは必要ありません。</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">(<span class="keyword">ns</span> <span class="namespace">my.app</span>
   (<span class="symbol">:require</span> [<span class="string"><span class="delimiter">&quot;</span><span class="content">react</span><span class="delimiter">&quot;</span></span> <span class="symbol">:as</span> react <span class="symbol">:refer</span> (createElement)]))
@@ -5610,7 +5610,7 @@ $ npx shadow-cljs run shadow.cljs.build-report app report.html</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>上記の例では、 <code>:app</code> をビルドする際に、プロジェクトディレクトリに`report.html` を生成します。</p>
+<p>上記の例では、 <code>:app</code> をビルドする際に、プロジェクトディレクトリに <code>report.html</code> を生成します。</p>
 </div>
 <div class="paragraph">
 <p>ヒント: 生成される <code>report.html</code> は完全に自己完結型で、必要なデータ/js/css をすべて含んでいます。他の外部ソースは必要ありません。</p>
@@ -6048,7 +6048,7 @@ Press ENTER <span class="keyword">or</span> <span class="keyword">type</span> co
 <p>一般的に、確実にしたいのであれば、選択した <code>shadow-cljs</code> のバージョンと一緒に、一致する依存関係のバージョンを直接宣言すればよいのですが、それは <code>shadow-cljs</code> をアップグレードするたびに、それらのバージョンも更新しなければならないことを意味します。不要な依存関係を正しく特定することは、より多くの作業を必要とするかもしれませんが、将来のアップグレードを容易にするでしょう。</p>
 </div>
 <div class="paragraph">
-<p>shadow-cljs` は、上に挙げたすべての依存関係について常に最新のバージョンである可能性が高いため、古い依存関係を維持する必要がある場合は、shadow-cljs のバージョンも古いものにする必要があるかもしれません。</p>
+<p><code>shadow-cljs</code> は、上に挙げたすべての依存関係について常に最新のバージョンである可能性が高いため、古い依存関係を維持する必要がある場合は、shadow-cljs のバージョンも古いものにする必要があるかもしれません。</p>
 </div>
 <div class="paragraph">
 <p>そのため、 <code>org.clojure/clojurescript</code> が通常提供しているバージョンに依存していると、問題が発生する可能性があります。そのため、 <code>org.clojure/clojurescript</code> が通常供給するバージョンに依存している場合、問題が発生する可能性があります。</p>
@@ -6152,7 +6152,7 @@ $ lein with-profiles +cljs deps <span class="symbol">:tree</span></code></pre>
 <div class="sect3">
 <h4 id="_javascript_のランタイム"><a class="anchor" href="#_javascript_のランタイム"></a><a class="link" href="#_javascript_のランタイム">16.2.2. JavaScript のランタイム</a></h4>
 <div class="paragraph">
-<p>shadow-cljs` のJVM側では、関連するすべてのREPLコマンドを処理する、与えられたビルドのための <code>watch</code> の実行が必要になります。これは専用のスレッドを使用し、開発中に起こりうるすべてのイベントを管理します（例：REPLの入力、ファイルの変更など）。</p>
+<p><code>shadow-cljs</code> のJVM側では、関連するすべてのREPLコマンドを処理する、与えられたビルドのための <code>watch</code> の実行が必要になります。これは専用のスレッドを使用し、開発中に起こりうるすべてのイベントを管理します（例：REPLの入力、ファイルの変更など）。</p>
 </div>
 <div class="paragraph">
 <p>しかし、コンパイルされたJSコードは、JSランタイム(例えば、ブラウザや <code>node</code> プロセス)によって読み込まれなければならず、そのJSランタイムは実行中の <code>shadow-cljs</code> プロセスに接続しなければなりません。ほとんどの <code>:target</code> 設定では、必要なコードがデフォルトで追加されており、自動的に接続されるはずです。その接続がどのように行われるかはランタイムに依存しますが、通常は WebSocket を使用して、実行中の <code>shadow-cljs</code> <a href="#http">HTTP server</a> に接続します。</p>
@@ -6300,7 +6300,7 @@ $ lein with-profiles +cljs deps <span class="symbol">:tree</span></code></pre>
 <div class="sectionbody">
 <div class="paragraph">
 <p>JSの世界は今でも急速に進化しており、誰もが同じ方法でコードを書いたり配布したりしているわけではありません。
-shadow-cljs` では自動的に回避できないものがあります。これらは
+<code>shadow-cljs</code> では自動的に回避できないものがあります。これらは
 通常はカスタムの <code>:resolve</code> 設定で解決できますが、バグや見落としもあるかもしれません。</p>
 </div>
 <div class="paragraph">
@@ -6315,7 +6315,7 @@ shadow-cljs` では自動的に回避できないものがあります。これ�
 <div class="sect2">
 <h3 id="_ライブラリのパッチ適用"><a class="anchor" href="#_ライブラリのパッチ適用"></a><a class="link" href="#_ライブラリのパッチ適用">19.1. ライブラリのパッチ適用</a></h3>
 <div class="paragraph">
-<p>shadow-cljs` コンパイラは、あなたのソースパス上にあるものが最初にコンパイルされるようにし、JARからのファイルを優先します。つまり、ライブラリからソースファイルをコピーしてパッチを当て、それを自分のソースディレクトリにインクルードすることができるのです。</p>
+<p><code>shadow-cljs</code> コンパイラは、あなたのソースパス上にあるものが最初にコンパイルされるようにし、JARからのファイルを優先します。つまり、ライブラリからソースファイルをコピーしてパッチを当て、それを自分のソースディレクトリにインクルードすることができるのです。</p>
 </div>
 <div class="paragraph">
 <p>これは、そのプロジェクトをクローンして、そのセットアップやビルドなどを理解しなくても、修正（`shadow-cljs`自体も！）をテストするための便利な方法です。
@@ -6328,7 +6328,7 @@ shadow-cljs` では自動的に回避できないものがあります。これ�
 <div id="footer">
 <div id="footer-text">
 Version 1.0<br>
-Last updated 2021-04-13 12:54:02 JST
+Last updated 2021-04-13 13:14:10 JST
 </div>
 </div>
 </body>

@@ -73,7 +73,7 @@ First you'll need a REPL client. This could just be the CLI (eg. `shadow-cljs cl
 ////
 The `shadow-cljs` JVM side of things will require one running `watch` for a given build which will handle all the related REPL commands as well. It uses a dedicated thread and manages all the given events that can happen during development (eg. REPL input, changing files, etc).
 ////
-shadow-cljs` のJVM側では、関連するすべてのREPLコマンドを処理する、与えられたビルドのための `watch` の実行が必要になります。これは専用のスレッドを使用し、開発中に起こりうるすべてのイベントを管理します（例：REPLの入力、ファイルの変更など）。
+`shadow-cljs` のJVM側では、関連するすべてのREPLコマンドを処理する、与えられたビルドのための `watch` の実行が必要になります。これは専用のスレッドを使用し、開発中に起こりうるすべてのイベントを管理します（例：REPLの入力、ファイルの変更など）。
 
 ////
 The compiled JS code however must also be loaded by a JS runtime (eg. Browser or `node` process) and that JS runtime must connect back to the running `shadow-cljs` process. Most `:target` configurations will have the necessary code added by default and should just connect automatically. How that connect is happening is dependent on the runtime but usually it is using a WebSocket to connect to the running `shadow-cljs` <<http, HTTP server>>.

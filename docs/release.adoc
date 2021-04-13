@@ -49,7 +49,7 @@ You can choose the optimization level using the `:compiler-options` section of t
 ////
 IMPORTANT: You do not usually need to set `:optimizations` since the `:target` already sets it to an appropriate level.
 ////
-重要：`:target` ではすでに適切なレベルに設定されているので、通常は`:optimizations` を設定する必要はありません。
+重要：`:target` ではすでに適切なレベルに設定されているので、通常は `:optimizations` を設定する必要はありません。
 
 ////
 IMPORTANT: `:optimizations` only apply when using the `release` command. Development builds are never optimized by the Closure Compiler. Development builds are always set to `:none`.
@@ -236,7 +236,7 @@ IMPORTANT: Don't annotate everything with `^js`. Sometimes you may be doing inte
 ////
 Calls on globals do not require a typehint when using direct `js/` calls.
 ////
-重要：すべてを`^js` でアノテーションしないでください。時には、CLJS や ClosureJS のオブジェクトでインターロップを行うことがあります。これらはエクスターンを必要としません。CLJSオブジェクトを扱うことが確実な場合は、 `^clj` のヒントを使うことをお勧めします。
+重要：すべてを `^js` でアノテーションしないでください。時には、CLJS や ClosureJS のオブジェクトでインターロップを行うことがあります。これらはエクスターンを必要としません。CLJSオブジェクトを扱うことが確実な場合は、 `^clj` のヒントを使うことをお勧めします。
 間違って `^js` を使用しても世界の終わりではありませんが、変数の名前を変更できるのに変更されない場合、いくつかの最適化に影響を与える可能性があります。
 
 ////
@@ -256,7 +256,7 @@ Calls on `:require` bindings are also inferred automatically.
 ////
 .No hint required for `:as` and `:refer` bindings
 ////
-.as` と`:refer` のバインディングにヒントは必要ありません。
+.as` と `:refer` のバインディングにヒントは必要ありません。
 
 ```
 (ns my.app
@@ -397,7 +397,7 @@ $ npx shadow-cljs run shadow.cljs.build-report app report.html
 ////
 The above example will generate a `report.html` in the project directory for the `:app` build.
 ////
-上記の例では、 `:app` をビルドする際に、プロジェクトディレクトリに`report.html` を生成します。
+上記の例では、 `:app` をビルドする際に、プロジェクトディレクトリに `report.html` を生成します。
 
 ////
 TIP: The generated `report.html` is entirely self-contained and includes all the required data/js/css. No other external sources are required.

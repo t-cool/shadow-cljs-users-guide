@@ -617,7 +617,7 @@ Socket REPLは、 `:socket-repl false` を設定することで無効にする�
 ////
 The `shadow-cljs` HTTP servers support SSL. It requires a Java Keystore that provides a matching private key and certificate.
 ////
-shadow-cljs` のHTTPサーバはSSLをサポートしています。そのためには、一致する秘密鍵と証明書を提供するJava Keystoreが必要です。
+`shadow-cljs` のHTTPサーバはSSLをサポートしています。そのためには、一致する秘密鍵と証明書を提供するJava Keystoreが必要です。
 
 
 ////
@@ -671,7 +671,7 @@ IMPORTANT: You must generate the Certificate with a SAN (Subject Alternative Nam
 ////
 The `shadow-cljs` server starts one primary HTTP server. It is used to serve the UI and websockets used for Hot Reload and REPL clients. By default it listens on Port 9630. If that Port is in use it will increment by one and attempt again until an open Port is found.
 ////
-shadow-cljs` サーバは、1つのプライマリHTTPサーバを起動します。このサーバは、ホットリロードやREPLクライアントで使用されるUIやウェブソケットを提供するために使用されます。デフォルトでは、9630番ポートで待ち受けます。もしそのポートが使用中であれば、1つ増やして、開いているポートが見つかるまで再試行します。
+`shadow-cljs` サーバは、1つのプライマリHTTPサーバを起動します。このサーバは、ホットリロードやREPLクライアントで使用されるUIやウェブソケットを提供するために使用されます。デフォルトでは、9630番ポートで待ち受けます。もしそのポートが使用中であれば、1つ増やして、開いているポートが見つかるまで再試行します。
 
 
 ////
@@ -730,7 +730,7 @@ If you prefer to set your own port instead you can do this via the `:http` confi
 ////
 `shadow-cljs` can provide additional basic HTTP servers via the `:dev-http` config entry. By default these will serve all static files from the configured paths, and fall back to `index.html` when a resource is not found (this is what you typically want when developing an application which uses browser push state).
 ////
-shadow-cljs` では、 `:dev-http` という設定項目で、追加の基本的なHTTPサーバを提供することができます。デフォルトでは、これらは設定されたパスからすべての静的ファイルを提供し、リソースが見つからない場合は `index.html` にフォールバックします (これは、ブラウザのプッシュステートを使用するアプリケーションを開発する際に、一般的に求められるものです)。
+`shadow-cljs` では、 `:dev-http` という設定項目で、追加の基本的なHTTPサーバを提供することができます。デフォルトでは、これらは設定されたパスからすべての静的ファイルを提供し、リソースが見つからない場合は `index.html` にフォールバックします (これは、ブラウザのプッシュステートを使用するアプリケーションを開発する際に、一般的に求められるものです)。
 
 
 ////
@@ -1066,7 +1066,7 @@ distribute code there are some things `shadow-cljs` cannot work around automatic
 can usually be solved with custom `:resolve` configs, but there may also be bugs or oversights.
 ////
 JSの世界は今でも急速に進化しており、誰もが同じ方法でコードを書いたり配布したりしているわけではありません。
-shadow-cljs` では自動的に回避できないものがあります。これらは
+`shadow-cljs` では自動的に回避できないものがあります。これらは
 通常はカスタムの `:resolve` 設定で解決できますが、バグや見落としもあるかもしれません。
 
 
@@ -1086,7 +1086,7 @@ https://clojurians.slack.com/messages/C6N245JGG[`#shadow-cljs` Slackチャンネ
 ////
 The `shadow-cljs` compiler ensures that things on your source paths are compiled first, overriding files from JARs. This means that you can copy a source file from a library, patch it, and include it in your own source directory.
 ////
-shadow-cljs` コンパイラは、あなたのソースパス上にあるものが最初にコンパイルされるようにし、JARからのファイルを優先します。つまり、ライブラリからソースファイルをコピーしてパッチを当て、それを自分のソースディレクトリにインクルードすることができるのです。
+`shadow-cljs` コンパイラは、あなたのソースパス上にあるものが最初にコンパイルされるようにし、JARからのファイルを優先します。つまり、ライブラリからソースファイルをコピーしてパッチを当て、それを自分のソースディレクトリにインクルードすることができるのです。
 
 ////
 This is a convenient way to test out fixes (even to `shadow-cljs` itself!) without having to clone

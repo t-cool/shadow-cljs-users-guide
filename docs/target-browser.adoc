@@ -49,7 +49,7 @@ creates many more files than just the main entry point javascript file during de
 ////
 警告: 各ビルドにはそれぞれ :output-dir が必要で、複数のビルドを同じディレクトリに置くことはできません。
 また、このディレクトリは、そのビルドが独占的に所有するものでなければなりません。そこには他のファイルがあってはいけません。
-shadow-cljs` は何も削除しませんが、そのままにしておいた方が安全です。コンパイル
+`shadow-cljs` は何も削除しませんが、そのままにしておいた方が安全です。コンパイル
 は、開発中にメインのエントリーポイントとなる javascript ファイル以外にも、ソースマップ、オリジナルソース、生成ソースなど、多くのファイルを作成します。
 
 ////
@@ -749,7 +749,7 @@ You can either configure this in your `shadow-cljs.edn` config for the project o
 ////
 The `:open-file-command` expects a vector representing a very simple DSL. Strings are kept as they are and keyword are replaced by their respective values. A nested vector can be used in case you need to combine multiple params, using `clojure.core/format` style pattern.
 ////
-open-file-command` では、非常にシンプルなDSLを表すベクターを想定しています。文字列はそのままで、キーワードはそれぞれの値で置き換えられます。clojure.core/format` スタイルのパターンを使用して、複数のパラメータを組み合わせる必要がある場合には、ネストしたベクターを使用することができます。
+open-file-command` では、非常にシンプルなDSLを表すベクターを想定しています。文字列はそのままで、キーワードはそれぞれの値で置き換えられます。 `clojure.core/format` スタイルのパターンを使用して、複数のパラメータを組み合わせる必要がある場合には、ネストしたベクターを使用することができます。
 
 ////
 The above example would execute
@@ -863,7 +863,7 @@ Browser devtools は、CSS を再読み込みすることもできます。こ�
 ////
 This will cause the browser to reload `/css/main.css` when `public/css/main.css` is changed.
 ////
-これにより、 `public/css/main.css` が変更されると、ブラウザは `/css/main.css` を再読み込みします。
+これにより、public/css/main.css` が変更されると、ブラウザは `/css/main.css` を再読み込みします。
 
 ////
 `shadow-cljs` currently provides no support for directly compiling CSS but the usual tools will work and should
@@ -915,7 +915,7 @@ HTTPサーバが仮想ディレクトリからファイルを提供していて�
 ////
 By default the devtools client will attempt to connect to the `shadow-cljs` process via the configured <<http, HTTP server>> (usually `localhost`). If you are using a reverse proxy to serve your HTML that might not be possible. You can set `:devtools-url` to configure which URL to use.
 ////
-デフォルトでは、devtools クライアントは、設定された <<http, HTTP server>> (通常は `localhost`) 経由で `shadow-cljs` プロセスへの接続を試みます。リバースプロキシを使用して HTML を配信している場合は、それができない場合があります。また、 `:devtools-url` を設定することで、使用するURLを設定することができます。
+デフォルトでは、devtools クライアントは、設定された <<http, HTTP server>> (通常は `localhost` ) 経由で `shadow-cljs` プロセスへの接続を試みます。リバースプロキシを使用して HTML を配信している場合は、それができない場合があります。また、 `:devtools-url` を設定することで、使用するURLを設定することができます。
 
 ```
 {...
