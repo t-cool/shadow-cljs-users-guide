@@ -501,7 +501,7 @@ Note that the empty `:entries []` in the `:shared` module will make it collect a
 ////
 .Sample using the worker
 ////
-.サンプル ワーカーの使用
+.Sample ワーカーの使用
 
 ```
 (ns my.app)
