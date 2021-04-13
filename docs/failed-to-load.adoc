@@ -4,7 +4,7 @@
 ////
 Sometimes `shadow-cljs` can fail to start properly. The errors are often very confusing and hard to identify. Most commonly this is caused by a few dependency conflicts on some of the important dependencies. When using just `shadow-cljs.edn` to manage your `:dependencies` it will provide a few extra checks to protect against these kinds of errors but when using `deps.edn` or `project.clj` these protections cannot be done so these errors happen more often when using those tools.
 ////
-時々 `shadow-cljs` が正しく起動しないことがあります。このエラーはしばしば非常に分かりづらく、特定するのが困難です。最も一般的な原因は、いくつかの重要な依存関係が衝突していることです。単に `:dependencies` の管理に `shadow-cljs.edn` を使用している場合には、これらの種類のエラーから守るためにいくつかの特別なチェックを行いますが、`deps.edn` や `project.clj` を使用している場合には、これらの保護を行うことができないため、これらのツールを使用している場合には、これらのエラーがより頻繁に発生します。
+時々 `shadow-cljs` が正しく起動しないことがあります。このエラーはしばしば非常に分かりづらく、特定するのが困難です。最も一般的な原因は、いくつかの重要な依存関係が衝突していることです。単に `:dependencies` の管理に `shadow-cljs.edn` を使用している場合には、これらの種類のエラーから守るためにいくつかの特別なチェックを行いますが、 `deps.edn` や `project.clj` を使用している場合には、これらの保護を行うことができないため、これらのツールを使用している場合には、これらのエラーがより頻繁に発生します。
 
 ////
 Generally the important dependencies to watch out for are
@@ -48,7 +48,7 @@ shadow-cljs` は、上に挙げたすべての依存関係について常に最�
 ////
 `shadow-cljs` is very often several versions ahead on the `com.google.javascript/closure-compiler-unshaded` version it uses, so if you are depending on the version `org.clojure/clojurescript` normally supplies that might cause issues. Make sure the `thheller/shadow-cljs` version is picked over the version preferred by `org.clojure/clojurescript`.
 ////
-そのため、`org.clojure/clojurescript` が通常提供しているバージョンに依存していると、問題が発生する可能性があります。そのため、`org.clojure/clojurescript` が通常供給するバージョンに依存している場合、問題が発生する可能性があります。
+そのため、 `org.clojure/clojurescript` が通常提供しているバージョンに依存していると、問題が発生する可能性があります。そのため、 `org.clojure/clojurescript` が通常供給するバージョンに依存している場合、問題が発生する可能性があります。
 
 ////
 If you want to make your live easier just use `shadow-cljs.edn` to manage your dependencies if you can. It is much less likely to have these problems or will at least warn you directly.
@@ -70,7 +70,7 @@ shadow-cljs.edn` の <<tools-deps, :deps>> キーで依存関係を管理する�
 ////
 First of all you should ensure that all dependencies directly declared in `deps.edn` have the expected version. Sometimes transitive dependencies can cause the inclusion of problematic versions. You can list all dependencies via:
 ////
-まず最初に、`deps.edn` で直接宣言されているすべての依存関係が、期待されるバージョンであることを確認する必要があります。推移的な依存関係によって、問題のあるバージョンが含まれていることがあります。すべての依存関係をリストアップするには、以下の方法があります。
+まず最初に、 `deps.edn` で直接宣言されているすべての依存関係が、期待されるバージョンであることを確認する必要があります。推移的な依存関係によって、問題のあるバージョンが含まれていることがあります。すべての依存関係をリストアップするには、以下の方法があります。
 
 ////
 .Listing all active dependencies
@@ -96,7 +96,7 @@ Please refer to the official https://clojure.org/reference/deps_and_cli[tools.de
 ////
 When using `project.clj` to manage you dependencies you'll need to specify your configured `:lein` profiles from `shadow-cljs.edn` when using `lein` directly to diagnose the problem. For example `:lein {:profiles "+cljs"}` would require `lein with-profiles +cljs` for every command.
 ////
-project.clj` を使って依存関係を管理している場合、`lein` を直接使って問題を診断するときには、`shadow-cljs.edn` から設定した `:lein` プロファイルを指定する必要があります。例えば、 `:lein {:profiles "+cljs"}` とすると、すべてのコマンドに対して `lein with-profiles +cljs` が必要になります。
+project.clj` を使って依存関係を管理している場合、 `lein` を直接使って問題を診断するときには、 `shadow-cljs.edn` から設定した `:lein` プロファイルを指定する必要があります。例えば、 `:lein {:profiles "+cljs"}` とすると、すべてのコマンドに対して `lein with-profiles +cljs` が必要になります。
 
 ////
 .Example listing of deps

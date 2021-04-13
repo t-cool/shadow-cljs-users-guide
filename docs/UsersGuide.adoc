@@ -152,7 +152,7 @@ You will need:
 ////
 In your project directory you'll need a `package.json`. If you do not have one yet you can create one by running `npm init -y`. If you don't have a project directory yet consider creating it by running
 ////
-プロジェクトのディレクトリには、package.json が必要です。まだない場合は、`npm init -y` を実行して作成することができます。プロジェクトディレクトリがない場合は、次のコマンドを実行して作成してください。
+プロジェクトのディレクトリには、package.json が必要です。まだない場合は、 `npm init -y` を実行して作成することができます。プロジェクトディレクトリがない場合は、次のコマンドを実行して作成してください。
 
 
 ```
@@ -167,7 +167,7 @@ This will create all the necessary basic files and you can skip the following co
 ////
 If you have a `package.json` already and just want to add `shadow-cljs` run
 ////
-すでに `package.json` があり、`shadow-cljs` を追加したいだけの場合は、以下を実行します。
+すでに `package.json` があり、 `shadow-cljs` を追加したいだけの場合は、以下を実行します。
 
 .NPM
 ```bash
@@ -182,7 +182,7 @@ $ yarn add --dev shadow-cljs
 ////
 For convenience you can run `npm install -g shadow-cljs` or `yarn global add shadow-cljs`. This will let you run the `shadow-cljs` command directly later. There should always be a shadow-cljs version installed in your project, the global install is optional.
 ////
-便宜上、`npm install -g shadow-cljs` または `yarn global add shadow-cljs` を実行することができます。これにより、後で `shadow-cljs` コマンドを直接実行できるようになります。あなたのプロジェクトには常に shadow-cljs のバージョンがインストールされている必要があり、グローバル・インストールは任意です。
+便宜上、 `npm install -g shadow-cljs` または `yarn global add shadow-cljs` を実行することができます。これにより、後で `shadow-cljs` コマンドを直接実行できるようになります。あなたのプロジェクトには常に shadow-cljs のバージョンがインストールされている必要があり、グローバル・インストールは任意です。
 
 
 == ライブラリ
@@ -190,7 +190,7 @@ For convenience you can run `npm install -g shadow-cljs` or `yarn global add sha
 ////
 Although it is recommended to run the standalone version via `npm` you can also embed `shadow-cljs` into any other Clojure JVM tool (eg. `lein`, `boot`, ...).
 ////
-スタンドアロン版は `npm` 経由で実行することが推奨されますが、`shadow-cljs` を他の Clojure JVM ツール (例えば lein や boot 等) に組み込むこともできます。
+スタンドアロン版は `npm` 経由で実行することが推奨されますが、 `shadow-cljs` を他の Clojure JVM ツール (例えば lein や boot 等) に組み込むこともできます。
 
 ////
 The artifact can be found at:
@@ -315,13 +315,13 @@ It is not recommended to separate source files by extension (eg. `src/clj`, `src
 ////
 Your dependencies are managed via the `:dependencies` key at the root of the `shadow-cljs.edn` config file. They are declared in the same notation that other Clojure tools like `lein` or `boot` use.
 ////
-依存関係は、`shadow-cljs.edn` 設定ファイルのルートにある `:dependencies` キーによって管理されます。これらは `lein` や `boot` のような他の Clojure ツールが使用するのと同じ記法で宣言されます。
+依存関係は、 `shadow-cljs.edn` 設定ファイルのルートにある `:dependencies` キーによって管理されます。これらは `lein` や `boot` のような他の Clojure ツールが使用するのと同じ記法で宣言されます。
 
 
 ////
 Each dependency is written as a vector using `[library-name "version-string"]` nested in one outer vector.
 ////
-各依存関係は`[ライブラリ名 "バージョン-文字列"]`を使ったベクターとして書かれ、1つの外側のベクターに入れ子になっています。
+各依存関係は `[ライブラリ名 "バージョン-文字列"]` を使ったベクターとして書かれ、1つの外側のベクターに入れ子になっています。
 
 
 ////
@@ -351,7 +351,7 @@ Notice that the source path is *only* specified once in the entire configuration
 ////
 You can use `npm` or `yarn` to manage your dependencies, please refer to their respective documentation.
 ////
-依存関係の管理には、`npm`や`yarn`を使うことができますが、それぞれのドキュメントを参照してください。
+依存関係の管理には、 `npm` や `yarn` を使うことができますが、それぞれのドキュメントを参照してください。
 
 
 ////
@@ -396,7 +396,7 @@ TIP: If you don’t have a `package.json` yet run `npm init` from a command line
 ////
 You might run into errors related to missing JS dependencies. Most ClojureScript libraries do not yet declare the `npm` packages they use since they still expect to use <<cljsjs, CLJSJS>>. We want to use `npm` directly which means you must manually install the `npm` packages until libraries properly declare the `:npm-deps` themselves.
 ////
-JSの依存関係の欠落に関連するエラーに遭遇するかもしれません。ほとんどの ClojureScript ライブラリは、使用する `npm` パッケージをまだ宣言していません。なぜなら、彼らはまだ <<cljsjs, CLJSJS>> を使用することを期待しているからです。私たちは `npm` を直接使用したいと考えています。つまり、ライブラリが適切に `:npm-deps` を宣言するまで、`npm` パッケージを手動でインストールする必要があります。
+JSの依存関係の欠落に関連するエラーに遭遇するかもしれません。ほとんどの ClojureScript ライブラリは、使用する `npm` パッケージをまだ宣言していません。なぜなら、彼らはまだ <<cljsjs, CLJSJS>> を使用することを期待しているからです。私たちは `npm` を直接使用したいと考えています。つまり、ライブラリが適切に `:npm-deps` を宣言するまで、 `npm` パッケージを手動でインストールする必要があります。
 
 ```text
 The required JS dependency "react" is not available, it was required by ...
@@ -406,7 +406,7 @@ The required JS dependency "react" is not available, it was required by ...
 ////
 This means that you should `npm install react`.
 ////
-これは、`npm install react`ということです。
+これは、 `npm install react` ということです。
 
 
 ////
@@ -420,7 +420,7 @@ TIP: `react` の場合は、おそらく以下の3つのパッケージが必要
 ////
 Most configuration will be done in the projects themselves via `shadow-cljs.edn` but some config may be user-dependent. Tools like https://docs.cider.mx[CIDER] may require the additional `cider-nrepl` dependency which would be useless for a different team member using Cursive when adding that dependency via `shadow-cljs.edn`.
 ////
-ほとんどの設定はプロジェクト自身で `shadow-cljs.edn` を通して行われますが、いくつかの設定はユーザーに依存しているかもしれません。https://docs.cider.mx[CIDER] のようなツールは、追加の `cider-nrepl` 依存関係を必要とするかもしれませんが、`shadow-cljs.edn` 経由でその依存関係を追加しても、Cursive を使用している別のチームメンバーには意味がありません。
+ほとんどの設定はプロジェクト自身で `shadow-cljs.edn` を通して行われますが、いくつかの設定はユーザーに依存しているかもしれません。https://docs.cider.mx[CIDER] のようなツールは、追加の `cider-nrepl` 依存関係を必要とするかもしれませんが、 `shadow-cljs.edn` 経由でその依存関係を追加しても、Cursive を使用している別のチームメンバーには意味がありません。
 
 ////
 A restricted set of config options can be added to `~/.shadow-cljs/config.edn` which will then apply to all projects built on this users machine.
@@ -430,7 +430,7 @@ A restricted set of config options can be added to `~/.shadow-cljs/config.edn` w
 ////
 Adding dependencies is allowed via the usual `:dependencies` key. Note that dependencies added here will apply to ALL projects. Keep them to a minimum and only put tool related dependencies here. Everything that is relevant to a build should remain in `shadow-cljs.edn` as otherwise things may not compile for other users. These dependencies will automatically be added when using `deps.edn` or `lein` as well.
 ////
-依存関係を追加するには、通常の `:dependencies` キーを使用します。ここで追加された依存関係は、すべてのプロジェクトに適用されることに注意してください。依存関係は最小限にして、ツール関連の依存関係だけをここに置くようにしてください。ビルドに関連するものはすべて `shadow-cljs.edn` に置いておくべきで、そうしないと他のユーザーがコンパイルできない可能性があります。これらの依存関係は、`deps.edn` や `lein` を使用する際にも自動的に追加されます。
+依存関係を追加するには、通常の `:dependencies` キーを使用します。ここで追加された依存関係は、すべてのプロジェクトに適用されることに注意してください。依存関係は最小限にして、ツール関連の依存関係だけをここに置くようにしてください。ビルドに関連するものはすべて `shadow-cljs.edn` に置いておくべきで、そうしないと他のユーザーがコンパイルできない可能性があります。これらの依存関係は、 `deps.edn` や `lein` を使用する際にも自動的に追加されます。
 
 ////
 .例 ~/.shadow-cljs/config.edn
@@ -458,13 +458,13 @@ deps.edn` を使って依存関係を解決する際に、追加のエイリア�
 ////
 This will make the `shadow-cljs` command use the `[:cider :cljs]` aliases in projects using `deps.edn`. This might be useful if you have an additional `:cider` alias in your `~/.clojure/deps.edn`.
 ////
-これにより、`deps.edn` を使用しているプロジェクトでは、`shadow-cljs` コマンドが `[:cider :cljs]` のエイリアスを使用するようになります。これは、あなたの `~/.clojure/deps.edn` に追加の `:cider` エイリアスがある場合に便利かもしれません。
+これにより、 `deps.edn` を使用しているプロジェクトでは、 `shadow-cljs` コマンドが `[:cider :cljs]` のエイリアスを使用するようになります。これは、あなたの `~/.clojure/deps.edn` に追加の `:cider` エイリアスがある場合に便利かもしれません。
 
 
 ////
 By default the `shadow-cljs` server-mode will launch an embedded nREPL server which you might not need. You can disable this by setting `:nrepl false` in user config.
 ////
-デフォルトでは、`shadow-cljs` サーバモードでは、組み込まれた nREPL サーバが起動しますが、これは必要ないかもしれません。これを無効にするには、ユーザー設定で `:nrepl false` を設定します。
+デフォルトでは、 `shadow-cljs` サーバモードでは、組み込まれた nREPL サーバが起動しますが、これは必要ないかもしれません。これを無効にするには、ユーザー設定で `:nrepl false` を設定します。
 
 
 ////
@@ -477,14 +477,14 @@ The only other currently accepted value in the user config is the <<open-file-co
 ////
 This section is for other options that configure the `shadow-cljs` server instance. They are optional.
 ////
-このセクションでは、`shadow-cljs` サーバインスタンスを構成するその他のオプションについて説明します。これらはオプションです。
+このセクションでは、 `shadow-cljs` サーバインスタンスを構成するその他のオプションについて説明します。これらはオプションです。
 
 === nREPL [[nREPL]]
 
 ////
 The `shadow-cljs` <<server-mode, server>> provides a https://nrepl.org[nREPL] server via TCP. If you look at the startup message you'll see the port of nREPL, and the port will also be stored in `target/shadow-cljs/nrepl.port`:
 ////
-`shadow-cljs` <<server-mode, server>> は TCP 経由で https://nrepl.org[nREPL] サーバを提供しています。起動メッセージを見ると、nREPLのポートが表示され、そのポートは`target/shadow-cljs/nrepl.port`にも保存されます。
+`shadow-cljs` <<server-mode, server>> は TCP 経由で https://nrepl.org[nREPL] サーバを提供しています。起動メッセージを見ると、nREPLのポートが表示され、そのポートは `target/shadow-cljs/nrepl.port` にも保存されます。
 
 ```bash
 $ shadow-cljs watch app
@@ -499,7 +499,7 @@ shadow-cljs - watching build :app
 ////
 You can configure the port and additional middleware with `shadow-cljs.edn`:
 ////
-shadow-cljs.edn`でポートや追加のミドルウェアを設定することができます。
+shadow-cljs.edn` でポートや追加のミドルウェアを設定することができます。
 
 
 ```clojure
@@ -512,19 +512,19 @@ shadow-cljs.edn`でポートや追加のミドルウェアを設定すること�
 ////
 The default global config file in `~/.nrepl/nrepl.edn` or the local `.nrepl.edn` will also be loaded on startup and can be used to configure `:middleware`.
 ////
-~/.nrepl/nrepl.edn` にあるデフォルトのグローバルコンフィグファイルや、ローカルの `.nrepl.edn` も起動時に読み込まれ、`:middleware` の設定に使用できます。
+~/.nrepl/nrepl.edn` にあるデフォルトのグローバルコンフィグファイルや、ローカルの `.nrepl.edn` も起動時に読み込まれ、 `:middleware` の設定に使用できます。
 
 
 ////
 If the popular middleware https://github.com/clojure-emacs/cider-nrepl[cider-nrepl] is found on the classpath (e.g. it's included in `:dependencies`), it will be used automatically. No additional configuration required. This can be disabled by setting `:nrepl {:cider false}`.
 ////
-人気のミドルウェア https://github.com/clojure-emacs/cider-nrepl[cider-nrepl] がクラスパス上にあれば（例：`:dependencies` に含まれている）、自動的に使用されます。追加の設定は必要ありません。これを無効にするには、`:nrepl {:cider false}`を設定します。
+人気のミドルウェア https://github.com/clojure-emacs/cider-nrepl[cider-nrepl] がクラスパス上にあれば（例：`:dependencies` に含まれている）、自動的に使用されます。追加の設定は必要ありません。これを無効にするには、 `:nrepl {:cider false}` を設定します。
 
 
 ////
 You may configure the namespace you start in when connecting by setting `:init-ns` in the `:nrepl` options. It defaults to `shadow.user`.
 ////
-nrepl`オプションで`:init-ns`を設定することで、接続時に起動する名前空間を設定することができます。デフォルトでは `shadow.user` となります。
+nrepl` オプションで `:init-ns` を設定することで、接続時に起動する名前空間を設定することができます。デフォルトでは `shadow.user` となります。
 
 ```clojure
 {...
@@ -535,7 +535,7 @@ nrepl`オプションで`:init-ns`を設定することで、接続時に起動�
 ////
 The nREPL server can be disabled by setting `:nrepl false`.
 ////
-nREPLサーバは、`:nrepl false`を設定することで無効にすることができます。
+nREPLサーバは、 `:nrepl false` を設定することで無効にすることができます。
 
 
 ==== nREPL Usage
@@ -563,7 +563,7 @@ TIP: Use `:cljs/quit` to return to Clojure.
 ////
 When you use `shadow-cljs` embedded in other tools that provide their own nREPL server (eg. `lein`) you need to configure the `shadow-cljs` middleware. Otherwise you won't be able to switch between CLJ and CLJS REPLs.
 ////
-独自のnREPLサーバを提供する他のツール（例：`lein`）に`shadow-cljs`を組み込んで使用する場合は、`shadow-cljs`ミドルウェアを設定する必要があります。そうしないと、CLJとCLJSのREPLの間で切り替えることができません。
+独自のnREPLサーバを提供する他のツール（例：`lein`）に `shadow-cljs` を組み込んで使用する場合は、 `shadow-cljs` ミドルウェアを設定する必要があります。そうしないと、CLJとCLJSのREPLの間で切り替えることができません。
 
 
 ////
@@ -596,7 +596,7 @@ Clojure Socket REPLは、サーバモードで自動的に起動され、デフ�
 ////
 You can also set a fixed port by via `shadow-cljs.edn`.
 ////
-また、`shadow-cljs.edn`で固定のポートを設定することもできます。
+また、 `shadow-cljs.edn` で固定のポートを設定することもできます。
 
 
 ```clojure
@@ -609,7 +609,7 @@ You can also set a fixed port by via `shadow-cljs.edn`.
 ////
 The Socket REPL can be disabled by setting `:socket-repl false`.
 ////
-Socket REPLは、`:socket-repl false`を設定することで無効にすることができます。
+Socket REPLは、 `:socket-repl false` を設定することで無効にすることができます。
 
 
 === SSL
@@ -617,13 +617,13 @@ Socket REPLは、`:socket-repl false`を設定することで無効にするこ�
 ////
 The `shadow-cljs` HTTP servers support SSL. It requires a Java Keystore that provides a matching private key and certificate.
 ////
-shadow-cljs`のHTTPサーバはSSLをサポートしています。そのためには、一致する秘密鍵と証明書を提供するJava Keystoreが必要です。
+shadow-cljs` のHTTPサーバはSSLをサポートしています。そのためには、一致する秘密鍵と証明書を提供するJava Keystoreが必要です。
 
 
 ////
 .`shadow-cljs.edn` with SSL configured
 ////
-.`shadow-cljs.edn`にSSLが設定されています。
+.`shadow-cljs.edn` にSSLが設定されています。
 
 ```
 {...
@@ -635,7 +635,7 @@ shadow-cljs`のHTTPサーバはSSLをサポートしています。そのため�
 ////
 The above are the defaults so if you want to use those it is fine to just set `:ssl {}`.
 ////
-上記はデフォルトなので、これらを使用したい場合は、`:ssl {}`を設定するだけで問題ありません。
+上記はデフォルトなので、これらを使用したい場合は、 `:ssl {}` を設定するだけで問題ありません。
 
 
 ////
@@ -653,7 +653,7 @@ java `keytool` コマンドを使ってキーストアを作成することが�
 ////
 The created `Certificates.p12` (macOS) or `localhost.pfx` (Linux, Windows) file can be turned into the required `keystore.jks` via the `keytool` utility.
 ////
-作成された `Certificates.p12` (macOS) または `localhost.pfx` (Linux, Windows) ファイルは、`keytool` ユーティリティーを使って、必要な `keystore.jks` にすることができます。
+作成された `Certificates.p12` (macOS) または `localhost.pfx` (Linux, Windows) ファイルは、 `keytool` ユーティリティーを使って、必要な `keystore.jks` にすることができます。
 
 ```bash
 $ keytool -importkeystore -destkeystore keystore.jks -srcstoretype PKCS12 -srckeystore localhost.pfx
@@ -671,7 +671,7 @@ IMPORTANT: You must generate the Certificate with a SAN (Subject Alternative Nam
 ////
 The `shadow-cljs` server starts one primary HTTP server. It is used to serve the UI and websockets used for Hot Reload and REPL clients. By default it listens on Port 9630. If that Port is in use it will increment by one and attempt again until an open Port is found.
 ////
-shadow-cljs`サーバは、1つのプライマリHTTPサーバを起動します。このサーバは、ホットリロードやREPLクライアントで使用されるUIやウェブソケットを提供するために使用されます。デフォルトでは、9630番ポートで待ち受けます。もしそのポートが使用中であれば、1つ増やして、開いているポートが見つかるまで再試行します。
+shadow-cljs` サーバは、1つのプライマリHTTPサーバを起動します。このサーバは、ホットリロードやREPLクライアントで使用されるUIやウェブソケットを提供するために使用されます。デフォルトでは、9630番ポートで待ち受けます。もしそのポートが使用中であれば、1つ増やして、開いているポートが見つかるまで再試行します。
 
 
 ////
@@ -686,7 +686,7 @@ shadow-cljs - server running at http://0.0.0.0:9630
 ////
 When `:ssl` is configured the server will be available via `https://` instead.
 ////
-ssl`が設定されている場合、サーバは代わりに`https://`を介して利用できます。
+ssl` が設定されている場合、サーバは代わりに `https://` を介して利用できます。
 
 
 ////
@@ -697,13 +697,13 @@ TIP: The server automatically supports HTTP/2 when using `:ssl`.
 ////
 If you prefer to set your own port instead you can do this via the `:http` config.
 ////
-代わりに独自のポートを設定したい場合は、`:http`の設定で行うことができます。
+代わりに独自のポートを設定したい場合は、 `:http` の設定で行うことができます。
 
 
 ////
 .`shadow-cljs.edn` with `:http` config
 ////
-.shadow-cljs.edn`に`:http`の設定をする。
+.shadow-cljs.edn` に `:http` の設定をする。
 
 ```
 {...
@@ -715,7 +715,7 @@ If you prefer to set your own port instead you can do this via the `:http` confi
 ////
 `:ssl` switches the server to server `https://` only. If you want to keep the `http://` version you can configure a separate `:ssl-port` as well.
 ////
-`:ssl` は、サーバを `https://` のみに切り替えます。もし、`http://` のバージョンを維持したい場合は、別の `:ssl-port` を設定することができます。
+`:ssl` は、サーバを `https://` のみに切り替えます。もし、 `http://` のバージョンを維持したい場合は、別の `:ssl-port` を設定することができます。
 
 ```
 {...
@@ -730,7 +730,7 @@ If you prefer to set your own port instead you can do this via the `:http` confi
 ////
 `shadow-cljs` can provide additional basic HTTP servers via the `:dev-http` config entry. By default these will serve all static files from the configured paths, and fall back to `index.html` when a resource is not found (this is what you typically want when developing an application which uses browser push state).
 ////
-shadow-cljs`では、`:dev-http`という設定項目で、追加の基本的なHTTPサーバを提供することができます。デフォルトでは、これらは設定されたパスからすべての静的ファイルを提供し、リソースが見つからない場合は `index.html` にフォールバックします (これは、ブラウザのプッシュステートを使用するアプリケーションを開発する際に、一般的に求められるものです)。
+shadow-cljs` では、 `:dev-http` という設定項目で、追加の基本的なHTTPサーバを提供することができます。デフォルトでは、これらは設定されたパスからすべての静的ファイルを提供し、リソースが見つからない場合は `index.html` にフォールバックします (これは、ブラウザのプッシュステートを使用するアプリケーションを開発する際に、一般的に求められるものです)。
 
 
 ////
@@ -746,7 +746,7 @@ IMPORTANT:: These are just generic web servers that server static files. They ar
 ////
 .Basic example serving the `public` directory via `http://localhost:8000`
 ////
-.基本的な例では、`http://localhost:8000`を介して`public`ディレクトリを提供しています。
+.基本的な例では、 `http://localhost:8000` を介して `public` ディレクトリを提供しています。
 
 ```
 {...
@@ -816,8 +816,8 @@ The longer config version expects a map and the supported options are:
 if a resource is not found for the given request. Defaults to `shadow.http.push-state/handle`.
 ////
 `:root`:: (String) リクエストを処理するためのパスです。classpath:` で始まるパスは、ファイルシステムではなく、クラスパスからリクエストを処理します。すべてのファイルシステムのパスは、プロジェクトのルートからの相対パスです。
-`:roots`:: 複数のルートパスが必要な場合は、`:root` の代わりに使用します。
-`:ssl-port`:: (文字列のベクトル) ssl`が設定されている場合、ssl接続にはこのポートを使用し、通常のHTTPサーバは通常のポートを使用します。ssl-port` が設定されておらず、`:ssl` が設定されている場合、デフォルトのポートは SSL リクエストのみをサーバします。
+`:roots`:: 複数のルートパスが必要な場合は、 `:root` の代わりに使用します。
+`:ssl-port`:: (文字列のベクトル) ssl` が設定されている場合、ssl接続にはこのポートを使用し、通常のHTTPサーバは通常のポートを使用します。ssl-port` が設定されておらず、 `:ssl` が設定されている場合、デフォルトのポートは SSL リクエストのみをサーバします。
 `:host`:: オプションです。リッスンするホスト名を指定します。デフォルトでは localhost になります。
 `:handler`:: オプションです。完全に修飾されたシンボルです。与えられたリクエストに対してリソースが見つからない場合に使用される `(defn handler [req] resp)` です。
 (defn handler [req] resp)` は、与えられたリクエストに対してリソースが見つからない場合に使用されます。デフォルトでは `shadow.http.push-state/handle` となります。
@@ -832,7 +832,7 @@ The following two options only apply when using the default, built-in handler an
 `:push-state/headers`:: (optional) A map of HTTP headers to respond with. Defaults to `text/html` standard headers.
 `:push-state/index`:: (optional) The file to serve. Defaults to `index.html`.
 ////
-`:push-state/headers`:: (オプション) 応答する HTTP ヘッダーのマップです。デフォルトでは、`text/html` という標準的なヘッダーを使用します。
+`:push-state/headers`:: (オプション) 応答する HTTP ヘッダーのマップです。デフォルトでは、 `text/html` という標準的なヘッダーを使用します。
 `:push-state/index`:: (オプション) サービスを提供するファイルです。デフォルトでは `index.html` が使用されます。
 
 
@@ -875,7 +875,7 @@ Additional optional Options to configure the connection handling are:
 ////
 追加オプション 接続処理を設定するオプションは以下の通りです。
 [横型].
-`:proxy-rewrite-host-header`:: boolean, デフォルトは true です。オリジナルの Host ヘッダーを使用するか、`:proxy-url` からのヘッダーを使用するかを決定します。上記の例では、`localhost` と `some.host` のどちらを使用するかを決定します。
+`:proxy-rewrite-host-header`:: boolean, デフォルトは true です。オリジナルの Host ヘッダーを使用するか、 `:proxy-url` からのヘッダーを使用するかを決定します。上記の例では、 `localhost` と `some.host` のどちらを使用するかを決定します。
 `:proxy-reuse-x-forwarded`:: boolean, デフォルトは false です。プロキシが自分自身を `X-Forwarded-For` リストに追加するか、新しいリストを開始するかを設定します。
 `:proxy-max-connection-retries`:: int, デフォルトは1です。
 `:proxy-max-request-time`:: intとしてのミリ秒、デフォルトは30000です。30秒のリクエストタイムアウトです。
@@ -891,7 +891,7 @@ JVM の起動に `shadow-cljs.edn` を使用する場合、JVM に直接渡さ�
 ////
 This is done by configuring `:jvm-opts` at the root of `shadow-cljs.edn` expecting a vector of strings.
 ////
-これは、`shadow-cljs.edn` のルートに `:jvm-opts` を設定して、文字列のベクトルを期待することで行われます。
+これは、 `shadow-cljs.edn` のルートに `:jvm-opts` を設定して、文字列のベクトルを期待することで行われます。
 
 
 ////
@@ -914,7 +914,7 @@ JVMに渡すことができる引数はバージョンによって異なりま�
 ////
 IMPORTANT: When using `deps.edn` or `project.clj` the `:jvm-opts` need to be configured there.
 ////
-重要: `deps.edn` や `project.clj` を使用する場合は、`:jvm-opts` を設定する必要があります。
+重要: `deps.edn` や `project.clj` を使用する場合は、 `:jvm-opts` を設定する必要があります。
 
 
 = ビルドの設定
@@ -1012,7 +1012,7 @@ The default `:ns-regexp` is `"-test$"`, so your first test could look like:
 ////
 In the Clojure world it is common to keep test files in their own source paths so the above example assumes you have configured `:source-paths ["src/main" "src/test"]` in your `shadow-cljs.edn` config. Your usual app code goes into `src/main` and the tests go into `src/test`. This however is optional and it is totally fine to keep everything in `src` and just use `:source-paths ["src"]`.
 ////
-Clojureの世界では、テストファイルをそれぞれのソースパスに置いておくのが一般的なので、上記の例では、`shadow-cljs.edn`の設定で`:source-paths ["src/main" "src/test"]`を設定していると仮定しています。通常のアプリのコードは `src/main` に入り、テストは `src/test` に入ります。ただし、これはオプションで、すべてを`src`に置いて、`:source-paths ["src"]`を使うだけでも全く問題ありません。
+Clojureの世界では、テストファイルをそれぞれのソースパスに置いておくのが一般的なので、上記の例では、 `shadow-cljs.edn` の設定で `:source-paths ["src/main" "src/test"]` を設定していると仮定しています。通常のアプリのコードは `src/main` に入り、テストは `src/test` に入ります。ただし、これはオプションで、すべてを `src` に置いて、 `:source-paths ["src"]` を使うだけでも全く問題ありません。
 
 == node.js におけるテスト　[[target-node-test]]
 
@@ -1066,7 +1066,7 @@ distribute code there are some things `shadow-cljs` cannot work around automatic
 can usually be solved with custom `:resolve` configs, but there may also be bugs or oversights.
 ////
 JSの世界は今でも急速に進化しており、誰もが同じ方法でコードを書いたり配布したりしているわけではありません。
-shadow-cljs`では自動的に回避できないものがあります。これらは
+shadow-cljs` では自動的に回避できないものがあります。これらは
 通常はカスタムの `:resolve` 設定で解決できますが、バグや見落としもあるかもしれません。
 
 
@@ -1086,7 +1086,7 @@ https://clojurians.slack.com/messages/C6N245JGG[`#shadow-cljs` Slackチャンネ
 ////
 The `shadow-cljs` compiler ensures that things on your source paths are compiled first, overriding files from JARs. This means that you can copy a source file from a library, patch it, and include it in your own source directory.
 ////
-shadow-cljs`コンパイラは、あなたのソースパス上にあるものが最初にコンパイルされるようにし、JARからのファイルを優先します。つまり、ライブラリからソースファイルをコピーしてパッチを当て、それを自分のソースディレクトリにインクルードすることができるのです。
+shadow-cljs` コンパイラは、あなたのソースパス上にあるものが最初にコンパイルされるようにし、JARからのファイルを優先します。つまり、ライブラリからソースファイルをコピーしてパッチを当て、それを自分のソースディレクトリにインクルードすることができるのです。
 
 ////
 This is a convenient way to test out fixes (even to `shadow-cljs` itself!) without having to clone

@@ -20,7 +20,7 @@ The relevant configuration options are:
 `:target`:: `:node-test` (ノードテスト)
 `:output-to`::: テストの実行に使用される最終的な出力ファイルです。
 `:ns-regexp`:: (オプション) プロジェクトファイルの名前空間にマッチする正規表現です。これはファイルをスキャンするだけで、ジャーはスキャンしません。デフォルトでは `"-test$"` となります。
-`:autorun`: (オプション) (boolean, optional) ビルドが完了した際に、`node`を介してテストを実行します。これは主に `watch` と組み合わせて使用することを想定しています。実行中のJVMを強制的に終了させる必要があるため、`node`プロセスの終了コードは返されません。
+`:autorun`: (オプション) (boolean, optional) ビルドが完了した際に、 `node` を介してテストを実行します。これは主に `watch` と組み合わせて使用することを想定しています。実行中のJVMを強制的に終了させる必要があるため、 `node` プロセスの終了コードは返されません。
 `:main`:: デフォルトは `shadow.test.node/main` で、これは `cljs.test` を使ってテストを実行します。
 
 ////
@@ -40,7 +40,7 @@ The relevant configuration options are:
 ////
 The `:node-test` target only generates the test file. You can run it via `node`.
 ////
-node-test`ターゲットは、テストファイルを生成するだけです。これを `node` 経由で実行することができます。
+node-test` ターゲットは、テストファイルを生成するだけです。これを `node` 経由で実行することができます。
 
 ////
 ```bash
@@ -72,4 +72,4 @@ $ shadow-cljs compile test && node out/node-tests.js
 ////
 The `node` process exit code will be set to `0` when successful and `1` on any failures. (The `node` process exit code will not be returned when using `:autorun`.)
 ////
-成功すると `node` プロセスの終了コードは `0` に設定され、失敗すると `1` に設定されます。(`:autorun` を使用している場合は、`node` プロセスの終了コードは返されません)。
+成功すると `node` プロセスの終了コードは `0` に設定され、失敗すると `1` に設定されます。(`:autorun` を使用している場合は、 `node` プロセスの終了コードは返されません)。

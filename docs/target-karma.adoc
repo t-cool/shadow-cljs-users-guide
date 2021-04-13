@@ -6,7 +6,7 @@ can add the appropriate wrappers around your tests so they will work in it.
 ////
 CLJSのテストをある種のCIサーバ上でブラウザに対して実行したい場合、次のことが必要になります。
 コマンドラインからテストを実行して、ステータスコードを返すことができる必要があります。Karmaはよく知られており
-そして、`shadow-cljs`には、あなたのテストの周りに適切なラッパーを追加できるターゲットが含まれています。
+そして、 `shadow-cljs` には、あなたのテストの周りに適切なラッパーを追加できるターゲットが含まれています。
 ターゲットが含まれており、テストに適切なラッパーを追加することで、テストがKarmaで動作するようになります。
 
 === Karmaのインストール
@@ -17,7 +17,7 @@ See their http://karma-runner.github.io[website] for full instructions. You'll t
 something like this is your `package.json`:
 ////
 詳しい説明は、http://karma-runner.github.io[ウェブサイト]をご覧ください。通常、次のようなものが必要になります。
-package.json`には以下のようなものが必要です。
+package.json` には以下のようなものが必要です。
 
 
 ```json
@@ -78,7 +78,7 @@ So you might have something like this:
 ////
 You also need a `karma.conf.js`:
 ////
-また、`karma.conf.js`も必要です。
+また、 `karma.conf.js` も必要です。
 
 ```javascript
 module.exports = function (config) {

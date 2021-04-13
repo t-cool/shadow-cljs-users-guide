@@ -92,12 +92,12 @@ shadow-cljsは、ファイルを扱う際に、Java Virtual Machine (JVM) とそ
 - Or a `.jar` file, representing Clojure(Script) or JVM libraries. These are compressed archives containing many files (basically just a `.zip` file). These are added by your `:dependencies`.
 ////
 - 設定の:source-pathsエントリで管理される、ローカルファイルシステムのディレクトリです。
-- あるいは、Clojure(Script)やJVMのライブラリを表す.jar`ファイルです。これらは、多くのファイルを含む圧縮アーカイブです(基本的には.zipファイルです)。これらは:dependenciesによって追加されます。
+- あるいは、Clojure(Script)やJVMのライブラリを表す.jar` ファイルです。これらは、多くのファイルを含む圧縮アーカイブです(基本的には.zipファイルです)。これらは:dependenciesによって追加されます。
 
 ////
 In the Clojure(Script) everything is namespaced and each name is expected to resolve to a file. If you have a `(ns demo.app)` namespace the compiler expects to find a `demo/app.cljs` (or `.cljc`) on the classpath. The classpath will be searched in order until it is found. Suppose you configured the `:source-paths ["src/main" "src/test"]` the compiler will first look for a `src/main/demo/app.cljs` and then `src/test/demo/app.cljs`. When the file is not found on any source path the JVM will begin looking into the `.jar` files on the classpath. When it finds a `demo/app.cljs` at the root of any of the libraries that file it will be used.
 ////
-Clojure(Script)では、すべてが名前空間化されていて、それぞれの名前がファイルに解決することが期待されています。(ns demo.app)という名前空間があれば、コンパイラはクラスパス上にdemo/app.cljs(または`.cljc`)があることを期待します。クラスパスは、それが見つかるまで順番に検索されます。例えば、`:source-paths ["src/main" "src/test"]` を設定したとすると、コンパイラはまず `src/main/demo/app.cljs` を探し、次に `src/test/demo/app.cljs` を探します。どのソースパスにもファイルが見つからない場合、JVMはクラスパス上の.jarファイルを探し始めます。そして、いずれかのライブラリのルートにdemo/app.cljsが見つかると、そのファイルが使用されます。
+Clojure(Script)では、すべてが名前空間化されていて、それぞれの名前がファイルに解決することが期待されています。(ns demo.app)という名前空間があれば、コンパイラはクラスパス上にdemo/app.cljs(または `.cljc`)があることを期待します。クラスパスは、それが見つかるまで順番に検索されます。例えば、 `:source-paths ["src/main" "src/test"]` を設定したとすると、コンパイラはまず `src/main/demo/app.cljs` を探し、次に `src/test/demo/app.cljs` を探します。どのソースパスにもファイルが見つからない場合、JVMはクラスパス上の.jarファイルを探し始めます。そして、いずれかのライブラリのルートにdemo/app.cljsが見つかると、そのファイルが使用されます。
 
 ////
 IMPORTANT: When a filename exists multiple times on the classpath then only the first one is used. Everything on the JVM and Clojure(Script) is namespaced to avoid such conflicts. Very similar to `npm` where each package must have a unique name.

@@ -49,7 +49,7 @@ You can choose the optimization level using the `:compiler-options` section of t
 ////
 IMPORTANT: You do not usually need to set `:optimizations` since the `:target` already sets it to an appropriate level.
 ////
-重要：`:target`ではすでに適切なレベルに設定されているので、通常は`:optimizations`を設定する必要はありません。
+重要：`:target` ではすでに適切なレベルに設定されているので、通常は`:optimizations` を設定する必要はありません。
 
 ////
 IMPORTANT: `:optimizations` only apply when using the `release` command. Development builds are never optimized by the Closure Compiler. Development builds are always set to `:none`.
@@ -107,17 +107,17 @@ can override settings by including a `:dev` and/or `:release` section in the bui
 ////
 Since we want builds to be fully optimized by the Closure Compiler `:advanced` compilation we need to deal with https://developers.google.com/closure/compiler/docs/api-tutorial3[Externs]. Externs represent pieces of code that are not included when doing `:advanced` compilation. `:advanced` works by doing whole program optimizations but some code we just won't be able to include so Externs inform the Compiler about this code. Without Externs the Compiler may rename or remove some code that it shouldn't.
 ////
-Closure Compiler `:advanced` のコンパイルによってビルドを完全に最適化したいので、https://developers.google.com/closure/compiler/docs/api-tutorial3[Externs]を扱う必要があります。Externsは、`:advanced`のコンパイルの際に含まれないコードの断片を表します。advanced`はプログラム全体の最適化を行いますが、どうしても含まれないコードもあるため、Externsはコンパイラにそのコードを知らせます。Externsがないと、コンパイラは含めるべきでないコードの名前を変えたり、削除したりすることがあります。
+Closure Compiler `:advanced` のコンパイルによってビルドを完全に最適化したいので、https://developers.google.com/closure/compiler/docs/api-tutorial3[Externs]を扱う必要があります。Externsは、 `:advanced` のコンパイルの際に含まれないコードの断片を表します。advanced` はプログラム全体の最適化を行いますが、どうしても含まれないコードもあるため、Externsはコンパイラにそのコードを知らせます。Externsがないと、コンパイラは含めるべきでないコードの名前を変えたり、削除したりすることがあります。
 
 ////
 Typically all JS Dependencies are foreign and won't be passed through `:advanced` and thus require Externs.
 ////
-通常、すべてのJS Dependenciesは外国のものであり、`:advanced`ではパスされないため、Externsが必要となります。
+通常、すべてのJS Dependenciesは外国のものであり、 `:advanced` ではパスされないため、Externsが必要となります。
 
 ////
 TIP: Externs are only required for `:advanced`, they are not required in `:simple` mode.
 ////
-ヒント: エクスターンが必要なのは `:advanced` モードのみで、`:simple` モードでは必要ありません。
+ヒント: エクスターンが必要なのは `:advanced` モードのみで、 `:simple` モードでは必要ありません。
 
 === エクスターンズの推論 [[infer-externs]]
 //Externs Inference [[infer-externs]]
@@ -125,7 +125,7 @@ TIP: Externs are only required for `:advanced`, they are not required in `:simpl
 ////
 To help deal with Externs the `shadow-cljs` compiler provides enhanced externs inference which can be enabled by setting `:infer-externs :auto` for your build.
 ////
-Externs を扱うために、`shadow-cljs` コンパイラは強化された externs 推論を提供しています。
+Externs を扱うために、 `shadow-cljs` コンパイラは強化された externs 推論を提供しています。
 
 ////
 .Example Config
@@ -145,7 +145,7 @@ Externs を扱うために、`shadow-cljs` コンパイラは強化された ext
 ////
 With `:auto` the compiler will perform additional checks at compile time for your files only. It won't warn you about possible externs issues in library code. `:all` will enable it for everthing but be aware that you may get a lot of warnings.
 ////
-auto`では、コンパイラはコンパイル時にあなたのファイルだけを対象に追加のチェックを行います。また、ライブラリコードに含まれる externs の問題については警告しません。all`では、すべてのファイルに対して有効になりますが、多くの警告を受ける可能性があることに注意してください。
+auto` では、コンパイラはコンパイル時にあなたのファイルだけを対象に追加のチェックを行います。また、ライブラリコードに含まれる externs の問題については警告しません。all` では、すべてのファイルに対して有効になりますが、多くの警告を受ける可能性があることに注意してください。
 
 ////
 When enabled you'll get warnings whenever the Compiler cannot figure out whether you are working with JS or CLJS code.
@@ -178,7 +178,7 @@ When enabled you'll get warnings whenever the Compiler cannot figure out whether
 ////
 In `:advanced` the compiler will be renaming `.baz` to something "shorter" and Externs inform the Compiler that this is an external property that should not be renamed.
 ////
-advanced`では、コンパイラが `.baz` を「より短い」ものにリネームしますが、Externs はこれがリネームしてはいけない外部プロパティであることをコンパイラに知らせます。
+advanced` では、コンパイラが `.baz` を「より短い」ものにリネームしますが、Externs はこれがリネームしてはいけない外部プロパティであることをコンパイラに知らせます。
 
 ////
 `shadow-cljs` can generate the appropriate externs if you add a typehint to the object you are performing native interop on.
@@ -236,7 +236,7 @@ IMPORTANT: Don't annotate everything with `^js`. Sometimes you may be doing inte
 ////
 Calls on globals do not require a typehint when using direct `js/` calls.
 ////
-重要：すべてを`^js`でアノテーションしないでください。時には、CLJS や ClosureJS のオブジェクトでインターロップを行うことがあります。これらはエクスターンを必要としません。CLJSオブジェクトを扱うことが確実な場合は、`^clj`のヒントを使うことをお勧めします。
+重要：すべてを`^js` でアノテーションしないでください。時には、CLJS や ClosureJS のオブジェクトでインターロップを行うことがあります。これらはエクスターンを必要としません。CLJSオブジェクトを扱うことが確実な場合は、 `^clj` のヒントを使うことをお勧めします。
 間違って `^js` を使用しても世界の終わりではありませんが、変数の名前を変更できるのに変更されない場合、いくつかの最適化に影響を与える可能性があります。
 
 ////
@@ -251,12 +251,12 @@ Calls on globals do not require a typehint when using direct `js/` calls.
 ////
 Calls on `:require` bindings are also inferred automatically.
 ////
-また、`:require` バインディングの呼び出しも自動的に推論されます。
+また、 `:require` バインディングの呼び出しも自動的に推論されます。
 
 ////
 .No hint required for `:as` and `:refer` bindings
 ////
-.as`と`:refer`のバインディングにヒントは必要ありません。
+.as` と`:refer` のバインディングにヒントは必要ありません。
 
 ```
 (ns my.app
@@ -272,7 +272,7 @@ Calls on `:require` bindings are also inferred automatically.
 ////
 Some libraries provide Externs as separate `.js` files. You can include them into your build via the `:externs` compiler options.
 ////
-一部のライブラリでは、エクスターンを個別の `.js` ファイルとして提供しています。Externsは、`:externs`コンパイラオプションを使って、ビルドに組み込むことができます。
+一部のライブラリでは、エクスターンを個別の `.js` ファイルとして提供しています。Externsは、 `:externs` コンパイラオプションを使って、ビルドに組み込むことができます。
 
 ////
 .Manual Externs Config
@@ -300,12 +300,12 @@ TIP: The compiler looks for files relative to the project root first. It will al
 ////
 Writing Externs by hand can be challenging and `shadow-cljs` provides a way to write a more convenient way to write them. In combination with `shadow-cljs check <your-build>` you can quickly add the missing Externs.
 ////
-Externsを手で書くことは困難ですが、`shadow-cljs`はより便利な書き方を提供します。また、`shadow-cljs check <your-build>` と組み合わせることで、不足している Externs を素早く追加することができます。
+Externsを手で書くことは困難ですが、 `shadow-cljs` はより便利な書き方を提供します。また、 `shadow-cljs check <your-build>` と組み合わせることで、不足している Externs を素早く追加することができます。
 
 ////
 Start by creating a `externs/<your-build>.txt`, so build `:app` would be `externs/app.txt`. In that file each line should be one word specifying a JS property that should not be renamed. Global variables should be prefixed by `global:`
 ////
-まず、`externs/<your-build>.txt`を作成します。ビルド `:app` は `externs/app.txt` となります。このファイルの各行は、名前を変更してはいけないJSのプロパティを1つの単語で指定します。グローバル変数の前には、`global:`を付けてください。
+まず、 `externs/<your-build>.txt` を作成します。ビルド `:app` は `externs/app.txt` となります。このファイルの各行は、名前を変更してはいけないJSのプロパティを1つの単語で指定します。グローバル変数の前には、 `global:` を付けてください。
 
 ////
 .Example externs/app.txt
@@ -380,7 +380,7 @@ Each of these options is specified as a Set of Strings. Please note that all the
 ////
 `shadow-cljs` can generate a detailed report for your `release` builds which includes a detailed breakdown of the included sources and how much they each contributed to the overall size.
 ////
-shadow-cljs` では、`release` のビルドに対して、含まれているソースの詳細な内訳と、それぞれが全体のサイズにどれだけ貢献しているかを含む、詳細なレポートを生成することができます。
+shadow-cljs` では、 `release` のビルドに対して、含まれているソースの詳細な内訳と、それぞれが全体のサイズにどれだけ貢献しているかを含む、詳細なレポートを生成することができます。
 
 ////
 A sample report can be found https://code.thheller.com/demos/build-report/huge.html[here].
@@ -397,7 +397,7 @@ $ npx shadow-cljs run shadow.cljs.build-report app report.html
 ////
 The above example will generate a `report.html` in the project directory for the `:app` build.
 ////
-上記の例では、`:app`をビルドする際に、プロジェクトディレクトリに`report.html`を生成します。
+上記の例では、 `:app` をビルドする際に、プロジェクトディレクトリに`report.html` を生成します。
 
 ////
 TIP: The generated `report.html` is entirely self-contained and includes all the required data/js/css. No other external sources are required.

@@ -11,7 +11,7 @@ https://www.npmjs.com/[npm]は、JavaScriptのデファクトスタンダード�
 ////
 Most npm packages will also include some instructions on how to use the actual code. The “old” CommonJS style just has `require` calls which translate directly:
 ////
-ほとんどのnpmパッケージには、実際のコードの使用方法に関する説明も含まれています。古い」CommonJSのスタイルでは、直接翻訳する`require`コールがあるだけです。
+ほとんどのnpmパッケージには、実際のコードの使用方法に関する説明も含まれています。古い」CommonJSのスタイルでは、直接翻訳する `require` コールがあるだけです。
 
 ```js
 var react = require("react");
@@ -25,7 +25,7 @@ var react = require("react");
 ////
 Whatever "string" parameter is used when calling require we transfer to the `:require` as-is. The `:as` alias is up to you. Once we have that we can use the code like any other CLJS namespace!
 ////
-requireを呼び出すときに使われたどんな "string "パラメータも、そのまま`:require`に転送されます。as`のエイリアスはあなた次第です。これができたら、他のCLJSの名前空間と同じようにコードを使うことができます。
+requireを呼び出すときに使われたどんな "string "パラメータも、そのまま `:require` に転送されます。as` のエイリアスはあなた次第です。これができたら、他のCLJSの名前空間と同じようにコードを使うことができます。
 
 ```
 (react/createElement "div" nil "hello world")
@@ -34,7 +34,7 @@ requireを呼び出すときに使われたどんな "string "パラメータも
 ////
 In `shadow-cljs`: *always use the `ns` form and whatever `:as` alias you provided.* You may also use `:refer` and `:rename`. This is different than what `:foreign-libs`/CLJSJS does where you include the thing in the namespace but then used a global `js/Thing` in your code.
 ////
-shadow-cljs`では。*常に `ns` 形式と、あなたが提供した `:as` のエイリアスを使用してください。* また、`:refer` や `:rename` を使用することもできます。これは、`:foreign-libs`/CLJSJSが行う、名前空間にものをインクルードしても、コードの中ではグローバルな`js/Thing`を使用するというものとは異なります。
+shadow-cljs` では。*常に `ns` 形式と、あなたが提供した `:as` のエイリアスを使用してください。* また、 `:refer` や `:rename` を使用することもできます。これは、 `:foreign-libs`/CLJSJSが行う、名前空間にものをインクルードしても、コードの中ではグローバルな `js/Thing` を使用するというものとは異なります。
 
 ////
 Some packages just export a single function which you can call directly by
@@ -46,7 +46,7 @@ using `(:require ["thing" :as thing])` and then `(thing)`.
 ////
 More recently some packages started using ES6 `import` statements in their examples. Those also translate pretty much 1:1 with one slight difference related to default exports.
 ////
-最近では、いくつかのパッケージがES6の`import`文を例に挙げています。これらもほぼ1:1で翻訳されていますが、デフォルトのエクスポートに関するわずかな違いがあります。
+最近では、いくつかのパッケージがES6の `import` 文を例に挙げています。これらもほぼ1:1で翻訳されていますが、デフォルトのエクスポートに関するわずかな違いがあります。
 
 ////
 The following table can be used for translation:
@@ -56,7 +56,7 @@ The following table can be used for translation:
 ////
 IMPORTANT: This table only applies if the code you are consuming is packaged as actual ES6+ code. If the code is packaged as CommonJS instead the `:default` may not apply. See the section below for more info.
 ////
-重要：この表は、消費されるコードが実際のES6+コードとしてパッケージされている場合にのみ適用されます。コードがCommonJSとしてパッケージされている場合は、`:default`は適用されないかもしれません。詳細は以下のセクションを参照してください。
+重要：この表は、消費されるコードが実際のES6+コードとしてパッケージされている場合にのみ適用されます。コードがCommonJSとしてパッケージされている場合は、 `:default` は適用されないかもしれません。詳細は以下のセクションを参照してください。
 
 ////
 .ES6 Import to CLJS Require
@@ -150,18 +150,18 @@ With our improved support we we can easily translate this to:
 The `:default` option is currently only available in `shadow-cljs`, you can
 https://dev.clojure.org/jira/browse/CLJS-2376[vote here] to hopefully make it standard. You can always use `:as alias` and then call `alias/default` if you prefer to stay compatible with standard CLJS in the meantime.
 ////
-現在、`:default` オプションは `shadow-cljs` でのみ利用可能です。
-https://dev.clojure.org/jira/browse/CLJS-2376[vote here]で標準化されることを期待します。標準的なCLJSとの互換性を保ちたい場合は、いつでも `:as alias` を使用して、`alias/default` を呼び出すことができます。
+現在、 `:default` オプションは `shadow-cljs` でのみ利用可能です。
+https://dev.clojure.org/jira/browse/CLJS-2376[vote here]で標準化されることを期待します。標準的なCLJSとの互換性を保ちたい場合は、いつでも `:as alias` を使用して、 `alias/default` を呼び出すことができます。
 
 ////
 Default exports are a new addition in ECMAScript Modules and do not exist in CommonJS code. Sometimes you will see examples of `import Foo from "something"` when the code is actually CommonJS code. In theses cases `(:require ["something" :default Foo])` will not work and `(:require ["something" :as Foo])` must be used instead.
 ////
-デフォルトのエクスポートは ECMAScript モジュールで新たに追加されたもので、CommonJS のコードには存在しません。時々、`import Foo from "something"`という例を見かけることがありますが、実際にはCommonJSのコードです。このような場合、`(:require ["something" :default Foo])`は動作せず、`(:require ["something" :as Foo])`を代わりに使用する必要があります。
+デフォルトのエクスポートは ECMAScript モジュールで新たに追加されたもので、CommonJS のコードには存在しません。時々、 `import Foo from "something"` という例を見かけることがありますが、実際にはCommonJSのコードです。このような場合、 `(:require ["something" :default Foo])` は動作せず、 `(:require ["something" :as Foo])` を代わりに使用する必要があります。
 
 ////
 If a `:require` does not seem to work properly it is recommended to try looking at it in the REPL.
 ////
-もし、`:require` が正しく機能していないようであれば、REPL で見てみることをお勧めします。
+もし、 `:require` が正しく機能していないようであれば、REPL で見てみることをお勧めします。
 
 ```
 $ shadow-cljs browser-repl (or node-repl)
@@ -179,7 +179,7 @@ nil
 ////
 Since printing arbitrary JS objects is not always useful (as seen above) you can use `(js/console.dir x)` instead to get a more useful representation in the browser console. `goog/typeOf` may also be useful at times. Since the above example shows `"function"` using `:default` would not work since `:default` basically is just syntax sugar for `x/default`.
 ////
-任意のJSオブジェクトを表示することは必ずしも便利ではないので（上の例のように）、代わりに `(js/console.dir x)` を使用すると、ブラウザのコンソールでより便利な表現を得ることができます。また、`goog/typeOf`が役に立つ場合もあります。上の例では `"function"` を示しているので、`:default` を使ってもうまくいきません。`:default` は基本的に `x/default` のシンタックスシュガーに過ぎないからです。
+任意のJSオブジェクトを表示することは必ずしも便利ではないので（上の例のように）、代わりに `(js/console.dir x)` を使用すると、ブラウザのコンソールでより便利な表現を得ることができます。また、 `goog/typeOf` が役に立つ場合もあります。上の例では `"function"` を示しているので、 `:default` を使ってもうまくいきません。`:default` は基本的に `x/default` のシンタックスシュガーに過ぎないからです。
 
 === パッケージプロバイダ [[js-provider]]
 //Package Provider [[js-provider]]
@@ -187,7 +187,7 @@ Since printing arbitrary JS objects is not always useful (as seen above) you can
 ////
 `shadow-cljs` supports several different ways to include `npm` packages into your build. They are configurable via the `:js-options :js-provider` setting. Each `:target` usually sets the one appropriate for your build most often you won't need to touch this setting.
 ////
-`shadow-cljs` は、`npm` パッケージをビルドに含めるためのいくつかの異なる方法をサポートしています。これらの方法は `:js-options :js-provider` 設定で設定できます。各 `:target` は通常、ビルドに適したものを設定しますが、ほとんどの場合、この設定を変更する必要はありません。
+`shadow-cljs` は、 `npm` パッケージをビルドに含めるためのいくつかの異なる方法をサポートしています。これらの方法は `:js-options :js-provider` 設定で設定できます。各 `:target` は通常、ビルドに適したものを設定しますが、ほとんどの場合、この設定を変更する必要はありません。
 
 ////
 Currently there are 3 supported JS Providers:
@@ -204,7 +204,7 @@ Currently there are 3 supported JS Providers:
 
 [Horizontal]
 `:require`:: JSの `require("thing")` 関数呼び出しに直接マッピングします。実行時にネイティブで `require` を解決することができるため、すべての `node.js` ターゲットのデフォルトとなります。インクルードされたJSは何も処理されません。
-`:shadow`:: JSを `node_modules` 経由で解決し、参照されている各ファイルの最小化されたバージョンをビルドに含めます。これは、`:browser` ターゲットのデフォルトです。`node_modules` のソースは `:advanced` のコンパイルを通過しません。
+`:shadow`:: JSを `node_modules` 経由で解決し、参照されている各ファイルの最小化されたバージョンをビルドに含めます。これは、 `:browser` ターゲットのデフォルトです。`node_modules` のソースは `:advanced` のコンパイルを通過しません。
 `:closure`:: shadow` と同様に解決されますが、Closure Compiler CommonJS/ES6 rewrite facilities を通じて、含まれる全てのファイルを処理しようとします。これらのファイルは `:advanced` のコンパイルでも処理されます。
 `:external`:: これは、他のJSビルドツールでも処理できるようになっており、実際にJSの依存関係を提供します。発行されたインデックス・ファイルには、CLJS の出力が JS の依存関係にアクセスできるようにするための、ちょっとしたグルー・コードが含まれています。外部インデックスファイルの出力は、CLJS 出力の前に読み込まれなければなりません。
 
@@ -221,17 +221,17 @@ Until support in Closure gets more reliable `:shadow` is the recommend JS Provid
 ////
 
 ****
-理想的には、主要な JS プロバイダとして `:closure` を使用したいところです。しかし実際には、`npm` 経由で入手できる多くのコードは、`:advanced` のコンパイルによる積極的な最適化とは互換性がありません。これらのコードは、まったくコンパイルできないか、実行時に特定が非常に困難な微妙なバグを露呈します。
+理想的には、主要な JS プロバイダとして `:closure` を使用したいところです。しかし実際には、 `npm` 経由で入手できる多くのコードは、 `:advanced` のコンパイルによる積極的な最適化とは互換性がありません。これらのコードは、まったくコンパイルできないか、実行時に特定が非常に困難な微妙なバグを露呈します。
 
-shadow` は、`:simple` を介してコードを処理するだけの、その場しのぎのソリューションのようなもので、適度に最適化されたコードを取得しつつ、より信頼性の高いサポートを実現しています。その出力は、`webpack`のような他のツールが生成するものと同等(あるいはそれ以上)であることが多いです。
+shadow` は、 `:simple` を介してコードを処理するだけの、その場しのぎのソリューションのようなもので、適度に最適化されたコードを取得しつつ、より信頼性の高いサポートを実現しています。その出力は、 `webpack` のような他のツールが生成するものと同等(あるいはそれ以上)であることが多いです。
 
-Closure のサポートがより確実なものになるまでは、`:shadow` が `:browser` ビルドの推奨 JS プロバイダとなります。
+Closure のサポートがより確実なものになるまでは、 `:shadow` が `:browser` ビルドの推奨 JS プロバイダとなります。
 ****
 
 ////
 .Example config for using `:closure` in a `:browser` build.
 ////
-.例 `:ブラウザ` のビルドで `:クロージャ` を使用するための設定です。
+.例 `:ブラウザ ` のビルドで `:クロージャ ` を使用するための設定です。
 
 ```clojure
 {...
@@ -249,17 +249,17 @@ Closure のサポートがより確実なものになるまでは、`:shadow` �
 ////
 Nowadays many `npm` packages ship multiple build variants. `shadow-cljs` will by default pick the variant linked under the `main` or `browser` key in `package.json`. This most commonly refers to CommonJS code. Some modern packages also provide a `module` entry which usually refers to ECMAScript code (meaning "modern" JS). Interop between CommonJS and ESM can be tricky so `shadow-cljs` defaults to using CommonJS but it can be beneficial to use ESM.
 ////
-最近では、多くの `npm` パッケージが複数のビルドバリアントを出荷しています。shadow-cljs` はデフォルトで、`package.json` の `main` または `browser` キーの下にリンクされているバリアントを選択します。これはほとんどの場合、CommonJS のコードを指しています。最近のパッケージの中には、`module` エントリを提供しているものもありますが、これは通常 ECMAScript のコード (つまり「モダンな」JS) を指しています。CommonJS と ESM の間の相互運用は難しいので、`shadow-cljs` のデフォルトは CommonJS を使用するようになっていますが、ESM を使用することが有益な場合もあります。
+最近では、多くの `npm` パッケージが複数のビルドバリアントを出荷しています。shadow-cljs` はデフォルトで、 `package.json` の `main` または `browser` キーの下にリンクされているバリアントを選択します。これはほとんどの場合、CommonJS のコードを指しています。最近のパッケージの中には、 `module` エントリを提供しているものもありますが、これは通常 ECMAScript のコード (つまり「モダンな」JS) を指しています。CommonJS と ESM の間の相互運用は難しいので、 `shadow-cljs` のデフォルトは CommonJS を使用するようになっていますが、ESM を使用することが有益な場合もあります。
 
 ////
 It is largely dependent on the packages you use whether this will work or not. You can configure `shadow-cljs`  to prefer the `module` entry via the `:entry-keys` JS option. It takes a vector of string keys found in `package.json` which will be tried in order. The default is `"["browser" "main" "module"]`.
 ////
-これが機能するかどうかは、使用しているパッケージに大きく依存します。JS オプションの `:entry-keys` を使って、`module` エントリを優先するように `shadow-cljs` を設定することができます。これは `package.json` に含まれる文字列キーのベクトルを受け取り、順番に試行されます。デフォルトでは `"["browser" "main" "module"]` となっています。
+これが機能するかどうかは、使用しているパッケージに大きく依存します。JS オプションの `:entry-keys` を使って、 `module` エントリを優先するように `shadow-cljs` を設定することができます。これは `package.json` に含まれる文字列キーのベクトルを受け取り、順番に試行されます。デフォルトでは `"["browser" "main" "module"]` となっています。
 
 ////
 .Example config for using `:closure` in a `:browser` build.
 ////
-.例 `:ブラウザ` のビルドで `:クロージャ` を使用するための設定です。
+.例 `:ブラウザ ` のビルドで `:クロージャ ` を使用するための設定です。
 
 ```clojure
 {...
@@ -282,7 +282,7 @@ Make sure to test thoroughly and compare the <<build-report, build report>> outp
 ////
 By default `shadow-cljs` will resolve all `(:require ["thing" :as x])` requires following the `npm` convention. This means it will look at `<project>/node_modules/thing/package.json` and follow the code from there. To customize how this works `shadow-cljs` exposes a `:resolve` config option that lets you override how things are resolved.
 ////
-デフォルトでは `shadow-cljs` はすべての `(:require ["thing" :as x])` の要求を `npm` の規則に従って解決します。つまり、`<project>/node_modules/thing/package.json` を見て、そこからコードを追っていきます。この動作をカスタマイズするために、`shadow-cljs` は `:resolve` 設定オプションを公開しており、これによって物事がどのように解決されるかをオーバーライドすることができます。
+デフォルトでは `shadow-cljs` はすべての `(:require ["thing" :as x])` の要求を `npm` の規則に従って解決します。つまり、 `<project>/node_modules/thing/package.json` を見て、そこからコードを追っていきます。この動作をカスタマイズするために、 `shadow-cljs` は `:resolve` 設定オプションを公開しており、これによって物事がどのように解決されるかをオーバーライドすることができます。
 
 ==== CDNの利用 [[js-resolve-global]]
 
@@ -291,7 +291,7 @@ By default `shadow-cljs` will resolve all `(:require ["thing" :as x])` requires 
 ////
 Say you already have React included in your page via a CDN. You could just start using `js/React` again but we stopped doing that for a good reason. Instead you can continue to use `(:require ["react" :as react])` but configure how "react" resolves!
 ////
-CDN経由ですでにReactがページに含まれているとします。JS/React`を再び使い始めることもできますが、私たちは正当な理由でそれをやめました。その代わりに、`(:require ["react" :as react])`を使い続けることができますが、"react "がどのように解決されるかを設定することができます。
+CDN経由ですでにReactがページに含まれているとします。JS/React` を再び使い始めることもできますが、私たちは正当な理由でそれをやめました。その代わりに、 `(:require ["react" :as react])` を使い続けることができますが、"react "がどのように解決されるかを設定することができます。
 
 ////
 Here is a sample `shadow-cljs.edn` config for such a build:
@@ -315,7 +315,7 @@ Here is a sample `shadow-cljs.edn` config for such a build:
 ////
 The `:app` build will now use the global `React` instance while the `:server` build continues using the "react" npm package! No need to fiddle with the code to make this work.
 ////
-app`のビルドでは、グローバルな`React`インスタンスが使用され、`:server`のビルドでは、引き続き "react "npmパッケージが使用されます。これを動作させるためにコードをいじる必要はありません。
+app` のビルドでは、グローバルな `React` インスタンスが使用され、 `:server` のビルドでは、引き続き "react "npmパッケージが使用されます。これを動作させるためにコードをいじる必要はありません。
 
 ==== require をリダイレクトする [[js-resolve-npm]]
 //Redirecting “require” [[js-resolve-npm]]
@@ -359,7 +359,7 @@ You can also use a file to override the dependency, the path is relative to the 
 ////
 The `:shadow-js` and `:closure` have full control over `:resolve` and everything mentioned above works without any downsides. The `:js-provider :require` however is more limited. Only the initial require can be influenced since the standard `require` is in control after that. This means it is not possible to influence what a package might `require` internally. It is therefore not recommended to be used with targets that use `require` directly (eg. `:node-script`).
 ////
-shadow-js` と `:closure` は `:resolve` を完全に制御することができ、上記のすべてが欠点なく動作します。しかし、`:js-provider :require` はより限定的です。最初のrequireにのみ影響を与えることができ、それ以降は標準の `require` が制御します。つまり、パッケージが内部で `require` するものに影響を与えることはできません。したがって、`require`を直接使用するターゲット（例：`:node-script`）と一緒に使用することはお勧めできません。
+shadow-js` と `:closure` は `:resolve` を完全に制御することができ、上記のすべてが欠点なく動作します。しかし、 `:js-provider :require` はより限定的です。最初のrequireにのみ影響を与えることができ、それ以降は標準の `require` が制御します。つまり、パッケージが内部で `require` するものに影響を与えることはできません。したがって、 `require` を直接使用するターゲット（例：`:node-script`）と一緒に使用することはお勧めできません。
 
 ////
 .Redirecting "react" to "preact"
@@ -391,7 +391,7 @@ react を preact にリダイレクトする
 ////
 The above works fine in the Browser since every `"react"` require will be replaced, including the `"react"` require `"react-table"` has internally. For `:js-provider :require` however a `require("react-table")` will be emitted and `node` will be in control how that is resolved. Meaning that it will resolve it to the standard `"react"` and not the `"preact"` we had configured.
 ////
-すべての `"react"` require が置換され、内部的に `"react-table"` が持っている `"react"` require を含むので、上記はブラウザでは問題なく動作します。しかし、`:js-provider :require`では、`require("react-table")`が発行され、`node`はそれがどのように解決されるかをコントロールします。つまり、私たちが設定した `"preact"` ではなく、標準の `"react"` に解決されるということです。
+すべての `"react"` require が置換され、内部的に `"react-table"` が持っている `"react"` require を含むので、上記はブラウザでは問題なく動作します。しかし、 `:js-provider :require` では、 `require("react-table")` が発行され、 `node` はそれがどのように解決されるかをコントロールします。つまり、私たちが設定した `"preact"` ではなく、標準の `"react"` に解決されるということです。
 
 === 代替モジュールのディレクトリ [[alt-node-modules]]
 //Alternate Modules Directories [[alt-node-modules]]
@@ -399,7 +399,7 @@ The above works fine in the Browser since every `"react"` require will be replac
 ////
 By default `shadow-cljs` will only look at the `<project-dir>/node_modules` directory when resolving JS packages. This can be configured via the `:js-package-dirs` option in `:js-options`. This can be applied globally or per build.
 ////
-デフォルトでは `shadow-cljs` は JS パッケージを解決する際に `<project-dir>/node_modules` ディレクトリのみを見ます。これは、`:js-options` の `:js-package-dirs` オプションで設定できます。これは、グローバルまたはビルドごとに適用することができます。
+デフォルトでは `shadow-cljs` は JS パッケージを解決する際に `<project-dir>/node_modules` ディレクトリのみを見ます。これは、 `:js-options` の `:js-package-dirs` オプションで設定できます。これは、グローバルまたはビルドごとに適用することができます。
 
 ////
 Relative paths will be resolved relative to the project root directory. Paths will be tried from left to right and the first matching package will be used.
@@ -445,13 +445,13 @@ CLJS has an alternate https://clojurescript.org/guides/javascript-modules[implem
 ****
 *DANGER: この機能は実験的なものです！* 現在は `shadow-cljs` でのみサポートされており、これを使おうとすると他の CLJS ツールに怒られます。自分の責任で使用してください。この機能は当初、CLJSのコアでは拒否されていましたが、私は便利だと思いますし、さらなる議論なしにhttps://dev.clojure.org/jira/browse/CLJS-2061?focusedCommentId=46191&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-46191[dismissed]されるべきではなかったと思います。
 
-CLJSには、https://clojurescript.org/guides/javascript-modules[implementation]という別の実装がありますが、これは`shadow-cljs`ではサポートされていません。私はこの実装がある種の面で不足していると感じたので、別の解決策を選びました。しかし、両方のアプローチの長所・短所を議論するのは楽しいことです。
+CLJSには、https://clojurescript.org/guides/javascript-modules[implementation]という別の実装がありますが、これは `shadow-cljs` ではサポートされていません。私はこの実装がある種の面で不足していると感じたので、別の解決策を選びました。しかし、両方のアプローチの長所・短所を議論するのは楽しいことです。
 ****
 
 ////
 We covered how <<npm, npm>> packages are used but you may be working on a codebase that already has lots of plain JavaScript and you don't want to rewrite everything in ClojureScript just yet. `shadow-cljs` provides 100% full interop between JavaScript and ClojureScript. Which means your JS can use your CLJS and CLJS can use your JS.
 ////
-私たちは <<npm, npm>> パッケージがどのように使用されるかをカバーしましたが、あなたはすでに多くのプレーンな JavaScript を持つコードベースに取り組んでいるかもしれず、まだすべてを ClojureScript で書き直したくはないでしょう。shadow-cljs`は、JavaScriptとClojureScriptの間の100%完全な相互運用性を提供します。つまり、あなたのJSはあなたのCLJSを使うことができ、CLJSはあなたのJSを使うことができるということです。
+私たちは <<npm, npm>> パッケージがどのように使用されるかをカバーしましたが、あなたはすでに多くのプレーンな JavaScript を持つコードベースに取り組んでいるかもしれず、まだすべてを ClojureScript で書き直したくはないでしょう。shadow-cljs` は、JavaScriptとClojureScriptの間の100%完全な相互運用性を提供します。つまり、あなたのJSはあなたのCLJSを使うことができ、CLJSはあなたのJSを使うことができるということです。
 
 ////
 There are only a few conventions you need to follow in order for this to work reliably but chances are that you are already doing that anyways.
@@ -466,7 +466,7 @@ There are only a few conventions you need to follow in order for this to work re
 ////
 We already covered how `npm` packages are accessed by their name but on the classpath we access `.js` files by either a full path or relative to the current namespace.
 ////
-先ほど、`npm`パッケージに名前でアクセスする方法を説明しましたが、クラスパス上では、`.js`ファイルにフルパスまたは現在の名前空間からの相対パスでアクセスします。
+先ほど、 `npm` パッケージに名前でアクセスする方法を説明しましたが、クラスパス上では、 `.js` ファイルにフルパスまたは現在の名前空間からの相対パスでアクセスします。
 
 ////
 .Loading JS from the classpath
@@ -493,7 +493,7 @@ some-library/components/foo` のような絶対的な要求は、ローカルフ
 ////
 Relative requires are resolved by first looking at the current namespace and then resolving a relative path from that name. In the above example we are in `demo/app.cljs` to the `./bar` require resolves to `demo/bar.js`, so it is identical to `(:require ["/demo/bar"])`.
 ////
-相対的なrequireは、まず現在の名前空間を見て、その名前からの相対パスを解決します。上の例では、`demo/app.cljs` から `./bar` の require は `demo/bar.js` に解決されるので、`(:require ["/demo/bar"])` と同じになります。
+相対的なrequireは、まず現在の名前空間を見て、その名前からの相対パスを解決します。上の例では、 `demo/app.cljs` から `./bar` の require は `demo/bar.js` に解決されるので、 `(:require ["/demo/bar"])` と同じになります。
 
 ////
 IMPORTANT: The files must not be physically located in the same directory. The lookup for the file appears on the classpath instead. This is unlike node which expects relative requires to always resolve to physical files.
@@ -524,12 +524,12 @@ IMPORTANT: The files must not be physically located in the same directory. The l
 ////
 IMPORTANT: It is expected that the classpath only contains JavaScript that can be consumed without any pre-processing by the Compiler. `npm` has a very similar convention.
 ////
-重要: クラスパスには、コンパイラが前処理をしなくても消費できるJavaScriptだけが含まれていることが期待されています。npm`にもよく似た規約があります。
+重要: クラスパスには、コンパイラが前処理をしなくても消費できるJavaScriptだけが含まれていることが期待されています。npm` にもよく似た規約があります。
 
 ////
 The Closure Compiler is used for processing all JavaScript found on the classpath using its `ECMASCRIPT_NEXT` language setting. What exactly this setting means is not well documented but it mostly represents the next generation JavaScript code which might not even be supported by most browsers yet. ES6 is very well supported as well as most ES8 features. Similarly to standard CLJS this will be compiled down to ES5 with polyfills when required.
 ////
-Closure Compilerは、クラスパス上で見つかった全てのJavaScriptを、その言語設定である`ECMASCRIPT_NEXT`を使って処理します。この設定が正確に何を意味するのかはよくわかっていませんが、ほとんどのブラウザではまだサポートされていないかもしれない次世代のJavaScriptコードを表しています。ES6は非常によくサポートされており、ほとんどのES8の機能もサポートされています。標準的なCLJSと同様に、これは必要に応じてポリフィルを用いてES5にコンパイルされます。
+Closure Compilerは、クラスパス上で見つかった全てのJavaScriptを、その言語設定である `ECMASCRIPT_NEXT` を使って処理します。この設定が正確に何を意味するのかはよくわかっていませんが、ほとんどのブラウザではまだサポートされていないかもしれない次世代のJavaScriptコードを表しています。ES6は非常によくサポートされており、ほとんどのES8の機能もサポートされています。標準的なCLJSと同様に、これは必要に応じてポリフィルを用いてES5にコンパイルされます。
 
 ////
 Since the Closure Compiler is getting constant updates newer features will be available over time. Just don't expect to use the latest cutting edge preview features to be available immediately. Somewhat recent additions like `async/await` already work quite well.
@@ -539,7 +539,7 @@ Closure Compilerは常にアップデートされていますので、新しい�
 ////
 The JS should be written using ES Module Syntax using `import` and `export`. JS files can include other JS files and reference CLJS code directly. They may also access `npm` packages directly with one caveat.
 ////
-JSは、`import`と`export`を使って、ESモジュール構文を使って書く必要があります。JSファイルは、他のJSファイルをインクルードしたり、CLJSのコードを直接参照することができます。また、`npm`パッケージに直接アクセスすることもできますが、ひとつ注意点があります。
+JSは、 `import` と `export` を使って、ESモジュール構文を使って書く必要があります。JSファイルは、他のJSファイルをインクルードしたり、CLJSのコードを直接参照することができます。また、 `npm` パッケージに直接アクセスすることもできますが、ひとつ注意点があります。
 
 ```js
 // regular JS require
@@ -559,7 +559,7 @@ export function inc(num) {
 ////
 IMPORTANT: Due to strict checking of the Closure Compiler it is not possible to use the `import * as X from "npm";` syntax when requiring CLJS or npm code. It is fine to use when requiring other JS files.
 ////
-重要：Closure Compilerの厳密なチェックにより、CLJSやnpmのコードを必要とする場合、`import * as X from "npm";`の構文を使用することはできません。他のJSファイルを必要とする場合には問題なく使用できます。
+重要：Closure Compilerの厳密なチェックにより、CLJSやnpmのコードを必要とする場合、 `import * as X from "npm";` の構文を使用することはできません。他のJSファイルを必要とする場合には問題なく使用できます。
 
 === JavaScriptの方言
 //JavaScript Dialects
@@ -567,7 +567,7 @@ IMPORTANT: Due to strict checking of the Closure Compiler it is not possible to 
 ////
 Since there are many popular JavaScript dialects (JSX, CoffeeScript, etc) that are not directly parsable by the Closure Compiler we need to pre-process them before putting them onto the classpath. https://babeljs.io/[babel] is commonly used in the JavaScript world so we are going to use `babel` to process `.jsx` files as an example here.
 ////
-一般的なJavaScriptの方言（JSX、CoffeeScriptなど）には、Closure Compilerでは直接解析できないものが多いため、クラスパスに置く前に前処理を行う必要があります。https://babeljs.io/[babel]はJavaScriptの世界でよく使われているので、ここでは例として`.jsx`ファイルを処理するために`babel`を使用します。
+一般的なJavaScriptの方言（JSX、CoffeeScriptなど）には、Closure Compilerでは直接解析できないものが多いため、クラスパスに置く前に前処理を行う必要があります。https://babeljs.io/[babel]はJavaScriptの世界でよく使われているので、ここでは例として `.jsx` ファイルを処理するために `babel` を使用します。
 
 ////
 .Example shadow-cljs.edn Config
@@ -619,7 +619,7 @@ export { myComponent };
 ////
 We run https://babeljs.io/docs/usage/cli/[babel] to convert the files and write them to the configured `src/gen` directory. Which directory you use it up to you. I prefer `src/gen` for generated files.
 ////
-https://babeljs.io/docs/usage/cli/[babel]を実行してファイルを変換し、設定された`src/gen`ディレクトリに書き込んでいます。どのディレクトリを使うかはあなた次第です。私は生成されたファイルには`src/gen`を使いたい。
+https://babeljs.io/docs/usage/cli/[babel]を実行してファイルを変換し、設定された `src/gen` ディレクトリに書き込んでいます。どのディレクトリを使うかはあなた次第です。私は生成されたファイルには `src/gen` を使いたい。
 
 ```bash
 $ babel src/js --out-dir src/gen
@@ -657,7 +657,7 @@ IMPORTANT: `shadow-cljs` currently does not provide any support for running thos
 ////
 The JS sources can access all your ClojureScript (and the Closure Library) directly by importing their namespaces with a `goog:` prefix which the Compiler will rewrite to expose the namespace as the default ES6 export.
 ////
-JSソースは、名前空間を`goog:`というプレフィックスでインポートすることで、すべてのClojureScript（およびClosure Library）に直接アクセスすることができます。このプレフィックスは、コンパイラが名前空間をデフォルトのES6エクスポートとして公開するように書き換えます。
+JSソースは、名前空間を `goog:` というプレフィックスでインポートすることで、すべてのClojureScript（およびClosure Library）に直接アクセスすることができます。このプレフィックスは、コンパイラが名前空間をデフォルトのES6エクスポートとして公開するように書き換えます。
 
 
 ```
@@ -671,7 +671,7 @@ cljs.array_map(keyword("foo"), "hello world");
 ////
 TIP: The `goog:` prefix currently only works for ES6 file. `require("goog:cljs.core")` does not work.
 ////
-ヒント：現在、`goog:`という接頭辞は、ES6ファイルにしか使えません。`require("goog:cljs.core")` は動作しません。
+ヒント：現在、 `goog:` という接頭辞は、ES6ファイルにしか使えません。`require("goog:cljs.core")` は動作しません。
 
 == cljsjs.* の移行について [[cljsjs]]
 //Migrating cljsjs.* [[cljsjs]]
@@ -689,12 +689,12 @@ Since `shadow-cljs` can access <<npm, npm packages>> directly we do not need to 
 ////
 However many CLJS libraries are still using CLJSJS packages and they would break with `shadow-cljs` since it doesn't support those anymore. It is however very easy to mimick those `cljsjs` namespaces since they are mostly build from `npm` packages anyways. It just requires one shim file that maps the `cljsjs.thing` back to its original `npm` package and exposes the expected global variable.
 ////
-しかし、多くの CLJS ライブラリはまだ CLJSJS パッケージを使用しており、`shadow-cljs` はそれらをもうサポートしていないので、それらは壊れてしまいます。しかし、これらの `cljsjs` 名前空間を模倣するのはとても簡単です。なぜなら、それらはほとんど `npm` パッケージから構築されているからです。それには、`cljsjs.thing` を元の `npm` パッケージにマップして、期待されるグローバル変数を公開する shim ファイルが必要です。
+しかし、多くの CLJS ライブラリはまだ CLJSJS パッケージを使用しており、 `shadow-cljs` はそれらをもうサポートしていないので、それらは壊れてしまいます。しかし、これらの `cljsjs` 名前空間を模倣するのはとても簡単です。なぜなら、それらはほとんど `npm` パッケージから構築されているからです。それには、 `cljsjs.thing` を元の `npm` パッケージにマップして、期待されるグローバル変数を公開する shim ファイルが必要です。
 
 ////
 For React this requires a file like `src/cljsjs/react.cljs`:
 ////
-Reactの場合は、`src/cljsjs/react.cljs`のようなファイルが必要です。
+Reactの場合は、 `src/cljsjs/react.cljs` のようなファイルが必要です。
 
 ```
 (ns cljsjs.react
@@ -718,7 +718,7 @@ library which provides just that. It does not include every package but I’ll k
 NOTE: The `shadow-cljsjs` library only provides the shim files. You’ll still need to
 `npm install` the actual packages yourself.
 ////
-注：`shadow-cljsjs`ライブラリは、shimファイルを提供するだけです。実際のパッケージは、自分で
+注：`shadow-cljsjs` ライブラリは、shimファイルを提供するだけです。実際のパッケージは、自分で
 自分で実際のパッケージを `npm install` する必要があります。
 
 
@@ -728,17 +728,17 @@ NOTE: The `shadow-cljsjs` library only provides the shim files. You’ll still n
 ////
 CLJSJS packages basically just take the package from `npm` and put them into a `.jar` and re-publish them via https://clojars.org[clojars]. As a bonus they often bundle Externs. The compiler otherwise does nothing with these files and only prepends them to the generated output.
 ////
-CLJSJSのパッケージは、基本的に`npm`からパッケージを取り出し、`.jar`に入れて、https://clojars.org[clojars]で再公開するだけです。おまけにExternsもバンドルされています。コンパイラはこれらのファイルに対して何もせず、生成された出力の先頭に追加するだけです。
+CLJSJSのパッケージは、基本的に `npm` からパッケージを取り出し、 `.jar` に入れて、https://clojars.org[clojars]で再公開するだけです。おまけにExternsもバンドルされています。コンパイラはこれらのファイルに対して何もせず、生成された出力の先頭に追加するだけです。
 
 ////
 This was very useful when we had no access to `npm` directly but has certain issues since not all packages are easily combined with others. A package might rely on `react` but instead of expressing this via `npm` https://github.com/cljsjs/packages/tree/master/material-ui[they] bundle their own `react`. If you are not careful you could end up including 2 different `react` versions in your build which may lead to very confusing errors or at the very least increase the build size substantially.
 ////
-これは、`npm` に直接アクセスできないときには非常に便利でしたが、すべてのパッケージが他のパッケージと簡単に結合できるわけではないので、ある種の問題があります。あるパッケージは `react` に依存しているかもしれませんが、`npm` を通してこれを表現するのではなく、 https://github.com/cljsjs/packages/tree/master/material-ui[彼らは] 自分自身の `react` をバンドルします。注意しないと、2つの異なる `react` バージョンをビルドに含めることになり、非常に紛らわしいエラーが発生したり、少なくともビルドサイズが大幅に大きくなったりする可能性があります。
+これは、 `npm` に直接アクセスできないときには非常に便利でしたが、すべてのパッケージが他のパッケージと簡単に結合できるわけではないので、ある種の問題があります。あるパッケージは `react` に依存しているかもしれませんが、 `npm` を通してこれを表現するのではなく、 https://github.com/cljsjs/packages/tree/master/material-ui[彼らは] 自分自身の `react` をバンドルします。注意しないと、2つの異なる `react` バージョンをビルドに含めることになり、非常に紛らわしいエラーが発生したり、少なくともビルドサイズが大幅に大きくなったりする可能性があります。
 
 ////
 Apart from that not every `npm` package is available via CLJSJS and keeping the package versions in sync requires manual work, which means packages are often out of date.
 ////
-また、すべての`npm`パッケージがCLJSJSで利用できるわけではなく、パッケージのバージョンを同期させるには手作業が必要なため、パッケージが古くなってしまうこともあります。
+また、すべての `npm` パッケージがCLJSJSで利用できるわけではなく、パッケージのバージョンを同期させるには手作業が必要なため、パッケージが古くなってしまうこともあります。
 
 ////
 `shadow-cljs` does not support CLJSJS at all to avoid conflicts in your code. One library might attempt to use the "old" `cljsjs.react` while another uses the newer `(:require ["react"])` directly. This would again lead to 2 versions of `react` on your page again.

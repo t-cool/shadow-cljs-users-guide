@@ -1,7 +1,7 @@
 ////
 The `:browser` target produces output intended to run in a Browser environment. During development it supports live code reloading, REPL, CSS reloading. The `release` output will be minified by the Closure Compiler with `:advanced` optimizations.
 ////
-ブラウザ`ターゲットは、ブラウザ環境での実行を想定した出力を行います。開発時には、ライブコードリロード、REPL、CSSリロードをサポートします。release`の出力は、Closure Compilerによって`:advanced`の最適化でミニマイズされます。
+ブラウザ ` ターゲットは、ブラウザ環境での実行を想定した出力を行います。開発時には、ライブコードリロード、REPL、CSSリロードをサポートします。release` の出力は、Closure Compilerによって `:advanced` の最適化でミニマイズされます。
 
 ////
 A basic browser configuration looks like this:
@@ -58,7 +58,7 @@ generated javascript. It allows you to output your javascript module to a partic
 of your web server's root. The dynamic loading during development (hot code reload) and production
 (code splitting) need this to correctly locate files.
 ////
-:asset-path`は、モジュールの読み込みコードのパスに追加されるプレフィックスで、生成されたjavascriptの中に含まれます。
+:asset-path` は、モジュールの読み込みコードのパスに追加されるプレフィックスで、生成されたjavascriptの中に含まれます。
 プレフィックスです。これにより、ウェブサーバのルートの特定のサブディレクトリにjavascriptモジュールを出力することができます。
 に出力することができます。開発時の動的な読み込み（ホットコードリロード）や生産時の動的な読み込み（コード分割）には、このプレフィックスが必要です。
 コード分割）は、ファイルを正しく配置するためにこれを必要とします。
@@ -75,7 +75,7 @@ For example: if your web server will serve the folder `public/x` when asked for 
 and your `output-dir` for a module is `public/assets/app/js` then your asset-path should be `/assets/app/js`.
 You are not required to use an absolute asset path, but it is highly recommended.
 ////
-例えば、`/x`というURIを求められたときに、Webサーバが`public/x`というフォルダを提供する場合。
+例えば、 `/x` というURIを求められたときに、Webサーバが `public/x` というフォルダを提供する場合。
 そして、モジュールの `output-dir` が `public/assets/app/js` であれば、アセットパスは `/assets/app/js` となります。
 アセットパスの絶対値を使用する必要はありませんが、強く推奨します。
 
@@ -160,13 +160,13 @@ The following example shows a minimum module configuration:
 `shadow-cljs` will follow the dependency graph from the root set of code entry points in the `:entries`
 to find everything needed to actually compile and include in the output. Namespaces that are not required will not be included.
 ////
-`shadow-cljs` は、`:entries` にあるコードエントリポイントのルートセットから依存関係グラフをたどります。
+`shadow-cljs` は、 `:entries` にあるコードエントリポイントのルートセットから依存関係グラフをたどります。
 にあるコードエントリポイントのルートセットから依存関係グラフをたどり、実際にコンパイルして出力に含めるために必要なものをすべて見つけます。必要とされない名前空間は含まれません。
 
 ////
 The above config will create a `public/js/main.js` file. During development there will be an additional `public/js/cljs-runtime` directory with lots of files. This directory is not required for `release` builds.
 ////
-上記の設定では、`public/js/main.js`というファイルが作成されます。開発段階では、多くのファイルが格納された `public/js/cljs-runtime` ディレクトリが追加されます。このディレクトリは `release` のビルドでは必要ありません。
+上記の設定では、 `public/js/main.js` というファイルが作成されます。開発段階では、多くのファイルが格納された `public/js/cljs-runtime` ディレクトリが追加されます。このディレクトリは `release` のビルドでは必要ありません。
 
 == コード・スプリッティング [[CodeSplitting]]
 
@@ -180,7 +180,7 @@ Declaring more than one Module requires a tiny bit of additional static configur
 ////
 In addition to `:entries` you'll need to declare which module depends on which (via `:depends-on`). How you structure this is entirely up to your needs and there is no one-size-fits-all solution unfortunately.
 ////
-entries`に加えて、どのモジュールがどのモジュールに依存しているか（`:depend-on`で）を宣言する必要があります。これをどのように構成するかはニーズ次第で、残念ながら万能のソリューションはありません。
+entries` に加えて、どのモジュールがどのモジュールに依存しているか（`:depend-on` で）を宣言する必要があります。これをどのように構成するかはニーズ次第で、残念ながら万能のソリューションはありません。
 
 ////
 Say you have a traditional website with actual different pages.
@@ -204,7 +204,7 @@ One good configuration for this would be to have one common module that is share
 ////
 .Example config with multiple `:modules`
 ////
-.例 複数の`:modules`をもつ設定
+.例 複数の `:modules` をもつ設定
 
 ```clojure
 {...
@@ -277,7 +277,7 @@ These days Single-Page-Apps (SPA) are becoming more popular and they work simila
 ////
 The compiler supports generating the required data for using the `shadow.loader` utility namespace. It exposes a simple interface to let you load modules on-demand at runtime.
 ////
-コンパイラは、`shadow.loader` ユーティリティー名前空間の使用に必要なデータの生成をサポートしています。これは、実行時にオンデマンドでモジュールをロードするためのシンプルなインターフェイスを公開しています。
+コンパイラは、 `shadow.loader` ユーティリティー名前空間の使用に必要なデータの生成をサポートしています。これは、実行時にオンデマンドでモジュールをロードするためのシンプルなインターフェイスを公開しています。
 
 ////
 You only need to add `:module-loader true` to your build config. The loader will always be injected into the default module (the one everything else depends on).
@@ -364,7 +364,7 @@ Then the following expressions can be used for loading code:
 ////
 You can check if a module is loaded using `(loaded? "module-name")`.
 ////
-モジュールがロードされているかどうかは、`(loaded? "module-name")`で確認できます。
+モジュールがロードされているかどうかは、 `(loaded? "module-name")` で確認できます。
 
 ===== ローダーのコスト
 //Loader Costs
@@ -372,7 +372,7 @@ You can check if a module is loaded using `(loaded? "module-name")`.
 ////
 Using the loader is very lightweight. It has a few dependencies which you may not be otherwise using. In practice using `:module-loader true` adds about 8KB gzip'd to the default module. This will vary depending on how much of `goog.net` and `goog.events` you are already using, and what level of optimization you use for your release builds.
 ////
-ローダーの使用は非常に軽量です。ローダーにはいくつかの依存関係がありますが、他に使用することはないでしょう。実際には、`:module-loader true`を使用すると、デフォルトのモジュールに約8KBのgzipが追加されます。これは、すでに使用している `goog.net` や `goog.events` の量や、リリースビルドでどの程度の最適化を行っているかによって変わってきます。
+ローダーの使用は非常に軽量です。ローダーにはいくつかの依存関係がありますが、他に使用することはないでしょう。実際には、 `:module-loader true` を使用すると、デフォルトのモジュールに約8KBのgzipが追加されます。これは、すでに使用している `goog.net` や `goog.events` の量や、リリースビルドでどの程度の最適化を行っているかによって変わってきます。
 
 ==== 標準的なClojureScript APIの使用
 //Using the Standard ClojureScript API
@@ -403,7 +403,7 @@ The advantage of using the standard API is that your code will play well with ot
 ////
 When using multiple `:modules` (a.k.a <<CodeSplitting, code splitting>>) this is not enabled by default since each module must be able to access the variables created by the modules it depends on. The Closure Compiler supports an additional option to enable the use of an output wrapper in combination with multiple `:modules` named `:rename-prefix-namespace`. This will cause the Compiler to scope all "global" variables used by the build into one actual global variable. By default this is set to `:rename-prefix-namespace "$APP"` when `:output-wrapper` is set to `true`.
 ////
-複数の `:module` (別名 <<CodeSplitting, コードスプリッティング>>) を使用している場合、各モジュールは依存しているモジュールが作成した変数にアクセスできなければならないため、このオプションはデフォルトでは有効になっていません。Closure Compilerは、`:rename-prefix-namespace`という名前の複数の`:modules`と組み合わせた出力ラッパーの使用を有効にする追加オプションをサポートしています。これにより、コンパイラはビルドで使用されるすべての「グローバル」変数を、実際のグローバル変数1つにスコープします。デフォルトでは、`:output-wrapper` が `true` に設定されている場合、これは `:rename-prefix-namespace "$APP"` に設定されます。
+複数の `:module` (別名 <<CodeSplitting, コードスプリッティング>>) を使用している場合、各モジュールは依存しているモジュールが作成した変数にアクセスできなければならないため、このオプションはデフォルトでは有効になっていません。Closure Compilerは、 `:rename-prefix-namespace` という名前の複数の `:modules` と組み合わせた出力ラッパーの使用を有効にする追加オプションをサポートしています。これにより、コンパイラはビルドで使用されるすべての「グローバル」変数を、実際のグローバル変数1つにスコープします。デフォルトでは、 `:output-wrapper` が `true` に設定されている場合、これは `:rename-prefix-namespace "$APP"` に設定されます。
 
 ```clojure
 {...
@@ -418,7 +418,7 @@ When using multiple `:modules` (a.k.a <<CodeSplitting, code splitting>>) this is
 ////
 This will only create the `MY_APP` global variable. Since every "global" variable will now be prefixed by `MY_APP.` (e.g. `MY_APP.a` instead of just `a`) the code size can go up substantially. It is important to keep this short. Browser compression (e.g. `gzip`) helps reduce the overhead of the extra code but depending on the amount of global variables in your build this can still produce a noticeable increase.
 ////
-これは、`MY_APP`というグローバル変数を作成するだけです。すべての「グローバル」変数の前には `MY_APP.` がつくので (たとえば、`a` だけではなく `MY_APP.a`)、コードサイズは大幅に増加します。これを短くすることが重要です。ブラウザの圧縮（例：`gzip`）は、余分なコードのオーバーヘッドを減らすのに役立ちますが、ビルド内のグローバル変数の量に応じて、これでもまだ顕著な増加が見られます。
+これは、 `MY_APP` というグローバル変数を作成するだけです。すべての「グローバル」変数の前には `MY_APP.` がつくので (たとえば、 `a` だけではなく `MY_APP.a`)、コードサイズは大幅に増加します。これを短くすることが重要です。ブラウザの圧縮（例：`gzip`）は、余分なコードのオーバーヘッドを減らすのに役立ちますが、ビルド内のグローバル変数の量に応じて、これでもまだ顕著な増加が見られます。
 
 ////
 IMPORTANT: Note that the created variable isn't actually useful directly. It will contain a lot of munged/minified properties. All exported (eg. `^:export`) variables will still be exported into the global scope and are not affect by this setting. The setting only serves to limit the amount of global variables created, nothing else. Do not use it directly.
@@ -436,7 +436,7 @@ generated file will contain some additional bootstrap code which will load its d
 automatically. The way `:modules` work also ensures that code used only by the worker will also only
 be in the final file for the worker. Each worker should have a dedicated CLJS namespace.
 ////
-modules`の設定は、Web Workerとして使用されるファイルを生成するためにも使用できます。
+modules` の設定は、Web Workerとして使用されるファイルを生成するためにも使用できます。
 web-worker true` を設定することで、任意のモジュールを Web Worker として宣言することができます。生成される
 生成されたファイルには、依存関係を自動的に読み込む追加のブートストラップコードが
 を自動的にロードします。この `:modules` の働きにより、ワーカーだけが使用するコードは、ワーカー用の最終ファイルにのみ含まれることになります。
@@ -475,14 +475,14 @@ It will have all code from the `:shared` module available (but not `:main`). The
 both development and release modes.
 ////
 上記の設定を行うと、Web Worker を起動するための `worker.js` が生成されます。
-このファイルには、`:shared` モジュールのすべてのコードが含まれています (ただし、`:main` は含まれていません)。コードは
+このファイルには、 `:shared` モジュールのすべてのコードが含まれています (ただし、 `:main` は含まれていません)。コードは
 名前空間 `my.app.worker` のコードは、Worker の中でのみ実行されます。ワーカーの生成は、開発モードとリリースモードの両方で行われます。
 ワーカーの生成は、開発モードとリリースモードの両方で行われます。
 
 ////
 Note that the empty `:entries []` in the `:shared` module will make it collect all the code shared between the `:main` and `:worker` modules.
 ////
-なお、`:shared`モジュールで空の`:entries []`を指定すると、`:main`モジュールと`:worker`モジュールの間で共有されるすべてのコードを収集するようになります。
+なお、 `:shared` モジュールで空の `:entries []` を指定すると、 `:main` モジュールと `:worker` モジュールの間で共有されるすべてのコードを収集するようになります。
 
 ////
 .Sample echo worker
@@ -515,7 +515,7 @@ Note that the empty `:entries []` in the `:shared` module will make it collect a
 ////
 IMPORTANT: Since we now have a `:shared` module you must ensure to load it properly in your HTML. If you just load `main.js` you will get an error.
 ////
-重要：現在、`:shared`モジュールがあるので、HTMLで適切にロードする必要があります。単に `main.js` をロードしただけでは、エラーが発生します。
+重要：現在、 `:shared` モジュールがあるので、HTMLで適切にロードする必要があります。単に `main.js` をロードしただけでは、エラーが発生します。
 
 ////
 .HTML Loading shared.js and main.js
@@ -533,7 +533,7 @@ IMPORTANT: Since we now have a `:shared` module you must ensure to load it prope
 ////
 In a web setting it is desirable to cache `.js` files for a very long time to avoid extra request. It is common practice the generate a unique name for the `.js` file for every released version. This changes the URL used to access it and thereby is safe to cache forever.
 ////
-Web環境では、余分なリクエストを避けるために、`.js`ファイルを非常に長い時間キャッシュすることが望ましいです。リリースされたバージョンごとに、`.js`ファイルにユニークな名前をつけるのが一般的です。これにより、ファイルへのアクセスに使用されるURLが変更されるため、永久にキャッシュしても安全です。
+Web環境では、余分なリクエストを避けるために、 `.js` ファイルを非常に長い時間キャッシュすることが望ましいです。リリースされたバージョンごとに、 `.js` ファイルにユニークな名前をつけるのが一般的です。これにより、ファイルへのアクセスに使用されるURLが変更されるため、永久にキャッシュしても安全です。
 
 === リリースバージョン [[release-version]]
 //Release Versions [[release-version]]
@@ -541,7 +541,7 @@ Web環境では、余分なリクエストを避けるために、`.js`ファイ
 ////
 Creating unique filenames for each release can be done via the `:release-version` config setting. Generally you'll pass this in from the command line via <<config-merge, --config-merge>>.
 ////
-各リリースに固有のファイル名を作成するには、`:release-version`という設定を使用します。一般的には、コマンドラインから <<config-merge, --config-merge>> でこの設定を渡します。
+各リリースに固有のファイル名を作成するには、 `:release-version` という設定を使用します。一般的には、コマンドラインから <<config-merge, --config-merge>> でこの設定を渡します。
 
 ```
 shadow-cljs release app --config-merge '{:release-version "v1"}'
@@ -568,7 +568,7 @@ shadow-cljs release app --config-merge '{:release-version "v1"}'
 ////
 This would create the `main.v1.js` and `extra.v1.js` files in `public/js` instead of the usual `main.js` and `extra.js`.
 ////
-これにより、`main.v1.js`と`extra.v1.js`のファイルが、通常の`main.js`と`extra.js`ではなく、`public/js`に作成されます。
+これにより、 `main.v1.js` と `extra.v1.js` のファイルが、通常の `main.js` と `extra.js` ではなく、 `public/js` に作成されます。
 
 ////
 You can use manual versions or something automated like the `git` sha at the time of the build. Just make sure that you bump whatever it is once you shipped something out to the user since with caching they won't be requesting newer versions of old files.
@@ -581,7 +581,7 @@ You can use manual versions or something automated like the `git` sha at the tim
 ////
 You can add `:module-hash-names true` to your build config to automatically create a MD5 signature for each generated output module file. That means that a `:main` module will generate a `main.<md5hash>.js` instead of just the default `main.js`.
 ////
-ビルド設定に `:module-hash-names true` を追加すると、生成される各出力モジュールファイルに MD5 署名を自動的に作成することができます。つまり、`:main` モジュールは、デフォルトの `main.js` ではなく、`main.<md5hash>.js` を生成することになります。
+ビルド設定に `:module-hash-names true` を追加すると、生成される各出力モジュールファイルに MD5 署名を自動的に作成することができます。つまり、 `:main` モジュールは、デフォルトの `main.js` ではなく、 `main.<md5hash>.js` を生成することになります。
 
 ////
 `:module-hash-names true` will include the full 32-length md5 hash, if you prefer a shorter version you can specify a
@@ -615,7 +615,7 @@ of generating conflicts. I recommend using the full hash.
 ////
 Instead of generating `main.js` it will now generate `main.<hash>.js` in the `:output-dir`.
 ////
-main.js`を生成するのではなく、`:output-dir`に`main.<hash>.js`を生成するようになりました。
+main.js` を生成するのではなく、 `:output-dir` に `main.<hash>.js` を生成するようになりました。
 
 ////
 Since the filename can change with every release it gets a little bit more complicated to include them
@@ -661,7 +661,7 @@ maps the original module name to actual filename (important when using the `:mod
 The manifest contains all `:modules` sorted in dependency order. You can use it to map the `:module-id` back to the
 actual generated filename.
 ////
-マニフェストには、すべての `:module` を依存関係のある順に並べたものが含まれています。これを使って、`:module-id` を実際に生成されたファイル名にマッピングすることができます。
+マニフェストには、すべての `:module` を依存関係のある順に並べたものが含まれています。これを使って、 `:module-id` を実際に生成されたファイル名にマッピングすることができます。
 実際に生成されたファイル名に戻すために使用できます。
 
 ////
@@ -676,7 +676,7 @@ filenames.
 ////
 You can configure the name of the generated manifest file via the `:build-options :manifest-name` entry. It defaults to `manifest.edn`. If you configure a filename with `.json` ending the output will be JSON instead of EDN. The file will be relative to the configured `:output-dir`.
 ////
-生成されるマニフェストファイルの名前は、`:build-options :manifest-name` エントリで設定できます。デフォルトでは `manifest.edn` となります。ファイル名の最後に `.json` を設定すると、EDN ではなく JSON が出力されます。ファイルは構成された `:output-dir` からの相対パスになります。
+生成されるマニフェストファイルの名前は、 `:build-options :manifest-name` エントリで設定できます。デフォルトでは `manifest.edn` となります。ファイル名の最後に `.json` を設定すると、EDN ではなく JSON が出力されます。ファイルは構成された `:output-dir` からの相対パスになります。
 
 ////
 .Example manifest.json config
@@ -711,17 +711,17 @@ options for configuring an optional dev-time HTTP server for a build and CSS rel
 ////
 The `:browser` target now uses a HUD to display a loading indicator when a build is started. It will also display warnings and errors if there are any.
 ////
-ブラウザ`ターゲットは、HUDを使って、ビルドが開始されたときにローディングインジケータを表示するようになりました。また、警告やエラーが発生した場合にも表示されます。
+ブラウザ ` ターゲットは、HUDを使って、ビルドが開始されたときにローディングインジケータを表示するようになりました。また、警告やエラーが発生した場合にも表示されます。
 
 ////
 You can disable it completely by setting `:hud false` in the `:devtools` section.
 ////
-devtools`セクションで`:hud false`を設定することで、完全に無効にすることができます。
+devtools` セクションで `:hud false` を設定することで、完全に無効にすることができます。
 
 ////
 You may also toggle certain features by specifying which features you care about via setting `:hud #{:errors :warnings}`. This will show errors/warnings but no progress indicator. Available options are `:errors`, `:warnings`, `:progress`. Only options included will be enabled, all other will be disabled.
 ////
-また、`:hud #{:errors :warnings}`という設定で気になる機能を指定して、特定の機能を切り替えることもできます。これにより、エラーや警告は表示されますが、進捗状況は表示されません。利用可能なオプションは `:errors`, `:warnings`, `:progress` です。含まれるオプションのみが有効になり、それ以外は無効になります。
+また、 `:hud #{:errors :warnings}` という設定で気になる機能を指定して、特定の機能を切り替えることもできます。これにより、エラーや警告は表示されますが、進捗状況は表示されません。利用可能なオプションは `:errors`, `:warnings`, `:progress` です。含まれるオプションのみが有効になり、それ以外は無効になります。
 
 ==== ファイルを開く [[open-file-command]]
 //Opening Files [[open-file-command]]
@@ -749,7 +749,7 @@ You can either configure this in your `shadow-cljs.edn` config for the project o
 ////
 The `:open-file-command` expects a vector representing a very simple DSL. Strings are kept as they are and keyword are replaced by their respective values. A nested vector can be used in case you need to combine multiple params, using `clojure.core/format` style pattern.
 ////
-open-file-command`では、非常にシンプルなDSLを表すベクターを想定しています。文字列はそのままで、キーワードはそれぞれの値で置き換えられます。clojure.core/format` スタイルのパターンを使用して、複数のパラメータを組み合わせる必要がある場合には、ネストしたベクターを使用することができます。
+open-file-command` では、非常にシンプルなDSLを表すベクターを想定しています。文字列はそのままで、キーワードはそれぞれの値で置き換えられます。clojure.core/format` スタイルのパターンを使用して、複数のパラメータを組み合わせる必要がある場合には、ネストしたベクターを使用することができます。
 
 ////
 The above example would execute
@@ -814,7 +814,7 @@ Translated `:pwd`
 コラム番号
 
 `:wsl-file`::
-翻訳された WSL ファイルのパス。WSLのBashで`shadow-cljs`を実行するときに便利です。mnt/c/Users/someone/code/project/src/main/demo/foo.cljs` のパスを `C:Users\...` に変換します。
+翻訳された WSL ファイルのパス。WSLのBashで `shadow-cljs` を実行するときに便利です。mnt/c/Users/someone/code/project/src/main/demo/foo.cljs` のパスを `C:Users\...` に変換します。
 
 `:wsl-pwd`::
 翻訳された `:pwd`
@@ -863,13 +863,13 @@ Browser devtools は、CSS を再読み込みすることもできます。こ�
 ////
 This will cause the browser to reload `/css/main.css` when `public/css/main.css` is changed.
 ////
-これにより、`public/css/main.css` が変更されると、ブラウザは `/css/main.css` を再読み込みします。
+これにより、 `public/css/main.css` が変更されると、ブラウザは `/css/main.css` を再読み込みします。
 
 ////
 `shadow-cljs` currently provides no support for directly compiling CSS but the usual tools will work and should
 be run separately. Just make sure the output is generated into the correct places.
 ////
-現在、`shadow-cljs` は CSS を直接コンパイルすることをサポートしていませんが、通常のツールは動作します。
+現在、 `shadow-cljs` は CSS を直接コンパイルすることをサポートしていませんが、通常のツールは動作します。
 を別途実行する必要があります。ただ、出力が正しい場所に生成されることを確認してください。
 
 ////
@@ -893,7 +893,7 @@ document root used to serve your content.
 ////
 When your HTTP Server is serving the files from a virtual directory and the filesystem paths don't exactly match the path used in the HTML you may adjust the path by setting `:watch-path` which will be used as a prefix.
 ////
-HTTPサーバが仮想ディレクトリからファイルを提供していて、ファイルシステムのパスがHTMLで使われているパスと完全に一致しない場合、プレフィックスとして使われる`:watch-path`を設定することで、パスを調整することができます。
+HTTPサーバが仮想ディレクトリからファイルを提供していて、ファイルシステムのパスがHTMLで使われているパスと完全に一致しない場合、プレフィックスとして使われる `:watch-path` を設定することで、パスを調整することができます。
 
 ////
 .Example `public/css/main.css` being served under `/foo/css/main.css`
@@ -915,7 +915,7 @@ HTTPサーバが仮想ディレクトリからファイルを提供していて�
 ////
 By default the devtools client will attempt to connect to the `shadow-cljs` process via the configured <<http, HTTP server>> (usually `localhost`). If you are using a reverse proxy to serve your HTML that might not be possible. You can set `:devtools-url` to configure which URL to use.
 ////
-デフォルトでは、devtools クライアントは、設定された <<http, HTTP server>> (通常は `localhost`) 経由で `shadow-cljs` プロセスへの接続を試みます。リバースプロキシを使用して HTML を配信している場合は、それができない場合があります。また、`:devtools-url`を設定することで、使用するURLを設定することができます。
+デフォルトでは、devtools クライアントは、設定された <<http, HTTP server>> (通常は `localhost`) 経由で `shadow-cljs` プロセスへの接続を試みます。リバースプロキシを使用して HTML を配信している場合は、それができない場合があります。また、 `:devtools-url` を設定することで、使用するURLを設定することができます。
 
 ```
 {...
@@ -930,7 +930,7 @@ By default the devtools client will attempt to connect to the `shadow-cljs` proc
 ////
 `shadow-cljs` will then use the `:devtools-url` as the base when making requests. It is not the final URL so you must ensure that all requests starting with the path you configured (eg. `/shadow-cljs/*`) are forwarded to the host `shadow-cljs` is running on.
 ////
-`shadow-cljs` は、リクエストの際に `:devtools-url` をベースとして使用します。これは最終的な URL ではありませんので、設定したパス (例: `/shadow-cljs/*`) で始まるすべてのリクエストが、`shadow-cljs` が実行されているホストに転送されるようにする必要があります。
+`shadow-cljs` は、リクエストの際に `:devtools-url` をベースとして使用します。これは最終的な URL ではありませんので、設定したパス (例: `/shadow-cljs/*`) で始まるすべてのリクエストが、 `shadow-cljs` が実行されているホストに転送されるようにする必要があります。
 
 ////
 .Incoming Request to Proxy

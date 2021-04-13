@@ -22,7 +22,7 @@ There are a variety of options to publish libraries and I currently recommend ht
 ////
 IMPORTANT: This does not mean that you have to use Leiningen during development of the library itself. It is recommended to just use Leiningen for publishing but use `shadow-cljs` normally otherwise. You'll only need to copy the actual `:dependencies` definition once you publish. Remember to keep development related dependencies out though.
 ////
-重要：これは、ライブラリ自体の開発時にLeiningenを使用しなければならないということではありません。公開時にはLeiningenを使用し、それ以外は通常通り`shadow-cljs`を使用することが推奨されています。実際の `:dependencies` の定義をコピーする必要があるのは、公開した後だけです。しかし、開発に関連する依存関係を排除することを忘れないでください。
+重要：これは、ライブラリ自体の開発時にLeiningenを使用しなければならないということではありません。公開時にはLeiningenを使用し、それ以外は通常通り `shadow-cljs` を使用することが推奨されています。実際の `:dependencies` の定義をコピーする必要があるのは、公開した後だけです。しかし、開発に関連する依存関係を排除することを忘れないでください。
 
 ////
 Assuming you are already using the recommended project structure where all your primary sources are located in `src/main` you can publish with a very simple `project.clj`.
@@ -70,7 +70,7 @@ Assuming you are already using the recommended project structure where all your 
 ////
 This will generate the required `pom.xml` and put all sources from `src/main` into the published `.jar` file. All you need to run is `lein deploy clojars` to publish it. When doing this for the first time you'll first need to setup proper authentication. Please refer to the official  https://github.com/technomancy/leiningen/blob/stable/doc/DEPLOY.md[Leiningen] and https://github.com/clojars/clojars-web/wiki/Tutorial[Clojars] documentation on how to set that up.
 ////
-これにより、必要な `pom.xml` が生成され、`src/main` からのすべてのソースが、公開された `.jar` ファイルに格納されます。あとは `lein deploy clojars` を実行するだけで公開されます。この作業を初めて行う場合は、まず適切な認証を設定する必要があります。その設定方法については、公式の https://github.com/technomancy/leiningen/blob/stable/doc/DEPLOY.md[Leiningen] および https://github.com/clojars/clojars-web/wiki/Tutorial[Clojars] のドキュメントを参照してください。
+これにより、必要な `pom.xml` が生成され、 `src/main` からのすべてのソースが、公開された `.jar` ファイルに格納されます。あとは `lein deploy clojars` を実行するだけで公開されます。この作業を初めて行う場合は、まず適切な認証を設定する必要があります。その設定方法については、公式の https://github.com/technomancy/leiningen/blob/stable/doc/DEPLOY.md[Leiningen] および https://github.com/clojars/clojars-web/wiki/Tutorial[Clojars] のドキュメントを参照してください。
 
 ### JAR署名の無効化
 //Disable JAR Signing
@@ -78,7 +78,7 @@ This will generate the required `pom.xml` and put all sources from `src/main` in
 ////
 Leiningen defaults to signing libraries via GPG before publishing which is a good default but given that this can be a hassle to setup and not many people are actually verifying the signatures you can disable that step via adding a simple `:repositories` config to the `project.clj`.
 ////
-Leiningenはライブラリを公開する前にGPGで署名することをデフォルトとしています。これは良いデフォルトですが、設定が面倒であったり、実際に署名を検証する人があまりいないことを考えると、`project.clj`にシンプルな`:repositories`設定を追加することで、このステップを無効にすることができます。
+Leiningenはライブラリを公開する前にGPGで署名することをデフォルトとしています。これは良いデフォルトですが、設定が面倒であったり、実際に署名を検証する人があまりいないことを考えると、 `project.clj` にシンプルな `:repositories`設定を追加することで、このステップを無効にすることができます。
 
 ```clojure
 (defproject your.cool/library "1.0.0"
@@ -100,7 +100,7 @@ If you write tests or user other development related code for your library make 
 ////
 Also avoid generating output to `resources/*` since Leiningen and other tools may include those files into the `.jar` which may cause problems for downstream users. Your `.jar` should ONLY contains the actual source files, no compiled code at all.
 ////
-また、`resources/*` に出力することも避けてください。Leiningen や他のツールが `.jar` にそれらのファイルを含める可能性があり、下流のユーザーに問題を引き起こす可能性があります。.jar` には実際のソースファイルのみを入れ、コンパイルされたコードは一切入れないようにしてください。
+また、 `resources/*` に出力することも避けてください。Leiningen や他のツールが `.jar` にそれらのファイルを含める可能性があり、下流のユーザーに問題を引き起こす可能性があります。.jar` には実際のソースファイルのみを入れ、コンパイルされたコードは一切入れないようにしてください。
 
 ////
 IMPORTANT: You can and should verify that everything is clean by running `lein jar` and inspecting the files that end up in it via `jar -tvf target/library-1.0.0.jar`.
@@ -113,12 +113,12 @@ IMPORTANT: You can and should verify that everything is clean by running `lein j
 ////
 Please note that currently only `shadow-cljs` has a clean automatic interop story with `npm`. That may represent a problem for users of your libraries using other tools. You may want to consider providing a CLJSJS fallback and/or publishing extra documentation for `webpack` related workflows.
 ////
-現在、`shadow-cljs`のみが`npm`とのクリーンな自動インターロップストーリーを持っていることに注意してください。これは、他のツールを使用しているあなたのライブラリのユーザーにとって問題となるかもしれません。CLJSJS のフォールバックを提供したり、`webpack` 関連のワークフローのための特別なドキュメントを公開したりすることを検討するとよいでしょう。
+現在、 `shadow-cljs` のみが `npm` とのクリーンな自動インターロップストーリーを持っていることに注意してください。これは、他のツールを使用しているあなたのライブラリのユーザーにとって問題となるかもしれません。CLJSJS のフォールバックを提供したり、 `webpack` 関連のワークフローのための特別なドキュメントを公開したりすることを検討するとよいでしょう。
 
 ////
 You can declare `npm` dependencies directly by including a `deps.cljs` with `:npm-deps` in your project (eg. `src/main/deps.cljs`).
 ////
-プロジェクト（例：`src/main/deps.cljs`）の中に、`:npm-deps`付きの`deps.cljs`を含めることで、`npm`の依存関係を直接宣言することができます。
+プロジェクト（例：`src/main/deps.cljs`）の中に、 `:npm-deps` 付きの `deps.cljs` を含めることで、 `npm` の依存関係を直接宣言することができます。
 
 ////
 .Example src/main/deps.cljs
