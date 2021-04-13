@@ -127,13 +127,18 @@ You can run the process in the foreground in a dedicated terminal. Use `CTRL+C` 
 ////
 専用端末のフォアグラウンドでプロセスを実行することができます。サーバを終了するには `CTRL+C` を押してください。
 
+////
 ```bash
 $ shadow-cljs server
-
-////
 # or (if you'd like REPL to control the server process)
+$ shadow-cljs clj-repl
+```
 ////
-#または（REPLにサーバプロセスを制御させたい場合
+
+
+```bash
+$ shadow-cljs server
+#または REPLにサーバプロセスを制御させたい場合
 $ shadow-cljs clj-repl
 ```
 
@@ -468,21 +473,33 @@ If you want to start a `watch` for a given build you need to declare that the fu
 ////
 あるビルドに対して `watch` を開始したい場合は、呼び出している関数が完全なサーバを必要とすることを宣言する必要があります。これにより、あなたが明示的に `(shadow.cljs.devtools.server/stop!)` を呼び出すか、 `CTRL+C` でプロセスを停止させるまで、そのプロセスは生き続けます。
 
+////
 ```clojure
 (ns demo.run
   (:require [shadow.cljs.devtools.api :as shadow]))
 
-////
 ;; this fails because a full server instance is missing
+(defn foo
+  [& args]
+  (shadow/watch :my-build))
+
+;; this metadata will ensure that the server is started so watch works
+(defn foo
+  {:shadow/requires-server true}
+  [& args]
+  (shadow/watch :my-build))
+```
 ////
+
+```clojure
+(ns demo.run
+  (:require [shadow.cljs.devtools.api :as shadow]))
+
 ;; これは完全なサーバ・インスタンスがないために失敗します
 (defn foo
   [& args]
   (shadow/watch :my-build))
 
-////
-;; this metadata will ensure that the server is started so watch works
-////
 ;; このメタデータは、時計が動作するようにサーバを起動することを保証します
 (defn foo
   {:shadow/requires-server true}

@@ -1166,11 +1166,7 @@ $ shadow-cljs release app --debug</code></pre>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="bash">$ shadow-cljs server
-
-////
-# or (if you'd like REPL to control the server process)
-////
-#または（REPLにサーバプロセスを制御させたい場合
+#または REPLにサーバプロセスを制御させたい場合
 $ shadow-cljs clj-repl</code></pre>
 </div>
 </div>
@@ -1426,17 +1422,11 @@ $ shadow-cljs run my.build/release</code></pre>
 <pre class="CodeRay highlight"><code data-lang="clojure">(<span class="keyword">ns</span> <span class="namespace">demo.run</span>
   (<span class="symbol">:require</span> [shadow.cljs.devtools.api <span class="symbol">:as</span> shadow]))
 
-////
-<span class="comment">;; this fails because a full server instance is missing</span>
-////
 <span class="comment">;; これは完全なサーバ・インスタンスがないために失敗します</span>
 (<span class="keyword">defn</span> <span class="function">foo</span>
   [&amp; args]
   (shadow/watch <span class="symbol">:my-build</span>))
 
-////
-<span class="comment">;; this metadata will ensure that the server is started so watch works</span>
-////
 <span class="comment">;; このメタデータは、時計が動作するようにサーバを起動することを保証します</span>
 (<span class="keyword">defn</span> <span class="function">foo</span>
   {<span class="symbol">:shadow/requires-server</span> <span class="predefined-constant">true</span>}
@@ -1508,15 +1498,30 @@ $ shadow-cljs run my.build/release</code></pre>
 <div class="paragraph">
 <p>両方を入手したら、コマンドラインまたはClojure REPLからCLJS REPLに接続できます。</p>
 </div>
+<div class="paragraph">
+<p>///
+.CLI</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">$ shadow-cljs watch build-id
+...
+
+# different terminal
+$ shadow-cljs cljs-repl build-id
+shadow-cljs - connected to server
+[3:1]~cljs.user=&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>///</p>
+</div>
 <div class="listingblock">
 <div class="title">CLI</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="bash">$ shadow-cljs watch build-id
 ...
 
-////
-# different terminal
-////
 # 異なるターミナル
 $ shadow-cljs cljs-repl build-id
 shadow-cljs - connected to server
@@ -1877,7 +1882,7 @@ shadow-cljs - watching build :app
 </div>
 </div>
 <div class="paragraph">
-<p>~/.nrepl/nrepl.edn` にあるデフォルトのグローバルコンフィグファイルや、ローカルの <code>.nrepl.edn</code> も起動時に読み込まれ、 <code>:middleware</code> の設定に使用できます。</p>
+<p><code>~/.nrepl/nrepl.edn</code> にあるデフォルトのグローバルコンフィグファイルや、ローカルの <code>.nrepl.edn</code> も起動時に読み込まれ、 <code>:middleware</code> の設定に使用できます。</p>
 </div>
 <div class="paragraph">
 <p>人気のミドルウェア <a href="https://github.com/clojure-emacs/cider-nrepl">cider-nrepl</a> がクラスパス上にあれば（例：<code>:dependencies</code> に含まれている）、自動的に使用されます。追加の設定は必要ありません。これを無効にするには、 <code>:nrepl {:cider false}</code> を設定します。</p>
@@ -1912,9 +1917,6 @@ shadow-cljs - watching build :app
 </div>
 <div class="sect4">
 <h5 id="_組み込み型nreplサーバ"><a class="anchor" href="#_組み込み型nreplサーバ"></a><a class="link" href="#_組み込み型nreplサーバ">組み込み型nREPLサーバ</a></h5>
-<div class="paragraph">
-<p>////Embedded nREPL Server////</p>
-</div>
 <div class="paragraph">
 <p>独自のnREPLサーバを提供する他のツール（例：<code>lein</code>）に <code>shadow-cljs</code> を組み込んで使用する場合は、 <code>shadow-cljs</code> ミドルウェアを設定する必要があります。そうしないと、CLJとCLJSのREPLの間で切り替えることができません。</p>
 </div>
@@ -2085,26 +2087,26 @@ shadow-cljs - watching build :app
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1"><code>:root</code></dt>
+<dt class="hdlist1"><code>:root</code> </dt>
 <dd>
-<p>(String) リクエストを処理するためのパスです。classpath:` で始まるパスは、ファイルシステムではなく、クラスパスからリクエストを処理します。すべてのファイルシステムのパスは、プロジェクトのルートからの相対パスです。</p>
+<p>(String) リクエストを処理するためのパスです。 <code>classpath:</code> で始まるパスは、ファイルシステムではなく、クラスパスからリクエストを処理します。すべてのファイルシステムのパスは、プロジェクトのルートからの相対パスです。</p>
 </dd>
 <dt class="hdlist1"><code>:roots</code></dt>
 <dd>
 <p>複数のルートパスが必要な場合は、 <code>:root</code> の代わりに使用します。</p>
 </dd>
-<dt class="hdlist1"><code>:ssl-port</code></dt>
+<dt class="hdlist1"><code>:ssl-port</code>  </dt>
 <dd>
-<p>(文字列のベクトル) ssl` が設定されている場合、ssl接続にはこのポートを使用し、通常のHTTPサーバは通常のポートを使用します。ssl-port` が設定されておらず、 <code>:ssl</code> が設定されている場合、デフォルトのポートは SSL リクエストのみをサーバします。</p>
+<p>(文字列のベクトル) ssl` が設定されている場合、ssl接続にはこのポートを使用し、通常のHTTPサーバは通常のポートを使用します。 <code>ssl-port</code> が設定されておらず、 <code>:ssl</code> が設定されている場合、デフォルトのポートは SSL リクエストのみをサーバします。</p>
 </dd>
-<dt class="hdlist1"><code>:host</code></dt>
+<dt class="hdlist1"><code>:host</code> </dt>
 <dd>
 <p>オプションです。リッスンするホスト名を指定します。デフォルトでは localhost になります。</p>
 </dd>
-<dt class="hdlist1"><code>:handler</code></dt>
+<dt class="hdlist1"><code>:handler</code> </dt>
 <dd>
 <p>オプションです。完全に修飾されたシンボルです。与えられたリクエストに対してリソースが見つからない場合に使用される <code>(defn handler [req] resp)</code> です。
-(defn handler [req] resp)` は、与えられたリクエストに対してリソースが見つからない場合に使用されます。デフォルトでは <code>shadow.http.push-state/handle</code> となります。</p>
+<code>(defn handler [req] resp)</code> は、与えられたリクエストに対してリソースが見つからない場合に使用されます。デフォルトでは <code>shadow.http.push-state/handle</code> となります。</p>
 </dd>
 </dl>
 </div>
@@ -2146,7 +2148,7 @@ shadow-cljs - watching build :app
 </div>
 </div>
 <div class="paragraph">
-<p><a href="http://localhost:8000/api/foo`" class="bare">http://localhost:8000/api/foo`</a> へのリクエストは、代わりに <code><a href="https://some.host/api/foo" class="bare">https://some.host/api/foo</a></code> が返すコンテンツを提供します。ローカルファイルを持たないすべてのリクエストは、プロキシされたサーバによって提供されます。</p>
+<p><code><a href="http://localhost:8000/api/foo" class="bare">http://localhost:8000/api/foo</a></code> へのリクエストは、代わりに <code><a href="https://some.host/api/foo" class="bare">https://some.host/api/foo</a></code> が返すコンテンツを提供します。ローカルファイルを持たないすべてのリクエストは、プロキシされたサーバによって提供されます。</p>
 </div>
 <div class="paragraph">
 <p>追加オプション 接続処理を設定するオプションは以下の通りです。
@@ -2230,7 +2232,7 @@ shadow-cljs - watching build :app
 </dd>
 <dt><a href="#target-karma"><code>:karma</code></a></dt>
 <dd>
-<p>テストをスキャンして必要なファイルを決定し、karma-runner互換のテストを出力します。http://karma-runner.github.io/2.0/index.html[Karma]を参照してください。</p>
+<p>テストをスキャンして必要なファイルを決定し、karma-runner互換のテストを出力します。 <a href="http://karma-runner.github.io/2.0/index.html">Karma</a> を参照してください。</p>
 </dd>
 <dt><a href="#target-node-library"><code>:node-library</code></a></dt>
 <dd>
@@ -6328,7 +6330,7 @@ $ lein with-profiles +cljs deps <span class="symbol">:tree</span></code></pre>
 <div id="footer">
 <div id="footer-text">
 Version 1.0<br>
-Last updated 2021-04-13 13:14:10 JST
+Last updated 2021-04-13 15:03:32 JST
 </div>
 </div>
 </body>

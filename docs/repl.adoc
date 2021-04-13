@@ -77,14 +77,24 @@ Once you have both you can connect to the CLJS REPL via the command line or from
 ////
 両方を入手したら、コマンドラインまたはClojure REPLからCLJS REPLに接続できます。
 
+///
 .CLI
 ```bash
 $ shadow-cljs watch build-id
 ...
 
-////
 # different terminal
-////
+$ shadow-cljs cljs-repl build-id
+shadow-cljs - connected to server
+[3:1]~cljs.user=>
+```
+///
+
+.CLI
+```bash
+$ shadow-cljs watch build-id
+...
+
 # 異なるターミナル
 $ shadow-cljs cljs-repl build-id
 shadow-cljs - connected to server

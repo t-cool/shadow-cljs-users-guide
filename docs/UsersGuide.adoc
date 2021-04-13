@@ -512,7 +512,7 @@ shadow-cljs.edn` でポートや追加のミドルウェアを設定すること
 ////
 The default global config file in `~/.nrepl/nrepl.edn` or the local `.nrepl.edn` will also be loaded on startup and can be used to configure `:middleware`.
 ////
-~/.nrepl/nrepl.edn` にあるデフォルトのグローバルコンフィグファイルや、ローカルの `.nrepl.edn` も起動時に読み込まれ、 `:middleware` の設定に使用できます。
+`~/.nrepl/nrepl.edn` にあるデフォルトのグローバルコンフィグファイルや、ローカルの `.nrepl.edn` も起動時に読み込まれ、 `:middleware` の設定に使用できます。
 
 
 ////
@@ -558,7 +558,7 @@ TIP: Use `:cljs/quit` to return to Clojure.
 
 ==== 組み込み型nREPLサーバ
 
-////Embedded nREPL Server////
+// Embedded nREPL Server
 
 ////
 When you use `shadow-cljs` embedded in other tools that provide their own nREPL server (eg. `lein`) you need to configure the `shadow-cljs` middleware. Otherwise you won't be able to switch between CLJ and CLJS REPLs.
@@ -815,12 +815,12 @@ The longer config version expects a map and the supported options are:
 `:handler`:: Optional. A fully qualified symbol. A `(defn handler [req] resp)` that is used
 if a resource is not found for the given request. Defaults to `shadow.http.push-state/handle`.
 ////
-`:root`:: (String) リクエストを処理するためのパスです。classpath:` で始まるパスは、ファイルシステムではなく、クラスパスからリクエストを処理します。すべてのファイルシステムのパスは、プロジェクトのルートからの相対パスです。
+`:root` :: (String) リクエストを処理するためのパスです。 `classpath:` で始まるパスは、ファイルシステムではなく、クラスパスからリクエストを処理します。すべてのファイルシステムのパスは、プロジェクトのルートからの相対パスです。
 `:roots`:: 複数のルートパスが必要な場合は、 `:root` の代わりに使用します。
-`:ssl-port`:: (文字列のベクトル) ssl` が設定されている場合、ssl接続にはこのポートを使用し、通常のHTTPサーバは通常のポートを使用します。ssl-port` が設定されておらず、 `:ssl` が設定されている場合、デフォルトのポートは SSL リクエストのみをサーバします。
-`:host`:: オプションです。リッスンするホスト名を指定します。デフォルトでは localhost になります。
-`:handler`:: オプションです。完全に修飾されたシンボルです。与えられたリクエストに対してリソースが見つからない場合に使用される `(defn handler [req] resp)` です。
-(defn handler [req] resp)` は、与えられたリクエストに対してリソースが見つからない場合に使用されます。デフォルトでは `shadow.http.push-state/handle` となります。
+`:ssl-port`  :: (文字列のベクトル) ssl` が設定されている場合、ssl接続にはこのポートを使用し、通常のHTTPサーバは通常のポートを使用します。 `ssl-port` が設定されておらず、 `:ssl` が設定されている場合、デフォルトのポートは SSL リクエストのみをサーバします。
+`:host` :: オプションです。リッスンするホスト名を指定します。デフォルトでは localhost になります。
+`:handler` :: オプションです。完全に修飾されたシンボルです。与えられたリクエストに対してリソースが見つからない場合に使用される `(defn handler [req] resp)` です。
+`(defn handler [req] resp)` は、与えられたリクエストに対してリソースが見つからない場合に使用されます。デフォルトでは `shadow.http.push-state/handle` となります。
 
 ////
 The following two options only apply when using the default, built-in handler and typically do not need to be changed:
@@ -862,7 +862,7 @@ By default the dev server will attempt to serve requests locally but sometimes y
 ////
 A request going to `http://localhost:8000/api/foo` will serve the content returned by `https://some.host/api/foo` instead. All request that do not have a local file will be served by the proxied server.
 ////
-http://localhost:8000/api/foo` へのリクエストは、代わりに `https://some.host/api/foo` が返すコンテンツを提供します。ローカルファイルを持たないすべてのリクエストは、プロキシされたサーバによって提供されます。
+`http://localhost:8000/api/foo` へのリクエストは、代わりに `https://some.host/api/foo` が返すコンテンツを提供します。ローカルファイルを持たないすべてのリクエストは、プロキシされたサーバによって提供されます。
 
 
 ////
