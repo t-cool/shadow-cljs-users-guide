@@ -262,7 +262,7 @@ Calls on `:require` bindings are also inferred automatically.
 (createElement "div" nil "hello world")
 ```
 
-=== マニュアルのエクスターン
+=== 手動のエクスターン
 //Manual Externs
 
 ////
@@ -273,7 +273,7 @@ Some libraries provide Externs as separate `.js` files. You can include them int
 ////
 .Manual Externs Config
 ////
-.マニュアルのエクスターン設定
+.手動のエクスターン設定
 
 ```
 {...
