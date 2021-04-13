@@ -266,7 +266,7 @@ The file structure for this example should look like this:
 ////
 `:source-paths` configures your JVM classpath. The compiler will use this config to find Clojure(Script) source files (eg. `.cljs`).
 ////
-:source-paths` は、JVMのクラスパスを設定します。コンパイラはこの設定を使って、Clojure(Script)のソースファイル(例：.cljs`)を探します。
+`:source-paths` は、JVMのクラスパスを設定します。コンパイラはこの設定を使って、Clojure(Script)のソースファイル(例：.cljs`)を探します。
 
 
 ////
@@ -345,7 +345,7 @@ Notice that the source path is *only* specified once in the entire configuration
 ////
 `shadow-cljs` integrates fully with the https://www.npmjs.com/[`npm`] ecosystem to manage JavaScript dependencies.
 ////
-`shadow-cljs` は、https://www.npmjs.com/[`npm`] エコシステムと完全に統合して、JavaScript の依存関係を管理します。
+`shadow-cljs` は、 https://www.npmjs.com/[`npm`] エコシステムと完全に統合して、JavaScript の依存関係を管理します。
 
 
 ////

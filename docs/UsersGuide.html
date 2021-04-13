@@ -1699,7 +1699,7 @@ shadow-cljs init` を実行することで、デフォルトのファイルを�
 <div class="sect2">
 <h3 id="source-paths"><a class="anchor" href="#source-paths"></a><a class="link" href="#source-paths">5.1. ソースのパス</a></h3>
 <div class="paragraph">
-<p>:source-paths` は、JVMのクラスパスを設定します。コンパイラはこの設定を使って、Clojure(Script)のソースファイル(例：.cljs`)を探します。</p>
+<p><code>:source-paths</code> は、JVMのクラスパスを設定します。コンパイラはこの設定を使って、Clojure(Script)のソースファイル(例：.cljs`)を探します。</p>
 </div>
 <div class="paragraph">
 <p>すべてを1つのソースパスにまとめても問題ありませんが、ソースファイルを特定の方法で「グループ化」したい場合は、複数のソースパスを使用することができます。例えば、テストを別々にしたい場合などに便利です。</p>
@@ -1754,7 +1754,7 @@ shadow-cljs init` を実行することで、デフォルトのファイルを�
 <div class="sect3">
 <h4 id="npm-install"><a class="anchor" href="#npm-install"></a><a class="link" href="#npm-install">5.2.2. JavaScript</a></h4>
 <div class="paragraph">
-<p><code>shadow-cljs</code> は、https://www.npmjs.com/[<code>npm</code>] エコシステムと完全に統合して、JavaScript の依存関係を管理します。</p>
+<p><code>shadow-cljs</code> は、 <a href="https://www.npmjs.com/"><code>npm</code></a> エコシステムと完全に統合して、JavaScript の依存関係を管理します。</p>
 </div>
 <div class="paragraph">
 <p>依存関係の管理には、 <code>npm</code> や <code>yarn</code> を使うことができますが、それぞれのドキュメントを参照してください。</p>
@@ -2293,8 +2293,10 @@ boot-reload`、 <code>devtools</code> などのツールをご存知でしょう
 <div class="paragraph">
 <p>プリロードは、生成されたJavascriptの先頭に特定の名前空間を強制的に導入するために使用されます。これは
 一般的には、アプリケーションが実際にロードされて実行される前に、ツールやインスツルメンテーションを注入するために使用されます。プリロードは
-preloads オプションは、単に <code>:devtools</code>/<code>:preloads</code> セクションの名前空間のリストです。
-shadow-cljs-edn`:</p>
+preloads オプションは、単に <code>:devtools</code>/<code>:preloads</code> セクションの名前空間のリストです。</p>
+</div>
+<div class="paragraph">
+<p><code>shadow-cljs.edn</code> :</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2498,10 +2500,10 @@ shadow-cljs-edn`:</p>
 <p>この例では、ビルドが <code>:flush</code> <a href="#compilation-stages">stage</a> を完了した(つまりディスクに書き込まれた)後に <code>(my.util/hook build-state 1 2 3)</code> を呼び出します。この例では <code>[:hello-world (1 2 3)]</code> と表示されますが、実際のフックではもっと便利なことをしてください。</p>
 </div>
 <div class="paragraph">
-<p>フックは通常の <strong>Clojure</strong> 関数にいくつかのメタデータを追加したものです。shadow.build/stage :flush}` メタデータは、このフックを <code>:flush</code> でのみ呼び出すようにコンパイラに通知します。フックが複数のステージの後に呼び出されるべきであれば、代わりに <code>{:shadow.build/stages #{:configure :flush}}</code> を設定することができます。そうしないとフックは何もしないので、少なくともひとつの設定済みステージが必要です。</p>
+<p>フックは通常の <strong>Clojure</strong> 関数にいくつかのメタデータを追加したものです。 <code>shadow.build/stage :flush}</code> メタデータは、このフックを <code>:flush</code> でのみ呼び出すようにコンパイラに通知します。フックが複数のステージの後に呼び出されるべきであれば、代わりに <code>{:shadow.build/stages #{:configure :flush}}</code> を設定することができます。そうしないとフックは何もしないので、少なくともひとつの設定済みステージが必要です。</p>
 </div>
 <div class="paragraph">
-<p>すべてのビルドフックは、 <code>:target</code> の作業が終わった後に呼び出されます。これらのフックは、最初の引数として <code>build-state</code> (現在のすべてのビルドデータを含む clojure マップ) を受け取り、*必ず*この <code>build-state</code> を修正して、または修正しないで返します。複数のステージを使用する場合、後のステージが見ることができる追加データを <code>build-state</code> に追加することができます。誤ってビルド全体を壊してしまわないように、名前付きのキーのみを使用することを強くお勧めします。</p>
+<p>すべてのビルドフックは、 <code>:target</code> の作業が終わった後に呼び出されます。これらのフックは、最初の引数として <code>build-state</code> (現在のすべてのビルドデータを含む clojure マップ) を受け取り、 <strong>必ず</strong> この <code>build-state</code> を修正して、または修正しないで返します。複数のステージを使用する場合、後のステージが見ることができる追加データを <code>build-state</code> に追加することができます。誤ってビルド全体を壊してしまわないように、名前付きのキーのみを使用することを強くお勧めします。</p>
 </div>
 <div class="paragraph">
 <p>build-state` には、フックに有用ないくつかの重要なエントリがあります。</p>
@@ -2630,7 +2632,7 @@ shadow-cljs-edn`:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>:cache-root` の設定は、デフォルトでは <code>target/shadow-cljs</code> となり、すべてのキャッシュファイルがどこに書き込まれるかを制御します。これはグローバルにのみ設定可能で、ビルドごとに設定することはできません。</p>
+<p><code>:cache-root</code> の設定は、デフォルトでは <code>target/shadow-cljs</code> となり、すべてのキャッシュファイルがどこに書き込まれるかを制御します。これはグローバルにのみ設定可能で、ビルドごとに設定することはできません。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -6330,7 +6332,7 @@ $ lein with-profiles +cljs deps <span class="symbol">:tree</span></code></pre>
 <div id="footer">
 <div id="footer-text">
 Version 1.0<br>
-Last updated 2021-04-13 15:03:32 JST
+Last updated 2021-04-13 15:11:26 JST
 </div>
 </div>
 </body>

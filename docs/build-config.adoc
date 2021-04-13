@@ -123,7 +123,8 @@ preloads option is simply a list of namespaces in the `:devtools`/`:preloads` se
 プリロードは、生成されたJavascriptの先頭に特定の名前空間を強制的に導入するために使用されます。これは
 一般的には、アプリケーションが実際にロードされて実行される前に、ツールやインスツルメンテーションを注入するために使用されます。プリロードは
 preloads オプションは、単に `:devtools`/`:preloads` セクションの名前空間のリストです。
-shadow-cljs-edn`:
+
+`shadow-cljs.edn` :
 
 ```
 {...
@@ -369,12 +370,12 @@ This example would call `(my.util/hook build-state 1 2 3)` after the build compl
 ////
 The hook is a just a normal *Clojure* function with some additional metadata. The `{:shadow.build/stage :flush}` metadata informs the compiler to call this hook for `:flush` only. You may instead configure `{:shadow.build/stages #{:configure :flush}}` if the hook should be called after multiple stages. At least one configured stage is required since the hook otherwise would never do anything.
 ////
-フックは通常の *Clojure* 関数にいくつかのメタデータを追加したものです。shadow.build/stage :flush}` メタデータは、このフックを `:flush` でのみ呼び出すようにコンパイラに通知します。フックが複数のステージの後に呼び出されるべきであれば、代わりに `{:shadow.build/stages #{:configure :flush}}` を設定することができます。そうしないとフックは何もしないので、少なくともひとつの設定済みステージが必要です。
+フックは通常の *Clojure* 関数にいくつかのメタデータを追加したものです。 `shadow.build/stage :flush}` メタデータは、このフックを `:flush` でのみ呼び出すようにコンパイラに通知します。フックが複数のステージの後に呼び出されるべきであれば、代わりに `{:shadow.build/stages #{:configure :flush}}` を設定することができます。そうしないとフックは何もしないので、少なくともひとつの設定済みステージが必要です。
 
 ////
 All build hooks will be called after the `:target` work is done. They will receive the `build-state` (a clojure map with all the current build data) as their first argument and *must* return this `build-state` modified or unmodified. When using multiple stages you can add additional data to the `build-state` that later stages can see. It is strongly advised to use namespaced keys only to ensure not accidentally breaking the entire build.
 ////
-すべてのビルドフックは、 `:target` の作業が終わった後に呼び出されます。これらのフックは、最初の引数として `build-state` (現在のすべてのビルドデータを含む clojure マップ) を受け取り、*必ず*この `build-state` を修正して、または修正しないで返します。複数のステージを使用する場合、後のステージが見ることができる追加データを `build-state` に追加することができます。誤ってビルド全体を壊してしまわないように、名前付きのキーのみを使用することを強くお勧めします。
+すべてのビルドフックは、 `:target` の作業が終わった後に呼び出されます。これらのフックは、最初の引数として `build-state` (現在のすべてのビルドデータを含む clojure マップ) を受け取り、 *必ず* この `build-state` を修正して、または修正しないで返します。複数のステージを使用する場合、後のステージが見ることができる追加データを `build-state` に追加することができます。誤ってビルド全体を壊してしまわないように、名前付きのキーのみを使用することを強くお勧めします。
 
 ////
 The `build-state` has some important entries which might be useful for your hooks:
@@ -505,7 +506,7 @@ target/shadow-cljs/builds/app/dev/ana/cljs/core.cljs.cache.transit.json
 ////
 The `:cache-root` setting defaults to `target/shadow-cljs` and controls where ALL cache files will be written. It can only be configured globally, not per build.
 ////
-:cache-root` の設定は、デフォルトでは `target/shadow-cljs` となり、すべてのキャッシュファイルがどこに書き込まれるかを制御します。これはグローバルにのみ設定可能で、ビルドごとに設定することはできません。
+`:cache-root` の設定は、デフォルトでは `target/shadow-cljs` となり、すべてのキャッシュファイルがどこに書き込まれるかを制御します。これはグローバルにのみ設定可能で、ビルドごとに設定することはできません。
 
 ////
 ```
