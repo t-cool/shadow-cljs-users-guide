@@ -26,8 +26,7 @@ will not scan jars. Defaults to "-test$".
 `:test-dir`::  ファイルを出力するフォルダです。以下を参照してください。
 `:ns-regexp`:: (オプション) プロジェクトファイルの名前空間にマッチする正規表現です。これはファイルをスキャンするだけで、jarファイルはスキャンしません。
 ジャーのスキャンは行いません。デフォルトは"-test$"です。
-`:runner-ns`: (オプション) (オプション) start、stop、init関数を含むことができる名前空間です。デフォルトは
-shadow.test.browser`.
+`:runner-ns`: (オプション) start、stop、init関数を含むことができる名前空間です。デフォルトは `shadow.test.browser` です。
 
 ////
 The normal `:devtools` options are supported, so you will usually create an http server to serve the files.
@@ -74,7 +73,7 @@ If you choose to supply a custom `:runner-ns`, it might look like this:
 ////
 It just has `init`, `start`, `stop` methods. `init` will be called once on startup, `stop` will be called before any code is reloaded and `start` will be called after all code was reloaded.
 ////
-これには `init`, `start`, `stop` というメソッドがあります。init` は起動時に一度だけ呼び出され、 `stop` はコードがリロードされる前に呼び出され、 `start` はすべてのコードがリロードされた後に呼び出されます。
+これには `init`, `start`, `stop` というメソッドがあります。 `init` は起動時に一度だけ呼び出され、 `stop` はコードがリロードされる前に呼び出され、 `start` はすべてのコードがリロードされた後に呼び出されます。
 
 ////
 TIP: `:runner-ns` is optional, just leave it out to use the default.

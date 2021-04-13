@@ -40,7 +40,7 @@ The relevant configuration options are:
 ////
 The `:node-test` target only generates the test file. You can run it via `node`.
 ////
-node-test` ターゲットは、テストファイルを生成するだけです。これを `node` 経由で実行することができます。
+`node-test` ターゲットは、テストファイルを生成するだけです。これを `node` 経由で実行することができます。
 
 ////
 ```bash

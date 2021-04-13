@@ -4456,7 +4456,7 @@ ns.bar()<span class="comment">;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>node-test` ターゲットは、テストファイルを生成するだけです。これを <code>node</code> 経由で実行することができます。</p>
+<p><code>node-test</code> ターゲットは、テストファイルを生成するだけです。これを <code>node</code> 経由で実行することができます。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4510,8 +4510,7 @@ $ shadow-cljs compile test &amp;&amp; node out/node-tests.js</code></pre>
 <td class="hdlist2">
 <p>(オプション) プロジェクトファイルの名前空間にマッチする正規表現です。これはファイルをスキャンするだけで、jarファイルはスキャンしません。
 ジャーのスキャンは行いません。デフォルトは"-test$"です。
-<code>:runner-ns</code>: (オプション) (オプション) start、stop、init関数を含むことができる名前空間です。デフォルトは
-shadow.test.browser`.</p>
+<code>:runner-ns</code>: (オプション) start、stop、init関数を含むことができる名前空間です。デフォルトは <code>shadow.test.browser</code> です。</p>
 </td>
 </tr>
 </table>
@@ -4553,7 +4552,7 @@ shadow.test.browser`.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>これには <code>init</code>, <code>start</code>, <code>stop</code> というメソッドがあります。init` は起動時に一度だけ呼び出され、 <code>stop</code> はコードがリロードされる前に呼び出され、 <code>start</code> はすべてのコードがリロードされた後に呼び出されます。</p>
+<p>これには <code>init</code>, <code>start</code>, <code>stop</code> というメソッドがあります。 <code>init</code> は起動時に一度だけ呼び出され、 <code>stop</code> はコードがリロードされる前に呼び出され、 <code>start</code> はすべてのコードがリロードされた後に呼び出されます。</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -4598,8 +4597,7 @@ shadow.test.browser`.</p>
 <div class="sect3">
 <h4 id="_karmaのインストール"><a class="anchor" href="#_karmaのインストール"></a><a class="link" href="#_karmaのインストール">12.3.1. Karmaのインストール</a></h4>
 <div class="paragraph">
-<p>詳しい説明は、http://karma-runner.github.io[ウェブサイト]をご覧ください。通常、次のようなものが必要になります。
-package.json` には以下のようなものが必要です。</p>
+<p>詳しい説明は、 <a href="http://karma-runner.github.io">website</a> をご覧ください。通常、次のようなものが必要になります。 <code>package.json</code> には以下のようなものが必要です。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4651,7 +4649,7 @@ package.json` には以下のようなものが必要です。</p>
 <code>:ns-regexp</code>
 </td>
 <td class="hdlist2">
-<p>(オプション) テストの名前空間にマッチさせる正規表現、デフォルトは "-test$</p>
+<p>(オプション) テストの名前空間にマッチさせる正規表現、デフォルトは "-test$" です。</p>
 </td>
 </tr>
 </table>
@@ -4737,7 +4735,7 @@ HeadlessChrome 0.0.0 (Mac OS X 10.12.6): Executed 1 of 1 SUCCESS (0.007 secs / 0
 </div>
 </div>
 <div class="paragraph">
-<p>requireを呼び出すときに使われたどんな "string "パラメータも、そのまま <code>:require</code> に転送されます。as` のエイリアスはあなた次第です。これができたら、他のCLJSの名前空間と同じようにコードを使うことができます。</p>
+<p>requireを呼び出すときに使われたどんな "string "パラメータも、そのまま <code>:require</code> に転送されます。 <code>as</code> のエイリアスはあなた次第です。これができたら、他のCLJSの名前空間と同じようにコードを使うことができます。</p>
 </div>
 <div class="listingblock">
 <div class="content">
