@@ -34,7 +34,7 @@ requireを呼び出すときに使われたどんな "string "パラメータも
 ////
 In `shadow-cljs`: *always use the `ns` form and whatever `:as` alias you provided.* You may also use `:refer` and `:rename`. This is different than what `:foreign-libs`/CLJSJS does where you include the thing in the namespace but then used a global `js/Thing` in your code.
 ////
-`shadow-cljs` では。*常に `ns` 形式と、あなたが提供した `:as` のエイリアスを使用してください。* また、 `:refer` や `:rename` を使用することもできます。これは、 `:foreign-libs`/CLJSJSが行う、名前空間にものをインクルードしても、コードの中ではグローバルな `js/Thing` を使用するというものとは異なります。
+`shadow-cljs` では。*常に* `ns` 形式と、あなたが提供した `:as` のエイリアスを使用してください。 また、 `:refer` や `:rename` を使用することもできます。これは、 `:foreign-libs`/CLJSJSが行う、名前空間にものをインクルードしても、コードの中ではグローバルな `js/Thing` を使用するというものとは異なります。
 
 ////
 Some packages just export a single function which you can call directly by
