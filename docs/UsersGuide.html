@@ -841,12 +841,12 @@ table.CodeRay td.code>pre{padding:0}
 <div class="sect2">
 <h3 id="_高レベルな概要"><a class="anchor" href="#_高レベルな概要"></a><a class="link" href="#_高レベルな概要">1.1. 高レベルな概要</a></h3>
 <div class="paragraph">
-<p>shadow-cljs は2つの部分から構成されています。</p>
+<p>shadow-cljs は、以下の2つの部分から構成されています。</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://clojars.org/thheller/shadow-cljs">shadow-cljs</a> : こちらは実際の仕事をすべて行うClojureライブラリです。</p>
+<p><a href="https://clojars.org/thheller/shadow-cljs">shadow-cljs</a> : 実際の仕事をすべて行うClojureライブラリ</p>
 </li>
 </ul>
 </div>
@@ -854,7 +854,7 @@ table.CodeRay td.code>pre{padding:0}
 <ul>
 <li>
 <p><a href="https://www.npmjs.com/package/shadow-cljs">shadow-cljs</a> :
-もう一方は、ビルド機能の大半をコマンドラインから直接実行するための便利なインターフェースを提供するnpmパッケージです。</p>
+ビルド機能の大半をコマンドラインから直接実行するための便利なインターフェースを提供するnpmパッケージ</p>
 </li>
 </ul>
 </div>
@@ -1107,7 +1107,7 @@ $ npx shadow-cljs help
 # yarn
 $ yarn shadow-cljs help
 
-# manually
+# 手動で行う場合
 $ ./node_modules/.bin/shadow-cljs help</code></pre>
 </div>
 </div>
@@ -1202,7 +1202,7 @@ $ shadow-cljs restart</code></pre>
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="symbol">:lein</span> <span class="predefined-constant">true</span>
 <span class="comment">; :source-paths と :dependencies はこのファイルでは無視されます</span>
 
-<span class="error">こ</span><span class="error">れ</span><span class="error">ら</span><span class="error">を</span>project.clj<span class="error">で</span><span class="error">設</span><span class="error">定</span><span class="error">す</span><span class="error">る</span>
+<span class="comment">; これらをproject.cljで設定する</span>
  <span class="symbol">:builds</span> { <span class="keyword">..</span><span class="keyword">.</span> }</code></pre>
 </div>
 </div>
@@ -1234,16 +1234,34 @@ $ shadow-cljs restart</code></pre>
 <div class="paragraph">
 <p>project.clj を使って :dependencies を管理する場合、 <a href="https://clojars.org/thheller/shadow-cljs">thheller/shadow-cljs</a> アーティファクトを :dependencies に (直接またはプロファイルで) 手動で含める必要があります。</p>
 </div>
-<div class="paragraph">
-<p>重要: <code>shadow-cljs</code> の起動時やコンパイル・ビルド時に奇妙な Java Stackstraces に遭遇した場合、依存関係の衝突が考えられます。重要なのは、 <code>shadow-cljs</code> が、適切にマッチした <code>org.clojure/clojurescript</code> と <code>closure-compiler</code> のバージョンと一緒に使われていることです。必要なバージョンは <a href="https://clojars.org/thheller/shadow-cljs">clojars</a> (右側)にリストアップされていますので、 <code>lein deps :tree</code> で確認できます。</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Important</div>
+</td>
+<td class="content">
+<code>shadow-cljs</code> の起動時やコンパイル・ビルド時に奇妙な Java Stackstraces に遭遇した場合、依存関係の衝突が考えられます。重要なのは、 <code>shadow-cljs</code> が、適切にマッチした <code>org.clojure/clojurescript</code> と <code>closure-compiler</code> のバージョンと一緒に使われていることです。必要なバージョンは <a href="https://clojars.org/thheller/shadow-cljs">clojars</a> (右側)にリストアップされていますので、 <code>lein deps :tree</code> で確認できます。
+</td>
+</tr>
+</table>
 </div>
 <div class="sect4">
 <h5 id="_leiningen_から直接タスクを実行する"><a class="anchor" href="#_leiningen_から直接タスクを実行する"></a><a class="link" href="#_leiningen_から直接タスクを実行する">Leiningen から直接タスクを実行する</a></h5>
 <div class="paragraph">
 <p>また、 <code>shadow-cljs</code> コマンド自体を使いたくない場合は、 <code>lein</code> を使って <code>shadow-cljs</code> コマンドを直接実行することもできます。</p>
 </div>
-<div class="paragraph">
-<p>重要: コマンドを実行する際には、引き続き <code>shadow-cljs</code> コマンドを使用することをお勧めします。このコマンドは、実行中のサーバモードのインスタンスを最大限に活用します。これにより、 <code>lein</code> を直接使用して追加のJVMを起動するよりも、大幅に速くコマンドを実行することができます。</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Important</div>
+</td>
+<td class="content">
+コマンドを実行する際には、引き続き <code>shadow-cljs</code> コマンドを使用することをお勧めします。このコマンドは、実行中のサーバモードのインスタンスを最大限に活用します。これにより、 <code>lein</code> を直接使用して追加のJVMを起動するよりも、大幅に速くコマンドを実行することができます。
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>REPLやライブリロードは不要で、devモードで一度コンパイルするだけです。</p>
@@ -1268,8 +1286,17 @@ $ shadow-cljs restart</code></pre>
 <div class="paragraph">
 <p>新しい <a href="https://clojure.org/guides/deps_and_cli">deps.edn</a> は、ビルトインのメソッドや <code>lein</code> を使用する代わりに、 <code>:dependencies</code> や <code>:source-paths</code> を管理するのにも使用できます。すべての <code>shadow-cljs</code> コマンドは、代わりに新しい <code>clojure</code> ユーティリティを介して起動されます。</p>
 </div>
-<div class="paragraph">
-<p>重要: <code>tools.deps</code> は現在も頻繁に変更されています。必ず最新のバージョンを使用してください。</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Important</div>
+</td>
+<td class="content">
+<code>tools.deps</code> は現在も頻繁に変更されています。必ず最新のバージョンを使用してください。
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>これを使うには、設定で <code>:deps true</code> プロパティを設定します。また、どの <code>deps.edn</code> のエイリアスを使用するかを設定することもできます。</p>
@@ -1660,8 +1687,17 @@ user=&gt; (shadow/compile :foo)
 <div class="paragraph">
 <p>(shadow.cljs.devtools.server/stop!)` を実行することで、組み込みサーバを停止することができます。これにより、実行中のすべてのビルドプロセスも停止します。</p>
 </div>
-<div class="paragraph">
-<p>重要: CLJS REPLに切り替えたい場合は、サーバの起動に使用したツールで追加の設定が必要になる場合があります。lein` はデフォルトで nREPL を使用するので、追加の nREPL <code>:middleware</code> を設定する必要があります。clj` を使用する場合は、nREPLを使用しないので、問題ありません。</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Important</div>
+</td>
+<td class="content">
+CLJS REPLに切り替えたい場合は、サーバの起動に使用したツールで追加の設定が必要になる場合があります。lein` はデフォルトで nREPL を使用するので、追加の nREPL <code>:middleware</code> を設定する必要があります。clj` を使用する場合は、nREPLを使用しないので、問題ありません。
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -2212,8 +2248,17 @@ shadow-cljs - watching build :app
 <div class="paragraph">
 <p>JVMに渡すことができる引数はバージョンによって異なりますが <a href="https://docs.oracle.com/javase/8/docs/technotes/tools/windows/java.html">here</a> のリストの例があります。RAMの割り当てが少なすぎたり多すぎたりすると、パフォーマンスが低下することがありますのでご注意ください。通常は、デフォルトの設定で十分です。</p>
 </div>
-<div class="paragraph">
-<p>重要: <code>deps.edn</code> や <code>project.clj</code> を使用する場合は、 <code>:jvm-opts</code> を設定する必要があります。</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Important</div>
+</td>
+<td class="content">
+<code>deps.edn</code> や <code>project.clj</code> を使用する場合は、 <code>:jvm-opts</code> を設定する必要があります。
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -2566,8 +2611,17 @@ preloads オプションは、単に <code>:devtools</code>/<code>:preloads</cod
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>重要: <code>watch</code> を実行していると、すべてのフックがビルドのたびに繰り返し呼び出されます。ビルドのパフォーマンスに大きな影響を与える可能性がありますので、あまり多くの作業を行わないようにしてください。</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Important</div>
+</td>
+<td class="content">
+<code>watch</code> を実行していると、すべてのフックがビルドのたびに繰り返し呼び出されます。ビルドのパフォーマンスに大きな影響を与える可能性がありますので、あまり多くの作業を行わないようにしてください。
+</td>
+</tr>
+</table>
 </div>
 <div class="sect3">
 <h4 id="compile-stages"><a class="anchor" href="#compile-stages"></a><a class="link" href="#compile-stages">6.3.1. コンパイル・ステージ</a></h4>
@@ -3143,8 +3197,17 @@ preloads オプションは、単に <code>:devtools</code>/<code>:preloads</cod
 <div class="paragraph">
 <p>サポートされている <code>:as</code> の強制は <code>:int</code>, <code>:bool</code>, <code>:keyword</code>, <code>:symbol</code> です。与えられた <code>:default</code> の値は変換されず、すでに正しい型になっていることが期待されます。</p>
 </div>
-<div class="paragraph">
-<p>重要: <code>shadow-cljs</code> プロセスが開始されたときに使用された環境変数が使用されます。サーバプロセスが使用されている場合、その環境変数は他のコマンドで設定されたものよりも優先して使用されます。これは主に開発中に関係することですが、混乱を招くかもしれません。また、 <code>--config-merge</code> にはこのような制限はありません。</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Important</div>
+</td>
+<td class="content">
+<code>shadow-cljs</code> プロセスが開始されたときに使用された環境変数が使用されます。サーバプロセスが使用されている場合、その環境変数は他のコマンドで設定されたものよりも優先して使用されます。これは主に開発中に関係することですが、混乱を招くかもしれません。また、 <code>--config-merge</code> にはこのような制限はありません。
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -3415,8 +3478,17 @@ Javascriptのファイル名を生成するためにも使用されます。モ�
 <span class="tag">&lt;script</span> <span class="attribute-name">src</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">/js/login.js</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span><span class="tag">&lt;/script&gt;</span></code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p>重要: <code>.js</code> ファイルは正しい順序でインクルードする必要があります。これには &lt;&lt;BrowserManifest, <code>manifest.edn</code>&gt; が役立ちます。</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Important</div>
+</td>
+<td class="content">
+<code>.js</code> ファイルは正しい順序でインクルードする必要があります。これには &lt;&lt;BrowserManifest, <code>manifest.edn</code>&gt; が役立ちます。
+</td>
+</tr>
+</table>
 </div>
 <div class="sect3">
 <h4 id="_動的にコードを読み込む"><a class="anchor" href="#_動的にコードを読み込む"></a><a class="link" href="#_動的にコードを読み込む">7.3.1. 動的にコードを読み込む</a></h4>
@@ -5253,8 +5325,17 @@ HeadlessChrome 0.0.0 (Mac OS X 10.12.6): Executed 1 of 1 SUCCESS (0.007 secs / 0
 </div>
 <div class="sect3">
 <h4 id="_言語サポート"><a class="anchor" href="#_言語サポート"></a><a class="link" href="#_言語サポート">13.2.2. 言語サポート</a></h4>
-<div class="paragraph">
-<p>重要: クラスパスには、コンパイラが前処理をしなくても消費できるJavaScriptだけが含まれていることが期待されています。 <code>npm</code> にもよく似た規約があります。</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Important</div>
+</td>
+<td class="content">
+クラスパスには、コンパイラが前処理をしなくても消費できるJavaScriptだけが含まれていることが期待されています。 <code>npm</code> にもよく似た規約があります。
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Closure Compilerは、クラスパス上で見つかった全てのJavaScriptを、その言語設定である <code>ECMASCRIPT_NEXT</code> を使って処理します。この設定が正確に何を意味するのかはよくわかっていませんが、ほとんどのブラウザではまだサポートされていないかもしれない次世代のJavaScriptコードを表しています。ES6は非常によくサポートされており、ほとんどのES8の機能もサポートされています。標準的なCLJSと同様に、これは必要に応じてポリフィルを用いてES5にコンパイルされます。</p>
@@ -5468,8 +5549,17 @@ cljs.array_map(<span class="keyword">keyword</span>(<span class="string"><span c
 <div class="paragraph">
 <p>重要：<code>:target</code> ではすでに適切なレベルに設定されているので、通常は <code>:optimizations</code> を設定する必要はありません。</p>
 </div>
-<div class="paragraph">
-<p>重要: <code>:optimizations</code> は <code>release</code> コマンドを使ったときにのみ適用されます。開発用のビルドはClosure Compilerによって最適化されることはありません。開発用のビルドは常に <code>:none</code> に設定されます。</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Important</div>
+</td>
+<td class="content">
+<code>:optimizations</code> は <code>release</code> コマンドを使ったときにのみ適用されます。開発用のビルドはClosure Compilerによって最適化されることはありません。開発用のビルドは常に <code>:none</code> に設定されます。
+</td>
+</tr>
+</table>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -5746,7 +5836,7 @@ $ npx shadow-cljs run shadow.cljs.build-report app report.html</code></pre>
 <div class="sect2">
 <h3 id="_cursive"><a class="anchor" href="#_cursive"></a><a class="link" href="#_cursive">15.1. Cursive</a></h3>
 <div class="paragraph">
-<p>Cursive は現在、 <code>shadow-cljs.edn</code> による依存関係の解決をサポートしていません。shadow-cljs pom` を実行して <code>pom.xml</code> を生成し、それを IntelliJ.NET を使ってインポートすることができます。</p>
+<p>Cursive は現在、 <code>shadow-cljs.edn</code> による依存関係の解決をサポートしていません。 <code>shadow-cljs pom</code> を実行して <code>pom.xml</code> を生成し、それを IntelliJ.NET を使ってインポートすることができます。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -5754,7 +5844,7 @@ $ npx shadow-cljs run shadow.cljs.build-report app report.html</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>続いて、Cursiveの*File &#8594; New &#8594; Project from Existing Sources*で、プロジェクトディレクトリに生成された <code>pom.xml</code> を選択します。</p>
+<p>続いて、Cursiveの File &#8594; New &#8594; Project from Existing Sources で、プロジェクトディレクトリに生成された <code>pom.xml</code> を選択します。</p>
 </div>
 <div class="paragraph">
 <p>重要：このためには、Build Tools→Mavenプラグインを有効にする必要があります。デフォルトでは有効になっていない場合があります。</p>
@@ -6453,7 +6543,7 @@ $ lein with-profiles +cljs deps <span class="symbol">:tree</span></code></pre>
 <div id="footer">
 <div id="footer-text">
 Version 1.0<br>
-Last updated 2021-04-13 21:29:07 JST
+Last updated 2021-04-14 05:53:11 JST
 </div>
 </div>
 </body>

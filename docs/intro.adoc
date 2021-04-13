@@ -11,18 +11,18 @@ shadow-cljsは、シンプルさと使いやすさに重点を置いて、Clojur
 ////
 `shadow-cljs` is composed of 2 parts:
 ////
-shadow-cljs は2つの部分から構成されています。
+shadow-cljs は、以下の2つの部分から構成されています。
 
 ////
 - The https://clojars.org/thheller/shadow-cljs[shadow-cljs] Clojure library which handles all the actual work.
 ////
-- https://clojars.org/thheller/shadow-cljs[shadow-cljs] : こちらは実際の仕事をすべて行うClojureライブラリです。
+- https://clojars.org/thheller/shadow-cljs[shadow-cljs] : 実際の仕事をすべて行うClojureライブラリ
 
 ////
 - The https://www.npmjs.com/package/shadow-cljs[shadow-cljs] `npm` package which provides a convenient interface for running most of the build functionality directly from command line.
 ////
 - https://www.npmjs.com/package/shadow-cljs[shadow-cljs] : 
-もう一方は、ビルド機能の大半をコマンドラインから直接実行するための便利なインターフェースを提供するnpmパッケージです。
+ビルド機能の大半をコマンドラインから直接実行するための便利なインターフェースを提供するnpmパッケージ
 
 
 ////

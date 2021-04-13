@@ -395,7 +395,7 @@ The `build-state` has some important entries which might be useful for your hook
 ////
 IMPORTANT: With a running `watch` all hooks will be called repeatedly for each build. Avoid doing too much work as they can considerably impact your build performance.
 ////
-重要: `watch` を実行していると、すべてのフックがビルドのたびに繰り返し呼び出されます。ビルドのパフォーマンスに大きな影響を与える可能性がありますので、あまり多くの作業を行わないようにしてください。
+IMPORTANT: `watch` を実行していると、すべてのフックがビルドのたびに繰り返し呼び出されます。ビルドのパフォーマンスに大きな影響を与える可能性がありますので、あまり多くの作業を行わないようにしてください。
 
 === コンパイル・ステージ [[compile-stages]]
 //Compilation Stages [[compile-stages]]
@@ -1119,7 +1119,7 @@ Supported `:as` coercions are `:int`, `:bool`, `:keyword`, `:symbol`. Supplied `
 ////
 IMPORTANT: The environment variables used when the `shadow-cljs` process was started are used. If a server process is used its environment variables will be used over those potentially set by other commands. This is mostly relevant during development but may be confusing. `--config-merge` does not have this limitation.
 ////
-重要: `shadow-cljs` プロセスが開始されたときに使用された環境変数が使用されます。サーバプロセスが使用されている場合、その環境変数は他のコマンドで設定されたものよりも優先して使用されます。これは主に開発中に関係することですが、混乱を招くかもしれません。また、 `--config-merge` にはこのような制限はありません。
+IMPORTANT: `shadow-cljs` プロセスが開始されたときに使用された環境変数が使用されます。サーバプロセスが使用されている場合、その環境変数は他のコマンドで設定されたものよりも優先して使用されます。これは主に開発中に関係することですが、混乱を招くかもしれません。また、 `--config-merge` にはこのような制限はありません。
 
 == ビルドとターゲットのデフォルト [[build-target-defaults]]
 

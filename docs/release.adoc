@@ -50,7 +50,7 @@ IMPORTANT: You do not usually need to set `:optimizations` since the `:target` a
 ////
 IMPORTANT: `:optimizations` only apply when using the `release` command. Development builds are never optimized by the Closure Compiler. Development builds are always set to `:none`.
 ////
-重要: `:optimizations` は `release` コマンドを使ったときにのみ適用されます。開発用のビルドはClosure Compilerによって最適化されることはありません。開発用のビルドは常に `:none` に設定されます。
+IMPORTANT: `:optimizations` は `release` コマンドを使ったときにのみ適用されます。開発用のビルドはClosure Compilerによって最適化されることはありません。開発用のビルドは常に `:none` に設定されます。
 
 ```clojure
 {...

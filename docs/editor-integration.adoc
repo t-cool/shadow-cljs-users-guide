@@ -3,7 +3,7 @@
 ////
 Cursive does not currently support resolving dependencies via `shadow-cljs.edn`. You can run `shadow-cljs pom` to generate a `pom.xml` and import that using the IntelliJ.
 ////
-Cursive は現在、 `shadow-cljs.edn` による依存関係の解決をサポートしていません。shadow-cljs pom` を実行して `pom.xml` を生成し、それを IntelliJ.NET を使ってインポートすることができます。
+Cursive は現在、 `shadow-cljs.edn` による依存関係の解決をサポートしていません。 `shadow-cljs pom` を実行して `pom.xml` を生成し、それを IntelliJ.NET を使ってインポートすることができます。
 
 ```
 $ shadow-cljs pom
@@ -12,7 +12,7 @@ $ shadow-cljs pom
 ////
 Then in Cursive *File -> New -> Project from Existing Sources* then select the generated `pom.xml` in the project directory.
 ////
-続いて、Cursiveの*File -> New -> Project from Existing Sources*で、プロジェクトディレクトリに生成された `pom.xml` を選択します。
+続いて、Cursiveの File -> New -> Project from Existing Sources で、プロジェクトディレクトリに生成された `pom.xml` を選択します。
 
 ////
 IMPORTANT: You need to have the "Build Tools" -> "Maven" Plugin enabled for this. It might not be enabled by default.

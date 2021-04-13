@@ -916,7 +916,7 @@ JVMに渡すことができる引数はバージョンによって異なりま�
 ////
 IMPORTANT: When using `deps.edn` or `project.clj` the `:jvm-opts` need to be configured there.
 ////
-重要: `deps.edn` や `project.clj` を使用する場合は、 `:jvm-opts` を設定する必要があります。
+IMPORTANT: `deps.edn` や `project.clj` を使用する場合は、 `:jvm-opts` を設定する必要があります。
 
 
 = ビルドの設定

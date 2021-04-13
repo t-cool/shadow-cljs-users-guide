@@ -261,7 +261,7 @@ In your HTML for the Homepage you'd then always include the `shared.js` on each 
 ////
 IMPORTANT: The `.js` files must be included in the correct order. The <<BrowserManifest, `manifest.edn`>> can help with this.
 ////
-重要: `.js` ファイルは正しい順序でインクルードする必要があります。これには <<BrowserManifest, `manifest.edn`> が役立ちます。
+IMPORTANT: `.js` ファイルは正しい順序でインクルードする必要があります。これには <<BrowserManifest, `manifest.edn`> が役立ちます。
 
 === 動的にコードを読み込む
 //Loading code dynamically

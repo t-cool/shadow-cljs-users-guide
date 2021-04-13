@@ -42,9 +42,10 @@ $ npx shadow-cljs help
 # yarn
 $ yarn shadow-cljs help
 
-# manually
+# 手動で行う場合
 $ ./node_modules/.bin/shadow-cljs help
 ```
+// 手動: manually
 
 ////
 The guide will assume there is a global install to keep examples short but this is not required.
@@ -195,7 +196,7 @@ https://leiningen.org/[Leiningen] を使って依存関係を管理したい場�
 {:lein true
 ; :source-paths と :dependencies はこのファイルでは無視されます
 
-これらをproject.cljで設定する
+; これらをproject.cljで設定する
  :builds { ... }
 ```
 
@@ -230,7 +231,7 @@ project.clj を使って :dependencies を管理する場合、 https://clojars.
 ////
 IMPORTANT: When you are running into weird Java Stackstraces when starting `shadow-cljs` or trying compile builds you may have a dependency conflict. It is very important that `shadow-cljs` is used with proper matching `org.clojure/clojurescript` and `closure-compiler` versions. You can check via `lein deps :tree` and the required versions are listed on https://clojars.org/thheller/shadow-cljs[clojars] (on the right side).
 ////
-重要: `shadow-cljs` の起動時やコンパイル・ビルド時に奇妙な Java Stackstraces に遭遇した場合、依存関係の衝突が考えられます。重要なのは、 `shadow-cljs` が、適切にマッチした `org.clojure/clojurescript` と `closure-compiler` のバージョンと一緒に使われていることです。必要なバージョンは https://clojars.org/thheller/shadow-cljs[clojars] (右側)にリストアップされていますので、 `lein deps :tree` で確認できます。
+IMPORTANT: `shadow-cljs` の起動時やコンパイル・ビルド時に奇妙な Java Stackstraces に遭遇した場合、依存関係の衝突が考えられます。重要なのは、 `shadow-cljs` が、適切にマッチした `org.clojure/clojurescript` と `closure-compiler` のバージョンと一緒に使われていることです。必要なバージョンは https://clojars.org/thheller/shadow-cljs[clojars] (右側)にリストアップされていますので、 `lein deps :tree` で確認できます。
 
 ==== Leiningen から直接タスクを実行する
 
@@ -246,7 +247,7 @@ You may also directly execute `shadow-cljs` commands via `lein` if you prefer to
 ////
 IMPORTANT: It is recommended to still use the `shadow-cljs` command to run commands since that will take full advantage of a running server mode instance. This will run commands substantially faster than launching additional JVMs when using `lein` directly.
 ////
-重要: コマンドを実行する際には、引き続き `shadow-cljs` コマンドを使用することをお勧めします。このコマンドは、実行中のサーバモードのインスタンスを最大限に活用します。これにより、 `lein` を直接使用して追加のJVMを起動するよりも、大幅に速くコマンドを実行することができます。
+IMPORTANT: コマンドを実行する際には、引き続き `shadow-cljs` コマンドを使用することをお勧めします。このコマンドは、実行中のサーバモードのインスタンスを最大限に活用します。これにより、 `lein` を直接使用して追加のJVMを起動するよりも、大幅に速くコマンドを実行することができます。
 
 ////
 .Just compile :dev mode once, no REPL or live-reload:
@@ -276,7 +277,7 @@ The new https://clojure.org/guides/deps_and_cli[deps.edn] can also be used to ma
 ////
 IMPORTANT: `tools.deps` is still changing quite frequently. Make sure you are using the latest version.
 ////
-重要: `tools.deps` は現在も頻繁に変更されています。必ず最新のバージョンを使用してください。
+IMPORTANT: `tools.deps` は現在も頻繁に変更されています。必ず最新のバージョンを使用してください。
 
 ////
 To use this set the `:deps true` property in your config. It is also possible to configure which `deps.edn` aliases should be used.
