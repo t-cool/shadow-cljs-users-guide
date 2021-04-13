@@ -28,7 +28,7 @@ shadow-cljs は2つの部分から構成されています。
 ////
 If desired you can easily integrate the `shadow-cljs` Clojure library into any other Clojure/JVM build tool (eg. https://leiningen.org/[leiningen] or the https://clojure.org/guides/deps_and_cli[Clojure CLI] tools).
 ////
-必要であれば、Clojureライブラリであるshadow-cljsを、他のClojure/JVMビルドツール（例えば、https://leiningen.org/[leiningen] や、https://clojure.org/guides/deps_and_cli[Clojure CLI]ツール）に簡単に統合することができます。
+必要であれば、Clojureライブラリであるshadow-cljsを、他のClojure/JVMビルドツール（例えば https://leiningen.org/[leiningen] や https://clojure.org/guides/deps_and_cli[Clojure CLI]ツール）に簡単に統合することができます。
 
 ////
 It is recommended to use the `npm` package as that provides a more optimized development experience tailored towards CLJS development.

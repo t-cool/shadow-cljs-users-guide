@@ -58,7 +58,7 @@ If you want to make your live easier just use `shadow-cljs.edn` to manage your d
 ////
 If you have ensured that you are getting all the correct versions but things still go wrong please open a https://github.com/thheller/shadow-cljs/issues[Github Issue] with a full problem description including your full dependency list.
 ////
-正しいバージョンを入手したにもかかわらず、問題が解決しない場合は、https://github.com/thheller/shadow-cljs/issues[Github Issue]を開き、依存関係のリストを含む問題の詳細をご報告ください。
+正しいバージョンを入手したにもかかわらず、問題が解決しない場合は https://github.com/thheller/shadow-cljs/issues[Github Issue]を開き、依存関係のリストを含む問題の詳細をご報告ください。
 
 === deps.edn / tools.deps
 
@@ -89,7 +89,7 @@ This will list all the dependencies. Tracking this down is a bit manual but you'
 ////
 Please refer to the official https://clojure.org/reference/deps_and_cli[tools.deps] documentation for further information.
 ////
-詳細は、https://clojure.org/reference/deps_and_cli[tools.deps]の公式ドキュメントをご参照ください。
+詳細は https://clojure.org/reference/deps_and_cli[tools.deps]の公式ドキュメントをご参照ください。
 
 === project.clj / Leiningen
 
@@ -119,4 +119,4 @@ This will usually list all the current conflicts at the top and provide suggesti
 ////
 Please refer to the https://leiningen.org/[Leiningen] documentation for more information.
 ////
-詳しくは、https://leiningen.org/[Leiningen] のドキュメントをご参照ください。
+詳しくは https://leiningen.org/[Leiningen] のドキュメントをご参照ください。

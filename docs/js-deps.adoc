@@ -445,7 +445,7 @@ CLJS has an alternate https://clojurescript.org/guides/javascript-modules[implem
 ****
 *DANGER: この機能は実験的なものです！* 現在は `shadow-cljs` でのみサポートされており、これを使おうとすると他の CLJS ツールに怒られます。自分の責任で使用してください。この機能は当初、CLJSのコアでは拒否されていましたが、私は便利だと思いますし、さらなる議論なしにhttps://dev.clojure.org/jira/browse/CLJS-2061?focusedCommentId=46191&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-46191[dismissed]されるべきではなかったと思います。
 
-CLJSには、https://clojurescript.org/guides/javascript-modules[implementation] という別の実装がありますが、これは `shadow-cljs` ではサポートされていません。私はこの実装がある種の面で不足していると感じたので、別の解決策を選びました。しかし、両方のアプローチの長所・短所を議論するのは楽しいことです。
+CLJSには https://clojurescript.org/guides/javascript-modules[implementation] という別の実装がありますが、これは `shadow-cljs` ではサポートされていません。私はこの実装がある種の面で不足していると感じたので、別の解決策を選びました。しかし、両方のアプローチの長所・短所を議論するのは楽しいことです。
 ****
 
 ////
@@ -728,7 +728,7 @@ NOTE: The `shadow-cljsjs` library only provides the shim files. You’ll still n
 ////
 CLJSJS packages basically just take the package from `npm` and put them into a `.jar` and re-publish them via https://clojars.org[clojars] . As a bonus they often bundle Externs. The compiler otherwise does nothing with these files and only prepends them to the generated output.
 ////
-CLJSJSのパッケージは、基本的に `npm` からパッケージを取り出し、 `.jar` に入れて、https://clojars.org[clojars] で再公開するだけです。おまけにExternsもバンドルされています。コンパイラはこれらのファイルに対して何もせず、生成された出力の先頭に追加するだけです。
+CLJSJSのパッケージは、基本的に `npm` からパッケージを取り出し、 `.jar` に入れて https://clojars.org[clojars] で再公開するだけです。おまけにExternsもバンドルされています。コンパイラはこれらのファイルに対して何もせず、生成された出力の先頭に追加するだけです。
 
 ////
 This was very useful when we had no access to `npm` directly but has certain issues since not all packages are easily combined with others. A package might rely on `react` but instead of expressing this via `npm` https://github.com/cljsjs/packages/tree/master/material-ui[they] bundle their own `react`. If you are not careful you could end up including 2 different `react` versions in your build which may lead to very confusing errors or at the very least increase the build size substantially.

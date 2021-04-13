@@ -48,7 +48,7 @@ When compiled this results in a `app/index.js` file intended to be used as an en
 ////
 There are two ways to use `react-native`, "plain" `react-native`, which allows you to use native code and libraries and the one "wrapped" in https://expo.io/[expo] (described below). All the steps described above are sufficient to start using shadow-cljs with the plain `react-native`. See this example repo:
 ////
-`react-native` には、ネイティブコードやライブラリを使用できるプレーンな `react-native` と、https://expo.io/[expo] （後述）でラップされた `react-native` の2つの使用方法があります。上記で説明したすべての手順は、プレーンな `react-native` で shadow-cljs を使い始めるのに十分なものです。このサンプルレポをご覧ください。
+`react-native` には、ネイティブコードやライブラリを使用できるプレーンな `react-native` と https://expo.io/[expo] （後述）でラップされた `react-native` の2つの使用方法があります。上記で説明したすべての手順は、プレーンな `react-native` で shadow-cljs を使い始めるのに十分なものです。このサンプルレポをご覧ください。
 
 - https://github.com/thheller/reagent-react-native
 

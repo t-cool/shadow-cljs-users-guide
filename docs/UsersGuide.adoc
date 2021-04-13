@@ -54,7 +54,7 @@ This is a work in progress. If you find an error, please submit a PR to fix it, 
 ////
 This source for this book is hosted on https://github.com/shadow-cljs/shadow-cljs.github.io[Github] .
 ////
-この本のソースは、https://github.com/shadow-cljs/shadow-cljs.github.io[Github] にあります。
+この本のソースは https://github.com/shadow-cljs/shadow-cljs.github.io[Github] にあります。
 
 
 === 使用した規約
@@ -909,7 +909,7 @@ This is done by configuring `:jvm-opts` at the root of `shadow-cljs.edn` expecti
 ////
 The arguments that can be passed to the JVM vary depending on the version but you can find an example list https://docs.oracle.com/javase/8/docs/technotes/tools/windows/java.html[here] . Please note that assigning too little or too much RAM can degrade performance. The defaults are usually good enough.
 ////
-JVMに渡すことができる引数はバージョンによって異なりますが、https://docs.oracle.com/javase/8/docs/technotes/tools/windows/java.html[here] のリストの例があります。RAMの割り当てが少なすぎたり多すぎたりすると、パフォーマンスが低下することがありますのでご注意ください。通常は、デフォルトの設定で十分です。
+JVMに渡すことができる引数はバージョンによって異なりますが https://docs.oracle.com/javase/8/docs/technotes/tools/windows/java.html[here] のリストの例があります。RAMの割り当てが少なすぎたり多すぎたりすると、パフォーマンスが低下することがありますのでご注意ください。通常は、デフォルトの設定で十分です。
 
 ////
 IMPORTANT: When using `deps.edn` or `project.clj` the `:jvm-opts` need to be configured there.

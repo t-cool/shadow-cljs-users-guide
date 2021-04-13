@@ -234,7 +234,7 @@ Now, you can use the `Chlorine: Evaluate...` commands to evaluate any Clojure or
 ////
 You need VS Code and install the https://marketplace.visualstudio.com/items?itemName=betterthantomorrow.calva#overview[Calva] extension.
 ////
-VS Codeが必要で、https://marketplace.visualstudio.com/items?itemName=betterthantomorrow.calva#overview[Calva]エクステンションをインストールする必要があります。
+VS Codeが必要で https://marketplace.visualstudio.com/items?itemName=betterthantomorrow.calva#overview[Calva]エクステンションをインストールする必要があります。
 
 ////
 Since Calva uses nREPL and the `cider-nrepl` middlewares you need to include this dependency in <<user-config, ~/.shadow-cljs/config.edn>> or `shadow-cljs.edn`:
@@ -348,7 +348,7 @@ Some of the things you can now do:
 ////
 https://www.vim.org/scripts/script.php?script_id=4978[Fireplace.vim] is a Vim/Neovim plug-in which provides Clojure REPL integration by acting as an https://nrepl.org/[nREPL] client. When combined with Shadow-CLJS, it also provides ClojureScript REPL integration.
 ////
-https://www.vim.org/scripts/script.php?script_id=4978[Fireplace.vim]は、https://nrepl.org/[nREPL] クライアントとして動作することで、Clojure REPLの統合を提供するVim/Neovimプラグインです。Shadow-CLJS と組み合わせることで、ClojureScript REPL の統合も可能になります。
+https://www.vim.org/scripts/script.php?script_id=4978[Fireplace.vim]は https://nrepl.org/[nREPL] クライアントとして動作することで、Clojure REPLの統合を提供するVim/Neovimプラグインです。Shadow-CLJS と組み合わせることで、ClojureScript REPL の統合も可能になります。
 
 ////
 This guide uses as an example the app created in the official https://github.com/thheller/shadow-cljs#quick-start[Shadow-CLJS Quick Start] guide therefore refers to a few configuration items in the app's `shadow-cljs.edn`. That being said, these configuration items are fairly generic so should be applicable to other apps with minor modifications.
@@ -366,7 +366,7 @@ https://www.vim.org/scripts/script.php?script_id=4978[Fireplace.vim]を、Vim/Ne
 ////
 As an https://nrepl.org/[nREPL] client, https://www.vim.org/scripts/script.php?script_id=4978[Fireplace.vim] depends on https://docs.cider.mx/cider-nrepl/[CIDER-nREPL] (which is nREPL middleware that provides common, editor-agnostic REPL operations) therefore you need to include this dependency in <<user-config, ~/.shadow-cljs/config.edn>> or `shadow-cljs.edn` (as shown in the next sub-section.) Shadow-CLJS will inject the required CIDER-nREPL middleware once it sees this dependency.
 ////
-https://nrepl.org/[nREPL] クライアントとして、https://www.vim.org/scripts/script.php?script_id=4978[Fireplace.vim]は、https://docs.cider.mx/cider-nrepl/[CIDER-nREPL] (これは、一般的な、エディタに依存しないREPL操作を提供するnREPLミドルウェアです)に依存しているため、この依存関係を<<user-config, ~/. shadow-cljs/config.edn>> または `shadow-cljs.edn` (次のサブセクションで示すように) にこの依存関係を含める必要があります。Shadow-CLJS は、この依存関係を確認すると、必要な CIDER-nREPL ミドルウェアを注入します。
+https://nrepl.org/[nREPL] クライアントとして https://www.vim.org/scripts/script.php?script_id=4978[Fireplace.vim]は https://docs.cider.mx/cider-nrepl/[CIDER-nREPL] (これは、一般的な、エディタに依存しないREPL操作を提供するnREPLミドルウェアです)に依存しているため、この依存関係を<<user-config, ~/. shadow-cljs/config.edn>> または `shadow-cljs.edn` (次のサブセクションで示すように) にこの依存関係を含める必要があります。Shadow-CLJS は、この依存関係を確認すると、必要な CIDER-nREPL ミドルウェアを注入します。
 
 === アプリの準備
 //Preparing the app
@@ -412,7 +412,7 @@ npx shadow-cljs watch frontend
 ////
 Open the app in a browser at http://localhost:8080/. Without this step, you would get the following error message from https://www.vim.org/scripts/script.php?script_id=4978[Fireplace.vim] if you attempt to connect to the REPL server from within Vim/Neovim:
 ////
-http://localhost:8080/、ブラウザでアプリを開きます。この手順を行わないと、Vim/Neovim内からREPLサーバに接続しようとすると、https://www.vim.org/scripts/script.php?script_id=4978[Fireplace.vim]から次のようなエラーメッセージが表示されます。
+http://localhost:8080/、ブラウザでアプリを開きます。この手順を行わないと、Vim/Neovim内からREPLサーバに接続しようとすると https://www.vim.org/scripts/script.php?script_id=4978[Fireplace.vim]から次のようなエラーメッセージが表示されます。
 
 ```
 No application has connected to the REPL server. 
@@ -427,7 +427,7 @@ JS環境がコンパイルしたClojureScriptコードを読み込んでいる�
 ////
 Open a ClojureScript source file in Vim/Neovim and execute the following command to connect https://www.vim.org/scripts/script.php?script_id=4978[Fireplace.vim] to the REPL server (note the port for the REPL server, `3333`, specified in `shadow-cljs.edn`):
 ////
-Vim/NeovimでClojureScriptのソースファイルを開き、以下のコマンドを実行して、https://www.vim.org/scripts/script.php?script_id=4978[Fireplace.vim]をREPLサーバに接続します（REPLサーバのポートは、 `shadow-cljs.edn` で指定されている `3333` であることに注意してください）。
+Vim/NeovimでClojureScriptのソースファイルを開き、以下のコマンドを実行して https://www.vim.org/scripts/script.php?script_id=4978[Fireplace.vim]をREPLサーバに接続します（REPLサーバのポートは、 `shadow-cljs.edn` で指定されている `3333` であることに注意してください）。
 
 ```
 :Connect 3333
@@ -452,4 +452,4 @@ Press ENTER or type command to continue
 ////
 You should now be able to execute https://www.vim.org/scripts/script.php?script_id=4978[Fireplace.vim] commands against the REPL server. Please refer to the https://www.vim.org/scripts/script.php?script_id=4978[Fireplace.vim] documentation for the full list of commands you can execute.
 ////
-これで、REPLサーバに対して、https://www.vim.org/scripts/script.php?script_id=4978[Fireplace.vim]コマンドが実行できるようになります。実行可能なコマンドの全リストについては、https://www.vim.org/scripts/script.php?script_id=4978[Fireplace.vim]のドキュメントを参照してください。
+これで、REPLサーバに対して https://www.vim.org/scripts/script.php?script_id=4978[Fireplace.vim]コマンドが実行できるようになります。実行可能なコマンドの全リストについては https://www.vim.org/scripts/script.php?script_id=4978[Fireplace.vim]のドキュメントを参照してください。
