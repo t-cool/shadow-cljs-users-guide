@@ -3095,15 +3095,15 @@ preloads オプションは、単に <code>:devtools</code>/<code>:preloads</cod
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure"><span class="error">#</span>shadow/env <span class="string"><span class="delimiter">&quot;</span><span class="content">APP_URL</span><span class="delimiter">&quot;</span></span>
 <span class="error">#</span>shadow/env [<span class="string"><span class="delimiter">&quot;</span><span class="content">APP_URL</span><span class="delimiter">&quot;</span></span>]
-<span class="comment">;; with default value, used if env variable is not set</span>
+<span class="comment">;; デフォルトの値で、env変数が設定されていない場合に使用される</span>
 <span class="error">#</span>shadow/env [<span class="string"><span class="delimiter">&quot;</span><span class="content">APP_URL</span><span class="delimiter">&quot;</span></span> <span class="string"><span class="delimiter">&quot;</span><span class="content">default-value</span><span class="delimiter">&quot;</span></span>]
 <span class="error">#</span>shadow/env [<span class="string"><span class="delimiter">&quot;</span><span class="content">APP_URL</span><span class="delimiter">&quot;</span></span> <span class="symbol">:default</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">default-value</span><span class="delimiter">&quot;</span></span>]
-<span class="comment">;; turn PORT env into an integer, with default</span>
+<span class="comment">;; PORT envをデフォルトで整数に変換する</span>
 <span class="error">#</span>shadow/env [<span class="string"><span class="delimiter">&quot;</span><span class="content">PORT</span><span class="delimiter">&quot;</span></span> <span class="symbol">:as</span> <span class="symbol">:int</span> <span class="symbol">:default</span> <span class="integer">8080</span>]</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>サポートされている <code>:as</code> のコアーソンは <code>:int</code>, <code>:bool</code>, <code>:keyword</code>, <code>:symbol</code> です。与えられた <code>:default</code> の値は変換されず、すでに正しい型になっていることが期待されます。</p>
+<p>サポートされている <code>:as</code> の強制は <code>:int</code>, <code>:bool</code>, <code>:keyword</code>, <code>:symbol</code> です。与えられた <code>:default</code> の値は変換されず、すでに正しい型になっていることが期待されます。</p>
 </div>
 <div class="paragraph">
 <p>重要: <code>shadow-cljs</code> プロセスが開始されたときに使用された環境変数が使用されます。サーバプロセスが使用されている場合、その環境変数は他のコマンドで設定されたものよりも優先して使用されます。これは主に開発中に関係することですが、混乱を招くかもしれません。また、 <code>--config-merge</code> にはこのような制限はありません。</p>

@@ -1013,6 +1013,7 @@ The are also a few more supported forms that you can use `#shadow/env` with.
 ////
 また、 `#shadow/env` を使用できるサポートされたフォームもいくつかあります。
 
+////
 ```
 #shadow/env "APP_URL"
 #shadow/env ["APP_URL"]
@@ -1022,11 +1023,23 @@ The are also a few more supported forms that you can use `#shadow/env` with.
 ;; turn PORT env into an integer, with default
 #shadow/env ["PORT" :as :int :default 8080]
 ```
+////
+
+```
+#shadow/env "APP_URL"
+#shadow/env ["APP_URL"]
+;; デフォルトの値で、env変数が設定されていない場合に使用される
+#shadow/env ["APP_URL" "default-value"]
+#shadow/env ["APP_URL" :default "default-value"]
+;; PORT envをデフォルトで整数に変換する
+#shadow/env ["PORT" :as :int :default 8080]
+```
+
 
 ////
 Supported `:as` coercions are `:int`, `:bool`, `:keyword`, `:symbol`. Supplied `:default` values will not be converted and are expected to be in the correct type already.
 ////
-サポートされている `:as` のコアーソンは `:int`, `:bool`, `:keyword`, `:symbol` です。与えられた `:default` の値は変換されず、すでに正しい型になっていることが期待されます。
+サポートされている `:as` の強制は `:int`, `:bool`, `:keyword`, `:symbol` です。与えられた `:default` の値は変換されず、すでに正しい型になっていることが期待されます。
 
 ////
 IMPORTANT: The environment variables used when the `shadow-cljs` process was started are used. If a server process is used its environment variables will be used over those potentially set by other commands. This is mostly relevant during development but may be confusing. `--config-merge` does not have this limitation.
