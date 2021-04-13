@@ -41,7 +41,7 @@ Targets are covered in separate chapters.
 ////
 Here are some of them:
 ////
-その一部をご紹介します。
+一部をご紹介します。
 
 ////
 [Horizontal]
@@ -290,7 +290,7 @@ files that have been recompiled.  This function *must* be synchronous in nature.
 関数のシンボル（名前空間付き）です。 この関数は本質的に同期的でなければなりません。
 `:before-load-async`:: リフレッシュする直前に実行する関数 `(fn [done])` のシンボル（名前空間付き）です。この関数は非同期処理を行うことができますが、処理が完了したことを示すために、 `(done)` を必ず*呼び出さなければなりません。
 `:after-load`:: ホットコードのリロードが完了した後に実行する関数のシンボル(名前空間付き)です。
-`:after-load-async`::: ホットコードのリロードが完了した後に実行される関数 `(fn [done])` のシンボル(名前空間を含む)です。この関数は非同期処理を行うことができますが、完了したことを示すために、 `(done)` を必ず*呼び出さなければなりません。
+`:after-load-async`::: ホットコードのリロードが完了した後に実行される関数 `(fn [done])` のシンボル(名前空間を含む)です。この関数は非同期処理を行うことができますが、完了したことを示すために、 `(done)` を必ず呼び出さなければなりません。
 `:autoload`:: コードをホットロードするかどうかを制御するブール値です。いずれかのコールバックが設定されると、暗黙的に `true` に設定されます。デフォルトでは `:browser` ターゲットに対して常に有効で、無効にするには `false` を設定します。
 `:deignore-warnings`:: 警告を含むコードをリロードするかどうかを制御するブール値です。デフォルトでは `false` に設定されます。
 
@@ -496,7 +496,7 @@ The cache files are stored in a dedicated directory for each build so the cache 
 ////
 .Cache location for `cljs/core.cljs`
 ////
-.cljs/core.cljs` のキャッシュ場所
+.cljs/core.cljs のキャッシュ場所
 
 ```
 target/shadow-cljs/builds/app/dev/ana/cljs/core.cljs.cache.transit.json
@@ -680,7 +680,7 @@ Currently supported options include
 ////
 Unsupported or non-applicable Options
 ////
-サポートされていない、または適用されていないオプション
+サポートされていない、または適用されていないオプション、
 
 ////
 Options that don't have any effect at all include
@@ -841,7 +841,7 @@ Supported options are:
 ////
 Documentation on these options is a bit sparse and is mostly documented in the code https://github.com/google/closure-compiler/blob/master/src/com/google/javascript/jscomp/parsing/parser/FeatureSet.java[here] .
 ////
-これらのオプションに関するドキュメントは少し少なく、ほとんどがコード https://github.com/google/closure-compiler/blob/master/src/com/google/javascript/jscomp/parsing/parser/FeatureSet.java[here] に記載されています。
+これらのオプションに関するドキュメントは少し少なく、ほとんどがコード https://github.com/google/closure-compiler/blob/master/src/com/google/javascript/jscomp/parsing/parser/FeatureSet.java[こちら] に記載されています。
 
 
 == Conditional Reading
@@ -913,7 +913,8 @@ While you can use <<closure-defines, :closure-defines>> to conditionally compile
  (:require
    ["react" :as react]
    ;; 注：ここでの順序は重要です。
-   ;; 適用可能な最初のブランチのみが使用されます。;; もし :cljs が最初に使用されたとしても、
+   ;; 適用可能な最初のブランチのみが使用されます。
+   ;; もし :cljs が最初に使用されたとしても、
    ;; それは :server build に引き継がれます。
    #?@(:node [[]]
        :cljs [["codemirror" :as CodeMirror]])))

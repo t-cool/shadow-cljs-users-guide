@@ -2321,7 +2321,7 @@ localhost（または使用するホスト）のSAN（Subject Alternative Name�
 <p>ターゲットについては別の章で説明しています。</p>
 </div>
 <div class="paragraph">
-<p>その一部をご紹介します。</p>
+<p>一部をご紹介します。</p>
 </div>
 <div class="dlist Horizontal">
 <dl>
@@ -2536,7 +2536,7 @@ preloads オプションは、単に <code>:devtools</code>/<code>:preloads</cod
 <dl>
 <dt class="hdlist1"><code>:after-load-async</code></dt>
 <dd>
-<p>ホットコードのリロードが完了した後に実行される関数 <code>(fn [done])</code> のシンボル(名前空間を含む)です。この関数は非同期処理を行うことができますが、完了したことを示すために、 <code>(done)</code> を必ず*呼び出さなければなりません。</p>
+<p>ホットコードのリロードが完了した後に実行される関数 <code>(fn [done])</code> のシンボル(名前空間を含む)です。この関数は非同期処理を行うことができますが、完了したことを示すために、 <code>(done)</code> を必ず呼び出さなければなりません。</p>
 </dd>
 </dl>
 </div>
@@ -2750,7 +2750,7 @@ preloads オプションは、単に <code>:devtools</code>/<code>:preloads</cod
 <p>キャッシュファイルは、ビルドごとに専用のディレクトリに保存されるので、ビルド間でキャッシュが共有されることはありません。idが <code>:app</code> のビルドには、 <code>:dev</code> のキャッシュがディレクトリに格納されます。</p>
 </div>
 <div class="listingblock">
-<div class="title">cljs/core.cljs` のキャッシュ場所</div>
+<div class="title">cljs/core.cljs のキャッシュ場所</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">target/shadow-cljs/builds/app/dev/ana/cljs/core.cljs.cache.transit.json</code></pre>
 </div>
@@ -2898,7 +2898,7 @@ preloads オプションは、単に <code>:devtools</code>/<code>:preloads</cod
 </ul>
 </div>
 <div class="paragraph">
-<p>サポートされていない、または適用されていないオプション</p>
+<p>サポートされていない、または適用されていないオプション、</p>
 </div>
 <div class="paragraph">
 <p>全く効果がない選択肢は、以下の通りです。</p>
@@ -3060,7 +3060,7 @@ preloads オプションは、単に <code>:devtools</code>/<code>:preloads</cod
 </div>
 </div>
 <div class="paragraph">
-<p>これらのオプションに関するドキュメントは少し少なく、ほとんどがコード <a href="https://github.com/google/closure-compiler/blob/master/src/com/google/javascript/jscomp/parsing/parser/FeatureSet.java">here</a> に記載されています。</p>
+<p>これらのオプションに関するドキュメントは少し少なく、ほとんどがコード <a href="https://github.com/google/closure-compiler/blob/master/src/com/google/javascript/jscomp/parsing/parser/FeatureSet.java">こちら</a> に記載されています。</p>
 </div>
 </div>
 <div class="sect2">
@@ -3110,7 +3110,8 @@ preloads オプションは、単に <code>:devtools</code>/<code>:preloads</cod
  (<span class="symbol">:require</span>
    [<span class="string"><span class="delimiter">&quot;</span><span class="content">react</span><span class="delimiter">&quot;</span></span> <span class="symbol">:as</span> react]
    <span class="comment">;; 注：ここでの順序は重要です。</span>
-   <span class="comment">;; 適用可能な最初のブランチのみが使用されます。;; もし :cljs が最初に使用されたとしても、</span>
+   <span class="comment">;; 適用可能な最初のブランチのみが使用されます。</span>
+   <span class="comment">;; もし :cljs が最初に使用されたとしても、</span>
    <span class="comment">;; それは :server build に引き継がれます。</span>
    <span class="error">#</span>?@(<span class="symbol">:node</span> [[]]
        <span class="symbol">:cljs</span> [[<span class="string"><span class="delimiter">&quot;</span><span class="content">codemirror</span><span class="delimiter">&quot;</span></span> <span class="symbol">:as</span> CodeMirror]])))
