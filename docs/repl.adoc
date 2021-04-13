@@ -77,7 +77,7 @@ Once you have both you can connect to the CLJS REPL via the command line or from
 ////
 両方を入手したら、コマンドラインまたはClojure REPLからCLJS REPLに接続できます。
 
-///
+////
 .CLI
 ```bash
 $ shadow-cljs watch build-id
@@ -88,7 +88,7 @@ $ shadow-cljs cljs-repl build-id
 shadow-cljs - connected to server
 [3:1]~cljs.user=>
 ```
-///
+////
 
 .CLI
 ```bash
@@ -127,7 +127,7 @@ TIP: You may run multiple `watch` "workers" in parallel and connect/disconnect t
 ////
 .No connected runtime error.
 ////
-.No connected のランタイムエラーが発生しました。
+.No connected runtime error の発生
 
 ``` text
 [3:1]~cljs.user=> (js/alert "foo")
@@ -235,7 +235,7 @@ It is also possible to use `shadow-cljs` entirely from within any other CLJ proc
 ////
 .Example using `lein repl`
 ////
-.lein repl` を使った例
+. `lein repl` を使った例
 
 ```bash
 $ lein repl

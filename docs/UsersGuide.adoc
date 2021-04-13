@@ -71,7 +71,7 @@ When command-line examples are given we may include BASH comments (starting with
 usually include the standard user UNIX prompt of `$` to indicate separation of the command
 from its output.
 ////
-コマンドラインの例を示す場合、（# で始まる）BASH のコメントを含めることがあります。
+コマンドラインの例を示す場合、（# で始まる）Bash のコメントを含めることがあります。
 また、通常は、コマンドとその出力を分離するために、標準的なユーザーUNIXのプロンプトである$を含めます。$をその出力から分離することを意味します。
 
 ```bash
@@ -217,7 +217,7 @@ create a default one by running `shadow-cljs init`. It should contain a map with
 configuration and a `:builds` entry for all your builds.
 ////
 `shadow-cljs` は、プロジェクトのルートディレクトリにある `shadow-cljs.edn` ファイルによって設定されます。デフォルトのファイルを作成するには
-shadow-cljs init` を実行することで、デフォルトのファイルを作成することができます。このファイルには、いくつかのグローバルな設定を含むマップと
+ `shadow-cljs init` を実行することで、デフォルトのファイルを作成することができます。このファイルには、いくつかのグローバルな設定を含むマップと
 マップと、すべてのビルドのための `:builds` エントリが含まれています。
 
 
@@ -266,7 +266,7 @@ The file structure for this example should look like this:
 ////
 `:source-paths` configures your JVM classpath. The compiler will use this config to find Clojure(Script) source files (eg. `.cljs`).
 ////
-`:source-paths` は、JVMのクラスパスを設定します。コンパイラはこの設定を使って、Clojure(Script)のソースファイル(例：.cljs`)を探します。
+`:source-paths` は、JVMのクラスパスを設定します。コンパイラはこの設定を使って、Clojure(Script)のソースファイル(例： `.cljs` )を探します。
 
 
 ////
@@ -364,7 +364,7 @@ yarn:: https://yarnpkg.com/en/docs
 ////
 Both manage your dependencies via a `package.json` file in your project directory.  Almost every package available via `npm` will explain how to install it. Those instructions now apply to `shadow-cljs` as well.
 ////
-どちらも、プロジェクトディレクトリ内の `package.json` ファイルで依存関係を管理します。 npm` で入手できるほとんどすべてのパッケージには、そのインストール方法が説明されています。これらの説明は、現在では `shadow-cljs` にも適用されています。
+どちらも、プロジェクトディレクトリ内の `package.json` ファイルで依存関係を管理します。 `npm` で入手できるほとんどすべてのパッケージには、そのインストール方法が説明されています。これらの説明は、現在では `shadow-cljs` にも適用されています。
 
 ////
 .Installing a JavaScript package
@@ -401,12 +401,12 @@ JSの依存関係の欠落に関連するエラーに遭遇するかもしれま
 ```text
 The required JS dependency "react" is not available, it was required by ...
 ```
-必要なJSの依存関係である "react "が利用できません。これは、...によって必要とされていました。
+(必要なJSの依存関係である "react "が利用できません。これは、...によって必要とされていました。)
 
 ////
 This means that you should `npm install react`.
 ////
-これは、 `npm install react` ということです。
+このメッセージは、 `npm install react` を行う必要があることを示しています。
 
 
 ////
@@ -420,7 +420,7 @@ TIP: `react` の場合は、おそらく以下の3つのパッケージが必要
 ////
 Most configuration will be done in the projects themselves via `shadow-cljs.edn` but some config may be user-dependent. Tools like https://docs.cider.mx[CIDER] may require the additional `cider-nrepl` dependency which would be useless for a different team member using Cursive when adding that dependency via `shadow-cljs.edn`.
 ////
-ほとんどの設定はプロジェクト自身で `shadow-cljs.edn` を通して行われますが、いくつかの設定はユーザーに依存しているかもしれません。https://docs.cider.mx[CIDER] のようなツールは、追加の `cider-nrepl` 依存関係を必要とするかもしれませんが、 `shadow-cljs.edn` 経由でその依存関係を追加しても、Cursive を使用している別のチームメンバーには意味がありません。
+ほとんどの設定はプロジェクト自身で `shadow-cljs.edn` を通して行われますが、いくつかの設定はユーザーに依存しているかもしれません。 https://docs.cider.mx[CIDER] のようなツールは、追加の `cider-nrepl` 依存関係を必要とするかもしれませんが、 `shadow-cljs.edn` 経由でその依存関係を追加しても、Cursive を使用している別のチームメンバーには意味がありません。
 
 ////
 A restricted set of config options can be added to `~/.shadow-cljs/config.edn` which will then apply to all projects built on this users machine.
@@ -499,7 +499,7 @@ shadow-cljs - watching build :app
 ////
 You can configure the port and additional middleware with `shadow-cljs.edn`:
 ////
-shadow-cljs.edn` でポートや追加のミドルウェアを設定することができます。
+`shadow-cljs.edn` でポートや追加のミドルウェアを設定することができます。
 
 
 ```clojure
@@ -763,7 +763,7 @@ IMPORTANT:: These are just generic web servers that server static files. They ar
 ////
 .Serve directory from filesystem root
 ////
-ファイルシステムのルートからディレクトリを serve する
+. ファイルシステムのルートからディレクトリを serve する
 
 ```
 :dev-http {8000 "public"}
@@ -773,7 +773,7 @@ IMPORTANT:: These are just generic web servers that server static files. They ar
 .Serve from classpath root
 ////
 
-クラスルートから serve する
+. クラスルートから serve する
 
 
 ```
@@ -843,7 +843,9 @@ The following two options only apply when using the default, built-in handler an
         :handler my.app/handler}}}
 ```
 
-==== Reverse Proxy Support [[dev-http-proxy]]
+==== リバースプロキシのサポート [[dev-http-proxy]]
+
+// Reverse Proxy Support [[dev-http-proxy]]
 
 ////
 By default the dev server will attempt to serve requests locally but sometimes you may want to use an external web server to serve requests (eg. API request). This can be configured via `:proxy-url`.

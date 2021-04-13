@@ -46,7 +46,7 @@ using `(:require ["thing" :as thing])` and then `(thing)`.
 ////
 More recently some packages started using ES6 `import` statements in their examples. Those also translate pretty much 1:1 with one slight difference related to default exports.
 ////
-最近では、いくつかのパッケージがES6の `import` 文を例に挙げています。これらもほぼ 1:1 で翻訳されていますが、デフォルトのエクスポートに関するわずかな違いがあります。
+最近では、いくつかのパッケージがES6の `import` 文を例に挙げています。これらもほぼ1対1で翻訳されていますが、デフォルトのエクスポートに関するわずかな違いがあります。
 
 ////
 The following table can be used for translation:
@@ -206,7 +206,7 @@ Currently there are 3 supported JS Providers:
 `:require`:: JSの `require("thing")` 関数呼び出しに直接マッピングします。実行時にネイティブで `require` を解決することができるため、すべての `node.js` ターゲットのデフォルトとなります。インクルードされたJSは何も処理されません。
 `:shadow`:: JSを `node_modules` 経由で解決し、参照されている各ファイルの最小化されたバージョンをビルドに含めます。これは、 `:browser` ターゲットのデフォルトです。`node_modules` のソースは `:advanced` のコンパイルを通過しません。
 `:closure`:: `shadow` と同様に解決されますが、Closure Compiler CommonJS/ES6 rewrite facilities を通じて、含まれる全てのファイルを処理しようとします。これらのファイルは `:advanced` のコンパイルでも処理されます。
-`:external`:: これは、他のJSビルドツールでも処理できるようになっており、実際にJSの依存関係を提供します。発行されたインデックス・ファイルには、CLJS の出力が JS の依存関係にアクセスできるようにするための、ちょっとしたグルー・コードが含まれています。外部インデックスファイルの出力は、CLJS 出力の前に読み込まれなければなりません。
+`:external`:: これは、他のJSビルドツールでも処理できるようになっており、実際にJSの依存関係を提供します。発行されたインデックス・ファイルには、CLJS の出力が JS の依存関係にアクセスできるようにするための、ちょっとしたグルーコードが含まれています。外部インデックスファイルの出力は、CLJS 出力の前に読み込まれなければなりません。
 
 . `:shadow` vs `:closure`
 
@@ -254,7 +254,7 @@ Nowadays many `npm` packages ship multiple build variants. `shadow-cljs` will by
 ////
 It is largely dependent on the packages you use whether this will work or not. You can configure `shadow-cljs`  to prefer the `module` entry via the `:entry-keys` JS option. It takes a vector of string keys found in `package.json` which will be tried in order. The default is `"["browser" "main" "module"]`.
 ////
-これが機能するかどうかは、使用しているパッケージに大きく依存します。JS オプションの `:entry-keys` を使って、 `module` エントリを優先するように `shadow-cljs` を設定することができます。これは `package.json` に含まれる文字列キーのベクトルを https://では `"["browser" "main" "module"]"` となっています。
+これが機能するかどうかは、使用しているパッケージに大きく依存します。JS オプションの `:entry-keys` を使って、 `module` エントリを優先するように `shadow-cljs` を設定することができます。これは `package.json` に含まれる文字列キーのベクトルを https:// では `"["browser" "main" "module"]"` となっています。
 
 ////
 .Example config for using `:closure` in a `:browser` build.

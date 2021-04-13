@@ -335,7 +335,7 @@ They are configured per build under the `:build-hooks` key
 ////
 .Exampe :build-hooks
 ////
-.例 :build-hooks
+. 例 :build-hooks
 
 ```clojure
 {...
@@ -349,7 +349,7 @@ They are configured per build under the `:build-hooks` key
 ////
 .Example hook code
 ////
-.例 hook code
+. 例 hook code
 
 ```clojure
 (ns my.util)
@@ -379,7 +379,7 @@ All build hooks will be called after the `:target` work is done. They will recei
 ////
 The `build-state` has some important entries which might be useful for your hooks:
 ////
-build-state` には、フックに有用ないくつかの重要なエントリがあります。
+`build-state` には、フックに有用ないくつかの重要なエントリがあります。
 
 ////
 - `:shadow.build/build-id` - the id of the current build (eg. `:app`)
@@ -425,7 +425,7 @@ With a running `watch` the `:configure` is only called once. Any of the others m
 again (in order) for each re-compile. The `build-state` will be re-used until the build config changes at which point it will be thrown away and a fresh one will be created.
 ////
 ウォッチを実行していると、:configureは一度しか呼ばれません。再コンパイルのたびに、他の項目が
-再コンパイルのたびに（順番に）呼び出されます。build-state` はビルドコンフィグが変更されるまで再利用され、その時点で破棄されて新しいものが作成されることになる。
+再コンパイルのたびに（順番に）呼び出されます。`build-state` はビルドコンフィグが変更されるまで再利用され、その時点で破棄されて新しいものが作成されることになる。
 
 == コンパイラ・キャッシュ
 //Compiler Cache
@@ -562,6 +562,7 @@ This defines the `your.app/VERBOSE` variable as `false` by default. This will ca
 ////
 これにより、 `your.app/VERBOSE` 変数がデフォルトで `false` と定義されます。これにより、 `:advanced` のコンパイル時に `println` が削除されます。これを `:closure-defines` オプションで `true` に変更すると、 `println` が有効になります。これは、開発時のみ、または常に行うことができます。
 
+////
 ```clojure
 {...
  :builds
@@ -574,6 +575,23 @@ This defines the `your.app/VERBOSE` variable as `false` by default. This will ca
    ;; to enable always
    :closure-defines {your.app/VERBOSE true}
    ;; you may also enable it for release as well
+   :release {:closure-defines {your.app/VERBOSE true}}
+   }}
+```
+////
+
+```clojure
+{...
+ :builds
+ {:app
+  {:target :browser
+   ...
+   :modules {:app {:entries [your.app]}}
+   ;; 開発時のみ有効
+   :dev {:closure-defines {your.app/VERBOSE true}}
+   ;; 常に有効にする
+   :closure-defines {your.app/VERBOSE true}
+   ;; リリース時の有効化も可能
    :release {:closure-defines {your.app/VERBOSE true}}
    }}
 ```
@@ -593,7 +611,7 @@ Closure Defines from the Closure Library
 - `goog.LOCALE` can be used to configure certain localization features like `goog.i18n.DateTimeFormat`. It accepts a standard locale string and defaults to `en`. Pretty much all locales are supported, see https://github.com/google/closure-library/blob/master/closure/goog/i18n/datetimesymbols.js[here] and https://github.com/google/closure-library/blob/master/closure/goog/i18n/datetimesymbolsext.js[here] .
 ////
 - `goog.DEBUG` です。Closure Libraryでは、多くの開発機能でこれを使用しています。 `shadow-cljs` は、 `release` のビルドでは、自動的にこれを `false` に設定します。
-- goog.LOCALE`: `goog.i18n.DateTimeFormat` のような、ある種のローカリゼーション機能を設定するために使用されます。これは標準的なロケール文字列を受け入れ、デフォルトでは `en` となります。ほとんどすべてのロケールがサポートされています。 https://github.com/google/closure-library/blob/master/closure/goog/i18n/datetimesymbols.js[こちら] と https://github.com/google/closure-library/blob/master/closure/goog/i18n/datetimesymbolsext.js[こちら] を参照してください。
+- `goog.LOCALE` : `goog.i18n.DateTimeFormat` のような、ある種のローカリゼーション機能を設定するために使用されます。これは標準的なロケール文字列を受け入れ、デフォルトでは `en` となります。ほとんどすべてのロケールがサポートされています。 https://github.com/google/closure-library/blob/master/closure/goog/i18n/datetimesymbols.js[こちら] と https://github.com/google/closure-library/blob/master/closure/goog/i18n/datetimesymbolsext.js[こちら] を参照してください。
 
 == コンパイラのオプション [[compiler-options]]
 //Compiler Options [[compiler-options]]
@@ -687,7 +705,7 @@ Options that don't have any effect at all include
 - `:watch-fn`
 - `:process-shim`
 ////
-- :verbose` は、 `shadow-cljs compile app --verbose` を実行することで制御されますが、ビルド設定にはありません。
+- `:verbose` は、 `shadow-cljs compile app --verbose` を実行することで制御されますが、ビルド設定にはありません。
 - `:foreign-libs` と `:libs` です。
 - `:stable-names` は常に有効で、無効にすることはできません。
 - `:install-deps` (インストールディプス)
@@ -741,7 +759,7 @@ It is sometimes desireable to fail a build with warnings rather than continuing 
 ////
 A set of possible warning-type keywords can be found https://github.com/clojure/clojurescript/blob/5ad96a8b3ae2e3616a19715ba9ba2471a36933a2/src/main/clojure/cljs/analyzer.cljc#L124-L163[here].
 ////
-可能な警告タイプのキーワードのセットは、https://github.com/clojure/clojurescript/blob/5ad96a8b3ae2e3616a19715ba9ba2471a36933a2/src/main/clojure/cljs/analyzer.cljc#L124-L163[こちら]にあります。
+可能な警告タイプのキーワードのセットは、 https://github.com/clojure/clojurescript/blob/5ad96a8b3ae2e3616a19715ba9ba2471a36933a2/src/main/clojure/cljs/analyzer.cljc#L124-L163[こちら] にあります。
 
 ////
 .Only throw for certain namespaces
@@ -760,7 +778,7 @@ A set of possible warning-type keywords can be found https://github.com/clojure/
 ////
 `:ignore` takes a set of symbols refering to namespaces. Either direct matches or `.*` wildcards are allowed. `:warning-types` has the same functionality as above, not specifying it means all warnings will throw except the ignored namespaces.
 ////
-ignore` には、名前空間を参照するシンボルのセットを指定します。直接マッチするか、または `.*` のワイルドカードを使用することができます。`:warning-types` は上記と同じ機能を持っています。これを指定しないと、無視された名前空間以外のすべての警告がスローされます。
+`ignore` には、名前空間を参照するシンボルのセットを指定します。直接マッチするか、または `.*` のワイルドカードを使用することができます。`:warning-types` は上記と同じ機能を持っています。これを指定しないと、無視された名前空間以外のすべての警告がスローされます。
 
 == 出力言語オプション
 //Output Language Options
@@ -803,7 +821,7 @@ Supported options are:
 - `:es6` - `class`, `const`, `let`, ...
 - `:es7` - 指数演算子 `**` 。
 - `:es8` - `async/await`, `generators`, スプレッド付きオブジェクトリテラル, ...
-- es-next` - クロージャ・コンパイラが現在サポートしているすべての機能です。
+- `es-next` - クロージャ・コンパイラが現在サポートしているすべての機能です。
 
 ////
 .Example
@@ -868,6 +886,7 @@ While you can use <<closure-defines, :closure-defines>> to conditionally compile
 ////
 <<closure-defines, :closure-defines>> を使って条件付きで `init-cm` fn をコンパイルすることはできますが、余分な `:require` を取り除くために使うことはできません。リーダの条件式を使えば、これが簡単にできます。
 
+////
 ```clojure
 (ns my.awesome.component
  (:require
@@ -887,12 +906,35 @@ While you can use <<closure-defines, :closure-defines>> to conditionally compile
 
 ...
 ```
+////
+
+```clojure
+(ns my.awesome.component
+ (:require
+   ["react" :as react]
+   ;; 注：ここでの順序は重要です。
+   ;; 適用可能な最初のブランチのみが使用されます。;; もし :cljs が最初に使用されたとしても、
+   ;; それは :server build に引き継がれます。
+   #?@(:node [[]]
+       :cljs [["codemirror" :as CodeMirror]])))
+
+#?(:node ;; Nodeプラットフォームのオーバーライド
+   (defn init-cm [dom-node]
+    :no-op)
+   :cljs ;; デフォルトの処理系
+   (defn init-cm [dom-node]
+     ... actual impl ...))
+
+...
+```
+
 
 ////
 .`:reader-features` config examples
 ////
 .`:reader-features` 設定例
 
+////
 ```clojure
 {...
  :builds
@@ -907,12 +949,31 @@ While you can use <<closure-defines, :closure-defines>> to conditionally compile
    :compiler-options
    {:reader-features #{:node}}}}}
 ```
+////
+
+
+```clojure
+{...
+ :builds
+ ;; アプリのビルドが正常に設定されており、調整は不要
+ {:app
+  {:target :browser
+   ...}
+  ;; サーバには :node reader の機能が追加される
+  ;; デフォルトの :cljs の代わりに使用される
+  :server
+  {:target :node-script
+   :compiler-options
+   {:reader-features #{:node}}}}}
+```
 
 ////
 The `:server` build will then no longer have the `codemirror` require and the `init-cm` function is removed. Becoming only
 ////
 これにより、 `:server` のビルドには `codemirror` の必要性がなくなり、 `init-cm` の機能も削除されます。ベコミングのみ
 
+
+////
 ```clojure
 (ns my.awesome.component
   (:require
@@ -924,6 +985,20 @@ The `:server` build will then no longer have the `codemirror` require and the `i
 (defn init-cm [dom-node] :no-op)
 ...
 ```
+////
+
+```clojure
+(ns my.awesome.component
+  (:require
+    ["react" :as react]))
+
+;; 実際にどこにも呼び出されなければ、
+;; これはデッドコードとして削除されるでしょう。
+
+(defn init-cm [dom-node] :no-op)
+...
+```
+
 
 ////
 IMPORTANT: This feature is only available in `.cljc` files and will fail in `.cljs` files.
@@ -936,7 +1011,7 @@ IMPORTANT: This feature is only available in `.cljc` files and will fail in `.cl
 ////
 It is sometimes desirable to make small adjustments to the build configuration from the command line with values that can't be added statically to the `shadow-cljs.edn` config or may change depending on the environment you are in.
 ////
-shadow-cljs.edn` の設定に静的に追加できない値や、環境によって変わる可能性のある値を使って、コマンドラインからビルド構成を少しずつ調整したい場合があります。
+`shadow-cljs.edn` の設定に静的に追加できない値や、環境によって変わる可能性のある値を使って、コマンドラインからビルド構成を少しずつ調整したい場合があります。
 
 ////
 You can pass additional config data via the `--config-merge {:some "data"}` command line option which will be merged into the build config. Data added from the CLI will override data from the `shadow-cljs.edn` file.

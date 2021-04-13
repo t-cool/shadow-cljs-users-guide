@@ -17,7 +17,7 @@ During development you have the option to `compile` a build once or run a `watch
 ////
 When it is time to get serious you create a <<release, `release`>> build which creates an optimized build suitable for production. For this the https://developers.google.com/closure/compiler/[Closure Compiler] is used which applies some seriously `:advanced` optimizations to your code to create the most optimal output available. This may require some <<externs, tuning>> to work properly when using lots of interop with native JavaScript but works flawlessly for ClojureScript (and the code from the https://developers.google.com/closure/library/[Closure Library]).
 ////
-本格的に開発する場合には、<<release, `release`>>というビルドを作成し、本番環境に適した最適化されたビルドを作成します。これには https://developers.google.com/closure/compiler/[Closure Compiler] が使用され、利用可能な最も最適な出力を作成するために、コードに深刻な `:advanced` 最適化を適用します。ネイティブJavaScriptとのインターロップを多用している場合には、適切に動作させるためにいくつかの<<externs, tuning>>が必要になるかもしれませんが、ClojureScript(およびhttps://developers.google.com/closure/library/[Closure Library]のコード)では完璧に動作します。
+本格的に開発する場合には、<<release, `release`>>というビルドを作成し、本番環境に適した最適化されたビルドを作成します。これには https://developers.google.com/closure/compiler/[Closure Compiler] が使用され、利用可能な最も最適な出力を作成するために、コードに深刻な `:advanced` 最適化を適用します。ネイティブJavaScriptとのインターロップを多用している場合には、適切に動作させるためにいくつかの<<externs, チューニング>>が必要になるかもしれませんが、ClojureScript(および https://developers.google.com/closure/library/[Closure Library] のコード)では完璧に動作します。
 
 == コマンドライン
 
@@ -138,7 +138,7 @@ $ shadow-cljs clj-repl
 
 ```bash
 $ shadow-cljs server
-#または REPLにサーバプロセスを制御させたい場合
+# または REPLにサーバプロセスを制御させたい場合
 $ shadow-cljs clj-repl
 ```
 
@@ -203,7 +203,7 @@ https://leiningen.org/[Leiningen] を使って依存関係を管理したい場�
 .Using a dedicated `lein` profile
 ////
 
-専用の `lein` プロファイルの使用
+. 専用の `lein` プロファイルの使用
 
 ```
 {:lein {:profile "+cljs"}
@@ -260,7 +260,7 @@ $ lein run -m shadow.cljs.devtools.cli compile build-id
 ////
 .Create a :release mode optimized build:
 ////
-リリースモードに最適化されたビルドを作成します。
+リリースモードに最適化されたビルドを作成するには、次のようにします。
 
 ```bash
 $ lein run -m shadow.cljs.devtools.cli release build-id
@@ -311,7 +311,7 @@ You must add the `thheller/shadow-cljs` artifact to your `deps.edn` manually.
 ////
 .Example `shadow-cljs.edn` with :cljs alias
 ////
-例 `shadow-cljs.edn` に :cljs のエイリアスをつけたもの
+. 例 `shadow-cljs.edn` に :cljs のエイリアスをつけたもの
 
 ```clojure
 {:deps {:aliases [:cljs]}
@@ -322,7 +322,7 @@ You must add the `thheller/shadow-cljs` artifact to your `deps.edn` manually.
 .Example `deps.edn`
 ////
 
-deps.edn の例
+. 例 deps.edn
 
 ```clojure
 {:paths [...]
@@ -335,7 +335,8 @@ deps.edn の例
 ////
 Running with `clj` directly.
 ////
-clj で直接実行する。
+
+clj で直接実行するには、次のように指定します。
 
 ```
 {:paths [...]
@@ -373,7 +374,8 @@ JVM library, you can call functions within it to invoke tasks.
 Some boot tasks are available here:
 https://github.com/jgdavey/boot-shadow-cljs
 ////
-いくつかの Boot タスクはここで利用可能です。
+いくつかの Boot タスクは以下のリンクで入手できます。
+
 https://github.com/jgdavey/boot-shadow-cljs
 
 
@@ -391,7 +393,7 @@ You can use the `shadow-cljs` CLI to call specific Clojure functions from the co
 ////
 .Example Clojure Namespace in `src/my/build.clj`
 ////
-例 `src/my/build.clj` における Clojure の名前空間
+. 例 `src/my/build.clj` における Clojure の名前空間
 
 ```clojure
 (ns my.build
@@ -407,7 +409,7 @@ You can use the `shadow-cljs` CLI to call specific Clojure functions from the co
 ////
 .Running the `release` function
 ////
-release 関数の実行
+. release 関数の実行
 
 ```bash
 $ shadow-cljs clj-run my.build/release
@@ -423,7 +425,7 @@ You can pass arguments to the invoked functions via the command line.
 ////
 .Using arguments via normal Clojure fn args
 ////
-通常のClojure fnの引数を使った引数の使用
+. 通常のClojure fnの引数を使った引数の使用
 
 ```clojure
 ...
@@ -435,7 +437,7 @@ You can pass arguments to the invoked functions via the command line.
 ////
 .Passing the server from the command line
 ////
-コマンドラインからのサーバの受け渡し
+. コマンドラインからのサーバの受け渡し
 
 ```bash
 $ shadow-cljs clj-run my.build/release my@server.com:some/path

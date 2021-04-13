@@ -19,9 +19,9 @@ The target-specific options are:
 `:output-dir`:: (optional). The path for supporting files in development mode. Defaults to a cache directory.
 ////
 [horizontal]
-`:target`: を使用します。:node-libraryを使用します。
-`:output-to`:: (必須). 生成されるライブラリのパスとファイル名です。
-`:output-dir`:: (オプション) (オプション). 開発モードでサポートするファイルのパスです。デフォルトではキャッシュディレクトリになります。
+`:target`: :node-libraryを使用します。
+`:output-to` : (必須) 生成されるライブラリのパスとファイル名です。
+`:output-dir` : (オプション) 開発モードでサポートするファイルのパスです。デフォルトではキャッシュディレクトリになります。
 
 
 ////
@@ -75,7 +75,7 @@ Controlling what code is actually exported is done via one of the following opti
 (ns demo.ns)
 
 (defn f [...] ...)
-;; OR
+;; または
 (def f #js {:foo ...})
 ```
 
@@ -114,7 +114,7 @@ It is effectively generating `module.exports = demo.ns.f;`
 The keyword is used as the name of the entry in the exported object. *No munging is done* to this keyword name
 (but namespaces are dropped). So, the above example maps cljs `f` to `g`, etc.:
 ////
-このキーワードは、エクスポートされたオブジェクトのエントリの名前として使用されます。*このキーワード名には、一切の処理が行われません。
+このキーワードは、エクスポートされたオブジェクトのエントリの名前として使用されます。このキーワード名には、一切の処理が行われません。
 しかし、名前空間は削除されます）。したがって、上記の例では、cljs の `f` を `g` にマッピングする、といった具合です。
 
 ```bash
@@ -208,7 +208,7 @@ hello
 ////
 As `:node-script` this will only create the file specified in `:output-to`. The `:exports` map maps CLJS vars to the name they should be exported to.
 ////
-node-script` と同様に、 `:output-to` で指定されたファイルのみを作成します。`exports` マップは、CLJSの変数を、エクスポートされるべき名前にマッピングします。
+`node-script` と同様に、 `:output-to` で指定されたファイルのみを作成します。`exports` マップは、CLJSの変数を、エクスポートされるべき名前にマッピングします。
 
 ////
 NOTE: Development mode has the <<NodeModes,same setup>> as for node scripts (extra dependencies).
