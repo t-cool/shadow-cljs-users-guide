@@ -165,7 +165,7 @@ Build Tool Integration
 ////
 
 ////
-`shadow-cljs` can integrate with other Clojure tools since the primary distribution is just a `.jar` file available via https://clojars.org/thheller/shadow-cljs[Clojars]. By default your `:dependencies` are managed via `shadow-cljs.edn` but you can use other builds tools to manage your dependencies as well.
+`shadow-cljs` can integrate with other Clojure tools since the primary distribution is just a `.jar` file available via https://clojars.org/thheller/shadow-cljs[Clojars] . By default your `:dependencies` are managed via `shadow-cljs.edn` but you can use other builds tools to manage your dependencies as well.
 ////
 `shadow-cljs` は他の Clojure ツールと統合することができます。なぜなら、主要な配布物は https://clojars.org/thheller/shadow-cljs[Clojars] を通じて入手できる `.jar` ファイルだからです。デフォルトでは `:dependencies` は `shadow-cljs.edn` で管理されますが、他のビルドツールを使って依存関係を管理することもできます。
 
@@ -442,9 +442,9 @@ $ shadow-cljs clj-run my.build/release my@server.com:some/path
 ```
 
 ////
-TIP: The usual `(defn release [& args])` structure also works if you want to parse the args with something like https://github.com/clojure/tools.cli[tools.cli].
+TIP: The usual `(defn release [& args])` structure also works if you want to parse the args with something like https://github.com/clojure/tools.cli[tools.cli] .
 ////
-ヒント: https://github.com/clojure/tools.cli[tools.cli]のように引数を解析したい場合は、通常の `(defn release [& args])` の構造でも動作します。
+ヒント: https://github.com/clojure/tools.cli[tools.cli] のように引数を解析したい場合は、通常の `(defn release [& args])` の構造でも動作します。
 
 ////
 You have access to the full power of Clojure here. You can build entire tools on top of this if you like. As a bonus everything you write this way is also directly available via the Clojure REPL.

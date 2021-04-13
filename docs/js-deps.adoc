@@ -445,7 +445,7 @@ CLJS has an alternate https://clojurescript.org/guides/javascript-modules[implem
 ****
 *DANGER: この機能は実験的なものです！* 現在は `shadow-cljs` でのみサポートされており、これを使おうとすると他の CLJS ツールに怒られます。自分の責任で使用してください。この機能は当初、CLJSのコアでは拒否されていましたが、私は便利だと思いますし、さらなる議論なしにhttps://dev.clojure.org/jira/browse/CLJS-2061?focusedCommentId=46191&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-46191[dismissed]されるべきではなかったと思います。
 
-CLJSには、https://clojurescript.org/guides/javascript-modules[implementation]という別の実装がありますが、これは `shadow-cljs` ではサポートされていません。私はこの実装がある種の面で不足していると感じたので、別の解決策を選びました。しかし、両方のアプローチの長所・短所を議論するのは楽しいことです。
+CLJSには、https://clojurescript.org/guides/javascript-modules[implementation] という別の実装がありますが、これは `shadow-cljs` ではサポートされていません。私はこの実装がある種の面で不足していると感じたので、別の解決策を選びました。しかし、両方のアプローチの長所・短所を議論するのは楽しいことです。
 ****
 
 ////
@@ -488,7 +488,7 @@ TIP: For string requires the extension `.js` will be added automatically but you
 ////
 Absolute requires like `/some-library/components/foo` mean that the compiler will look for a `some-library/components/foo.js` on the classpath; unlike `node` which would attempt to load the file from the local filesystem. The same classpath rules apply so the file may either be in your `:source-paths` or in some third-party `.jar` library you are using.
 ////
-some-library/components/foo` のような絶対的な要求は、ローカルファイルシステムからファイルをロードしようとする `node` とは異なり、コンパイラがクラスパス上で `some-library/components/foo.js` を探すことを意味します。同じクラスパスのルールが適用されるので、ファイルは `:source-paths` にあるか、使用しているサードパーティの `.jar` ライブラリにあるかもしれません。
+`some-library/components/foo` のような絶対的な要求は、ローカルファイルシステムからファイルをロードしようとする `node` とは異なり、コンパイラがクラスパス上で `some-library/components/foo.js` を探すことを意味します。同じクラスパスのルールが適用されるので、ファイルは `:source-paths` にあるか、使用しているサードパーティの `.jar` ライブラリにあるかもしれません。
 
 ////
 Relative requires are resolved by first looking at the current namespace and then resolving a relative path from that name. In the above example we are in `demo/app.cljs` to the `./bar` require resolves to `demo/bar.js`, so it is identical to `(:require ["/demo/bar"])`.
@@ -524,7 +524,7 @@ IMPORTANT: The files must not be physically located in the same directory. The l
 ////
 IMPORTANT: It is expected that the classpath only contains JavaScript that can be consumed without any pre-processing by the Compiler. `npm` has a very similar convention.
 ////
-重要: クラスパスには、コンパイラが前処理をしなくても消費できるJavaScriptだけが含まれていることが期待されています。npm` にもよく似た規約があります。
+重要: クラスパスには、コンパイラが前処理をしなくても消費できるJavaScriptだけが含まれていることが期待されています。 `npm` にもよく似た規約があります。
 
 ////
 The Closure Compiler is used for processing all JavaScript found on the classpath using its `ECMASCRIPT_NEXT` language setting. What exactly this setting means is not well documented but it mostly represents the next generation JavaScript code which might not even be supported by most browsers yet. ES6 is very well supported as well as most ES8 features. Similarly to standard CLJS this will be compiled down to ES5 with polyfills when required.
@@ -542,13 +542,13 @@ The JS should be written using ES Module Syntax using `import` and `export`. JS 
 JSは、 `import` と `export` を使って、ESモジュール構文を使って書く必要があります。JSファイルは、他のJSファイルをインクルードしたり、CLJSのコードを直接参照することができます。また、 `npm` パッケージに直接アクセスすることもできますが、ひとつ注意点があります。
 
 ```js
-// regular JS require
+// 標準的な JS の require
 import Foo, { something } from "./other.js";
 
-// npm require
+// npm の require
 import React from "react";
 
-// require CLJS or Closure Library JS
+// CLJS または Closure Library JS の require
 import cljs from "goog:cljs.core";
 
 export function inc(num) {
@@ -567,7 +567,7 @@ IMPORTANT: Due to strict checking of the Closure Compiler it is not possible to 
 ////
 Since there are many popular JavaScript dialects (JSX, CoffeeScript, etc) that are not directly parsable by the Closure Compiler we need to pre-process them before putting them onto the classpath. https://babeljs.io/[babel] is commonly used in the JavaScript world so we are going to use `babel` to process `.jsx` files as an example here.
 ////
-一般的なJavaScriptの方言（JSX、CoffeeScriptなど）には、Closure Compilerでは直接解析できないものが多いため、クラスパスに置く前に前処理を行う必要があります。https://babeljs.io/[babel]はJavaScriptの世界でよく使われているので、ここでは例として `.jsx` ファイルを処理するために `babel` を使用します。
+一般的なJavaScriptの方言（JSX、CoffeeScriptなど）には、Closure Compilerでは直接解析できないものが多いため、クラスパスに置く前に前処理を行う必要があります。https://babeljs.io/[babel] はJavaScriptの世界でよく使われているので、ここでは例として `.jsx` ファイルを処理するために `babel` を使用します。
 
 ////
 .Example shadow-cljs.edn Config
@@ -619,11 +619,11 @@ export { myComponent };
 ////
 We run https://babeljs.io/docs/usage/cli/[babel] to convert the files and write them to the configured `src/gen` directory. Which directory you use it up to you. I prefer `src/gen` for generated files.
 ////
-https://babeljs.io/docs/usage/cli/[babel]を実行してファイルを変換し、設定された `src/gen` ディレクトリに書き込んでいます。どのディレクトリを使うかはあなた次第です。私は生成されたファイルには `src/gen` を使いたい。
+https://babeljs.io/docs/usage/cli/[babel] を実行してファイルを変換し、設定された `src/gen` ディレクトリに書き込んでいます。どのディレクトリを使うかはあなた次第です。私は生成されたファイルには `src/gen` を使いたい。
 
 ```bash
 $ babel src/js --out-dir src/gen
-# or during development
+# 開発中は次のようにする
 $ babel src/js --out-dir src/gen --watch
 ```
 
@@ -663,7 +663,7 @@ JSソースは、名前空間を `goog:` というプレフィックスでイン
 ```
 import cljs, { keyword } from "goog:cljs.core";
 
-// construct {:foo "hello world"} in JS
+// JSで {:foo "hello world"} を作る。
 cljs.array_map(keyword("foo"), "hello world");
 ```
 
@@ -726,9 +726,9 @@ NOTE: The `shadow-cljsjs` library only provides the shim files. You’ll still n
 //Why not use CLJSJS?
 
 ////
-CLJSJS packages basically just take the package from `npm` and put them into a `.jar` and re-publish them via https://clojars.org[clojars]. As a bonus they often bundle Externs. The compiler otherwise does nothing with these files and only prepends them to the generated output.
+CLJSJS packages basically just take the package from `npm` and put them into a `.jar` and re-publish them via https://clojars.org[clojars] . As a bonus they often bundle Externs. The compiler otherwise does nothing with these files and only prepends them to the generated output.
 ////
-CLJSJSのパッケージは、基本的に `npm` からパッケージを取り出し、 `.jar` に入れて、https://clojars.org[clojars]で再公開するだけです。おまけにExternsもバンドルされています。コンパイラはこれらのファイルに対して何もせず、生成された出力の先頭に追加するだけです。
+CLJSJSのパッケージは、基本的に `npm` からパッケージを取り出し、 `.jar` に入れて、https://clojars.org[clojars] で再公開するだけです。おまけにExternsもバンドルされています。コンパイラはこれらのファイルに対して何もせず、生成された出力の先頭に追加するだけです。
 
 ////
 This was very useful when we had no access to `npm` directly but has certain issues since not all packages are easily combined with others. A package might rely on `react` but instead of expressing this via `npm` https://github.com/cljsjs/packages/tree/master/material-ui[they] bundle their own `react`. If you are not careful you could end up including 2 different `react` versions in your build which may lead to very confusing errors or at the very least increase the build size substantially.

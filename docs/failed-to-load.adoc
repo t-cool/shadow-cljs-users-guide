@@ -119,4 +119,4 @@ This will usually list all the current conflicts at the top and provide suggesti
 ////
 Please refer to the https://leiningen.org/[Leiningen] documentation for more information.
 ////
-詳しくは、https://leiningen.org/[Leiningen]のドキュメントをご参照ください。
+詳しくは、https://leiningen.org/[Leiningen] のドキュメントをご参照ください。

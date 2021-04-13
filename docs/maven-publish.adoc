@@ -15,7 +15,7 @@ ClojureScriptライブラリは、Clojureと同様に `maven` リポジトリに
 ## Leiningen [[publish-lein]]
 
 ////
-There are a variety of options to publish libraries and I currently recommend https://leiningen.org/[Leiningen]. The setup is very straightforward and doesn't require much configuration at all.
+There are a variety of options to publish libraries and I currently recommend https://leiningen.org/[Leiningen] . The setup is very straightforward and doesn't require much configuration at all.
 ////
 ライブラリを公開するには様々なオプションがありますが、現在は https://leiningen.org/[Leiningen] をお勧めしています。セットアップは非常に簡単で、設定は全く必要ありません。
 

@@ -380,7 +380,7 @@ Using the loader is very lightweight. It has a few dependencies which you may no
 ////
 The generated code is capable of using the standard ClojureScript `cljs.loader` API. See the https://clojurescript.org/news/2017-07-10-code-splitting[documentation] on the ClojureScript website for instructions.
 ////
-生成されたコードは、標準的なClojureScriptの `cljs.loader` APIを使用することができます。手順については、ClojureScriptウェブサイトのhttps://clojurescript.org/news/2017-07-10-code-splitting[documentation]を参照してください。
+生成されたコードは、標準的なClojureScriptの `cljs.loader` APIを使用することができます。手順については、ClojureScriptウェブサイトのhttps://clojurescript.org/news/2017-07-10-code-splitting[documentation] を参照してください。
 
 ////
 The advantage of using the standard API is that your code will play well with others. This may be of particular importance to library authors. The disadvantage is that the dynamic module loading API in the standard distribution is currently somewhat less easy-to-use than the support in `shadow-cljs`.

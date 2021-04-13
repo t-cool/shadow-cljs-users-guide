@@ -859,7 +859,7 @@ table.CodeRay td.code>pre{padding:0}
 </ul>
 </div>
 <div class="paragraph">
-<p>必要であれば、Clojureライブラリであるshadow-cljsを、他のClojure/JVMビルドツール（例えば、https://leiningen.org/[leiningen]や、https://clojure.org/guides/deps_and_cli[Clojure CLI]ツール）に簡単に統合することができます。</p>
+<p>必要であれば、Clojureライブラリであるshadow-cljsを、他のClojure/JVMビルドツール（例えば、https://leiningen.org/[leiningen] や、https://clojure.org/guides/deps_and_cli[Clojure CLI]ツール）に簡単に統合することができます。</p>
 </div>
 <div class="paragraph">
 <p>CLJSの開発に合わせて、より最適化された開発環境を提供するので、npmパッケージを使用することをお勧めします。</p>
@@ -1399,7 +1399,7 @@ $ shadow-cljs run my.build/release</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>ヒント: <a href="https://github.com/clojure/tools.cli">tools.cli</a>のように引数を解析したい場合は、通常の <code>(defn release [&amp; args])</code> の構造でも動作します。</p>
+<p>ヒント: <a href="https://github.com/clojure/tools.cli">tools.cli</a> のように引数を解析したい場合は、通常の <code>(defn release [&amp; args])</code> の構造でも動作します。</p>
 </div>
 <div class="paragraph">
 <p>ここでは、Clojureのフルパワーにアクセスできます。必要に応じて、この上にツール全体を構築することができます。おまけに、この方法で書いたものはすべて、Clojure REPLで直接利用できます。</p>
@@ -2184,7 +2184,7 @@ shadow-cljs - watching build :app
 </div>
 </div>
 <div class="paragraph">
-<p>JVMに渡すことができる引数はバージョンによって異なりますが、https://docs.oracle.com/javase/8/docs/technotes/tools/windows/java.html[here]のリストの例があります。RAMの割り当てが少なすぎたり多すぎたりすると、パフォーマンスが低下することがありますのでご注意ください。通常は、デフォルトの設定で十分です。</p>
+<p>JVMに渡すことができる引数はバージョンによって異なりますが、https://docs.oracle.com/javase/8/docs/technotes/tools/windows/java.html[here] のリストの例があります。RAMの割り当てが少なすぎたり多すぎたりすると、パフォーマンスが低下することがありますのでご注意ください。通常は、デフォルトの設定で十分です。</p>
 </div>
 <div class="paragraph">
 <p>重要: <code>deps.edn</code> や <code>project.clj</code> を使用する場合は、 <code>:jvm-opts</code> を設定する必要があります。</p>
@@ -2573,7 +2573,7 @@ preloads オプションは、単に <code>:devtools</code>/<code>:preloads</cod
 <p>しかし、キャッシュを無効にすることは、副作用のあるマクロ（ファイルの読み込み、コンパイラの状態外での保存など）を多く使用している場合、常に確実に実行できるとは限りません。そのような場合には、キャッシュを完全に無効にする必要があります。</p>
 </div>
 <div class="paragraph">
-<p>副作用のあるマクロが含まれていることがわかっている名前空間は、キャッシュからブロックすることができます。その名前空間自体はキャッシュされず、それを必要とする名前空間もキャッシュされません。https://github.com/cerner/clara-rules[clara-rules]ライブラリには副作用のあるマクロが含まれており、デフォルトでブロックされます。どの名前空間をグローバルにブロックするかは、 <code>:cache-blockers</code> 設定で指定できます。この設定には、名前空間のシンボルのセットが必要です。</p>
+<p>副作用のあるマクロが含まれていることがわかっている名前空間は、キャッシュからブロックすることができます。その名前空間自体はキャッシュされず、それを必要とする名前空間もキャッシュされません。https://github.com/cerner/clara-rules[clara-rules] ライブラリには副作用のあるマクロが含まれており、デフォルトでブロックされます。どの名前空間をグローバルにブロックするかは、 <code>:cache-blockers</code> 設定で指定できます。この設定には、名前空間のシンボルのセットが必要です。</p>
 </div>
 <div class="listingblock">
 <div class="title">clara.rulesのキャッシュブロックの例（これはデフォルトで行われます)</div>
@@ -2702,7 +2702,7 @@ preloads オプションは、単に <code>:devtools</code>/<code>:preloads</cod
 <p><code>goog.DEBUG</code> です。Closure Libraryでは、多くの開発機能でこれを使用しています。 <code>shadow-cljs</code> は、 <code>release</code> のビルドでは、自動的にこれを <code>false</code> に設定します。</p>
 </li>
 <li>
-<p>goog.LOCALE`: <code>goog.i18n.DateTimeFormat</code> のような、ある種のローカリゼーション機能を設定するために使用されます。これは標準的なロケール文字列を受け入れ、デフォルトでは <code>en</code> となります。ほとんどすべてのロケールがサポートされています。https://github.com/google/closure-library/blob/master/closure/goog/i18n/datetimesymbols.js[ここ]とhttps://github.com/google/closure-library/blob/master/closure/goog/i18n/datetimesymbolsext.js[ここ]を参照してください。</p>
+<p>goog.LOCALE`: <code>goog.i18n.DateTimeFormat</code> のような、ある種のローカリゼーション機能を設定するために使用されます。これは標準的なロケール文字列を受け入れ、デフォルトでは <code>en</code> となります。ほとんどすべてのロケールがサポートされています。https://github.com/google/closure-library/blob/master/closure/goog/i18n/datetimesymbols.js[こちら] とhttps://github.com/google/closure-library/blob/master/closure/goog/i18n/datetimesymbolsext.js[こちら] を参照してください。</p>
 </li>
 </ul>
 </div>
@@ -2931,7 +2931,7 @@ preloads オプションは、単に <code>:devtools</code>/<code>:preloads</cod
 </div>
 </div>
 <div class="paragraph">
-<p>これらのオプションに関するドキュメントは少し少なく、ほとんどがコード <a href="https://github.com/google/closure-compiler/blob/master/src/com/google/javascript/jscomp/parsing/parser/FeatureSet.java">here</a>に記載されています。</p>
+<p>これらのオプションに関するドキュメントは少し少なく、ほとんどがコード <a href="https://github.com/google/closure-compiler/blob/master/src/com/google/javascript/jscomp/parsing/parser/FeatureSet.java">here</a> に記載されています。</p>
 </div>
 </div>
 <div class="sect2">
@@ -3458,7 +3458,7 @@ Javascriptのファイル名を生成するためにも使用されます。モ�
 <div class="sect4">
 <h5 id="_標準的なclojurescript_apiの使用"><a class="anchor" href="#_標準的なclojurescript_apiの使用"></a><a class="link" href="#_標準的なclojurescript_apiの使用">標準的なClojureScript APIの使用</a></h5>
 <div class="paragraph">
-<p>生成されたコードは、標準的なClojureScriptの <code>cljs.loader</code> APIを使用することができます。手順については、ClojureScriptウェブサイトのhttps://clojurescript.org/news/2017-07-10-code-splitting[documentation]を参照してください。</p>
+<p>生成されたコードは、標準的なClojureScriptの <code>cljs.loader</code> APIを使用することができます。手順については、ClojureScriptウェブサイトのhttps://clojurescript.org/news/2017-07-10-code-splitting[documentation] を参照してください。</p>
 </div>
 <div class="paragraph">
 <p>標準APIを使用することの利点は、自分のコードが他の人とうまく調和することです。これはライブラリの作者にとっては特に重要なことでしょう。不利な点は、標準配布の動的なモジュールローディングAPIは、現在のところ <code>shadow-cljs</code> のサポートに比べてやや使いにくいことです。</p>
@@ -3926,7 +3926,7 @@ HTMLに含めるのは少し複雑です。<a href="#BrowserManifest">Output Man
 <div class="sect2">
 <h3 id="_react_native"><a class="anchor" href="#_react_native"></a><a class="link" href="#_react_native">8.1. React Native</a></h3>
 <div class="paragraph">
-<p><code>react-native</code> には、ネイティブコードやライブラリを使用できるプレーンな <code>react-native</code> と、https://expo.io/[expo]（後述）でラップされた <code>react-native</code> の2つの使用方法があります。上記で説明したすべての手順は、プレーンな <code>react-native</code> で shadow-cljs を使い始めるのに十分なものです。このサンプルレポをご覧ください。</p>
+<p><code>react-native</code> には、ネイティブコードやライブラリを使用できるプレーンな <code>react-native</code> と、https://expo.io/[expo] （後述）でラップされた <code>react-native</code> の2つの使用方法があります。上記で説明したすべての手順は、プレーンな <code>react-native</code> で shadow-cljs を使い始めるのに十分なものです。このサンプルレポをご覧ください。</p>
 </div>
 <div class="ulist">
 <ul>
@@ -3939,7 +3939,7 @@ HTMLに含めるのは少し複雑です。<a href="#BrowserManifest">Output Man
 <div class="sect2">
 <h3 id="_expo"><a class="anchor" href="#_expo"></a><a class="link" href="#_expo">8.2. Expo</a></h3>
 <div class="paragraph">
-<p><a href="https://expo.io/">expo</a>を使うと、 <code>react-native</code> の作業がとても簡単になります。2つのサンプルセットアップが用意されています。</p>
+<p><a href="https://expo.io/">expo</a> を使うと、 <code>react-native</code> の作業がとても簡単になります。2つのサンプルセットアップが用意されています。</p>
 </div>
 <div class="ulist">
 <ul>
@@ -5084,7 +5084,7 @@ HeadlessChrome 0.0.0 (Mac OS X 10.12.6): Executed 1 of 1 SUCCESS (0.007 secs / 0
 <p><strong>DANGER: この機能は実験的なものです！</strong> 現在は <code>shadow-cljs</code> でのみサポートされており、これを使おうとすると他の CLJS ツールに怒られます。自分の責任で使用してください。この機能は当初、CLJSのコアでは拒否されていましたが、私は便利だと思いますし、さらなる議論なしにhttps://dev.clojure.org/jira/browse/CLJS-2061?focusedCommentId=46191&amp;page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-46191[dismissed]されるべきではなかったと思います。</p>
 </div>
 <div class="paragraph">
-<p>CLJSには、https://clojurescript.org/guides/javascript-modules[implementation]という別の実装がありますが、これは <code>shadow-cljs</code> ではサポートされていません。私はこの実装がある種の面で不足していると感じたので、別の解決策を選びました。しかし、両方のアプローチの長所・短所を議論するのは楽しいことです。</p>
+<p>CLJSには、https://clojurescript.org/guides/javascript-modules[implementation] という別の実装がありますが、これは <code>shadow-cljs</code> ではサポートされていません。私はこの実装がある種の面で不足していると感じたので、別の解決策を選びました。しかし、両方のアプローチの長所・短所を議論するのは楽しいことです。</p>
 </div>
 </div>
 </div>
@@ -5114,7 +5114,7 @@ HeadlessChrome 0.0.0 (Mac OS X 10.12.6): Executed 1 of 1 SUCCESS (0.007 secs / 0
 <p>ヒント：文字列が必要な場合、拡張子 <code>.js</code> が自動的に追加されますが、必要に応じて拡張子を指定することができます。ただし、現在は <code>.js</code> のみサポートしています。</p>
 </div>
 <div class="paragraph">
-<p>some-library/components/foo` のような絶対的な要求は、ローカルファイルシステムからファイルをロードしようとする <code>node</code> とは異なり、コンパイラがクラスパス上で <code>some-library/components/foo.js</code> を探すことを意味します。同じクラスパスのルールが適用されるので、ファイルは <code>:source-paths</code> にあるか、使用しているサードパーティの <code>.jar</code> ライブラリにあるかもしれません。</p>
+<p><code>some-library/components/foo</code> のような絶対的な要求は、ローカルファイルシステムからファイルをロードしようとする <code>node</code> とは異なり、コンパイラがクラスパス上で <code>some-library/components/foo.js</code> を探すことを意味します。同じクラスパスのルールが適用されるので、ファイルは <code>:source-paths</code> にあるか、使用しているサードパーティの <code>.jar</code> ライブラリにあるかもしれません。</p>
 </div>
 <div class="paragraph">
 <p>相対的なrequireは、まず現在の名前空間を見て、その名前からの相対パスを解決します。上の例では、 <code>demo/app.cljs</code> から <code>./bar</code> の require は <code>demo/bar.js</code> に解決されるので、 <code>(:require ["/demo/bar"])</code> と同じになります。</p>
@@ -5141,7 +5141,7 @@ HeadlessChrome 0.0.0 (Mac OS X 10.12.6): Executed 1 of 1 SUCCESS (0.007 secs / 0
 <div class="sect3">
 <h4 id="_言語サポート"><a class="anchor" href="#_言語サポート"></a><a class="link" href="#_言語サポート">13.2.2. 言語サポート</a></h4>
 <div class="paragraph">
-<p>重要: クラスパスには、コンパイラが前処理をしなくても消費できるJavaScriptだけが含まれていることが期待されています。npm` にもよく似た規約があります。</p>
+<p>重要: クラスパスには、コンパイラが前処理をしなくても消費できるJavaScriptだけが含まれていることが期待されています。 <code>npm</code> にもよく似た規約があります。</p>
 </div>
 <div class="paragraph">
 <p>Closure Compilerは、クラスパス上で見つかった全てのJavaScriptを、その言語設定である <code>ECMASCRIPT_NEXT</code> を使って処理します。この設定が正確に何を意味するのかはよくわかっていませんが、ほとんどのブラウザではまだサポートされていないかもしれない次世代のJavaScriptコードを表しています。ES6は非常によくサポートされており、ほとんどのES8の機能もサポートされています。標準的なCLJSと同様に、これは必要に応じてポリフィルを用いてES5にコンパイルされます。</p>
@@ -5154,13 +5154,13 @@ HeadlessChrome 0.0.0 (Mac OS X 10.12.6): Executed 1 of 1 SUCCESS (0.007 secs / 0
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="js"><span class="comment">// regular JS require</span>
+<pre class="CodeRay highlight"><code data-lang="js"><span class="comment">// 標準的な JS の require</span>
 <span class="reserved">import</span> Foo, { something } from <span class="string"><span class="delimiter">&quot;</span><span class="content">./other.js</span><span class="delimiter">&quot;</span></span>;
 
-<span class="comment">// npm require</span>
+<span class="comment">// npm の require</span>
 <span class="reserved">import</span> React from <span class="string"><span class="delimiter">&quot;</span><span class="content">react</span><span class="delimiter">&quot;</span></span>;
 
-<span class="comment">// require CLJS or Closure Library JS</span>
+<span class="comment">// CLJS または Closure Library JS の require</span>
 <span class="reserved">import</span> cljs from <span class="string"><span class="delimiter">&quot;</span><span class="content">goog:cljs.core</span><span class="delimiter">&quot;</span></span>;
 
 <span class="reserved">export</span> <span class="keyword">function</span> <span class="function">inc</span>(num) {
@@ -5175,7 +5175,7 @@ HeadlessChrome 0.0.0 (Mac OS X 10.12.6): Executed 1 of 1 SUCCESS (0.007 secs / 0
 <div class="sect3">
 <h4 id="_javascriptの方言"><a class="anchor" href="#_javascriptの方言"></a><a class="link" href="#_javascriptの方言">13.2.3. JavaScriptの方言</a></h4>
 <div class="paragraph">
-<p>一般的なJavaScriptの方言（JSX、CoffeeScriptなど）には、Closure Compilerでは直接解析できないものが多いため、クラスパスに置く前に前処理を行う必要があります。https://babeljs.io/[babel]はJavaScriptの世界でよく使われているので、ここでは例として <code>.jsx</code> ファイルを処理するために <code>babel</code> を使用します。</p>
+<p>一般的なJavaScriptの方言（JSX、CoffeeScriptなど）には、Closure Compilerでは直接解析できないものが多いため、クラスパスに置く前に前処理を行う必要があります。https://babeljs.io/[babel] はJavaScriptの世界でよく使われているので、ここでは例として <code>.jsx</code> ファイルを処理するために <code>babel</code> を使用します。</p>
 </div>
 <div class="listingblock">
 <div class="title">例 shadow-cljs.edn の設定</div>
@@ -5218,12 +5218,12 @@ export { myComponent };</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p><a href="https://babeljs.io/docs/usage/cli/">babel</a>を実行してファイルを変換し、設定された <code>src/gen</code> ディレクトリに書き込んでいます。どのディレクトリを使うかはあなた次第です。私は生成されたファイルには <code>src/gen</code> を使いたい。</p>
+<p><a href="https://babeljs.io/docs/usage/cli/">babel</a> を実行してファイルを変換し、設定された <code>src/gen</code> ディレクトリに書き込んでいます。どのディレクトリを使うかはあなた次第です。私は生成されたファイルには <code>src/gen</code> を使いたい。</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="bash">$ babel src/js --out-dir src/gen
-# or during development
+# 開発中は次のようにする
 $ babel src/js --out-dir src/gen --watch</code></pre>
 </div>
 </div>
@@ -5250,7 +5250,7 @@ $ babel src/js --out-dir src/gen --watch</code></pre>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure"><span class="keyword">import</span> cljs, { <span class="keyword">keyword</span> } from <span class="string"><span class="delimiter">&quot;</span><span class="content">goog:cljs.core</span><span class="delimiter">&quot;</span></span><span class="comment">;</span>
 
-// construct {<span class="symbol">:foo</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">hello world</span><span class="delimiter">&quot;</span></span>} in JS
+// JS<span class="error">で</span> {<span class="symbol">:foo</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">hello world</span><span class="delimiter">&quot;</span></span>} <span class="error">を</span><span class="error">作</span><span class="error">る</span><span class="error">。</span>
 cljs.array_map(<span class="keyword">keyword</span>(<span class="string"><span class="delimiter">&quot;</span><span class="content">foo</span><span class="delimiter">&quot;</span></span>), <span class="string"><span class="delimiter">&quot;</span><span class="content">hello world</span><span class="delimiter">&quot;</span></span>)<span class="comment">;</span></code></pre>
 </div>
 </div>
@@ -5301,7 +5301,7 @@ cljs.array_map(<span class="keyword">keyword</span>(<span class="string"><span c
 <div class="sect3">
 <h4 id="_cljsjsを使ってみませんか"><a class="anchor" href="#_cljsjsを使ってみませんか"></a><a class="link" href="#_cljsjsを使ってみませんか">13.3.1. CLJSJSを使ってみませんか?</a></h4>
 <div class="paragraph">
-<p>CLJSJSのパッケージは、基本的に <code>npm</code> からパッケージを取り出し、 <code>.jar</code> に入れて、https://clojars.org[clojars]で再公開するだけです。おまけにExternsもバンドルされています。コンパイラはこれらのファイルに対して何もせず、生成された出力の先頭に追加するだけです。</p>
+<p>CLJSJSのパッケージは、基本的に <code>npm</code> からパッケージを取り出し、 <code>.jar</code> に入れて、https://clojars.org[clojars] で再公開するだけです。おまけにExternsもバンドルされています。コンパイラはこれらのファイルに対して何もせず、生成された出力の先頭に追加するだけです。</p>
 </div>
 <div class="paragraph">
 <p>これは、 <code>npm</code> に直接アクセスできないときには非常に便利でしたが、すべてのパッケージが他のパッケージと簡単に結合できるわけではないので、ある種の問題があります。あるパッケージは <code>react</code> に依存しているかもしれませんが、 <code>npm</code> を通してこれを表現するのではなく、 <a href="https://github.com/cljsjs/packages/tree/master/material-ui">彼らは</a> 自分自身の <code>react</code> をバンドルします。注意しないと、2つの異なる <code>react</code> バージョンをビルドに含めることになり、非常に紛らわしいエラーが発生したり、少なくともビルドサイズが大幅に大きくなったりする可能性があります。</p>
@@ -5370,7 +5370,7 @@ cljs.array_map(<span class="keyword">keyword</span>(<span class="string"><span c
 </div>
 </div>
 <div class="paragraph">
-<p>利用可能な最適化レベルの詳細については、https://developers.google.com/closure/compiler/docs/compilation_levels[Closureコンパイラのドキュメント]を参照してください。</p>
+<p>利用可能な最適化レベルの詳細については、https://developers.google.com/closure/compiler/docs/compilation_levels[Closureコンパイラのドキュメント] を参照してください。</p>
 </div>
 </div>
 <div class="sect3">
@@ -5403,7 +5403,7 @@ cljs.array_map(<span class="keyword">keyword</span>(<span class="string"><span c
 <div class="sect2">
 <h3 id="externs"><a class="anchor" href="#externs"></a><a class="link" href="#externs">14.2. エクスターン</a></h3>
 <div class="paragraph">
-<p>Closure Compiler <code>:advanced</code> のコンパイルによってビルドを完全に最適化したいので、https://developers.google.com/closure/compiler/docs/api-tutorial3[Externs]を扱う必要があります。Externsは、 <code>:advanced</code> のコンパイルの際に含まれないコードの断片を表します。 <code>advanced</code> はプログラム全体の最適化を行いますが、どうしても含まれないコードもあるため、Externsはコンパイラにそのコードを知らせます。Externsがないと、コンパイラは含めるべきでないコードの名前を変えたり、削除したりすることがあります。</p>
+<p>Closure Compiler <code>:advanced</code> のコンパイルによってビルドを完全に最適化したいので、https://developers.google.com/closure/compiler/docs/api-tutorial3[Externs] を扱う必要があります。Externsは、 <code>:advanced</code> のコンパイルの際に含まれないコードの断片を表します。 <code>advanced</code> はプログラム全体の最適化を行いますが、どうしても含まれないコードもあるため、Externsはコンパイラにそのコードを知らせます。Externsがないと、コンパイラは含めるべきでないコードの名前を変えたり、削除したりすることがあります。</p>
 </div>
 <div class="paragraph">
 <p>通常、すべてのJS Dependenciesは外国のものであり、 <code>:advanced</code> ではパスされないため、Externsが必要となります。</p>
@@ -5932,7 +5932,7 @@ cljs.repl&gt;</code></pre>
 <div class="sect2">
 <h3 id="_fireplace_vim_vim_neovim"><a class="anchor" href="#_fireplace_vim_vim_neovim"></a><a class="link" href="#_fireplace_vim_vim_neovim">15.6. Fireplace.vim (Vim/Neovim)</a></h3>
 <div class="paragraph">
-<p><a href="https://www.vim.org/scripts/script.php?script_id=4978">Fireplace.vim</a>は、https://nrepl.org/[nREPL]クライアントとして動作することで、Clojure REPLの統合を提供するVim/Neovimプラグインです。Shadow-CLJS と組み合わせることで、ClojureScript REPL の統合も可能になります。</p>
+<p><a href="https://www.vim.org/scripts/script.php?script_id=4978">Fireplace.vim</a>は、https://nrepl.org/[nREPL] クライアントとして動作することで、Clojure REPLの統合を提供するVim/Neovimプラグインです。Shadow-CLJS と組み合わせることで、ClojureScript REPL の統合も可能になります。</p>
 </div>
 <div class="paragraph">
 <p>このガイドでは、公式https://github.com/thheller/shadow-cljs#quick-start[Shadow-CLJS Quick Start]ガイドで作成されたアプリを例にしているため、アプリの <code>shadow-cljs.edn</code> にあるいくつかの設定項目を参照しています。とはいえ、これらの設定項目はかなり一般的なものなので、ちょっとした修正で他のアプリにも適用できるはずです。</p>
@@ -5943,7 +5943,7 @@ cljs.repl&gt;</code></pre>
 <p><a href="https://www.vim.org/scripts/script.php?script_id=4978">Fireplace.vim</a>を、Vim/Neovimでプラグインをインストールするお好みの方法でインストールします。</p>
 </div>
 <div class="paragraph">
-<p><a href="https://nrepl.org/">nREPL</a>クライアントとして、https://www.vim.org/scripts/script.php?script_id=4978[Fireplace.vim]は、https://docs.cider.mx/cider-nrepl/[CIDER-nREPL] (これは、一般的な、エディタに依存しないREPL操作を提供するnREPLミドルウェアです)に依存しているため、この依存関係を<a href="#user-config">~/. shadow-cljs/config.edn</a> または <code>shadow-cljs.edn</code> (次のサブセクションで示すように) にこの依存関係を含める必要があります。Shadow-CLJS は、この依存関係を確認すると、必要な CIDER-nREPL ミドルウェアを注入します。</p>
+<p><a href="https://nrepl.org/">nREPL</a> クライアントとして、https://www.vim.org/scripts/script.php?script_id=4978[Fireplace.vim]は、https://docs.cider.mx/cider-nrepl/[CIDER-nREPL] (これは、一般的な、エディタに依存しないREPL操作を提供するnREPLミドルウェアです)に依存しているため、この依存関係を<a href="#user-config">~/. shadow-cljs/config.edn</a> または <code>shadow-cljs.edn</code> (次のサブセクションで示すように) にこの依存関係を含める必要があります。Shadow-CLJS は、この依存関係を確認すると、必要な CIDER-nREPL ミドルウェアを注入します。</p>
 </div>
 </div>
 <div class="sect3">
@@ -6110,7 +6110,7 @@ $ lein with-profiles +cljs deps <span class="symbol">:tree</span></code></pre>
 <p>これは通常、一番上に現在のコンフリクトをすべてリストアップし、一番下に依存関係のツリーで提案を提供します。提案は必ずしも完全には正確ではありませんので、誤解を招かないように、また <code>thheller/shadow-cljs</code> アーティファクトに除外項目を追加しないようにしてください。</p>
 </div>
 <div class="paragraph">
-<p>詳しくは、https://leiningen.org/[Leiningen]のドキュメントをご参照ください。</p>
+<p>詳しくは、https://leiningen.org/[Leiningen] のドキュメントをご参照ください。</p>
 </div>
 </div>
 </div>
@@ -6339,7 +6339,7 @@ $ lein with-profiles +cljs deps <span class="symbol">:tree</span></code></pre>
 <div id="footer">
 <div id="footer-text">
 Version 1.0<br>
-Last updated 2021-04-13 15:44:38 JST
+Last updated 2021-04-13 17:12:10 JST
 </div>
 </div>
 </body>

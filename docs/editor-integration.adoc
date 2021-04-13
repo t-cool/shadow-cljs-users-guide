@@ -348,7 +348,7 @@ Some of the things you can now do:
 ////
 https://www.vim.org/scripts/script.php?script_id=4978[Fireplace.vim] is a Vim/Neovim plug-in which provides Clojure REPL integration by acting as an https://nrepl.org/[nREPL] client. When combined with Shadow-CLJS, it also provides ClojureScript REPL integration.
 ////
-https://www.vim.org/scripts/script.php?script_id=4978[Fireplace.vim]は、https://nrepl.org/[nREPL]クライアントとして動作することで、Clojure REPLの統合を提供するVim/Neovimプラグインです。Shadow-CLJS と組み合わせることで、ClojureScript REPL の統合も可能になります。
+https://www.vim.org/scripts/script.php?script_id=4978[Fireplace.vim]は、https://nrepl.org/[nREPL] クライアントとして動作することで、Clojure REPLの統合を提供するVim/Neovimプラグインです。Shadow-CLJS と組み合わせることで、ClojureScript REPL の統合も可能になります。
 
 ////
 This guide uses as an example the app created in the official https://github.com/thheller/shadow-cljs#quick-start[Shadow-CLJS Quick Start] guide therefore refers to a few configuration items in the app's `shadow-cljs.edn`. That being said, these configuration items are fairly generic so should be applicable to other apps with minor modifications.
@@ -366,7 +366,7 @@ https://www.vim.org/scripts/script.php?script_id=4978[Fireplace.vim]を、Vim/Ne
 ////
 As an https://nrepl.org/[nREPL] client, https://www.vim.org/scripts/script.php?script_id=4978[Fireplace.vim] depends on https://docs.cider.mx/cider-nrepl/[CIDER-nREPL] (which is nREPL middleware that provides common, editor-agnostic REPL operations) therefore you need to include this dependency in <<user-config, ~/.shadow-cljs/config.edn>> or `shadow-cljs.edn` (as shown in the next sub-section.) Shadow-CLJS will inject the required CIDER-nREPL middleware once it sees this dependency.
 ////
-https://nrepl.org/[nREPL]クライアントとして、https://www.vim.org/scripts/script.php?script_id=4978[Fireplace.vim]は、https://docs.cider.mx/cider-nrepl/[CIDER-nREPL] (これは、一般的な、エディタに依存しないREPL操作を提供するnREPLミドルウェアです)に依存しているため、この依存関係を<<user-config, ~/. shadow-cljs/config.edn>> または `shadow-cljs.edn` (次のサブセクションで示すように) にこの依存関係を含める必要があります。Shadow-CLJS は、この依存関係を確認すると、必要な CIDER-nREPL ミドルウェアを注入します。
+https://nrepl.org/[nREPL] クライアントとして、https://www.vim.org/scripts/script.php?script_id=4978[Fireplace.vim]は、https://docs.cider.mx/cider-nrepl/[CIDER-nREPL] (これは、一般的な、エディタに依存しないREPL操作を提供するnREPLミドルウェアです)に依存しているため、この依存関係を<<user-config, ~/. shadow-cljs/config.edn>> または `shadow-cljs.edn` (次のサブセクションで示すように) にこの依存関係を含める必要があります。Shadow-CLJS は、この依存関係を確認すると、必要な CIDER-nREPL ミドルウェアを注入します。
 
 === アプリの準備
 //Preparing the app
