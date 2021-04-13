@@ -79,13 +79,35 @@ You also need a `karma.conf.js`:
 ////
 また、 `karma.conf.js` も必要です。
 
+////
 ```javascript
 module.exports = function (config) {
     config.set({
         browsers: ['ChromeHeadless'],
-        // The directory where the output file lives
+        //  https://
         basePath: 'target',
         // The file itself
+        files: ['ci.js'],
+        frameworks: ['cljs-test'],
+        plugins: ['karma-cljs-test', 'karma-chrome-launcher'],
+        colors: true,
+        logLevel: config.LOG_INFO,
+        client: {
+            args: ["shadow.test.karma.init"],
+            singleRun: true
+        }
+    })
+};
+```
+////
+
+```javascript
+module.exports = function (config) {
+    config.set({
+        browsers: ['ChromeHeadless'],
+        // 出力ファイルが存在するディレクトリ
+        basePath: 'target',
+        // ファイル自体
         files: ['ci.js'],
         frameworks: ['cljs-test'],
         plugins: ['karma-cljs-test', 'karma-chrome-launcher'],

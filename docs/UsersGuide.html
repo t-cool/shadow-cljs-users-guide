@@ -4674,9 +4674,9 @@ $ shadow-cljs compile test &amp;&amp; node out/node-tests.js</code></pre>
 <pre class="CodeRay highlight"><code data-lang="javascript">module.<span class="function">exports</span> = <span class="keyword">function</span> (config) {
     config.set({
         <span class="key">browsers</span>: [<span class="string"><span class="delimiter">'</span><span class="content">ChromeHeadless</span><span class="delimiter">'</span></span>],
-        <span class="comment">// The directory where the output file lives</span>
+        <span class="comment">// 出力ファイルが存在するディレクトリ</span>
         <span class="key">basePath</span>: <span class="string"><span class="delimiter">'</span><span class="content">target</span><span class="delimiter">'</span></span>,
-        <span class="comment">// The file itself</span>
+        <span class="comment">// ファイル自体</span>
         <span class="key">files</span>: [<span class="string"><span class="delimiter">'</span><span class="content">ci.js</span><span class="delimiter">'</span></span>],
         <span class="key">frameworks</span>: [<span class="string"><span class="delimiter">'</span><span class="content">cljs-test</span><span class="delimiter">'</span></span>],
         <span class="key">plugins</span>: [<span class="string"><span class="delimiter">'</span><span class="content">karma-cljs-test</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">karma-chrome-launcher</span><span class="delimiter">'</span></span>],
@@ -5429,7 +5429,7 @@ cljs.array_map(<span class="keyword">keyword</span>(<span class="string"><span c
 </div>
 </div>
 <div class="paragraph">
-<p>auto` では、コンパイラはコンパイル時にあなたのファイルだけを対象に追加のチェックを行います。また、ライブラリコードに含まれる externs の問題については警告しません。all` では、すべてのファイルに対して有効になりますが、多くの警告を受ける可能性があることに注意してください。</p>
+<p><code>auto</code> では、コンパイラはコンパイル時にあなたのファイルだけを対象に追加のチェックを行います。また、ライブラリコードに含まれる externs の問題については警告しません。all` では、すべてのファイルに対して有効になりますが、多くの警告を受ける可能性があることに注意してください。</p>
 </div>
 <div class="paragraph">
 <p>有効にすると、コンパイラがJSとCLJSのどちらのコードを使用しているかを判断できない場合に警告が表示されます。</p>
