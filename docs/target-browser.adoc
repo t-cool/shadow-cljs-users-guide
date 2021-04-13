@@ -35,7 +35,7 @@ The browser target outputs a lot of files, and a directory is needed for them al
 ////
 [Horizontal]
 :output-dir`:: コンパイラのすべての出力に使用するディレクトリです。
-`:asset-path`:: Webサーバのルート*から `:output-dir` にあるリソースへの相対パスです。
+`:asset-path`:: Webサーバのルートから `:output-dir` にあるリソースへの相対パスです。
 
 ////
 Your entry point javascript file and all related JS files will appear in `:output-dir`.
@@ -58,7 +58,7 @@ generated javascript. It allows you to output your javascript module to a partic
 of your web server's root. The dynamic loading during development (hot code reload) and production
 (code splitting) need this to correctly locate files.
 ////
-:asset-path` は、モジュールの読み込みコードのパスに追加されるプレフィックスで、生成されたjavascriptの中に含まれます。
+`:asset-path` は、モジュールの読み込みコードのパスに追加されるプレフィックスで、生成されたjavascriptの中に含まれます。
 プレフィックスです。これにより、ウェブサーバのルートの特定のサブディレクトリにjavascriptモジュールを出力することができます。
 に出力することができます。開発時の動的な読み込み（ホットコードリロード）や生産時の動的な読み込み（コード分割）には、このプレフィックスが必要です。
 コード分割）は、ファイルを正しく配置するためにこれを必要とします。
