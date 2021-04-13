@@ -716,7 +716,7 @@ The `:browser` target now uses a HUD to display a loading indicator when a build
 ////
 You can disable it completely by setting `:hud false` in the `:devtools` section.
 ////
-devtools` セクションで `:hud false` を設定することで、完全に無効にすることができます。
+`devtools` セクションで `:hud false` を設定することで、完全に無効にすることができます。
 
 ////
 You may also toggle certain features by specifying which features you care about via setting `:hud #{:errors :warnings}`. This will show errors/warnings but no progress indicator. Available options are `:errors`, `:warnings`, `:progress`. Only options included will be enabled, all other will be disabled.
