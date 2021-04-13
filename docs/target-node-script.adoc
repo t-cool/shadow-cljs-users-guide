@@ -68,7 +68,7 @@ You will often write scripts that run as servers or some other long-running proc
 . Configure the build use those hooks.
 ////
 . start/stop コールバック機能の追加
-. これらのフックを使用するようにビルドを設定する
+.これらのフックを使用するようにビルドを設定する
 
 ////
 Here is an example http server in node:
@@ -78,7 +78,7 @@ Here is an example http server in node:
 ////
 .Sample node script with start/stop hooks for hot code reload.
 ////
-. ホットコードリロードのための start/stopフックを備えた Node スクリプトのサンプル
+.ホットコードリロードのための start/stopフックを備えた Node スクリプトのサンプル
 
 ////
 ```
@@ -176,7 +176,7 @@ The associated configuration is (`shadow-cljs.edn`):
 ////
 .Adding hooks for hot code reload.
 ////
-. ホットコードリロードのためのフックの追加
+.ホットコードリロードのためのフックの追加
 
 ////
 ```

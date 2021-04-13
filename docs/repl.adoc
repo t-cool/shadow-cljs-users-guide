@@ -200,7 +200,7 @@ The `shadow.cljs.devtools.api` namespace has functions that map more or less 1:1
 ;; shadow-cljs watch foo
 (shadow.cljs.devtools.api/watch :foo)
 
-;; これは、nsのエイリアスが用意されているため、同じです。
+;; nsのエイリアスが用意されているため同等
 (shadow/watch :foo)
 
 ;; shadow-cljs watch foo --verbose
@@ -221,7 +221,7 @@ The `shadow.cljs.devtools.api` namespace has functions that map more or less 1:1
 ;; shadow-cljs cljs-repl foo
 (shadow/repl :foo)
 
-;; CLJS REPLに入ったら、:repl/quit や cljs/quit を使ってCLJに戻ることができます。
+;; CLJS REPLに入れば :repl/quit や cljs/quit を使ってCLJに戻ることができる
 
 ```
 

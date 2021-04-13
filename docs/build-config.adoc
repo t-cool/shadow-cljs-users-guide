@@ -184,7 +184,7 @@ You can set certain metadata on normal CLJS `defn` vars to inform the compiler t
 ////
 .hook config via metadata
 ////
-. メタデータを利用したhookの設定
+.メタデータを利用したhookの設定
 
 ```clojure
 (ns my.app)

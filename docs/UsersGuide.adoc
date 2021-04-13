@@ -412,7 +412,7 @@ This means that you should `npm install react`.
 ////
 TIP: In the case of `react` you probably need these 3 packages: `npm install react react-dom create-react-class`.
 ////
-TIP: `react` の場合は、おそらく以下の3つのパッケージが必要です。npm install react react-dom create-react-class`.
+TIP: `react` の場合は、おそらく以下の3つのパッケージが必要です。`npm install react react-dom create-react-class`.
 
 
 == ユーザの設定 [[user-config]]
@@ -436,10 +436,18 @@ Adding dependencies is allowed via the usual `:dependencies` key. Note that depe
 .Example ~/.shadow-cljs/config.edn
 ////
 
+////
 ```
 {:dependencies
  [[cider/cider-nrepl "0.21.1"]]}
 ;; this version may be out of date, check whichever is available
+```
+////
+
+```
+{:dependencies
+ [[cider/cider-nrepl "0.21.1"]]}
+;; このバージョンは古くなっている可能性があります。
 ```
 
 ////
@@ -583,7 +591,7 @@ When you use `shadow-cljs` embedded in other tools that provide their own nREPL 
 ////
 TIP: You still need to start the <<embedded, embedded server>> manually before using the CLJS REPL.
 ////
-ヒント：CLJS REPLを使用する前に、<<embedded, embedded server>>を手動で起動する必要があります。
+TIP: CLJS REPLを使用する前に、<<embedded, embedded server>>を手動で起動する必要があります。
 
 
 === Socket REPL [[socket-repl]]
@@ -703,7 +711,7 @@ If you prefer to set your own port instead you can do this via the `:http` confi
 ////
 .`shadow-cljs.edn` with `:http` config
 ////
-. `shadow-cljs.edn` に `:http` の設定をする。
+.`shadow-cljs.edn` に `:http` の設定をする。
 
 ```
 {...
@@ -763,7 +771,7 @@ IMPORTANT:: These are just generic web servers that server static files. They ar
 ////
 .Serve directory from filesystem root
 ////
-. ファイルシステムのルートからディレクトリを serve する
+.ファイルシステムのルートからディレクトリを serve する
 
 ```
 :dev-http {8000 "public"}
@@ -773,7 +781,7 @@ IMPORTANT:: These are just generic web servers that server static files. They ar
 .Serve from classpath root
 ////
 
-. クラスルートから serve する
+.クラスルートから serve する
 
 
 ```

@@ -90,7 +90,7 @@ Modules configure how the compiled sources are bundled together and how the fina
 ////
 TIP: Don't worry too much about :modules in the beginning. Start with one and split them later.
 ////
-ヒント：最初は :module を気にしすぎないこと。最初は1つにしておいて、後で分割するようにしましょう。
+TIP: 最初は :module を気にしすぎないこと。最初は1つにしておいて、後で分割するようにしましょう。
 
 ////
 The `:modules` section of the config is always a map keyed by module ID. The module ID is also used
@@ -325,7 +325,7 @@ Then the following expressions can be used for loading code:
 ////
 .Loading a module
 ////
-. モジュールの読み込み
+.モジュールの読み込み
 
 ```
 ;; load returns a goog.async.Deferred, and can be used like a promise
@@ -334,7 +334,7 @@ Then the following expressions can be used for loading code:
 ```
 
 //.Loading many modules
-. 多数のモジュールの読み込み
+.多数のモジュールの読み込み
 
 ////
 ```
@@ -352,7 +352,7 @@ Then the following expressions can be used for loading code:
 ////
 .Including a callback
 ////
-. コールバックを含める場合
+.コールバックを含める場合
 
 ////
 ```

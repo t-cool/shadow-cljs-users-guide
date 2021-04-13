@@ -1215,14 +1215,8 @@ $ shadow-cljs restart</code></pre>
  <span class="symbol">:builds</span> { <span class="keyword">..</span><span class="keyword">.</span> }</code></pre>
 </div>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>専用の <code>lein</code> プロファイルの使用</p>
-</li>
-</ol>
-</div>
 <div class="listingblock">
+<div class="title">専用の <code>lein</code> プロファイルの使用</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="symbol">:lein</span> {<span class="symbol">:profile</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">+cljs</span><span class="delimiter">&quot;</span></span>}
  <span class="symbol">:builds</span> {<span class="keyword">..</span><span class="keyword">.</span>}}</code></pre>
@@ -1313,14 +1307,8 @@ $ shadow-cljs restart</code></pre>
 <div class="paragraph">
 <p><code>thheller/shadow-cljs</code> の artifact(成果物) を手動で <code>deps.edn</code> に追加する必要があります。</p>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>シンプルな shadow-cljs.edn の例</p>
-</li>
-</ol>
-</div>
 <div class="listingblock">
+<div class="title">シンプルな shadow-cljs.edn の例</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="symbol">:deps</span> <span class="predefined-constant">true</span>
  <span class="symbol">:builds</span> <span class="keyword">..</span><span class="keyword">.</span>}</code></pre>
@@ -1447,14 +1435,8 @@ $ shadow-cljs run my.build/release</code></pre>
   (sh <span class="string"><span class="delimiter">&quot;</span><span class="content">rsync</span><span class="delimiter">&quot;</span></span> <span class="string"><span class="delimiter">&quot;</span><span class="content">-arzt</span><span class="delimiter">&quot;</span></span> <span class="string"><span class="delimiter">&quot;</span><span class="content">path/to/output-dir</span><span class="delimiter">&quot;</span></span> server))</code></pre>
 </div>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>コマンドラインからのサーバの受け渡し</p>
-</li>
-</ol>
-</div>
 <div class="listingblock">
+<div class="title">コマンドラインからのサーバの受け渡し</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="bash">$ shadow-cljs clj-run my.build/release my@server.com:some/path</code></pre>
 </div>
@@ -1660,7 +1642,7 @@ shadow-cljs - REPL - see (help), :repl/quit to exit
 <pre class="CodeRay highlight"><code data-lang="clojure"><span class="comment">;; shadow-cljs watch foo</span>
 (shadow.cljs.devtools.api/watch <span class="symbol">:foo</span>)
 
-<span class="comment">;; これは、nsのエイリアスが用意されているため、同じです。</span>
+<span class="comment">;; nsのエイリアスが用意されているため同等</span>
 (shadow/watch <span class="symbol">:foo</span>)
 
 <span class="comment">;; shadow-cljs watch foo --verbose</span>
@@ -1681,7 +1663,7 @@ shadow-cljs - REPL - see (help), :repl/quit to exit
 <span class="comment">;; shadow-cljs cljs-repl foo</span>
 (shadow/repl <span class="symbol">:foo</span>)
 
-<span class="comment">;; CLJS REPLに入ったら、:repl/quit や cljs/quit を使ってCLJに戻ることができます。</span></code></pre>
+<span class="comment">;; CLJS REPLに入れば :repl/quit や cljs/quit を使ってCLJに戻ることができる</span></code></pre>
 </div>
 </div>
 <div class="sect3">
@@ -1885,7 +1867,7 @@ $ yarn add the-thing</code></pre>
 <div class="title">Tip</div>
 </td>
 <td class="content">
-<code>react</code> の場合は、おそらく以下の3つのパッケージが必要です。npm install react react-dom create-react-class`.
+<code>react</code> の場合は、おそらく以下の3つのパッケージが必要です。<code>npm install react react-dom create-react-class</code>.
 </td>
 </tr>
 </table>
@@ -1908,7 +1890,7 @@ $ yarn add the-thing</code></pre>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="symbol">:dependencies</span>
  [[cider/cider-nrepl <span class="string"><span class="delimiter">&quot;</span><span class="content">0.21.1</span><span class="delimiter">&quot;</span></span>]]}
-<span class="comment">;; this version may be out of date, check whichever is available</span></code></pre>
+<span class="comment">;; このバージョンは古くなっている可能性があります。</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2015,8 +1997,17 @@ shadow-cljs - watching build :app
   <span class="keyword">..</span><span class="keyword">.</span>)</code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p>ヒント：CLJS REPLを使用する前に、<a href="#embedded">embedded server</a>を手動で起動する必要があります。</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Tip</div>
+</td>
+<td class="content">
+CLJS REPLを使用する前に、<a href="#embedded">embedded server</a>を手動で起動する必要があります。
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -2101,14 +2092,8 @@ localhost（または使用するホスト）のSAN（Subject Alternative Name�
 <div class="paragraph">
 <p>代わりに独自のポートを設定したい場合は、 <code>:http</code> の設定で行うことができます。</p>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p><code>shadow-cljs.edn</code> に <code>:http</code> の設定をする。</p>
-</li>
-</ol>
-</div>
 <div class="listingblock">
+<div class="title"><code>shadow-cljs.edn</code> に <code>:http</code> の設定をする。</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
  <span class="symbol">:http</span> {<span class="symbol">:port</span> <span class="integer">12345</span>
@@ -2151,26 +2136,14 @@ localhost（または使用するホスト）のSAN（Subject Alternative Name�
 <div class="paragraph">
 <p><code>:dev-http</code> は <code>port-number</code> から <code>config</code> へのマップを期待しています。この <code>config</code> は、最も一般的なシナリオに対応したいくつかのショートカットをサポートしています。</p>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>ファイルシステムのルートからディレクトリを serve する</p>
-</li>
-</ol>
-</div>
 <div class="listingblock">
+<div class="title">ファイルシステムのルートからディレクトリを serve する</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure"><span class="symbol">:dev-http</span> {<span class="integer">8000</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">public</span><span class="delimiter">&quot;</span></span>}</code></pre>
 </div>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>クラスルートから serve する</p>
-</li>
-</ol>
-</div>
 <div class="listingblock">
+<div class="title">クラスルートから serve する</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure"><span class="symbol">:dev-http</span> {<span class="integer">8000</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">classpath:public</span><span class="delimiter">&quot;</span></span>}</code></pre>
 </div>
@@ -2454,14 +2427,8 @@ preloads オプションは、単に <code>:devtools</code>/<code>:preloads</cod
 <div class="paragraph">
 <p>通常のCLJSの <code>defn</code> 変数に特定のメタデータを設定することで、ライブリロード時にこれらの関数が特定のタイミングで呼び出されるべきであることをコンパイラに知らせることができます。</p>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>メタデータを利用したhookの設定</p>
-</li>
-</ol>
-</div>
 <div class="listingblock">
+<div class="title">メタデータを利用したhookの設定</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">(<span class="keyword">ns</span> <span class="namespace">my.app</span>)
 
@@ -3390,8 +3357,17 @@ preloads オプションは、単に <code>:devtools</code>/<code>:preloads</cod
 <div class="paragraph">
 <p>モジュールは、コンパイルされたソースがどのように束ねられ、最終的な <code>.js</code> がどのように生成されるかを設定します。各モジュールは、エントリーネームスペースのリストを宣言し、そこから依存関係グラフを構築します。複数のモジュールを使用する場合は、最大量のコードがグラフの外縁に移動するようにコードが分割されます。その目的は、ブラウザが最初に読み込むコードの量を最小限にし、残りのコードをオンデマンドで読み込むことです。</p>
 </div>
-<div class="paragraph">
-<p>ヒント：最初は :module を気にしすぎないこと。最初は1つにしておいて、後で分割するようにしましょう。</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Tip</div>
+</td>
+<td class="content">
+最初は :module を気にしすぎないこと。最初は1つにしておいて、後で分割するようにしましょう。
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>コンフィグの <code>:modules</code> セクションは、常にモジュール ID をキーとしたマップです。モジュールIDは、Javascriptのファイル名の生成にも使われます。
@@ -3619,41 +3595,23 @@ Javascriptのファイル名を生成するためにも使用されます。モ�
 <div class="paragraph">
 <p>そうすると、コードの読み込みに以下のような表現が使えるようになります。</p>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>モジュールの読み込み</p>
-</li>
-</ol>
-</div>
 <div class="listingblock">
+<div class="title">モジュールの読み込み</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure"><span class="comment">;; load returns a goog.async.Deferred, and can be used like a promise</span>
 (<span class="keyword">-&gt;</span> (loader/load <span class="string"><span class="delimiter">&quot;</span><span class="content">extra</span><span class="delimiter">&quot;</span></span>)
     (<span class="keyword">.</span>then fn-to-call-on-load fn-to-call-on-error))</code></pre>
 </div>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>多数のモジュールの読み込み</p>
-</li>
-</ol>
-</div>
 <div class="listingblock">
+<div class="title">多数のモジュールの読み込み</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure"><span class="comment">;; JS配列でなければならず、goog.async.Deferredも返します。</span>
 (loader/load-many <span class="error">#</span>js [<span class="string"><span class="delimiter">&quot;</span><span class="content">foo</span><span class="delimiter">&quot;</span></span> <span class="string"><span class="delimiter">&quot;</span><span class="content">bar</span><span class="delimiter">&quot;</span></span>])</code></pre>
 </div>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>コールバックを含める場合</p>
-</li>
-</ol>
-</div>
 <div class="paragraph">
+<div class="title">コールバックを含める場合</div>
 <p>モジュールがロードされているかどうかは、 <code>(loaded? "module-name")</code> で確認できます。</p>
 </div>
 <div class="sect5">
@@ -4310,24 +4268,16 @@ HTMLに含めるのは少し複雑です。<a href="#BrowserManifest">Output Man
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>start/stop コールバック機能の追加</p>
-</li>
-<li>
-<p>これらのフックを使用するようにビルドを設定する</p>
+<p>start/stop コールバック機能の追加
+.これらのフックを使用するようにビルドを設定する</p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
 <p>ここでは、nodeのhttpサーバーの例を紹介します。</p>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>ホットコードリロードのための start/stopフックを備えた Node スクリプトのサンプル</p>
-</li>
-</ol>
-</div>
 <div class="listingblock">
+<div class="title">ホットコードリロードのための start/stopフックを備えた Node スクリプトのサンプル</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">(<span class="keyword">ns</span> <span class="namespace">demo.script</span>
   (<span class="symbol">:require</span> [<span class="string"><span class="delimiter">&quot;</span><span class="content">http</span><span class="delimiter">&quot;</span></span> <span class="symbol">:as</span> http]))
@@ -4374,14 +4324,8 @@ HTMLに含めるのは少し複雑です。<a href="#BrowserManifest">Output Man
 <div class="paragraph">
 <p>関連する設定は（ <code>shadow-cljs.edn</code> ）です。</p>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>ホットコードリロードのためのフックの追加</p>
-</li>
-</ol>
-</div>
 <div class="listingblock">
+<div class="title">ホットコードリロードのためのフックの追加</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
  <span class="symbol">:builds</span>
@@ -5413,8 +5357,17 @@ HeadlessChrome 0.0.0 (Mac OS X 10.12.6): Executed 1 of 1 SUCCESS (0.007 secs / 0
     [<span class="string"><span class="delimiter">&quot;</span><span class="content">./bar</span><span class="delimiter">&quot;</span></span> <span class="symbol">:as</span> bar <span class="symbol">:refer</span> (myComponent)]))</code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p>ヒント：文字列が必要な場合、拡張子 <code>.js</code> が自動的に追加されますが、必要に応じて拡張子を指定することができます。ただし、現在は <code>.js</code> のみサポートしています。</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Tip</div>
+</td>
+<td class="content">
+文字列が必要な場合、拡張子 <code>.js</code> が自動的に追加されますが、必要に応じて拡張子を指定することができます。ただし、現在は <code>.js</code> のみサポートしています。
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p><code>some-library/components/foo</code> のような絶対的な要求は、ローカルファイルシステムからファイルをロードしようとする <code>node</code> とは異なり、コンパイラがクラスパス上で <code>some-library/components/foo.js</code> を探すことを意味します。同じクラスパスのルールが適用されるので、ファイルは <code>:source-paths</code> にあるか、使用しているサードパーティの <code>.jar</code> ライブラリにあるかもしれません。</p>
@@ -5593,8 +5546,17 @@ $ babel src/js --out-dir src/gen --watch</code></pre>
 cljs.array_map(<span class="keyword">keyword</span>(<span class="string"><span class="delimiter">&quot;</span><span class="content">foo</span><span class="delimiter">&quot;</span></span>), <span class="string"><span class="delimiter">&quot;</span><span class="content">hello world</span><span class="delimiter">&quot;</span></span>)<span class="comment">;</span></code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p>ヒント：現在、 <code>goog:</code> という接頭辞は、ES6ファイルにしか使えません。<code>require("goog:cljs.core")</code> は動作しません。</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Tip</div>
+</td>
+<td class="content">
+現在、 <code>goog:</code> という接頭辞は、ES6ファイルにしか使えません。<code>require("goog:cljs.core")</code> は動作しません。
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -5895,8 +5857,17 @@ cljs.array_map(<span class="keyword">keyword</span>(<span class="string"><span c
    }}}</code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p>ヒント：コンパイラは、プロジェクトルートに相対するファイルを最初に探します。ファイルが見つからない場合は、クラスパスからの読み込みも試みます。</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Tip</div>
+</td>
+<td class="content">
+コンパイラは、プロジェクトルートに相対するファイルを最初に探します。ファイルが見つからない場合は、クラスパスからの読み込みも試みます。
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect3">
@@ -6733,7 +6704,7 @@ lein jarを実行し、jar -tvf target/library-1.0.0.jarで最終的に含まれ
 <div id="footer">
 <div id="footer-text">
 Version 1.0<br>
-Last updated 2021-04-14 05:58:37 JST
+Last updated 2021-04-14 06:12:10 JST
 </div>
 </div>
 </body>

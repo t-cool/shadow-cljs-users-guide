@@ -204,7 +204,7 @@ https://leiningen.org/[Leiningen] を使って依存関係を管理したい場�
 .Using a dedicated `lein` profile
 ////
 
-. 専用の `lein` プロファイルの使用
+.専用の `lein` プロファイルの使用
 
 ```
 {:lein {:profile "+cljs"}
@@ -292,7 +292,7 @@ You must add the `thheller/shadow-cljs` artifact to your `deps.edn` manually.
 ////
 .Simple `shadow-cljs.edn` example
 ////
-. シンプルな shadow-cljs.edn の例
+.シンプルな shadow-cljs.edn の例
 
 ```clojure
 {:deps true
@@ -437,7 +437,7 @@ You can pass arguments to the invoked functions via the command line.
 ////
 .Passing the server from the command line
 ////
-. コマンドラインからのサーバの受け渡し
+.コマンドラインからのサーバの受け渡し
 
 ```bash
 $ shadow-cljs clj-run my.build/release my@server.com:some/path

@@ -288,7 +288,7 @@ Some libraries provide Externs as separate `.js` files. You can include them int
 ////
 TIP: The compiler looks for files relative to the project root first. It will also attempt to load them from the classpath if no file is found.
 ////
-ヒント：コンパイラは、プロジェクトルートに相対するファイルを最初に探します。ファイルが見つからない場合は、クラスパスからの読み込みも試みます。
+TIP: コンパイラは、プロジェクトルートに相対するファイルを最初に探します。ファイルが見つからない場合は、クラスパスからの読み込みも試みます。
 
 === 簡易なエクスターン
 //Simplified Externs

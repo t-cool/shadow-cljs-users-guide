@@ -484,7 +484,7 @@ We already covered how `npm` packages are accessed by their name but on the clas
 ////
 TIP: For string requires the extension `.js` will be added automatically but you can specify the extension if you prefer. Note that currently only `.js` is supported though.
 ////
-ヒント：文字列が必要な場合、拡張子 `.js` が自動的に追加されますが、必要に応じて拡張子を指定することができます。ただし、現在は `.js` のみサポートしています。
+TIP: 文字列が必要な場合、拡張子 `.js` が自動的に追加されますが、必要に応じて拡張子を指定することができます。ただし、現在は `.js` のみサポートしています。
 
 ////
 Absolute requires like `/some-library/components/foo` mean that the compiler will look for a `some-library/components/foo.js` on the classpath; unlike `node` which would attempt to load the file from the local filesystem. The same classpath rules apply so the file may either be in your `:source-paths` or in some third-party `.jar` library you are using.
@@ -672,7 +672,7 @@ cljs.array_map(keyword("foo"), "hello world");
 ////
 TIP: The `goog:` prefix currently only works for ES6 file. `require("goog:cljs.core")` does not work.
 ////
-ヒント：現在、 `goog:` という接頭辞は、ES6ファイルにしか使えません。`require("goog:cljs.core")` は動作しません。
+TIP: 現在、 `goog:` という接頭辞は、ES6ファイルにしか使えません。`require("goog:cljs.core")` は動作しません。
 
 == cljsjs.* の移行について [[cljsjs]]
 //Migrating cljsjs.* [[cljsjs]]
