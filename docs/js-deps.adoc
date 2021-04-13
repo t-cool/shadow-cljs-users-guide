@@ -291,7 +291,7 @@ By default `shadow-cljs` will resolve all `(:require ["thing" :as x])` requires 
 ////
 Say you already have React included in your page via a CDN. You could just start using `js/React` again but we stopped doing that for a good reason. Instead you can continue to use `(:require ["react" :as react])` but configure how "react" resolves!
 ////
-CDN経由ですでにReactがページに含まれているとします。JS/React` を再び使い始めることもできますが、私たちは正当な理由でそれをやめました。その代わりに、 `(:require ["react" :as react])` を使い続けることができますが、"react "がどのように解決されるかを設定することができます。
+CDN経由ですでにReactがページに含まれているとします。`JS/React` を再び使い始めることもできますが、私たちは正当な理由でそれをやめました。その代わりに、 `(:require ["react" :as react])` を使い続けることができますが、"react "がどのように解決されるかを設定することができます。
 
 ////
 Here is a sample `shadow-cljs.edn` config for such a build:

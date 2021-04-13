@@ -3057,7 +3057,7 @@ shadow-cljs-edn`:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>--config-merge` は1つのEDNマップを想定していますが、複数回使用することができ、左から右に向かってマージされます。追加されたデータはbuild-hooksでも確認できます。</p>
+<p><code>--config-merge</code> は1つのEDNマップを想定していますが、複数回使用することができ、左から右に向かってマージされます。追加されたデータはbuild-hooksでも確認できます。</p>
 </div>
 <div class="paragraph">
 <p>重要：複数のビルドIDを指定した場合、データは指定したすべてのビルドにマージされます。<code>shadow-cljs release frontend backend --config-merge '{:hello "world"}'</code> を指定すると、両方に適用されます。</p>
@@ -4271,7 +4271,7 @@ hello
 </div>
 </div>
 <div class="paragraph">
-<p>node-script` と同様に、 <code>:output-to</code> で指定されたファイルのみを作成します。exports` マップは、CLJSの変数を、エクスポートされるべき名前にマッピングします。</p>
+<p>node-script` と同様に、 <code>:output-to</code> で指定されたファイルのみを作成します。<code>exports</code> マップは、CLJSの変数を、エクスポートされるべき名前にマッピングします。</p>
 </div>
 <div class="paragraph">
 <p>注：開発モードでは、ノードスクリプトと同じ<a href="#NodeModes">同じ設定</a>になります（追加の依存関係があります）。</p>
@@ -4947,7 +4947,7 @@ HeadlessChrome 0.0.0 (Mac OS X 10.12.6): Executed 1 of 1 SUCCESS (0.007 secs / 0
 <div class="sect4">
 <h5 id="js-resolve-global"><a class="anchor" href="#js-resolve-global"></a><a class="link" href="#js-resolve-global">CDNの利用</a></h5>
 <div class="paragraph">
-<p>CDN経由ですでにReactがページに含まれているとします。JS/React` を再び使い始めることもできますが、私たちは正当な理由でそれをやめました。その代わりに、 <code>(:require ["react" :as react])</code> を使い続けることができますが、"react "がどのように解決されるかを設定することができます。</p>
+<p>CDN経由ですでにReactがページに含まれているとします。<code>JS/React</code> を再び使い始めることもできますが、私たちは正当な理由でそれをやめました。その代わりに、 <code>(:require ["react" :as react])</code> を使い続けることができますが、"react "がどのように解決されるかを設定することができます。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -5392,7 +5392,7 @@ cljs.array_map(<span class="keyword">keyword</span>(<span class="string"><span c
 <div class="sect2">
 <h3 id="externs"><a class="anchor" href="#externs"></a><a class="link" href="#externs">14.2. エクスターン</a></h3>
 <div class="paragraph">
-<p>Closure Compiler <code>:advanced</code> のコンパイルによってビルドを完全に最適化したいので、https://developers.google.com/closure/compiler/docs/api-tutorial3[Externs]を扱う必要があります。Externsは、 <code>:advanced</code> のコンパイルの際に含まれないコードの断片を表します。advanced` はプログラム全体の最適化を行いますが、どうしても含まれないコードもあるため、Externsはコンパイラにそのコードを知らせます。Externsがないと、コンパイラは含めるべきでないコードの名前を変えたり、削除したりすることがあります。</p>
+<p>Closure Compiler <code>:advanced</code> のコンパイルによってビルドを完全に最適化したいので、https://developers.google.com/closure/compiler/docs/api-tutorial3[Externs]を扱う必要があります。Externsは、 <code>:advanced</code> のコンパイルの際に含まれないコードの断片を表します。 <code>advanced</code> はプログラム全体の最適化を行いますが、どうしても含まれないコードもあるため、Externsはコンパイラにそのコードを知らせます。Externsがないと、コンパイラは含めるべきでないコードの名前を変えたり、削除したりすることがあります。</p>
 </div>
 <div class="paragraph">
 <p>通常、すべてのJS Dependenciesは外国のものであり、 <code>:advanced</code> ではパスされないため、Externsが必要となります。</p>
@@ -5597,7 +5597,7 @@ global<span class="symbol">:SomeGlobalVariable</span></code></pre>
 <div class="sect2">
 <h3 id="build-report"><a class="anchor" href="#build-report"></a><a class="link" href="#build-report">14.4. ビルドレポート</a></h3>
 <div class="paragraph">
-<p>shadow-cljs` では、 <code>release</code> のビルドに対して、含まれているソースの詳細な内訳と、それぞれが全体のサイズにどれだけ貢献しているかを含む、詳細なレポートを生成することができます。</p>
+<p><code>shadow-cljs</code> では、 <code>release</code> のビルドに対して、含まれているソースの詳細な内訳と、それぞれが全体のサイズにどれだけ貢献しているかを含む、詳細なレポートを生成することができます。</p>
 </div>
 <div class="paragraph">
 <p>レポートのサンプルは、https://code.thheller.com/demos/build-report/huge.html[こちら]をご覧ください。</p>

@@ -209,7 +209,7 @@ hello
 ////
 As `:node-script` this will only create the file specified in `:output-to`. The `:exports` map maps CLJS vars to the name they should be exported to.
 ////
-node-script` と同様に、 `:output-to` で指定されたファイルのみを作成します。exports` マップは、CLJSの変数を、エクスポートされるべき名前にマッピングします。
+node-script` と同様に、 `:output-to` で指定されたファイルのみを作成します。`exports` マップは、CLJSの変数を、エクスポートされるべき名前にマッピングします。
 
 ////
 NOTE: Development mode has the <<NodeModes,same setup>> as for node scripts (extra dependencies).

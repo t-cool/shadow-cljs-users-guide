@@ -978,7 +978,7 @@ $ shadow-cljs release app --config-merge '{:closure-defines {your.app/DEBUG true
 ////
 `--config-merge` expects one EDN map and can be used multiple times, they will be merged left to right. The data added is also visible to build-hooks.
 ////
---config-merge` は1つのEDNマップを想定していますが、複数回使用することができ、左から右に向かってマージされます。追加されたデータはbuild-hooksでも確認できます。
+`--config-merge` は1つのEDNマップを想定していますが、複数回使用することができ、左から右に向かってマージされます。追加されたデータはbuild-hooksでも確認できます。
 
 ////
 IMPORTANT: If you specify multiple build ids the data will be merged into all specified builds. `shadow-cljs release frontend backend --config-merge '{:hello "world"}'` will be applied to both.
