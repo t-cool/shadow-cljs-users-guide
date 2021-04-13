@@ -814,7 +814,7 @@ Translated `:pwd`
 コラム番号
 
 `:wsl-file`::
-翻訳された WSL ファイルのパス。WSLのBashで `shadow-cljs` を実行するときに便利です。mnt/c/Users/someone/code/project/src/main/demo/foo.cljs` のパスを `C:Users\...` に変換します。
+翻訳された WSL ファイルのパス。WSLのBashで `shadow-cljs` を実行するときに便利です。 `mnt/c/Users/someone/code/project/src/main/demo/foo.cljs` のパスを `C:Users\...` に変換します。
 
 `:wsl-pwd`::
 翻訳された `:pwd`
