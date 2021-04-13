@@ -327,7 +327,7 @@ Each dependency is written as a vector using `[library-name "version-string"]` n
 ////
 .Example :dependencies
 ////
-.例 :dependencies
+.Example :dependencies
 
 ```clojure
 {:source-paths ["src"]
@@ -433,7 +433,7 @@ Adding dependencies is allowed via the usual `:dependencies` key. Note that depe
 依存関係を追加するには、通常の `:dependencies` キーを使用します。ここで追加された依存関係は、すべてのプロジェクトに適用されることに注意してください。依存関係は最小限にして、ツール関連の依存関係だけをここに置くようにしてください。ビルドに関連するものはすべて `shadow-cljs.edn` に置いておくべきで、そうしないと他のユーザーがコンパイルできない可能性があります。これらの依存関係は、 `deps.edn` や `lein` を使用する際にも自動的に追加されます。
 
 ////
-.例 ~/.shadow-cljs/config.edn
+.Example ~/.shadow-cljs/config.edn
 ////
 
 ```
@@ -567,7 +567,7 @@ When you use `shadow-cljs` embedded in other tools that provide their own nREPL 
 
 
 ////
-.例 Leiningen `project.clj`
+.Example Leiningen `project.clj`
 ////
 
 ```clojure
@@ -662,7 +662,7 @@ $ keytool -importkeystore -destkeystore keystore.jks -srcstoretype PKCS12 -srcke
 ////
 IMPORTANT: You must generate the Certificate with a SAN (Subject Alternative Name) for "localhost" (or whichever host you want to use). SAN is required to get Chrome to trust the Certificate and not show warnings. The password used when exporting must match the password assigned to the Keystore.
 ////
-重要：localhost（または使用するホスト）のSAN（Subject Alternative Name）を含む証明書を作成する必要があります。SANは、Chromeが証明書を信頼して警告を表示しないようにするために必要です。エクスポート時に使用するパスワードは、キーストアに割り当てられたパスワードと一致する必要があります。
+IMPORTANT: localhost（または使用するホスト）のSAN（Subject Alternative Name）を含む証明書を作成する必要があります。SANは、Chromeが証明書を信頼して警告を表示しないようにするために必要です。エクスポート時に使用するパスワードは、キーストアに割り当てられたパスワードと一致する必要があります。
 
 // TODO: full guide, other platforms
 
@@ -899,7 +899,7 @@ This is done by configuring `:jvm-opts` at the root of `shadow-cljs.edn` expecti
 ////
 .Example limited RAM use to 1GB
 ////
-.例：RAM使用量を1GBに制限
+.Example：RAM使用量を1GBに制限
 
 ```clojure
 {:source-paths [...]

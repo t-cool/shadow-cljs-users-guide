@@ -915,8 +915,17 @@ table.CodeRay td.code>pre{padding:0}
 <div class="paragraph">
 <p>Clojure(Script)では、すべてが名前空間化されていて、それぞれの名前がファイルに解決することが期待されています。(ns demo.app)という名前空間があれば、コンパイラはクラスパス上にdemo/app.cljs(または <code>.cljc</code>)があることを期待します。クラスパスは、それが見つかるまで順番に検索されます。例えば、 <code>:source-paths ["src/main" "src/test"]</code> を設定したとすると、コンパイラはまず <code>src/main/demo/app.cljs</code> を探し、次に <code>src/test/demo/app.cljs</code> を探します。どのソースパスにもファイルが見つからない場合、JVMはクラスパス上の.jarファイルを探し始めます。そして、いずれかのライブラリのルートにdemo/app.cljsが見つかると、そのファイルが使用されます。</p>
 </div>
-<div class="paragraph">
-<p>重要：あるファイル名がクラスパス上に複数回存在する場合、最初のものだけが使用されます。JVMとClojure(Script)上のすべてのものは、このような衝突を避けるために名前空間が設けられています。各パッケージが一意の名前を持たなければならないnpmと非常によく似ています。</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Important</div>
+</td>
+<td class="content">
+あるファイル名がクラスパス上に複数回存在する場合、最初のものだけが使用されます。JVMとClojure(Script)上のすべてのものは、このような衝突を避けるために名前空間が設けられています。各パッケージが一意の名前を持たなければならないnpmと非常によく似ています。
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>そのため、名前の選択には細心の注意を払い、すべてのものに適切な名前空間をつけることをお勧めします。(ns component.foo)よりも(ns your-company.components.foo)を常に使うことは反復的に見えるかもしれませんが、後で多くの頭痛の種をなくすことができます。</p>
@@ -1304,8 +1313,12 @@ $ shadow-cljs restart</code></pre>
 <div class="paragraph">
 <p><code>thheller/shadow-cljs</code> の artifact(成果物) を手動で <code>deps.edn</code> に追加する必要があります。</p>
 </div>
-<div class="paragraph">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
 <p>シンプルな shadow-cljs.edn の例</p>
+</li>
+</ol>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1320,27 +1333,15 @@ $ shadow-cljs restart</code></pre>
  <span class="symbol">:deps</span> {thheller/shadow-cljs {<span class="symbol">:mvn/version</span> &lt;latest&gt;}}}</code></pre>
 </div>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>例 <code>shadow-cljs.edn</code> に :cljs のエイリアスをつけたもの</p>
-</li>
-</ol>
-</div>
 <div class="listingblock">
+<div class="title">Example <code>shadow-cljs.edn</code> に :cljs のエイリアスをつけたもの</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="symbol">:deps</span> {<span class="symbol">:aliases</span> [<span class="symbol">:cljs</span>]}
  <span class="symbol">:builds</span> <span class="keyword">..</span><span class="keyword">.</span>}</code></pre>
 </div>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>例 deps.edn</p>
-</li>
-</ol>
-</div>
 <div class="listingblock">
+<div class="title">Example deps.edn</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="symbol">:paths</span> [<span class="keyword">..</span><span class="keyword">.</span>]
  <span class="symbol">:deps</span> {<span class="keyword">..</span><span class="keyword">.</span>}
@@ -1370,8 +1371,17 @@ $ shadow-cljs restart</code></pre>
 <div class="paragraph">
 <p>また、 <code>shadow-cljs -A:foo:bar &#8230;&#8203;</code> のように、コマンドラインで <code>-A</code> を使って追加のエイリアスを指定することもできます。</p>
 </div>
-<div class="paragraph">
-<p>重要：エイリアスは、新しいインスタンか/サーバを起動したときにのみ適用されます。shadow-cljs コマンドを使って稼働中のサーバに接続するときには適用されません。clj` で起動すると、常に新しいJVMを起動することになり、サーバ・モードをサポートしません。</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Important</div>
+</td>
+<td class="content">
+エイリアスは、新しいインスタンか/サーバを起動したときにのみ適用されます。shadow-cljs コマンドを使って稼働中のサーバに接続するときには適用されません。clj` で起動すると、常に新しいJVMを起動することになり、サーバ・モードをサポートしません。
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect3">
@@ -1392,14 +1402,8 @@ $ shadow-cljs restart</code></pre>
 <div class="paragraph">
 <p>コマンドラインから特定のClojure関数を呼び出すために、 <code>shadow-cljs</code> というCLIを使うことができます。これは、あるタスクの前後にコードを実行したいときに便利です。例えば、 <code>release</code> ビルドの出力をリモートサーバに <code>rsync</code> したいとします。</p>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>例 <code>src/my/build.clj</code> における Clojure の名前空間</p>
-</li>
-</ol>
-</div>
 <div class="listingblock">
+<div class="title">Example <code>src/my/build.clj</code> における Clojure の名前空間</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">(<span class="keyword">ns</span> <span class="namespace">my.build</span>
   (<span class="symbol">:require</span>
@@ -1461,9 +1465,18 @@ $ shadow-cljs run my.build/release</code></pre>
 <div class="paragraph">
 <p>ここでは、Clojureのフルパワーにアクセスできます。必要に応じて、この上にツール全体を構築することができます。おまけに、この方法で書いたものはすべて、Clojure REPLで直接利用できます。</p>
 </div>
-<div class="paragraph">
-<p>重要：<a href="#server-mode">server</a> が実行されている場合、名前空間は自動的にはリロードされず、一度だけロードされます。REPLを使って開発を行い、通常通りファイルをリロードすることをお勧めします（例：<code>(require 'my.build :reload)</code>)。
-<code>shadow-cljs clj-eval "(require 'my.build :reload)"</code> を実行して、コマンドラインから手動でリロードすることもできます。</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Important</div>
+</td>
+<td class="content">
+<a href="#server-mode">server</a> が実行されている場合、名前空間は自動的にはリロードされず、一度だけロードされます。REPLを使って開発を行い、通常通りファイルをリロードすることをお勧めします（例：<code>(require 'my.build :reload)</code>)。
+<code>shadow-cljs clj-eval "(require 'my.build :reload)"</code> を実行して、コマンドラインから手動でリロードすることもできます。
+</td>
+</tr>
+</table>
 </div>
 <div class="sect3">
 <h4 id="_clj_run_による_watch_の呼び出し"><a class="anchor" href="#_clj_run_による_watch_の呼び出し"></a><a class="link" href="#_clj_run_による_watch_の呼び出し">3.3.1. clj-run による watch の呼び出し</a></h4>
@@ -1518,8 +1531,17 @@ $ shadow-cljs run my.build/release</code></pre>
 <div class="paragraph">
 <p>これは、すでに接続されている <code>node</code> プロセスで、空の CLJS REPL を開始します。</p>
 </div>
-<div class="paragraph">
-<p>重要：Node REPLを終了すると、 <code>node</code> プロセスもキルされます。</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Important</div>
+</td>
+<td class="content">
+Node REPLを終了すると、 <code>node</code> プロセスもキルされます。
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>node-repl` を使えば、追加の設定をすることなく、すぐに使い始めることができます。node-replは、 <code>(require '[your.core :as x])</code> という通常の方法で、あなたのすべてのコードにアクセスします。ビルドに接続されていないので、ファイルが変更されてもコードの自動再構築は行われず、ホットリロードも提供されません。</p>
@@ -1535,8 +1557,17 @@ $ shadow-cljs run my.build/release</code></pre>
 <div class="paragraph">
 <p>これは、空のCLJS REPLを起動し、コードが実行される関連するブラウザのウィンドウを開きます。ブラウザ上で実行されるだけでなく、上記の <code>node-repl</code> と同じ機能を持っています。</p>
 </div>
-<div class="paragraph">
-<p>重要：ブラウザウィンドウを閉じると、REPLは動作しなくなります。</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Important</div>
+</td>
+<td class="content">
+ブラウザウィンドウを閉じると、REPLは動作しなくなります。
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect3">
@@ -1793,7 +1824,7 @@ CLJS REPLに切り替えたい場合は、サーバの起動に使用したツ�
 <p>各依存関係は <code>[ライブラリ名 "バージョン-文字列"]</code> を使ったベクターとして書かれ、1つの外側のベクターに入れ子になっています。</p>
 </div>
 <div class="listingblock">
-<div class="title">例 :dependencies</div>
+<div class="title">Example :dependencies</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="symbol">:source-paths</span> [<span class="string"><span class="delimiter">&quot;</span><span class="content">src</span><span class="delimiter">&quot;</span></span>]
  <span class="symbol">:dependencies</span> [[reagent <span class="string"><span class="delimiter">&quot;</span><span class="content">0.9.1</span><span class="delimiter">&quot;</span></span>]]
@@ -2037,8 +2068,17 @@ shadow-cljs - watching build :app
 <pre class="CodeRay highlight"><code data-lang="bash">$ keytool -importkeystore -destkeystore keystore.jks -srcstoretype PKCS12 -srckeystore localhost.pfx</code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p>重要：localhost（または使用するホスト）のSAN（Subject Alternative Name）を含む証明書を作成する必要があります。SANは、Chromeが証明書を信頼して警告を表示しないようにするために必要です。エクスポート時に使用するパスワードは、キーストアに割り当てられたパスワードと一致する必要があります。</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Important</div>
+</td>
+<td class="content">
+localhost（または使用するホスト）のSAN（Subject Alternative Name）を含む証明書を作成する必要があります。SANは、Chromeが証明書を信頼して警告を表示しないようにするために必要です。エクスポート時に使用するパスワードは、キーストアに割り当てられたパスワードと一致する必要があります。
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect3">
@@ -2237,7 +2277,7 @@ shadow-cljs - watching build :app
 <p>これは、 <code>shadow-cljs.edn</code> のルートに <code>:jvm-opts</code> を設定して、文字列のベクトルを期待することで行われます。</p>
 </div>
 <div class="listingblock">
-<div class="title">例：RAM使用量を1GBに制限</div>
+<div class="title">Example：RAM使用量を1GBに制限</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="symbol">:source-paths</span> [<span class="keyword">..</span><span class="keyword">.</span>]
  <span class="symbol">:dependencies</span> [<span class="keyword">..</span><span class="keyword">.</span>]
@@ -2458,8 +2498,17 @@ preloads オプションは、単に <code>:devtools</code>/<code>:preloads</cod
       (done)))</code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p>重要：各関数には、それぞれの作業が完了したときに呼び出されるべきコールバック関数が1つあります。このコールバック関数が呼び出されないと、リロード処理は進みません。</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Important</div>
+</td>
+<td class="content">
+各関数には、それぞれの作業が完了したときに呼び出されるべきコールバック関数が1つあります。このコールバック関数が呼び出されないと、リロード処理は進みません。
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>名前空間にメタデータをタグ付けすることで、再コンパイルされても再読み込みされないようにすることが可能です。</p>
@@ -2531,8 +2580,17 @@ preloads オプションは、単に <code>:devtools</code>/<code>:preloads</cod
                    <span class="keyword">..</span><span class="keyword">.</span>}}}}</code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p>重要：フックは <code>cljs.user</code> 名前空間では宣言できません。フックは、それを含む名前空間が実際にビルドに含まれている場合にのみ使用されます。追加の名前空間を使用する場合は、必ず <code>:preloads</code> でインクルードしてください。</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Important</div>
+</td>
+<td class="content">
+フックは <code>cljs.user</code> 名前空間では宣言できません。フックは、それを含む名前空間が実際にビルドに含まれている場合にのみ使用されます。追加の名前空間を使用する場合は、必ず <code>:preloads</code> でインクルードしてください。
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>ヒント: <code>:after-load</code> や <code>:before-load</code> が設定されていない場合、コンパイラは <code>:browser</code> ターゲットのコードのホットリロードのみを試みます。もし、ホットリロードを行いたいが、コールバックが不要な場合は、代わりに <code>:autoload true</code> を設定してください。</p>
@@ -2548,14 +2606,8 @@ preloads オプションは、単に <code>:devtools</code>/<code>:preloads</cod
 <div class="paragraph">
 <p>ビルドごとに <code>:build-hooks</code> キーで設定されます。</p>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>例 :build-hooks</p>
-</li>
-</ol>
-</div>
 <div class="listingblock">
+<div class="title">Example :build-hooks</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
  <span class="symbol">:builds</span>
@@ -2565,14 +2617,8 @@ preloads オプションは、単に <code>:devtools</code>/<code>:preloads</cod
         <span class="keyword">..</span><span class="keyword">.</span>}}}}</code></pre>
 </div>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>例 hook code</p>
-</li>
-</ol>
-</div>
 <div class="listingblock">
+<div class="title">Example hook code</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">(<span class="keyword">ns</span> <span class="namespace">my.util</span>)
 
@@ -2979,8 +3025,17 @@ preloads オプションは、単に <code>:devtools</code>/<code>:preloads</cod
 <div class="paragraph">
 <p>よりモダンな環境にのみ関心があり、置換せずに元のコードを維持したい場合は、他の出力オプションを選択することができます（例：<code>node</code>、Chrome Extensions、&#8230;&#8203;）。</p>
 </div>
-<div class="paragraph">
-<p>重要：これは主に<a href="#npm">npm</a>からインポートされたJSコードや<a href="#classpath-js">classpath</a>からの <code>.js</code> ファイルに影響することに注意してください。CLJSは現在、ES5の出力のみを生成し、より高いオプションを設定しても影響を受けません。</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Important</div>
+</td>
+<td class="content">
+これは主に<a href="#npm">npm</a>からインポートされたJSコードや<a href="#classpath-js">classpath</a>からの <code>.js</code> ファイルに影響することに注意してください。CLJSは現在、ES5の出力のみを生成し、より高いオプションを設定しても影響を受けません。
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>これは <code>:compiler-options</code> の <code>:output-feature-set</code> で設定できます。古い <code>:language-out</code> オプションは <code>:output-feature-set</code> に置き換わるので、使用しないでください。</p>
@@ -3011,7 +3066,7 @@ preloads オプションは、単に <code>:devtools</code>/<code>:preloads</cod
 </ul>
 </div>
 <div class="listingblock">
-<div class="title">例</div>
+<div class="title">Example</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
  <span class="symbol">:builds</span>
@@ -3121,8 +3176,17 @@ preloads オプションは、単に <code>:devtools</code>/<code>:preloads</cod
 <span class="keyword">..</span><span class="keyword">.</span></code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p>重要：この機能は、 <code>.cljc</code> ファイルでのみ利用可能で、 <code>.cljs</code> ファイルでは失敗します。</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Important</div>
+</td>
+<td class="content">
+この機能は、 <code>.cljc</code> ファイルでのみ利用可能で、 <code>.cljs</code> ファイルでは失敗します。
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -3134,7 +3198,7 @@ preloads オプションは、単に <code>:devtools</code>/<code>:preloads</cod
 <p>追加の設定データを <code>--config-merge {:some "data"}</code> コマンドラインオプションで渡すことができ、ビルド時の設定にマージされます。CLIから追加されたデータは、 <code>shadow-cljs.edn</code> ファイルからのデータよりも優先されます。</p>
 </div>
 <div class="listingblock">
-<div class="title">例 <code>shadow-cljs.edn</code> の設定</div>
+<div class="title">Example <code>shadow-cljs.edn</code> の設定</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
  <span class="symbol">:builds</span>
@@ -3159,8 +3223,17 @@ preloads オプションは、単に <code>:devtools</code>/<code>:preloads</cod
 <div class="paragraph">
 <p><code>--config-merge</code> は1つのEDNマップを想定していますが、複数回使用することができ、左から右に向かってマージされます。追加されたデータはbuild-hooksでも確認できます。</p>
 </div>
-<div class="paragraph">
-<p>重要：複数のビルドIDを指定した場合、データは指定したすべてのビルドにマージされます。<code>shadow-cljs release frontend backend --config-merge '{:hello "world"}'</code> を指定すると、両方に適用されます。</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Important</div>
+</td>
+<td class="content">
+複数のビルドIDを指定した場合、データは指定したすべてのビルドにマージされます。<code>shadow-cljs release frontend backend --config-merge '{:hello "world"}'</code> を指定すると、両方に適用されます。
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -3169,7 +3242,7 @@ preloads オプションは、単に <code>:devtools</code>/<code>:preloads</cod
 <p>環境変数を使って <code>shadow-cljs.edn</code> の設定値を設定することは可能ですが、代わりに <code>--config-merge</code> の使用を検討すべきです。どうしても環境変数を使わなければならない場合は、 <code>#shadow/env "FOO"</code> というリーダタグを使って設定することができます。また、より短い <code>#env</code> も使用できます。</p>
 </div>
 <div class="listingblock">
-<div class="title">例 <code>shadow-cljs.edn</code> の設定</div>
+<div class="title">Example <code>shadow-cljs.edn</code> の設定</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
  <span class="symbol">:builds</span>
@@ -3219,7 +3292,7 @@ preloads オプションは、単に <code>:devtools</code>/<code>:preloads</cod
 <p>コンフィギュレーションのマージ順序は以下の通りです。 <code>:build-defaults</code> &#8594; <code>:target-defaults</code> &#8594; 実際のビルドコンフィグ &#8594; エクストラコンフィグのオーバーライド。</p>
 </div>
 <div class="listingblock">
-<div class="title">例 <code>shadow-cljs.edn</code> の設定</div>
+<div class="title">Example <code>shadow-cljs.edn</code> の設定</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
  <span class="symbol">:build-defaults</span>
@@ -3241,8 +3314,17 @@ preloads オプションは、単に <code>:devtools</code>/<code>:preloads</cod
 <div class="paragraph">
 <p>この例では、 <code>:app</code> ターゲットは、 <code>:build-defaults</code> と <code>:browser</code> の <code>:target-defaults</code> の両方を継承します。</p>
 </div>
-<div class="paragraph">
-<p>重要：マージ順で後の方の設定は、前の設定項目を上書きすることはできても、削除することはできません。いったんデフォルトが設定されると、それを削除するにはオーバーライドするしかありません。</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Important</div>
+</td>
+<td class="content">
+マージ順で後の方の設定は、前の設定項目を上書きすることはできても、削除することはできません。いったんデフォルトが設定されると、それを削除するにはオーバーライドするしかありません。
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -3378,7 +3460,7 @@ Javascriptのファイル名を生成するためにも使用されます。モ�
 <p>以下の例では、最小のモジュール構成を示しています。</p>
 </div>
 <div class="listingblock">
-<div class="title">例 :browser config</div>
+<div class="title">Example :browser config</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
  <span class="symbol">:builds</span>
@@ -3389,7 +3471,7 @@ Javascriptのファイル名を生成するためにも使用されます。モ�
 </div>
 </div>
 <div class="listingblock">
-<div class="title">例 :init-fnによるブラウザ設定</div>
+<div class="title">Example :init-fnによるブラウザ設定</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
  <span class="symbol">:builds</span>
@@ -3435,7 +3517,7 @@ Javascriptのファイル名を生成するためにも使用されます。モ�
 <p>このような場合には、すべてのページで共有される共通のモジュールを1つ用意するのが良いでしょう。そして、各ページごとに1つのモジュールを用意します。</p>
 </div>
 <div class="listingblock">
-<div class="title">例 複数の <code>:modules</code> をもつ設定</div>
+<div class="title">Example 複数の <code>:modules</code> をもつ設定</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
  <span class="symbol">:output-dir</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">public/js</span><span class="delimiter">&quot;</span></span>
@@ -3617,8 +3699,17 @@ Javascriptのファイル名を生成するためにも使用されます。モ�
 <div class="paragraph">
 <p>これは、 <code>MY_APP</code> というグローバル変数を作成するだけです。すべてのグローバル変数の前には <code>MY_APP.</code> がつくので (たとえば、 <code>a</code> だけではなく <code>MY_APP.a</code>)、コードサイズは大幅に増加します。これを短くすることが重要です。ブラウザの圧縮（例：<code>gzip</code>）は、余分なコードのオーバーヘッドを減らすのに役立ちますが、ビルド内のグローバル変数の量に応じて、これでもまだ顕著な増加が見られます。</p>
 </div>
-<div class="paragraph">
-<p>重要：作成された変数は、実際には直接使えないことに注意してください。作成された変数は、実際には使い物になりませんが、多くのプロパティを含んでいます。エクスポートされた（例：<code>^:export</code>）変数はすべてグローバルスコープにエクスポートされ、この設定の影響を受けません。この設定は、グローバル変数の作成量を制限するためだけのもので、それ以外には何もありません。直接使用しないでください。</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Important</div>
+</td>
+<td class="content">
+作成された変数は、実際には直接使えないことに注意してください。作成された変数は、実際には使い物になりませんが、多くのプロパティを含んでいます。エクスポートされた（例：<code>^:export</code>）変数はすべてグローバルスコープにエクスポートされ、この設定の影響を受けません。この設定は、グローバル変数の作成量を制限するためだけのもので、それ以外には何もありません。直接使用しないでください。
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -3663,7 +3754,7 @@ web-worker true` を設定することで、任意のモジュールを Web Work
 <p>なお、 <code>:shared</code> モジュールで空の <code>:entries []</code> を指定すると、 <code>:main</code> モジュールと <code>:worker</code> モジュールの間で共有されるすべてのコードを収集するようになります。</p>
 </div>
 <div class="listingblock">
-<div class="title">例 エコ・ーワーカー</div>
+<div class="title">Example エコ・ーワーカー</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">(<span class="keyword">ns</span> <span class="namespace">my.app.worker</span>)
 
@@ -3684,8 +3775,17 @@ web-worker true` を設定することで、任意のモジュールを Web Work
     (<span class="keyword">..</span> worker (postMessage <span class="string"><span class="delimiter">&quot;</span><span class="content">hello world</span><span class="delimiter">&quot;</span></span>))))</code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p>重要：現在、 <code>:shared</code> モジュールがあるので、HTMLで適切にロードする必要があります。単に <code>main.js</code> をロードしただけでは、エラーが発生します。</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Important</div>
+</td>
+<td class="content">
+現在、 <code>:shared</code> モジュールがあるので、HTMLで適切にロードする必要があります。単に <code>main.js</code> をロードしただけでは、エラーが発生します。
+</td>
+</tr>
+</table>
 </div>
 <div class="listingblock">
 <div class="title">HTML shared.jsとmain.jsの読み込み</div>
@@ -3711,7 +3811,7 @@ web-worker true` を設定することで、任意のモジュールを Web Work
 </div>
 </div>
 <div class="listingblock">
-<div class="title">例 :modules config</div>
+<div class="title">Example :modules config</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
  <span class="symbol">:builds</span>
@@ -3743,7 +3843,7 @@ web-worker true` を設定することで、任意のモジュールを Web Work
 競合が発生する可能性が高くなることに注意してください。完全なハッシュを使うことをお勧めします。</p>
 </div>
 <div class="listingblock">
-<div class="title">例 :module-hash-names config</div>
+<div class="title">Example :module-hash-names config</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
  <span class="symbol">:builds</span>
@@ -3805,7 +3905,7 @@ HTMLに含めるのは少し複雑です。<a href="#BrowserManifest">Output Man
 <p>生成されるマニフェストファイルの名前は、 <code>:build-options :manifest-name</code> エントリで設定できます。デフォルトでは <code>manifest.edn</code> となります。ファイル名の最後に <code>.json</code> を設定すると、EDN ではなく JSON が出力されます。ファイルは構成された <code>:output-dir</code> からの相対パスになります。</p>
 </div>
 <div class="listingblock">
-<div class="title">例 manifest.json の設定</div>
+<div class="title">Example manifest.json の設定</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
  <span class="symbol">:builds</span>
@@ -3910,13 +4010,13 @@ HTMLに含めるのは少し複雑です。<a href="#BrowserManifest">Output Man
 <div class="sect3">
 <h4 id="_css_リローディング"><a class="anchor" href="#_css_リローディング"></a><a class="link" href="#_css_リローディング">7.8.2. CSS リローディング</a></h4>
 <div class="listingblock">
-<div class="title">例 HTML スニペット</div>
+<div class="title">Example HTML スニペット</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="html"><span class="tag">&lt;link</span> <span class="attribute-name">rel</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">stylesheet</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">href</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">/css/main.css</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span></code></pre>
 </div>
 </div>
 <div class="listingblock">
-<div class="title">例 Hiccup 俺たちは野蛮人じゃないから</div>
+<div class="title">Example Hiccup 俺たちは野蛮人じゃないから</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">[<span class="symbol">:link</span> {<span class="symbol">:rel</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">stylesheet</span><span class="delimiter">&quot;</span></span> <span class="symbol">:href</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">/css/main.css</span><span class="delimiter">&quot;</span></span>}]</code></pre>
 </div>
@@ -3939,7 +4039,7 @@ HTMLに含めるのは少し複雑です。<a href="#BrowserManifest">Output Man
 ドキュメントルートへのパスです。</p>
 </div>
 <div class="listingblock">
-<div class="title">例 :watch-dir の設定</div>
+<div class="title">Example :watch-dir の設定</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
     {<span class="symbol">:builds</span>
@@ -3951,7 +4051,7 @@ HTMLに含めるのは少し複雑です。<a href="#BrowserManifest">Output Man
 <p>HTTPサーバが仮想ディレクトリからファイルを提供していて、ファイルシステムのパスがHTMLで使われているパスと完全に一致しない場合、プレフィックスとして使われる <code>:watch-path</code> を設定することで、パスを調整することができます。</p>
 </div>
 <div class="listingblock">
-<div class="title">例 public/css/main.css` は <code>/foo/css/main.css</code> の下でサーブされます。</div>
+<div class="title">Example public/css/main.css` は <code>/foo/css/main.css</code> の下でサーブされます。</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
  {<span class="symbol">:builds</span>
@@ -3996,8 +4096,17 @@ HTMLに含めるのは少し複雑です。<a href="#BrowserManifest">Output Man
 <div class="paragraph">
 <p>クライアントは、ファイルを読み込むための通常のXHRリクエストだけでなく、WebSocketリクエストも行います。プロキシがWebSocketを適切にアップグレードするようにしてください。</p>
 </div>
-<div class="paragraph">
-<p>重要：リクエストは、ビルド自体で設定したものではなく、メインの <a href="#http">HTTP server</a> に転送されなければなりません。</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Important</div>
+</td>
+<td class="content">
+リクエストは、ビルド自体で設定したものではなく、メインの <a href="#http">HTTP server</a> に転送されなければなりません。
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -4339,7 +4448,7 @@ HTMLに含めるのは少し複雑です。<a href="#BrowserManifest">Output Man
 </div>
 </div>
 <div class="listingblock">
-<div class="title">例 CLJS</div>
+<div class="title">Example CLJS</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">(<span class="keyword">ns</span> <span class="namespace">demo.ns</span>)
 
@@ -4506,7 +4615,7 @@ create-react-appなど）とシームレスに統合できます。</p>
 </table>
 </div>
 <div class="listingblock">
-<div class="title">例 <code>shadow-cljs.edn</code> の設定</div>
+<div class="title">Example <code>shadow-cljs.edn</code> の設定</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
  <span class="symbol">:builds</span>
@@ -4935,8 +5044,17 @@ HeadlessChrome 0.0.0 (Mac OS X 10.12.6): Executed 1 of 1 SUCCESS (0.007 secs / 0
 <div class="paragraph">
 <p>以下の表は、翻訳に使用することができます。</p>
 </div>
-<div class="paragraph">
-<p>重要：この表は、消費されるコードが実際のES6+コードとしてパッケージされている場合にのみ適用されます。コードがCommonJSとしてパッケージされている場合は、 <code>:default</code> は適用されないかもしれません。詳細は以下のセクションを参照してください。</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Important</div>
+</td>
+<td class="content">
+この表は、消費されるコードが実際のES6+コードとしてパッケージされている場合にのみ適用されます。コードがCommonJSとしてパッケージされている場合は、 <code>:default</code> は適用されないかもしれません。詳細は以下のセクションを参照してください。
+</td>
+</tr>
+</table>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <caption class="title">Table 1. ES6をCLJSにインポートすることが必要</caption>
@@ -5095,7 +5213,7 @@ HeadlessChrome 0.0.0 (Mac OS X 10.12.6): Executed 1 of 1 SUCCESS (0.007 secs / 0
 </div>
 </div>
 <div class="listingblock">
-<div class="title">例 : :browser のビルドで :closure を使用するための設定</div>
+<div class="title">Example : :browser のビルドで :closure を使用するための設定</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
  <span class="symbol">:builds</span>
@@ -5116,7 +5234,7 @@ HeadlessChrome 0.0.0 (Mac OS X 10.12.6): Executed 1 of 1 SUCCESS (0.007 secs / 0
 <p>これが機能するかどうかは、使用しているパッケージに大きく依存します。JS オプションの <code>:entry-keys</code> を使って、 <code>module</code> エントリを優先するように <code>shadow-cljs</code> を設定することができます。これは <code>package.json</code> に含まれる文字列キーのベクトルを https:// では <code>"["browser" "main" "module"]"</code> となっています。</p>
 </div>
 <div class="listingblock">
-<div class="title">例 :browser のビルドで :closure を使用するための設定</div>
+<div class="title">Example :browser のビルドで :closure を使用するための設定</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
  <span class="symbol">:builds</span>
@@ -5215,7 +5333,7 @@ HeadlessChrome 0.0.0 (Mac OS X 10.12.6): Executed 1 of 1 SUCCESS (0.007 secs / 0
 </div>
 </div>
 <div class="listingblock">
-<div class="title">例 react-table の利用</div>
+<div class="title">Example react-table の利用</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">(<span class="keyword">ns</span> <span class="namespace">my.app</span>
   (<span class="symbol">:require</span>
@@ -5304,11 +5422,20 @@ HeadlessChrome 0.0.0 (Mac OS X 10.12.6): Executed 1 of 1 SUCCESS (0.007 secs / 0
 <div class="paragraph">
 <p>相対的なrequireは、まず現在の名前空間を見て、その名前からの相対パスを解決します。上の例では、 <code>demo/app.cljs</code> から <code>./bar</code> の require は <code>demo/bar.js</code> に解決されるので、 <code>(:require ["/demo/bar"])</code> と同じになります。</p>
 </div>
-<div class="paragraph">
-<p>重要：ファイルは物理的に同じディレクトリにあってはいけません。ファイルの検索は、代わりにクラスパス上で行われます。これは、相対的な要求が常に物理的なファイルに解決されることを期待するnodeとは異なります。</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Important</div>
+</td>
+<td class="content">
+ファイルは物理的に同じディレクトリにあってはいけません。ファイルの検索は、代わりにクラスパス上で行われます。これは、相対的な要求が常に物理的なファイルに解決されることを期待するnodeとは異なります。
+</td>
+</tr>
+</table>
 </div>
 <div class="listingblock">
-<div class="title">例 パスが分かれているファイル構造</div>
+<div class="title">Example パスが分かれているファイル構造</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="text">.
 ├── package.json
@@ -5362,8 +5489,17 @@ HeadlessChrome 0.0.0 (Mac OS X 10.12.6): Executed 1 of 1 SUCCESS (0.007 secs / 0
 }</code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p>重要：Closure Compilerの厳密なチェックにより、CLJSやnpmのコードを必要とする場合、 <code>import * as X from "npm";</code> の構文を使用することはできません。他のJSファイルを必要とする場合には問題なく使用できます。</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Important</div>
+</td>
+<td class="content">
+Closure Compilerの厳密なチェックにより、CLJSやnpmのコードを必要とする場合、 <code>import * as X from "npm";</code> の構文を使用することはできません。他のJSファイルを必要とする場合には問題なく使用できます。
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect3">
@@ -5372,7 +5508,7 @@ HeadlessChrome 0.0.0 (Mac OS X 10.12.6): Executed 1 of 1 SUCCESS (0.007 secs / 0
 <p>一般的なJavaScriptの方言（JSX、CoffeeScriptなど）には、Closure Compilerでは直接解析できないものが多いため、クラスパスに置く前に前処理を行う必要があります。 <a href="https://babeljs.io/">babel</a> はJavaScriptの世界でよく使われているので、ここでは例として <code>.jsx</code> ファイルを処理するために <code>babel</code> を使用します。</p>
 </div>
 <div class="listingblock">
-<div class="title">例 shadow-cljs.edn の設定</div>
+<div class="title">Example shadow-cljs.edn の設定</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="symbol">:source-paths</span>
  [<span class="string"><span class="delimiter">&quot;</span><span class="content">src/main</span><span class="delimiter">&quot;</span></span>
@@ -5381,7 +5517,7 @@ HeadlessChrome 0.0.0 (Mac OS X 10.12.6): Executed 1 of 1 SUCCESS (0.007 secs / 0
 </div>
 </div>
 <div class="listingblock">
-<div class="title">例 ファイル構成</div>
+<div class="title">Example ファイル構成</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="text">.
 ├── package.json
@@ -5396,8 +5532,17 @@ HeadlessChrome 0.0.0 (Mac OS X 10.12.6): Executed 1 of 1 SUCCESS (0.007 secs / 0
             └── bar.jsx</code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p>重要： <code>src/js</code> が <code>:source-paths</code> に追加されていないことに注目してください。これはクラスパスに含まれないことを意味します。</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Important</div>
+</td>
+<td class="content">
+<code>src/js</code> が <code>:source-paths</code> に追加されていないことに注目してください。これはクラスパスに含まれないことを意味します。
+</td>
+</tr>
+</table>
 </div>
 <div class="listingblock">
 <div class="title">src/js/demo/bar.jsx</div>
@@ -5546,8 +5691,17 @@ cljs.array_map(<span class="keyword">keyword</span>(<span class="string"><span c
 <div class="paragraph">
 <p>最適化レベルは、コンフィギュレーションの <code>:compiler-options</code> セクションで選択できます。</p>
 </div>
-<div class="paragraph">
-<p>重要：<code>:target</code> ではすでに適切なレベルに設定されているので、通常は <code>:optimizations</code> を設定する必要はありません。</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Important</div>
+</td>
+<td class="content">
+<code>:target</code> ではすでに適切なレベルに設定されているので、通常は <code>:optimizations</code> を設定する必要はありません。
+</td>
+</tr>
+</table>
 </div>
 <div class="admonitionblock important">
 <table>
@@ -5581,7 +5735,7 @@ cljs.array_map(<span class="keyword">keyword</span>(<span class="string"><span c
 ビルドセクションに <code>:dev</code> や <code>:release</code> セクションを含めることで設定を上書きすることができます。</p>
 </div>
 <div class="listingblock">
-<div class="title">例 shadow-cljs.edn ビルド設定</div>
+<div class="title">Example shadow-cljs.edn ビルド設定</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="symbol">:source-paths</span> [<span class="string"><span class="delimiter">&quot;</span><span class="content">src</span><span class="delimiter">&quot;</span></span>]
  <span class="symbol">:dependencies</span> []
@@ -5618,7 +5772,7 @@ cljs.array_map(<span class="keyword">keyword</span>(<span class="string"><span c
 <p>Externs を扱うために、 <code>shadow-cljs</code> コンパイラは強化された externs 推論を提供しています。</p>
 </div>
 <div class="listingblock">
-<div class="title">例 Config</div>
+<div class="title">Example Config</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
  <span class="symbol">:builds</span>
@@ -5636,7 +5790,7 @@ cljs.array_map(<span class="keyword">keyword</span>(<span class="string"><span c
 <p>有効にすると、コンパイラがJSとCLJSのどちらのコードを使用しているかを判断できない場合に警告が表示されます。</p>
 </div>
 <div class="listingblock">
-<div class="title">例 Code</div>
+<div class="title">Example Code</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">(<span class="keyword">defn</span> <span class="function">wrap-baz</span> [x]
   (<span class="keyword">.</span>baz x))</code></pre>
@@ -5691,9 +5845,18 @@ cljs.array_map(<span class="keyword">keyword</span>(<span class="string"><span c
   (<span class="keyword">.</span>baz x))</code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p>重要：すべてを <code>^js</code> でアノテーションしないでください。時には、CLJS や ClosureJS のオブジェクトでインターロップを行うことがあります。これらはエクスターンを必要としません。CLJSオブジェクトを扱うことが確実な場合は、 <code>^clj</code> のヒントを使うことをお勧めします。
-間違って <code>^js</code> を使用しても世界の終わりではありませんが、変数の名前を変更できるのに変更されない場合、いくつかの最適化に影響を与える可能性があります。</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Important</div>
+</td>
+<td class="content">
+すべてを <code>^js</code> でアノテーションしないでください。時には、CLJS や ClosureJS のオブジェクトでインターロップを行うことがあります。これらはエクスターンを必要としません。CLJSオブジェクトを扱うことが確実な場合は、 <code>^clj</code> のヒントを使うことをお勧めします。
+間違って <code>^js</code> を使用しても世界の終わりではありませんが、変数の名前を変更できるのに変更されない場合、いくつかの最適化に影響を与える可能性があります。
+</td>
+</tr>
+</table>
 </div>
 <div class="listingblock">
 <div class="title">ヒントは不要、エクスターンは自動的に推測される</div>
@@ -5745,7 +5908,7 @@ cljs.array_map(<span class="keyword">keyword</span>(<span class="string"><span c
 <p>まず、 <code>externs/&lt;your-build&gt;.txt</code> を作成します。ビルド <code>:app</code> は <code>externs/app.txt</code> となります。このファイルの各行は、名前を変更してはいけないJSのプロパティを1つの単語で指定します。グローバル変数の前には、 <code>global:</code> を付けてください。</p>
 </div>
 <div class="listingblock">
-<div class="title">例 externs/app.txt</div>
+<div class="title">Example externs/app.txt</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure"><span class="error">#</span> this is a <span class="keyword">comment</span>
 foo
@@ -5764,7 +5927,7 @@ global<span class="symbol">:SomeGlobalVariable</span></code></pre>
 <p>クロージャ・コンパイラは、不要なコードを名前で削除することをサポートしています。これにより、通常のデッドコード除去では除去できない、あるいは除去したくないコードを除去することができます。これは、実際に気になるコードが削除される可能性があるため非常に危険ですが、多くの開発者専用コードを簡単に削除することができます。これは4つのオプションに分類されていて、そのうちClojureScriptに関連するのはほぼ <code>:strip-type-prefixes</code> だけですが、他にも有用なオプションがあるかもしれません。</p>
 </div>
 <div class="listingblock">
-<div class="title">例 cljs.pprint のすべての使用を削除する。</div>
+<div class="title">Example cljs.pprint のすべての使用を削除する。</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
  <span class="symbol">:builds</span>
@@ -5846,8 +6009,17 @@ $ npx shadow-cljs run shadow.cljs.build-report app report.html</code></pre>
 <div class="paragraph">
 <p>続いて、Cursiveの File &#8594; New &#8594; Project from Existing Sources で、プロジェクトディレクトリに生成された <code>pom.xml</code> を選択します。</p>
 </div>
-<div class="paragraph">
-<p>重要：このためには、Build Tools→Mavenプラグインを有効にする必要があります。デフォルトでは有効になっていない場合があります。</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Important</div>
+</td>
+<td class="content">
+このためには、Build Tools→Mavenプラグインを有効にする必要があります。デフォルトでは有効になっていない場合があります。
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>あるいは、ダミーの <code>project.clj</code> を作成したり、完全な<a href="#Leiningen">Leiningen integration</a>を使用することもできます。</p>
@@ -6277,7 +6449,7 @@ Press ENTER <span class="keyword">or</span> <span class="keyword">type</span> co
 <div class="sect3">
 <h4 id="_deps_edn_tools_deps"><a class="anchor" href="#_deps_edn_tools_deps"></a><a class="link" href="#_deps_edn_tools_deps">16.1.1. deps.edn / tools.deps</a></h4>
 <div class="paragraph">
-<p>shadow-cljs.edn` の <a href="#tools-deps">:deps</a> キーで依存関係を管理するために <code>deps.edn</code> を使用している場合、さらなる診断のために <code>clj</code> ツールを直接使用することが推奨されます。まず最初に、あなたが <code>shadow-cljs.edn</code> を通してどのエイリアスを適用しているかを確認する必要があります。つまり、もしあなたが <code>:deps {:aliases [:dev :cljs]}</code> を設定しているのであれば、さらにコマンドを実行する際に、これらのエイリアスを指定する必要があります。</p>
+<p><code>shadow-cljs.edn</code> の <a href="#tools-deps">:deps</a> キーで依存関係を管理するために <code>deps.edn</code> を使用している場合、さらなる診断のために <code>clj</code> ツールを直接使用することが推奨されます。まず最初に、あなたが <code>shadow-cljs.edn</code> を通してどのエイリアスを適用しているかを確認する必要があります。つまり、もしあなたが <code>:deps {:aliases [:dev :cljs]}</code> を設定しているのであれば、さらにコマンドを実行する際に、これらのエイリアスを指定する必要があります。</p>
 </div>
 <div class="paragraph">
 <p>まず最初に、 <code>deps.edn</code> で直接宣言されているすべての依存関係が、期待されるバージョンであることを確認する必要があります。推移的な依存関係によって、問題のあるバージョンが含まれていることがあります。すべての依存関係をリストアップするには、以下の方法があります。</p>
@@ -6301,7 +6473,7 @@ Press ENTER <span class="keyword">or</span> <span class="keyword">type</span> co
 <p>project.clj` を使って依存関係を管理している場合、 <code>lein</code> を直接使って問題を診断するときには、 <code>shadow-cljs.edn</code> から設定した <code>:lein</code> プロファイルを指定する必要があります。例えば、 <code>:lein {:profiles "+cljs"}</code> とすると、すべてのコマンドに対して <code>lein with-profiles +cljs</code> が必要になります。</p>
 </div>
 <div class="listingblock">
-<div class="title">例 deps のリスト</div>
+<div class="title">Example deps のリスト</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure"><span class="error">#</span> no profile
 $ lein deps <span class="symbol">:tree</span>
@@ -6430,8 +6602,17 @@ $ lein with-profiles +cljs deps <span class="symbol">:tree</span></code></pre>
 <div class="paragraph">
 <p>ライブラリを公開するには様々なオプションがありますが、現在は <a href="https://leiningen.org/">Leiningen</a> をお勧めしています。セットアップは非常に簡単で、設定は全く必要ありません。</p>
 </div>
-<div class="paragraph">
-<p>重要：これは、ライブラリ自体の開発時にLeiningenを使用しなければならないということではありません。公開時にはLeiningenを使用し、それ以外は通常通り <code>shadow-cljs</code> を使用することが推奨されています。実際の <code>:dependencies</code> の定義をコピーする必要があるのは、公開した後だけです。しかし、開発に関連する依存関係を排除することを忘れないでください。</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Important</div>
+</td>
+<td class="content">
+これは、ライブラリ自体の開発時にLeiningenを使用しなければならないということではありません。公開時にはLeiningenを使用し、それ以外は通常通り <code>shadow-cljs</code> を使用することが推奨されています。実際の <code>:dependencies</code> の定義をコピーする必要があるのは、公開した後だけです。しかし、開発に関連する依存関係を排除することを忘れないでください。
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>すでに、すべての主要なソースが <code>src/main</code> に配置されている推奨のプロジェクト構造を使用している場合、非常にシンプルな <code>project.clj</code> で公開することができます。</p>
@@ -6482,8 +6663,17 @@ $ lein with-profiles +cljs deps <span class="symbol">:tree</span></code></pre>
 <div class="paragraph">
 <p>また、 <code>resources/*</code> に出力することも避けてください。Leiningen や他のツールが <code>.jar</code> にそれらのファイルを含める可能性があり、下流のユーザーに問題を引き起こす可能性があります。.jar` には実際のソースファイルのみを入れ、コンパイルされたコードは一切入れないようにしてください。</p>
 </div>
-<div class="paragraph">
-<p>重要：lein jarを実行し、jar -tvf target/library-1.0.0.jarで最終的に含まれるファイルを検査することで、すべてがクリーンであることを確認できますし、そうすべきです。</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Important</div>
+</td>
+<td class="content">
+lein jarを実行し、jar -tvf target/library-1.0.0.jarで最終的に含まれるファイルを検査することで、すべてがクリーンであることを確認できますし、そうすべきです。
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -6496,7 +6686,7 @@ $ lein with-profiles +cljs deps <span class="symbol">:tree</span></code></pre>
 <p>プロジェクト（例：<code>src/main/deps.cljs</code>）の中に、 <code>:npm-deps</code> 付きの <code>deps.cljs</code> を含めることで、 <code>npm</code> の依存関係を直接宣言することができます。</p>
 </div>
 <div class="listingblock">
-<div class="title">例 src/main/deps.cljs</div>
+<div class="title">Example src/main/deps.cljs</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="symbol">:npm-deps</span> {<span class="string"><span class="delimiter">&quot;</span><span class="content">the-thing</span><span class="delimiter">&quot;</span></span> <span class="string"><span class="delimiter">&quot;</span><span class="content">1.0.0</span><span class="delimiter">&quot;</span></span>}}</code></pre>
 </div>
@@ -6543,7 +6733,7 @@ $ lein with-profiles +cljs deps <span class="symbol">:tree</span></code></pre>
 <div id="footer">
 <div id="footer-text">
 Version 1.0<br>
-Last updated 2021-04-14 05:53:11 JST
+Last updated 2021-04-14 05:58:37 JST
 </div>
 </div>
 </body>

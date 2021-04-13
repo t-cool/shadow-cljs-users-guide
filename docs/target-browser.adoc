@@ -132,7 +132,7 @@ The following example shows a minimum module configuration:
 ////
 .Example :browser config
 ////
-.例 :browser config
+.Example :browser config
 
 ```
 {...
@@ -146,7 +146,7 @@ The following example shows a minimum module configuration:
 ////
 .Example :browser config with :init-fn
 ////
-.例 :init-fnによるブラウザ設定
+.Example :init-fnによるブラウザ設定
 
 ```
 {...
@@ -204,7 +204,7 @@ One good configuration for this would be to have one common module that is share
 ////
 .Example config with multiple `:modules`
 ////
-.例 複数の `:modules` をもつ設定
+.Example 複数の `:modules` をもつ設定
 
 ```clojure
 {...
@@ -423,7 +423,7 @@ This will only create the `MY_APP` global variable. Since every "global" variabl
 ////
 IMPORTANT: Note that the created variable isn't actually useful directly. It will contain a lot of munged/minified properties. All exported (eg. `^:export`) variables will still be exported into the global scope and are not affect by this setting. The setting only serves to limit the amount of global variables created, nothing else. Do not use it directly.
 ////
-重要：作成された変数は、実際には直接使えないことに注意してください。作成された変数は、実際には使い物になりませんが、多くのプロパティを含んでいます。エクスポートされた（例：`^:export`）変数はすべてグローバルスコープにエクスポートされ、この設定の影響を受けません。この設定は、グローバル変数の作成量を制限するためだけのもので、それ以外には何もありません。直接使用しないでください。
+IMPORTANT: 作成された変数は、実際には直接使えないことに注意してください。作成された変数は、実際には使い物になりませんが、多くのプロパティを含んでいます。エクスポートされた（例：`^:export`）変数はすべてグローバルスコープにエクスポートされ、この設定の影響を受けません。この設定は、グローバル変数の作成量を制限するためだけのもので、それ以外には何もありません。直接使用しないでください。
 
 
 == ウェブ・ワーカーー
@@ -487,7 +487,7 @@ Note that the empty `:entries []` in the `:shared` module will make it collect a
 ////
 .Sample echo worker
 ////
-.例 エコ・ーワーカー
+.Example エコ・ーワーカー
 
 ```
 (ns my.app.worker)
@@ -515,7 +515,7 @@ Note that the empty `:entries []` in the `:shared` module will make it collect a
 ////
 IMPORTANT: Since we now have a `:shared` module you must ensure to load it properly in your HTML. If you just load `main.js` you will get an error.
 ////
-重要：現在、 `:shared` モジュールがあるので、HTMLで適切にロードする必要があります。単に `main.js` をロードしただけでは、エラーが発生します。
+IMPORTANT: 現在、 `:shared` モジュールがあるので、HTMLで適切にロードする必要があります。単に `main.js` をロードしただけでは、エラーが発生します。
 
 ////
 .HTML Loading shared.js and main.js
@@ -550,7 +550,7 @@ shadow-cljs release app --config-merge '{:release-version "v1"}'
 ////
 .Example :modules config
 ////
-.例 :modules config
+.Example :modules config
 
 ```
 {...
@@ -596,7 +596,7 @@ of generating conflicts. I recommend using the full hash.
 ////
 .Example :module-hash-names config
 ////
-.例 :module-hash-names config
+.Example :module-hash-names config
 
 ```
 {...
@@ -681,7 +681,7 @@ You can configure the name of the generated manifest file via the `:build-option
 ////
 .Example manifest.json config
 ////
-.例 manifest.json の設定
+.Example manifest.json の設定
 
 ```
 {...
@@ -836,7 +836,7 @@ Browser devtools は、CSS を再読み込みすることもできます。こ�
 ////
 .Example HTML snippet
 ////
-.例 HTML スニペット
+.Example HTML スニペット
 
 ```html
 <link rel="stylesheet" href="/css/main.css"/>
@@ -845,7 +845,7 @@ Browser devtools は、CSS を再読み込みすることもできます。こ�
 ////
 .Example Hiccup since we aren't savages
 ////
-.例 Hiccup 俺たちは野蛮人じゃないから
+.Example Hiccup 俺たちは野蛮人じゃないから
 
 ```
 [:link {:rel "stylesheet" :href "/css/main.css"}]
@@ -882,7 +882,7 @@ document root used to serve your content.
 ////
 .Example :watch-dir config
 ////
-.例 :watch-dir の設定
+.Example :watch-dir の設定
 ```clojure
 {...
     {:builds
@@ -898,7 +898,7 @@ HTTPサーバが仮想ディレクトリからファイルを提供していて�
 ////
 .Example `public/css/main.css` being served under `/foo/css/main.css`
 ////
-.例 public/css/main.css` は `/foo/css/main.css` の下でサーブされます。
+.Example public/css/main.css` は `/foo/css/main.css` の下でサーブされます。
 
 ```clojure
 {...
@@ -958,4 +958,4 @@ The client will make WebSocket request as well as normal XHR requests to load fi
 ////
 IMPORTANT: The requests must be forwarded to the main <<http, HTTP server>>, not the one configured in the build itself.
 ////
-重要：リクエストは、ビルド自体で設定したものではなく、メインの <<http, HTTP server>> に転送されなければなりません。
+IMPORTANT: リクエストは、ビルド自体で設定したものではなく、メインの <<http, HTTP server>> に転送されなければなりません。

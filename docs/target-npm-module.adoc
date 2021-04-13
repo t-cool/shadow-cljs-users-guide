@@ -17,7 +17,7 @@ create-react-appなど）とシームレスに統合できます。
 ////
 .Example `shadow-cljs.edn` config
 ////
-.例 `shadow-cljs.edn` の設定
+.Example `shadow-cljs.edn` の設定
 ```
 {...
  :builds

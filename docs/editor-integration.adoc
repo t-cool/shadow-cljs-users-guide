@@ -17,7 +17,7 @@ Then in Cursive *File -> New -> Project from Existing Sources* then select the g
 ////
 IMPORTANT: You need to have the "Build Tools" -> "Maven" Plugin enabled for this. It might not be enabled by default.
 ////
-重要：このためには、Build Tools→Mavenプラグインを有効にする必要があります。デフォルトでは有効になっていない場合があります。
+IMPORTANT: このためには、Build Tools→Mavenプラグインを有効にする必要があります。デフォルトでは有効になっていない場合があります。
 
 ////
 Alternatively you can create a dummy `project.clj` or use the full <<Leiningen, Leiningen integration>>.

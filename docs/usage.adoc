@@ -292,7 +292,7 @@ You must add the `thheller/shadow-cljs` artifact to your `deps.edn` manually.
 ////
 .Simple `shadow-cljs.edn` example
 ////
-シンプルな shadow-cljs.edn の例
+. シンプルな shadow-cljs.edn の例
 
 ```clojure
 {:deps true
@@ -312,7 +312,7 @@ You must add the `thheller/shadow-cljs` artifact to your `deps.edn` manually.
 ////
 .Example `shadow-cljs.edn` with :cljs alias
 ////
-. 例 `shadow-cljs.edn` に :cljs のエイリアスをつけたもの
+.Example `shadow-cljs.edn` に :cljs のエイリアスをつけたもの
 
 ```clojure
 {:deps {:aliases [:cljs]}
@@ -322,8 +322,7 @@ You must add the `thheller/shadow-cljs` artifact to your `deps.edn` manually.
 ////
 .Example `deps.edn`
 ////
-
-. 例 deps.edn
+.Example deps.edn
 
 ```clojure
 {:paths [...]
@@ -360,7 +359,7 @@ You may also specify additional aliases via the command line using `-A`, eg. `sh
 ////
 IMPORTANT: Aliases are only applied when a new instance/server is started. They do not apply when connecting to a running server using the `shadow-cljs` command. Running via `clj` will always start a new JVM and does not support server-mode.
 ////
-重要：エイリアスは、新しいインスタンか/サーバを起動したときにのみ適用されます。shadow-cljs コマンドを使って稼働中のサーバに接続するときには適用されません。clj` で起動すると、常に新しいJVMを起動することになり、サーバ・モードをサポートしません。
+IMPORTANT: エイリアスは、新しいインスタンか/サーバを起動したときにのみ適用されます。shadow-cljs コマンドを使って稼働中のサーバに接続するときには適用されません。clj` で起動すると、常に新しいJVMを起動することになり、サーバ・モードをサポートしません。
 
 === Boot
 
@@ -394,7 +393,7 @@ You can use the `shadow-cljs` CLI to call specific Clojure functions from the co
 ////
 .Example Clojure Namespace in `src/my/build.clj`
 ////
-. 例 `src/my/build.clj` における Clojure の名前空間
+.Example `src/my/build.clj` における Clojure の名前空間
 
 ```clojure
 (ns my.build
@@ -457,7 +456,7 @@ You have access to the full power of Clojure here. You can build entire tools on
 ////
 IMPORTANT: When the <<server-mode, server>> is running the namespace will not be reloaded automatically, it will only be loaded once. It is recommended to do the development using a REPL and reload the file as usual (eg. `(require 'my.build :reload)`). You may also run `shadow-cljs clj-eval "(require 'my.build :reload)"` to reload manually from the command line.
 ////
-重要：<<server-mode, server>> が実行されている場合、名前空間は自動的にはリロードされず、一度だけロードされます。REPLを使って開発を行い、通常通りファイルをリロードすることをお勧めします（例：`(require 'my.build :reload)`)。
+IMPORTANT: <<server-mode, server>> が実行されている場合、名前空間は自動的にはリロードされず、一度だけロードされます。REPLを使って開発を行い、通常通りファイルをリロードすることをお勧めします（例：`(require 'my.build :reload)`)。
 `shadow-cljs clj-eval "(require 'my.build :reload)"` を実行して、コマンドラインから手動でリロードすることもできます。
 
 === clj-run による watch の呼び出し

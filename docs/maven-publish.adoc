@@ -22,7 +22,7 @@ There are a variety of options to publish libraries and I currently recommend ht
 ////
 IMPORTANT: This does not mean that you have to use Leiningen during development of the library itself. It is recommended to just use Leiningen for publishing but use `shadow-cljs` normally otherwise. You'll only need to copy the actual `:dependencies` definition once you publish. Remember to keep development related dependencies out though.
 ////
-重要：これは、ライブラリ自体の開発時にLeiningenを使用しなければならないということではありません。公開時にはLeiningenを使用し、それ以外は通常通り `shadow-cljs` を使用することが推奨されています。実際の `:dependencies` の定義をコピーする必要があるのは、公開した後だけです。しかし、開発に関連する依存関係を排除することを忘れないでください。
+IMPORTANT: これは、ライブラリ自体の開発時にLeiningenを使用しなければならないということではありません。公開時にはLeiningenを使用し、それ以外は通常通り `shadow-cljs` を使用することが推奨されています。実際の `:dependencies` の定義をコピーする必要があるのは、公開した後だけです。しかし、開発に関連する依存関係を排除することを忘れないでください。
 
 ////
 Assuming you are already using the recommended project structure where all your primary sources are located in `src/main` you can publish with a very simple `project.clj`.
@@ -105,7 +105,7 @@ Also avoid generating output to `resources/*` since Leiningen and other tools ma
 ////
 IMPORTANT: You can and should verify that everything is clean by running `lein jar` and inspecting the files that end up in it via `jar -tvf target/library-1.0.0.jar`.
 ////
-重要：lein jarを実行し、jar -tvf target/library-1.0.0.jarで最終的に含まれるファイルを検査することで、すべてがクリーンであることを確認できますし、そうすべきです。
+IMPORTANT: lein jarを実行し、jar -tvf target/library-1.0.0.jarで最終的に含まれるファイルを検査することで、すべてがクリーンであることを確認できますし、そうすべきです。
 
 ## JSの依存関係を宣言する [[publish-deps-cljs]]
 // Declaring JS dependencies [[publish-deps-cljs]]
@@ -123,7 +123,7 @@ You can declare `npm` dependencies directly by including a `deps.cljs` with `:np
 ////
 .Example src/main/deps.cljs
 ////
-.例 src/main/deps.cljs
+.Example src/main/deps.cljs
 
 ```clojure
 {:npm-deps {"the-thing" "1.0.0"}}

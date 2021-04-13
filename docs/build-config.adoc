@@ -233,7 +233,7 @@ There are also async variants of these in case you need to do some async work th
 ////
 IMPORTANT: The functions will receive one callback function that must be called when their work is completed. If the callback function is not called the reload process will not proceed.
 ////
-重要：各関数には、それぞれの作業が完了したときに呼び出されるべきコールバック関数が1つあります。このコールバック関数が呼び出されないと、リロード処理は進みません。
+IMPORTANT: 各関数には、それぞれの作業が完了したときに呼び出されるべきコールバック関数が1つあります。このコールバック関数が呼び出されないと、リロード処理は進みません。
 
 
 ////
@@ -311,7 +311,7 @@ files that have been recompiled.  This function *must* be synchronous in nature.
 ////
 IMPORTANT: Hooks cannot be declared in the `cljs.user` namespace. Hooks are only used if the namespace containing them is actually included in the build. If you use an extra namespace make sure to include it via `:preloads`.
 ////
-重要：フックは `cljs.user` 名前空間では宣言できません。フックは、それを含む名前空間が実際にビルドに含まれている場合にのみ使用されます。追加の名前空間を使用する場合は、必ず `:preloads` でインクルードしてください。
+IMPORTANT: フックは `cljs.user` 名前空間では宣言できません。フックは、それを含む名前空間が実際にビルドに含まれている場合にのみ使用されます。追加の名前空間を使用する場合は、必ず `:preloads` でインクルードしてください。
 
 ////
 TIP: If neither `:after-load` nor `:before-load` are set the compiler will only attempt to hot reload the code in the `:browser` target. If you still want hot reloading but don't need any of the callbacks you can set `:autoload true` instead.
@@ -335,7 +335,7 @@ They are configured per build under the `:build-hooks` key
 ////
 .Exampe :build-hooks
 ////
-. 例 :build-hooks
+.Example :build-hooks
 
 ```clojure
 {...
@@ -349,7 +349,7 @@ They are configured per build under the `:build-hooks` key
 ////
 .Example hook code
 ////
-. 例 hook code
+.Example hook code
 
 ```clojure
 (ns my.util)
@@ -796,7 +796,7 @@ You can select other output options if you only care about more modern environme
 ////
 IMPORTANT: Note that this mostly affects imported JS code from <<npm, npm>> or `.js` files from the <<classpath-js, classpath>>. CLJS will currently only generate ES5 output and is not affected by setting higher options.
 ////
-重要：これは主に<<npm, npm>>からインポートされたJSコードや<<classpath-js, classpath>>からの `.js` ファイルに影響することに注意してください。CLJSは現在、ES5の出力のみを生成し、より高いオプションを設定しても影響を受けません。
+IMPORTANT: これは主に<<npm, npm>>からインポートされたJSコードや<<classpath-js, classpath>>からの `.js` ファイルに影響することに注意してください。CLJSは現在、ES5の出力のみを生成し、より高いオプションを設定しても影響を受けません。
 
 ////
 You can configure this via the `:output-feature-set` in `:compiler-options`. The older `:language-out` option should not be used as `:output-feature-set` replaced it.
@@ -826,7 +826,7 @@ Supported options are:
 ////
 .Example
 ////
-.例
+.Example
 
 ```
 {...
@@ -1003,7 +1003,7 @@ The `:server` build will then no longer have the `codemirror` require and the `i
 ////
 IMPORTANT: This feature is only available in `.cljc` files and will fail in `.cljs` files.
 ////
-重要：この機能は、 `.cljc` ファイルでのみ利用可能で、 `.cljs` ファイルでは失敗します。
+IMPORTANT: この機能は、 `.cljc` ファイルでのみ利用可能で、 `.cljs` ファイルでは失敗します。
 
 == CLIからのオーバーライド [[config-merge]]
 //Overriding from the CLI [[config-merge]]
@@ -1021,7 +1021,7 @@ You can pass additional config data via the `--config-merge {:some "data"}` comm
 ////
 .Example `shadow-cljs.edn` config
 ////
-.例 `shadow-cljs.edn` の設定
+.Example `shadow-cljs.edn` の設定
 
 ```
 {...
@@ -1058,7 +1058,7 @@ $ shadow-cljs release app --config-merge '{:closure-defines {your.app/DEBUG true
 ////
 IMPORTANT: If you specify multiple build ids the data will be merged into all specified builds. `shadow-cljs release frontend backend --config-merge '{:hello "world"}'` will be applied to both.
 ////
-重要：複数のビルドIDを指定した場合、データは指定したすべてのビルドにマージされます。`shadow-cljs release frontend backend --config-merge '{:hello "world"}'` を指定すると、両方に適用されます。
+IMPORTANT: 複数のビルドIDを指定した場合、データは指定したすべてのビルドにマージされます。`shadow-cljs release frontend backend --config-merge '{:hello "world"}'` を指定すると、両方に適用されます。
 
 == 環境変数の使用 [[shadow-env]]
 //Using Environment Variables [[shadow-env]]
@@ -1071,7 +1071,7 @@ It is possible to use environment variables to set configuration values in `shad
 ////
 .Example `shadow-cljs.edn` config
 ////
-.例 `shadow-cljs.edn` の設定
+.Example `shadow-cljs.edn` の設定
 
 ```
 {...
@@ -1138,7 +1138,7 @@ Configuration merge order is as follows `:build-defaults` -> `:target-defaults` 
 ////
 .Example `shadow-cljs.edn` config
 ////
-.例 `shadow-cljs.edn` の設定
+.Example `shadow-cljs.edn` の設定
 
 ```
 {...
@@ -1166,4 +1166,4 @@ In this example the `:app` target will inherit both `:build-defaults` and the `:
 ////
 IMPORTANT: Configs later in the merge order can override, but not remove previous configuration items. Once a default is set, the only way to remove it is by overriding it.
 ////
-重要：マージ順で後の方の設定は、前の設定項目を上書きすることはできても、削除することはできません。いったんデフォルトが設定されると、それを削除するにはオーバーライドするしかありません。
+IMPORTANT: マージ順で後の方の設定は、前の設定項目を上書きすることはできても、削除することはできません。いったんデフォルトが設定されると、それを削除するにはオーバーライドするしかありません。

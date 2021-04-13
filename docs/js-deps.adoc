@@ -56,7 +56,7 @@ The following table can be used for translation:
 ////
 IMPORTANT: This table only applies if the code you are consuming is packaged as actual ES6+ code. If the code is packaged as CommonJS instead the `:default` may not apply. See the section below for more info.
 ////
-重要：この表は、消費されるコードが実際のES6+コードとしてパッケージされている場合にのみ適用されます。コードがCommonJSとしてパッケージされている場合は、 `:default` は適用されないかもしれません。詳細は以下のセクションを参照してください。
+IMPORTANT: この表は、消費されるコードが実際のES6+コードとしてパッケージされている場合にのみ適用されます。コードがCommonJSとしてパッケージされている場合は、 `:default` は適用されないかもしれません。詳細は以下のセクションを参照してください。
 
 ////
 .ES6 Import to CLJS Require
@@ -231,7 +231,7 @@ Closure のサポートがより確実なものになるまでは、 `:shadow` �
 ////
 .Example config for using `:closure` in a `:browser` build.
 ////
-.例 : :browser のビルドで :closure を使用するための設定
+.Example : :browser のビルドで :closure を使用するための設定
 
 ```clojure
 {...
@@ -259,7 +259,7 @@ It is largely dependent on the packages you use whether this will work or not. Y
 ////
 .Example config for using `:closure` in a `:browser` build.
 ////
-.例 :browser のビルドで :closure を使用するための設定
+.Example :browser のビルドで :closure を使用するための設定
 
 ```clojure
 {...
@@ -380,7 +380,7 @@ react を preact にリダイレクトする
 ////
 .Example use of react-table
 ////
-.例 react-table の利用
+.Example react-table の利用
 
 ```
 (ns my.app
@@ -499,12 +499,12 @@ Relative requires are resolved by first looking at the current namespace and the
 ////
 IMPORTANT: The files must not be physically located in the same directory. The lookup for the file appears on the classpath instead. This is unlike node which expects relative requires to always resolve to physical files.
 ////
-重要：ファイルは物理的に同じディレクトリにあってはいけません。ファイルの検索は、代わりにクラスパス上で行われます。これは、相対的な要求が常に物理的なファイルに解決されることを期待するnodeとは異なります。
+IMPORTANT: ファイルは物理的に同じディレクトリにあってはいけません。ファイルの検索は、代わりにクラスパス上で行われます。これは、相対的な要求が常に物理的なファイルに解決されることを期待するnodeとは異なります。
 
 ////
 .Example File Structure with Separate Paths
 ////
-.例 パスが分かれているファイル構造
+.Example パスが分かれているファイル構造
 
 ```text
 .
@@ -560,7 +560,7 @@ export function inc(num) {
 ////
 IMPORTANT: Due to strict checking of the Closure Compiler it is not possible to use the `import * as X from "npm";` syntax when requiring CLJS or npm code. It is fine to use when requiring other JS files.
 ////
-重要：Closure Compilerの厳密なチェックにより、CLJSやnpmのコードを必要とする場合、 `import * as X from "npm";` の構文を使用することはできません。他のJSファイルを必要とする場合には問題なく使用できます。
+IMPORTANT: Closure Compilerの厳密なチェックにより、CLJSやnpmのコードを必要とする場合、 `import * as X from "npm";` の構文を使用することはできません。他のJSファイルを必要とする場合には問題なく使用できます。
 
 === JavaScriptの方言
 //JavaScript Dialects
@@ -573,7 +573,7 @@ Since there are many popular JavaScript dialects (JSX, CoffeeScript, etc) that a
 ////
 .Example shadow-cljs.edn Config
 ////
-.例 shadow-cljs.edn の設定
+.Example shadow-cljs.edn の設定
 
 ```
 {:source-paths
@@ -585,7 +585,7 @@ Since there are many popular JavaScript dialects (JSX, CoffeeScript, etc) that a
 ////
 .Example File Structure
 ////
-.例 ファイル構成
+.Example ファイル構成
 
 ```text
 .
@@ -604,7 +604,7 @@ Since there are many popular JavaScript dialects (JSX, CoffeeScript, etc) that a
 ////
 IMPORTANT: Notice how `src/js` is not added to `:source-paths` which means it will not be on the classpath.
 ////
-重要： `src/js` が `:source-paths` に追加されていないことに注目してください。これはクラスパスに含まれないことを意味します。
+IMPORTANT:  `src/js` が `:source-paths` に追加されていないことに注目してください。これはクラスパスに含まれないことを意味します。
 
 .src/js/demo/bar.jsx
 ```jsx

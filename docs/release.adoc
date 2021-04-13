@@ -45,7 +45,7 @@ You can choose the optimization level using the `:compiler-options` section of t
 ////
 IMPORTANT: You do not usually need to set `:optimizations` since the `:target` already sets it to an appropriate level.
 ////
-重要：`:target` ではすでに適切なレベルに設定されているので、通常は `:optimizations` を設定する必要はありません。
+IMPORTANT: `:target` ではすでに適切なレベルに設定されているので、通常は `:optimizations` を設定する必要はありません。
 
 ////
 IMPORTANT: `:optimizations` only apply when using the `release` command. Development builds are never optimized by the Closure Compiler. Development builds are always set to `:none`.
@@ -78,7 +78,7 @@ can override settings by including a `:dev` and/or `:release` section in the bui
 ////
 .Example `shadow-cljs.edn` build config
 ////
-.例 shadow-cljs.edn ビルド設定
+.Example shadow-cljs.edn ビルド設定
 
 ```clojure
 {:source-paths ["src"]
@@ -126,7 +126,7 @@ Externs を扱うために、 `shadow-cljs` コンパイラは強化された ex
 ////
 .Example Config
 ////
-.例 Config
+.Example Config
 
 ```clojure
 {...
@@ -151,7 +151,7 @@ When enabled you'll get warnings whenever the Compiler cannot figure out whether
 ////
 .Example Code
 ////
-.例 Code
+.Example Code
 
 ```
 (defn wrap-baz [x]
@@ -232,7 +232,7 @@ IMPORTANT: Don't annotate everything with `^js`. Sometimes you may be doing inte
 ////
 Calls on globals do not require a typehint when using direct `js/` calls.
 ////
-重要：すべてを `^js` でアノテーションしないでください。時には、CLJS や ClosureJS のオブジェクトでインターロップを行うことがあります。これらはエクスターンを必要としません。CLJSオブジェクトを扱うことが確実な場合は、 `^clj` のヒントを使うことをお勧めします。
+IMPORTANT: すべてを `^js` でアノテーションしないでください。時には、CLJS や ClosureJS のオブジェクトでインターロップを行うことがあります。これらはエクスターンを必要としません。CLJSオブジェクトを扱うことが確実な場合は、 `^clj` のヒントを使うことをお勧めします。
 間違って `^js` を使用しても世界の終わりではありませんが、変数の名前を変更できるのに変更されない場合、いくつかの最適化に影響を与える可能性があります。
 
 ////
@@ -306,7 +306,7 @@ Start by creating a `externs/<your-build>.txt`, so build `:app` would be `extern
 ////
 .Example externs/app.txt
 ////
-.例 externs/app.txt
+.Example externs/app.txt
 
 ```
 # this is a comment
@@ -331,7 +331,7 @@ The Closure Compiler supports removing unwanted code by name. This allows removi
 ////
 .Example removing all uses of `cljs.pprint`
 ////
-.例 cljs.pprint のすべての使用を削除する。
+.Example cljs.pprint のすべての使用を削除する。
 
 ```
 {...

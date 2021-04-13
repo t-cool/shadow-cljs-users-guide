@@ -69,7 +69,7 @@ Controlling what code is actually exported is done via one of the following opti
 ////
 .Example CLJS
 ////
-.例 CLJS
+.Example CLJS
 
 ```
 (ns demo.ns)

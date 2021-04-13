@@ -65,7 +65,7 @@ If you have ensured that you are getting all the correct versions but things sti
 ////
 When using `deps.edn` to manage your dependencies via the <<tools-deps, :deps>> key in `shadow-cljs.edn` it is recommended to use the `clj` tool directly for further diagnosis. First you need to check which aliases you are applying via `shadow-cljs.edn`. So if you are setting `:deps {:aliases [:dev :cljs]}` you'll need to specify these aliases when running further commands.
 ////
-shadow-cljs.edn` の <<tools-deps, :deps>> キーで依存関係を管理するために `deps.edn` を使用している場合、さらなる診断のために `clj` ツールを直接使用することが推奨されます。まず最初に、あなたが `shadow-cljs.edn` を通してどのエイリアスを適用しているかを確認する必要があります。つまり、もしあなたが `:deps {:aliases [:dev :cljs]}` を設定しているのであれば、さらにコマンドを実行する際に、これらのエイリアスを指定する必要があります。
+`shadow-cljs.edn` の <<tools-deps, :deps>> キーで依存関係を管理するために `deps.edn` を使用している場合、さらなる診断のために `clj` ツールを直接使用することが推奨されます。まず最初に、あなたが `shadow-cljs.edn` を通してどのエイリアスを適用しているかを確認する必要があります。つまり、もしあなたが `:deps {:aliases [:dev :cljs]}` を設定しているのであれば、さらにコマンドを実行する際に、これらのエイリアスを指定する必要があります。
 
 ////
 First of all you should ensure that all dependencies directly declared in `deps.edn` have the expected version. Sometimes transitive dependencies can cause the inclusion of problematic versions. You can list all dependencies via:
@@ -101,7 +101,7 @@ project.clj` を使って依存関係を管理している場合、 `lein` を�
 ////
 .Example listing of deps
 ////
-.例 deps のリスト
+.Example deps のリスト
 
 ```
 # no profile
