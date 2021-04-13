@@ -18,7 +18,7 @@ ClojureのREPLは、その名が示す通りのことを行います。1つの�
 ////
 In ClojureScript however things are a bit more complicated since compilation happens on the JVM but the results are eval'd in a JavaScript runtime. There are a couple more steps that need to be done due in order to "emulate" the plain REPL experience. Although things are implemented a bit differently in `shadow-cljs` over regular CLJS the basic principles remain the same.
 ////
-しかし、ClojureScriptでは、コンパイルはJVM上で行われますが、結果はJavaScriptランタイムで評価されるので、もう少し複雑です。普通のREPLの経験を「エミュレート」するためには、さらにいくつかのステップが必要になります。shadow-cljs` では、通常のCLJSとは実装が少し異なりますが、基本的な原理は同じです。
+しかし、ClojureScriptでは、コンパイルはJVM上で行われますが、結果はJavaScriptランタイムで評価されるので、もう少し複雑です。普通のREPLの経験をエミュレートするためには、さらにいくつかのステップが必要になります。shadow-cljs` では、通常のCLJSとは実装が少し異なりますが、基本的な原理は同じです。
 
 ////
 First you'll need a REPL client. This could just be the CLI (eg. `shadow-cljs cljs-repl app`) or your Editor connected via `nREPL`. The Client will always talk directly to the `shadow-cljs` server and it'll handle the rest. From the Client side it still looks like a regular REPL but there are a few more steps happening in the background.

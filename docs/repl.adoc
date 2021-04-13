@@ -122,7 +122,7 @@ TIP: REPLを終了するには、 `:repl/quit` と入力してください。こ
 ////
 TIP: You may run multiple `watch` "workers" in parallel and connect/disconnect to their REPLs at any given time.
 ////
-ヒント: 複数の `watch` 「ワーカー」を並行して実行し、任意の時間にそれらの REPL に接続/切断することができます。
+ヒント: 複数の `watch` ワーカーを並行して実行し、任意の時間にそれらの REPL に接続/切断することができます。
 
 ////
 .No connected runtime error.

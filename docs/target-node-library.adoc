@@ -92,7 +92,7 @@ f(); // the actual demo.ns/f function
 ////
 It is effectively generating `module.exports = demo.ns.f;`
 ////
-事実上「モジュール」を生成しています。
+事実上モジュールを生成しています。
 exports = demo.ns.f;`
 
 === 複数の静的な名前付きエクスポート

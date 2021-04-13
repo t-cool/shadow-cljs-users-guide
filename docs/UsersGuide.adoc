@@ -85,7 +85,7 @@ project.clj
 ////
 Many of the examples are of the configuration file for the compiler. This file contains an EDN map. Where we have already discussed required options we will often elide them for clarity. In this case we'll usually include an ellipsis to indicate "content that is required but isn't in our current focus":
 ////
-例題の多くは、コンパイラの設定ファイルです。このファイルには、EDNマップが含まれています。必要なオプションについてすでに説明している場合は、わかりやすくするために省略することがあります。この場合、「必要だが、現在の焦点ではない内容」を示すために省略記号を入れるのが普通です。
+例題の多くは、コンパイラの設定ファイルです。このファイルには、EDNマップが含まれています。必要なオプションについてすでに説明している場合は、わかりやすくするために省略することがあります。この場合、必要だが、現在の焦点ではない内容を示すために省略記号を入れるのが普通です。
 
 
 ////
@@ -272,7 +272,7 @@ The file structure for this example should look like this:
 ////
 It is fine to put everything into one source path but you can use multiple if you want to "group" source files in certain ways. It is useful if you want to keep your tests separate for example.
 ////
-すべてを1つのソースパスにまとめても問題ありませんが、ソースファイルを特定の方法で「グループ化」したい場合は、複数のソースパスを使用することができます。例えば、テストを別々にしたい場合などに便利です。
+すべてを1つのソースパスにまとめても問題ありませんが、ソースファイルを特定の方法でグループ化したい場合は、複数のソースパスを使用することができます。例えば、テストを別々にしたい場合などに便利です。
 
 
 ////
@@ -445,7 +445,7 @@ Adding dependencies is allowed via the usual `:dependencies` key. Note that depe
 ////
 When using `deps.edn` to resolve dependencies you may sometimes want to activate additional aliases. This can be done via `:deps-aliases`.
 ////
-deps.edn` を使って依存関係を解決する際に、追加のエイリアスを有効にしたい場合があります。これは `:deps-aliases` で行うことができます。
+`deps.edn` を使って依存関係を解決する際に、追加のエイリアスを有効にしたい場合があります。これは `:deps-aliases` で行うことができます。
 
 ```
 ;; プロジェクト内のshadow-cljs.edn
@@ -524,7 +524,7 @@ If the popular middleware https://github.com/clojure-emacs/cider-nrepl[cider-nre
 ////
 You may configure the namespace you start in when connecting by setting `:init-ns` in the `:nrepl` options. It defaults to `shadow.user`.
 ////
-nrepl` オプションで `:init-ns` を設定することで、接続時に起動する名前空間を設定することができます。デフォルトでは `shadow.user` となります。
+`nrepl` オプションで `:init-ns` を設定することで、接続時に起動する名前空間を設定することができます。デフォルトでは `shadow.user` となります。
 
 ```clojure
 {...
@@ -662,7 +662,7 @@ $ keytool -importkeystore -destkeystore keystore.jks -srcstoretype PKCS12 -srcke
 ////
 IMPORTANT: You must generate the Certificate with a SAN (Subject Alternative Name) for "localhost" (or whichever host you want to use). SAN is required to get Chrome to trust the Certificate and not show warnings. The password used when exporting must match the password assigned to the Keystore.
 ////
-重要：「localhost」（または使用するホスト）のSAN（Subject Alternative Name）を含む証明書を作成する必要があります。SANは、Chromeが証明書を信頼して警告を表示しないようにするために必要です。エクスポート時に使用するパスワードは、キーストアに割り当てられたパスワードと一致する必要があります。
+重要：localhost（または使用するホスト）のSAN（Subject Alternative Name）を含む証明書を作成する必要があります。SANは、Chromeが証明書を信頼して警告を表示しないようにするために必要です。エクスポート時に使用するパスワードは、キーストアに割り当てられたパスワードと一致する必要があります。
 
 // TODO: full guide, other platforms
 

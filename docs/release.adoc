@@ -178,7 +178,7 @@ When enabled you'll get warnings whenever the Compiler cannot figure out whether
 ////
 In `:advanced` the compiler will be renaming `.baz` to something "shorter" and Externs inform the Compiler that this is an external property that should not be renamed.
 ////
-advanced` では、コンパイラが `.baz` を「より短い」ものにリネームしますが、Externs はこれがリネームしてはいけない外部プロパティであることをコンパイラに知らせます。
+`advanced` では、コンパイラが `.baz` をより短いものにリネームしますが、Externs はこれがリネームしてはいけない外部プロパティであることをコンパイラに知らせます。
 
 ////
 `shadow-cljs` can generate the appropriate externs if you add a typehint to the object you are performing native interop on.
@@ -350,7 +350,7 @@ The Closure Compiler supports removing unwanted code by name. This allows removi
 ////
 Each of these options is specified as a Set of Strings. Please note that all the names specified here are JS names so certain CLJS names must be munged. `my-lib.core` becomes `my_lib.core`.
 ////
-これらのオプションは、それぞれ「文字列のセット」として指定されます。ここで指定されている名前はすべてJSの名前なので、特定のCLJSの名前はマングされなければならないことに注意してください。`my-lib.core` は `my_lib.core` となります。
+これらのオプションは、それぞれ文字列のセットとして指定されます。ここで指定されている名前はすべてJSの名前なので、特定のCLJSの名前はマングされなければならないことに注意してください。`my-lib.core` は `my_lib.core` となります。
 
 ////
 [Horizontal]
@@ -390,7 +390,7 @@ A sample report can be found https://code.thheller.com/demos/build-report/huge.h
 
 ```bash
 $ npx shadow-cljs run shadow.cljs.build-report <build-id> <path/to/output.html>
-# example
+# 例
 $ npx shadow-cljs run shadow.cljs.build-report app report.html
 ```
 

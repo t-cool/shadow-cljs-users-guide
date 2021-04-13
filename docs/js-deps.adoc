@@ -11,7 +11,7 @@ https://www.npmjs.com/[npm] は、JavaScriptのデファクトスタンダード
 ////
 Most npm packages will also include some instructions on how to use the actual code. The “old” CommonJS style just has `require` calls which translate directly:
 ////
-ほとんどのnpmパッケージには、実際のコードの使用方法に関する説明も含まれています。古い」CommonJSのスタイルでは、直接翻訳する `require` コールがあるだけです。
+ほとんどのnpmパッケージには、実際のコードの使用方法に関する説明も含まれています。古いCommonJSのスタイルでは、直接翻訳する `require` コールがあるだけです。
 
 ```js
 var react = require("react");
@@ -120,7 +120,7 @@ import List from 'react-virtualized/dist/commonjs/List'
 ////
 
 ```js
-// react-virtualized」から名前付きでエクスポートすることで、任意のコンポーネントをインポートすることができます。
+// react-virtualizedから名前付きでエクスポートすることで、任意のコンポーネントをインポートすることができます。
 import { Column, Table } from 'react-virtualized'
 
 // しかし、いくつかのreact-virtualizedコンポーネントしか使用していない場合。
@@ -231,7 +231,7 @@ Closure のサポートがより確実なものになるまでは、 `:shadow` �
 ////
 .Example config for using `:closure` in a `:browser` build.
 ////
-.例 `:ブラウザ ` のビルドで `:クロージャ ` を使用するための設定です。
+.例 : :browser のビルドで :closure を使用するための設定
 
 ```clojure
 {...
@@ -249,7 +249,7 @@ Closure のサポートがより確実なものになるまでは、 `:shadow` �
 ////
 Nowadays many `npm` packages ship multiple build variants. `shadow-cljs` will by default pick the variant linked under the `main` or `browser` key in `package.json`. This most commonly refers to CommonJS code. Some modern packages also provide a `module` entry which usually refers to ECMAScript code (meaning "modern" JS). Interop between CommonJS and ESM can be tricky so `shadow-cljs` defaults to using CommonJS but it can be beneficial to use ESM.
 ////
-最近では、多くの `npm` パッケージが複数のビルドバリアントを出荷しています。shadow-cljs` はデフォルトで、 `package.json` の `main` または `browser` キーの下にリンクされているバリアントを選択します。これはほとんどの場合、CommonJS のコードを指しています。最近のパッケージの中には、 `module` エントリを提供しているものもありますが、これは通常 ECMAScript のコード (つまり「モダンな」JS) を指しています。CommonJS と ESM の間の相互運用は難しいので、 `shadow-cljs` のデフォルトは CommonJS を使用するようになっていますが、ESM を使用することが有益な場合もあります。
+最近では、多くの `npm` パッケージが複数のビルドバリアントを出荷しています。shadow-cljs` はデフォルトで、 `package.json` の `main` または `browser` キーの下にリンクされているバリアントを選択します。これはほとんどの場合、CommonJS のコードを指しています。最近のパッケージの中には、 `module` エントリを提供しているものもありますが、これは通常 ECMAScript のコード (つまりモダンなJS) を指しています。CommonJS と ESM の間の相互運用は難しいので、 `shadow-cljs` のデフォルトは CommonJS を使用するようになっていますが、ESM を使用することが有益な場合もあります。
 
 ////
 It is largely dependent on the packages you use whether this will work or not. You can configure `shadow-cljs`  to prefer the `module` entry via the `:entry-keys` JS option. It takes a vector of string keys found in `package.json` which will be tried in order. The default is `"["browser" "main" "module"]`.
@@ -323,7 +323,7 @@ app` のビルドでは、グローバルな `React` インスタンスが使用
 ////
 Sometimes you wan't more control over which `npm` package is actually used depending on your build. You can "redirect" certain requires from your build config without changing the code. This is often useful if you either don't have access to the sources using such packages or you just want to change it for one build.
 ////
-ビルドに応じて、どの `npm` パッケージが実際に使用されるかをもっとコントロールしたい場合があります。コードを変更することなく、ビルド設定から特定のrequireを「リダイレクト」することができます。これは、そのようなパッケージを使用しているソースにアクセスできない場合や、あるビルドのためだけに変更したい場合に便利です。
+ビルドに応じて、どの `npm` パッケージが実際に使用されるかをもっとコントロールしたい場合があります。コードを変更することなく、ビルド設定から特定のrequireをリダイレクトすることができます。これは、そのようなパッケージを使用しているソースにアクセスできない場合や、あるビルドのためだけに変更したい場合に便利です。
 
 
 ```
@@ -743,7 +743,7 @@ Apart from that not every `npm` package is available via CLJSJS and keeping the 
 ////
 `shadow-cljs` does not support CLJSJS at all to avoid conflicts in your code. One library might attempt to use the "old" `cljsjs.react` while another uses the newer `(:require ["react"])` directly. This would again lead to 2 versions of `react` on your page again.
 ////
-`shadow-cljs` は、コード内の競合を避けるために、CLJSJS を全くサポートしません。あるライブラリが「古い」`cljsjs.react` を使おうとする一方で、別のライブラリはより新しい `(:require ["react"])` を直接使うかもしれません。そうすると、再びページ上に2つのバージョンの `react` が存在することになります。
+`shadow-cljs` は、コード内の競合を避けるために、CLJSJS を全くサポートしません。あるライブラリが古い`cljsjs.react` を使おうとする一方で、別のライブラリはより新しい `(:require ["react"])` を直接使うかもしれません。そうすると、再びページ上に2つのバージョンの `react` が存在することになります。
 
 ////
 So the only thing we are missing are the bundled Externs. In many instances these are not required due to improved <<infer-externs, externs inference>>. Often those Externs are generated using third-party tools which means they are not totally accurate anyways.

@@ -425,7 +425,7 @@ The possible stages the `:build-hooks` can use are:
 With a running `watch` the `:configure` is only called once. Any of the others may be called
 again (in order) for each re-compile. The `build-state` will be re-used until the build config changes at which point it will be thrown away and a fresh one will be created.
 ////
-ウォッチ」を実行していると、「:configure」は一度しか呼ばれません。再コンパイルのたびに、他の項目が
+ウォッチを実行していると、:configureは一度しか呼ばれません。再コンパイルのたびに、他の項目が
 再コンパイルのたびに（順番に）呼び出されます。build-state` はビルドコンフィグが変更されるまで再利用され、その時点で破棄されて新しいものが作成されることになる。
 
 == コンパイラ・キャッシュ
@@ -582,7 +582,7 @@ This defines the `your.app/VERBOSE` variable as `false` by default. This will ca
 ////
 TIP: It is generally safer to use the "disabled" variant as the default since it makes things less likely to be included in a `release` build when they shouldn't be. Forgetting to set a `:closure-defines` variable should almost always result in less code being used not more.
 ////
-ヒント: 一般的には、「disabled」バリアントをデフォルトで使用する方が安全です。なぜなら、「release」ビルドに含まれるべきでないものが含まれる可能性が低くなるからです。また、 `:closure-defines` 変数の設定を忘れると、ほとんどの場合、使用されるコードが増えるのではなく、減ることになります。
+ヒント: 一般的には、disabledバリアントをデフォルトで使用する方が安全です。なぜなら、releaseビルドに含まれるべきでないものが含まれる可能性が低くなるからです。また、 `:closure-defines` 変数の設定を忘れると、ほとんどの場合、使用されるコードが増えるのではなく、減ることになります。
 
 ////
 Closure Defines from the Closure Library
@@ -769,7 +769,7 @@ ignore` には、名前空間を参照するシンボルのセットを指定し
 ////
 By default the generated JS output will be compatible with ES5 and all "newer" features will be transpiled to compatible code using polyfills. This is currently the safest default and supports most browsers in active use (including IE10+).
 ////
-デフォルトでは、生成されるJS出力はES5と互換性があり、すべての「より新しい」機能はポリフィルを使用して互換性のあるコードに変換されます。これは現在のところ最も安全なデフォルトであり、現在使用されているほとんどのブラウザ（IE10+を含む）をサポートしています。
+デフォルトでは、生成されるJS出力はES5と互換性があり、すべてのより新しい機能はポリフィルを使用して互換性のあるコードに変換されます。これは現在のところ最も安全なデフォルトであり、現在使用されているほとんどのブラウザ（IE10+を含む）をサポートしています。
 
 ////
 You can select other output options if you only care about more modern environments and want to keep the original code without replacements (eg. `node`, Chrome Extensions, ...)

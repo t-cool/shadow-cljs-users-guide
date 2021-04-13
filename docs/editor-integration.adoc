@@ -17,7 +17,7 @@ Then in Cursive *File -> New -> Project from Existing Sources* then select the g
 ////
 IMPORTANT: You need to have the "Build Tools" -> "Maven" Plugin enabled for this. It might not be enabled by default.
 ////
-重要：このためには、「Build Tools」→「Maven」プラグインを有効にする必要があります。デフォルトでは有効になっていない場合があります。
+重要：このためには、Build Tools→Mavenプラグインを有効にする必要があります。デフォルトでは有効になっていない場合があります。
 
 ////
 Alternatively you can create a dummy `project.clj` or use the full <<Leiningen, Leiningen integration>>.
@@ -103,7 +103,7 @@ cljs.repl>
 ////
 You should now be able to eval ClojureScript, jump to the definitions of vars (with `cider-find-var`) and much more.
 ////
-これで、ClojureScriptを評価したり、（`cider-find-var` で）変数の定義にジャンプしたりすることができるようになります。
+これで、ClojureScriptを評価したり、 `cider-find-var` で変数の定義にジャンプしたりすることができるようになります。
 
 ////
 For example, to display an alert in the browser:
@@ -193,7 +193,7 @@ Proto REPL は接続時にこの fn を呼び出すので、このファイル�
 ////
 9) Eval some JS, eg. `(js/alert "foo")`. If you get `There is no connected JS runtime` the client is not connected properly. Otherwise the Browser should show an alert.
 ////
-9) `(js/alert "foo")` のように、いくつかのJSを評価します。接続されているJSランタイムがありません」と表示される場合は、クライアントが正しく接続されていません。それ以外の場合は、ブラウザにアラートが表示されます。
+9) `(js/alert "foo")` のように、いくつかのJSを評価します。接続されているJSランタイムがありませんと表示される場合は、クライアントが正しく接続されていません。それ以外の場合は、ブラウザにアラートが表示されます。
 
 == Chlorine (Atom)
 
@@ -265,12 +265,12 @@ $ shadow-cljs watch app
 ////
 Once the app is loaded in the browser, and you see `JS runime connected` in the terminal where you started the app, Calva can connect to its repl. Open the project in VS Code and Calva will by default try to auto connect and prompt you with a list of builds read from `shadow-cljs.edn`. Select the right one (`:app` in this example) and Calva's Clojure and Clojurescript support is activated.
 ////
-アプリがブラウザに読み込まれ、アプリを起動したターミナルに「JS runime connected」と表示されると、Calvaはそのレプリケーションに接続できるようになります。VS Codeでプロジェクトを開くと、Calvaはデフォルトで自動接続を試み、 `shadow-cljs.edn` から読み込んだビルドのリストを表示します。正しいもの(この例では `:app`)を選択すると、CalvaのClojureとClojurescriptのサポートが有効になります。
+アプリがブラウザに読み込まれ、アプリを起動したターミナルにJS runime connectedと表示されると、Calvaはそのレプリケーションに接続できるようになります。VS Codeでプロジェクトを開くと、Calvaはデフォルトで自動接続を試み、 `shadow-cljs.edn` から読み込んだビルドのリストを表示します。正しいもの(この例では `:app`)を選択すると、CalvaのClojureとClojurescriptのサポートが有効になります。
 
 ////
 (If you already have the project open in VS Code when you start the app, issue the `Calva: Connect to a Running REPL Server in the Project` command.)
 ////
-(アプリ起動時にすでにVS Codeでプロジェクトを開いている場合は、「Calva: Connect to a Running REPL Server in the Project」コマンドを発行してください)。
+(アプリ起動時にすでにVS Codeでプロジェクトを開いている場合は、Calva: Connect to a Running REPL Server in the Projectコマンドを発行してください)。
 
 === 特徴
 

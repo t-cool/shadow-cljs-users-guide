@@ -59,7 +59,7 @@ Assuming you are already using the recommended project structure where all your 
             :url "http://www.eclipse.org/legal/epl-v10.html"}
 
   :dependencies
-  ;; Clojureでは常に「provided」を使用します。(Script)
+  ;; Clojureでは常にprovidedを使用します。(Script)
   [[org.clojure/clojurescript "1.10.520" :scope "provided"]
    [some.other/library "1.0.0"]
 
@@ -105,7 +105,7 @@ Also avoid generating output to `resources/*` since Leiningen and other tools ma
 ////
 IMPORTANT: You can and should verify that everything is clean by running `lein jar` and inspecting the files that end up in it via `jar -tvf target/library-1.0.0.jar`.
 ////
-重要：「lein jar」を実行し、「jar -tvf target/library-1.0.0.jar」で最終的に含まれるファイルを検査することで、すべてがクリーンであることを確認できますし、そうすべきです。
+重要：lein jarを実行し、jar -tvf target/library-1.0.0.jarで最終的に含まれるファイルを検査することで、すべてがクリーンであることを確認できますし、そうすべきです。
 
 ## JSの依存関係を宣言する [[publish-deps-cljs]]
 // Declaring JS dependencies [[publish-deps-cljs]]
