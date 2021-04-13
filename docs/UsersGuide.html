@@ -2373,7 +2373,7 @@ localhost（または使用するホスト）のSAN（Subject Alternative Name�
 <p><code>:repl-init-ns</code> では、REPLをどの名前空間で起動するかを設定することができます。デフォルトでは <code>cljs.user</code> となります。</p>
 </li>
 <li>
-<p>repl-pprint` では、REPLがevalの結果を印刷するときに、通常の <code>pr-str</code> の代わりに <code>cljs.pprint</code> を使用します。デフォルトは false です。</p>
+<p>repl-pprint` では、REPLがevalの結果を print するときに、通常の <code>pr-str</code> の代わりに <code>cljs.pprint</code> を使用します。デフォルトは false です。</p>
 </li>
 </ul>
 </div>
@@ -6478,7 +6478,7 @@ $ lein with-profiles +cljs deps <span class="symbol">:tree</span></code></pre>
 <div class="sect3">
 <h4 id="cljs-repl-anatomy"><a class="anchor" href="#cljs-repl-anatomy"></a><a class="link" href="#cljs-repl-anatomy">16.2.1. CLJS REPLの分析</a></h4>
 <div class="paragraph">
-<p>ClojureのREPLは、その名が示す通りのことを行います。1つのフォームを読み、それを評価し、結果を印刷し、それを再び行うためにループします。</p>
+<p>ClojureのREPLは、その名が示す通りのことを行います。1つのフォームを読み、それを評価し、結果を print し、それを再び行うためにループします。</p>
 </div>
 <div class="paragraph">
 <p>しかし、ClojureScriptでは、コンパイルはJVM上で行われますが、結果はJavaScriptランタイムで評価されるので、もう少し複雑です。普通のREPLの経験をエミュレートするためには、さらにいくつかのステップが必要になります。 <code>shadow-cljs</code> では、通常のCLJSとは実装が少し異なりますが、基本的な原理は同じです。</p>

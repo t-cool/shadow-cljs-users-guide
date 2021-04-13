@@ -91,7 +91,7 @@ When running `watch` code for the REPL is injected automatically and usually doe
 - `:repl-pprint` makes the REPL use `cljs.pprint` instead of the regular `pr-str` when printing eval results. Defaults to false.
 ////
 - `:repl-init-ns` では、REPLをどの名前空間で起動するかを設定することができます。デフォルトでは `cljs.user` となります。
-- repl-pprint` では、REPLがevalの結果を印刷するときに、通常の `pr-str` の代わりに `cljs.pprint` を使用します。デフォルトは false です。
+- repl-pprint` では、REPLがevalの結果を print するときに、通常の `pr-str` の代わりに `cljs.pprint` を使用します。デフォルトは false です。
 
 ```
 {...

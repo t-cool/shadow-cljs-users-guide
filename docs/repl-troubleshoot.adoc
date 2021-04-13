@@ -13,7 +13,7 @@ image::shadow-cljs-repl.png[]
 ////
 A REPL in Clojure does exactly what the name implies: Read one form, Eval it, Print the result, Loop to do it again.
 ////
-ClojureのREPLは、その名が示す通りのことを行います。1つのフォームを読み、それを評価し、結果を印刷し、それを再び行うためにループします。
+ClojureのREPLは、その名が示す通りのことを行います。1つのフォームを読み、それを評価し、結果を print し、それを再び行うためにループします。
 
 ////
 In ClojureScript however things are a bit more complicated since compilation happens on the JVM but the results are eval'd in a JavaScript runtime. There are a couple more steps that need to be done due in order to "emulate" the plain REPL experience. Although things are implemented a bit differently in `shadow-cljs` over regular CLJS the basic principles remain the same.
