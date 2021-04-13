@@ -2,7 +2,7 @@
 The `:target :node-library` emits code that can be used (via `require`) as a standard node library, and is
 useful for publishing your code for re-use as a compiled Javascript artifact.
 ////
-target :node-library` は、標準のノードライブラリとして（`require` を通して）使用できるコードを出力します。
+`target :node-library` は、標準のノードライブラリとして（`require` を通して）使用できるコードを出力します。
 これは、コンパイルされたJavascriptの成果物として再利用するためにコードを公開するのに便利です。
 
 ////
@@ -45,7 +45,7 @@ Controlling what code is actually exported is done via one of the following opti
 - `:exports-var` - 完全修飾形式のシンボル
 - `:exports-fn` - 完全修飾されたシンボル
 
-=== 単一で静的な "デフォルト" エクスポート
+=== 単一で静的な デフォルト・エクスポート
 //Single static "default" export
 
 ////
