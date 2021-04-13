@@ -385,7 +385,7 @@ The generated code is capable of using the standard ClojureScript `cljs.loader` 
 ////
 The advantage of using the standard API is that your code will play well with others. This may be of particular importance to library authors. The disadvantage is that the dynamic module loading API in the standard distribution is currently somewhat less easy-to-use than the support in `shadow-cljs`.
 ////
-標準APIを使用することの利点は、自分のコードが他の人とうまく調和することです。これはライブラリの作者にとっては特に重要なことでしょう。不利な点は、標準配布のダイナミックモジュールローディングAPIは、現在のところ `shadow-cljs` のサポートに比べてやや使いにくいことです。
+標準APIを使用することの利点は、自分のコードが他の人とうまく調和することです。これはライブラリの作者にとっては特に重要なことでしょう。不利な点は、標準配布の動的なモジュールローディングAPIは、現在のところ `shadow-cljs` のサポートに比べてやや使いにくいことです。
 
 == アウトプット・ラッパー [[output-wrapper]]
 //Output Wrapper [[output-wrapper]]

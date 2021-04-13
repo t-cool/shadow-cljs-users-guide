@@ -693,7 +693,7 @@ table.CodeRay td.code>pre{padding:0}
 <ul class="sectlevel3">
 <li><a href="#_単一で静的な_デフォルト_エクスポート">9.2.1. 単一で静的な "デフォルト" エクスポート</a></li>
 <li><a href="#_複数の静的な名前付きエクスポート">9.2.2. 複数の静的な名前付きエクスポート</a></li>
-<li><a href="#_dynamic_exports">9.2.3. "Dynamic" exports</a></li>
+<li><a href="#_動的エクスポート">9.2.3. 動的エクスポート</a></li>
 <li><a href="#_完全な例">9.2.4. 完全な例</a></li>
 </ul>
 </li>
@@ -846,15 +846,14 @@ table.CodeRay td.code>pre{padding:0}
 <div class="ulist">
 <ul>
 <li>
-<p>The <a href="https://clojars.org/thheller/shadow-cljs">shadow-cljs</a>
-まずは、実際の仕事をすべて行うClojureライブラリです。</p>
+<p><a href="https://clojars.org/thheller/shadow-cljs">shadow-cljs</a> : こちらは実際の仕事をすべて行うClojureライブラリです。</p>
 </li>
 </ul>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The <a href="https://www.npmjs.com/package/shadow-cljs">shadow-cljs</a>
+<p><a href="https://www.npmjs.com/package/shadow-cljs">shadow-cljs</a> :
 もう一方は、ビルド機能の大半をコマンドラインから直接実行するための便利なインターフェースを提供するnpmパッケージです。</p>
 </li>
 </ul>
@@ -3462,7 +3461,7 @@ Javascriptのファイル名を生成するためにも使用されます。モ�
 <p>生成されたコードは、標準的なClojureScriptの <code>cljs.loader</code> APIを使用することができます。手順については、ClojureScriptウェブサイトのhttps://clojurescript.org/news/2017-07-10-code-splitting[documentation]を参照してください。</p>
 </div>
 <div class="paragraph">
-<p>標準APIを使用することの利点は、自分のコードが他の人とうまく調和することです。これはライブラリの作者にとっては特に重要なことでしょう。不利な点は、標準配布のダイナミックモジュールローディングAPIは、現在のところ <code>shadow-cljs</code> のサポートに比べてやや使いにくいことです。</p>
+<p>標準APIを使用することの利点は、自分のコードが他の人とうまく調和することです。これはライブラリの作者にとっては特に重要なことでしょう。不利な点は、標準配布の動的なモジュールローディングAPIは、現在のところ <code>shadow-cljs</code> のサポートに比べてやや使いにくいことです。</p>
 </div>
 </div>
 </div>
@@ -4214,7 +4213,7 @@ lib[&quot;ok?&quot;](); // call another-ns/ok?</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_dynamic_exports"><a class="anchor" href="#_dynamic_exports"></a><a class="link" href="#_dynamic_exports">9.2.3. "Dynamic" exports</a></h4>
+<h4 id="_動的エクスポート"><a class="anchor" href="#_動的エクスポート"></a><a class="link" href="#_動的エクスポート">9.2.3. 動的エクスポート</a></h4>
 <div class="paragraph">
 <p>さらに、完全修飾シンボルとして <code>:exports-fn</code> を指定することもできます。これは、JSオブジェクト(または関数)を返す、引数のない関数を指す必要があります。この関数は、 <code>node</code> が戻り値をキャッシュするため、一度だけ呼ばれます。</p>
 </div>
@@ -4242,7 +4241,7 @@ lib[&quot;ok?&quot;](); // call another-ns/ok?</code></pre>
 <div class="sect3">
 <h4 id="_完全な例"><a class="anchor" href="#_完全な例"></a><a class="link" href="#_完全な例">9.2.4. 完全な例</a></h4>
 <div class="paragraph">
-<p>以下の例では、通常の Node <code>require</code> メカニズムで消費されることを意図して <code>lib.js</code> ファイルを作成しています。</p>
+<p>以下の例では、通常の Node <code>require</code> メカニズムで使われることを想定して <code>lib.js</code> ファイルを作成します。</p>
 </div>
 <div class="listingblock">
 <div class="content">

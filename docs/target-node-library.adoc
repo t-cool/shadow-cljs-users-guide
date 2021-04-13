@@ -134,7 +134,7 @@ You can achieve the exact same thing by using `:exports-var` pointing to a `def`
                   ...})
 ```
 
-=== "Dynamic" exports
+=== 動的エクスポート
 
 ////
 In addition you may specify `:exports-fn` as a fully qualified symbol. This should point to a function with no arguments which should return a JS object (or function). This function will only ever be called ONCE as `node` caches the return value.
@@ -168,7 +168,7 @@ NOTE: The exports config automatically tracks exported symbols and passes them o
 ////
 The example below creates a `lib.js` file intended to be consumed via the normal Node `require` mechanism.
 ////
-以下の例では、通常の Node `require` メカニズムで消費されることを意図して `lib.js` ファイルを作成しています。
+以下の例では、通常の Node `require` メカニズムで使われることを想定して `lib.js` ファイルを作成します。
 
 ```
 (ns demo.lib)
