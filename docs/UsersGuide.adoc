@@ -1,5 +1,5 @@
-= Shadow CLJS User's Guide
-:author: Thomas Heller and Tony Kay
+= Shadow CLJS User's Guide (邦訳)
+:author: Thomas Heller , Tony Kay
 :revdate: Jan 10, 2018
 :revnumber: 1.0
 :lang: en
@@ -182,7 +182,7 @@ $ yarn add --dev shadow-cljs
 ////
 For convenience you can run `npm install -g shadow-cljs` or `yarn global add shadow-cljs`. This will let you run the `shadow-cljs` command directly later. There should always be a shadow-cljs version installed in your project, the global install is optional.
 ////
-便宜上、`npm install -g shadow-cljs` または `yarn global add shadow-cljs` を実行することができます。これにより、後で `shadow-cljs` コマンドを直接実行できるようになります。あなたのプロジェクトには常に shadow-cljs のバージョンがインストールされている必要があり、グローバル・インストールはオプションです。
+便宜上、`npm install -g shadow-cljs` または `yarn global add shadow-cljs` を実行することができます。これにより、後で `shadow-cljs` コマンドを直接実行できるようになります。あなたのプロジェクトには常に shadow-cljs のバージョンがインストールされている必要があり、グローバル・インストールは任意です。
 
 
 == ライブラリ
@@ -195,7 +195,7 @@ Although it is recommended to run the standalone version via `npm` you can also 
 ////
 The artifact can be found at:
 ////
-このアーティファクトは以下のサイトでご覧いただけます。
+このアーティファクト(artifact)は以下のサイトで入手できます。
 
 
 ////
@@ -216,7 +216,7 @@ include::repl.adoc[]
 create a default one by running `shadow-cljs init`. It should contain a map with some global
 configuration and a `:builds` entry for all your builds.
 ////
-shadow-cljs` は、プロジェクトのルートディレクトリにある `shadow-cljs.edn` ファイルによって設定されます。デフォルトのファイルを作成するには
+`shadow-cljs` は、プロジェクトのルートディレクトリにある `shadow-cljs.edn` ファイルによって設定されます。デフォルトのファイルを作成するには
 shadow-cljs init` を実行することで、デフォルトのファイルを作成することができます。このファイルには、いくつかのグローバルな設定を含むマップと
 マップと、すべてのビルドのための `:builds` エントリが含まれています。
 
@@ -464,7 +464,7 @@ This will make the `shadow-cljs` command use the `[:cider :cljs]` aliases in pro
 ////
 By default the `shadow-cljs` server-mode will launch an embedded nREPL server which you might not need. You can disable this by setting `:nrepl false` in user config.
 ////
-デフォルトでは、`shadow-cljs` サーバーモードでは、組み込まれた nREPL サーバーが起動しますが、これは必要ないかもしれません。これを無効にするには、ユーザー設定で `:nrepl false` を設定します。
+デフォルトでは、`shadow-cljs` サーバモードでは、組み込まれた nREPL サーバが起動しますが、これは必要ないかもしれません。これを無効にするには、ユーザー設定で `:nrepl false` を設定します。
 
 
 ////
@@ -477,7 +477,7 @@ The only other currently accepted value in the user config is the <<open-file-co
 ////
 This section is for other options that configure the `shadow-cljs` server instance. They are optional.
 ////
-このセクションでは、`shadow-cljs` サーバーインスタンスを構成するその他のオプションについて説明します。これらはオプションです。
+このセクションでは、`shadow-cljs` サーバインスタンスを構成するその他のオプションについて説明します。これらはオプションです。
 
 === nREPL [[nREPL]]
 
@@ -535,7 +535,7 @@ nrepl`オプションで`:init-ns`を設定することで、接続時に起動�
 ////
 The nREPL server can be disabled by setting `:nrepl false`.
 ////
-nREPLサーバーは、`:nrepl false`を設定することで無効にすることができます。
+nREPLサーバは、`:nrepl false`を設定することで無効にすることができます。
 
 
 ==== nREPL Usage
@@ -543,7 +543,7 @@ nREPLサーバーは、`:nrepl false`を設定することで無効にするこ�
 ////
 When connecting to the nREPL server the connection always starts out as a Clojure REPL. Switching to a CLJS REPL works similarly to the <<cljs-repl, non-nREPL version>>. First the `watch` for the given build needs to be started and then we need to select this build to switch the current nREPL session to that build. After selecting the build everything will be eval'd in ClojureScript instead of Clojure.
 ////
-nREPLサーバーに接続すると、接続は常にClojure REPLとして開始されます。CLJS REPLへの切り替えは、<<cljs-repl, non-nREPL version>>と同様に動作します。まず、与えられたビルドの `watch` を開始する必要があり、次に現在の nREPL セッションをそのビルドに切り替えるために、このビルドを選択する必要があります。ビルドを選択すると、すべての評価はClojureではなくClojureScriptで行われます。
+nREPLサーバに接続すると、接続は常にClojure REPLとして開始されます。CLJS REPLへの切り替えは、<<cljs-repl, non-nREPL version>>と同様に動作します。まず、与えられたビルドの `watch` を開始する必要があり、次に現在の nREPL セッションをそのビルドに切り替えるために、このビルドを選択する必要があります。ビルドを選択すると、すべての評価はClojureではなくClojureScriptで行われます。
 
 ```repl
 (shadow/watch :the-build)
@@ -591,7 +591,7 @@ TIP: You still need to start the <<embedded, embedded server>> manually before u
 ////
 A Clojure Socket REPL is started automatically in server-mode and uses a random port by default. Tools can find the port it was started under by checking `.shadow-cljs/socket-repl.port` which will contain the port number.
 ////
-Clojure Socket REPLは、サーバーモードで自動的に起動され、デフォルトでランダムなポートを使用します。ツールは、ポート番号を含む `.shadow-cljs/socket-repl.port` をチェックすることで、起動されたポートを見つけることができます。
+Clojure Socket REPLは、サーバモードで自動的に起動され、デフォルトでランダムなポートを使用します。ツールは、ポート番号を含む `.shadow-cljs/socket-repl.port` をチェックすることで、起動されたポートを見つけることができます。
 
 ////
 You can also set a fixed port by via `shadow-cljs.edn`.
@@ -686,13 +686,13 @@ shadow-cljs - server running at http://0.0.0.0:9630
 ////
 When `:ssl` is configured the server will be available via `https://` instead.
 ////
-ssl`が設定されている場合、サーバーは代わりに`https://`を介して利用できます。
+ssl`が設定されている場合、サーバは代わりに`https://`を介して利用できます。
 
 
 ////
 TIP: The server automatically supports HTTP/2 when using `:ssl`.
 ////
-ヒント: `:ssl` を使用すると、サーバーは自動的に HTTP/2 をサポートします。
+ヒント: `:ssl` を使用すると、サーバは自動的に HTTP/2 をサポートします。
 
 ////
 If you prefer to set your own port instead you can do this via the `:http` config.
@@ -715,7 +715,7 @@ If you prefer to set your own port instead you can do this via the `:http` confi
 ////
 `:ssl` switches the server to server `https://` only. If you want to keep the `http://` version you can configure a separate `:ssl-port` as well.
 ////
-`:ssl` は、サーバーを `https://` のみに切り替えます。もし、`http://` のバージョンを維持したい場合は、別の `:ssl-port` を設定することができます。
+`:ssl` は、サーバを `https://` のみに切り替えます。もし、`http://` のバージョンを維持したい場合は、別の `:ssl-port` を設定することができます。
 
 ```
 {...
@@ -736,12 +736,12 @@ shadow-cljs`では、`:dev-http`という設定項目で、追加の基本的な
 ////
 These servers are started automatically when `shadow-cljs` is running in server mode. They are not specific to any build and can be used to serve files for multiple builds as long as a unique `:output-dir` is used for each.
 ////
-これらのサーバは `shadow-cljs` がサーバモードで動作しているときに自動的に開始されます。これらのサーバーはどのビルドにも特定されず、それぞれにユニークな `:output-dir` が使用されている限り、複数のビルドのファイルを提供するために使用することができます。
+これらのサーバは `shadow-cljs` がサーバモードで動作しているときに自動的に開始されます。これらのサーバはどのビルドにも特定されず、それぞれにユニークな `:output-dir` が使用されている限り、複数のビルドのファイルを提供するために使用することができます。
 
 ////
 IMPORTANT:: These are just generic web servers that server static files. They are not required for any live-reload or REPL logic. Any webserver will do, these are just provided for convenience.
 ////
-重要なことです。これらは、静的ファイルをサーバーする一般的なウェブサーバーです。これらはライブリロードやREPLのロジックには必要ありません。どのようなウェブサーバでも使用できますが、これらは単に利便性のために提供されています。
+重要なことです。これらは、静的ファイルをサーバする一般的なウェブサーバです。これらはライブリロードやREPLのロジックには必要ありません。どのようなウェブサーバでも使用できますが、これらは単に利便性のために提供されています。
 
 ////
 .Basic example serving the `public` directory via `http://localhost:8000`
@@ -817,7 +817,7 @@ if a resource is not found for the given request. Defaults to `shadow.http.push-
 ////
 `:root`:: (String) リクエストを処理するためのパスです。classpath:` で始まるパスは、ファイルシステムではなく、クラスパスからリクエストを処理します。すべてのファイルシステムのパスは、プロジェクトのルートからの相対パスです。
 `:roots`:: 複数のルートパスが必要な場合は、`:root` の代わりに使用します。
-`:ssl-port`:: (文字列のベクトル) ssl`が設定されている場合、ssl接続にはこのポートを使用し、通常のHTTPサーバーは通常のポートを使用します。ssl-port` が設定されておらず、`:ssl` が設定されている場合、デフォルトのポートは SSL リクエストのみをサーバーします。
+`:ssl-port`:: (文字列のベクトル) ssl`が設定されている場合、ssl接続にはこのポートを使用し、通常のHTTPサーバは通常のポートを使用します。ssl-port` が設定されておらず、`:ssl` が設定されている場合、デフォルトのポートは SSL リクエストのみをサーバします。
 `:host`:: オプションです。リッスンするホスト名を指定します。デフォルトでは localhost になります。
 `:handler`:: オプションです。完全に修飾されたシンボルです。与えられたリクエストに対してリソースが見つからない場合に使用される `(defn handler [req] resp)` です。
 (defn handler [req] resp)` は、与えられたリクエストに対してリソースが見つからない場合に使用されます。デフォルトでは `shadow.http.push-state/handle` となります。
@@ -848,7 +848,7 @@ The following two options only apply when using the default, built-in handler an
 ////
 By default the dev server will attempt to serve requests locally but sometimes you may want to use an external web server to serve requests (eg. API request). This can be configured via `:proxy-url`.
 ////
-デフォルトでは、開発サーバーはローカルでリクエストを処理しようとしますが、外部のWebサーバーを使ってリクエストを処理したい場合もあります（例：APIリクエスト）。これは `:proxy-url` で設定できます。
+デフォルトでは、開発サーバはローカルでリクエストを処理しようとしますが、外部のWebサーバを使ってリクエストを処理したい場合もあります（例：APIリクエスト）。これは `:proxy-url` で設定できます。
 
 
 ```
@@ -862,7 +862,7 @@ By default the dev server will attempt to serve requests locally but sometimes y
 ////
 A request going to `http://localhost:8000/api/foo` will serve the content returned by `https://some.host/api/foo` instead. All request that do not have a local file will be served by the proxied server.
 ////
-http://localhost:8000/api/foo` へのリクエストは、代わりに `https://some.host/api/foo` が返すコンテンツを提供します。ローカルファイルを持たないすべてのリクエストは、プロキシされたサーバーによって提供されます。
+http://localhost:8000/api/foo` へのリクエストは、代わりに `https://some.host/api/foo` が返すコンテンツを提供します。ローカルファイルを持たないすべてのリクエストは、プロキシされたサーバによって提供されます。
 
 
 ////
@@ -1081,7 +1081,7 @@ https://clojurians.slack.com/messages/C6N245JGG[`#shadow-cljs` Slackチャンネ
 = Hacking
 
 //Patching Libraries
-== ライブラリーのパッチ適用
+== ライブラリのパッチ適用
 
 ////
 The `shadow-cljs` compiler ensures that things on your source paths are compiled first, overriding files from JARs. This means that you can copy a source file from a library, patch it, and include it in your own source directory.

@@ -524,7 +524,7 @@ IMPORTANT: The files must not be physically located in the same directory. The l
 ////
 IMPORTANT: It is expected that the classpath only contains JavaScript that can be consumed without any pre-processing by the Compiler. `npm` has a very similar convention.
 ////
-重要: クラスパスには、コンパイラーが前処理をしなくても消費できるJavaScriptだけが含まれていることが期待されています。npm`にもよく似た規約があります。
+重要: クラスパスには、コンパイラが前処理をしなくても消費できるJavaScriptだけが含まれていることが期待されています。npm`にもよく似た規約があります。
 
 ////
 The Closure Compiler is used for processing all JavaScript found on the classpath using its `ECMASCRIPT_NEXT` language setting. What exactly this setting means is not well documented but it mostly represents the next generation JavaScript code which might not even be supported by most browsers yet. ES6 is very well supported as well as most ES8 features. Similarly to standard CLJS this will be compiled down to ES5 with polyfills when required.
@@ -657,7 +657,7 @@ IMPORTANT: `shadow-cljs` currently does not provide any support for running thos
 ////
 The JS sources can access all your ClojureScript (and the Closure Library) directly by importing their namespaces with a `goog:` prefix which the Compiler will rewrite to expose the namespace as the default ES6 export.
 ////
-JSソースは、名前空間を`goog:`というプレフィックスでインポートすることで、すべてのClojureScript（およびClosure Library）に直接アクセスすることができます。このプレフィックスは、コンパイラーが名前空間をデフォルトのES6エクスポートとして公開するように書き換えます。
+JSソースは、名前空間を`goog:`というプレフィックスでインポートすることで、すべてのClojureScript（およびClosure Library）に直接アクセスすることができます。このプレフィックスは、コンパイラが名前空間をデフォルトのES6エクスポートとして公開するように書き換えます。
 
 
 ```

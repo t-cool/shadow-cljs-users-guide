@@ -710,7 +710,7 @@ Options that don't have any effect at all include
 ////
 It is sometimes desireable to fail a build with warnings rather than continuing with the build (eg. in CI envs). You can use the `:warnings-as-errors` compiler options to customize how that is handled.
 ////
-ビルドを続行するのではなく、警告を表示してビルドを失敗させたい場合があります（例：CI環境など）。warnings-as-errors`コンパイラーオプションを使って、その処理方法をカスタマイズすることができます。
+ビルドを続行するのではなく、警告を表示してビルドを失敗させたい場合があります（例：CI環境など）。warnings-as-errors`コンパイラオプションを使って、その処理方法をカスタマイズすることができます。
 
 ////
 .Treat all warnings as errors
@@ -837,12 +837,12 @@ CAUTION: この機能は `shadow-cljs` でのみ動作します。これは Cloj
 ////
 `shadow-cljs` lets you configure additional reader features in `.cljc` files. By default you can only use reader conditionals to generate separate code for `:clj`, `:cljs` or `:cljr`. In many CLJS builds however it is also desirable to select which code is generated based on your `:target`.
 ////
-shadow-cljs` では、`.cljc` ファイルに追加のリーダー機能を設定することができます。デフォルトでは、リーダーの条件式を使用して、`:clj`、`:cljs`、または `:cljr` 用の個別のコードを生成することしかできません。しかし、多くのCLJSのビルドでは、`:target`に基づいて、どのコードを生成するかを選択することも望ましいことです。
+shadow-cljs` では、`.cljc` ファイルに追加のリーダ機能を設定することができます。デフォルトでは、リーダの条件式を使用して、`:clj`、`:cljs`、または `:cljr` 用の個別のコードを生成することしかできません。しかし、多くのCLJSのビルドでは、`:target`に基づいて、どのコードを生成するかを選択することも望ましいことです。
 
 ////
 Example: Some `npm` packages only work when targeting the `:browser`, but you may have a `ns` that you also want to use in a `:node-script` build. This might happen frequently when trying to use Server-Side Rendering (SSR) with your React App. `codemirror` is one such package.
 ////
-例 一部の `npm` パッケージは `:browser` をターゲットにしたときにのみ動作しますが、`:node-script` のビルドでも使用したい `ns` があるかもしれません。これは、Reactアプリでサーバーサイドレンダリング(SSR)を使おうとしているときに頻繁に起こるかもしれません。codemirror` はそのようなパッケージの一つです。
+例 一部の `npm` パッケージは `:browser` をターゲットにしたときにのみ動作しますが、`:node-script` のビルドでも使用したい `ns` があるかもしれません。これは、Reactアプリでサーバサイドレンダリング(SSR)を使おうとしているときに頻繁に起こるかもしれません。codemirror` はそのようなパッケージの一つです。
 
 ```clojure
 (ns my.awesome.component
@@ -866,7 +866,7 @@ This namespace will compile fine for both builds (`:node-script` and `:browser`)
 ////
 While you can use <<closure-defines, :closure-defines>> to conditionally compile away the `init-cm` fn you can not use it to get rid of the extra `:require`. Reader conditionals let you do this easily.
 ////
-<<closure-defines, :closure-defines>> を使って条件付きで `init-cm` fn をコンパイルすることはできますが、余分な `:require` を取り除くために使うことはできません。リーダーの条件式を使えば、これが簡単にできます。
+<<closure-defines, :closure-defines>> を使って条件付きで `init-cm` fn をコンパイルすることはできますが、余分な `:require` を取り除くために使うことはできません。リーダの条件式を使えば、これが簡単にできます。
 
 ```clojure
 (ns my.awesome.component
@@ -991,7 +991,7 @@ IMPORTANT: If you specify multiple build ids the data will be merged into all sp
 ////
 It is possible to use environment variables to set configuration values in `shadow-cljs.edn` but you should consider using `--config-merge` instead. If you really must use an environment variable you can do so via the `#shadow/env "FOO"` reader tag. You can also use the shorter `#env`.
 ////
-環境変数を使って `shadow-cljs.edn` の設定値を設定することは可能ですが、代わりに `--config-merge` の使用を検討すべきです。どうしても環境変数を使わなければならない場合は、`#shadow/env "FOO"` というリーダータグを使って設定することができます。また、より短い `#env` も使用できます。
+環境変数を使って `shadow-cljs.edn` の設定値を設定することは可能ですが、代わりに `--config-merge` の使用を検討すべきです。どうしても環境変数を使わなければならない場合は、`#shadow/env "FOO"` というリーダタグを使って設定することができます。また、より短い `#env` も使用できます。
 
 ////
 .Example `shadow-cljs.edn` config

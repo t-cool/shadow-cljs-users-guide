@@ -92,7 +92,7 @@ Enter the name of your build target, for example, `app`.
 ////
 Emacs should now open a new nREPL connection to the `shadow-cljs` server of its sibling, bootstrapping into a ClojureScript REPL environment:
 ////
-Emacs は、その兄弟の `shadow-cljs` サーバーへの新しい nREPL 接続を開き、ClojureScript REPL 環境にブートストラップします。
+Emacs は、その兄弟の `shadow-cljs` サーバへの新しい nREPL 接続を開き、ClojureScript REPL 環境にブートストラップします。
 
 ```console
 shadow.user> To quit, type: :cljs/quit
@@ -153,7 +153,7 @@ You need to setup a couple of things to get it working.
 ////
 The file must define the `user/reset` fn since Proto REPL will call that when connecting. If `user/reset` is not found it will call `tools.namespace` which destroys the running `shadow-cljs` server. We don't want that. You could do something here but we don't need to do anything for CLJS.
 ////
-Proto REPL は接続時にこの fn を呼び出すので、このファイルは `user/reset` fn を定義していなければなりません。もし、`user/reset` が見つからなければ、`tools.namespace` が呼び出され、実行中の `shadow-cljs` サーバーが破壊されます。私たちはこれを望んでいません。ここで何かできるかもしれませんが、CLJSのために何かする必要はありません。
+Proto REPL は接続時にこの fn を呼び出すので、このファイルは `user/reset` fn を定義していなければなりません。もし、`user/reset` が見つからなければ、`tools.namespace` が呼び出され、実行中の `shadow-cljs` サーバが破壊されます。私たちはこれを望んでいません。ここで何かできるかもしれませんが、CLJSのために何かする必要はありません。
 
 ////
 2) add `[proto-repl "0.3.1"]` to your `:dependencies` in <<user-config, ~/.shadow-cljs/config.edn>> or `shadow-cljs.edn`.
@@ -200,7 +200,7 @@ Proto REPL は接続時にこの fn を呼び出すので、このファイル�
 ////
 Chlorine connects Atom to a Socket REPL, but also tries to refresh namespace. So first, open up Chlorine package config and check if configuration `Should we use clojure.tools.namespace to refresh` is set to `simple`, otherwise it'll destroy the running `shadow-cljs` server.
 ////
-Chlorineは、AtomをSocket REPLに接続しますが、同時に名前空間のリフレッシュも試みます。まず、Chlorineパッケージのコンフィグを開き、コンフィグ `Should we use clojure.tools.namespace to refresh` が `simple` に設定されているかどうかを確認します。そうしないと、実行中の `shadow-cljs` サーバーが破壊されてしまいます。
+Chlorineは、AtomをSocket REPLに接続しますが、同時に名前空間のリフレッシュも試みます。まず、Chlorineパッケージのコンフィグを開き、コンフィグ `Should we use clojure.tools.namespace to refresh` が `simple` に設定されているかどうかを確認します。そうしないと、実行中の `shadow-cljs` サーバが破壊されてしまいます。
 
 ////
 Once you checked that the configuration is right, you can start your shadow app (replace `app` with whatever build):
@@ -323,7 +323,7 @@ Some of the things you can now do:
 - 名前空間のテストを実行します。ctrl+alt+c t`とする。
 - すべてのテストを実行します。ctrl+alt+c shift+t` (これまでの大規模プロジェクトでは非常に不便でした。)
 - 以前に失敗したテストを再実行します。`ctrl+alt+c ctrl+t` です。
-- テストの失敗はエクスプローラーやエディターでマークされ、簡単にアクセスできるようにProblemタブにリストアップされます。
+- テストの失敗はエクスプローラーやエディタでマークされ、簡単にアクセスできるようにProblemタブにリストアップされます。
 
 ==== ターミナルの REPL
 //Terminal repls
@@ -412,22 +412,22 @@ npx shadow-cljs watch frontend
 ////
 Open the app in a browser at http://localhost:8080/. Without this step, you would get the following error message from https://www.vim.org/scripts/script.php?script_id=4978[Fireplace.vim] if you attempt to connect to the REPL server from within Vim/Neovim:
 ////
-http://localhost:8080/、ブラウザでアプリを開きます。この手順を行わないと、Vim/Neovim内からREPLサーバーに接続しようとすると、https://www.vim.org/scripts/script.php?script_id=4978[Fireplace.vim]から次のようなエラーメッセージが表示されます。
+http://localhost:8080/、ブラウザでアプリを開きます。この手順を行わないと、Vim/Neovim内からREPLサーバに接続しようとすると、https://www.vim.org/scripts/script.php?script_id=4978[Fireplace.vim]から次のようなエラーメッセージが表示されます。
 
 ```
 No application has connected to the REPL server. 
 Make sure your JS environment has loaded your compiled ClojureScript code.
 ```
-どのアプリケーションも REPL サーバーに接続していません。
+どのアプリケーションも REPL サーバに接続していません。
 JS環境がコンパイルしたClojureScriptコードを読み込んでいることを確認してください。
 
-=== Fireplace.vimとREPLサーバーの接続
+=== Fireplace.vimとREPLサーバの接続
 //Connecting Fireplace.vim to REPL Server
 
 ////
 Open a ClojureScript source file in Vim/Neovim and execute the following command to connect https://www.vim.org/scripts/script.php?script_id=4978[Fireplace.vim] to the REPL server (note the port for the REPL server, `3333`, specified in `shadow-cljs.edn`):
 ////
-Vim/NeovimでClojureScriptのソースファイルを開き、以下のコマンドを実行して、https://www.vim.org/scripts/script.php?script_id=4978[Fireplace.vim]をREPLサーバーに接続します（REPLサーバーのポートは、`shadow-cljs.edn`で指定されている`3333`であることに注意してください）。
+Vim/NeovimでClojureScriptのソースファイルを開き、以下のコマンドを実行して、https://www.vim.org/scripts/script.php?script_id=4978[Fireplace.vim]をREPLサーバに接続します（REPLサーバのポートは、`shadow-cljs.edn`で指定されている`3333`であることに注意してください）。
 
 ```
 :Connect 3333

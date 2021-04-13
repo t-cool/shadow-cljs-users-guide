@@ -4,7 +4,7 @@ be able to run the tests from a command line and get back a status code. Karma i
 and supported test runner that can do this for you, and `shadow-cljs` includes a target that
 can add the appropriate wrappers around your tests so they will work in it.
 ////
-CLJSのテストをある種のCIサーバー上でブラウザに対して実行したい場合、次のことが必要になります。
+CLJSのテストをある種のCIサーバ上でブラウザに対して実行したい場合、次のことが必要になります。
 コマンドラインからテストを実行して、ステータスコードを返すことができる必要があります。Karmaはよく知られており
 そして、`shadow-cljs`には、あなたのテストの周りに適切なラッパーを追加できるターゲットが含まれています。
 ターゲットが含まれており、テストに適切なラッパーを追加することで、テストがKarmaで動作するようになります。

@@ -107,7 +107,7 @@ can override settings by including a `:dev` and/or `:release` section in the bui
 ////
 Since we want builds to be fully optimized by the Closure Compiler `:advanced` compilation we need to deal with https://developers.google.com/closure/compiler/docs/api-tutorial3[Externs]. Externs represent pieces of code that are not included when doing `:advanced` compilation. `:advanced` works by doing whole program optimizations but some code we just won't be able to include so Externs inform the Compiler about this code. Without Externs the Compiler may rename or remove some code that it shouldn't.
 ////
-Closure Compiler `:advanced` のコンパイルによってビルドを完全に最適化したいので、https://developers.google.com/closure/compiler/docs/api-tutorial3[Externs]を扱う必要があります。Externsは、`:advanced`のコンパイルの際に含まれないコードの断片を表します。advanced`はプログラム全体の最適化を行いますが、どうしても含まれないコードもあるため、Externsはコンパイラーにそのコードを知らせます。Externsがないと、コンパイラーは含めるべきでないコードの名前を変えたり、削除したりすることがあります。
+Closure Compiler `:advanced` のコンパイルによってビルドを完全に最適化したいので、https://developers.google.com/closure/compiler/docs/api-tutorial3[Externs]を扱う必要があります。Externsは、`:advanced`のコンパイルの際に含まれないコードの断片を表します。advanced`はプログラム全体の最適化を行いますが、どうしても含まれないコードもあるため、Externsはコンパイラにそのコードを知らせます。Externsがないと、コンパイラは含めるべきでないコードの名前を変えたり、削除したりすることがあります。
 
 ////
 Typically all JS Dependencies are foreign and won't be passed through `:advanced` and thus require Externs.
@@ -145,12 +145,12 @@ Externs を扱うために、`shadow-cljs` コンパイラは強化された ext
 ////
 With `:auto` the compiler will perform additional checks at compile time for your files only. It won't warn you about possible externs issues in library code. `:all` will enable it for everthing but be aware that you may get a lot of warnings.
 ////
-auto`では、コンパイラーはコンパイル時にあなたのファイルだけを対象に追加のチェックを行います。また、ライブラリコードに含まれる externs の問題については警告しません。all`では、すべてのファイルに対して有効になりますが、多くの警告を受ける可能性があることに注意してください。
+auto`では、コンパイラはコンパイル時にあなたのファイルだけを対象に追加のチェックを行います。また、ライブラリコードに含まれる externs の問題については警告しません。all`では、すべてのファイルに対して有効になりますが、多くの警告を受ける可能性があることに注意してください。
 
 ////
 When enabled you'll get warnings whenever the Compiler cannot figure out whether you are working with JS or CLJS code.
 ////
-有効にすると、コンパイラーがJSとCLJSのどちらのコードを使用しているかを判断できない場合に警告が表示されます。
+有効にすると、コンパイラがJSとCLJSのどちらのコードを使用しているかを判断できない場合に警告が表示されます。
 
 ////
 .Example Code
@@ -292,7 +292,7 @@ Some libraries provide Externs as separate `.js` files. You can include them int
 ////
 TIP: The compiler looks for files relative to the project root first. It will also attempt to load them from the classpath if no file is found.
 ////
-ヒント：コンパイラーは、プロジェクトルートに相対するファイルを最初に探します。ファイルが見つからない場合は、クラスパスからの読み込みも試みます。
+ヒント：コンパイラは、プロジェクトルートに相対するファイルを最初に探します。ファイルが見つからない場合は、クラスパスからの読み込みも試みます。
 
 === 簡易なエクスターン
 //Simplified Externs

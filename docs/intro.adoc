@@ -120,7 +120,7 @@ This is unlike `npm` where the package name itself is never used inside the pack
 ////
 `shadow-cljs` can be started in "server" mode which is required for long-running tasks such as `watch`. A `watch` will implicitly start the server instance if it is not already running. The server will provide the Websocket endpoint that builds will connect to as well as all the other endpoints for nREPL, Socket REPL and the development HTTP servers.
 ////
-shadow-cljs` はserverモードで起動することができます。これはwatchのような長時間稼働するタスクに必要です。watchは、サーバーインスタンスがまだ起動していなければ、暗黙のうちに起動します。serverは、ビルドが接続するWebsocketのエンドポイントを提供します。また、nREPL、Socket REPL、開発用HTTPサーバーの他のすべてのエンドポイントも同様に提供します。
+shadow-cljs` はserverモードで起動することができます。これはwatchのような長時間稼働するタスクに必要です。watchは、サーバインスタンスがまだ起動していなければ、暗黙のうちに起動します。serverは、ビルドが接続するWebsocketのエンドポイントを提供します。また、nREPL、Socket REPL、開発用HTTPサーバの他のすべてのエンドポイントも同様に提供します。
 
 
 ////
