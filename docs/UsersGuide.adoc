@@ -883,8 +883,8 @@ Additional optional Options to configure the connection handling are:
 `:proxy-max-connection-retries`:: int, defaults to 1.
 `:proxy-max-request-time`:: ms as int, defaults to 30000. 30sec request timeout.
 ////
-追加オプション 接続処理を設定するオプションは以下の通りです。
-[横型].
+接続処理を設定するオプションは以下の通りです。
+[Horizontal]
 `:proxy-rewrite-host-header`:: boolean, デフォルトは true です。オリジナルの Host ヘッダーを使用するか、 `:proxy-url` からのヘッダーを使用するかを決定します。上記の例では、 `localhost` と `some.host` のどちらを使用するかを決定します。
 `:proxy-reuse-x-forwarded`:: boolean, デフォルトは false です。プロキシが自分自身を `X-Forwarded-For` リストに追加するか、新しいリストを開始するかを設定します。
 `:proxy-max-connection-retries`:: int, デフォルトは1です。

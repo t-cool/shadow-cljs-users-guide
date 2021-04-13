@@ -2231,12 +2231,27 @@ localhost（または使用するホスト）のSAN（Subject Alternative Name�
 <p><code><a href="http://localhost:8000/api/foo" class="bare">http://localhost:8000/api/foo</a></code> へのリクエストは、代わりに <code><a href="https://some.host/api/foo" class="bare">https://some.host/api/foo</a></code> が返すコンテンツを提供します。ローカルファイルを持たないすべてのリクエストは、プロキシされたサーバによって提供されます。</p>
 </div>
 <div class="paragraph">
-<p>追加オプション 接続処理を設定するオプションは以下の通りです。
-[横型].
-<code>:proxy-rewrite-host-header</code>:: boolean, デフォルトは true です。オリジナルの Host ヘッダーを使用するか、 <code>:proxy-url</code> からのヘッダーを使用するかを決定します。上記の例では、 <code>localhost</code> と <code>some.host</code> のどちらを使用するかを決定します。
-<code>:proxy-reuse-x-forwarded</code>:: boolean, デフォルトは false です。プロキシが自分自身を <code>X-Forwarded-For</code> リストに追加するか、新しいリストを開始するかを設定します。
-<code>:proxy-max-connection-retries</code>:: int, デフォルトは1です。
-<code>:proxy-max-request-time</code>:: intとしてのミリ秒、デフォルトは30000です。30秒のリクエストタイムアウトです。</p>
+<p>接続処理を設定するオプションは以下の通りです。</p>
+</div>
+<div class="dlist Horizontal">
+<dl>
+<dt><code>:proxy-rewrite-host-header</code></dt>
+<dd>
+<p>boolean, デフォルトは true です。オリジナルの Host ヘッダーを使用するか、 <code>:proxy-url</code> からのヘッダーを使用するかを決定します。上記の例では、 <code>localhost</code> と <code>some.host</code> のどちらを使用するかを決定します。</p>
+</dd>
+<dt><code>:proxy-reuse-x-forwarded</code></dt>
+<dd>
+<p>boolean, デフォルトは false です。プロキシが自分自身を <code>X-Forwarded-For</code> リストに追加するか、新しいリストを開始するかを設定します。</p>
+</dd>
+<dt><code>:proxy-max-connection-retries</code></dt>
+<dd>
+<p>int, デフォルトは1です。</p>
+</dd>
+<dt><code>:proxy-max-request-time</code></dt>
+<dd>
+<p>intとしてのミリ秒、デフォルトは30000です。30秒のリクエストタイムアウトです。</p>
+</dd>
+</dl>
 </div>
 </div>
 </div>
@@ -6704,7 +6719,7 @@ lein jarを実行し、jar -tvf target/library-1.0.0.jarで最終的に含まれ
 <div id="footer">
 <div id="footer-text">
 Version 1.0<br>
-Last updated 2021-04-14 06:12:10 JST
+Last updated 2021-04-14 06:16:44 JST
 </div>
 </div>
 </body>
