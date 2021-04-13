@@ -3,7 +3,7 @@
 ////
 https://www.npmjs.com/[npm] has become the de-facto standard package manager for JavaScript. Almost all JS libraries can be found there and shadow-cljs provides seamless integration for accessing those packages.
 ////
-https://www.npmjs.com/[npm]は、JavaScriptのデファクトスタンダードなパッケージマネージャとなっています。ほとんどすべての JS ライブラリはそこで見つけることができ、shadow-cljs はそれらのパッケージにアクセスするためのシームレスな統合を提供します。
+https://www.npmjs.com/[npm] は、JavaScriptのデファクトスタンダードのパッケージマネージャとなっています。ほとんどすべての JS ライブラリはそこで見つけることができ、shadow-cljs はそれらのパッケージにアクセスするためのシームレスな統合を提供します。
 
 === npmパッケージの使用
 //Using npm packages
