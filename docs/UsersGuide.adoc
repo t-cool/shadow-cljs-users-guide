@@ -1102,5 +1102,5 @@ The `shadow-cljs` compiler ensures that things on your source paths are compiled
 This is a convenient way to test out fixes (even to `shadow-cljs` itself!) without having to clone
 that project and understand its setup, build, etc.
 ////
-これは、そのプロジェクトをクローンして、そのセットアップやビルドなどを理解しなくても、修正（`shadow-cljs`自体も！）をテストするための便利な方法です。
+これは、そのプロジェクトをクローンして、そのセットアップやビルドなどを理解しなくても、修正（ `shadow-cljs` 自体も！）をテストするための便利な方法です。
 プロジェクトをクローンして、そのセットアップやビルドなどを理解することなく、修正をテストする便利な方法です。
