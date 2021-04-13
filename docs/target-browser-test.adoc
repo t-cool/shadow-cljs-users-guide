@@ -56,6 +56,7 @@ If you choose to supply a custom `:runner-ns`, it might look like this:
 ////
 カスタムの `:runner-ns` を指定する場合は、以下のようになります。
 
+////
 ```
 (ns tests.client-test-main)
 
@@ -69,6 +70,22 @@ If you choose to supply a custom `:runner-ns`, it might look like this:
 (defn ^:export init []
   (start))
 ```
+////
+
+```
+(ns tests.client-test-main)
+
+(defn start []
+  ... run the tests...)
+
+(defn stop [done]
+  ; テストは非同期にすることができます。ランナーが実際に終了したことがわかるように、doneを呼ばなければなりません。
+  (done))
+
+(defn ^:export init []
+  (start))
+```
+
 
 ////
 It just has `init`, `start`, `stop` methods. `init` will be called once on startup, `stop` will be called before any code is reloaded and `start` will be called after all code was reloaded.

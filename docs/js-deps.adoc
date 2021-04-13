@@ -208,7 +208,7 @@ Currently there are 3 supported JS Providers:
 `:closure`:: `shadow` と同様に解決されますが、Closure Compiler CommonJS/ES6 rewrite facilities を通じて、含まれる全てのファイルを処理しようとします。これらのファイルは `:advanced` のコンパイルでも処理されます。
 `:external`:: これは、他のJSビルドツールでも処理できるようになっており、実際にJSの依存関係を提供します。発行されたインデックス・ファイルには、CLJS の出力が JS の依存関係にアクセスできるようにするための、ちょっとしたグルーコードが含まれています。外部インデックスファイルの出力は、CLJS 出力の前に読み込まれなければなりません。
 
-. `:shadow` vs `:closure`
+.`:shadow` vs `:closure`
 
 ////
 ****
@@ -410,7 +410,7 @@ Relative paths will be resolved relative to the project root directory. Paths wi
 .Global config in `shadow-cljs.edn`
 ////
 
-. shadow-cljs.edn のグローバル設定
+.shadow-cljs.edn のグローバル設定
 
 ```
 {...
@@ -472,7 +472,7 @@ We already covered how `npm` packages are accessed by their name but on the clas
 ////
 .Loading JS from the classpath
 ////
-クラスパスから JS を読み込む
+.クラスパスから JS を読み込む
 
 ```clojure
 (ns demo.app
@@ -723,7 +723,7 @@ NOTE: The `shadow-cljsjs` library only provides the shim files. You’ll still n
 自分で実際のパッケージを `npm install` する必要があります。
 
 
-=== CLJSJSを使ってみませんか?
+=== CLJSJSを使いませんか?
 //Why not use CLJSJS?
 
 ////

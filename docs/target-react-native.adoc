@@ -1,7 +1,7 @@
 ////
 The `:target :react-native` produces code that is meant to integrate into the default `react-native` tooling (eg. `metro`). Tools like `expo` which wrap those tools should automatically work and require no additional setup.
 ////
-The `:target :react-native` produces code that is meant to integrate into the default `react-native` tooling (eg. `metro`). Tools like `expo` which wrap those tools should automatically work and require no additional setup.
+`:target :react-native` は、デフォルトの `react-native` ツール (例: `metro` ) に統合することを意図したコードを生成します。これらのツールをラップした `expo` のようなツールは自動的に動作し、追加の設定は必要ありません。
 
 ////
 You will need the same basic <<config,main configuration>> as in other targets (like

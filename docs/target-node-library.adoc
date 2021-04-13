@@ -83,11 +83,20 @@ Controlling what code is actually exported is done via one of the following opti
 .Consuming the generated code
 ////
 
+////
 ```bash
 $ node
 > var f = require('./lib.js');
 f(); // the actual demo.ns/f function
 ```
+////
+
+```bash
+$ node
+> var f = require('./lib.js');
+f(); // 実際の demo.ns/f 関数
+```
+
 
 ////
 It is effectively generating `module.exports = demo.ns.f;`

@@ -436,7 +436,7 @@ generated file will contain some additional bootstrap code which will load its d
 automatically. The way `:modules` work also ensures that code used only by the worker will also only
 be in the final file for the worker. Each worker should have a dedicated CLJS namespace.
 ////
-modules` の設定は、Web Workerとして使用されるファイルを生成するためにも使用できます。
+`modules` の設定は、Web Workerとして使用されるファイルを生成するためにも使用できます。
 web-worker true` を設定することで、任意のモジュールを Web Worker として宣言することができます。生成される
 生成されたファイルには、依存関係を自動的に読み込む追加のブートストラップコードが
 を自動的にロードします。この `:modules` の働きにより、ワーカーだけが使用するコードは、ワーカー用の最終ファイルにのみ含まれることになります。
@@ -615,7 +615,7 @@ of generating conflicts. I recommend using the full hash.
 ////
 Instead of generating `main.js` it will now generate `main.<hash>.js` in the `:output-dir`.
 ////
-main.js` を生成するのではなく、 `:output-dir` に `main.<hash>.js` を生成するようになりました。
+`main.js` を生成するのではなく、 `:output-dir` に `main.<hash>.js` を生成するようになりました。
 
 ////
 Since the filename can change with every release it gets a little bit more complicated to include them
@@ -711,7 +711,7 @@ options for configuring an optional dev-time HTTP server for a build and CSS rel
 ////
 The `:browser` target now uses a HUD to display a loading indicator when a build is started. It will also display warnings and errors if there are any.
 ////
-ブラウザ ` ターゲットは、HUDを使って、ビルドが開始されたときにローディングインジケータを表示するようになりました。また、警告やエラーが発生した場合にも表示されます。
+:browser ターゲットは、HUDを使って、ビルドが開始されたときにローディングインジケータを表示するようになりました。また、警告やエラーが発生した場合にも表示されます。
 
 ////
 You can disable it completely by setting `:hud false` in the `:devtools` section.
@@ -721,7 +721,7 @@ You can disable it completely by setting `:hud false` in the `:devtools` section
 ////
 You may also toggle certain features by specifying which features you care about via setting `:hud #{:errors :warnings}`. This will show errors/warnings but no progress indicator. Available options are `:errors`, `:warnings`, `:progress`. Only options included will be enabled, all other will be disabled.
 ////
-また、 `:hud #{:errors :warnings}` という設定で気になる機能を指定して、特定の機能を切り替えることもできます。これにより、エラーや警告は表示されますが、進捗状況は表示されません。利用可能なオプションは `:errors`, `:warnings`, `:progress` です。含まれるオプションのみが有効になり、それ以外は無効になります。
+また、 `:hud #{:errors :warnings}` という設定で気になる機能を指定して、特定の機能を切り替えることもできます。これにより、エラーや警告は表示されますが、進捗状況は表示されません。利用可能なオプションは `:errors` `:warnings` `:progress` です。含まれるオプションのみが有効になり、それ以外は無効になります。
 
 ==== ファイルを開く [[open-file-command]]
 //Opening Files [[open-file-command]]
@@ -935,7 +935,7 @@ By default the devtools client will attempt to connect to the `shadow-cljs` proc
 ////
 .Incoming Request to Proxy
 ////
-.プロキシへのインカミングリクエスト
+.プロキシへの Incoming リクエスト
 
 ```text
 https://some.host/shadow-cljs/ws/foo/bar?asdf

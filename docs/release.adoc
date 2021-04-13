@@ -252,7 +252,7 @@ Calls on `:require` bindings are also inferred automatically.
 ////
 .No hint required for `:as` and `:refer` bindings
 ////
-.as` と `:refer` のバインディングにヒントは必要ありません。
+`.as` と `:refer` のバインディングにヒントは必要ありません。
 
 ```
 (ns my.app

@@ -52,7 +52,7 @@ NOTE: You cannot switch from CLJ->CLJS via the Cursive select box. Make sure you
 ////
 This section is written for CIDER version 0.20.0 and above. Ensure your Emacs environment has this version of the `cider` package or later. Refer to the link:https://docs.cider.mx[CIDER documentation] for full installation details.
 ////
-このセクションは、CIDERのバージョン0.20.0以上を対象に書かれています。お使いのEmacsにこのバージョンの `cider` パッケージが入っていることを確認してください。インストールの詳細については、リンク:https://docs.cider.mx[CIDER documentation]を参照してください。
+このセクションは、CIDERのバージョン0.20.0以上を対象に書かれています。お使いのEmacsにこのバージョンの `cider` パッケージが入っていることを確認してください。インストールの詳細については、リンク: https://docs.cider.mx[CIDER documentation] を参照してください。
 
 === ClojureScript REPLの起動
 //Launch the ClojureScript REPL
@@ -205,7 +205,7 @@ Chlorineは、AtomをSocket REPLに接続しますが、同時に名前空間の
 ////
 Once you checked that the configuration is right, you can start your shadow app (replace `app` with whatever build):
 ////
-設定が正しいことを確認したら、シャドウアプリを起動できます（`app` は任意のビルドに置き換えてください）。
+設定が正しいことを確認したら、shadow アプリを起動できます（`app` は任意のビルドに置き換えてください）。
 
 ```
 $ shadow-cljs watch app
@@ -214,7 +214,7 @@ $ shadow-cljs watch app
 ////
 Now, all you have to do is to run the atom command `Chlorine: Connect Clojure Socket Repl`. This will connect a REPL to evaluate Clojure code. Next you need to run `Chlorine: Connect Embeded`, and it'll connect the ClojureScript REPL too.
 ////
-あとは、atomコマンドの `Chlorine: Connect Clojure Socket Repl`. これでClojureのコードを評価するREPLが接続されます。次に、 `Chlorine: Connect Clojure Socket Repl` を実行してください。Connect Embeded` を実行すると、ClojureScriptのREPLも接続されます。
+あとは、atomコマンドの `Chlorine: Connect Clojure Socket Repl`. これでClojureのコードを評価するREPLが接続されます。次に、 `Chlorine: Connect Clojure Socket Repl` を実行してください。 `Connect Embeded` を実行すると、ClojureScriptのREPLも接続されます。
 
 ////
 Now, you can use the `Chlorine: Evaluate...` commands to evaluate any Clojure or ClojureScript REPL. It'll evaluate `.clj` files as Clojure, and `cljc` files as ClojureScript.
