@@ -686,7 +686,7 @@ shadow-cljs - server running at http://0.0.0.0:9630
 ////
 When `:ssl` is configured the server will be available via `https://` instead.
 ////
-ssl` が設定されている場合、サーバは代わりに `https://` を介して利用できます。
+`ssl` が設定されている場合、サーバは代わりに `https://` を介して利用できます。
 
 
 ////
@@ -703,7 +703,7 @@ If you prefer to set your own port instead you can do this via the `:http` confi
 ////
 .`shadow-cljs.edn` with `:http` config
 ////
-.shadow-cljs.edn` に `:http` の設定をする。
+. `shadow-cljs.edn` に `:http` の設定をする。
 
 ```
 {...
@@ -763,7 +763,7 @@ IMPORTANT:: These are just generic web servers that server static files. They ar
 ////
 .Serve directory from filesystem root
 ////
-ファイルシステムルートからディレクトリを serve する
+ファイルシステムのルートからディレクトリを serve する
 
 ```
 :dev-http {8000 "public"}

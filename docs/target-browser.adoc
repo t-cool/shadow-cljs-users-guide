@@ -180,7 +180,7 @@ Declaring more than one Module requires a tiny bit of additional static configur
 ////
 In addition to `:entries` you'll need to declare which module depends on which (via `:depends-on`). How you structure this is entirely up to your needs and there is no one-size-fits-all solution unfortunately.
 ////
-entries` に加えて、どのモジュールがどのモジュールに依存しているか（`:depend-on` で）を宣言する必要があります。これをどのように構成するかはニーズ次第で、残念ながら万能のソリューションはありません。
+`entries` に加えて、どのモジュールがどのモジュールに依存しているか（`:depend-on` で）を宣言する必要があります。これをどのように構成するかはニーズ次第で、残念ながら万能のソリューションはありません。
 
 ////
 Say you have a traditional website with actual different pages.
@@ -863,7 +863,7 @@ Browser devtools は、CSS を再読み込みすることもできます。こ�
 ////
 This will cause the browser to reload `/css/main.css` when `public/css/main.css` is changed.
 ////
-これにより、public/css/main.css` が変更されると、ブラウザは `/css/main.css` を再読み込みします。
+これにより、 `public/css/main.css` が変更されると、ブラウザは `/css/main.css` を再読み込みします。
 
 ////
 `shadow-cljs` currently provides no support for directly compiling CSS but the usual tools will work and should

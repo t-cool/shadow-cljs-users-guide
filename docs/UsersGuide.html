@@ -2000,7 +2000,7 @@ shadow-cljs - watching build :app
 </div>
 </div>
 <div class="paragraph">
-<p>ssl` が設定されている場合、サーバは代わりに <code>https://</code> を介して利用できます。</p>
+<p><code>ssl</code> が設定されている場合、サーバは代わりに <code>https://</code> を介して利用できます。</p>
 </div>
 <div class="paragraph">
 <p>ヒント: <code>:ssl</code> を使用すると、サーバは自動的に HTTP/2 をサポートします。</p>
@@ -2008,8 +2008,14 @@ shadow-cljs - watching build :app
 <div class="paragraph">
 <p>代わりに独自のポートを設定したい場合は、 <code>:http</code> の設定で行うことができます。</p>
 </div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>shadow-cljs.edn</code> に <code>:http</code> の設定をする。</p>
+</li>
+</ol>
+</div>
 <div class="listingblock">
-<div class="title">shadow-cljs.edn` に <code>:http</code> の設定をする。</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
  <span class="symbol">:http</span> {<span class="symbol">:port</span> <span class="integer">12345</span>
@@ -2053,7 +2059,7 @@ shadow-cljs - watching build :app
 <p><code>:dev-http</code> は <code>port-number</code> から <code>config</code> へのマップを期待しています。この <code>config</code> は、最も一般的なシナリオに対応したいくつかのショートカットをサポートしています。</p>
 </div>
 <div class="paragraph">
-<p>ファイルシステムルートからディレクトリを serve する</p>
+<p>ファイルシステムのルートからディレクトリを serve する</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2211,7 +2217,7 @@ shadow-cljs - watching build :app
 <div class="sect2">
 <h3 id="_ビルドターゲット"><a class="anchor" href="#_ビルドターゲット"></a><a class="link" href="#_ビルドターゲット">6.1. ビルドターゲット</a></h3>
 <div class="paragraph">
-<p><code>shadow-cljs</code> の各ビルドでは、コードをどこで実行するかを定義する <code>:target</code> を定義する必要があります。<a href="#target-browser">browser</a> と <a href="#target-node"><code>node.js</code></a> のデフォルトのビルドインがあります。これらはすべて、 <code>:dev</code> モードと <code>:release</code> モードを持つという基本的なコンセプトを共有しています。dev` モードでは、高速なコンパイル、ライブコードリロード、REPLなど、通常の開発に必要な機能をすべて提供します。release` モードでは、プロダクション向けに最適化された出力が得られます。</p>
+<p><code>shadow-cljs</code> の各ビルドでは、コードをどこで実行するかを定義する <code>:target</code> を定義する必要があります。<a href="#target-browser">browser</a> と <a href="#target-node"><code>node.js</code></a> のデフォルトのビルドインがあります。これらはすべて、 <code>:dev</code> モードと <code>:release</code> モードを持つという基本的なコンセプトを共有しています。dev` モードでは、高速なコンパイル、ライブコードリロード、REPLなど、通常の開発に必要な機能をすべて提供します。 <code>release</code> モードでは、プロダクション向けに最適化された出力が得られます。</p>
 </div>
 <div class="paragraph">
 <p>ターゲットについては別の章で説明しています。</p>
@@ -2261,7 +2267,7 @@ shadow-cljs - watching build :app
 <div class="sect3">
 <h4 id="_repl_3"><a class="anchor" href="#_repl_3"></a><a class="link" href="#_repl_3">6.2.1. REPL</a></h4>
 <div class="paragraph">
-<p>watch` を実行すると、REPL用のコードが自動的に注入され、通常は追加の設定は必要ありません。REPLの動作を制御するための追加オプションも用意されています。</p>
+<p><code>watch</code> を実行すると、REPL用のコードが自動的に注入され、通常は追加の設定は必要ありません。REPLの動作を制御するための追加オプションも用意されています。</p>
 </div>
 <div class="ulist">
 <ul>
@@ -2288,7 +2294,7 @@ shadow-cljs - watching build :app
 <h4 id="_プリロード"><a class="anchor" href="#_プリロード"></a><a class="link" href="#_プリロード">6.2.2. プリロード</a></h4>
 <div class="paragraph">
 <p>開発者は、そのほとんどの時間を開発モードで過ごします。おそらく、 <code>figwheel</code>、 <code>boot-reload</code>、 <code>devtools</code> などのツールに精通していることでしょう。
-boot-reload`、 <code>devtools</code> などのツールをご存知でしょう。これらのツールの1つ以上を自分のビルドに使用することはほぼ確実でしょう。</p>
+<code>boot-reload</code>、 <code>devtools</code> などのツールをご存知でしょう。これらのツールの1つ以上を自分のビルドに使用することはほぼ確実でしょう。</p>
 </div>
 <div class="paragraph">
 <p>プリロードは、生成されたJavascriptの先頭に特定の名前空間を強制的に導入するために使用されます。これは
@@ -2308,14 +2314,13 @@ preloads オプションは、単に <code>:devtools</code>/<code>:preloads</cod
 </div>
 </div>
 <div class="paragraph">
-<p>注意: バージョン 2.0.130 以降の shadow-cljs は、 <code>watch</code> と <code>compile</code> のクラスパス上に <code>cljs-devtools</code> がある場合、自動的にそのプリロードに <code>cljs-devtools</code> を追加します。必要なことは、 <code>binaryage/devtools</code> があなたの <code>dependencies</code> リストにあることを確認するだけです。(注意: <strong>not</strong> binaryage/<strong>cljs-</strong>devtools.) もし、特定のターゲットに <code>cljs-devtools</code> を入れたくない場合は、それらのターゲットの <code>:devtools</code> セクションに <code>:console-support false</code> を追加することで、これを抑制することができます。</p>
+<p>注意: バージョン 2.0.130 以降の shadow-cljs は、 <code>watch</code> と <code>compile</code> のクラスパス上に <code>cljs-devtools</code> がある場合、自動的にそのプリロードに <code>cljs-devtools</code> を追加します。必要なことは、 <code>binaryage/devtools</code> があなたの <code>dependencies</code> リストにあることを確認するだけです。(注意: binaryage/cljs-devtools ではない) もし、特定のターゲットに <code>cljs-devtools</code> を入れたくない場合は、それらのターゲットの <code>:devtools</code> セクションに <code>:console-support false</code> を追加することで、これを抑制することができます。</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_ホットコードリロード"><a class="anchor" href="#_ホットコードリロード"></a><a class="link" href="#_ホットコードリロード">6.2.3. ホットコードリロード</a></h4>
 <div class="paragraph">
-<p>ReactとClojureScriptのエコシステムを組み合わせることで、このようなことが超便利になります。shadow-cljs`。
-システムには、外部ツールに頼ることなく、ホットコードリロードを行うために必要なものがすべて含まれています。</p>
+<p>ReactとClojureScriptのエコシステムを組み合わせることで、このようなことが超便利になります。 <code>shadow-cljs</code> のシステムには、外部ツールに頼ることなく、ホットコードリロードを行うために必要なものがすべて含まれています。</p>
 </div>
 <div class="paragraph">
 <p>使うには、単に実行するだけです。</p>
@@ -2966,7 +2971,7 @@ preloads オプションは、単に <code>:devtools</code>/<code>:preloads</cod
 </div>
 </div>
 <div class="paragraph">
-<p>この名前空間は、両方のビルド(<code>:node-script</code> と <code>:browser</code>)で正常にコンパイルされますが、 <code>:node-script</code> を実行しようとすると、 <code>codemirror</code> パッケージが DOM にアクセスしようとするため、失敗します。しかし、 <code>:node-script</code> を実行しようとすると、 <code>codemirror</code> パッケージが DOM にアクセスしようとするので失敗します。</p>
+<p>この名前空間は、両方のビルド( <code>:node-script</code> と <code>:browser</code> )で正常にコンパイルされますが、 <code>:node-script</code> を実行しようとすると、 <code>codemirror</code> パッケージが DOM にアクセスしようとするため、失敗します。しかし、 <code>:node-script</code> を実行しようとすると、 <code>codemirror</code> パッケージが DOM にアクセスしようとするので失敗します。</p>
 </div>
 <div class="paragraph">
 <p><a href="#closure-defines">:closure-defines</a> を使って条件付きで <code>init-cm</code> fn をコンパイルすることはできますが、余分な <code>:require</code> を取り除くために使うことはできません。リーダの条件式を使えば、これが簡単にできます。</p>
@@ -3308,7 +3313,7 @@ Javascriptのファイル名を生成するためにも使用されます。モ�
 <p>複数のモジュールを宣言すると、モジュール同士がどのように関連しているか、また後でどのようにロードするかをコンパイラが把握できるように、ほんの少しだけ静的な設定を追加する必要があります。</p>
 </div>
 <div class="paragraph">
-<p>entries` に加えて、どのモジュールがどのモジュールに依存しているか（<code>:depend-on</code> で）を宣言する必要があります。これをどのように構成するかはニーズ次第で、残念ながら万能のソリューションはありません。</p>
+<p><code>entries</code> に加えて、どのモジュールがどのモジュールに依存しているか（<code>:depend-on</code> で）を宣言する必要があります。これをどのように構成するかはニーズ次第で、残念ながら万能のソリューションはありません。</p>
 </div>
 <div class="paragraph">
 <p>例えば、従来のWebサイトでは、さまざまなページがあります。</p>
@@ -3798,7 +3803,7 @@ HTMLに含めるのは少し複雑です。<a href="#BrowserManifest">Output Man
 </div>
 </div>
 <div class="paragraph">
-<p>これにより、public/css/main.css` が変更されると、ブラウザは <code>/css/main.css</code> を再読み込みします。</p>
+<p>これにより、 <code>public/css/main.css</code> が変更されると、ブラウザは <code>/css/main.css</code> を再読み込みします。</p>
 </div>
 <div class="paragraph">
 <p>現在、 <code>shadow-cljs</code> は CSS を直接コンパイルすることをサポートしていませんが、通常のツールは動作します。
@@ -3922,7 +3927,7 @@ HTMLに含めるのは少し複雑です。<a href="#BrowserManifest">Output Man
 <div class="sect2">
 <h3 id="_react_native"><a class="anchor" href="#_react_native"></a><a class="link" href="#_react_native">8.1. React Native</a></h3>
 <div class="paragraph">
-<p>react-native` には、ネイティブコードやライブラリを使用できるプレーンな <code>react-native</code> と、https://expo.io/[expo]（後述）でラップされた <code>react-native</code> の2つの使用方法があります。上記で説明したすべての手順は、プレーンな <code>react-native</code> で shadow-cljs を使い始めるのに十分なものです。このサンプルレポをご覧ください。</p>
+<p><code>react-native</code> には、ネイティブコードやライブラリを使用できるプレーンな <code>react-native</code> と、https://expo.io/[expo]（後述）でラップされた <code>react-native</code> の2つの使用方法があります。上記で説明したすべての手順は、プレーンな <code>react-native</code> で shadow-cljs を使い始めるのに十分なものです。このサンプルレポをご覧ください。</p>
 </div>
 <div class="ulist">
 <ul>
@@ -3979,7 +3984,7 @@ HTMLに含めるのは少し複雑です。<a href="#BrowserManifest">Output Man
 </div>
 </div>
 <div class="paragraph">
-<p><code>init</code> は起動時に一度だけ呼ばれます。この例では特別な設定をする必要がないので、単に <code>start</code> を直接呼び出します。start` は、コードの変更がリロードされた後に <code>watch</code> が実行されるたびに、繰り返し呼び出されます。reagent.core/as-element`関数は、reagent hiccupのマークアップから必要なReact Elementを生成するために使用することができます。</p>
+<p><code>init</code> は起動時に一度だけ呼ばれます。この例では特別な設定をする必要がないので、単に <code>start</code> を直接呼び出します。 <code>start</code> は、コードの変更がリロードされた後に <code>watch</code> が実行されるたびに、繰り返し呼び出されます。 `reagent.core/as-element`関数は、reagent hiccupのマークアップから必要なReact Elementを生成するために使用することができます。</p>
 </div>
 </div>
 </div>
@@ -4171,8 +4176,7 @@ f(); // the actual demo.ns/f function</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>事実上モジュールを生成しています。
-exports = demo.ns.f;`</p>
+<p>事実上モジュールを生成しています。 <code>exports = demo.ns.f;</code></p>
 </div>
 </div>
 <div class="sect3">
@@ -4970,7 +4974,7 @@ HeadlessChrome 0.0.0 (Mac OS X 10.12.6): Executed 1 of 1 SUCCESS (0.007 secs / 0
 </div>
 </div>
 <div class="paragraph">
-<p>app` のビルドでは、グローバルな <code>React</code> インスタンスが使用され、 <code>:server</code> のビルドでは、引き続き "react "npmパッケージが使用されます。これを動作させるためにコードをいじる必要はありません。</p>
+<p><code>app</code> のビルドでは、グローバルな <code>React</code> インスタンスが使用され、 <code>:server</code> のビルドでは、引き続き "react "npmパッケージが使用されます。これを動作させるためにコードをいじる必要はありません。</p>
 </div>
 </div>
 <div class="sect4">
@@ -6332,7 +6336,7 @@ $ lein with-profiles +cljs deps <span class="symbol">:tree</span></code></pre>
 <div id="footer">
 <div id="footer-text">
 Version 1.0<br>
-Last updated 2021-04-13 15:33:30 JST
+Last updated 2021-04-13 15:44:38 JST
 </div>
 </div>
 </body>
