@@ -639,7 +639,7 @@ maps the original module name to actual filename (important when using the `:mod
 ////
 .Sample output of manifest.edn when using hashed filenames.
 ////
-.ハッシュ化されたファイル名を使用した場合の manifest.edn の出力例です。
+.ハッシュ化されたファイル名を使用した場合の manifest.edn の出力例
 
 ```
 [{:module-id :common,
@@ -711,7 +711,7 @@ options for configuring an optional dev-time HTTP server for a build and CSS rel
 ////
 The `:browser` target now uses a HUD to display a loading indicator when a build is started. It will also display warnings and errors if there are any.
 ////
-:browser ターゲットは、HUDを使って、ビルドが開始されたときにローディングインジケータを表示するようになりました。また、警告やエラーが発生した場合にも表示されます。
+:browser ターゲットは、HUDを使って、ビルドが開始されたときにローディング・インジケータを表示するようになりました。また、警告やエラーが発生した場合にも表示されます。
 
 ////
 You can disable it completely by setting `:hud false` in the `:devtools` section.
@@ -814,10 +814,10 @@ Translated `:pwd`
 コラム番号
 
 `:wsl-file`::
-翻訳された WSL ファイルのパス。WSLのBashで `shadow-cljs` を実行するときに便利です。 `mnt/c/Users/someone/code/project/src/main/demo/foo.cljs` のパスを `C:Users\...` に変換します。
+変換された WSL ファイルのパス。WSLのBashで `shadow-cljs` を実行するときに便利です。 `mnt/c/Users/someone/code/project/src/main/demo/foo.cljs` のパスを `C:Users\...` に変換します。
 
 `:wsl-pwd`::
-翻訳された `:pwd`
+変換された `:pwd`
 
 
 
@@ -898,7 +898,7 @@ HTTPサーバが仮想ディレクトリからファイルを提供していて�
 ////
 .Example `public/css/main.css` being served under `/foo/css/main.css`
 ////
-.Example public/css/main.css` は `/foo/css/main.css` の下でサーブされます。
+.Example `public/css/main.css` は `/foo/css/main.css` 下でサーブされます。
 
 ```clojure
 {...
@@ -935,7 +935,8 @@ By default the devtools client will attempt to connect to the `shadow-cljs` proc
 ////
 .Incoming Request to Proxy
 ////
-.プロキシへの Incoming リクエスト
+
+プロキシへの Incoming リクエストは、
 
 ```text
 https://some.host/shadow-cljs/ws/foo/bar?asdf
@@ -944,7 +945,7 @@ https://some.host/shadow-cljs/ws/foo/bar?asdf
 ////
 .must forward to
 ////
-.以下に転送する必要があります。
+以下に転送する必要があります。
 
 ```
 http://localhost:9630/foo/bar?asdf

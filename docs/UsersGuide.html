@@ -3849,7 +3849,7 @@ HTMLに含めるのは少し複雑です。<a href="#BrowserManifest">Output Man
 オリジナルのモジュール名を実際のファイル名にマッピングします (<code>:module-hash-names</code> 機能を使用する際に重要です)。</p>
 </div>
 <div class="listingblock">
-<div class="title">ハッシュ化されたファイル名を使用した場合の manifest.edn の出力例です。</div>
+<div class="title">ハッシュ化されたファイル名を使用した場合の manifest.edn の出力例</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">[{<span class="symbol">:module-id</span> <span class="symbol">:common</span>,
   <span class="symbol">:name</span> <span class="symbol">:common</span>,
@@ -3902,7 +3902,7 @@ HTMLに含めるのは少し複雑です。<a href="#BrowserManifest">Output Man
 <div class="sect3">
 <h4 id="hud"><a class="anchor" href="#hud"></a><a class="link" href="#hud">7.8.1. ヘッドアップディスプレイ（HUD）</a></h4>
 <div class="paragraph">
-<p>:browser ターゲットは、HUDを使って、ビルドが開始されたときにローディングインジケータを表示するようになりました。また、警告やエラーが発生した場合にも表示されます。</p>
+<p>:browser ターゲットは、HUDを使って、ビルドが開始されたときにローディング・インジケータを表示するようになりました。また、警告やエラーが発生した場合にも表示されます。</p>
 </div>
 <div class="paragraph">
 <p><code>devtools</code> セクションで <code>:hud false</code> を設定することで、完全に無効にすることができます。</p>
@@ -3971,11 +3971,11 @@ HTMLに含めるのは少し複雑です。<a href="#BrowserManifest">Output Man
 </dd>
 <dt><code>:wsl-file</code></dt>
 <dd>
-<p>翻訳された WSL ファイルのパス。WSLのBashで <code>shadow-cljs</code> を実行するときに便利です。 <code>mnt/c/Users/someone/code/project/src/main/demo/foo.cljs</code> のパスを <code>C:Users...</code> に変換します。</p>
+<p>変換された WSL ファイルのパス。WSLのBashで <code>shadow-cljs</code> を実行するときに便利です。 <code>mnt/c/Users/someone/code/project/src/main/demo/foo.cljs</code> のパスを <code>C:Users...</code> に変換します。</p>
 </dd>
 <dt><code>:wsl-pwd</code></dt>
 <dd>
-<p>翻訳された <code>:pwd</code></p>
+<p>変換された <code>:pwd</code></p>
 </dd>
 </dl>
 </div>
@@ -4025,7 +4025,7 @@ HTMLに含めるのは少し複雑です。<a href="#BrowserManifest">Output Man
 <p>HTTPサーバが仮想ディレクトリからファイルを提供していて、ファイルシステムのパスがHTMLで使われているパスと完全に一致しない場合、プレフィックスとして使われる <code>:watch-path</code> を設定することで、パスを調整することができます。</p>
 </div>
 <div class="listingblock">
-<div class="title">Example public/css/main.css` は <code>/foo/css/main.css</code> の下でサーブされます。</div>
+<div class="title">Example <code>public/css/main.css</code> は <code>/foo/css/main.css</code> 下でサーブされます。</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
  {<span class="symbol">:builds</span>
@@ -4055,14 +4055,18 @@ HTMLに含めるのは少し複雑です。<a href="#BrowserManifest">Output Man
 <div class="paragraph">
 <p><code>shadow-cljs</code> は、リクエストの際に <code>:devtools-url</code> をベースとして使用します。これは最終的な URL ではありませんので、設定したパス (例: <code>/shadow-cljs/*</code>) で始まるすべてのリクエストが、 <code>shadow-cljs</code> が実行されているホストに転送されるようにする必要があります。</p>
 </div>
+<div class="paragraph">
+<p>プロキシへの Incoming リクエストは、</p>
+</div>
 <div class="listingblock">
-<div class="title">プロキシへの Incoming リクエスト</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="text">https://some.host/shadow-cljs/ws/foo/bar?asdf</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>以下に転送する必要があります。</p>
+</div>
 <div class="listingblock">
-<div class="title">以下に転送する必要があります。</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">http<span class="symbol">://localhost</span><span class="error">:</span><span class="integer">9630</span>/foo/bar?asdf</code></pre>
 </div>
@@ -4103,7 +4107,7 @@ HTMLに含めるのは少し複雑です。<a href="#BrowserManifest">Output Man
 <code>:init-fn</code>
 </td>
 <td class="hdlist2">
-<p>(必須)。アプリのinit関数の名前空間修飾されたシンボルです。この関数は起動時に一度だけ呼び出され、おそらく何かをレンダリングするはずです。</p>
+<p>(必須) アプリのinit関数の名前空間修飾されたシンボルです。この関数は起動時に一度だけ呼び出され、おそらく何かをレンダリングするはずです。</p>
 </td>
 </tr>
 <tr>
@@ -4111,7 +4115,7 @@ HTMLに含めるのは少し複雑です。<a href="#BrowserManifest">Output Man
 <code>:output-dir</code>
 </td>
 <td class="hdlist2">
-<p>(必須)。(必須). 出力ファイルを書き込むためのディレクトリです。</p>
+<p>(必須) (必須). 出力ファイルを書き込むためのディレクトリです。</p>
 </td>
 </tr>
 </table>
@@ -4449,7 +4453,7 @@ f(); // 実際の demo.ns/f 関数</code></pre>
 <pre class="CodeRay highlight"><code data-lang="bash">$ node
 &gt; var lib = require('./lib.js');
 lib.g(); // call demo-ns/f
-lib[&quot;ok?&quot;](); // call another-ns/ok?</code></pre>
+lib[&quot;ok?&quot;](); // another-ns/ok? を呼び出す</code></pre>
 </div>
 </div>
 <div class="paragraph">

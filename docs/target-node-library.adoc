@@ -130,7 +130,7 @@ The keyword is used as the name of the entry in the exported object. *No munging
 $ node
 > var lib = require('./lib.js');
 lib.g(); // call demo-ns/f
-lib["ok?"](); // call another-ns/ok?
+lib["ok?"](); // another-ns/ok? を呼び出す
 ```
 
 ////
