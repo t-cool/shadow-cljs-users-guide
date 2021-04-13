@@ -592,7 +592,7 @@ Closure Defines from the Closure Library
 - `goog.DEBUG`: The Closure Library uses this for many development features. `shadow-cljs` automatically sets this to `false` for `release` builds.
 - `goog.LOCALE` can be used to configure certain localization features like `goog.i18n.DateTimeFormat`. It accepts a standard locale string and defaults to `en`. Pretty much all locales are supported, see https://github.com/google/closure-library/blob/master/closure/goog/i18n/datetimesymbols.js[here] and https://github.com/google/closure-library/blob/master/closure/goog/i18n/datetimesymbolsext.js[here].
 ////
-- `goog.DEBUG` です。Closure Libraryでは、多くの開発機能でこれを使用しています。shadow-cljs` は、 `release` のビルドでは、自動的にこれを `false` に設定します。
+- `goog.DEBUG` です。Closure Libraryでは、多くの開発機能でこれを使用しています。 `shadow-cljs` は、 `release` のビルドでは、自動的にこれを `false` に設定します。
 - goog.LOCALE`: `goog.i18n.DateTimeFormat` のような、ある種のローカリゼーション機能を設定するために使用されます。これは標準的なロケール文字列を受け入れ、デフォルトでは `en` となります。ほとんどすべてのロケールがサポートされています。https://github.com/google/closure-library/blob/master/closure/goog/i18n/datetimesymbols.js[ここ]とhttps://github.com/google/closure-library/blob/master/closure/goog/i18n/datetimesymbolsext.js[ここ]を参照してください。
 
 == コンパイラのオプション [[compiler-options]]

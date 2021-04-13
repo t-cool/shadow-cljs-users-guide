@@ -18,7 +18,7 @@ ClojureのREPLは、その名が示す通りのことを行います。1つの�
 ////
 In ClojureScript however things are a bit more complicated since compilation happens on the JVM but the results are eval'd in a JavaScript runtime. There are a couple more steps that need to be done due in order to "emulate" the plain REPL experience. Although things are implemented a bit differently in `shadow-cljs` over regular CLJS the basic principles remain the same.
 ////
-しかし、ClojureScriptでは、コンパイルはJVM上で行われますが、結果はJavaScriptランタイムで評価されるので、もう少し複雑です。普通のREPLの経験をエミュレートするためには、さらにいくつかのステップが必要になります。shadow-cljs` では、通常のCLJSとは実装が少し異なりますが、基本的な原理は同じです。
+しかし、ClojureScriptでは、コンパイルはJVM上で行われますが、結果はJavaScriptランタイムで評価されるので、もう少し複雑です。普通のREPLの経験をエミュレートするためには、さらにいくつかのステップが必要になります。 `shadow-cljs` では、通常のCLJSとは実装が少し異なりますが、基本的な原理は同じです。
 
 ////
 First you'll need a REPL client. This could just be the CLI (eg. `shadow-cljs cljs-repl app`) or your Editor connected via `nREPL`. The Client will always talk directly to the `shadow-cljs` server and it'll handle the rest. From the Client side it still looks like a regular REPL but there are a few more steps happening in the background.
@@ -88,7 +88,7 @@ Once connected the REPL is ready to use. Note that reloading the JS runtime (eg.
 ////
 It is possible for more than one JS runtime to connect to the `watch` process. `shadow-cljs` by default picks the first JS runtime that connected as the `eval` target. If you open a given `:browser` build in multiple Browsers only the first one will be used to `eval` code. Or you could be opening a `:react-native` app in iOS and Android next to each other during development. Only one runtime can eval and if that disconnects the next one takes over based on the time it connected.
 ////
-複数の JS ランタイムが `watch` プロセスに接続する可能性があります。shadow-cljs` はデフォルトで、最初に接続した JS ランタイムを `eval` の対象として選択します。ある `:browser` ビルドを複数のブラウザで開いた場合、最初のブラウザだけが `eval` コードに使用されます。また、開発中にiOSとAndroidで隣り合わせに `:react-native` アプリを開くこともできます。評価できるのは1つのランタイムだけで、そのランタイムが切断されると、接続された時間に基づいて次のランタイムが引き継ぐことになります。
+複数の JS ランタイムが `watch` プロセスに接続する可能性があります。 `shadow-cljs` はデフォルトで、最初に接続した JS ランタイムを `eval` の対象として選択します。ある `:browser` ビルドを複数のブラウザで開いた場合、最初のブラウザだけが `eval` コードに使用されます。また、開発中にiOSとAndroidで隣り合わせに `:react-native` アプリを開くこともできます。評価できるのは1つのランタイムだけで、そのランタイムが切断されると、接続された時間に基づいて次のランタイムが引き継ぐことになります。
 
 
 ### Missing JS runtime [[missing-js-runtime]]

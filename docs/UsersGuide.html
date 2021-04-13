@@ -1442,7 +1442,7 @@ $ shadow-cljs run my.build/release</code></pre>
 <h2 id="_repl_2"><a class="anchor" href="#_repl_2"></a><a class="link" href="#_repl_2">4. REPL</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>REPLは、Clojure(Script)のコードを扱う際に、非常に強力なツールです。shadow-cljs` は、すぐに始められるいくつかのビルトインバージョンと、標準的なビルドに統合されるバージョンを提供します。</p>
+<p>REPLは、Clojure(Script)のコードを扱う際に、非常に強力なツールです。 <code>shadow-cljs</code> は、すぐに始められるいくつかのビルトインバージョンと、標準的なビルドに統合されるバージョンを提供します。</p>
 </div>
 <div class="paragraph">
 <p>いくつかのコードをすぐにテストしたい場合は、内蔵のREPLで十分です。自分で何かをするような、より複雑なセットアップが必要な場合は、実際のビルドを使うのが一番です。</p>
@@ -2700,7 +2700,7 @@ preloads オプションは、単に <code>:devtools</code>/<code>:preloads</cod
 <div class="ulist">
 <ul>
 <li>
-<p><code>goog.DEBUG</code> です。Closure Libraryでは、多くの開発機能でこれを使用しています。shadow-cljs` は、 <code>release</code> のビルドでは、自動的にこれを <code>false</code> に設定します。</p>
+<p><code>goog.DEBUG</code> です。Closure Libraryでは、多くの開発機能でこれを使用しています。 <code>shadow-cljs</code> は、 <code>release</code> のビルドでは、自動的にこれを <code>false</code> に設定します。</p>
 </li>
 <li>
 <p>goog.LOCALE`: <code>goog.i18n.DateTimeFormat</code> のような、ある種のローカリゼーション機能を設定するために使用されます。これは標準的なロケール文字列を受け入れ、デフォルトでは <code>en</code> となります。ほとんどすべてのロケールがサポートされています。https://github.com/google/closure-library/blob/master/closure/goog/i18n/datetimesymbols.js[ここ]とhttps://github.com/google/closure-library/blob/master/closure/goog/i18n/datetimesymbolsext.js[ここ]を参照してください。</p>
@@ -4747,10 +4747,10 @@ HeadlessChrome 0.0.0 (Mac OS X 10.12.6): Executed 1 of 1 SUCCESS (0.007 secs / 0
 </div>
 <div class="paragraph">
 <p>パッケージの中には、1つの関数をエクスポートするものもあります。
-(:require ["thing" :as thing])` and then <code>(that)</code> を使って直接呼び出すことができます。</p>
+<code>(:require ["thing" :as thing])</code> と書くと <code>(thing)</code> で直接呼び出すことができます。</p>
 </div>
 <div class="paragraph">
-<p>最近では、いくつかのパッケージがES6の <code>import</code> 文を例に挙げています。これらもほぼ1:1で翻訳されていますが、デフォルトのエクスポートに関するわずかな違いがあります。</p>
+<p>最近では、いくつかのパッケージがES6の <code>import</code> 文を例に挙げています。これらもほぼ 1:1 で翻訳されていますが、デフォルトのエクスポートに関するわずかな違いがあります。</p>
 </div>
 <div class="paragraph">
 <p>以下の表は、翻訳に使用することができます。</p>
@@ -4818,8 +4818,8 @@ HeadlessChrome 0.0.0 (Mac OS X 10.12.6): Executed 1 of 1 SUCCESS (0.007 secs / 0
 <pre class="CodeRay highlight"><code data-lang="js"><span class="comment">// react-virtualizedから名前付きでエクスポートすることで、任意のコンポーネントをインポートすることができます。</span>
 <span class="reserved">import</span> { Column, Table } from <span class="string"><span class="delimiter">'</span><span class="content">react-virtualized</span><span class="delimiter">'</span></span>
 
-<span class="comment">// しかし、いくつかのreact-virtualizedコンポーネントしか使用していない場合。</span>
-<span class="comment">// また、アプリケーションのバンドルサイズが大きくなることを懸念している場合。</span>
+<span class="comment">// しかし、いくつかのreact-virtualizedコンポーネントしか使用していない場合、</span>
+<span class="comment">// また、アプリケーションのバンドルサイズが大きくなることを懸念している場合、</span>
 <span class="comment">// 必要なコンポーネントだけを直接インポートすることができます。</span>
 <span class="reserved">import</span> AutoSizer from <span class="string"><span class="delimiter">'</span><span class="content">react-virtualized/dist/commonjs/AutoSizer</span><span class="delimiter">'</span></span>
 <span class="reserved">import</span> List from <span class="string"><span class="delimiter">'</span><span class="content">react-virtualized/dist/commonjs/List</span><span class="delimiter">'</span></span></code></pre>
@@ -4828,9 +4828,9 @@ HeadlessChrome 0.0.0 (Mac OS X 10.12.6): Executed 1 of 1 SUCCESS (0.007 secs / 0
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">(<span class="keyword">ns</span> <span class="namespace">my-ns</span>
-  <span class="comment">;; all</span>
+  <span class="comment">;; 全て</span>
   (<span class="symbol">:require</span> [<span class="string"><span class="delimiter">&quot;</span><span class="content">react-virtualized</span><span class="delimiter">&quot;</span></span> <span class="symbol">:refer</span> (Column Table)])
-  <span class="comment">;; OR one by one</span>
+  <span class="comment">;; もしくは一つずつ</span>
   (<span class="symbol">:require</span> [<span class="string"><span class="delimiter">&quot;</span><span class="content">react-virtualized/dist/commonjs/AutoSizer</span><span class="delimiter">&quot;</span></span> <span class="symbol">:default</span> virtual-auto-sizer]
             [<span class="string"><span class="delimiter">&quot;</span><span class="content">react-virtualized/dist/commonjs/List</span><span class="delimiter">&quot;</span></span> <span class="symbol">:default</span> virtual-list]))</code></pre>
 </div>
@@ -4839,7 +4839,7 @@ HeadlessChrome 0.0.0 (Mac OS X 10.12.6): Executed 1 of 1 SUCCESS (0.007 secs / 0
 <h5 id="_概要_default_exports"><a class="anchor" href="#_概要_default_exports"></a><a class="link" href="#_概要_default_exports">概要 :default Exports</a></h5>
 <div class="paragraph">
 <p>現在、 <code>:default</code> オプションは <code>shadow-cljs</code> でのみ利用可能です。
-<a href="https://dev.clojure.org/jira/browse/CLJS-2376">vote here</a>で標準化されることを期待します。標準的なCLJSとの互換性を保ちたい場合は、いつでも <code>:as alias</code> を使用して、 <code>alias/default</code> を呼び出すことができます。</p>
+<a href="https://dev.clojure.org/jira/browse/CLJS-2376">vote here</a> で標準化されることを期待します。標準的なCLJSとの互換性を保ちたい場合は、いつでも <code>:as alias</code> を使用して、 <code>alias/default</code> を呼び出すことができます。</p>
 </div>
 <div class="paragraph">
 <p>デフォルトのエクスポートは ECMAScript モジュールで新たに追加されたもので、CommonJS のコードには存在しません。時々、 <code>import Foo from "something"</code> という例を見かけることがありますが、実際にはCommonJSのコードです。このような場合、 <code>(:require ["something" :default Foo])</code> は動作せず、 <code>(:require ["something" :as Foo])</code> を代わりに使用する必要があります。</p>
@@ -4886,22 +4886,28 @@ HeadlessChrome 0.0.0 (Mac OS X 10.12.6): Executed 1 of 1 SUCCESS (0.007 secs / 0
 </dd>
 <dt><code>:closure</code></dt>
 <dd>
-<p>shadow` と同様に解決されますが、Closure Compiler CommonJS/ES6 rewrite facilities を通じて、含まれる全てのファイルを処理しようとします。これらのファイルは <code>:advanced</code> のコンパイルでも処理されます。</p>
+<p><code>shadow</code> と同様に解決されますが、Closure Compiler CommonJS/ES6 rewrite facilities を通じて、含まれる全てのファイルを処理しようとします。これらのファイルは <code>:advanced</code> のコンパイルでも処理されます。</p>
 </dd>
 <dt><code>:external</code></dt>
 <dd>
 <p>これは、他のJSビルドツールでも処理できるようになっており、実際にJSの依存関係を提供します。発行されたインデックス・ファイルには、CLJS の出力が JS の依存関係にアクセスできるようにするための、ちょっとしたグルー・コードが含まれています。外部インデックスファイルの出力は、CLJS 出力の前に読み込まれなければなりません。</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>:shadow</code> vs <code>:closure</code></p>
+</li>
+</ol>
+</div>
 </dd>
 </dl>
 </div>
 <div class="sidebarblock">
 <div class="content">
-<div class="title"><code>:shadow</code> vs <code>:closure</code></div>
 <div class="paragraph">
 <p>理想的には、主要な JS プロバイダとして <code>:closure</code> を使用したいところです。しかし実際には、 <code>npm</code> 経由で入手できる多くのコードは、 <code>:advanced</code> のコンパイルによる積極的な最適化とは互換性がありません。これらのコードは、まったくコンパイルできないか、実行時に特定が非常に困難な微妙なバグを露呈します。</p>
 </div>
 <div class="paragraph">
-<p>shadow` は、 <code>:simple</code> を介してコードを処理するだけの、その場しのぎのソリューションのようなもので、適度に最適化されたコードを取得しつつ、より信頼性の高いサポートを実現しています。その出力は、 <code>webpack</code> のような他のツールが生成するものと同等(あるいはそれ以上)であることが多いです。</p>
+<p><code>shadow</code> は、 <code>:simple</code> を介してコードを処理するだけの、その場しのぎのソリューションのようなもので、適度に最適化されたコードを取得しつつ、より信頼性の高いサポートを実現しています。その出力は、 <code>webpack</code> のような他のツールが生成するものと同等(あるいはそれ以上)であることが多いです。</p>
 </div>
 <div class="paragraph">
 <p>Closure のサポートがより確実なものになるまでは、 <code>:shadow</code> が <code>:browser</code> ビルドの推奨 JS プロバイダとなります。</p>
@@ -4924,13 +4930,13 @@ HeadlessChrome 0.0.0 (Mac OS X 10.12.6): Executed 1 of 1 SUCCESS (0.007 secs / 0
 <div class="sect3">
 <h4 id="js-entry-keys"><a class="anchor" href="#js-entry-keys"></a><a class="link" href="#js-entry-keys">13.1.3. CommonJS vs ESM</a></h4>
 <div class="paragraph">
-<p>最近では、多くの <code>npm</code> パッケージが複数のビルドバリアントを出荷しています。shadow-cljs` はデフォルトで、 <code>package.json</code> の <code>main</code> または <code>browser</code> キーの下にリンクされているバリアントを選択します。これはほとんどの場合、CommonJS のコードを指しています。最近のパッケージの中には、 <code>module</code> エントリを提供しているものもありますが、これは通常 ECMAScript のコード (つまりモダンなJS) を指しています。CommonJS と ESM の間の相互運用は難しいので、 <code>shadow-cljs</code> のデフォルトは CommonJS を使用するようになっていますが、ESM を使用することが有益な場合もあります。</p>
+<p>最近では、多くの <code>npm</code> パッケージが複数のビルドバリアントを出荷しています。 <code>shadow-cljs</code> はデフォルトで、 <code>package.json</code> の <code>main</code> または <code>browser</code> キーの下にリンクされているバリアントを選択します。これはほとんどの場合、CommonJS のコードを指しています。最近のパッケージの中には、 <code>module</code> エントリを提供しているものもありますが、これは通常 ECMAScript のコード (つまりモダンなJS) を指しています。CommonJS と ESM の間の相互運用は難しいので、 <code>shadow-cljs</code> のデフォルトは CommonJS を使用するようになっていますが、ESM を使用することが有益な場合もあります。</p>
 </div>
 <div class="paragraph">
 <p>これが機能するかどうかは、使用しているパッケージに大きく依存します。JS オプションの <code>:entry-keys</code> を使って、 <code>module</code> エントリを優先するように <code>shadow-cljs</code> を設定することができます。これは <code>package.json</code> に含まれる文字列キーのベクトルを受け取り、順番に試行されます。デフォルトでは <code>"["browser" "main" "module"]</code> となっています。</p>
 </div>
 <div class="listingblock">
-<div class="title">例 `:ブラウザ ` のビルドで `:クロージャ ` を使用するための設定です。</div>
+<div class="title">例 :browser のビルドで :closure を使用するための設定</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
  <span class="symbol">:builds</span>
@@ -4972,7 +4978,7 @@ HeadlessChrome 0.0.0 (Mac OS X 10.12.6): Executed 1 of 1 SUCCESS (0.007 secs / 0
 </div>
 </div>
 <div class="paragraph">
-<p><code>app</code> のビルドでは、グローバルな <code>React</code> インスタンスが使用され、 <code>:server</code> のビルドでは、引き続き "react "npmパッケージが使用されます。これを動作させるためにコードをいじる必要はありません。</p>
+<p><code>:app</code> のビルドでは、グローバルな <code>React</code> インスタンスが使用され、 <code>:server</code> のビルドでは、引き続き "react " npmパッケージが使用されます。これを動作させるためにコードを変更する必要はありません。</p>
 </div>
 </div>
 <div class="sect4">
@@ -5084,7 +5090,7 @@ HeadlessChrome 0.0.0 (Mac OS X 10.12.6): Executed 1 of 1 SUCCESS (0.007 secs / 0
 </div>
 </div>
 <div class="paragraph">
-<p>私たちは <a href="#npm">npm</a> パッケージがどのように使用されるかをカバーしましたが、あなたはすでに多くのプレーンな JavaScript を持つコードベースに取り組んでいるかもしれず、まだすべてを ClojureScript で書き直したくはないでしょう。shadow-cljs` は、JavaScriptとClojureScriptの間の100%完全な相互運用性を提供します。つまり、あなたのJSはあなたのCLJSを使うことができ、CLJSはあなたのJSを使うことができるということです。</p>
+<p>私たちは <a href="#npm">npm</a> パッケージがどのように使用されるかをカバーしましたが、あなたはすでに多くのプレーンな JavaScript を持つコードベースに取り組んでいるかもしれず、まだすべてを ClojureScript で書き直したくはないでしょう。 <code>shadow-cljs</code> は、JavaScriptとClojureScriptの間の100%完全な相互運用性を提供します。つまり、あなたのJSはあなたのCLJSを使うことができ、CLJSはあなたのJSを使うことができるということです。</p>
 </div>
 <div class="paragraph">
 <p>この機能を確実に動作させるためには、いくつかの規則に従わなければなりませんが、すでに実行していることもあるでしょう。</p>
@@ -6125,7 +6131,7 @@ $ lein with-profiles +cljs deps <span class="symbol">:tree</span></code></pre>
 <p>ClojureのREPLは、その名が示す通りのことを行います。1つのフォームを読み、それを評価し、結果を印刷し、それを再び行うためにループします。</p>
 </div>
 <div class="paragraph">
-<p>しかし、ClojureScriptでは、コンパイルはJVM上で行われますが、結果はJavaScriptランタイムで評価されるので、もう少し複雑です。普通のREPLの経験をエミュレートするためには、さらにいくつかのステップが必要になります。shadow-cljs` では、通常のCLJSとは実装が少し異なりますが、基本的な原理は同じです。</p>
+<p>しかし、ClojureScriptでは、コンパイルはJVM上で行われますが、結果はJavaScriptランタイムで評価されるので、もう少し複雑です。普通のREPLの経験をエミュレートするためには、さらにいくつかのステップが必要になります。 <code>shadow-cljs</code> では、通常のCLJSとは実装が少し異なりますが、基本的な原理は同じです。</p>
 </div>
 <div class="paragraph">
 <p>まず、REPLクライアントが必要です。これは単に CLI (例: <code>shadow-cljs cljs-repl app</code>) または <code>nREPL</code> を介して接続されたエディタかもしれません。クライアントは常に <code>shadow-cljs</code> サーバと直接会話し、残りの部分は <code>shadow-cljs</code> が処理します。クライアント側からは、まだ通常のREPLのように見えますが、バックグラウンドではさらにいくつかのステップが行われています。</p>
@@ -6167,7 +6173,7 @@ $ lein with-profiles +cljs deps <span class="symbol">:tree</span></code></pre>
 <p>接続が完了すると、REPLを使用できるようになります。JSランタイムをリロード（例：ブラウザのページを手動でリロード）すると、ランタイムのすべてのREPLの状態が消去されますが、コンパイラ側の状態の一部は、 <code>watch</code> が再起動されるまで残りますのでご注意ください。</p>
 </div>
 <div class="paragraph">
-<p>複数の JS ランタイムが <code>watch</code> プロセスに接続する可能性があります。shadow-cljs` はデフォルトで、最初に接続した JS ランタイムを <code>eval</code> の対象として選択します。ある <code>:browser</code> ビルドを複数のブラウザで開いた場合、最初のブラウザだけが <code>eval</code> コードに使用されます。また、開発中にiOSとAndroidで隣り合わせに <code>:react-native</code> アプリを開くこともできます。評価できるのは1つのランタイムだけで、そのランタイムが切断されると、接続された時間に基づいて次のランタイムが引き継ぐことになります。</p>
+<p>複数の JS ランタイムが <code>watch</code> プロセスに接続する可能性があります。 <code>shadow-cljs</code> はデフォルトで、最初に接続した JS ランタイムを <code>eval</code> の対象として選択します。ある <code>:browser</code> ビルドを複数のブラウザで開いた場合、最初のブラウザだけが <code>eval</code> コードに使用されます。また、開発中にiOSとAndroidで隣り合わせに <code>:react-native</code> アプリを開くこともできます。評価できるのは1つのランタイムだけで、そのランタイムが切断されると、接続された時間に基づいて次のランタイムが引き継ぐことになります。</p>
 </div>
 </div>
 <div class="sect3">

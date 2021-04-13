@@ -3,7 +3,7 @@
 ////
 The REPL is a very powerful tool to have when working with Clojure(Script) code. `shadow-cljs` provides several built-in variants that let you get started quickly as well as variants that are integrated into your standard builds.
 ////
-REPLは、Clojure(Script)のコードを扱う際に、非常に強力なツールです。shadow-cljs` は、すぐに始められるいくつかのビルトインバージョンと、標準的なビルドに統合されるバージョンを提供します。
+REPLは、Clojure(Script)のコードを扱う際に、非常に強力なツールです。 `shadow-cljs` は、すぐに始められるいくつかのビルトインバージョンと、標準的なビルドに統合されるバージョンを提供します。
 
 ////
 When you quickly want to test out some code the built-in REPLs should be enough. If you need more complex setups that also do stuff on their own it is best to use an actual build.
