@@ -437,7 +437,7 @@ automatically. The way `:modules` work also ensures that code used only by the w
 be in the final file for the worker. Each worker should have a dedicated CLJS namespace.
 ////
 `modules` の設定は、Web Workerとして使用されるファイルを生成するためにも使用できます。
-web-worker true` を設定することで、任意のモジュールを Web Worker として宣言することができます。生成される
+`web-worker true` を設定することで、任意のモジュールを Web Worker として宣言することができます。生成される
 生成されたファイルには、依存関係を自動的に読み込む追加のブートストラップコードが
 を自動的にロードします。この `:modules` の働きにより、ワーカーだけが使用するコードは、ワーカー用の最終ファイルにのみ含まれることになります。
 ワーカーでのみ使用されるコードは、そのワーカーの最終ファイルにのみ含まれることになります。各ワーカーは、専用の CLJS 名前空間を持つ必要があります。
