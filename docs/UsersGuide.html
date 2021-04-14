@@ -1441,8 +1441,17 @@ $ shadow-cljs run my.build/release</code></pre>
 <pre class="CodeRay highlight"><code data-lang="bash">$ shadow-cljs clj-run my.build/release my@server.com:some/path</code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p>ヒント: <a href="https://github.com/clojure/tools.cli">tools.cli</a> のように引数を解析したい場合は、通常の <code>(defn release [&amp; args])</code> の構造でも動作します。</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Tip</div>
+</td>
+<td class="content">
+<a href="https://github.com/clojure/tools.cli">tools.cli</a> のように引数を解析したい場合は、通常の <code>(defn release [&amp; args])</code> の構造でも動作します。
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>ここでは、Clojureのフルパワーにアクセスできます。必要に応じて、この上にツール全体を構築することができます。おまけに、この方法で書いたものはすべて、Clojure REPLで直接利用できます。</p>
@@ -1526,7 +1535,7 @@ Node REPLを終了すると、 <code>node</code> プロセスもキルされま�
 </table>
 </div>
 <div class="paragraph">
-<p>node-repl` を使えば、追加の設定をすることなく、すぐに使い始めることができます。node-replは、 <code>(require '[your.core :as x])</code> という通常の方法で、あなたのすべてのコードにアクセスします。ビルドに接続されていないので、ファイルが変更されてもコードの自動再構築は行われず、ホットリロードも提供されません。</p>
+<p><code>node-repl</code> を使えば、追加の設定をすることなく、すぐに使い始めることができます。node-replは、 <code>(require '[your.core :as x])</code> という通常の方法で、あなたのすべてのコードにアクセスします。ビルドに接続されていないので、ファイルが変更されてもコードの自動再構築は行われず、ホットリロードも提供されません。</p>
 </div>
 </div>
 <div class="sect3">
@@ -1605,8 +1614,17 @@ REPLを終了するには、 <code>:repl/quit</code> と入力してください
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p>ヒント: 複数の <code>watch</code> ワーカーを並行して実行し、任意の時間にそれらの REPL に接続/切断することができます。</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Tip</div>
+</td>
+<td class="content">
+複数の <code>watch</code> ワーカーを並行して実行し、任意の時間にそれらの REPL に接続/切断することができます。
+</td>
+</tr>
+</table>
 </div>
 <div class="listingblock">
 <div class="title">No connected runtime error の発生</div>
@@ -1841,8 +1859,17 @@ $ yarn add the-thing</code></pre>
 <div class="paragraph">
 <p>それ以上は何も必要ありません。依存関係は <code>package.json</code> ファイルに追加され、これを使って管理されます。</p>
 </div>
-<div class="paragraph">
-<p>ヒント: <code>package.json</code> がまだない場合は、コマンドラインから <code>npm init</code> を実行してください。</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Tip</div>
+</td>
+<td class="content">
+<code>package.json</code> がまだない場合は、コマンドラインから <code>npm init</code> を実行してください。
+</td>
+</tr>
+</table>
 </div>
 <div class="sect4">
 <h5 id="_missing_js_dependency"><a class="anchor" href="#_missing_js_dependency"></a><a class="link" href="#_missing_js_dependency">Missing JS Dependency?</a></h5>
@@ -1977,8 +2004,17 @@ shadow-cljs - watching build :app
 (shadow/repl :the-build)</code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p>ヒント: Clojure に戻るには <code>:cljs/quit</code> を使います。</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Tip</div>
+</td>
+<td class="content">
+Clojure に戻るには <code>:cljs/quit</code> を使います。
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect4">
@@ -2086,8 +2122,17 @@ localhost（または使用するホスト）のSAN（Subject Alternative Name�
 <div class="paragraph">
 <p><code>ssl</code> が設定されている場合、サーバは代わりに <code>https://</code> を介して利用できます。</p>
 </div>
-<div class="paragraph">
-<p>ヒント: <code>:ssl</code> を使用すると、サーバは自動的に HTTP/2 をサポートします。</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Tip</div>
+</td>
+<td class="content">
+<code>:ssl</code> を使用すると、サーバは自動的に HTTP/2 をサポートします。
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>代わりに独自のポートを設定したい場合は、 <code>:http</code> の設定で行うことができます。</p>
@@ -2574,8 +2619,17 @@ preloads オプションは、単に <code>:devtools</code>/<code>:preloads</cod
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p>ヒント: <code>:after-load</code> や <code>:before-load</code> が設定されていない場合、コンパイラは <code>:browser</code> ターゲットのコードのホットリロードのみを試みます。もし、ホットリロードを行いたいが、コールバックが不要な場合は、代わりに <code>:autoload true</code> を設定してください。</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Tip</div>
+</td>
+<td class="content">
+<code>:after-load</code> や <code>:before-load</code> が設定されていない場合、コンパイラは <code>:browser</code> ターゲットのコードのホットリロードのみを試みます。もし、ホットリロードを行いたいが、コールバックが不要な場合は、代わりに <code>:autoload true</code> を設定してください。
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -2810,8 +2864,17 @@ preloads オプションは、単に <code>:devtools</code>/<code>:preloads</cod
    }}</code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p>ヒント: 一般的には、disabledバリアントをデフォルトで使用する方が安全です。なぜなら、releaseビルドに含まれるべきでないものが含まれる可能性が低くなるからです。また、 <code>:closure-defines</code> 変数の設定を忘れると、ほとんどの場合、使用されるコードが増えるのではなく、減ることになります。</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Tip</div>
+</td>
+<td class="content">
+一般的には、disabledバリアントをデフォルトで使用する方が安全です。なぜなら、releaseビルドに含まれるべきでないものが含まれる可能性が低くなるからです。また、 <code>:closure-defines</code> 変数の設定を忘れると、ほとんどの場合、使用されるコードが増えるのではなく、減ることになります。
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>クロージャ・ライブラリのクロージャ定義</p>
@@ -3527,8 +3590,17 @@ Javascriptのファイル名を生成するためにも使用されます。モ�
    <span class="symbol">:depends-on</span> #{<span class="symbol">:shared</span>}}</code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p>ヒント: <code>:shared</code> モジュールの <code>:entries</code> を空にすることで、どの名前空間が他のモジュールと共有されているかをコンパイラに把握させることができます。</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Tip</div>
+</td>
+<td class="content">
+<code>:shared</code> モジュールの <code>:entries</code> を空にすることで、どの名前空間が他のモジュールと共有されているかをコンパイラに把握させることができます。
+</td>
+</tr>
+</table>
 </div>
 <div class="listingblock">
 <div class="title">生成されたファイル構造</div>
@@ -5731,8 +5803,17 @@ cljs.array_map(<span class="keyword">keyword</span>(<span class="string"><span c
 <div class="paragraph">
 <p>通常、すべてのJS Dependenciesは外国のものであり、 <code>:advanced</code> ではパスされないため、Externsが必要となります。</p>
 </div>
-<div class="paragraph">
-<p>ヒント: エクスターンが必要なのは <code>:advanced</code> モードのみで、 <code>:simple</code> モードでは必要ありません。</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Tip</div>
+</td>
+<td class="content">
+エクスターンが必要なのは <code>:advanced</code> モードのみで、 <code>:simple</code> モードでは必要ありません。
+</td>
+</tr>
+</table>
 </div>
 <div class="sect3">
 <h4 id="infer-externs"><a class="anchor" href="#infer-externs"></a><a class="link" href="#infer-externs">14.2.1. エクスターンズの推論</a></h4>
@@ -5966,8 +6047,17 @@ $ npx shadow-cljs run shadow.cljs.build-report app report.html</code></pre>
 <div class="paragraph">
 <p>上記の例では、 <code>:app</code> をビルドする際に、プロジェクトディレクトリに <code>report.html</code> を生成します。</p>
 </div>
-<div class="paragraph">
-<p>ヒント: 生成される <code>report.html</code> は完全に自己完結型で、必要なデータ/js/css をすべて含んでいます。他の外部ソースは必要ありません。</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Tip</div>
+</td>
+<td class="content">
+生成される <code>report.html</code> は完全に自己完結型で、必要なデータ/js/css をすべて含んでいます。他の外部ソースは必要ありません。
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -6712,7 +6802,7 @@ lein jarを実行し、jar -tvf target/library-1.0.0.jarで最終的に含まれ
 <div id="footer">
 <div id="footer-text">
 Version 1.0<br>
-Last updated 2021-04-14 09:13:09 JST
+Last updated 2021-04-14 16:07:21 JST
 </div>
 </div>
 </body>

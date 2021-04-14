@@ -226,7 +226,7 @@ One good configuration for this would be to have one common module that is share
 ////
 TIP: You can leave the `:entries` of the `:shared` module empty to let the compiler figure out which namespaces are shared between the other modules.
 ////
-ヒント: `:shared` モジュールの `:entries` を空にすることで、どの名前空間が他のモジュールと共有されているかをコンパイラに把握させることができます。
+TIP:  `:shared` モジュールの `:entries` を空にすることで、どの名前空間が他のモジュールと共有されているかをコンパイラに把握させることができます。
 
 ////
 .Generated file structure

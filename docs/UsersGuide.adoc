@@ -398,7 +398,7 @@ Nothing more is required. Dependencies will be added to the `package.json` file 
 ////
 TIP: If you don’t have a `package.json` yet run `npm init` from a command line.
 ////
-ヒント: `package.json` がまだない場合は、コマンドラインから `npm init` を実行してください。
+TIP:  `package.json` がまだない場合は、コマンドラインから `npm init` を実行してください。
 
 
 ==== Missing JS Dependency?
@@ -571,7 +571,7 @@ nREPLサーバに接続すると、接続は常にClojure REPLとして開始さ
 ////
 TIP: Use `:cljs/quit` to return to Clojure.
 ////
-ヒント: Clojure に戻るには `:cljs/quit` を使います。
+TIP:  Clojure に戻るには `:cljs/quit` を使います。
 
 
 ==== 組み込み型nREPLサーバ
@@ -710,7 +710,7 @@ When `:ssl` is configured the server will be available via `https://` instead.
 ////
 TIP: The server automatically supports HTTP/2 when using `:ssl`.
 ////
-ヒント: `:ssl` を使用すると、サーバは自動的に HTTP/2 をサポートします。
+TIP:  `:ssl` を使用すると、サーバは自動的に HTTP/2 をサポートします。
 
 ////
 If you prefer to set your own port instead you can do this via the `:http` config.

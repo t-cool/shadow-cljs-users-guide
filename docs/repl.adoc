@@ -35,7 +35,7 @@ IMPORTANT: Node REPLを終了すると、 `node` プロセスもキルされま�
 ////
 `node-repl` lets you get started without any additional configuration. It has access to all your code via the usual means, ie. `(require '[your.core :as x])`. Since it is not connected to any build it does not do any automatic rebuilding of code when your files change and does not provide hot-reload.
 ////
-node-repl` を使えば、追加の設定をすることなく、すぐに使い始めることができます。node-replは、 `(require '[your.core :as x])` という通常の方法で、あなたのすべてのコードにアクセスします。ビルドに接続されていないので、ファイルが変更されてもコードの自動再構築は行われず、ホットリロードも提供されません。
+`node-repl` を使えば、追加の設定をすることなく、すぐに使い始めることができます。node-replは、 `(require '[your.core :as x])` という通常の方法で、あなたのすべてのコードにアクセスします。ビルドに接続されていないので、ファイルが変更されてもコードの自動再構築は行われず、ホットリロードも提供されません。
 
 === Browser REPL [[browser-repl]]
 
@@ -122,7 +122,7 @@ TIP: REPLを終了するには、 `:repl/quit` と入力してください。こ
 ////
 TIP: You may run multiple `watch` "workers" in parallel and connect/disconnect to their REPLs at any given time.
 ////
-ヒント: 複数の `watch` ワーカーを並行して実行し、任意の時間にそれらの REPL に接続/切断することができます。
+TIP:  複数の `watch` ワーカーを並行して実行し、任意の時間にそれらの REPL に接続/切断することができます。
 
 ////
 .No connected runtime error.
