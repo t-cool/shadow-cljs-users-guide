@@ -2,7 +2,7 @@
 The `:target :node-script` produces single-file stand-alone output that can be run using `node.js`.
 The code is just ClojureScript, and an entry point is easy to define:
 ////
-`target :node-script` は、`node.js` を使用して実行できるシングルファイルのスタンドアローン出力を生成します。
+`target :node-script` は、`Node.js` を使用して実行できるシングルファイルのスタンドアローン出力を生成します。
 コードは単なるClojureScriptであり、エントリーポイントの定義も簡単です。
 
 ```

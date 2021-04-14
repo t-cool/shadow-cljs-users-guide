@@ -973,11 +973,11 @@ a configuration file.
 設定ファイルに必要な基本的な設定については、<<config,共通設定>>のセクションを参照してください。
 設定ファイルに必要な基本的な設定については
 
-== node.js のスクリプト [[target-node-script]]
+== Node.js のスクリプト [[target-node-script]]
 
 include::target-node-script.adoc[]
 
-== node.js ライブラリ [[target-node-library]]
+== Node.js ライブラリ [[target-node-library]]
 
 include::target-node-library.adoc[]
 
@@ -1034,7 +1034,7 @@ In the Clojure world it is common to keep test files in their own source paths s
 ////
 Clojureの世界では、テストファイルをそれぞれのソースパスに置いておくのが一般的なので、上記の例では、 `shadow-cljs.edn` の設定で `:source-paths ["src/main" "src/test"]` を設定していると仮定しています。通常のアプリのコードは `src/main` に入り、テストは `src/test` に入ります。ただし、これはオプションで、すべてを `src` に置いて、 `:source-paths ["src"]` を使うだけでも全く問題ありません。
 
-== node.js におけるテスト　[[target-node-test]]
+== Node.js におけるテスト　[[target-node-test]]
 
 include::target-node-test.adoc[]
 

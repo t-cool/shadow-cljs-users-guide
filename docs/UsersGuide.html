@@ -683,13 +683,13 @@ table.CodeRay td.code>pre{padding:0}
 </li>
 <li><a href="#target-node">9. node.jsを対象とする</a>
 <ul class="sectlevel2">
-<li><a href="#target-node-script">9.1. node.js のスクリプト</a>
+<li><a href="#target-node-script">9.1. Node.js のスクリプト</a>
 <ul class="sectlevel3">
 <li><a href="#_ビルドオプション">9.1.1. ビルドオプション</a></li>
 <li><a href="#NodeHotCodeReload">9.1.2. ホットコードリロード</a></li>
 </ul>
 </li>
-<li><a href="#target-node-library">9.2. node.js ライブラリ</a>
+<li><a href="#target-node-library">9.2. Node.js ライブラリ</a>
 <ul class="sectlevel3">
 <li><a href="#_単一で静的な_デフォルト_エクスポート">9.2.1. 単一で静的な デフォルト・エクスポート</a></li>
 <li><a href="#_複数の静的な名前付きエクスポート">9.2.2. 複数の静的な名前付きエクスポート</a></li>
@@ -708,7 +708,7 @@ table.CodeRay td.code>pre{padding:0}
 </li>
 <li><a href="#_テスト">12. テスト</a>
 <ul class="sectlevel2">
-<li><a href="#_node_js_におけるテスト_a_id_target_node_test_a">12.1. node.js におけるテスト　<a id="target-node-test"></a></a></li>
+<li><a href="#_node_js_におけるテスト_a_id_target_node_test_a">12.1. Node.js におけるテスト　<a id="target-node-test"></a></a></li>
 <li><a href="#target-browser-test">12.2. ブラウザにおけるテスト</a>
 <ul class="sectlevel3">
 <li><a href="#_test_dir_に生成された出力">12.2.1. :test-dir に生成された出力</a></li>
@@ -4282,9 +4282,9 @@ HTMLに含めるのは少し複雑です。<a href="#BrowserManifest">Output Man
 設定ファイルに必要な基本的な設定については</p>
 </div>
 <div class="sect2">
-<h3 id="target-node-script"><a class="anchor" href="#target-node-script"></a><a class="link" href="#target-node-script">9.1. node.js のスクリプト</a></h3>
+<h3 id="target-node-script"><a class="anchor" href="#target-node-script"></a><a class="link" href="#target-node-script">9.1. Node.js のスクリプト</a></h3>
 <div class="paragraph">
-<p><code>target :node-script</code> は、<code>node.js</code> を使用して実行できるシングルファイルのスタンドアローン出力を生成します。
+<p><code>target :node-script</code> は、<code>Node.js</code> を使用して実行できるシングルファイルのスタンドアローン出力を生成します。
 コードは単なるClojureScriptであり、エントリーポイントの定義も簡単です。</p>
 </div>
 <div class="listingblock">
@@ -4434,7 +4434,7 @@ HTMLに含めるのは少し複雑です。<a href="#BrowserManifest">Output Man
 </div>
 </div>
 <div class="sect2">
-<h3 id="target-node-library"><a class="anchor" href="#target-node-library"></a><a class="link" href="#target-node-library">9.2. node.js ライブラリ</a></h3>
+<h3 id="target-node-library"><a class="anchor" href="#target-node-library"></a><a class="link" href="#target-node-library">9.2. Node.js ライブラリ</a></h3>
 <div class="paragraph">
 <p><code>target :node-library</code> は、標準のノードライブラリとして（<code>require</code> を通して）使用できるコードを出力します。
 これは、コンパイルされたJavascriptの成果物として再利用するためにコードを公開するのに便利です。</p>
@@ -4723,7 +4723,7 @@ ns.bar()<span class="comment">;</span></code></pre>
 <p>Clojureの世界では、テストファイルをそれぞれのソースパスに置いておくのが一般的なので、上記の例では、 <code>shadow-cljs.edn</code> の設定で <code>:source-paths ["src/main" "src/test"]</code> を設定していると仮定しています。通常のアプリのコードは <code>src/main</code> に入り、テストは <code>src/test</code> に入ります。ただし、これはオプションで、すべてを <code>src</code> に置いて、 <code>:source-paths ["src"]</code> を使うだけでも全く問題ありません。</p>
 </div>
 <div class="sect2">
-<h3 id="_node_js_におけるテスト_a_id_target_node_test_a"><a class="anchor" href="#_node_js_におけるテスト_a_id_target_node_test_a"></a><a class="link" href="#_node_js_におけるテスト_a_id_target_node_test_a">12.1. node.js におけるテスト　<a id="target-node-test"></a></a></h3>
+<h3 id="_node_js_におけるテスト_a_id_target_node_test_a"><a class="anchor" href="#_node_js_におけるテスト_a_id_target_node_test_a"></a><a class="link" href="#_node_js_におけるテスト_a_id_target_node_test_a">12.1. Node.js におけるテスト　<a id="target-node-test"></a></a></h3>
 <div class="paragraph">
 <p>このターゲットは、指定された正規表現にマッチするすべてのテスト名前空間を含むテストランナーを作成します。</p>
 </div>
@@ -6801,7 +6801,7 @@ lein jarを実行し、jar -tvf target/library-1.0.0.jarで最終的に含まれ
 <div id="footer">
 <div id="footer-text">
 Version 1.0<br>
-Last updated 2021-04-14 16:10:34 JST
+Last updated 2021-04-14 20:23:47 JST
 </div>
 </div>
 </body>
