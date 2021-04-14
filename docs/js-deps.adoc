@@ -231,7 +231,7 @@ Closure のサポートがより確実なものになるまでは、 `:shadow` �
 ////
 .Example config for using `:closure` in a `:browser` build.
 ////
-.Example : :browser のビルドで :closure を使用するための設定
+.Example :browser のビルドで :closure を使用するための設定
 
 ```clojure
 {...
