@@ -3409,11 +3409,20 @@ preloads オプションは、単に <code>:devtools</code>/<code>:preloads</cod
 </dd>
 </dl>
 </div>
-<div class="paragraph">
-<p>警告: 各ビルドにはそれぞれ :output-dir が必要で、複数のビルドを同じディレクトリに置くことはできません。
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Warning</div>
+</td>
+<td class="content">
+各ビルドにはそれぞれ :output-dir が必要で、複数のビルドを同じディレクトリに置くことはできません。
 また、このディレクトリは、そのビルドが独占的に所有するものでなければなりません。そこには他のファイルがあってはいけません。
 <code>shadow-cljs</code> は何も削除しませんが、そのままにしておいた方が安全です。コンパイル
-は、開発中にメインのエントリーポイントとなる javascript ファイル以外にも、ソースマップ、オリジナルソース、生成ソースなど、多くのファイルを作成します。</p>
+は、開発中にメインのエントリーポイントとなる javascript ファイル以外にも、ソースマップ、オリジナルソース、生成ソースなど、多くのファイルを作成します。
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p><code>:asset-path</code> は、モジュールの読み込みコードのパスに追加されるプレフィックスで、生成されたjavascriptの中に含まれます。
@@ -4427,9 +4436,18 @@ HTMLに含めるのは少し複雑です。<a href="#BrowserManifest">Output Man
                          <span class="symbol">:after-load</span> demo.script/start}}}}</code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p>警告: 多くのライブラリは状態を隠したり、ホットコードのリロードがうまく機能しないような動作をします。コンパイラはこれらのライブラリが何をしているのかを知らないので、これを改善することはできません。
-ホットコードリロードは、使用されているアーティファクトをきれいに stop および restart できる状況でのみうまく機能します。</p>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Warning</div>
+</td>
+<td class="content">
+多くのライブラリは状態を隠したり、ホットコードのリロードがうまく機能しないような動作をします。コンパイラはこれらのライブラリが何をしているのかを知らないので、これを改善することはできません。
+ホットコードリロードは、使用されているアーティファクトをきれいに stop および restart できる状況でのみうまく機能します。
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>

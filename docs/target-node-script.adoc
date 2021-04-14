@@ -204,5 +204,5 @@ The associated configuration is (`shadow-cljs.edn`):
 WARNING: Many libraries hide state or do actions that prevent hot code reloading from working well. There is nothing the compiler can do to improve this since it has no idea what those libraries are doing.
 Hot code reload will only work well in situations where you can cleanly "stop" and "restart" the artifacts used.
 ////
-警告: 多くのライブラリは状態を隠したり、ホットコードのリロードがうまく機能しないような動作をします。コンパイラはこれらのライブラリが何をしているのかを知らないので、これを改善することはできません。
+WARNING:  多くのライブラリは状態を隠したり、ホットコードのリロードがうまく機能しないような動作をします。コンパイラはこれらのライブラリが何をしているのかを知らないので、これを改善することはできません。
 ホットコードリロードは、使用されているアーティファクトをきれいに stop および restart できる状況でのみうまく機能します。
