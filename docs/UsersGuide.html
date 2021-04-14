@@ -5906,7 +5906,7 @@ global<span class="symbol">:SomeGlobalVariable</span></code></pre>
 <p>クロージャ・コンパイラは、不要なコードを名前で削除することをサポートしています。これにより、通常のデッドコード除去では除去できない、あるいは除去したくないコードを除去することができます。これは、実際に気になるコードが削除される可能性があるため非常に危険ですが、多くの開発者専用コードを簡単に削除することができます。これは4つのオプションに分類されていて、そのうちClojureScriptに関連するのはほぼ <code>:strip-type-prefixes</code> だけですが、他にも有用なオプションがあるかもしれません。</p>
 </div>
 <div class="listingblock">
-<div class="title">Example cljs.pprint のすべての使用を削除する。</div>
+<div class="title">Example cljs.pprint のすべての使用を削除</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
  <span class="symbol">:builds</span>
@@ -6152,7 +6152,7 @@ cljs.repl&gt;</code></pre>
 <p>あとは、atomコマンドの <code>Chlorine: Connect Clojure Socket Repl</code>. これでClojureのコードを評価するREPLが接続されます。次に、 <code>Chlorine: Connect Clojure Socket Repl</code> を実行してください。 <code>Connect Embeded</code> を実行すると、ClojureScriptのREPLも接続されます。</p>
 </div>
 <div class="paragraph">
-<p>これで、 <code>Chlorine: Evaluate&#8230;&#8203;</code> コマンドを使って、任意のClojureまたはClojureScript REPLを評価することができます。.clj` ファイルはClojureとして、 <code>cljc</code> ファイルはClojureScriptとして評価されます。</p>
+<p>これで、 <code>Chlorine: Evaluate&#8230;&#8203;</code> コマンドを使って、任意のClojureまたはClojureScript REPLを評価することができます。 <code>.clj</code> ファイルはClojureとして、 <code>cljc</code> ファイルはClojureScriptとして評価されます。</p>
 </div>
 </div>
 <div class="sect2">

@@ -219,7 +219,7 @@ Now, all you have to do is to run the atom command `Chlorine: Connect Clojure So
 ////
 Now, you can use the `Chlorine: Evaluate...` commands to evaluate any Clojure or ClojureScript REPL. It'll evaluate `.clj` files as Clojure, and `cljc` files as ClojureScript.
 ////
-これで、 `Chlorine: Evaluate...` コマンドを使って、任意のClojureまたはClojureScript REPLを評価することができます。.clj` ファイルはClojureとして、 `cljc` ファイルはClojureScriptとして評価されます。
+これで、 `Chlorine: Evaluate...` コマンドを使って、任意のClojureまたはClojureScript REPLを評価することができます。 `.clj` ファイルはClojureとして、 `cljc` ファイルはClojureScriptとして評価されます。
 
 == Calva (VS Code)
 

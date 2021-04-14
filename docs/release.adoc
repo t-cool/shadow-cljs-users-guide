@@ -331,7 +331,7 @@ The Closure Compiler supports removing unwanted code by name. This allows removi
 ////
 .Example removing all uses of `cljs.pprint`
 ////
-.Example cljs.pprint のすべての使用を削除する。
+.Example cljs.pprint のすべての使用を削除
 
 ```
 {...
