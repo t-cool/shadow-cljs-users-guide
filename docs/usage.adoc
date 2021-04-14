@@ -446,7 +446,7 @@ $ shadow-cljs clj-run my.build/release my@server.com:some/path
 ////
 TIP: The usual `(defn release [& args])` structure also works if you want to parse the args with something like https://github.com/clojure/tools.cli[tools.cli] .
 ////
-TIP:  https://github.com/clojure/tools.cli[tools.cli] のように引数を解析したい場合は、通常の `(defn release [& args])` の構造でも動作します。
+TIP: https://github.com/clojure/tools.cli[tools.cli] のように引数を解析したい場合は、通常の `(defn release [& args])` の構造でも動作します。
 
 ////
 You have access to the full power of Clojure here. You can build entire tools on top of this if you like. As a bonus everything you write this way is also directly available via the Clojure REPL.

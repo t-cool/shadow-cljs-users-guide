@@ -113,7 +113,7 @@ Typically all JS Dependencies are foreign and won't be passed through `:advanced
 ////
 TIP: Externs are only required for `:advanced`, they are not required in `:simple` mode.
 ////
-TIP:  エクスターンが必要なのは `:advanced` モードのみで、 `:simple` モードでは必要ありません。
+TIP: エクスターンが必要なのは `:advanced` モードのみで、 `:simple` モードでは必要ありません。
 
 === エクスターンズの推論 [[infer-externs]]
 //Externs Inference [[infer-externs]]
@@ -398,5 +398,5 @@ The above example will generate a `report.html` in the project directory for the
 ////
 TIP: The generated `report.html` is entirely self-contained and includes all the required data/js/css. No other external sources are required.
 ////
-TIP:  生成される `report.html` は完全に自己完結型で、必要なデータ/js/css をすべて含んでいます。他の外部ソースは必要ありません。
+TIP: 生成される `report.html` は完全に自己完結型で、必要なデータ/js/css をすべて含んでいます。他の外部ソースは必要ありません。
 
