@@ -445,7 +445,7 @@ web-worker true` を設定することで、任意のモジュールを Web Work
 ////
 .An example of generating a web worker script
 ////
-.ウェブ・ワーカーースクリプトの生成の一例
+.ウェブ・ワーカースクリプトの生成の一例
 
 ```
 {...
