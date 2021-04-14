@@ -74,8 +74,18 @@ from its output.
 コマンドラインの例を示す場合、（# で始まる）Bash のコメントを含めることがあります。
 また、通常は、コマンドとその出力を分離するために、標準的なユーザーUNIXのプロンプトである$を含めます。$をその出力から分離することを意味します。
 
+////
 ```bash
 # A comment. This command lists files:
+$ ls -l
+shadow-cljs.edn
+project.clj
+...
+```
+////
+
+```bash
+# コメントです。このコマンドは、ファイルを一覧表示します。
 $ ls -l
 shadow-cljs.edn
 project.clj
