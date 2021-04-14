@@ -475,8 +475,7 @@ It will have all code from the `:shared` module available (but not `:main`). The
 both development and release modes.
 ////
 上記の設定を行うと、Web Worker を起動するための `worker.js` が生成されます。
-このファイルには、 `:shared` モジュールのすべてのコードが含まれています (ただし、 `:main` は含まれていません)。コードは
-名前空間 `my.app.worker` のコードは、Worker の中でのみ実行されます。ワーカーの生成は、開発モードとリリースモードの両方で行われます。
+このファイルには、 `:shared` モジュールのすべてのコードが含まれています (ただし、 `:main` は含まれていません)。名前空間 `my.app.worker` のコードは、Worker の中でのみ実行されます。ワーカーの生成は、開発モードとリリースモードの両方で行われます。
 ワーカーの生成は、開発モードとリリースモードの両方で行われます。
 
 ////
