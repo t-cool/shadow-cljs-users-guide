@@ -31,7 +31,7 @@ Each build describes artifacts that the compiler will build. The build target is
 ////
 Each build in `shadow-cljs` must define a `:target` which defines where you intend your code to be executed. There are default built-ins for the <<target-browser,browser>> and <<target-node,`node.js`>>. They all share the basic concept of having `:dev` and `:release` modes. `:dev` mode provides all the usual development goodies like fast compilation, live code reloading and a REPL. `:release` mode will produce optimized output intended for production.
 ////
-`shadow-cljs` の各ビルドでは、コードをどこで実行するかを定義する `:target` を定義する必要があります。<<target-browser,browser>> と <<target-node,`node.js`>> のデフォルトのビルドインがあります。これらはすべて、 `:dev` モードと `:release` モードを持つという基本的なコンセプトを共有しています。dev` モードでは、高速なコンパイル、ライブコードリロード、 REPL など、通常の開発に必要な機能をすべて提供します。 `release` モードでは、プロダクション向けに最適化された出力が得られます。
+`shadow-cljs` の各ビルドでは、コードをどこで実行するかを定義する `:target` を定義する必要があります。<<target-browser,browser>> と <<target-node,`node.js`>> のデフォルトのビルドインがあります。これらはすべて、 `:dev` モードと `:release` モードを持つという基本的なコンセプトを共有しています。dev` モードでは、高速なコンパイル、ライブコードリロード、REPL など、通常の開発に必要な機能をすべて提供します。 `release` モードでは、プロダクション向けに最適化された出力が得られます。
 
 ////
 Targets are covered in separate chapters.
@@ -90,8 +90,8 @@ When running `watch` code for the REPL is injected automatically and usually doe
 - `:repl-init-ns` allows configuring which namespace the REPL will start in. It defaults to `cljs.user`.
 - `:repl-pprint` makes the REPL use `cljs.pprint` instead of the regular `pr-str` when printing eval results. Defaults to false.
 ////
-- `:repl-init-ns` では、 REPL をどの名前空間で起動するかを設定することができます。デフォルトでは `cljs.user` となります。
-- repl-pprint` では、 REPL がevalの結果を print するときに、通常の `pr-str` の代わりに `cljs.pprint` を使用します。デフォルトは false です。
+- `:repl-init-ns` では、REPL をどの名前空間で起動するかを設定することができます。デフォルトでは `cljs.user` となります。
+- repl-pprint` では、REPL がevalの結果を print するときに、通常の `pr-str` の代わりに `cljs.pprint` を使用します。デフォルトは false です。
 
 ```
 {...
@@ -541,7 +541,7 @@ The `:cache-root` is always resolved relative to the project directory. You can 
 ////
 The Closure Library & Compiler allow you to define variables that are essentially compile time constants. You can use these to configure certain features of your build. Since the Closure compiler treats these as constants when running `:advanced` optimizations they are fully supported in the Dead-Code-Elimination passes and can be used to remove certain parts of the code that should not be included in `release` builds.
 ////
-Closure Library & Compilerでは、基本的にコンパイル時の定数である変数を定義することができます。これを使って、ビルドの特定の機能を設定することができます。 Closure コンパイラは、 `:advanced` 最適化を実行する際にこれらを定数として扱うため、 Dead-Code-Elimination パスが完全にサポートされており、 `release` ビルドに含めるべきではないコードの特定の部分を削除するために使用することができます。
+Closure Library & Compilerでは、基本的にコンパイル時の定数である変数を定義することができます。これを使って、ビルドの特定の機能を設定することができます。 Closure コンパイラは、 `:advanced` 最適化を実行する際にこれらを定数として扱うため、Dead-Code-Elimination パスが完全にサポートされており、 `release` ビルドに含めるべきではないコードの特定の部分を削除するために使用することができます。
 
 ////
 You can define them in your code
@@ -599,7 +599,7 @@ This defines the `your.app/VERBOSE` variable as `false` by default. This will ca
 ////
 TIP: It is generally safer to use the "disabled" variant as the default since it makes things less likely to be included in a `release` build when they shouldn't be. Forgetting to set a `:closure-defines` variable should almost always result in less code being used not more.
 ////
-TIP: 一般的には、 disabled バリアントをデフォルトで使用する方が安全です。なぜなら、 release ビルドに含まれるべきでないものが含まれる可能性が低くなるからです。また、 `:closure-defines` 変数の設定を忘れると、ほとんどの場合、使用されるコードが増えるのではなく、減ることになります。
+TIP: 一般的には、disabled バリアントをデフォルトで使用する方が安全です。なぜなら、release ビルドに含まれるべきでないものが含まれる可能性が低くなるからです。また、 `:closure-defines` 変数の設定を忘れると、ほとんどの場合、使用されるコードが増えるのではなく、減ることになります。
 
 ////
 Closure Defines from the Closure Library
@@ -759,7 +759,7 @@ It is sometimes desireable to fail a build with warnings rather than continuing 
 ////
 A set of possible warning-type keywords can be found https://github.com/clojure/clojurescript/blob/5ad96a8b3ae2e3616a19715ba9ba2471a36933a2/src/main/clojure/cljs/analyzer.cljc#L124-L163[here].
 ////
-可能な警告タイプのキーワードのセットは、 https://github.com/clojure/clojurescript/blob/5ad96a8b3ae2e3616a19715ba9ba2471a36933a2/src/main/clojure/cljs/analyzer.cljc#L124-L163[こちら] にあります。
+可能な警告タイプのキーワードのセットは、https://github.com/clojure/clojurescript/blob/5ad96a8b3ae2e3616a19715ba9ba2471a36933a2/src/main/clojure/cljs/analyzer.cljc#L124-L163[こちら] にあります。
 
 ////
 .Only throw for certain namespaces
@@ -796,7 +796,7 @@ You can select other output options if you only care about more modern environme
 ////
 IMPORTANT: Note that this mostly affects imported JS code from <<npm, npm>> or `.js` files from the <<classpath-js, classpath>>. CLJS will currently only generate ES5 output and is not affected by setting higher options.
 ////
-IMPORTANT: これは主に<<npm, npm>>からインポートされた JS コードや<<classpath-js, classpath>>からの `.js` ファイルに影響することに注意してください。 CLJS は現在、 ES5 の出力のみを生成し、より高いオプションを設定しても影響を受けません。
+IMPORTANT: これは主に<<npm, npm>>からインポートされた JS コードや<<classpath-js, classpath>>からの `.js` ファイルに影響することに注意してください。 CLJS は現在、ES5 の出力のみを生成し、より高いオプションを設定しても影響を受けません。
 
 ////
 You can configure this via the `:output-feature-set` in `:compiler-options`. The older `:language-out` option should not be used as `:output-feature-set` replaced it.
@@ -860,7 +860,7 @@ CAUTION: この機能は `shadow-cljs` でのみ動作します。これは Cloj
 ////
 Example: Some `npm` packages only work when targeting the `:browser`, but you may have a `ns` that you also want to use in a `:node-script` build. This might happen frequently when trying to use Server-Side Rendering (SSR) with your React App. `codemirror` is one such package.
 ////
-例 一部の `npm` パッケージは `:browser` をターゲットにしたときにのみ動作しますが、 `:node-script` のビルドでも使用したい `ns` があるかもしれません。これは、 React アプリでサーバサイドレンダリング(SSR)を使おうとしているときに頻繁に起こるかもしれません。codemirror` はそのようなパッケージの一つです。
+例 一部の `npm` パッケージは `:browser` をターゲットにしたときにのみ動作しますが、 `:node-script` のビルドでも使用したい `ns` があるかもしれません。これは、React アプリでサーバサイドレンダリング(SSR)を使おうとしているときに頻繁に起こるかもしれません。codemirror` はそのようなパッケージの一つです。
 
 ```clojure
 (ns my.awesome.component
@@ -1104,7 +1104,7 @@ The are also a few more supported forms that you can use `#shadow/env` with.
 ```
 #shadow/env "APP_URL"
 #shadow/env ["APP_URL"]
-;; デフォルトの値で、 env 変数が設定されていない場合に使用される
+;; デフォルトの値で、env 変数が設定されていない場合に使用される
 #shadow/env ["APP_URL" "default-value"]
 #shadow/env ["APP_URL" :default "default-value"]
 ;; PORT envをデフォルトで整数に変換する

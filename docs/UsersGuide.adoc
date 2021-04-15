@@ -95,7 +95,7 @@ project.clj
 ////
 Many of the examples are of the configuration file for the compiler. This file contains an EDN map. Where we have already discussed required options we will often elide them for clarity. In this case we'll usually include an ellipsis to indicate "content that is required but isn't in our current focus":
 ////
-例題の多くは、コンパイラの設定ファイルです。このファイルには、 EDN マップが含まれています。必要なオプションについてすでに説明している場合は、わかりやすくするために省略することがあります。この場合、必要だが、現在の焦点ではない内容を示すために省略記号を入れるのが普通です。
+例題の多くは、コンパイラの設定ファイルです。このファイルには、EDN マップが含まれています。必要なオプションについてすでに説明している場合は、わかりやすくするために省略することがあります。この場合、必要だが、現在の焦点ではない内容を示すために省略記号を入れるのが普通です。
 
 
 ////
@@ -276,7 +276,7 @@ The file structure for this example should look like this:
 ////
 `:source-paths` configures your JVM classpath. The compiler will use this config to find Clojure(Script) source files (eg. `.cljs`).
 ////
-`:source-paths` は、 JVM のクラスパスを設定します。コンパイラはこの設定を使って、Clojure(Script)のソースファイル(例： `.cljs` )を探します。
+`:source-paths` は、JVM のクラスパスを設定します。コンパイラはこの設定を使って、Clojure(Script)のソースファイル(例： `.cljs` )を探します。
 
 
 ////
@@ -355,7 +355,7 @@ Notice that the source path is *only* specified once in the entire configuration
 ////
 `shadow-cljs` integrates fully with the https://www.npmjs.com/[`npm`] ecosystem to manage JavaScript dependencies.
 ////
-`shadow-cljs` は、 https://www.npmjs.com/[`npm`] エコシステムと完全に統合して、JavaScript の依存関係を管理します。
+`shadow-cljs` は、https://www.npmjs.com/[`npm`] エコシステムと完全に統合して、JavaScript の依存関係を管理します。
 
 
 ////
@@ -504,7 +504,7 @@ This section is for other options that configure the `shadow-cljs` server instan
 ////
 The `shadow-cljs` <<server-mode, server>> provides a https://nrepl.org[nREPL] server via TCP. If you look at the startup message you'll see the port of nREPL, and the port will also be stored in `target/shadow-cljs/nrepl.port`:
 ////
-`shadow-cljs` <<server-mode, server>> は TCP 経由で https://nrepl.org[nREPL] サーバを提供しています。起動メッセージを見ると、 nREPL のポートが表示され、そのポートは `target/shadow-cljs/nrepl.port` にも保存されます。
+`shadow-cljs` <<server-mode, server>> は TCP 経由で https://nrepl.org[nREPL] サーバを提供しています。起動メッセージを見ると、nREPL のポートが表示され、そのポートは `target/shadow-cljs/nrepl.port` にも保存されます。
 
 ```bash
 $ shadow-cljs watch app
@@ -592,7 +592,7 @@ TIP: Clojure に戻るには `:cljs/quit` を使います。
 ////
 When you use `shadow-cljs` embedded in other tools that provide their own nREPL server (eg. `lein`) you need to configure the `shadow-cljs` middleware. Otherwise you won't be able to switch between CLJ and CLJS REPLs.
 ////
-独自の nREPL サーバを提供する他のツール（例：`lein`）に `shadow-cljs` を組み込んで使用する場合は、 `shadow-cljs` ミドルウェアを設定する必要があります。そうしないと、 CLJ とCLJSの REPL の間で切り替えることができません。
+独自の nREPL サーバを提供する他のツール（例：`lein`）に `shadow-cljs` を組み込んで使用する場合は、 `shadow-cljs` ミドルウェアを設定する必要があります。そうしないと、CLJ とCLJSの REPL の間で切り替えることができません。
 
 
 ////
@@ -846,7 +846,7 @@ if a resource is not found for the given request. Defaults to `shadow.http.push-
 ////
 `:root` :: (String) リクエストを処理するためのパスです。 `classpath:` で始まるパスは、ファイルシステムではなく、クラスパスからリクエストを処理します。すべてのファイルシステムのパスは、プロジェクトのルートからの相対パスです。
 `:roots`:: 複数のルートパスが必要な場合は、 `:root` の代わりに使用します。
-`:ssl-port`  :: `(文字列のベクトル) ssl` が設定されている場合、 ssl 接続にはこのポートを使用し、通常の HTTP サーバは通常のポートを使用します。 `ssl-port` が設定されておらず、 `:ssl` が設定されている場合、デフォルトのポートは SSL リクエストのみをサーバします。
+`:ssl-port`  :: `(文字列のベクトル) ssl` が設定されている場合、ssl 接続にはこのポートを使用し、通常の HTTP サーバは通常のポートを使用します。 `ssl-port` が設定されておらず、 `:ssl` が設定されている場合、デフォルトのポートは SSL リクエストのみをサーバします。
 `:host` :: オプションです。リッスンするホスト名を指定します。デフォルトでは localhost になります。
 `:handler` :: オプションです。完全に修飾されたシンボルです。与えられたリクエストに対してリソースが見つからない場合に使用される `(defn handler [req] resp)` です。
 `(defn handler [req] resp)` は、与えられたリクエストに対してリソースが見つからない場合に使用されます。デフォルトでは `shadow.http.push-state/handle` となります。
@@ -1117,7 +1117,7 @@ https://clojurians.slack.com/messages/C6N245JGG[`#shadow-cljs` Slackチャンネ
 ////
 The `shadow-cljs` compiler ensures that things on your source paths are compiled first, overriding files from JARs. This means that you can copy a source file from a library, patch it, and include it in your own source directory.
 ////
-`shadow-cljs` コンパイラは、あなたのソースパス上にあるものが最初にコンパイルされるようにし、 JAR からのファイルを優先します。つまり、ライブラリからソースファイルをコピーしてパッチを当て、それを自分のソースディレクトリにインクルードすることができるのです。
+`shadow-cljs` コンパイラは、あなたのソースパス上にあるものが最初にコンパイルされるようにし、JAR からのファイルを優先します。つまり、ライブラリからソースファイルをコピーしてパッチを当て、それを自分のソースディレクトリにインクルードすることができるのです。
 
 ////
 This is a convenient way to test out fixes (even to `shadow-cljs` itself!) without having to clone

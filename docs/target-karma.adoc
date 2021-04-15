@@ -16,7 +16,7 @@ CLJSのテストをある種の CI サーバ上でブラウザに対して実行
 See their http://karma-runner.github.io[website] for full instructions. You'll typically need
 something like this is your `package.json`:
 ////
-詳しい説明は、 http://karma-runner.github.io[website] をご覧ください。通常、次のようなものが必要になります。 `package.json` には以下のようなものが必要です。
+詳しい説明は、http://karma-runner.github.io[website] をご覧ください。通常、次のようなものが必要になります。 `package.json` には以下のようなものが必要です。
 
 
 ```json
@@ -38,7 +38,7 @@ something like this is your `package.json`:
 ////
 So, you need Karma, a browser launcher, and the cljs-test integration.
 ////
-つまり、 Karma 、ブラウザランチャー、そして cljs-test の統合が必要なのです。
+つまり、Karma 、ブラウザランチャー、そして cljs-test の統合が必要なのです。
 
 === Build
 // The Build

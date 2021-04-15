@@ -12,7 +12,7 @@ shadow-cljs は様々な方法で使用できますが、一般的なワーク�
 ////
 During development you have the option to `compile` a build once or run a `watch` worker which watches your source files for changes and re-compiles them automatically. When <<devtools, enabled>> the `watch` will also hot-reload your code and provide a REPL. During development the focus is on developer experience with fast feedback cycles. Development code should never be shipped to the public.
 ////
-開発中には、ビルドを一度だけ `compile` するか、ソースファイルの変更を監視して自動的に再コンパイルする `watch` ワーカーを実行するかのオプションがあります。このワーカーはソースファイルの変更を監視し、自動的に再コンパイルします。<<devtools, enabled>> の場合、 `watch` はコードをホットリロードし、 REPL を提供します。開発中は、迅速なフィードバックサイクルによる開発者の経験に重点を置いています。開発コードは決して一般に出荷してはいけません。
+開発中には、ビルドを一度だけ `compile` するか、ソースファイルの変更を監視して自動的に再コンパイルする `watch` ワーカーを実行するかのオプションがあります。このワーカーはソースファイルの変更を監視し、自動的に再コンパイルします。<<devtools, enabled>> の場合、 `watch` はコードをホットリロードし、REPL を提供します。開発中は、迅速なフィードバックサイクルによる開発者の経験に重点を置いています。開発コードは決して一般に出荷してはいけません。
 
 ////
 When it is time to get serious you create a <<release, `release`>> build which creates an optimized build suitable for production. For this the https://developers.google.com/closure/compiler/[Closure Compiler] is used which applies some seriously `:advanced` optimizations to your code to create the most optimal output available. This may require some <<externs, tuning>> to work properly when using lots of interop with native JavaScript but works flawlessly for ClojureScript (and the code from the https://developers.google.com/closure/library/[Closure Library]).
@@ -226,7 +226,7 @@ https://leiningen.org/[Leiningen] を使って依存関係を管理したい場�
 ////
 When using `project.clj` to manage your `:dependencies` you must manually include the https://clojars.org/thheller/shadow-cljs[thheller/shadow-cljs] artifact in your `:dependencies` (directly or in a profile).
 ////
-project.clj を使って :dependencies を管理する場合、 https://clojars.org/thheller/shadow-cljs[thheller/shadow-cljs] アーティファクトを :dependencies に (直接またはプロファイルで) 手動で含める必要があります。
+project.clj を使って :dependencies を管理する場合、https://clojars.org/thheller/shadow-cljs[thheller/shadow-cljs] アーティファクトを :dependencies に (直接またはプロファイルで) 手動で含める必要があります。
 
 ////
 IMPORTANT: When you are running into weird Java Stackstraces when starting `shadow-cljs` or trying compile builds you may have a dependency conflict. It is very important that `shadow-cljs` is used with proper matching `org.clojure/clojurescript` and `closure-compiler` versions. You can check via `lein deps :tree` and the required versions are listed on https://clojars.org/thheller/shadow-cljs[clojars] (on the right side).
@@ -252,7 +252,7 @@ IMPORTANT: コマンドを実行する際には、引き続き `shadow-cljs` コ
 ////
 .Just compile :dev mode once, no REPL or live-reload:
 ////
-REPLやライブリロードは不要で、 dev モードで一度コンパイルするだけです。
+REPLやライブリロードは不要で、dev モードで一度コンパイルするだけです。
 
 ```bash
 $ lein run -m shadow.cljs.devtools.cli compile build-id
@@ -451,7 +451,7 @@ TIP: https://github.com/clojure/tools.cli[tools.cli] のように引数を解析
 ////
 You have access to the full power of Clojure here. You can build entire tools on top of this if you like. As a bonus everything you write this way is also directly available via the Clojure REPL.
 ////
-ここでは、 Clojure のフルパワーにアクセスできます。必要に応じて、この上にツール全体を構築することができます。おまけに、この方法で書いたものはすべて、Clojure REPLで直接利用できます。
+ここでは、Clojure のフルパワーにアクセスできます。必要に応じて、この上にツール全体を構築することができます。おまけに、この方法で書いたものはすべて、Clojure REPLで直接利用できます。
 
 ////
 IMPORTANT: When the <<server-mode, server>> is running the namespace will not be reloaded automatically, it will only be loaded once. It is recommended to do the development using a REPL and reload the file as usual (eg. `(require 'my.build :reload)`). You may also run `shadow-cljs clj-eval "(require 'my.build :reload)"` to reload manually from the command line.
@@ -468,7 +468,7 @@ Calling watch via clj-run
 ////
 By default the functions called by `clj-run` only have access to a minimal `shadow-cljs` runtime which is enough to run `compile`, `release` and any other Clojure functionality. The JVM will terminate when your function completes.
 ////
-デフォルトでは、 `clj-run` から呼び出された関数は、 `compile`, `release` やその他の Clojure 機能を実行するのに十分な、最小限の `shadow-cljs` ランタイムにしかアクセスできません。関数が完了すると、 JVM は終了します。
+デフォルトでは、 `clj-run` から呼び出された関数は、 `compile`, `release` やその他の Clojure 機能を実行するのに十分な、最小限の `shadow-cljs` ランタイムにしかアクセスできません。関数が完了すると、JVM は終了します。
 
 ////
 If you want to start a `watch` for a given build you need to declare that the function you are calling requires a full server. This will cause the process to stay alive until you explicitly call `(shadow.cljs.devtools.server/stop!)` or `CTRL+C` the process.

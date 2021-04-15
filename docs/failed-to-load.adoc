@@ -26,7 +26,7 @@ Each `shadow-cljs` version is only tested with one particular combination of ver
 ////
 You can find the required dependencies for each version on clojars:
 ////
-各バージョンに必要な依存関係は、 clojars で確認できます。
+各バージョンに必要な依存関係は、clojars で確認できます。
 
 - https://clojars.org/thheller/shadow-cljs
 

@@ -18,12 +18,12 @@ Clojureの REPL は、その名が示す通りのことを行います。 1 つ�
 ////
 In ClojureScript however things are a bit more complicated since compilation happens on the JVM but the results are eval'd in a JavaScript runtime. There are a couple more steps that need to be done due in order to "emulate" the plain REPL experience. Although things are implemented a bit differently in `shadow-cljs` over regular CLJS the basic principles remain the same.
 ////
-しかし、 ClojureScript では、コンパイルはJVM上で行われますが、結果は JavaScript ランタイムで評価されるので、もう少し複雑です。普通の REPL の経験をエミュレートするためには、さらにいくつかのステップが必要になります。 `shadow-cljs` では、通常の CLJS とは実装が少し異なりますが、基本的な原理は同じです。
+しかし、ClojureScript では、コンパイルはJVM上で行われますが、結果は JavaScript ランタイムで評価されるので、もう少し複雑です。普通の REPL の経験をエミュレートするためには、さらにいくつかのステップが必要になります。 `shadow-cljs` では、通常の CLJS とは実装が少し異なりますが、基本的な原理は同じです。
 
 ////
 First you'll need a REPL client. This could just be the CLI (eg. `shadow-cljs cljs-repl app`) or your Editor connected via `nREPL`. The Client will always talk directly to the `shadow-cljs` server and it'll handle the rest. From the Client side it still looks like a regular REPL but there are a few more steps happening in the background.
 ////
-まず、 REPL クライアントが必要です。これは単に CLI (例: `shadow-cljs cljs-repl app`) または `nREPL` を介して接続されたエディタかもしれません。クライアントは常に `shadow-cljs` サーバと直接会話し、残りの部分は `shadow-cljs` が処理します。クライアント側からは、まだ通常の REPL のように見えますが、バックグラウンドではさらにいくつかのステップが行われています。
+まず、REPL クライアントが必要です。これは単に CLI (例: `shadow-cljs cljs-repl app`) または `nREPL` を介して接続されたエディタかもしれません。クライアントは常に `shadow-cljs` サーバと直接会話し、残りの部分は `shadow-cljs` が処理します。クライアント側からは、まだ通常の REPL のように見えますが、バックグラウンドではさらにいくつかのステップが行われています。
 
 ////
 1) Read: It all starts with reading a singular CLJS form from a given InputStream. That is either a blocking read directly from `stdin` or read from a string in case of `nREPL`. A Stream of characters are turned into actual datastructures, `"(+ 1 2)"` (a string) becomes `(+ 1 2)` (a list).
@@ -78,12 +78,12 @@ The `shadow-cljs` JVM side of things will require one running `watch` for a give
 ////
 The compiled JS code however must also be loaded by a JS runtime (eg. Browser or `node` process) and that JS runtime must connect back to the running `shadow-cljs` process. Most `:target` configurations will have the necessary code added by default and should just connect automatically. How that connect is happening is dependent on the runtime but usually it is using a WebSocket to connect to the running `shadow-cljs` <<http, HTTP server>>.
 ////
-しかし、コンパイルされた JS コードは、 JS ランタイム(例えば、ブラウザや `node` プロセス)によって読み込まれなければならず、その JS ランタイムは実行中の `shadow-cljs` プロセスに接続しなければなりません。ほとんどの `:target` 設定では、必要なコードがデフォルトで追加されており、自動的に接続されるはずです。その接続がどのように行われるかはランタイムに依存しますが、通常は WebSocket を使用して、実行中の `shadow-cljs` <<http, HTTP server>> に接続します。
+しかし、コンパイルされた JS コードは、JS ランタイム(例えば、ブラウザや `node` プロセス)によって読み込まれなければならず、その JS ランタイムは実行中の `shadow-cljs` プロセスに接続しなければなりません。ほとんどの `:target` 設定では、必要なコードがデフォルトで追加されており、自動的に接続されるはずです。その接続がどのように行われるかはランタイムに依存しますが、通常は WebSocket を使用して、実行中の `shadow-cljs` <<http, HTTP server>> に接続します。
 
 ////
 Once connected the REPL is ready to use. Note that reloading the JS runtime (eg. manual browser page reload) will wipe out all REPL state of the runtime but some of the compiler side state will remain until the `watch` is also restarted.
 ////
-接続が完了すると、 REPL を使用できるようになります。 JS ランタイムをリロード（例：ブラウザのページを手動でリロード）すると、ランタイムのすべての REPL の状態が消去されますが、コンパイラ側の状態の一部は、 `watch` が再起動されるまで残りますのでご注意ください。
+接続が完了すると、REPL を使用できるようになります。 JS ランタイムをリロード（例：ブラウザのページを手動でリロード）すると、ランタイムのすべての REPL の状態が消去されますが、コンパイラ側の状態の一部は、 `watch` が再起動されるまで残りますのでご注意ください。
 
 ////
 It is possible for more than one JS runtime to connect to the `watch` process. `shadow-cljs` by default picks the first JS runtime that connected as the `eval` target. If you open a given `:browser` build in multiple Browsers only the first one will be used to `eval` code. Or you could be opening a `:react-native` app in iOS and Android next to each other during development. Only one runtime can eval and if that disconnects the next one takes over based on the time it connected.

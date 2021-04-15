@@ -148,7 +148,7 @@ You can achieve the exact same thing by using `:exports-var` pointing to a `def`
 ////
 In addition you may specify `:exports-fn` as a fully qualified symbol. This should point to a function with no arguments which should return a JS object (or function). This function will only ever be called ONCE as `node` caches the return value.
 ////
-さらに、完全修飾シンボルとして `:exports-fn` を指定することもできます。これは、 JS オブジェクト(または関数)を返す、引数のない関数を指す必要があります。この関数は、 `node` が戻り値をキャッシュするため、一度だけ呼ばれます。
+さらに、完全修飾シンボルとして `:exports-fn` を指定することもできます。これは、JS オブジェクト(または関数)を返す、引数のない関数を指す必要があります。この関数は、 `node` が戻り値をキャッシュするため、一度だけ呼ばれます。
 
 ```clojure
 (ns demo.ns
@@ -217,7 +217,7 @@ hello
 ////
 As `:node-script` this will only create the file specified in `:output-to`. The `:exports` map maps CLJS vars to the name they should be exported to.
 ////
-`node-script` と同様に、 `:output-to` で指定されたファイルのみを作成します。`exports` マップは、 CLJS の変数を、エクスポートされるべき名前にマッピングします。
+`node-script` と同様に、 `:output-to` で指定されたファイルのみを作成します。`exports` マップは、CLJS の変数を、エクスポートされるべき名前にマッピングします。
 
 ////
 NOTE: Development mode has the <<NodeModes,same setup>> as for node scripts (extra dependencies).

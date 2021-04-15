@@ -1,7 +1,7 @@
 ////
 The `:browser` target produces output intended to run in a Browser environment. During development it supports live code reloading, REPL, CSS reloading. The `release` output will be minified by the Closure Compiler with `:advanced` optimizations.
 ////
-ブラウザ ` ターゲットは、ブラウザ環境での実行を想定した出力を行います。開発時には、ライブコードリロード、 REPL 、CSSリロードをサポートします。release` の出力は、Closure Compilerによって `:advanced` の最適化でミニマイズされます。
+ブラウザ ` ターゲットは、ブラウザ環境での実行を想定した出力を行います。開発時には、ライブコードリロード、REPL 、CSSリロードをサポートします。release` の出力は、Closure Compilerによって `:advanced` の最適化でミニマイズされます。
 
 ////
 A basic browser configuration looks like this:
@@ -25,7 +25,7 @@ A basic browser configuration looks like this:
 ////
 The browser target outputs a lot of files, and a directory is needed for them all. You'll need to serve these assets with some kind of server, and the Javascript loading code needs to know the server-centric path to these assets. The options you need to specify are:
 ////
-ブラウザのターゲットは多くのファイルを出力し、それらすべてのためのディレクトリが必要となります。これらのアセットを何らかのサーバで提供する必要があり、 Javascript のロードコードは、これらのアセットへのサーバ中心のパスを知る必要があります。指定する必要のあるオプションは以下の通りです。
+ブラウザのターゲットは多くのファイルを出力し、それらすべてのためのディレクトリが必要となります。これらのアセットを何らかのサーバで提供する必要があり、Javascript のロードコードは、これらのアセットへのサーバ中心のパスを知る必要があります。指定する必要のあるオプションは以下の通りです。
 
 
 ////
@@ -344,7 +344,7 @@ Then the following expressions can be used for loading code:
 ////
 
 ```
-;; JS配列でなければならず、 goog.async.Deferred も返します。
+;; JS配列でなければならず、goog.async.Deferred も返します。
 (loader/load-many #js ["foo" "bar"])
 ```
 
@@ -380,7 +380,7 @@ Using the loader is very lightweight. It has a few dependencies which you may no
 ////
 The generated code is capable of using the standard ClojureScript `cljs.loader` API. See the https://clojurescript.org/news/2017-07-10-code-splitting[documentation] on the ClojureScript website for instructions.
 ////
-生成されたコードは、標準的な ClojureScript の `cljs.loader` APIを使用することができます。手順については、 ClojureScript ウェブサイトの https://clojurescript.org/news/2017-07-10-code-splitting[documentation] を参照してください。
+生成されたコードは、標準的な ClojureScript の `cljs.loader` APIを使用することができます。手順については、ClojureScript ウェブサイトの https://clojurescript.org/news/2017-07-10-code-splitting[documentation] を参照してください。
 
 ////
 The advantage of using the standard API is that your code will play well with others. This may be of particular importance to library authors. The disadvantage is that the dynamic module loading API in the standard distribution is currently somewhat less easy-to-use than the support in `shadow-cljs`.
@@ -514,7 +514,7 @@ Note that the empty `:entries []` in the `:shared` module will make it collect a
 ////
 IMPORTANT: Since we now have a `:shared` module you must ensure to load it properly in your HTML. If you just load `main.js` you will get an error.
 ////
-IMPORTANT: 現在、 `:shared` モジュールがあるので、 HTML で適切にロードする必要があります。単に `main.js` をロードしただけでは、エラーが発生します。
+IMPORTANT: 現在、 `:shared` モジュールがあるので、HTML で適切にロードする必要があります。単に `main.js` をロードしただけでは、エラーが発生します。
 
 ////
 .HTML Loading shared.js and main.js
@@ -710,7 +710,7 @@ options for configuring an optional dev-time HTTP server for a build and CSS rel
 ////
 The `:browser` target now uses a HUD to display a loading indicator when a build is started. It will also display warnings and errors if there are any.
 ////
-:browser ターゲットは、 HUD を使って、ビルドが開始されたときにローディング・インジケータを表示するようになりました。また、警告やエラーが発生した場合にも表示されます。
+:browser ターゲットは、HUD を使って、ビルドが開始されたときにローディング・インジケータを表示するようになりました。また、警告やエラーが発生した場合にも表示されます。
 
 ////
 You can disable it completely by setting `:hud false` in the `:devtools` section.

@@ -3,7 +3,7 @@
 ////
 https://www.npmjs.com/[npm] has become the de-facto standard package manager for JavaScript. Almost all JS libraries can be found there and shadow-cljs provides seamless integration for accessing those packages.
 ////
-https://www.npmjs.com/[npm] は、 JavaScript のデファクトスタンダードのパッケージマネージャとなっています。ほとんどすべての JS ライブラリはそこで見つけることができ、shadow-cljs はそれらのパッケージにアクセスするためのシームレスな統合を提供します。
+https://www.npmjs.com/[npm] は、JavaScript のデファクトスタンダードのパッケージマネージャとなっています。ほとんどすべての JS ライブラリはそこで見つけることができ、shadow-cljs はそれらのパッケージにアクセスするためのシームレスな統合を提供します。
 
 === npmパッケージの使用
 //Using npm packages
@@ -444,7 +444,7 @@ CLJS has an alternate https://clojurescript.org/guides/javascript-modules[implem
 ////
 
 ****
-*DANGER: この機能は実験的なものです！* 現在は `shadow-cljs` でのみサポートされており、これを使おうとすると他の CLJS ツールに怒られます。自分の責任で使用してください。この機能は当初、 CLJS のコアでは拒否されていましたが、私は便利だと思いますし、さらなる議論なしに https://dev.clojure.org/jira/browse/CLJS-2061?focusedCommentId=46191&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-46191[dismissed] されるべきではなかったと思います。
+*DANGER: この機能は実験的なものです！* 現在は `shadow-cljs` でのみサポートされており、これを使おうとすると他の CLJS ツールに怒られます。自分の責任で使用してください。この機能は当初、CLJS のコアでは拒否されていましたが、私は便利だと思いますし、さらなる議論なしに https://dev.clojure.org/jira/browse/CLJS-2061?focusedCommentId=46191&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-46191[dismissed] されるべきではなかったと思います。
 
 CLJSには https://clojurescript.org/guides/javascript-modules[implementation] という別の実装がありますが、これは `shadow-cljs` ではサポートされていません。私はこの実装がある種の面で不足していると感じたので、別の解決策を選びました。しかし、両方のアプローチの長所・短所を議論するのは楽しいことです。
 ****
@@ -452,7 +452,7 @@ CLJSには https://clojurescript.org/guides/javascript-modules[implementation] �
 ////
 We covered how <<npm, npm>> packages are used but you may be working on a codebase that already has lots of plain JavaScript and you don't want to rewrite everything in ClojureScript just yet. `shadow-cljs` provides 100% full interop between JavaScript and ClojureScript. Which means your JS can use your CLJS and CLJS can use your JS.
 ////
-私たちは <<npm, npm>> パッケージがどのように使用されるかをカバーしましたが、あなたはすでに多くのプレーンな JavaScript を持つコードベースに取り組んでいるかもしれず、まだすべてを ClojureScript で書き直したくはないでしょう。 `shadow-cljs` は、 JavaScript とClojureScriptの間の100%完全な相互運用性を提供します。つまり、あなたの JS はあなたのCLJSを使うことができ、 CLJS はあなたのJSを使うことができるということです。
+私たちは <<npm, npm>> パッケージがどのように使用されるかをカバーしましたが、あなたはすでに多くのプレーンな JavaScript を持つコードベースに取り組んでいるかもしれず、まだすべてを ClojureScript で書き直したくはないでしょう。 `shadow-cljs` は、JavaScript とClojureScriptの間の100%完全な相互運用性を提供します。つまり、あなたの JS はあなたのCLJSを使うことができ、CLJS はあなたのJSを使うことができるということです。
 
 ////
 There are only a few conventions you need to follow in order for this to work reliably but chances are that you are already doing that anyways.
@@ -540,7 +540,7 @@ Closure Compilerは常にアップデートされていますので、新しい�
 ////
 The JS should be written using ES Module Syntax using `import` and `export`. JS files can include other JS files and reference CLJS code directly. They may also access `npm` packages directly with one caveat.
 ////
-JSは、 `import` と `export` を使って、 ES モジュール構文を使って書く必要があります。 JS ファイルは、他のJSファイルをインクルードしたり、 CLJS のコードを直接参照することができます。また、 `npm` パッケージに直接アクセスすることもできますが、ひとつ注意点があります。
+JSは、 `import` と `export` を使って、ES モジュール構文を使って書く必要があります。 JS ファイルは、他のJSファイルをインクルードしたり、CLJS のコードを直接参照することができます。また、 `npm` パッケージに直接アクセスすることもできますが、ひとつ注意点があります。
 
 ```js
 // 標準的な JS の require
@@ -560,7 +560,7 @@ export function inc(num) {
 ////
 IMPORTANT: Due to strict checking of the Closure Compiler it is not possible to use the `import * as X from "npm";` syntax when requiring CLJS or npm code. It is fine to use when requiring other JS files.
 ////
-IMPORTANT: Closure Compilerの厳密なチェックにより、 CLJS やnpmのコードを必要とする場合、 `import * as X from "npm";` の構文を使用することはできません。他の JS ファイルを必要とする場合には問題なく使用できます。
+IMPORTANT: Closure Compilerの厳密なチェックにより、CLJS やnpmのコードを必要とする場合、 `import * as X from "npm";` の構文を使用することはできません。他の JS ファイルを必要とする場合には問題なく使用できます。
 
 === JavaScriptの方言
 //JavaScript Dialects
@@ -568,7 +568,7 @@ IMPORTANT: Closure Compilerの厳密なチェックにより、 CLJS やnpmの�
 ////
 Since there are many popular JavaScript dialects (JSX, CoffeeScript, etc) that are not directly parsable by the Closure Compiler we need to pre-process them before putting them onto the classpath. https://babeljs.io/[babel] is commonly used in the JavaScript world so we are going to use `babel` to process `.jsx` files as an example here.
 ////
-一般的な JavaScript の方言（JSX、 CoffeeScript など）には、Closure Compilerでは直接解析できないものが多いため、クラスパスに置く前に前処理を行う必要があります。 https://babeljs.io/[babel] は JavaScript の世界でよく使われているので、ここでは例として `.jsx` ファイルを処理するために `babel` を使用します。
+一般的な JavaScript の方言（JSX、CoffeeScript など）には、Closure Compilerでは直接解析できないものが多いため、クラスパスに置く前に前処理を行う必要があります。 https://babeljs.io/[babel] は JavaScript の世界でよく使われているので、ここでは例として `.jsx` ファイルを処理するために `babel` を使用します。
 
 ////
 .Example shadow-cljs.edn Config
@@ -672,7 +672,7 @@ cljs.array_map(keyword("foo"), "hello world");
 ////
 TIP: The `goog:` prefix currently only works for ES6 file. `require("goog:cljs.core")` does not work.
 ////
-TIP: 現在、 `goog:` という接頭辞は、 ES6 ファイルにしか使えません。`require("goog:cljs.core")` は動作しません。
+TIP: 現在、 `goog:` という接頭辞は、ES6 ファイルにしか使えません。`require("goog:cljs.core")` は動作しません。
 
 == cljsjs.* の移行について [[cljsjs]]
 //Migrating cljsjs.* [[cljsjs]]
@@ -680,7 +680,7 @@ TIP: 現在、 `goog:` という接頭辞は、 ES6 ファイルにしか使え�
 ////
 > CLJSJS is an effort to package Javascript libraries to be able to use them from within ClojureScript.
 ////
-> CLJSJSは、 Javascript のライブラリをパッケージ化して、 ClojureScript から利用できるようにしようという試みです。
+> CLJSJSは、Javascript のライブラリをパッケージ化して、ClojureScript から利用できるようにしようという試みです。
 
 ////
 Since `shadow-cljs` can access <<npm, npm packages>> directly we do not need to rely on re-packaged https://github.com/cljsjs/packages[CLJSJS] packages.
@@ -719,7 +719,7 @@ library which provides just that. It does not include every package but I’ll k
 NOTE: The `shadow-cljsjs` library only provides the shim files. You’ll still need to
 `npm install` the actual packages yourself.
 ////
-注：`shadow-cljsjs` ライブラリは、 shim ファイルを提供するだけです。実際のパッケージは、自分で
+注：`shadow-cljsjs` ライブラリは、shim ファイルを提供するだけです。実際のパッケージは、自分で
 自分で実際のパッケージを `npm install` する必要があります。
 
 
@@ -734,7 +734,7 @@ CLJSJSのパッケージは、基本的に `npm` からパッケージを取り�
 ////
 This was very useful when we had no access to `npm` directly but has certain issues since not all packages are easily combined with others. A package might rely on `react` but instead of expressing this via `npm` https://github.com/cljsjs/packages/tree/master/material-ui[they] bundle their own `react`. If you are not careful you could end up including 2 different `react` versions in your build which may lead to very confusing errors or at the very least increase the build size substantially.
 ////
-これは、 `npm` に直接アクセスできないときには非常に便利でしたが、すべてのパッケージが他のパッケージと簡単に結合できるわけではないので、ある種の問題があります。あるパッケージは `react` に依存しているかもしれませんが、 `npm` を通してこれを表現するのではなく、 https://github.com/cljsjs/packages/tree/master/material-ui[それらは] 自分自身の `react` をバンドルします。注意しないと、 2 つの異なる `react` バージョンをビルドに含めることになり、非常に紛らわしいエラーが発生したり、少なくともビルドサイズが大幅に大きくなったりする可能性があります。
+これは、 `npm` に直接アクセスできないときには非常に便利でしたが、すべてのパッケージが他のパッケージと簡単に結合できるわけではないので、ある種の問題があります。あるパッケージは `react` に依存しているかもしれませんが、 `npm` を通してこれを表現するのではなく、https://github.com/cljsjs/packages/tree/master/material-ui[それらは] 自分自身の `react` をバンドルします。注意しないと、 2 つの異なる `react` バージョンをビルドに含めることになり、非常に紛らわしいエラーが発生したり、少なくともビルドサイズが大幅に大きくなったりする可能性があります。
 
 ////
 Apart from that not every `npm` package is available via CLJSJS and keeping the package versions in sync requires manual work, which means packages are often out of date.

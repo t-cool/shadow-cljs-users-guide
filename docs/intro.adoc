@@ -3,7 +3,7 @@
 ////
 `shadow-cljs` provides everything you need to compile your ClojureScript projects with a focus on simplicity and ease of use. The provided build targets abstract away most of the manual configuration so that you only have to configure the essentials for your build. Each target provides optimal defaults for each environment and get an optimized experience during development and in release builds.
 ////
-shadow-cljsは、シンプルさと使いやすさに重点を置いて、 ClojureScript プロジェクトをコンパイルするために必要なすべてを提供します。提供されているビルドターゲットは、手動による設定のほとんどを抽象化し、ビルドに必要なものだけを設定することができます。各ターゲットはそれぞれの環境に最適なデフォルトを提供し、開発時やリリースビルド時に最適なエクスペリエンスを得ることができます。
+shadow-cljsは、シンプルさと使いやすさに重点を置いて、ClojureScript プロジェクトをコンパイルするために必要なすべてを提供します。提供されているビルドターゲットは、手動による設定のほとんどを抽象化し、ビルドに必要なものだけを設定することができます。各ターゲットはそれぞれの環境に最適なデフォルトを提供し、開発時やリリースビルド時に最適なエクスペリエンスを得ることができます。
 
 
 == 高レベルな概要
@@ -28,24 +28,24 @@ shadow-cljs は、以下の 2 つの部分から構成されています。
 ////
 If desired you can easily integrate the `shadow-cljs` Clojure library into any other Clojure/JVM build tool (eg. https://leiningen.org/[leiningen] or the https://clojure.org/guides/deps_and_cli[Clojure CLI] tools).
 ////
-必要であれば、 Clojure ライブラリであるshadow-cljsを、他のClojure/JVMビルドツール（例えば https://leiningen.org/[leiningen] や https://clojure.org/guides/deps_and_cli[Clojure CLI]ツール）に簡単に統合することができます。
+必要であれば、Clojure ライブラリであるshadow-cljsを、他のClojure/JVMビルドツール（例えば https://leiningen.org/[leiningen] や https://clojure.org/guides/deps_and_cli[Clojure CLI]ツール）に簡単に統合することができます。
 
 ////
 It is recommended to use the `npm` package as that provides a more optimized development experience tailored towards CLJS development.
 ////
-CLJSの開発に合わせて、より最適化された開発環境を提供するので、 npm パッケージを使用することをお勧めします。
+CLJSの開発に合わせて、より最適化された開発環境を提供するので、npm パッケージを使用することをお勧めします。
 
 == 基本的なワークフロー
 
 ////
 When working with `shadow-cljs` you will be defining one or more builds in the `shadow-cljs.edn` configuration file. Each build will have a `:target` property which represents a configuration preset optimized for the target environment (eg. the Browser, a `node.js` application or a Chrome Extension).
 ////
-shadow-cljs を使用する際には、設定ファイル shadow-cljs.edn で 1 つ以上のビルドを定義します。それぞれのビルドは、ターゲットとなる環境（例えば、ブラウザ、 node.js アプリケーション、 Chrome 拡張機能等）に最適化された構成プリセットを表す :target プロパティをもちます。
+shadow-cljs を使用する際には、設定ファイル shadow-cljs.edn で 1 つ以上のビルドを定義します。それぞれのビルドは、ターゲットとなる環境（例えば、ブラウザ、node.js アプリケーション、Chrome 拡張機能等）に最適化された構成プリセットを表す :target プロパティをもちます。
 
 ////
 Each build can either produce development or release output depending on the command used to trigger the compilation. The standard build commands are: `compile`, `watch` and `release`.
 ////
-各ビルドは、コンパイルのトリガーとなったコマンドに応じて、開発用またはリリース用の出力を生成します。標準的なビルドコマンドは、 compile 、watch、release です。
+各ビルドは、コンパイルのトリガーとなったコマンドに応じて、開発用またはリリース用の出力を生成します。標準的なビルドコマンドは、compile 、watch、release です。
 
 === development モード
 
@@ -96,7 +96,7 @@ shadow-cljsは、ファイルを扱う際に、Java Virtual Machine (JVM) とそ
 ////
 In the Clojure(Script) everything is namespaced and each name is expected to resolve to a file. If you have a `(ns demo.app)` namespace the compiler expects to find a `demo/app.cljs` (or `.cljc`) on the classpath. The classpath will be searched in order until it is found. Suppose you configured the `:source-paths ["src/main" "src/test"]` the compiler will first look for a `src/main/demo/app.cljs` and then `src/test/demo/app.cljs`. When the file is not found on any source path the JVM will begin looking into the `.jar` files on the classpath. When it finds a `demo/app.cljs` at the root of any of the libraries that file it will be used.
 ////
-Clojure(Script)では、すべてが名前空間化されていて、それぞれの名前がファイルに解決することが期待されています。(ns demo.app)という名前空間があれば、コンパイラはクラスパス上にdemo/app.cljs(または `.cljc`)があることを期待します。クラスパスは、それが見つかるまで順番に検索されます。例えば、 `:source-paths ["src/main" "src/test"]` を設定したとすると、コンパイラはまず `src/main/demo/app.cljs` を探し、次に `src/test/demo/app.cljs` を探します。どのソースパスにもファイルが見つからない場合、 JVM はクラスパス上の .jar ファイルを探し始めます。そして、いずれかのライブラリのルートにdemo/app.cljsが見つかると、そのファイルが使用されます。
+Clojure(Script)では、すべてが名前空間化されていて、それぞれの名前がファイルに解決することが期待されています。(ns demo.app)という名前空間があれば、コンパイラはクラスパス上にdemo/app.cljs(または `.cljc`)があることを期待します。クラスパスは、それが見つかるまで順番に検索されます。例えば、 `:source-paths ["src/main" "src/test"]` を設定したとすると、コンパイラはまず `src/main/demo/app.cljs` を探し、次に `src/test/demo/app.cljs` を探します。どのソースパスにもファイルが見つからない場合、JVM はクラスパス上の .jar ファイルを探し始めます。そして、いずれかのライブラリのルートにdemo/app.cljsが見つかると、そのファイルが使用されます。
 
 ////
 IMPORTANT: When a filename exists multiple times on the classpath then only the first one is used. Everything on the JVM and Clojure(Script) is namespaced to avoid such conflicts. Very similar to `npm` where each package must have a unique name.
@@ -137,5 +137,5 @@ Once the server is running however you only have to restart it whenever your `:d
 ////
 The REPL is at the heart of all Clojure(Script) development and every CLI command can also be used directly from the REPL as well. It is absolutely worth getting comfortable with the REPL even if the command line may seem more familiar.
 ////
-REPLは、すべてのClojure(Script)開発の中心であり、すべての CLI コマンドはREPLから直接使用することもできます。コマンドラインの方が馴染みがあるように見えても、 REPL を使いこなすことには、絶対に価値があります。
+REPLは、すべてのClojure(Script)開発の中心であり、すべての CLI コマンドはREPLから直接使用することもできます。コマンドラインの方が馴染みがあるように見えても、REPL を使いこなすことには、絶対に価値があります。
 

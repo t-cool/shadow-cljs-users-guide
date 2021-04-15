@@ -5,12 +5,12 @@
 ////
 ClojureScript libraries are published to `maven` repositories just like Clojure. Most commonly they are published to https://clojars.org/[Clojars] but all other standard maven repositories work too.
 ////
-ClojureScriptライブラリは、 Clojure と同様に `maven` リポジトリに公開されます。最も一般的には https://clojars.org/[Clojars] に公開されますが、他のすべての標準的な maven リポジトリでも動作します。
+ClojureScriptライブラリは、Clojure と同様に `maven` リポジトリに公開されます。最も一般的には https://clojars.org/[Clojars] に公開されますが、他のすべての標準的な maven リポジトリでも動作します。
 
 ////
 `shadow-cljs` itself does not have direct support for publishing but since ClojureScript libraries are just uncompiled source files published in a JAR (basically just a ZIP compressed file) any common tool that is able to publish to maven will work. (eg. `mvn`, `gradle`, `lein`, etc). No extra compilation or other steps are required to publish. The ClojureScript compiler and therefore shadow-cljs is not involved at all.
 ////
-しかし、 ClojureScript ライブラリは、JAR(基本的には単なる ZIP 圧縮ファイル)で公開されたアンコンパイルされたソースファイルであるため、 maven に公開できる一般的なツールであれば動作します。(例: `mvn`, `gradle`, `lein`, など). 公開するために余分なコンパイルやその他のステップは必要ありません。ClojureScript コンパイラや、そのための shadow-cljs は全く関係ありません。
+しかし、ClojureScript ライブラリは、JAR(基本的には単なる ZIP 圧縮ファイル)で公開されたアンコンパイルされたソースファイルであるため、maven に公開できる一般的なツールであれば動作します。(例: `mvn`, `gradle`, `lein`, など). 公開するために余分なコンパイルやその他のステップは必要ありません。ClojureScript コンパイラや、そのための shadow-cljs は全く関係ありません。
 
 ## Leiningen [[publish-lein]]
 

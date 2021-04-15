@@ -12,7 +12,7 @@ $ shadow-cljs pom
 ////
 Then in Cursive *File -> New -> Project from Existing Sources* then select the generated `pom.xml` in the project directory.
 ////
-続いて、 Cursive の File -> New -> Project from Existing Sources で、プロジェクトディレクトリに生成された `pom.xml` を選択します。
+続いて、Cursive の File -> New -> Project from Existing Sources で、プロジェクトディレクトリに生成された `pom.xml` を選択します。
 
 ////
 IMPORTANT: You need to have the "Build Tools" -> "Maven" Plugin enabled for this. It might not be enabled by default.
@@ -52,7 +52,7 @@ NOTE: You cannot switch from CLJ->CLJS via the Cursive select box. Make sure you
 ////
 This section is written for CIDER version 0.20.0 and above. Ensure your Emacs environment has this version of the `cider` package or later. Refer to the link:https://docs.cider.mx[CIDER documentation] for full installation details.
 ////
-このセクションは、 CIDER のバージョン 0.20.0 以上を対象に書かれています。お使いの Emacs にこのバージョンの `cider` パッケージが入っていることを確認してください。インストールの詳細については、リンク: https://docs.cider.mx[CIDER documentation] を参照してください。
+このセクションは、CIDER のバージョン 0.20.0 以上を対象に書かれています。お使いの Emacs にこのバージョンの `cider` パッケージが入っていることを確認してください。インストールの詳細については、リンク: https://docs.cider.mx[CIDER documentation] を参照してください。
 
 === ClojureScript REPLの起動
 //Launch the ClojureScript REPL
@@ -103,7 +103,7 @@ cljs.repl>
 ////
 You should now be able to eval ClojureScript, jump to the definitions of vars (with `cider-find-var`) and much more.
 ////
-これで、 ClojureScript を評価したり、 `cider-find-var` で変数の定義にジャンプしたりすることができるようになります。
+これで、ClojureScript を評価したり、 `cider-find-var` で変数の定義にジャンプしたりすることができるようになります。
 
 ////
 For example, to display an alert in the browser:
@@ -153,7 +153,7 @@ You need to setup a couple of things to get it working.
 ////
 The file must define the `user/reset` fn since Proto REPL will call that when connecting. If `user/reset` is not found it will call `tools.namespace` which destroys the running `shadow-cljs` server. We don't want that. You could do something here but we don't need to do anything for CLJS.
 ////
-Proto REPL は接続時にこの fn を呼び出すので、このファイルは `user/reset` fn を定義していなければなりません。もし、 `user/reset` が見つからなければ、 `tools.namespace` が呼び出され、実行中の `shadow-cljs` サーバが破壊されます。私たちはこれを望んでいません。ここで何かできるかもしれませんが、 CLJS のために何かする必要はありません。
+Proto REPL は接続時にこの fn を呼び出すので、このファイルは `user/reset` fn を定義していなければなりません。もし、 `user/reset` が見つからなければ、 `tools.namespace` が呼び出され、実行中の `shadow-cljs` サーバが破壊されます。私たちはこれを望んでいません。ここで何かできるかもしれませんが、CLJS のために何かする必要はありません。
 
 ////
 2) add `[proto-repl "0.3.1"]` to your `:dependencies` in <<user-config, ~/.shadow-cljs/config.edn>> or `shadow-cljs.edn`.
@@ -200,7 +200,7 @@ Proto REPL は接続時にこの fn を呼び出すので、このファイル�
 ////
 Chlorine connects Atom to a Socket REPL, but also tries to refresh namespace. So first, open up Chlorine package config and check if configuration `Should we use clojure.tools.namespace to refresh` is set to `simple`, otherwise it'll destroy the running `shadow-cljs` server.
 ////
-Chlorineは、 Atom をSocket REPLに接続しますが、同時に名前空間のリフレッシュも試みます。まず、 Chlorine パッケージのコンフィグを開き、コンフィグ `Should we use clojure.tools.namespace to refresh` が `simple` に設定されているかどうかを確認します。そうしないと、実行中の `shadow-cljs` サーバが破壊されてしまいます。
+Chlorineは、Atom をSocket REPLに接続しますが、同時に名前空間のリフレッシュも試みます。まず、Chlorine パッケージのコンフィグを開き、コンフィグ `Should we use clojure.tools.namespace to refresh` が `simple` に設定されているかどうかを確認します。そうしないと、実行中の `shadow-cljs` サーバが破壊されてしまいます。
 
 ////
 Once you checked that the configuration is right, you can start your shadow app (replace `app` with whatever build):
@@ -214,7 +214,7 @@ $ shadow-cljs watch app
 ////
 Now, all you have to do is to run the atom command `Chlorine: Connect Clojure Socket Repl`. This will connect a REPL to evaluate Clojure code. Next you need to run `Chlorine: Connect Embeded`, and it'll connect the ClojureScript REPL too.
 ////
-あとは、 atom コマンドの `Chlorine: Connect Clojure Socket Repl`. これで Clojure のコードを評価する REPL が接続されます。次に、 `Chlorine: Connect Clojure Socket Repl` を実行してください。 `Connect Embeded` を実行すると、 ClojureScript のREPLも接続されます。
+あとは、atom コマンドの `Chlorine: Connect Clojure Socket Repl`. これで Clojure のコードを評価する REPL が接続されます。次に、 `Chlorine: Connect Clojure Socket Repl` を実行してください。 `Connect Embeded` を実行すると、ClojureScript のREPLも接続されます。
 
 ////
 Now, you can use the `Chlorine: Evaluate...` commands to evaluate any Clojure or ClojureScript REPL. It'll evaluate `.clj` files as Clojure, and `cljc` files as ClojureScript.
@@ -265,7 +265,7 @@ $ shadow-cljs watch app
 ////
 Once the app is loaded in the browser, and you see `JS runime connected` in the terminal where you started the app, Calva can connect to its repl. Open the project in VS Code and Calva will by default try to auto connect and prompt you with a list of builds read from `shadow-cljs.edn`. Select the right one (`:app` in this example) and Calva's Clojure and Clojurescript support is activated.
 ////
-アプリがブラウザに読み込まれ、アプリを起動したターミナルにJS runime connectedと表示されると、 Calva はそのレプリケーションに接続できるようになります。VS Codeでプロジェクトを開くと、 Calva はデフォルトで自動接続を試み、 `shadow-cljs.edn` から読み込んだビルドのリストを表示します。正しいもの(この例では `:app`)を選択すると、 Calva のClojureと Clojurescript のサポートが有効になります。
+アプリがブラウザに読み込まれ、アプリを起動したターミナルにJS runime connectedと表示されると、Calva はそのレプリケーションに接続できるようになります。VS Codeでプロジェクトを開くと、Calva はデフォルトで自動接続を試み、 `shadow-cljs.edn` から読み込んだビルドのリストを表示します。正しいもの(この例では `:app`)を選択すると、Calva のClojureと Clojurescript のサポートが有効になります。
 
 ////
 (If you already have the project open in VS Code when you start the app, issue the `Calva: Connect to a Running REPL Server in the Project` command.)
@@ -292,7 +292,7 @@ Some of the things you can now do:
 ////
 - ホバーで定義を見ることができます。
 - 自動補完のヘルプを表示します。
-- 定義ファイルへのナビゲート（Macでは `cmd-click`、 Windows やLinuxでは `ctrl-click` になるかもしれません）。
+- 定義ファイルへのナビゲート（Macでは `cmd-click`、Windows やLinuxでは `ctrl-click` になるかもしれません）。
 
 ==== ファイル、フォーム、セレクションの評価
 //Evaluation of the file, forms and selection
@@ -480,4 +480,4 @@ Press ENTER or type command to continue
 ////
 You should now be able to execute https://www.vim.org/scripts/script.php?script_id=4978[Fireplace.vim] commands against the REPL server. Please refer to the https://www.vim.org/scripts/script.php?script_id=4978[Fireplace.vim] documentation for the full list of commands you can execute.
 ////
-これで、 REPL サーバに対して https://www.vim.org/scripts/script.php?script_id=4978[Fireplace.vim] コマンドが実行できるようになります。実行可能なコマンドの全リストについては https://www.vim.org/scripts/script.php?script_id=4978[Fireplace.vim] のドキュメントを参照してください。
+これで、REPL サーバに対して https://www.vim.org/scripts/script.php?script_id=4978[Fireplace.vim] コマンドが実行できるようになります。実行可能なコマンドの全リストについては https://www.vim.org/scripts/script.php?script_id=4978[Fireplace.vim] のドキュメントを参照してください。

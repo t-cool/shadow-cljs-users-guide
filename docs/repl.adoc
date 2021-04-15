@@ -51,7 +51,7 @@ This starts a blank CLJS REPL and will open an associated Browser window where t
 ////
 IMPORTANT: If you close the Browser window the REPL will stop working.
 ////
-IMPORTANT: ブラウザウィンドウを閉じると、 REPL は動作しなくなります。
+IMPORTANT: ブラウザウィンドウを閉じると、REPL は動作しなくなります。
 
 === ビルドに特化した REPL [[build-repl]]
 
@@ -263,5 +263,5 @@ You can stop the embedded server by running `(shadow.cljs.devtools.server/stop!)
 ////
 IMPORTANT: If you want to switch to a CLJS REPL this may require additional setup in the tool you used to start the server in. Since `lein` will default to using nREPL it will require configuring additional nREPL `:middleware`. When using `clj` you are good to go since it doesn't use nREPL.
 ////
-IMPORTANT: CLJS REPLに切り替えたい場合は、サーバの起動に使用したツールで追加の設定が必要になる場合があります。 `lein` はデフォルトで nREPL を使用するので、追加の nREPL `:middleware` を設定する必要があります。 `clj` を使用する場合は、 nREPL を使用しないので、問題ありません。
+IMPORTANT: CLJS REPLに切り替えたい場合は、サーバの起動に使用したツールで追加の設定が必要になる場合があります。 `lein` はデフォルトで nREPL を使用するので、追加の nREPL `:middleware` を設定する必要があります。 `clj` を使用する場合は、nREPL を使用しないので、問題ありません。
 

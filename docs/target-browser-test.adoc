@@ -24,9 +24,9 @@ will not scan jars. Defaults to "-test$".
 [horizontal]
 `:target`:: `:browser-test` (ブラウザテスト)
 `:test-dir`::  ファイルを出力するフォルダです。以下を参照してください。
-`:ns-regexp`:: (オプション) プロジェクトファイルの名前空間にマッチする正規表現です。これはファイルをスキャンするだけで、 jar ファイルはスキャンしません。
+`:ns-regexp`:: (オプション) プロジェクトファイルの名前空間にマッチする正規表現です。これはファイルをスキャンするだけで、jar ファイルはスキャンしません。
 ジャーのスキャンは行いません。デフォルトは"-test$"です。
-`:runner-ns`: (オプション) start、 stop 、init関数を含むことができる名前空間です。デフォルトは `shadow.test.browser` です。
+`:runner-ns`: (オプション) start、stop 、init関数を含むことができる名前空間です。デフォルトは `shadow.test.browser` です。
 
 ////
 The normal `:devtools` options are supported, so you will usually create an http server to serve the files.
@@ -49,7 +49,7 @@ In general you will need a config that looks like this:
 ////
 Remember that the test directory will have the index.html, and a js folder.
 ////
-testディレクトリには、 index.html とjsフォルダがあることを覚えておいてください。
+testディレクトリには、index.html とjsフォルダがあることを覚えておいてください。
 
 ////
 If you choose to supply a custom `:runner-ns`, it might look like this:
@@ -79,7 +79,7 @@ If you choose to supply a custom `:runner-ns`, it might look like this:
   ... run the tests...)
 
 (defn stop [done]
-  ; テストは非同期にすることができます。ランナーが実際に終了したことがわかるように、 done を呼ばなければなりません。
+  ; テストは非同期にすることができます。ランナーが実際に終了したことがわかるように、done を呼ばなければなりません。
   (done))
 
 (defn ^:export init []
