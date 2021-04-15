@@ -521,13 +521,22 @@ You can configure the port and additional middleware with `shadow-cljs.edn`:
 ////
 `shadow-cljs.edn` でポートや追加のミドルウェアを設定することができます。
 
-
+////
 ```clojure
 {...
  :nrepl {:port 9000
          :middleware []} ; optional list of namespace-qualified symbols
  ...}
 ```
+////
+
+```clojure
+{...
+ :nrepl {:port 9000
+         :middleware []} ; 名前空間修飾されたシンボルのオプションリスト
+ ...}
+```
+
 
 ////
 The default global config file in `~/.nrepl/nrepl.edn` or the local `.nrepl.edn` will also be loaded on startup and can be used to configure `:middleware`.
