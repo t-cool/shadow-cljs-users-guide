@@ -105,7 +105,7 @@ Also avoid generating output to `resources/*` since Leiningen and other tools ma
 ////
 IMPORTANT: You can and should verify that everything is clean by running `lein jar` and inspecting the files that end up in it via `jar -tvf target/library-1.0.0.jar`.
 ////
-IMPORTANT: lein jarを実行し、jar -tvf target/library-1.0.0.jarで最終的に含まれるファイルを検査することで、すべてがクリーンであることを確認できますし、そうすべきです。
+IMPORTANT: lein jarを実行し、 `jar -tvf target/library-1.0.0.jar` で最終的に含まれるファイルを検査することで、すべてがクリーンであることを確認できますし、そうすべきです。
 
 ## JS の依存関係を宣言する [[publish-deps-cljs]]
 // Declaring JS dependencies [[publish-deps-cljs]]

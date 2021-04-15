@@ -998,7 +998,7 @@ include::target-node-library.adoc[]
 // TODO: Thomas: I think it would be useful to show a package.json and a little bit of an example
 // on how you could set up to deploy this on NPM.
 
-= JS エコシステムへの組み込み -- `:npm-module` ターゲット [[target-npm-module]]
+= JS エコシステムへの組み込み -- :npm-module ターゲット [[target-npm-module]]
 
 ////
 Embedding in the JS Ecosystem -- The `:npm-module` Target 
