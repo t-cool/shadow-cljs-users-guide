@@ -24,9 +24,9 @@ You will need the same basic <<config,main configuration>> as in other targets (
 
 ////
 [horizontal]
-`:main`:: (required). The namespace-qualified symbol of your script's entry point function.
-`:output-to`:: (required). The path and filename for the generated script.
-`:output-dir`:: (optional). The path for supporting files in development mode. Defaults to a cache directory.
+`:main` :: (required). The namespace-qualified symbol of your script's entry point function.
+`:output-to` :: (required). The path and filename for the generated script.
+`:output-dir` :: (optional). The path for supporting files in development mode. Defaults to a cache directory.
 ////
 [horizontal]
 `:main` :: (必須) スクリプトのエントリーポイントとなる関数の名前空間修飾されたシンボルです。

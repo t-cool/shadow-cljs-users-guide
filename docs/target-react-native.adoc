@@ -13,12 +13,12 @@ You will need the same basic <<config,main configuration>> as in other targets (
 
 ////
 [horizontal]
-`:init-fn`:: (required). The namespace-qualified symbol of your apps init function. This function will be called once on startup and should probably render something.
-`:output-dir`:: (required). The directory used to write output files.
+`:init-fn` :: (required). The namespace-qualified symbol of your apps init function. This function will be called once on startup and should probably render something.
+`:output-dir` :: (required). The directory used to write output files.
 ////
 [horizontal]
-`:init-fn`:: (必須) アプリのinit関数の名前空間修飾されたシンボルです。この関数は起動時に一度だけ呼び出され、おそらく何かをレンダリングするはずです。
-`:output-dir`:: (必須) (必須). 出力ファイルを書き込むためのディレクトリです。
+`:init-fn` :: (必須) アプリのinit関数の名前空間修飾されたシンボルです。この関数は起動時に一度だけ呼び出され、おそらく何かをレンダリングするはずです。
+`:output-dir` :: (必須) (必須). 出力ファイルを書き込むためのディレクトリです。
 
 // TODO: Thomas mentioned that node can be picky and sometimes output-dir is useful...an example would be nice.
 

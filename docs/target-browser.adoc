@@ -30,12 +30,12 @@ The browser target outputs a lot of files, and a directory is needed for them al
 
 ////
 [Horizontal]
-`:output-dir`:: The directory to use for all compiler output.
-`:asset-path`:: The relative path from *web server's root* to the resources in `:output-dir`.
+`:output-dir` :: The directory to use for all compiler output.
+`:asset-path` :: The relative path from *web server's root* to the resources in `:output-dir`.
 ////
 [Horizontal]
-:output-dir`:: コンパイラのすべての出力に使用するディレクトリです。
-`:asset-path`:: Webサーバのルートから `:output-dir` にあるリソースへの相対パスです。
+:output-dir` :: コンパイラのすべての出力に使用するディレクトリです。
+`:asset-path` :: Webサーバのルートから `:output-dir` にあるリソースへの相対パスです。
 
 ////
 Your entry point javascript file and all related JS files will appear in `:output-dir`.
@@ -106,22 +106,22 @@ The available options in a module are:
 
 ////
 [horizontal]
-`:entries`:: The namespaces that serve as the root nodes of the dependency graph for the output code of this module.
-`:init-fn`:: Fully qualified symbol pointing to a function that should be called when the module is loaded initially.
-`:depends-on`:: The names of other modules that must be loaded in order for this one to have everything it needs.
-`:prepend`:: String content that will be prepended to the js output. Useful for comments, copyright notice, etc.
-`:append`:: String content that will be appended to the js output. Useful for comments, copyright notice, etc.
-`:prepend-js`:: A string to prepend to the module output containing valid javascript that will be run through Closure optimizer.
-`:append-js`:: A string to append to the module output containing valid javascript that will be run through Closure optimizer.
+`:entries` :: The namespaces that serve as the root nodes of the dependency graph for the output code of this module.
+`:init-fn` :: Fully qualified symbol pointing to a function that should be called when the module is loaded initially.
+`:depends-on` :: The names of other modules that must be loaded in order for this one to have everything it needs.
+`:prepend` :: String content that will be prepended to the js output. Useful for comments, copyright notice, etc.
+`:append` :: String content that will be appended to the js output. Useful for comments, copyright notice, etc.
+`:prepend-js` :: A string to prepend to the module output containing valid javascript that will be run through Closure optimizer.
+`:append-js` :: A string to append to the module output containing valid javascript that will be run through Closure optimizer.
 ////
 [horizontal]
-`:entries`:: このモジュールの出力コードの依存関係グラフのルートノードとして機能する名前空間です。
-`:init-fn`::: モジュールが最初にロードされたときに呼び出されるべき関数を指し示す完全修飾シンボルです。
-`:depends-on`::: このモジュールが必要とするものをすべて備えるために、ロードされなければならない他のモジュールの名前です。
-`:prepend`:: jsの出力の前に付加される文字列コンテンツです。コメントや著作権表示などに便利です。
-`:append`:: jsの出力に追加される文字列コンテンツです。コメントや著作権表示などに便利です。
-`:prepend-js`::: クロージャオプティマイザーで実行される、有効な javascript をモジュールの出力に追加する文字列です。
-`:append-js`:: クロージャオプティマイザーで実行される有効な javascript をモジュールの出力に追加する文字列です。
+`:entries` :: このモジュールの出力コードの依存関係グラフのルートノードとして機能する名前空間です。
+`:init-fn` :: モジュールが最初にロードされたときに呼び出されるべき関数を指し示す完全修飾シンボルです。
+`:depends-on` :: このモジュールが必要とするものをすべて備えるために、ロードされなければならない他のモジュールの名前です。
+`:prepend` :: jsの出力の前に付加される文字列コンテンツです。コメントや著作権表示などに便利です。
+`:append` :: jsの出力に追加される文字列コンテンツです。コメントや著作権表示などに便利です。
+`:prepend-js` :: クロージャオプティマイザーで実行される、有効な javascript をモジュールの出力に追加する文字列です。
+`:append-js` :: クロージャオプティマイザーで実行される有効な javascript をモジュールの出力に追加する文字列です。
 
 
 ////
@@ -780,42 +780,42 @@ The available replacement variables are:
 
 ////
 [Horizontal]
-`:pwd`::
+`:pwd` ::
 Process Working Directory (aka project root)
 
-`:file`::
+`:file` ::
 Absolute File Path
 
-`:line`::
+`:line` ::
 Line Number of Warning/Error
 
-`:column`::
+`:column` ::
 Column Number
 
-`:wsl-file`::
+`:wsl-file` ::
 Translated WSL file path. Useful when running `shadow-cljs` via WSL Bash. Translates a `/mnt/c/Users/someone/code/project/src/main/demo/foo.cljs` path into `C:\Users\...`
 
-`:wsl-pwd`::
+`:wsl-pwd` ::
 Translated `:pwd`
 ////
 
 [Horizontal]
-`:pwd`::
+`:pwd` ::
 プロセスの作業ディレクトリ（別名：プロジェクトルート
 
-`:file`::
+`:file` ::
 絶対ファイルパス
 
-`:line`::
+`:line` ::
 警告・エラーの行番号
 
-`:column`::
+`:column` ::
 コラム番号
 
-`:wsl-file`::
+`:wsl-file` ::
 変換された WSL ファイルのパス。 WSL のBashで `shadow-cljs` を実行するときに便利です。 `mnt/c/Users/someone/code/project/src/main/demo/foo.cljs` のパスを `C:Users\...` に変換します。
 
-`:wsl-pwd`::
+`:wsl-pwd` ::
 変換された `:pwd`
 
 

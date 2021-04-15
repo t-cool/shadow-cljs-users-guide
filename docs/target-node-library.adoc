@@ -14,9 +14,9 @@ The target-specific options are:
 
 ////
 [horizontal]
-`:target`:: Use :node-library
-`:output-to`:: (required). The path and filename for the generated library.
-`:output-dir`:: (optional). The path for supporting files in development mode. Defaults to a cache directory.
+`:target` :: Use :node-library
+`:output-to` :: (required). The path and filename for the generated library.
+`:output-dir` :: (optional). The path for supporting files in development mode. Defaults to a cache directory.
 ////
 [horizontal]
 `:target`: :node-libraryを使用します。

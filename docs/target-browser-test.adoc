@@ -14,17 +14,17 @@ The relevant configuration options are:
 
 ////
 [horizontal]
-`:target`::    `:browser-test`
-`:test-dir`::  A folder in which to output files. See below.
-`:ns-regexp`:: (optional) A regular expression matching namespaces against project files. This only scans files, and
+`:target` :: `:browser-test`
+`:test-dir` :: A folder in which to output files. See below.
+`:ns-regexp` :: (optional) A regular expression matching namespaces against project files. This only scans files, and
 will not scan jars. Defaults to "-test$".
-`:runner-ns`:: (optional) A namespace that can contain a start, stop, and init function. Defaults to
+`:runner-ns` :: (optional) A namespace that can contain a start, stop, and init function. Defaults to
 `shadow.test.browser`.
 ////
 [horizontal]
-`:target`:: `:browser-test` (ブラウザテスト)
-`:test-dir`::  ファイルを出力するフォルダです。以下を参照してください。
-`:ns-regexp`:: (オプション) プロジェクトファイルの名前空間にマッチする正規表現です。これはファイルをスキャンするだけで、jar ファイルはスキャンしません。
+`:target` :: `:browser-test` (ブラウザテスト)
+`:test-dir` :: ファイルを出力するフォルダです。以下を参照してください。
+`:ns-regexp` :: (オプション) プロジェクトファイルの名前空間にマッチする正規表現です。これはファイルをスキャンするだけで、jar ファイルはスキャンしません。
 ジャーのスキャンは行いません。デフォルトは"-test$"です。
 `:runner-ns`: (オプション) start、stop 、init関数を含むことができる名前空間です。デフォルトは `shadow.test.browser` です。
 

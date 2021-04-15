@@ -7,12 +7,12 @@ create-react-appなど）とシームレスに統合できます。
 
 ////
 [horizontal]
-`:output-dir`:: The path for the output files are written to, defaults to `node_modules/shadow-cljs`.
-`:entries`:: (required) A vector of namespace symbols that should be compiled
+`:output-dir` :: The path for the output files are written to, defaults to `node_modules/shadow-cljs`.
+`:entries` :: (required) A vector of namespace symbols that should be compiled
 ////
 [horizontal]
-`:output-dir`:: デフォルトでは `node_modules/shadow-cljs` となります。
-`:entries`:: (必須) コンパイルされるべき名前空間シンボルのベクトル。
+`:output-dir` :: デフォルトでは `node_modules/shadow-cljs` となります。
+`:entries` :: (必須) コンパイルされるべき名前空間シンボルのベクトル。
 
 ////
 .Example `shadow-cljs.edn` config

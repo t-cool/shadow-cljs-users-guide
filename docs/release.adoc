@@ -350,16 +350,16 @@ Each of these options is specified as a Set of Strings. Please note that all the
 
 ////
 [Horizontal]
-`:strip-types`:: Allows removing deftype/defrecord declarations or uses. `#{"my.ns.FooBar}` removes `(defrecord FooBar [])`.
-`:strip-type-prefixes`:: Removes everything starting with any of the given Prefixes. Allows removing entire CLJS namespaces.
-`:strip-name-prefixes`:: Allows removing properties by prefix. `#{"log"}` removes `this.logX` or `(defn log-me [...])`
-`:strip-name-suffixes`:: Allows removing properties by suffix. `#{"log"}` removes `this.myLog` or `(defn my-log [...])`
+`:strip-types` :: Allows removing deftype/defrecord declarations or uses. `#{"my.ns.FooBar}` removes `(defrecord FooBar [])`.
+`:strip-type-prefixes` :: Removes everything starting with any of the given Prefixes. Allows removing entire CLJS namespaces.
+`:strip-name-prefixes` :: Allows removing properties by prefix. `#{"log"}` removes `this.logX` or `(defn log-me [...])`
+`:strip-name-suffixes` :: Allows removing properties by suffix. `#{"log"}` removes `this.myLog` or `(defn my-log [...])`
 ////
 [Horizontal]
-`:strip-types`:: deftype/defrecordの宣言や使用を削除できるようにします。`#{"my.ns.FooBar}` は `(defrecord FooBar [])` を削除します。
-`:strip-type-prefixes`:: 与えられた Prefix のいずれかで始まるものをすべて削除します。 CLJS の名前空間全体を削除することができます。
-`:strip-name-prefixes`:: 与えられたプレフィックスで始まるすべてのプロパティを削除します。プレフィックスでプロパティを削除することができます。`#{"log"}` は `this.logX` や `(defn log-me [...])` を削除します。
-`:strip-name-suffixes`:: サフィックスでプロパティを削除することができます。`#{"log"}` は `this.myLog` または `(defn my-log [...])` を削除します。
+`:strip-types` :: deftype/defrecordの宣言や使用を削除できるようにします。`#{"my.ns.FooBar}` は `(defrecord FooBar [])` を削除します。
+`:strip-type-prefixes` :: 与えられた Prefix のいずれかで始まるものをすべて削除します。 CLJS の名前空間全体を削除することができます。
+`:strip-name-prefixes` :: 与えられたプレフィックスで始まるすべてのプロパティを削除します。プレフィックスでプロパティを削除することができます。`#{"log"}` は `this.logX` や `(defn log-me [...])` を削除します。
+`:strip-name-suffixes` :: サフィックスでプロパティを削除することができます。`#{"log"}` は `this.myLog` または `(defn my-log [...])` を削除します。
 
 ////
 ****

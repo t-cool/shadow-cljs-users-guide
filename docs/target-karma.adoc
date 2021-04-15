@@ -50,15 +50,15 @@ The build options are:
 
 ////
 [horizontal]
-`:target`::     `:karma`
-`:output-to`::  A path/filename for the js file.
-`:ns-regexp`::  (optional) A regex to match the test namespaces, defaults to "-test$
+`:target` :: `:karma`
+`:output-to` :: A path/filename for the js file.
+`:ns-regexp` :: (optional) A regex to match the test namespaces, defaults to "-test$
 ////
 
 [horizontal]
-`:target`:: `:karma`(カルマ)
-`:output-to`:: `:karma`:  jsファイルのパス/ファイル名です。
-`:ns-regexp`::  (オプション) テストの名前空間にマッチさせる正規表現、デフォルトは "-test$" です。
+`:target` :: `:karma`(カルマ)
+`:output-to` :: `:karma`:  jsファイルのパス/ファイル名です。
+`:ns-regexp` :: (オプション) テストの名前空間にマッチさせる正規表現、デフォルトは "-test$" です。
 
 ////
 So you might have something like this:

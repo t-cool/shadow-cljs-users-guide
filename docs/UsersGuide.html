@@ -2216,7 +2216,7 @@ localhost（または使用するホスト）のSAN（Subject Alternative Name�
 <dd>
 <p>(String) リクエストを処理するためのパスです。 <code>classpath:</code> で始まるパスは、ファイルシステムではなく、クラスパスからリクエストを処理します。すべてのファイルシステムのパスは、プロジェクトのルートからの相対パスです。</p>
 </dd>
-<dt class="hdlist1"><code>:roots</code></dt>
+<dt class="hdlist1"><code>:roots</code> </dt>
 <dd>
 <p>複数のルートパスが必要な場合は、 <code>:root</code> の代わりに使用します。</p>
 </dd>
@@ -2240,11 +2240,11 @@ localhost（または使用するホスト）のSAN（Subject Alternative Name�
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1"><code>:push-state/headers</code></dt>
+<dt class="hdlist1"><code>:push-state/headers</code> </dt>
 <dd>
 <p>(オプション) 応答する HTTP ヘッダーのマップです。デフォルトでは、 <code>text/html</code> という標準的なヘッダーを使用します。</p>
 </dd>
-<dt class="hdlist1"><code>:push-state/index</code></dt>
+<dt class="hdlist1"><code>:push-state/index</code> </dt>
 <dd>
 <p>(オプション) サービスを提供するファイルです。デフォルトでは <code>index.html</code> が使用されます。</p>
 </dd>
@@ -2280,19 +2280,19 @@ localhost（または使用するホスト）のSAN（Subject Alternative Name�
 </div>
 <div class="dlist Horizontal">
 <dl>
-<dt><code>:proxy-rewrite-host-header</code></dt>
+<dt><code>:proxy-rewrite-host-header</code> </dt>
 <dd>
 <p>boolean, デフォルトは true です。オリジナルの Host ヘッダーを使用するか、 <code>:proxy-url</code> からのヘッダーを使用するかを決定します。上記の例では、 <code>localhost</code> と <code>some.host</code> のどちらを使用するかを決定します。</p>
 </dd>
-<dt><code>:proxy-reuse-x-forwarded</code></dt>
+<dt><code>:proxy-reuse-x-forwarded</code> </dt>
 <dd>
 <p>boolean, デフォルトは false です。プロキシが自分自身を <code>X-Forwarded-For</code> リストに追加するか、新しいリストを開始するかを設定します。</p>
 </dd>
-<dt><code>:proxy-max-connection-retries</code></dt>
+<dt><code>:proxy-max-connection-retries</code> </dt>
 <dd>
 <p>int, デフォルトは 1 です。</p>
 </dd>
-<dt><code>:proxy-max-request-time</code></dt>
+<dt><code>:proxy-max-request-time</code> </dt>
 <dd>
 <p>intとしてのミリ秒、デフォルトは 30000 です。30秒のリクエストタイムアウトです。</p>
 </dd>
@@ -2565,32 +2565,28 @@ preloads オプションは、単に <code>:devtools</code>/<code>:preloads</cod
 </div>
 <div class="dlist Horizontal">
 <dl>
-<dt><code>:before-load</code></dt>
+<dt><code>:before-load</code> </dt>
 <dd>
 <p>再コンパイルされたファイルを更新する直前に実行される関数のシンボル（名前空間付き）です。
 関数のシンボル（名前空間付き）です。 この関数は本質的に同期的でなければなりません。</p>
 </dd>
-<dt><code>:before-load-async</code></dt>
+<dt><code>:before-load-async</code> </dt>
 <dd>
 <p>リフレッシュする直前に実行する関数 <code>(fn [done])</code> のシンボル（名前空間付き）です。この関数は非同期処理を行うことができますが、処理が完了したことを示すために、 <code>(done)</code> を必ず*呼び出さなければなりません。</p>
 </dd>
-<dt><code>:after-load</code></dt>
+<dt><code>:after-load</code> </dt>
 <dd>
 <p>ホットコードのリロードが完了した後に実行する関数のシンボル(名前空間付き)です。</p>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"><code>:after-load-async</code></dt>
+</dd>
+<dt><code>:after-load-async</code> </dt>
 <dd>
 <p>ホットコードのリロードが完了した後に実行される関数 <code>(fn [done])</code> のシンボル(名前空間を含む)です。この関数は非同期処理を行うことができますが、完了したことを示すために、 <code>(done)</code> を必ず呼び出さなければなりません。</p>
 </dd>
-</dl>
-</div>
-</dd>
-<dt><code>:autoload</code></dt>
+<dt><code>:autoload</code> </dt>
 <dd>
 <p>コードをホットロードするかどうかを制御するブール値です。いずれかのコールバックが設定されると、暗黙的に <code>true</code> に設定されます。デフォルトでは <code>:browser</code> ターゲットに対して常に有効で、無効にするには <code>false</code> を設定します。</p>
 </dd>
-<dt><code>:deignore-warnings</code></dt>
+<dt><code>:deignore-warnings</code> </dt>
 <dd>
 <p>警告を含むコードをリロードするかどうかを制御するブール値です。デフォルトでは <code>false</code> に設定されます。</p>
 </dd>
@@ -2764,7 +2760,7 @@ preloads オプションは、単に <code>:devtools</code>/<code>:preloads</cod
 <table>
 <tr>
 <td class="hdlist1">
-<code>:all</code>
+<code>:all</code> 
 </td>
 <td class="hdlist2">
 <p>デフォルトでは、すべての CLJS ファイルがキャッシュされます。</p>
@@ -2772,7 +2768,7 @@ preloads オプションは、単に <code>:devtools</code>/<code>:preloads</cod
 </tr>
 <tr>
 <td class="hdlist1">
-<code>:jars</code>
+<code>:jars</code> 
 </td>
 <td class="hdlist2">
 <p>ライブラリからのファイル、つまり <code>.jar</code> ファイル内のソースファイルのみをキャッシュします。</p>
@@ -2780,7 +2776,7 @@ preloads オプションは、単に <code>:devtools</code>/<code>:preloads</cod
 </tr>
 <tr>
 <td class="hdlist1">
-<code>:off</code>
+<code>:off</code> 
 </td>
 <td class="hdlist2">
 <p>CLJSのコンパイル結果を一切キャッシュしません（圧倒的に遅いオプションです）。</p>
@@ -3403,7 +3399,7 @@ preloads オプションは、単に <code>:devtools</code>/<code>:preloads</cod
 </div>
 <div class="dlist Horizontal">
 <dl>
-<dt><code>:asset-path</code></dt>
+<dt><code>:asset-path</code> </dt>
 <dd>
 <p>Webサーバのルートから <code>:output-dir</code> にあるリソースへの相対パスです。</p>
 </dd>
@@ -3468,27 +3464,31 @@ Javascriptのファイル名を生成するためにも使用されます。モ�
 <table>
 <tr>
 <td class="hdlist1">
-<code>:entries</code>
+<code>:entries</code> 
 </td>
 <td class="hdlist2">
 <p>このモジュールの出力コードの依存関係グラフのルートノードとして機能する名前空間です。</p>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"><code>:init-fn</code></dt>
-<dd>
-<p>モジュールが最初にロードされたときに呼び出されるべき関数を指し示す完全修飾シンボルです。</p>
-</dd>
-<dt class="hdlist1"><code>:depends-on</code></dt>
-<dd>
-<p>このモジュールが必要とするものをすべて備えるために、ロードされなければならない他のモジュールの名前です。</p>
-</dd>
-</dl>
-</div>
 </td>
 </tr>
 <tr>
 <td class="hdlist1">
-<code>:prepend</code>
+<code>:init-fn</code> 
+</td>
+<td class="hdlist2">
+<p>モジュールが最初にロードされたときに呼び出されるべき関数を指し示す完全修飾シンボルです。</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>:depends-on</code> 
+</td>
+<td class="hdlist2">
+<p>このモジュールが必要とするものをすべて備えるために、ロードされなければならない他のモジュールの名前です。</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>:prepend</code> 
 </td>
 <td class="hdlist2">
 <p>jsの出力の前に付加される文字列コンテンツです。コメントや著作権表示などに便利です。</p>
@@ -3496,23 +3496,23 @@ Javascriptのファイル名を生成するためにも使用されます。モ�
 </tr>
 <tr>
 <td class="hdlist1">
-<code>:append</code>
+<code>:append</code> 
 </td>
 <td class="hdlist2">
 <p>jsの出力に追加される文字列コンテンツです。コメントや著作権表示などに便利です。</p>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"><code>:prepend-js</code></dt>
-<dd>
-<p>クロージャオプティマイザーで実行される、有効な javascript をモジュールの出力に追加する文字列です。</p>
-</dd>
-</dl>
-</div>
 </td>
 </tr>
 <tr>
 <td class="hdlist1">
-<code>:append-js</code>
+<code>:prepend-js</code> 
+</td>
+<td class="hdlist2">
+<p>クロージャオプティマイザーで実行される、有効な javascript をモジュールの出力に追加する文字列です。</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>:append-js</code> 
 </td>
 <td class="hdlist2">
 <p>クロージャオプティマイザーで実行される有効な javascript をモジュールの出力に追加する文字列です。</p>
@@ -4033,27 +4033,27 @@ HTMLに含めるのは少し複雑です。<a href="#BrowserManifest">Output Man
 </div>
 <div class="dlist Horizontal">
 <dl>
-<dt><code>:pwd</code></dt>
+<dt><code>:pwd</code> </dt>
 <dd>
 <p>プロセスの作業ディレクトリ（別名：プロジェクトルート</p>
 </dd>
-<dt><code>:file</code></dt>
+<dt><code>:file</code> </dt>
 <dd>
 <p>絶対ファイルパス</p>
 </dd>
-<dt><code>:line</code></dt>
+<dt><code>:line</code> </dt>
 <dd>
 <p>警告・エラーの行番号</p>
 </dd>
-<dt><code>:column</code></dt>
+<dt><code>:column</code> </dt>
 <dd>
 <p>コラム番号</p>
 </dd>
-<dt><code>:wsl-file</code></dt>
+<dt><code>:wsl-file</code> </dt>
 <dd>
 <p>変換された WSL ファイルのパス。 WSL のBashで <code>shadow-cljs</code> を実行するときに便利です。 <code>mnt/c/Users/someone/code/project/src/main/demo/foo.cljs</code> のパスを <code>C:Users...</code> に変換します。</p>
 </dd>
-<dt><code>:wsl-pwd</code></dt>
+<dt><code>:wsl-pwd</code> </dt>
 <dd>
 <p>変換された <code>:pwd</code></p>
 </dd>
@@ -4184,7 +4184,7 @@ HTMLに含めるのは少し複雑です。<a href="#BrowserManifest">Output Man
 <table>
 <tr>
 <td class="hdlist1">
-<code>:init-fn</code>
+<code>:init-fn</code> 
 </td>
 <td class="hdlist2">
 <p>(必須) アプリのinit関数の名前空間修飾されたシンボルです。この関数は起動時に一度だけ呼び出され、おそらく何かをレンダリングするはずです。</p>
@@ -4192,7 +4192,7 @@ HTMLに含めるのは少し複雑です。<a href="#BrowserManifest">Output Man
 </tr>
 <tr>
 <td class="hdlist1">
-<code>:output-dir</code>
+<code>:output-dir</code> 
 </td>
 <td class="hdlist2">
 <p>(必須) (必須). 出力ファイルを書き込むためのディレクトリです。</p>
@@ -4651,7 +4651,7 @@ create-react-appなど）とシームレスに統合できます。</p>
 <table>
 <tr>
 <td class="hdlist1">
-<code>:output-dir</code>
+<code>:output-dir</code> 
 </td>
 <td class="hdlist2">
 <p>デフォルトでは <code>node_modules/shadow-cljs</code> となります。</p>
@@ -4659,7 +4659,7 @@ create-react-appなど）とシームレスに統合できます。</p>
 </tr>
 <tr>
 <td class="hdlist1">
-<code>:entries</code>
+<code>:entries</code> 
 </td>
 <td class="hdlist2">
 <p>(必須) コンパイルされるべき名前空間シンボルのベクトル。</p>
@@ -4752,23 +4752,23 @@ ns.bar()<span class="comment">;</span></code></pre>
 <table>
 <tr>
 <td class="hdlist1">
-<code>:target</code>
+<code>:target</code> 
 </td>
 <td class="hdlist2">
 <p><code>:node-test</code> (ノードテスト)</p>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"><code>:output-to</code></dt>
-<dd>
-<p>テストの実行に使用される最終的な出力ファイルです。</p>
-</dd>
-</dl>
-</div>
 </td>
 </tr>
 <tr>
 <td class="hdlist1">
-<code>:ns-regexp</code>
+<code>:output-to</code> 
+</td>
+<td class="hdlist2">
+<p>テストの実行に使用される最終的な出力ファイルです。</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>:ns-regexp</code> 
 </td>
 <td class="hdlist2">
 <p>(オプション) プロジェクトファイルの名前空間にマッチする正規表現です。これはファイルをスキャンするだけで、ジャーはスキャンしません。デフォルトでは <code>"-test$"</code> となります。
@@ -4777,7 +4777,7 @@ ns.bar()<span class="comment">;</span></code></pre>
 </tr>
 <tr>
 <td class="hdlist1">
-<code>:main</code>
+<code>:main</code> 
 </td>
 <td class="hdlist2">
 <p>デフォルトは <code>shadow.test.node/main</code> で、これは <code>cljs.test</code> を使ってテストを実行します。</p>
@@ -4831,7 +4831,7 @@ $ shadow-cljs compile test &amp;&amp; node out/node-tests.js</code></pre>
 <table>
 <tr>
 <td class="hdlist1">
-<code>:target</code>
+<code>:target</code> 
 </td>
 <td class="hdlist2">
 <p><code>:browser-test</code> (ブラウザテスト)</p>
@@ -4839,7 +4839,7 @@ $ shadow-cljs compile test &amp;&amp; node out/node-tests.js</code></pre>
 </tr>
 <tr>
 <td class="hdlist1">
-<code>:test-dir</code>
+<code>:test-dir</code> 
 </td>
 <td class="hdlist2">
 <p>ファイルを出力するフォルダです。以下を参照してください。</p>
@@ -4847,7 +4847,7 @@ $ shadow-cljs compile test &amp;&amp; node out/node-tests.js</code></pre>
 </tr>
 <tr>
 <td class="hdlist1">
-<code>:ns-regexp</code>
+<code>:ns-regexp</code> 
 </td>
 <td class="hdlist2">
 <p>(オプション) プロジェクトファイルの名前空間にマッチする正規表現です。これはファイルをスキャンするだけで、jar ファイルはスキャンしません。
@@ -4972,7 +4972,7 @@ $ shadow-cljs compile test &amp;&amp; node out/node-tests.js</code></pre>
 <table>
 <tr>
 <td class="hdlist1">
-<code>:target</code>
+<code>:target</code> 
 </td>
 <td class="hdlist2">
 <p><code>:karma</code>(カルマ)</p>
@@ -4980,7 +4980,7 @@ $ shadow-cljs compile test &amp;&amp; node out/node-tests.js</code></pre>
 </tr>
 <tr>
 <td class="hdlist1">
-<code>:output-to</code>
+<code>:output-to</code> 
 </td>
 <td class="hdlist2">
 <p><code>:karma</code>:  jsファイルのパス/ファイル名です。</p>
@@ -4988,7 +4988,7 @@ $ shadow-cljs compile test &amp;&amp; node out/node-tests.js</code></pre>
 </tr>
 <tr>
 <td class="hdlist1">
-<code>:ns-regexp</code>
+<code>:ns-regexp</code> 
 </td>
 <td class="hdlist2">
 <p>(オプション) テストの名前空間にマッチさせる正規表現、デフォルトは "-test$" です。</p>
@@ -5227,19 +5227,19 @@ HeadlessChrome 0.0.0 (Mac OS X 10.12.6): Executed 1 of 1 SUCCESS (0.007 secs / 0
 </div>
 <div class="dlist Horizontal">
 <dl>
-<dt><code>:require</code></dt>
+<dt><code>:require</code> </dt>
 <dd>
 <p>JSの <code>require("thing")</code> 関数呼び出しに直接マッピングします。実行時にネイティブで <code>require</code> を解決することができるため、すべての <code>node.js</code> ターゲットのデフォルトとなります。インクルードされた JS は何も処理されません。</p>
 </dd>
-<dt><code>:shadow</code></dt>
+<dt><code>:shadow</code> </dt>
 <dd>
 <p>JSを <code>node_modules</code> 経由で解決し、参照されている各ファイルの最小化されたバージョンをビルドに含めます。これは、 <code>:browser</code> ターゲットのデフォルトです。<code>node_modules</code> のソースは <code>:advanced</code> のコンパイルを通過しません。</p>
 </dd>
-<dt><code>:closure</code></dt>
+<dt><code>:closure</code> </dt>
 <dd>
 <p><code>shadow</code> と同様に解決されますが、Closure Compiler CommonJS/ES6 rewrite facilities を通じて、含まれる全てのファイルを処理しようとします。これらのファイルは <code>:advanced</code> のコンパイルでも処理されます。</p>
 </dd>
-<dt><code>:external</code></dt>
+<dt><code>:external</code> </dt>
 <dd>
 <p>これは、他の JS ビルドツールでも処理できるようになっており、実際に JS の依存関係を提供します。発行されたインデックス・ファイルには、CLJS の出力が JS の依存関係にアクセスできるようにするための、ちょっとしたグルーコードが含まれています。外部インデックスファイルの出力は、CLJS 出力の前に読み込まれなければなりません。</p>
 </dd>
@@ -6020,19 +6020,19 @@ global<span class="symbol">:SomeGlobalVariable</span></code></pre>
 </div>
 <div class="dlist Horizontal">
 <dl>
-<dt><code>:strip-types</code></dt>
+<dt><code>:strip-types</code> </dt>
 <dd>
 <p>deftype/defrecordの宣言や使用を削除できるようにします。<code>#{"my.ns.FooBar}</code> は <code>(defrecord FooBar [])</code> を削除します。</p>
 </dd>
-<dt><code>:strip-type-prefixes</code></dt>
+<dt><code>:strip-type-prefixes</code> </dt>
 <dd>
 <p>与えられた Prefix のいずれかで始まるものをすべて削除します。 CLJS の名前空間全体を削除することができます。</p>
 </dd>
-<dt><code>:strip-name-prefixes</code></dt>
+<dt><code>:strip-name-prefixes</code> </dt>
 <dd>
 <p>与えられたプレフィックスで始まるすべてのプロパティを削除します。プレフィックスでプロパティを削除することができます。<code>#{"log"}</code> は <code>this.logX</code> や <code>(defn log-me [&#8230;&#8203;])</code> を削除します。</p>
 </dd>
-<dt><code>:strip-name-suffixes</code></dt>
+<dt><code>:strip-name-suffixes</code> </dt>
 <dd>
 <p>サフィックスでプロパティを削除することができます。<code>#{"log"}</code> は <code>this.myLog</code> または <code>(defn my-log [&#8230;&#8203;])</code> を削除します。</p>
 </dd>
@@ -6819,7 +6819,7 @@ lein jarを実行し、jar -tvf target/library-1.0.0.jarで最終的に含まれ
 <div id="footer">
 <div id="footer-text">
 Version 1.0<br>
-Last updated 2021-04-15 14:55:54 JST
+Last updated 2021-04-15 15:03:39 JST
 </div>
 </div>
 </body>
