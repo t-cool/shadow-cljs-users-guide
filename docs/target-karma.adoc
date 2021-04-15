@@ -4,10 +4,10 @@ be able to run the tests from a command line and get back a status code. Karma i
 and supported test runner that can do this for you, and `shadow-cljs` includes a target that
 can add the appropriate wrappers around your tests so they will work in it.
 ////
-CLJSのテストをある種のCIサーバ上でブラウザに対して実行したい場合、次のことが必要になります。
-コマンドラインからテストを実行して、ステータスコードを返すことができる必要があります。Karmaはよく知られており
+CLJSのテストをある種の CI サーバ上でブラウザに対して実行したい場合、次のことが必要になります。
+コマンドラインからテストを実行して、ステータスコードを返すことができる必要があります。 Karma はよく知られており
 そして、 `shadow-cljs` には、あなたのテストの周りに適切なラッパーを追加できるターゲットが含まれています。
-ターゲットが含まれており、テストに適切なラッパーを追加することで、テストがKarmaで動作するようになります。
+ターゲットが含まれており、テストに適切なラッパーを追加することで、テストが Karma で動作するようになります。
 
 === Karmaのインストール
 //Installing Karma
@@ -38,7 +38,7 @@ something like this is your `package.json`:
 ////
 So, you need Karma, a browser launcher, and the cljs-test integration.
 ////
-つまり、Karma、ブラウザランチャー、そしてcljs-testの統合が必要なのです。
+つまり、 Karma 、ブラウザランチャー、そして cljs-test の統合が必要なのです。
 
 === Build
 // The Build

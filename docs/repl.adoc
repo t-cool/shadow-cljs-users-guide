@@ -8,7 +8,7 @@ REPLは、Clojure(Script)のコードを扱う際に、非常に強力なツー�
 ////
 When you quickly want to test out some code the built-in REPLs should be enough. If you need more complex setups that also do stuff on their own it is best to use an actual build.
 ////
-いくつかのコードをすぐにテストしたい場合は、内蔵のREPLで十分です。自分で何かをするような、より複雑なセットアップが必要な場合は、実際のビルドを使うのが一番です。
+いくつかのコードをすぐにテストしたい場合は、内蔵の REPL で十分です。自分で何かをするような、より複雑なセットアップが必要な場合は、実際のビルドを使うのが一番です。
 
 == ClojureScript REPL
 
@@ -35,7 +35,7 @@ IMPORTANT: Node REPLを終了すると、 `node` プロセスもキルされま�
 ////
 `node-repl` lets you get started without any additional configuration. It has access to all your code via the usual means, ie. `(require '[your.core :as x])`. Since it is not connected to any build it does not do any automatic rebuilding of code when your files change and does not provide hot-reload.
 ////
-`node-repl` を使えば、追加の設定をすることなく、すぐに使い始めることができます。node-replは、 `(require '[your.core :as x])` という通常の方法で、あなたのすべてのコードにアクセスします。ビルドに接続されていないので、ファイルが変更されてもコードの自動再構築は行われず、ホットリロードも提供されません。
+`node-repl` を使えば、追加の設定をすることなく、すぐに使い始めることができます。 node-repl は、 `(require '[your.core :as x])` という通常の方法で、あなたのすべてのコードにアクセスします。ビルドに接続されていないので、ファイルが変更されてもコードの自動再構築は行われず、ホットリロードも提供されません。
 
 === Browser REPL [[browser-repl]]
 
@@ -51,7 +51,7 @@ This starts a blank CLJS REPL and will open an associated Browser window where t
 ////
 IMPORTANT: If you close the Browser window the REPL will stop working.
 ////
-IMPORTANT: ブラウザウィンドウを閉じると、REPLは動作しなくなります。
+IMPORTANT: ブラウザウィンドウを閉じると、 REPL は動作しなくなります。
 
 === ビルドに特化した REPL [[build-repl]]
 
@@ -63,14 +63,14 @@ IMPORTANT: ブラウザウィンドウを閉じると、REPLは動作しなく�
 ////
 If you want to build a specific thing you should configure a build using one of the provided build-targets. Most of them automatically inject the necessary code for a ClojureScript REPL. It should not require any additional configuration. For the build CLJS REPL to work you need 2 things
 ////
-特定のものをビルドしたい場合は、提供されているビルドターゲットの1つを使ってビルドを設定する必要があります。それらのほとんどは、ClojureScript REPLに必要なコードを自動的に注入します。それは追加の設定を必要としないはずです。ビルドCLJS REPLが動作するためには、次の2つが必要です。
+特定のものをビルドしたい場合は、提供されているビルドターゲットの 1 つを使ってビルドを設定する必要があります。それらのほとんどは、ClojureScript REPLに必要なコードを自動的に注入します。それは追加の設定を必要としないはずです。ビルドCLJS REPLが動作するためには、次の 2 つが必要です。
 
 ////
 . a running `watch` for your build
 . connect the JS runtime of the `:target`. Meaning if you are using the `:browser` target you need to open a Browser that has the generated JS loaded. For node.js builds that means running the `node` process.
 ////
 ビルドのための実行中の `watch` です。
-ターゲットのJSランタイムを接続します。つまり、 `:browser` ターゲットを使用している場合、生成されたJSがロードされているブラウザを開く必要があります。node.jsのビルドの場合は、 `node` プロセスの実行を意味します。
+ターゲットの JS ランタイムを接続します。つまり、 `:browser` ターゲットを使用している場合、生成された JS がロードされているブラウザを開く必要があります。 node.js のビルドの場合は、 `node` プロセスの実行を意味します。
 
 ////
 Once you have both you can connect to the CLJS REPL via the command line or from the Clojure REPL.
@@ -161,7 +161,7 @@ shadow-cljs - REPL - see (help), :repl/quit to exit
 ////
 The `shadow.cljs.devtools.api` namespace has functions that map more or less 1:1 to the CLI counterparts. It is aliased as `shadow` by default.
 ////
-名前空間 `shadow.cljs.devtools.api` には、CLI に対応する関数とほぼ1対1に対応する関数があります。デフォルトでは `shadow` という名前でエイリアスされています。
+名前空間 `shadow.cljs.devtools.api` には、CLI に対応する関数とほぼ 1 対1に対応する関数があります。デフォルトでは `shadow` という名前でエイリアスされています。
 
 ////
 .Example commands
@@ -221,7 +221,7 @@ The `shadow.cljs.devtools.api` namespace has functions that map more or less 1:1
 ;; shadow-cljs cljs-repl foo
 (shadow/repl :foo)
 
-;; CLJS REPLに入れば :repl/quit や cljs/quit を使ってCLJに戻ることができる
+;; CLJS REPLに入れば :repl/quit や cljs/quit を使って CLJ に戻ることができる
 
 ```
 
@@ -263,5 +263,5 @@ You can stop the embedded server by running `(shadow.cljs.devtools.server/stop!)
 ////
 IMPORTANT: If you want to switch to a CLJS REPL this may require additional setup in the tool you used to start the server in. Since `lein` will default to using nREPL it will require configuring additional nREPL `:middleware`. When using `clj` you are good to go since it doesn't use nREPL.
 ////
-IMPORTANT: CLJS REPLに切り替えたい場合は、サーバの起動に使用したツールで追加の設定が必要になる場合があります。 `lein` はデフォルトで nREPL を使用するので、追加の nREPL `:middleware` を設定する必要があります。 `clj` を使用する場合は、nREPLを使用しないので、問題ありません。
+IMPORTANT: CLJS REPLに切り替えたい場合は、サーバの起動に使用したツールで追加の設定が必要になる場合があります。 `lein` はデフォルトで nREPL を使用するので、追加の nREPL `:middleware` を設定する必要があります。 `clj` を使用する場合は、 nREPL を使用しないので、問題ありません。
 

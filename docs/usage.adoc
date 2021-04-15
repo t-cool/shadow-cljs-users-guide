@@ -12,12 +12,12 @@ shadow-cljs は様々な方法で使用できますが、一般的なワーク�
 ////
 During development you have the option to `compile` a build once or run a `watch` worker which watches your source files for changes and re-compiles them automatically. When <<devtools, enabled>> the `watch` will also hot-reload your code and provide a REPL. During development the focus is on developer experience with fast feedback cycles. Development code should never be shipped to the public.
 ////
-開発中には、ビルドを一度だけ `compile` するか、ソースファイルの変更を監視して自動的に再コンパイルする `watch` ワーカーを実行するかのオプションがあります。このワーカーはソースファイルの変更を監視し、自動的に再コンパイルします。<<devtools, enabled>> の場合、 `watch` はコードをホットリロードし、REPLを提供します。開発中は、迅速なフィードバックサイクルによる開発者の経験に重点を置いています。開発コードは決して一般に出荷してはいけません。
+開発中には、ビルドを一度だけ `compile` するか、ソースファイルの変更を監視して自動的に再コンパイルする `watch` ワーカーを実行するかのオプションがあります。このワーカーはソースファイルの変更を監視し、自動的に再コンパイルします。<<devtools, enabled>> の場合、 `watch` はコードをホットリロードし、 REPL を提供します。開発中は、迅速なフィードバックサイクルによる開発者の経験に重点を置いています。開発コードは決して一般に出荷してはいけません。
 
 ////
 When it is time to get serious you create a <<release, `release`>> build which creates an optimized build suitable for production. For this the https://developers.google.com/closure/compiler/[Closure Compiler] is used which applies some seriously `:advanced` optimizations to your code to create the most optimal output available. This may require some <<externs, tuning>> to work properly when using lots of interop with native JavaScript but works flawlessly for ClojureScript (and the code from the https://developers.google.com/closure/library/[Closure Library]).
 ////
-本格的に開発する場合には、<<release, `release`>>というビルドを作成し、本番環境に適した最適化されたビルドを作成します。これには https://developers.google.com/closure/compiler/[Closure Compiler] が使用され、利用可能な最も最適な出力を作成するために、コードに深刻な `:advanced` 最適化を適用します。ネイティブJavaScriptとのインターロップを多用している場合には、適切に動作させるためにいくつかの<<externs, チューニング>>が必要になるかもしれませんが、ClojureScript(および https://developers.google.com/closure/library/[Closure Library] のコード)では完璧に動作します。
+本格的に開発する場合には、<<release, `release`>>というビルドを作成し、本番環境に適した最適化されたビルドを作成します。これには https://developers.google.com/closure/compiler/[Closure Compiler] が使用され、利用可能な最も最適な出力を作成するために、コードに深刻な `:advanced` 最適化を適用します。ネイティブ JavaScript とのインターロップを多用している場合には、適切に動作させるためにいくつかの<<externs, チューニング>>が必要になるかもしれませんが、ClojureScript(および https://developers.google.com/closure/library/[Closure Library] のコード)では完璧に動作します。
 
 == コマンドライン
 
@@ -79,7 +79,7 @@ $ shadow-cljs compile app
 # コンパイルと監視
 $ shadow-cljs watch app
 
-# ビルド用のREPLに接続 (watchの実行中に利用可能)$ shadow-cljs cljs-repl app
+# ビルド用の REPL に接続 (watchの実行中に利用可能)$ shadow-cljs cljs-repl app
 
 # スタンドアロンの Node repl への接続
 $ shadow-cljs node-repl
@@ -196,7 +196,7 @@ https://leiningen.org/[Leiningen] を使って依存関係を管理したい場�
 {:lein true
 ; :source-paths と :dependencies はこのファイルでは無視されます
 
-; これらをproject.cljで設定する
+; これらを project.clj で設定する
  :builds { ... }
 ```
 
@@ -247,12 +247,12 @@ You may also directly execute `shadow-cljs` commands via `lein` if you prefer to
 ////
 IMPORTANT: It is recommended to still use the `shadow-cljs` command to run commands since that will take full advantage of a running server mode instance. This will run commands substantially faster than launching additional JVMs when using `lein` directly.
 ////
-IMPORTANT: コマンドを実行する際には、引き続き `shadow-cljs` コマンドを使用することをお勧めします。このコマンドは、実行中のサーバモードのインスタンスを最大限に活用します。これにより、 `lein` を直接使用して追加のJVMを起動するよりも、大幅に速くコマンドを実行することができます。
+IMPORTANT: コマンドを実行する際には、引き続き `shadow-cljs` コマンドを使用することをお勧めします。このコマンドは、実行中のサーバモードのインスタンスを最大限に活用します。これにより、 `lein` を直接使用して追加の JVM を起動するよりも、大幅に速くコマンドを実行することができます。
 
 ////
 .Just compile :dev mode once, no REPL or live-reload:
 ////
-REPLやライブリロードは不要で、devモードで一度コンパイルするだけです。
+REPLやライブリロードは不要で、 dev モードで一度コンパイルするだけです。
 
 ```bash
 $ lein run -m shadow.cljs.devtools.cli compile build-id
@@ -359,7 +359,7 @@ You may also specify additional aliases via the command line using `-A`, eg. `sh
 ////
 IMPORTANT: Aliases are only applied when a new instance/server is started. They do not apply when connecting to a running server using the `shadow-cljs` command. Running via `clj` will always start a new JVM and does not support server-mode.
 ////
-IMPORTANT: エイリアスは、新しいインスタンか/サーバを起動したときにのみ適用されます。shadow-cljs コマンドを使って稼働中のサーバに接続するときには適用されません。 `clj` で起動すると、常に新しいJVMを起動することになり、サーバ・モードをサポートしません。
+IMPORTANT: エイリアスは、新しいインスタンか/サーバを起動したときにのみ適用されます。shadow-cljs コマンドを使って稼働中のサーバに接続するときには適用されません。 `clj` で起動すると、常に新しい JVM を起動することになり、サーバ・モードをサポートしません。
 
 === Boot
 
@@ -368,7 +368,7 @@ The authors have little Boot experience, so this chapter is in need of contribut
 that Boot allows you to build your tool chain out of functions. Since `shadow-cljs` is a normal
 JVM library, you can call functions within it to invoke tasks.
 ////
-著者はBootの経験がほとんどないため、この章は貢献を必要としています。私たちはBootでは、関数からツールチェーンを構築できることを理解しています。shadow-cljsは普通のJVM ライブラリなので、その中の関数を呼び出してタスクを起動することができます。
+著者は Boot の経験がほとんどないため、この章は貢献を必要としています。私たちは Boot では、関数からツールチェーンを構築できることを理解しています。 shadow-cljs は普通のJVM ライブラリなので、その中の関数を呼び出してタスクを起動することができます。
 
 ////
 Some boot tasks are available here:
@@ -388,7 +388,7 @@ Running Clojure Code [[clj-run]]
 ////
 You can use the `shadow-cljs` CLI to call specific Clojure functions from the command line. This is useful when you want to run some code before/after certain tasks. Suppose you wanted to `rsync` the output of your `release` build to a remote server.
 ////
-コマンドラインから特定のClojure関数を呼び出すために、 `shadow-cljs` というCLIを使うことができます。これは、あるタスクの前後にコードを実行したいときに便利です。例えば、 `release` ビルドの出力をリモートサーバに `rsync` したいとします。
+コマンドラインから特定のClojure関数を呼び出すために、 `shadow-cljs` という CLI を使うことができます。これは、あるタスクの前後にコードを実行したいときに便利です。例えば、 `release` ビルドの出力をリモートサーバに `rsync` したいとします。
 
 ////
 .Example Clojure Namespace in `src/my/build.clj`
@@ -451,12 +451,12 @@ TIP: https://github.com/clojure/tools.cli[tools.cli] のように引数を解析
 ////
 You have access to the full power of Clojure here. You can build entire tools on top of this if you like. As a bonus everything you write this way is also directly available via the Clojure REPL.
 ////
-ここでは、Clojureのフルパワーにアクセスできます。必要に応じて、この上にツール全体を構築することができます。おまけに、この方法で書いたものはすべて、Clojure REPLで直接利用できます。
+ここでは、 Clojure のフルパワーにアクセスできます。必要に応じて、この上にツール全体を構築することができます。おまけに、この方法で書いたものはすべて、Clojure REPLで直接利用できます。
 
 ////
 IMPORTANT: When the <<server-mode, server>> is running the namespace will not be reloaded automatically, it will only be loaded once. It is recommended to do the development using a REPL and reload the file as usual (eg. `(require 'my.build :reload)`). You may also run `shadow-cljs clj-eval "(require 'my.build :reload)"` to reload manually from the command line.
 ////
-IMPORTANT: <<server-mode, server>> が実行されている場合、名前空間は自動的にはリロードされず、一度だけロードされます。REPLを使って開発を行い、通常通りファイルをリロードすることをお勧めします（例：`(require 'my.build :reload)`)。
+IMPORTANT: <<server-mode, server>> が実行されている場合、名前空間は自動的にはリロードされず、一度だけロードされます。 REPL を使って開発を行い、通常通りファイルをリロードすることをお勧めします（例：`(require 'my.build :reload)`)。
 `shadow-cljs clj-eval "(require 'my.build :reload)"` を実行して、コマンドラインから手動でリロードすることもできます。
 
 === clj-run による watch の呼び出し
@@ -468,7 +468,7 @@ Calling watch via clj-run
 ////
 By default the functions called by `clj-run` only have access to a minimal `shadow-cljs` runtime which is enough to run `compile`, `release` and any other Clojure functionality. The JVM will terminate when your function completes.
 ////
-デフォルトでは、 `clj-run` から呼び出された関数は、 `compile`, `release` やその他の Clojure 機能を実行するのに十分な、最小限の `shadow-cljs` ランタイムにしかアクセスできません。関数が完了すると、JVMは終了します。
+デフォルトでは、 `clj-run` から呼び出された関数は、 `compile`, `release` やその他の Clojure 機能を実行するのに十分な、最小限の `shadow-cljs` ランタイムにしかアクセスできません。関数が完了すると、 JVM は終了します。
 
 ////
 If you want to start a `watch` for a given build you need to declare that the function you are calling requires a full server. This will cause the process to stay alive until you explicitly call `(shadow.cljs.devtools.server/stop!)` or `CTRL+C` the process.

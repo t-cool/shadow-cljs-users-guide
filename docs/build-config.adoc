@@ -31,7 +31,7 @@ Each build describes artifacts that the compiler will build. The build target is
 ////
 Each build in `shadow-cljs` must define a `:target` which defines where you intend your code to be executed. There are default built-ins for the <<target-browser,browser>> and <<target-node,`node.js`>>. They all share the basic concept of having `:dev` and `:release` modes. `:dev` mode provides all the usual development goodies like fast compilation, live code reloading and a REPL. `:release` mode will produce optimized output intended for production.
 ////
-`shadow-cljs` の各ビルドでは、コードをどこで実行するかを定義する `:target` を定義する必要があります。<<target-browser,browser>> と <<target-node,`node.js`>> のデフォルトのビルドインがあります。これらはすべて、 `:dev` モードと `:release` モードを持つという基本的なコンセプトを共有しています。dev` モードでは、高速なコンパイル、ライブコードリロード、REPLなど、通常の開発に必要な機能をすべて提供します。 `release` モードでは、プロダクション向けに最適化された出力が得られます。
+`shadow-cljs` の各ビルドでは、コードをどこで実行するかを定義する `:target` を定義する必要があります。<<target-browser,browser>> と <<target-node,`node.js`>> のデフォルトのビルドインがあります。これらはすべて、 `:dev` モードと `:release` モードを持つという基本的なコンセプトを共有しています。dev` モードでは、高速なコンパイル、ライブコードリロード、 REPL など、通常の開発に必要な機能をすべて提供します。 `release` モードでは、プロダクション向けに最適化された出力が得られます。
 
 ////
 Targets are covered in separate chapters.
@@ -60,7 +60,7 @@ Here are some of them:
 <<target-karma, `:karma`>>:: テストをスキャンして必要なファイルを決定し、karma-runner互換のテストを出力します。 http://karma-runner.github.io/2.0/index.html[Karma] を参照してください。
 <<target-node-library, `:node-library`>>:: ノードライブラリとして使用するのに適したコードを出力します。
 <<target-node-script, `:node-script`>>:: ノードスクリプトとして使用するのに適したコードを出力します。
-<<target-npm-module, `:npm-module`>>:: ノードスクリプトとしての使用に適したコードを出力します。NPMモジュールとして使用するのに適したコードを出力します。
+<<target-npm-module, `:npm-module`>>:: ノードスクリプトとしての使用に適したコードを出力します。 NPM モジュールとして使用するのに適したコードを出力します。
 
 
 ////
@@ -84,14 +84,14 @@ Each build `:target` typically provides some development support. They are group
 ////
 When running `watch` code for the REPL is injected automatically and usually does not require additional configuration. Additional options are available to control REPL behavior:
 ////
-`watch` を実行すると、REPL用のコードが自動的に注入され、通常は追加の設定は必要ありません。REPLの動作を制御するための追加オプションも用意されています。
+`watch` を実行すると、REPL用のコードが自動的に注入され、通常は追加の設定は必要ありません。 REPL の動作を制御するための追加オプションも用意されています。
 
 ////
 - `:repl-init-ns` allows configuring which namespace the REPL will start in. It defaults to `cljs.user`.
 - `:repl-pprint` makes the REPL use `cljs.pprint` instead of the regular `pr-str` when printing eval results. Defaults to false.
 ////
-- `:repl-init-ns` では、REPLをどの名前空間で起動するかを設定することができます。デフォルトでは `cljs.user` となります。
-- repl-pprint` では、REPLがevalの結果を print するときに、通常の `pr-str` の代わりに `cljs.pprint` を使用します。デフォルトは false です。
+- `:repl-init-ns` では、 REPL をどの名前空間で起動するかを設定することができます。デフォルトでは `cljs.user` となります。
+- repl-pprint` では、 REPL がevalの結果を print するときに、通常の `pr-str` の代わりに `cljs.pprint` を使用します。デフォルトは false です。
 
 ```
 {...
@@ -112,7 +112,7 @@ As a developer most of your time is spent in development mode. You're probably f
 `boot-reload`, and `devtools`. It's almost certain that you want one or more of these in your builds.
 ////
 開発者は、そのほとんどの時間を開発モードで過ごします。おそらく、 `figwheel`、 `boot-reload`、 `devtools` などのツールに精通していることでしょう。
-`boot-reload`、 `devtools` などのツールをご存知でしょう。これらのツールの1つ以上を自分のビルドに使用することはほぼ確実でしょう。
+`boot-reload`、 `devtools` などのツールをご存知でしょう。これらのツールの 1 つ以上を自分のビルドに使用することはほぼ確実でしょう。
 
 ////
 Preloads are used to force certain namespaces into the front of your generated Javascript. This is
@@ -120,7 +120,7 @@ generally used to inject tools and instrumentation before the application actual
 preloads option is simply a list of namespaces in the `:devtools`/`:preloads` section of
 `shadow-cljs-edn`:
 ////
-プリロードは、生成されたJavascriptの先頭に特定の名前空間を強制的に導入するために使用されます。これは
+プリロードは、生成された Javascript の先頭に特定の名前空間を強制的に導入するために使用されます。これは
 一般的には、アプリケーションが実際にロードされて実行される前に、ツールやインスツルメンテーションを注入するために使用されます。プリロードは
 preloads オプションは、単に `:devtools`/`:preloads` セクションの名前空間のリストです。
 
@@ -146,7 +146,7 @@ NOTE: Since version 2.0.130 shadow-cljs automatically adds `cljs-devtools` to th
 The React and ClojureScript ecosystems combine to make this kind of thing super useful. The `shadow-cljs`
 system includes everything you need to do your hot code reload, without needing to resort to external tools.
 ////
-ReactとClojureScriptのエコシステムを組み合わせることで、このようなことが超便利になります。 `shadow-cljs` のシステムには、外部ツールに頼ることなく、ホットコードリロードを行うために必要なものがすべて含まれています。
+Reactと ClojureScript のエコシステムを組み合わせることで、このようなことが超便利になります。 `shadow-cljs` のシステムには、外部ツールに頼ることなく、ホットコードリロードを行うために必要なものがすべて含まれています。
 
 ////
 In order to use it you simply run:
@@ -178,13 +178,13 @@ These can be configured via the `:devtools` section in your build config or dire
 ////
 You can set certain metadata on normal CLJS `defn` vars to inform the compiler that these functions should be called at a certain time when live reloading.
 ////
-通常のCLJSの `defn` 変数に特定のメタデータを設定することで、ライブリロード時にこれらの関数が特定のタイミングで呼び出されるべきであることをコンパイラに知らせることができます。
+通常の CLJS の `defn` 変数に特定のメタデータを設定することで、ライブリロード時にこれらの関数が特定のタイミングで呼び出されるべきであることをコンパイラに知らせることができます。
 
 
 ////
 .hook config via metadata
 ////
-.メタデータを利用したhookの設定
+.メタデータを利用した hook の設定
 
 ```clojure
 (ns my.app)
@@ -233,7 +233,7 @@ There are also async variants of these in case you need to do some async work th
 ////
 IMPORTANT: The functions will receive one callback function that must be called when their work is completed. If the callback function is not called the reload process will not proceed.
 ////
-IMPORTANT: 各関数には、それぞれの作業が完了したときに呼び出されるべきコールバック関数が1つあります。このコールバック関数が呼び出されないと、リロード処理は進みません。
+IMPORTANT: 各関数には、それぞれの作業が完了したときに呼び出されるべきコールバック関数が 1 つあります。このコールバック関数が呼び出されないと、リロード処理は進みません。
 
 
 ////
@@ -468,7 +468,7 @@ In addition you can control how much caching is done more broadly via the `:buil
 `:off`:: Does not cache any CLJS compilation results (by far the slowest option)
 ////
 [horizontal]
-`:all`:: デフォルトでは、すべてのCLJSファイルがキャッシュされます。
+`:all`:: デフォルトでは、すべての CLJS ファイルがキャッシュされます。
 `:jars`:: ライブラリからのファイル、つまり `.jar` ファイル内のソースファイルのみをキャッシュします。
 `:off`:: CLJSのコンパイル結果を一切キャッシュしません（圧倒的に遅いオプションです）。
 
@@ -491,7 +491,7 @@ In addition you can control how much caching is done more broadly via the `:buil
 ////
 The cache files are stored in a dedicated directory for each build so the cache is never shared between builds. A build with the id `:app` will have the `:dev` cache in the directory:
 ////
-キャッシュファイルは、ビルドごとに専用のディレクトリに保存されるので、ビルド間でキャッシュが共有されることはありません。idが `:app` のビルドには、 `:dev` のキャッシュがディレクトリに格納されます。
+キャッシュファイルは、ビルドごとに専用のディレクトリに保存されるので、ビルド間でキャッシュが共有されることはありません。 id が `:app` のビルドには、 `:dev` のキャッシュがディレクトリに格納されます。
 
 ////
 .Cache location for `cljs/core.cljs`
@@ -541,7 +541,7 @@ The `:cache-root` is always resolved relative to the project directory. You can 
 ////
 The Closure Library & Compiler allow you to define variables that are essentially compile time constants. You can use these to configure certain features of your build. Since the Closure compiler treats these as constants when running `:advanced` optimizations they are fully supported in the Dead-Code-Elimination passes and can be used to remove certain parts of the code that should not be included in `release` builds.
 ////
-Closure Library & Compilerでは、基本的にコンパイル時の定数である変数を定義することができます。これを使って、ビルドの特定の機能を設定することができます。Closureコンパイラは、 `:advanced` 最適化を実行する際にこれらを定数として扱うため、Dead-Code-Eliminationパスが完全にサポートされており、 `release` ビルドに含めるべきではないコードの特定の部分を削除するために使用することができます。
+Closure Library & Compilerでは、基本的にコンパイル時の定数である変数を定義することができます。これを使って、ビルドの特定の機能を設定することができます。 Closure コンパイラは、 `:advanced` 最適化を実行する際にこれらを定数として扱うため、 Dead-Code-Elimination パスが完全にサポートされており、 `release` ビルドに含めるべきではないコードの特定の部分を削除するために使用することができます。
 
 ////
 You can define them in your code
@@ -599,7 +599,7 @@ This defines the `your.app/VERBOSE` variable as `false` by default. This will ca
 ////
 TIP: It is generally safer to use the "disabled" variant as the default since it makes things less likely to be included in a `release` build when they shouldn't be. Forgetting to set a `:closure-defines` variable should almost always result in less code being used not more.
 ////
-TIP: 一般的には、disabledバリアントをデフォルトで使用する方が安全です。なぜなら、releaseビルドに含まれるべきでないものが含まれる可能性が低くなるからです。また、 `:closure-defines` 変数の設定を忘れると、ほとんどの場合、使用されるコードが増えるのではなく、減ることになります。
+TIP: 一般的には、 disabled バリアントをデフォルトで使用する方が安全です。なぜなら、 release ビルドに含まれるべきでないものが含まれる可能性が低くなるからです。また、 `:closure-defines` 変数の設定を忘れると、ほとんどの場合、使用されるコードが増えるのではなく、減ることになります。
 
 ////
 Closure Defines from the Closure Library
@@ -786,7 +786,7 @@ A set of possible warning-type keywords can be found https://github.com/clojure/
 ////
 By default the generated JS output will be compatible with ES5 and all "newer" features will be transpiled to compatible code using polyfills. This is currently the safest default and supports most browsers in active use (including IE10+).
 ////
-デフォルトでは、生成されるJS出力はES5と互換性があり、すべてのより新しい機能はポリフィルを使用して互換性のあるコードに変換されます。これは現在のところ最も安全なデフォルトであり、現在使用されているほとんどのブラウザ（IE10+を含む）をサポートしています。
+デフォルトでは、生成される JS 出力はES5と互換性があり、すべてのより新しい機能はポリフィルを使用して互換性のあるコードに変換されます。これは現在のところ最も安全なデフォルトであり、現在使用されているほとんどのブラウザ（IE10+を含む）をサポートしています。
 
 ////
 You can select other output options if you only care about more modern environments and want to keep the original code without replacements (eg. `node`, Chrome Extensions, ...)
@@ -796,7 +796,7 @@ You can select other output options if you only care about more modern environme
 ////
 IMPORTANT: Note that this mostly affects imported JS code from <<npm, npm>> or `.js` files from the <<classpath-js, classpath>>. CLJS will currently only generate ES5 output and is not affected by setting higher options.
 ////
-IMPORTANT: これは主に<<npm, npm>>からインポートされたJSコードや<<classpath-js, classpath>>からの `.js` ファイルに影響することに注意してください。CLJSは現在、ES5の出力のみを生成し、より高いオプションを設定しても影響を受けません。
+IMPORTANT: これは主に<<npm, npm>>からインポートされた JS コードや<<classpath-js, classpath>>からの `.js` ファイルに影響することに注意してください。 CLJS は現在、 ES5 の出力のみを生成し、より高いオプションを設定しても影響を受けません。
 
 ////
 You can configure this via the `:output-feature-set` in `:compiler-options`. The older `:language-out` option should not be used as `:output-feature-set` replaced it.
@@ -850,17 +850,17 @@ Documentation on these options is a bit sparse and is mostly documented in the c
 ////
 CAUTION: This feature only works in `shadow-cljs`. It was officially https://dev.clojure.org/jira/browse/CLJS-2396[rejected] by the ClojureScript project. It will still compile fine in CLJS but only the official branches work (e.g. `:cljs`). It might still be https://groups.google.com/d/msg/clojure-dev/8YJJM8lJuQs/hR5_vUZPCQAJ[supported] one day but as of now it is not.
 ////
-CAUTION: この機能は `shadow-cljs` でのみ動作します。これは ClojureScript プロジェクトによって公式に https://dev.clojure.org/jira/browse/CLJS-2396[rejected] されました。CLJSでもコンパイルは可能ですが、公式のブランチでのみ動作します(例: `:cljs`)。いつかは https://groups.google.com/d/msg/clojure-dev/8YJJM8lJuQs/hR5_vUZPCQAJ[support] になるかもしれませんが、今のところはそうではありません。
+CAUTION: この機能は `shadow-cljs` でのみ動作します。これは ClojureScript プロジェクトによって公式に https://dev.clojure.org/jira/browse/CLJS-2396[rejected] されました。 CLJS でもコンパイルは可能ですが、公式のブランチでのみ動作します(例: `:cljs`)。いつかは https://groups.google.com/d/msg/clojure-dev/8YJJM8lJuQs/hR5_vUZPCQAJ[support] になるかもしれませんが、今のところはそうではありません。
 
 ////
 `shadow-cljs` lets you configure additional reader features in `.cljc` files. By default you can only use reader conditionals to generate separate code for `:clj`, `:cljs` or `:cljr`. In many CLJS builds however it is also desirable to select which code is generated based on your `:target`.
 ////
-`shadow-cljs` では、 `.cljc` ファイルに追加のリーダ機能を設定することができます。デフォルトでは、リーダの条件式を使用して、 `:clj`、 `:cljs`、または `:cljr` 用の個別のコードを生成することしかできません。しかし、多くのCLJSのビルドでは、 `:target` に基づいて、どのコードを生成するかを選択することも望ましいことです。
+`shadow-cljs` では、 `.cljc` ファイルに追加のリーダ機能を設定することができます。デフォルトでは、リーダの条件式を使用して、 `:clj`、 `:cljs`、または `:cljr` 用の個別のコードを生成することしかできません。しかし、多くの CLJS のビルドでは、 `:target` に基づいて、どのコードを生成するかを選択することも望ましいことです。
 
 ////
 Example: Some `npm` packages only work when targeting the `:browser`, but you may have a `ns` that you also want to use in a `:node-script` build. This might happen frequently when trying to use Server-Side Rendering (SSR) with your React App. `codemirror` is one such package.
 ////
-例 一部の `npm` パッケージは `:browser` をターゲットにしたときにのみ動作しますが、 `:node-script` のビルドでも使用したい `ns` があるかもしれません。これは、Reactアプリでサーバサイドレンダリング(SSR)を使おうとしているときに頻繁に起こるかもしれません。codemirror` はそのようなパッケージの一つです。
+例 一部の `npm` パッケージは `:browser` をターゲットにしたときにのみ動作しますが、 `:node-script` のビルドでも使用したい `ns` があるかもしれません。これは、 React アプリでサーバサイドレンダリング(SSR)を使おうとしているときに頻繁に起こるかもしれません。codemirror` はそのようなパッケージの一つです。
 
 ```clojure
 (ns my.awesome.component
@@ -1017,7 +1017,7 @@ It is sometimes desirable to make small adjustments to the build configuration f
 ////
 You can pass additional config data via the `--config-merge {:some "data"}` command line option which will be merged into the build config. Data added from the CLI will override data from the `shadow-cljs.edn` file.
 ////
-追加の設定データを `--config-merge {:some "data"}` コマンドラインオプションで渡すことができ、ビルド時の設定にマージされます。CLIから追加されたデータは、 `shadow-cljs.edn` ファイルからのデータよりも優先されます。
+追加の設定データを `--config-merge {:some "data"}` コマンドラインオプションで渡すことができ、ビルド時の設定にマージされます。 CLI から追加されたデータは、 `shadow-cljs.edn` ファイルからのデータよりも優先されます。
 
 ////
 .Example `shadow-cljs.edn` config
@@ -1054,12 +1054,12 @@ $ shadow-cljs release app --config-merge '{:closure-defines {your.app/DEBUG true
 ////
 `--config-merge` expects one EDN map and can be used multiple times, they will be merged left to right. The data added is also visible to build-hooks.
 ////
-`--config-merge` は1つのEDNマップを想定していますが、複数回使用することができ、左から右に向かってマージされます。追加されたデータはbuild-hooksでも確認できます。
+`--config-merge` は 1 つのEDNマップを想定していますが、複数回使用することができ、左から右に向かってマージされます。追加されたデータは build-hooks でも確認できます。
 
 ////
 IMPORTANT: If you specify multiple build ids the data will be merged into all specified builds. `shadow-cljs release frontend backend --config-merge '{:hello "world"}'` will be applied to both.
 ////
-IMPORTANT: 複数のビルドIDを指定した場合、データは指定したすべてのビルドにマージされます。`shadow-cljs release frontend backend --config-merge '{:hello "world"}'` を指定すると、両方に適用されます。
+IMPORTANT: 複数のビルド ID を指定した場合、データは指定したすべてのビルドにマージされます。`shadow-cljs release frontend backend --config-merge '{:hello "world"}'` を指定すると、両方に適用されます。
 
 == 環境変数の使用 [[shadow-env]]
 //Using Environment Variables [[shadow-env]]
@@ -1104,7 +1104,7 @@ The are also a few more supported forms that you can use `#shadow/env` with.
 ```
 #shadow/env "APP_URL"
 #shadow/env ["APP_URL"]
-;; デフォルトの値で、env変数が設定されていない場合に使用される
+;; デフォルトの値で、 env 変数が設定されていない場合に使用される
 #shadow/env ["APP_URL" "default-value"]
 #shadow/env ["APP_URL" :default "default-value"]
 ;; PORT envをデフォルトで整数に変換する

@@ -1,7 +1,7 @@
 ////
 The `:browser` target produces output intended to run in a Browser environment. During development it supports live code reloading, REPL, CSS reloading. The `release` output will be minified by the Closure Compiler with `:advanced` optimizations.
 ////
-ブラウザ ` ターゲットは、ブラウザ環境での実行を想定した出力を行います。開発時には、ライブコードリロード、REPL、CSSリロードをサポートします。release` の出力は、Closure Compilerによって `:advanced` の最適化でミニマイズされます。
+ブラウザ ` ターゲットは、ブラウザ環境での実行を想定した出力を行います。開発時には、ライブコードリロード、 REPL 、CSSリロードをサポートします。release` の出力は、Closure Compilerによって `:advanced` の最適化でミニマイズされます。
 
 ////
 A basic browser configuration looks like this:
@@ -25,7 +25,7 @@ A basic browser configuration looks like this:
 ////
 The browser target outputs a lot of files, and a directory is needed for them all. You'll need to serve these assets with some kind of server, and the Javascript loading code needs to know the server-centric path to these assets. The options you need to specify are:
 ////
-ブラウザのターゲットは多くのファイルを出力し、それらすべてのためのディレクトリが必要となります。これらのアセットを何らかのサーバで提供する必要があり、Javascriptのロードコードは、これらのアセットへのサーバ中心のパスを知る必要があります。指定する必要のあるオプションは以下の通りです。
+ブラウザのターゲットは多くのファイルを出力し、それらすべてのためのディレクトリが必要となります。これらのアセットを何らかのサーバで提供する必要があり、 Javascript のロードコードは、これらのアセットへのサーバ中心のパスを知る必要があります。指定する必要のあるオプションは以下の通りです。
 
 
 ////
@@ -58,8 +58,8 @@ generated javascript. It allows you to output your javascript module to a partic
 of your web server's root. The dynamic loading during development (hot code reload) and production
 (code splitting) need this to correctly locate files.
 ////
-`:asset-path` は、モジュールの読み込みコードのパスに追加されるプレフィックスで、生成されたjavascriptの中に含まれます。
-プレフィックスです。これにより、ウェブサーバのルートの特定のサブディレクトリにjavascriptモジュールを出力することができます。
+`:asset-path` は、モジュールの読み込みコードのパスに追加されるプレフィックスで、生成された javascript の中に含まれます。
+プレフィックスです。これにより、ウェブサーバのルートの特定のサブディレクトリに javascript モジュールを出力することができます。
 に出力することができます。開発時の動的な読み込み（ホットコードリロード）や生産時の動的な読み込み（コード分割）には、このプレフィックスが必要です。
 コード分割）は、ファイルを正しく配置するためにこれを必要とします。
 
@@ -68,14 +68,14 @@ Locating your generated files in a directory and asset path like this make it so
 (images, css, etc.) can easily co-exist on the same server without accidental collisions.
 ////
 このように生成したファイルをディレクトリとアセットパスに配置することで、他のアセット
-画像やCSSなど）が同じサーバ上で偶然にも衝突することなく共存できるようになります。
+画像や CSS など）が同じサーバ上で偶然にも衝突することなく共存できるようになります。
 
 ////
 For example: if your web server will serve the folder `public/x` when asked for the URI `/x`,
 and your `output-dir` for a module is `public/assets/app/js` then your asset-path should be `/assets/app/js`.
 You are not required to use an absolute asset path, but it is highly recommended.
 ////
-例えば、 `/x` というURIを求められたときに、Webサーバが `public/x` というフォルダを提供する場合。
+例えば、 `/x` という URI を求められたときに、Webサーバが `public/x` というフォルダを提供する場合。
 そして、モジュールの `output-dir` が `public/assets/app/js` であれば、アセットパスは `/assets/app/js` となります。
 アセットパスの絶対値を使用する必要はありませんが、強く推奨します。
 
@@ -90,13 +90,13 @@ Modules configure how the compiled sources are bundled together and how the fina
 ////
 TIP: Don't worry too much about :modules in the beginning. Start with one and split them later.
 ////
-TIP: 最初は :module を気にしすぎないこと。最初は1つにしておいて、後で分割するようにしましょう。
+TIP: 最初は :module を気にしすぎないこと。最初は 1 つにしておいて、後で分割するようにしましょう。
 
 ////
 The `:modules` section of the config is always a map keyed by module ID. The module ID is also used
 to generate the Javascript filename. Module `:main` will generate `main.js` in `:output-dir`.
 ////
-コンフィグの `:modules` セクションは、常にモジュール ID をキーとしたマップです。モジュールIDは、Javascriptのファイル名の生成にも使われます。
+コンフィグの `:modules` セクションは、常にモジュール ID をキーとしたマップです。モジュール ID は、Javascriptのファイル名の生成にも使われます。
 Javascriptのファイル名を生成するためにも使用されます。モジュール `:main` は `:output-dir` に `main.js` を生成します。
 
 ////
@@ -120,8 +120,8 @@ The available options in a module are:
 `:depends-on`::: このモジュールが必要とするものをすべて備えるために、ロードされなければならない他のモジュールの名前です。
 `:prepend`:: jsの出力の前に付加される文字列コンテンツです。コメントや著作権表示などに便利です。
 `:append`:: jsの出力に追加される文字列コンテンツです。コメントや著作権表示などに便利です。
-`:prepend-js`::: クロージャオプティマイザーで実行される、有効なjavascriptをモジュールの出力に追加する文字列です。
-`:append-js`:: クロージャオプティマイザーで実行される有効なjavascriptをモジュールの出力に追加する文字列です。
+`:prepend-js`::: クロージャオプティマイザーで実行される、有効な javascript をモジュールの出力に追加する文字列です。
+`:append-js`:: クロージャオプティマイザーで実行される有効な javascript をモジュールの出力に追加する文字列です。
 
 
 ////
@@ -185,7 +185,7 @@ In addition to `:entries` you'll need to declare which module depends on which (
 ////
 Say you have a traditional website with actual different pages.
 ////
-例えば、従来のWebサイトでは、さまざまなページがあります。
+例えば、従来の Web サイトでは、さまざまなページがあります。
 
 ////
 - `www.acme.com` - serving the homepage
@@ -199,7 +199,7 @@ Say you have a traditional website with actual different pages.
 ////
 One good configuration for this would be to have one common module that is shared between all the pages. Then one for each page.
 ////
-このような場合には、すべてのページで共有される共通のモジュールを1つ用意するのが良いでしょう。そして、各ページごとに1つのモジュールを用意します。
+このような場合には、すべてのページで共有される共通のモジュールを 1 つ用意するのが良いでしょう。そして、各ページごとに 1 つのモジュールを用意します。
 
 ////
 .Example config with multiple `:modules`
@@ -246,7 +246,7 @@ TIP: `:shared` モジュールの `:entries` を空にすることで、どの�
 ////
 In your HTML for the Homepage you'd then always include the `shared.js` on each page and the others conditionally depending on which page the user is on.
 ////
-ホームページのHTMLには、各ページに必ず shared.js を記述し、他のページはユーザーがどのページにいるかに応じて条件付きで記述することになります。
+ホームページの HTML には、各ページに必ず shared.js を記述し、他のページはユーザーがどのページにいるかに応じて条件付きで記述することになります。
 
 ////
 .HTML for the `/login` page
@@ -269,7 +269,7 @@ IMPORTANT: `.js` ファイルは正しい順序でインクルードする必要
 ////
 These days Single-Page-Apps (SPA) are becoming more popular and they work similarly only that instead of letting the Server decide which JS to include to Client does it by itself.
 ////
-最近、シングルページアプリ（SPA）が人気を集めていますが、その仕組みは、どのJSを組み込むかをサーバが決めるのではなく、クライアントが自分で決めるという点で似ています。
+最近、シングルページアプリ（SPA）が人気を集めていますが、その仕組みは、どの JS を組み込むかをサーバが決めるのではなく、クライアントが自分で決めるという点で似ています。
 
 ==== shadow-cljsに組み込まれたLoader Supportの使用
 //Using shadow-cljs's built-in Loader Support
@@ -344,7 +344,7 @@ Then the following expressions can be used for loading code:
 ////
 
 ```
-;; JS配列でなければならず、goog.async.Deferredも返します。
+;; JS配列でなければならず、 goog.async.Deferred も返します。
 (loader/load-many #js ["foo" "bar"])
 ```
 
@@ -372,7 +372,7 @@ You can check if a module is loaded using `(loaded? "module-name")`.
 ////
 Using the loader is very lightweight. It has a few dependencies which you may not be otherwise using. In practice using `:module-loader true` adds about 8KB gzip'd to the default module. This will vary depending on how much of `goog.net` and `goog.events` you are already using, and what level of optimization you use for your release builds.
 ////
-ローダーの使用は非常に軽量です。ローダーにはいくつかの依存関係がありますが、他に使用することはないでしょう。実際には、 `:module-loader true` を使用すると、デフォルトのモジュールに約8KBのgzipが追加されます。これは、すでに使用している `goog.net` や `goog.events` の量や、リリースビルドでどの程度の最適化を行っているかによって変わってきます。
+ローダーの使用は非常に軽量です。ローダーにはいくつかの依存関係がありますが、他に使用することはないでしょう。実際には、 `:module-loader true` を使用すると、デフォルトのモジュールに約8KBの gzip が追加されます。これは、すでに使用している `goog.net` や `goog.events` の量や、リリースビルドでどの程度の最適化を行っているかによって変わってきます。
 
 ==== 標準的なClojureScript APIの使用
 //Using the Standard ClojureScript API
@@ -380,12 +380,12 @@ Using the loader is very lightweight. It has a few dependencies which you may no
 ////
 The generated code is capable of using the standard ClojureScript `cljs.loader` API. See the https://clojurescript.org/news/2017-07-10-code-splitting[documentation] on the ClojureScript website for instructions.
 ////
-生成されたコードは、標準的なClojureScriptの `cljs.loader` APIを使用することができます。手順については、ClojureScriptウェブサイトの https://clojurescript.org/news/2017-07-10-code-splitting[documentation] を参照してください。
+生成されたコードは、標準的な ClojureScript の `cljs.loader` APIを使用することができます。手順については、 ClojureScript ウェブサイトの https://clojurescript.org/news/2017-07-10-code-splitting[documentation] を参照してください。
 
 ////
 The advantage of using the standard API is that your code will play well with others. This may be of particular importance to library authors. The disadvantage is that the dynamic module loading API in the standard distribution is currently somewhat less easy-to-use than the support in `shadow-cljs`.
 ////
-標準APIを使用することの利点は、自分のコードが他の人とうまく調和することです。これはライブラリの作者にとっては特に重要なことでしょう。不利な点は、標準配布の動的なモジュールローディングAPIは、現在のところ `shadow-cljs` のサポートに比べてやや使いにくいことです。
+標準 API を使用することの利点は、自分のコードが他の人とうまく調和することです。これはライブラリの作者にとっては特に重要なことでしょう。不利な点は、標準配布の動的なモジュールローディング API は、現在のところ `shadow-cljs` のサポートに比べてやや使いにくいことです。
 
 == アウトプット・ラッパー [[output-wrapper]]
 //Output Wrapper [[output-wrapper]]
@@ -403,7 +403,7 @@ The advantage of using the standard API is that your code will play well with ot
 ////
 When using multiple `:modules` (a.k.a <<CodeSplitting, code splitting>>) this is not enabled by default since each module must be able to access the variables created by the modules it depends on. The Closure Compiler supports an additional option to enable the use of an output wrapper in combination with multiple `:modules` named `:rename-prefix-namespace`. This will cause the Compiler to scope all "global" variables used by the build into one actual global variable. By default this is set to `:rename-prefix-namespace "$APP"` when `:output-wrapper` is set to `true`.
 ////
-複数の `:module` (別名 <<CodeSplitting, コードスプリッティング>>) を使用している場合、各モジュールは依存しているモジュールが作成した変数にアクセスできなければならないため、このオプションはデフォルトでは有効になっていません。Closure Compilerは、 `:rename-prefix-namespace` という名前の複数の `:modules` と組み合わせた出力ラッパーの使用を有効にする追加オプションをサポートしています。これにより、コンパイラはビルドで使用されるすべてのグローバル変数を、実際のグローバル変数1つにスコープします。デフォルトでは、 `:output-wrapper` が `true` に設定されている場合、これは `:rename-prefix-namespace "$APP"` に設定されます。
+複数の `:module` (別名 <<CodeSplitting, コードスプリッティング>>) を使用している場合、各モジュールは依存しているモジュールが作成した変数にアクセスできなければならないため、このオプションはデフォルトでは有効になっていません。Closure Compilerは、 `:rename-prefix-namespace` という名前の複数の `:modules` と組み合わせた出力ラッパーの使用を有効にする追加オプションをサポートしています。これにより、コンパイラはビルドで使用されるすべてのグローバル変数を、実際のグローバル変数 1 つにスコープします。デフォルトでは、 `:output-wrapper` が `true` に設定されている場合、これは `:rename-prefix-namespace "$APP"` に設定されます。
 
 ```clojure
 {...
@@ -514,12 +514,12 @@ Note that the empty `:entries []` in the `:shared` module will make it collect a
 ////
 IMPORTANT: Since we now have a `:shared` module you must ensure to load it properly in your HTML. If you just load `main.js` you will get an error.
 ////
-IMPORTANT: 現在、 `:shared` モジュールがあるので、HTMLで適切にロードする必要があります。単に `main.js` をロードしただけでは、エラーが発生します。
+IMPORTANT: 現在、 `:shared` モジュールがあるので、 HTML で適切にロードする必要があります。単に `main.js` をロードしただけでは、エラーが発生します。
 
 ////
 .HTML Loading shared.js and main.js
 ////
-.HTML shared.jsとmain.jsの読み込み
+.HTML shared.jsと main.js の読み込み
 
 ```
 <script src="/js/shared.js"></script>
@@ -532,7 +532,7 @@ IMPORTANT: 現在、 `:shared` モジュールがあるので、HTMLで適切に
 ////
 In a web setting it is desirable to cache `.js` files for a very long time to avoid extra request. It is common practice the generate a unique name for the `.js` file for every released version. This changes the URL used to access it and thereby is safe to cache forever.
 ////
-Web環境では、余分なリクエストを避けるために、 `.js` ファイルを非常に長い時間キャッシュすることが望ましいです。リリースされたバージョンごとに、 `.js` ファイルにユニークな名前をつけるのが一般的です。これにより、ファイルへのアクセスに使用されるURLが変更されるため、永久にキャッシュしても安全です。
+Web環境では、余分なリクエストを避けるために、 `.js` ファイルを非常に長い時間キャッシュすることが望ましいです。リリースされたバージョンごとに、 `.js` ファイルにユニークな名前をつけるのが一般的です。これにより、ファイルへのアクセスに使用される URL が変更されるため、永久にキャッシュしても安全です。
 
 === リリースバージョン [[release-version]]
 //Release Versions [[release-version]]
@@ -587,7 +587,7 @@ You can add `:module-hash-names true` to your build config to automatically crea
 number between 1-32 instead (eg. `:module-hash-names 8`). Be aware that shortening the hash may increase the chances
 of generating conflicts. I recommend using the full hash.
 ////
-`:module-hash-names true` は、32個の完全なmd5ハッシュを含みますが、より短いバージョンを好む場合は、代わりに1～32の数字を指定できます。
+`:module-hash-names true` は、 32 個の完全なmd5ハッシュを含みますが、より短いバージョンを好む場合は、代わりに1～32の数字を指定できます。
 1-32の間の数字を指定できます(例: `:module-hash-names 8`)。ハッシュを短くすると、コンフリクトが発生する可能性が高くなることに注意してください。
 競合が発生する可能性が高くなることに注意してください。完全なハッシュを使うことをお勧めします。
 
@@ -620,7 +620,7 @@ Instead of generating `main.js` it will now generate `main.<hash>.js` in the `:o
 Since the filename can change with every release it gets a little bit more complicated to include them
 in your HTML. The <<BrowserManifest, Output Manifest>> can help with that.
 ////
-ファイル名はリリースごとに変更される可能性があるため、それらをHTMLに含めるのは少し複雑になります。
+ファイル名はリリースごとに変更される可能性があるため、それらを HTML に含めるのは少し複雑になります。
 HTMLに含めるのは少し複雑です。<<BrowserManifest, Output Manifest>>はその手助けとなります。
 
 == 出力マニフェスト [[BrowserManifest]]
@@ -702,7 +702,7 @@ The `:devtools` section of the configuration for `:browser` supports a few addit
 options for configuring an optional dev-time HTTP server for a build and CSS reloading.
 ////
 ブラウザーのコンフィギュレーションの `:devtools` セクションでは、いくつかの追加オプションをサポートしています。
-ビルドやCSSのリロードのために、オプションでdev-time HTTPサーバを設定するための、いくつかの追加オプションをサポートしています。
+ビルドや CSS のリロードのために、オプションでdev-time HTTPサーバを設定するための、いくつかの追加オプションをサポートしています。
 
 === ヘッドアップディスプレイ（HUD） [[hud]]
 //Heads-Up Display (HUD) [[hud]]
@@ -710,7 +710,7 @@ options for configuring an optional dev-time HTTP server for a build and CSS rel
 ////
 The `:browser` target now uses a HUD to display a loading indicator when a build is started. It will also display warnings and errors if there are any.
 ////
-:browser ターゲットは、HUDを使って、ビルドが開始されたときにローディング・インジケータを表示するようになりました。また、警告やエラーが発生した場合にも表示されます。
+:browser ターゲットは、 HUD を使って、ビルドが開始されたときにローディング・インジケータを表示するようになりました。また、警告やエラーが発生した場合にも表示されます。
 
 ////
 You can disable it completely by setting `:hud false` in the `:devtools` section.
@@ -748,7 +748,7 @@ You can either configure this in your `shadow-cljs.edn` config for the project o
 ////
 The `:open-file-command` expects a vector representing a very simple DSL. Strings are kept as they are and keyword are replaced by their respective values. A nested vector can be used in case you need to combine multiple params, using `clojure.core/format` style pattern.
 ////
-open-file-command` では、非常にシンプルなDSLを表すベクターを想定しています。文字列はそのままで、キーワードはそれぞれの値で置き換えられます。 `clojure.core/format` スタイルのパターンを使用して、複数のパラメータを組み合わせる必要がある場合には、ネストしたベクターを使用することができます。
+open-file-command` では、非常にシンプルな DSL を表すベクターを想定しています。文字列はそのままで、キーワードはそれぞれの値で置き換えられます。 `clojure.core/format` スタイルのパターンを使用して、複数のパラメータを組み合わせる必要がある場合には、ネストしたベクターを使用することができます。
 
 ////
 The above example would execute
@@ -813,7 +813,7 @@ Translated `:pwd`
 コラム番号
 
 `:wsl-file`::
-変換された WSL ファイルのパス。WSLのBashで `shadow-cljs` を実行するときに便利です。 `mnt/c/Users/someone/code/project/src/main/demo/foo.cljs` のパスを `C:Users\...` に変換します。
+変換された WSL ファイルのパス。 WSL のBashで `shadow-cljs` を実行するときに便利です。 `mnt/c/Users/someone/code/project/src/main/demo/foo.cljs` のパスを `C:Users\...` に変換します。
 
 `:wsl-pwd`::
 変換された `:pwd`
@@ -875,7 +875,7 @@ be run separately. Just make sure the output is generated into the correct place
 When you are not using the built-in HTTP Server you can specify `:watch-dir` instead which should be a path to the
 document root used to serve your content.
 ////
-組み込みのHTTPサーバを使用していない場合は、代わりに `:watch-dir` を指定することができます。
+組み込みの HTTP サーバを使用していない場合は、代わりに `:watch-dir` を指定することができます。
 ドキュメントルートへのパスです。
 
 ////
@@ -892,7 +892,7 @@ document root used to serve your content.
 ////
 When your HTTP Server is serving the files from a virtual directory and the filesystem paths don't exactly match the path used in the HTML you may adjust the path by setting `:watch-path` which will be used as a prefix.
 ////
-HTTPサーバが仮想ディレクトリからファイルを提供していて、ファイルシステムのパスがHTMLで使われているパスと完全に一致しない場合、プレフィックスとして使われる `:watch-path` を設定することで、パスを調整することができます。
+HTTPサーバが仮想ディレクトリからファイルを提供していて、ファイルシステムのパスが HTML で使われているパスと完全に一致しない場合、プレフィックスとして使われる `:watch-path` を設定することで、パスを調整することができます。
 
 ////
 .Example `public/css/main.css` being served under `/foo/css/main.css`
@@ -914,7 +914,7 @@ HTTPサーバが仮想ディレクトリからファイルを提供していて�
 ////
 By default the devtools client will attempt to connect to the `shadow-cljs` process via the configured <<http, HTTP server>> (usually `localhost`). If you are using a reverse proxy to serve your HTML that might not be possible. You can set `:devtools-url` to configure which URL to use.
 ////
-デフォルトでは、devtools クライアントは、設定された <<http, HTTP server>> (通常は `localhost` ) 経由で `shadow-cljs` プロセスへの接続を試みます。リバースプロキシを使用して HTML を配信している場合は、それができない場合があります。また、 `:devtools-url` を設定することで、使用するURLを設定することができます。
+デフォルトでは、devtools クライアントは、設定された <<http, HTTP server>> (通常は `localhost` ) 経由で `shadow-cljs` プロセスへの接続を試みます。リバースプロキシを使用して HTML を配信している場合は、それができない場合があります。また、 `:devtools-url` を設定することで、使用する URL を設定することができます。
 
 ```
 {...
@@ -953,7 +953,7 @@ http://localhost:9630/foo/bar?asdf
 ////
 The client will make WebSocket request as well as normal XHR requests to load files. Ensure that your proxy properly upgrades WebSockets.
 ////
-クライアントは、ファイルを読み込むための通常のXHRリクエストだけでなく、WebSocketリクエストも行います。プロキシがWebSocketを適切にアップグレードするようにしてください。
+クライアントは、ファイルを読み込むための通常の XHR リクエストだけでなく、WebSocketリクエストも行います。プロキシが WebSocket を適切にアップグレードするようにしてください。
 
 ////
 IMPORTANT: The requests must be forwarded to the main <<http, HTTP server>>, not the one configured in the build itself.

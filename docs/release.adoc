@@ -9,7 +9,7 @@ development mode file: there is no difference in the way you include them in you
 may use <<NameHashing, filename hashing>> to improve caching characteristics on browser targets.
 ////
 デフォルトでは、リリースモードの出力ファイルは、開発モードの出力ファイルをそのまま置き換えるようになっています。
-これらのファイルをHTMLにインクルードする方法に違いはありません。また
+これらのファイルを HTML にインクルードする方法に違いはありません。また
 ブラウザターゲットでのキャッシュ特性を改善するために <<NameHashing, filename hashing>> を使用することができます。
 
 ////
@@ -103,12 +103,12 @@ can override settings by including a `:dev` and/or `:release` section in the bui
 ////
 Since we want builds to be fully optimized by the Closure Compiler `:advanced` compilation we need to deal with https://developers.google.com/closure/compiler/docs/api-tutorial3[Externs] . Externs represent pieces of code that are not included when doing `:advanced` compilation. `:advanced` works by doing whole program optimizations but some code we just won't be able to include so Externs inform the Compiler about this code. Without Externs the Compiler may rename or remove some code that it shouldn't.
 ////
-Closure Compiler `:advanced` のコンパイルによってビルドを完全に最適化したいので https://developers.google.com/closure/compiler/docs/api-tutorial3[Externs] を扱う必要があります。Externsは、 `:advanced` のコンパイルの際に含まれないコードの断片を表します。 `advanced` はプログラム全体の最適化を行いますが、どうしても含まれないコードもあるため、Externsはコンパイラにそのコードを知らせます。Externsがないと、コンパイラは含めるべきでないコードの名前を変えたり、削除したりすることがあります。
+Closure Compiler `:advanced` のコンパイルによってビルドを完全に最適化したいので https://developers.google.com/closure/compiler/docs/api-tutorial3[Externs] を扱う必要があります。 Externs は、 `:advanced` のコンパイルの際に含まれないコードの断片を表します。 `advanced` はプログラム全体の最適化を行いますが、どうしても含まれないコードもあるため、 Externs はコンパイラにそのコードを知らせます。 Externs がないと、コンパイラは含めるべきでないコードの名前を変えたり、削除したりすることがあります。
 
 ////
 Typically all JS Dependencies are foreign and won't be passed through `:advanced` and thus require Externs.
 ////
-通常、すべてのJS Dependenciesは外国のものであり、 `:advanced` ではパスされないため、Externsが必要となります。
+通常、すべてのJS Dependenciesは外国のものであり、 `:advanced` ではパスされないため、 Externs が必要となります。
 
 ////
 TIP: Externs are only required for `:advanced`, they are not required in `:simple` mode.
@@ -146,7 +146,7 @@ With `:auto` the compiler will perform additional checks at compile time for you
 ////
 When enabled you'll get warnings whenever the Compiler cannot figure out whether you are working with JS or CLJS code.
 ////
-有効にすると、コンパイラがJSとCLJSのどちらのコードを使用しているかを判断できない場合に警告が表示されます。
+有効にすると、コンパイラが JS とCLJSのどちらのコードを使用しているかを判断できない場合に警告が表示されます。
 
 ////
 .Example Code
@@ -199,7 +199,7 @@ typehint の `^js` を指定すると、コンパイラが適切な externs を�
 ////
 .Multiple interop calls
 ////
-.複数のInteropコール
+.複数の Interop コール
 
 ```clojure
 (defn wrap-baz [x]
@@ -232,7 +232,7 @@ IMPORTANT: Don't annotate everything with `^js`. Sometimes you may be doing inte
 ////
 Calls on globals do not require a typehint when using direct `js/` calls.
 ////
-IMPORTANT: すべてを `^js` でアノテーションしないでください。時には、CLJS や ClosureJS のオブジェクトでインターロップを行うことがあります。これらはエクスターンを必要としません。CLJSオブジェクトを扱うことが確実な場合は、 `^clj` のヒントを使うことをお勧めします。
+IMPORTANT: すべてを `^js` でアノテーションしないでください。時には、CLJS や ClosureJS のオブジェクトでインターロップを行うことがあります。これらはエクスターンを必要としません。 CLJS オブジェクトを扱うことが確実な場合は、 `^clj` のヒントを使うことをお勧めします。
 間違って `^js` を使用しても世界の終わりではありませんが、変数の名前を変更できるのに変更されない場合、いくつかの最適化に影響を与える可能性があります。
 
 ////
@@ -268,7 +268,7 @@ Calls on `:require` bindings are also inferred automatically.
 ////
 Some libraries provide Externs as separate `.js` files. You can include them into your build via the `:externs` compiler options.
 ////
-一部のライブラリでは、エクスターンを個別の `.js` ファイルとして提供しています。Externsは、 `:externs` コンパイラオプションを使って、ビルドに組み込むことができます。
+一部のライブラリでは、エクスターンを個別の `.js` ファイルとして提供しています。 Externs は、 `:externs` コンパイラオプションを使って、ビルドに組み込むことができます。
 
 ////
 .Manual Externs Config
@@ -301,7 +301,7 @@ Externsを手で書くことは困難ですが、 `shadow-cljs` はより便利�
 ////
 Start by creating a `externs/<your-build>.txt`, so build `:app` would be `externs/app.txt`. In that file each line should be one word specifying a JS property that should not be renamed. Global variables should be prefixed by `global:`
 ////
-まず、 `externs/<your-build>.txt` を作成します。ビルド `:app` は `externs/app.txt` となります。このファイルの各行は、名前を変更してはいけないJSのプロパティを1つの単語で指定します。グローバル変数の前には、 `global:` を付けてください。
+まず、 `externs/<your-build>.txt` を作成します。ビルド `:app` は `externs/app.txt` となります。このファイルの各行は、名前を変更してはいけない JS のプロパティを1つの単語で指定します。グローバル変数の前には、 `global:` を付けてください。
 
 ////
 .Example externs/app.txt
@@ -326,7 +326,7 @@ In this example the compiler will stop renaming `something.foo()`, `something.ba
 ////
 The Closure Compiler supports removing unwanted code by name. This allows removing code that normal dead-code removal can't or won't remove. This is quite dangerous as it can remove code you actually care about but it can remove a lot of dev only code easily. It is grouped into 4 separate options of which pretty much only `:strip-type-prefixes` is relevant to ClojureScript but other may be useful as well.
 ////
-クロージャ・コンパイラは、不要なコードを名前で削除することをサポートしています。これにより、通常のデッドコード除去では除去できない、あるいは除去したくないコードを除去することができます。これは、実際に気になるコードが削除される可能性があるため非常に危険ですが、多くの開発者専用コードを簡単に削除することができます。これは4つのオプションに分類されていて、そのうちClojureScriptに関連するのはほぼ `:strip-type-prefixes` だけですが、他にも有用なオプションがあるかもしれません。
+クロージャ・コンパイラは、不要なコードを名前で削除することをサポートしています。これにより、通常のデッドコード除去では除去できない、あるいは除去したくないコードを除去することができます。これは、実際に気になるコードが削除される可能性があるため非常に危険ですが、多くの開発者専用コードを簡単に削除することができます。これは 4 つのオプションに分類されていて、そのうち ClojureScript に関連するのはほぼ `:strip-type-prefixes` だけですが、他にも有用なオプションがあるかもしれません。
 
 ////
 .Example removing all uses of `cljs.pprint`
@@ -346,7 +346,7 @@ The Closure Compiler supports removing unwanted code by name. This allows removi
 ////
 Each of these options is specified as a Set of Strings. Please note that all the names specified here are JS names so certain CLJS names must be munged. `my-lib.core` becomes `my_lib.core`.
 ////
-これらのオプションは、それぞれ文字列のセットとして指定されます。ここで指定されている名前はすべてJSの名前なので、特定のCLJSの名前はマングされなければならないことに注意してください。`my-lib.core` は `my_lib.core` となります。
+これらのオプションは、それぞれ文字列のセットとして指定されます。ここで指定されている名前はすべて JS の名前なので、特定の CLJS の名前はマングされなければならないことに注意してください。`my-lib.core` は `my_lib.core` となります。
 
 ////
 [Horizontal]
@@ -357,7 +357,7 @@ Each of these options is specified as a Set of Strings. Please note that all the
 ////
 [Horizontal]
 `:strip-types`:: deftype/defrecordの宣言や使用を削除できるようにします。`#{"my.ns.FooBar}` は `(defrecord FooBar [])` を削除します。
-`:strip-type-prefixes`:: 与えられたPrefixのいずれかで始まるものをすべて削除します。CLJSの名前空間全体を削除することができます。
+`:strip-type-prefixes`:: 与えられた Prefix のいずれかで始まるものをすべて削除します。 CLJS の名前空間全体を削除することができます。
 `:strip-name-prefixes`:: 与えられたプレフィックスで始まるすべてのプロパティを削除します。プレフィックスでプロパティを削除することができます。`#{"log"}` は `this.logX` や `(defn log-me [...])` を削除します。
 `:strip-name-suffixes`:: サフィックスでプロパティを削除することができます。`#{"log"}` は `this.myLog` または `(defn my-log [...])` を削除します。
 

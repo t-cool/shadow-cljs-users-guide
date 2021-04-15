@@ -47,7 +47,7 @@ include::intro.adoc[]
 ////
 This is a work in progress. If you find an error, please submit a PR to fix it, or an issue with details of the problem.
 ////
-これは現在進行中の作業です。エラーを発見した場合は、それを修正するためのPR、または問題の詳細を記載したissueを提出してください。
+これは現在進行中の作業です。エラーを発見した場合は、それを修正するための PR 、または問題の詳細を記載した issue を提出してください。
 
 === 貢献
 
@@ -95,7 +95,7 @@ project.clj
 ////
 Many of the examples are of the configuration file for the compiler. This file contains an EDN map. Where we have already discussed required options we will often elide them for clarity. In this case we'll usually include an ellipsis to indicate "content that is required but isn't in our current focus":
 ////
-例題の多くは、コンパイラの設定ファイルです。このファイルには、EDNマップが含まれています。必要なオプションについてすでに説明している場合は、わかりやすくするために省略することがあります。この場合、必要だが、現在の焦点ではない内容を示すために省略記号を入れるのが普通です。
+例題の多くは、コンパイラの設定ファイルです。このファイルには、 EDN マップが含まれています。必要なオプションについてすでに説明している場合は、わかりやすくするために省略することがあります。この場合、必要だが、現在の焦点ではない内容を示すために省略記号を入れるのが普通です。
 
 
 ////
@@ -156,7 +156,7 @@ You will need:
 ////
 - https://nodejs.org[`node.js`] (v6.0.0+, 最新のバージョンが望ましいです)
 - https://www.npmjs.com[`npm`] or https://www.yarnpkg.com[`yarn`]
-- 任意のJava SDK (バージョン8以上) http://openjdk.java.net/install/[OpenJDK] or http://www.oracle.com/technetwork/java/javase/downloads/index.html[Oracle]
+- 任意のJava SDK (バージョン 8 以上) http://openjdk.java.net/install/[OpenJDK] or http://www.oracle.com/technetwork/java/javase/downloads/index.html[Oracle]
 
 
 ////
@@ -276,13 +276,13 @@ The file structure for this example should look like this:
 ////
 `:source-paths` configures your JVM classpath. The compiler will use this config to find Clojure(Script) source files (eg. `.cljs`).
 ////
-`:source-paths` は、JVMのクラスパスを設定します。コンパイラはこの設定を使って、Clojure(Script)のソースファイル(例： `.cljs` )を探します。
+`:source-paths` は、 JVM のクラスパスを設定します。コンパイラはこの設定を使って、Clojure(Script)のソースファイル(例： `.cljs` )を探します。
 
 
 ////
 It is fine to put everything into one source path but you can use multiple if you want to "group" source files in certain ways. It is useful if you want to keep your tests separate for example.
 ////
-すべてを1つのソースパスにまとめても問題ありませんが、ソースファイルを特定の方法でグループ化したい場合は、複数のソースパスを使用することができます。例えば、テストを別々にしたい場合などに便利です。
+すべてを 1 つのソースパスにまとめても問題ありませんが、ソースファイルを特定の方法でグループ化したい場合は、複数のソースパスを使用することができます。例えば、テストを別々にしたい場合などに便利です。
 
 
 ////
@@ -315,7 +315,7 @@ It is fine to put everything into one source path but you can use multiple if yo
 ////
 It is not recommended to separate source files by extension (eg. `src/clj`, `src/cljs`, `src/cljc`). For some reason this is widely used in CLJS project templates but it just makes things harder to use.
 ////
-ソースファイルを拡張子で分けることはお勧めしません（例：`src/clj`, `src/cljs`, `src/cljc`）。なぜかCLJSのプロジェクトテンプレートではこの方法が広く使われていますが、使いにくくなるだけです。
+ソースファイルを拡張子で分けることはお勧めしません（例：`src/clj`, `src/cljs`, `src/cljc`）。なぜか CLJS のプロジェクトテンプレートではこの方法が広く使われていますが、使いにくくなるだけです。
 
 
 == 依存関係
@@ -331,7 +331,7 @@ Your dependencies are managed via the `:dependencies` key at the root of the `sh
 ////
 Each dependency is written as a vector using `[library-name "version-string"]` nested in one outer vector.
 ////
-各依存関係は `[ライブラリ名 "バージョン-文字列"]` を使ったベクターとして書かれ、1つの外側のベクターに入れ子になっています。
+各依存関係は `[ライブラリ名 "バージョン - 文字列"]` を使ったベクターとして書かれ、 1 つの外側のベクターに入れ子になっています。
 
 
 ////
@@ -413,7 +413,7 @@ JSの依存関係の欠落に関連するエラーに遭遇するかもしれま
 ```text
 The required JS dependency "react" is not available, it was required by ...
 ```
-(必要なJSの依存関係である "react "が利用できません。これは、...によって必要とされていました。)
+(必要な JS の依存関係である "react "が利用できません。これは、 ... によって必要とされていました。)
 
 ////
 This means that you should `npm install react`.
@@ -424,7 +424,7 @@ This means that you should `npm install react`.
 ////
 TIP: In the case of `react` you probably need these 3 packages: `npm install react react-dom create-react-class`.
 ////
-TIP: `react` の場合は、おそらく以下の3つのパッケージが必要です。`npm install react react-dom create-react-class`.
+TIP: `react` の場合は、おそらく以下の 3 つのパッケージが必要です。`npm install react react-dom create-react-class`.
 
 
 == ユーザの設定 [[user-config]]
@@ -504,7 +504,7 @@ This section is for other options that configure the `shadow-cljs` server instan
 ////
 The `shadow-cljs` <<server-mode, server>> provides a https://nrepl.org[nREPL] server via TCP. If you look at the startup message you'll see the port of nREPL, and the port will also be stored in `target/shadow-cljs/nrepl.port`:
 ////
-`shadow-cljs` <<server-mode, server>> は TCP 経由で https://nrepl.org[nREPL] サーバを提供しています。起動メッセージを見ると、nREPLのポートが表示され、そのポートは `target/shadow-cljs/nrepl.port` にも保存されます。
+`shadow-cljs` <<server-mode, server>> は TCP 経由で https://nrepl.org[nREPL] サーバを提供しています。起動メッセージを見ると、 nREPL のポートが表示され、そのポートは `target/shadow-cljs/nrepl.port` にも保存されます。
 
 ```bash
 $ shadow-cljs watch app
@@ -572,7 +572,7 @@ nREPLサーバは、 `:nrepl false` を設定することで無効にするこ�
 ////
 When connecting to the nREPL server the connection always starts out as a Clojure REPL. Switching to a CLJS REPL works similarly to the <<cljs-repl, non-nREPL version>>. First the `watch` for the given build needs to be started and then we need to select this build to switch the current nREPL session to that build. After selecting the build everything will be eval'd in ClojureScript instead of Clojure.
 ////
-nREPLサーバに接続すると、接続は常にClojure REPLとして開始されます。CLJS REPLへの切り替えは、<<cljs-repl, non-nREPL version>>と同様に動作します。まず、与えられたビルドの `watch` を開始する必要があり、次に現在の nREPL セッションをそのビルドに切り替えるために、このビルドを選択する必要があります。ビルドを選択すると、すべての評価はClojureではなくClojureScriptで行われます。
+nREPLサーバに接続すると、接続は常にClojure REPLとして開始されます。CLJS REPLへの切り替えは、<<cljs-repl, non-nREPL version>>と同様に動作します。まず、与えられたビルドの `watch` を開始する必要があり、次に現在の nREPL セッションをそのビルドに切り替えるために、このビルドを選択する必要があります。ビルドを選択すると、すべての評価は Clojure ではなくClojureScriptで行われます。
 
 ```repl
 (shadow/watch :the-build)
@@ -585,14 +585,14 @@ TIP: Use `:cljs/quit` to return to Clojure.
 TIP: Clojure に戻るには `:cljs/quit` を使います。
 
 
-==== 組み込み型nREPLサーバ
+==== 組み込み型 nREPL サーバ
 
 // Embedded nREPL Server
 
 ////
 When you use `shadow-cljs` embedded in other tools that provide their own nREPL server (eg. `lein`) you need to configure the `shadow-cljs` middleware. Otherwise you won't be able to switch between CLJ and CLJS REPLs.
 ////
-独自のnREPLサーバを提供する他のツール（例：`lein`）に `shadow-cljs` を組み込んで使用する場合は、 `shadow-cljs` ミドルウェアを設定する必要があります。そうしないと、CLJとCLJSのREPLの間で切り替えることができません。
+独自の nREPL サーバを提供する他のツール（例：`lein`）に `shadow-cljs` を組み込んで使用する場合は、 `shadow-cljs` ミドルウェアを設定する必要があります。そうしないと、 CLJ とCLJSの REPL の間で切り替えることができません。
 
 
 ////
@@ -646,13 +646,13 @@ Socket REPLは、 `:socket-repl false` を設定することで無効にする�
 ////
 The `shadow-cljs` HTTP servers support SSL. It requires a Java Keystore that provides a matching private key and certificate.
 ////
-`shadow-cljs` のHTTPサーバはSSLをサポートしています。そのためには、一致する秘密鍵と証明書を提供するJava Keystoreが必要です。
+`shadow-cljs` の HTTP サーバは SSL をサポートしています。そのためには、一致する秘密鍵と証明書を提供するJava Keystoreが必要です。
 
 
 ////
 .`shadow-cljs.edn` with SSL configured
 ////
-.`shadow-cljs.edn` にSSLが設定されています。
+.`shadow-cljs.edn` に SSL が設定されています。
 
 ```
 {...
@@ -691,7 +691,7 @@ $ keytool -importkeystore -destkeystore keystore.jks -srcstoretype PKCS12 -srcke
 ////
 IMPORTANT: You must generate the Certificate with a SAN (Subject Alternative Name) for "localhost" (or whichever host you want to use). SAN is required to get Chrome to trust the Certificate and not show warnings. The password used when exporting must match the password assigned to the Keystore.
 ////
-IMPORTANT: localhost（または使用するホスト）のSAN（Subject Alternative Name）を含む証明書を作成する必要があります。SANは、Chromeが証明書を信頼して警告を表示しないようにするために必要です。エクスポート時に使用するパスワードは、キーストアに割り当てられたパスワードと一致する必要があります。
+IMPORTANT: localhost（または使用するホスト）のSAN（Subject Alternative Name）を含む証明書を作成する必要があります。 SAN は、Chromeが証明書を信頼して警告を表示しないようにするために必要です。エクスポート時に使用するパスワードは、キーストアに割り当てられたパスワードと一致する必要があります。
 
 // TODO: full guide, other platforms
 
@@ -700,7 +700,7 @@ IMPORTANT: localhost（または使用するホスト）のSAN（Subject Alterna
 ////
 The `shadow-cljs` server starts one primary HTTP server. It is used to serve the UI and websockets used for Hot Reload and REPL clients. By default it listens on Port 9630. If that Port is in use it will increment by one and attempt again until an open Port is found.
 ////
-`shadow-cljs` サーバは、1つのプライマリHTTPサーバを起動します。このサーバは、ホットリロードやREPLクライアントで使用されるUIやウェブソケットを提供するために使用されます。デフォルトでは、9630番ポートで待ち受けます。もしそのポートが使用中であれば、1つ増やして、開いているポートが見つかるまで再試行します。
+`shadow-cljs` サーバは、 1 つのプライマリHTTPサーバを起動します。このサーバは、ホットリロードや REPL クライアントで使用される UI やウェブソケットを提供するために使用されます。デフォルトでは、9630番ポートで待ち受けます。もしそのポートが使用中であれば、 1 つ増やして、開いているポートが見つかるまで再試行します。
 
 
 ////
@@ -759,7 +759,7 @@ If you prefer to set your own port instead you can do this via the `:http` confi
 ////
 `shadow-cljs` can provide additional basic HTTP servers via the `:dev-http` config entry. By default these will serve all static files from the configured paths, and fall back to `index.html` when a resource is not found (this is what you typically want when developing an application which uses browser push state).
 ////
-`shadow-cljs` では、 `:dev-http` という設定項目で、追加の基本的なHTTPサーバを提供することができます。デフォルトでは、これらは設定されたパスからすべての静的ファイルを提供し、リソースが見つからない場合は `index.html` にフォールバックします (これは、ブラウザのプッシュステートを使用するアプリケーションを開発する際に、一般的に求められるものです)。
+`shadow-cljs` では、 `:dev-http` という設定項目で、追加の基本的な HTTP サーバを提供することができます。デフォルトでは、これらは設定されたパスからすべての静的ファイルを提供し、リソースが見つからない場合は `index.html` にフォールバックします (これは、ブラウザのプッシュステートを使用するアプリケーションを開発する際に、一般的に求められるものです)。
 
 
 ////
@@ -770,7 +770,7 @@ These servers are started automatically when `shadow-cljs` is running in server 
 ////
 IMPORTANT:: These are just generic web servers that server static files. They are not required for any live-reload or REPL logic. Any webserver will do, these are just provided for convenience.
 ////
-重要なことです。これらは、静的ファイルをサーバする一般的なウェブサーバです。これらはライブリロードやREPLのロジックには必要ありません。どのようなウェブサーバでも使用できますが、これらは単に利便性のために提供されています。
+重要なことです。これらは、静的ファイルをサーバする一般的なウェブサーバです。これらはライブリロードや REPL のロジックには必要ありません。どのようなウェブサーバでも使用できますが、これらは単に利便性のために提供されています。
 
 ////
 .Basic example serving the `public` directory via `http://localhost:8000`
@@ -846,7 +846,7 @@ if a resource is not found for the given request. Defaults to `shadow.http.push-
 ////
 `:root` :: (String) リクエストを処理するためのパスです。 `classpath:` で始まるパスは、ファイルシステムではなく、クラスパスからリクエストを処理します。すべてのファイルシステムのパスは、プロジェクトのルートからの相対パスです。
 `:roots`:: 複数のルートパスが必要な場合は、 `:root` の代わりに使用します。
-`:ssl-port`  :: `(文字列のベクトル) ssl` が設定されている場合、ssl接続にはこのポートを使用し、通常のHTTPサーバは通常のポートを使用します。 `ssl-port` が設定されておらず、 `:ssl` が設定されている場合、デフォルトのポートは SSL リクエストのみをサーバします。
+`:ssl-port`  :: `(文字列のベクトル) ssl` が設定されている場合、 ssl 接続にはこのポートを使用し、通常の HTTP サーバは通常のポートを使用します。 `ssl-port` が設定されておらず、 `:ssl` が設定されている場合、デフォルトのポートは SSL リクエストのみをサーバします。
 `:host` :: オプションです。リッスンするホスト名を指定します。デフォルトでは localhost になります。
 `:handler` :: オプションです。完全に修飾されたシンボルです。与えられたリクエストに対してリソースが見つからない場合に使用される `(defn handler [req] resp)` です。
 `(defn handler [req] resp)` は、与えられたリクエストに対してリソースが見つからない場合に使用されます。デフォルトでは `shadow.http.push-state/handle` となります。
@@ -854,7 +854,7 @@ if a resource is not found for the given request. Defaults to `shadow.http.push-
 ////
 The following two options only apply when using the default, built-in handler and typically do not need to be changed:
 ////
-以下の2つのオプションは、デフォルトの組み込みハンドラを使用する場合にのみ適用され、通常は変更する必要はありません。
+以下の 2 つのオプションは、デフォルトの組み込みハンドラを使用する場合にのみ適用され、通常は変更する必要はありません。
 
 
 ////
@@ -879,7 +879,7 @@ The following two options only apply when using the default, built-in handler an
 ////
 By default the dev server will attempt to serve requests locally but sometimes you may want to use an external web server to serve requests (eg. API request). This can be configured via `:proxy-url`.
 ////
-デフォルトでは、開発サーバはローカルでリクエストを処理しようとしますが、外部のWebサーバを使ってリクエストを処理したい場合もあります（例：APIリクエスト）。これは `:proxy-url` で設定できます。
+デフォルトでは、開発サーバはローカルでリクエストを処理しようとしますが、外部の Web サーバを使ってリクエストを処理したい場合もあります（例：APIリクエスト）。これは `:proxy-url` で設定できます。
 
 
 ```
@@ -908,8 +908,8 @@ Additional optional Options to configure the connection handling are:
 [Horizontal]
 `:proxy-rewrite-host-header`:: boolean, デフォルトは true です。オリジナルの Host ヘッダーを使用するか、 `:proxy-url` からのヘッダーを使用するかを決定します。上記の例では、 `localhost` と `some.host` のどちらを使用するかを決定します。
 `:proxy-reuse-x-forwarded`:: boolean, デフォルトは false です。プロキシが自分自身を `X-Forwarded-For` リストに追加するか、新しいリストを開始するかを設定します。
-`:proxy-max-connection-retries`:: int, デフォルトは1です。
-`:proxy-max-request-time`:: intとしてのミリ秒、デフォルトは30000です。30秒のリクエストタイムアウトです。
+`:proxy-max-connection-retries`:: int, デフォルトは 1 です。
+`:proxy-max-request-time`:: intとしてのミリ秒、デフォルトは 30000 です。30秒のリクエストタイムアウトです。
 
 == JVM の設定 [[jvm-opts]]
 
@@ -928,7 +928,7 @@ This is done by configuring `:jvm-opts` at the root of `shadow-cljs.edn` expecti
 ////
 .Example limited RAM use to 1GB
 ////
-.Example：RAM使用量を1GBに制限
+.Example：RAM使用量を 1GB に制限
 
 ```clojure
 {:source-paths [...]
@@ -940,7 +940,7 @@ This is done by configuring `:jvm-opts` at the root of `shadow-cljs.edn` expecti
 ////
 The arguments that can be passed to the JVM vary depending on the version but you can find an example list https://docs.oracle.com/javase/8/docs/technotes/tools/windows/java.html[here] . Please note that assigning too little or too much RAM can degrade performance. The defaults are usually good enough.
 ////
-JVMに渡すことができる引数はバージョンによって異なりますが https://docs.oracle.com/javase/8/docs/technotes/tools/windows/java.html[here] のリストの例があります。RAMの割り当てが少なすぎたり多すぎたりすると、パフォーマンスが低下することがありますのでご注意ください。通常は、デフォルトの設定で十分です。
+JVMに渡すことができる引数はバージョンによって異なりますが https://docs.oracle.com/javase/8/docs/technotes/tools/windows/java.html[here] のリストの例があります。 RAM の割り当てが少なすぎたり多すぎたりすると、パフォーマンスが低下することがありますのでご注意ください。通常は、デフォルトの設定で十分です。
 
 ////
 IMPORTANT: When using `deps.edn` or `project.clj` the `:jvm-opts` need to be configured there.
@@ -1053,7 +1053,7 @@ include::target-node-test.adoc[]
 
 include::target-browser-test.adoc[]
 
-== 継続的インテグレーションのためにテストをKarmaにターゲットする [[target-karma]] 
+== 継続的インテグレーションのためにテストを Karma にターゲットする [[target-karma]] 
 
 //Targeting Tests to Karma for Continuous Integration [[target-karma]]
 
@@ -1117,7 +1117,7 @@ https://clojurians.slack.com/messages/C6N245JGG[`#shadow-cljs` Slackチャンネ
 ////
 The `shadow-cljs` compiler ensures that things on your source paths are compiled first, overriding files from JARs. This means that you can copy a source file from a library, patch it, and include it in your own source directory.
 ////
-`shadow-cljs` コンパイラは、あなたのソースパス上にあるものが最初にコンパイルされるようにし、JARからのファイルを優先します。つまり、ライブラリからソースファイルをコピーしてパッチを当て、それを自分のソースディレクトリにインクルードすることができるのです。
+`shadow-cljs` コンパイラは、あなたのソースパス上にあるものが最初にコンパイルされるようにし、 JAR からのファイルを優先します。つまり、ライブラリからソースファイルをコピーしてパッチを当て、それを自分のソースディレクトリにインクルードすることができるのです。
 
 ////
 This is a convenient way to test out fixes (even to `shadow-cljs` itself!) without having to clone
