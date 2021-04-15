@@ -359,7 +359,7 @@ You may also specify additional aliases via the command line using `-A`, eg. `sh
 ////
 IMPORTANT: Aliases are only applied when a new instance/server is started. They do not apply when connecting to a running server using the `shadow-cljs` command. Running via `clj` will always start a new JVM and does not support server-mode.
 ////
-IMPORTANT: エイリアスは、新しいインスタンか/サーバを起動したときにのみ適用されます。shadow-cljs コマンドを使って稼働中のサーバに接続するときには適用されません。clj` で起動すると、常に新しいJVMを起動することになり、サーバ・モードをサポートしません。
+IMPORTANT: エイリアスは、新しいインスタンか/サーバを起動したときにのみ適用されます。shadow-cljs コマンドを使って稼働中のサーバに接続するときには適用されません。 `clj` で起動すると、常に新しいJVMを起動することになり、サーバ・モードをサポートしません。
 
 === Boot
 
