@@ -203,7 +203,7 @@ Currently there are 3 supported JS Providers:
 ////
 
 [Horizontal]
-`:require` :: JSの `require("thing")` 関数呼び出しに直接マッピングします。実行時にネイティブで `require` を解決することができるため、すべての `node.js` ターゲットのデフォルトとなります。インクルードされた JS は何も処理されません。
+`:require` :: JS の `require("thing")` 関数呼び出しに直接マッピングします。実行時にネイティブで `require` を解決することができるため、すべての `node.js` ターゲットのデフォルトとなります。インクルードされた JS は何も処理されません。
 `:shadow` :: JSを `node_modules` 経由で解決し、参照されている各ファイルの最小化されたバージョンをビルドに含めます。これは、 `:browser` ターゲットのデフォルトです。`node_modules` のソースは `:advanced` のコンパイルを通過しません。
 `:closure` :: `shadow` と同様に解決されますが、Closure Compiler CommonJS/ES6 rewrite facilities を通じて、含まれる全てのファイルを処理しようとします。これらのファイルは `:advanced` のコンパイルでも処理されます。
 `:external` :: これは、他の JS ビルドツールでも処理できるようになっており、実際に JS の依存関係を提供します。発行されたインデックス・ファイルには、CLJS の出力が JS の依存関係にアクセスできるようにするための、ちょっとしたグルーコードが含まれています。外部インデックスファイルの出力は、CLJS 出力の前に読み込まれなければなりません。
@@ -729,7 +729,7 @@ NOTE: The `shadow-cljsjs` library only provides the shim files. You’ll still n
 ////
 CLJSJS packages basically just take the package from `npm` and put them into a `.jar` and re-publish them via https://clojars.org[clojars] . As a bonus they often bundle Externs. The compiler otherwise does nothing with these files and only prepends them to the generated output.
 ////
-CLJSJSのパッケージは、基本的に `npm` からパッケージを取り出し、 `.jar` に入れて https://clojars.org[clojars] で再公開するだけです。おまけに Externs もバンドルされています。コンパイラはこれらのファイルに対して何もせず、生成された出力の先頭に追加するだけです。
+CLJSJS のパッケージは、基本的に `npm` からパッケージを取り出し、 `.jar` に入れて https://clojars.org[clojars] で再公開するだけです。おまけに Externs もバンドルされています。コンパイラはこれらのファイルに対して何もせず、生成された出力の先頭に追加するだけです。
 
 ////
 This was very useful when we had no access to `npm` directly but has certain issues since not all packages are easily combined with others. A package might rely on `react` but instead of expressing this via `npm` https://github.com/cljsjs/packages/tree/master/material-ui[they] bundle their own `react`. If you are not careful you could end up including 2 different `react` versions in your build which may lead to very confusing errors or at the very least increase the build size substantially.

@@ -470,7 +470,7 @@ In addition you can control how much caching is done more broadly via the `:buil
 [horizontal]
 `:all` :: デフォルトでは、すべての CLJS ファイルがキャッシュされます。
 `:jars` :: ライブラリからのファイル、つまり `.jar` ファイル内のソースファイルのみをキャッシュします。
-`:off` :: CLJSのコンパイル結果を一切キャッシュしません（圧倒的に遅いオプションです）。
+`:off` :: CLJS のコンパイル結果を一切キャッシュしません（圧倒的に遅いオプションです）。
 
 ////
 .Compiling without Cache

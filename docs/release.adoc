@@ -146,7 +146,7 @@ With `:auto` the compiler will perform additional checks at compile time for you
 ////
 When enabled you'll get warnings whenever the Compiler cannot figure out whether you are working with JS or CLJS code.
 ////
-有効にすると、コンパイラが JS とCLJSのどちらのコードを使用しているかを判断できない場合に警告が表示されます。
+有効にすると、コンパイラが JS とCLJS のどちらのコードを使用しているかを判断できない場合に警告が表示されます。
 
 ////
 .Example Code

@@ -33,7 +33,7 @@ If desired you can easily integrate the `shadow-cljs` Clojure library into any o
 ////
 It is recommended to use the `npm` package as that provides a more optimized development experience tailored towards CLJS development.
 ////
-CLJSの開発に合わせて、より最適化された開発環境を提供するので、npm パッケージを使用することをお勧めします。
+CLJS の開発に合わせて、より最適化された開発環境を提供するので、npm パッケージを使用することをお勧めします。
 
 == 基本的なワークフロー
 

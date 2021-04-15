@@ -858,7 +858,7 @@ table.CodeRay td.code>pre{padding:0}
 <p>必要であれば、Clojure ライブラリであるshadow-cljsを、他のClojure/JVMビルドツール（例えば <a href="https://leiningen.org/">leiningen</a> や <a href="https://clojure.org/guides/deps_and_cli">Clojure CLI</a>ツール）に簡単に統合することができます。</p>
 </div>
 <div class="paragraph">
-<p>CLJSの開発に合わせて、より最適化された開発環境を提供するので、npm パッケージを使用することをお勧めします。</p>
+<p>CLJS の開発に合わせて、より最適化された開発環境を提供するので、npm パッケージを使用することをお勧めします。</p>
 </div>
 </div>
 <div class="sect2">
@@ -1870,7 +1870,7 @@ $ yarn add the-thing</code></pre>
 <div class="sect4">
 <h5 id="_js_依存関係の欠如"><a class="anchor" href="#_js_依存関係の欠如"></a><a class="link" href="#_js_依存関係の欠如">JS 依存関係の欠如?</a></h5>
 <div class="paragraph">
-<p>JSの依存関係の欠落に関連するエラーに遭遇するかもしれません。ほとんどの ClojureScript ライブラリは、使用する <code>npm</code> パッケージをまだ宣言していません。なぜなら、彼らはまだ <a href="#cljsjs">CLJSJS</a> を使用することを期待しているからです。私たちは <code>npm</code> を直接使用したいと考えています。つまり、ライブラリが適切に <code>:npm-deps</code> を宣言するまで、 <code>npm</code> パッケージを手動でインストールする必要があります。</p>
+<p>JS の依存関係の欠落に関連するエラーに遭遇するかもしれません。ほとんどの ClojureScript ライブラリは、使用する <code>npm</code> パッケージをまだ宣言していません。なぜなら、彼らはまだ <a href="#cljsjs">CLJSJS</a> を使用することを期待しているからです。私たちは <code>npm</code> を直接使用したいと考えています。つまり、ライブラリが適切に <code>:npm-deps</code> を宣言するまで、 <code>npm</code> パッケージを手動でインストールする必要があります。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2016,7 +2016,7 @@ Clojure に戻るには <code>:cljs/quit</code> を使います。
 <div class="sect4">
 <h5 id="_組み込み型_nrepl_サーバ"><a class="anchor" href="#_組み込み型_nrepl_サーバ"></a><a class="link" href="#_組み込み型_nrepl_サーバ">組み込み型 nREPL サーバ</a></h5>
 <div class="paragraph">
-<p>独自の nREPL サーバを提供する他のツール（例：<code>lein</code>）に <code>shadow-cljs</code> を組み込んで使用する場合は、 <code>shadow-cljs</code> ミドルウェアを設定する必要があります。そうしないと、CLJ とCLJSの REPL の間で切り替えることができません。</p>
+<p>独自の nREPL サーバを提供する他のツール（例：<code>lein</code>）に <code>shadow-cljs</code> を組み込んで使用する場合は、 <code>shadow-cljs</code> ミドルウェアを設定する必要があります。そうしないと、CLJ とCLJS の REPL の間で切り替えることができません。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2775,7 +2775,7 @@ preloads オプションは、単に <code>:devtools</code>/<code>:preloads</cod
 <code>:off</code> 
 </td>
 <td class="hdlist2">
-<p>CLJSのコンパイル結果を一切キャッシュしません（圧倒的に遅いオプションです）。</p>
+<p>CLJS のコンパイル結果を一切キャッシュしません（圧倒的に遅いオプションです）。</p>
 </td>
 </tr>
 </table>
@@ -3487,7 +3487,7 @@ Javascriptのファイル名を生成するためにも使用されます。モ�
 <code>:prepend</code> 
 </td>
 <td class="hdlist2">
-<p>jsの出力の前に付加される文字列コンテンツです。コメントや著作権表示などに便利です。</p>
+<p>JS の出力の前に付加される文字列コンテンツです。コメントや著作権表示などに便利です。</p>
 </td>
 </tr>
 <tr>
@@ -3495,7 +3495,7 @@ Javascriptのファイル名を生成するためにも使用されます。モ�
 <code>:append</code> 
 </td>
 <td class="hdlist2">
-<p>jsの出力に追加される文字列コンテンツです。コメントや著作権表示などに便利です。</p>
+<p>JS の出力に追加される文字列コンテンツです。コメントや著作権表示などに便利です。</p>
 </td>
 </tr>
 <tr>
@@ -4927,7 +4927,7 @@ $ shadow-cljs compile test &amp;&amp; node out/node-tests.js</code></pre>
 <div class="sect2">
 <h3 id="target-karma"><a class="anchor" href="#target-karma"></a><a class="link" href="#target-karma">12.3. 継続的インテグレーションのためにテストを Karma にターゲットする</a></h3>
 <div class="paragraph">
-<p>CLJSのテストをある種の CI サーバ上でブラウザに対して実行したい場合、次のことが必要になります。
+<p>CLJS のテストをある種の CI サーバ上でブラウザに対して実行したい場合、次のことが必要になります。
 コマンドラインからテストを実行して、ステータスコードを返すことができる必要があります。 Karma はよく知られており
 そして、 <code>shadow-cljs</code> には、あなたのテストの周りに適切なラッパーを追加できるターゲットが含まれています。
 ターゲットが含まれており、テストに適切なラッパーを追加することで、テストが Karma で動作するようになります。</p>
@@ -5225,7 +5225,7 @@ HeadlessChrome 0.0.0 (Mac OS X 10.12.6): Executed 1 of 1 SUCCESS (0.007 secs / 0
 <dl>
 <dt><code>:require</code> </dt>
 <dd>
-<p>JSの <code>require("thing")</code> 関数呼び出しに直接マッピングします。実行時にネイティブで <code>require</code> を解決することができるため、すべての <code>node.js</code> ターゲットのデフォルトとなります。インクルードされた JS は何も処理されません。</p>
+<p>JS の <code>require("thing")</code> 関数呼び出しに直接マッピングします。実行時にネイティブで <code>require</code> を解決することができるため、すべての <code>node.js</code> ターゲットのデフォルトとなります。インクルードされた JS は何も処理されません。</p>
 </dd>
 <dt><code>:shadow</code> </dt>
 <dd>
@@ -5693,7 +5693,7 @@ cljs.array_map(<span class="keyword">keyword</span>(<span class="string"><span c
 <div class="sect3">
 <h4 id="_cljsjs_を使いませんか"><a class="anchor" href="#_cljsjs_を使いませんか"></a><a class="link" href="#_cljsjs_を使いませんか">13.2.1. CLJSJS を使いませんか?</a></h4>
 <div class="paragraph">
-<p>CLJSJSのパッケージは、基本的に <code>npm</code> からパッケージを取り出し、 <code>.jar</code> に入れて <a href="https://clojars.org">clojars</a> で再公開するだけです。おまけに Externs もバンドルされています。コンパイラはこれらのファイルに対して何もせず、生成された出力の先頭に追加するだけです。</p>
+<p>CLJSJS のパッケージは、基本的に <code>npm</code> からパッケージを取り出し、 <code>.jar</code> に入れて <a href="https://clojars.org">clojars</a> で再公開するだけです。おまけに Externs もバンドルされています。コンパイラはこれらのファイルに対して何もせず、生成された出力の先頭に追加するだけです。</p>
 </div>
 <div class="paragraph">
 <p>これは、 <code>npm</code> に直接アクセスできないときには非常に便利でしたが、すべてのパッケージが他のパッケージと簡単に結合できるわけではないので、ある種の問題があります。あるパッケージは <code>react</code> に依存しているかもしれませんが、 <code>npm</code> を通してこれを表現するのではなく、https://github.com/cljsjs/packages/tree/master/material-ui[それらは] 自分自身の <code>react</code> をバンドルします。注意しないと、 2 つの異なる <code>react</code> バージョンをビルドに含めることになり、非常に紛らわしいエラーが発生したり、少なくともビルドサイズが大幅に大きくなったりする可能性があります。</p>
@@ -5849,7 +5849,7 @@ cljs.array_map(<span class="keyword">keyword</span>(<span class="string"><span c
 <p><code>auto</code> では、コンパイラはコンパイル時にあなたのファイルだけを対象に追加のチェックを行います。また、ライブラリコードに含まれる externs の問題については警告しません。all` では、すべてのファイルに対して有効になりますが、多くの警告を受ける可能性があることに注意してください。</p>
 </div>
 <div class="paragraph">
-<p>有効にすると、コンパイラが JS とCLJSのどちらのコードを使用しているかを判断できない場合に警告が表示されます。</p>
+<p>有効にすると、コンパイラが JS とCLJS のどちらのコードを使用しているかを判断できない場合に警告が表示されます。</p>
 </div>
 <div class="listingblock">
 <div class="title">Example Code</div>
@@ -6789,7 +6789,7 @@ lein jarを実行し、 <code>jar -tvf target/library-1.0.0.jar</code> で最終
 <h2 id="_上手くいかない場合はどうすればいいか"><a class="anchor" href="#_上手くいかない場合はどうすればいいか"></a><a class="link" href="#_上手くいかない場合はどうすればいいか">18. 上手くいかない場合はどうすればいいか</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>JSの世界は今でも急速に進化しており、誰もが同じ方法でコードを書いたり配布したりしているわけではありません。
+<p>JS の世界は今でも急速に進化しており、誰もが同じ方法でコードを書いたり配布したりしているわけではありません。
 <code>shadow-cljs</code> では自動的に回避できないものがあります。これらは
 通常はカスタムの <code>:resolve</code> 設定で解決できますが、バグや見落としもあるかもしれません。</p>
 </div>
@@ -6818,7 +6818,7 @@ lein jarを実行し、 <code>jar -tvf target/library-1.0.0.jar</code> で最終
 <div id="footer">
 <div id="footer-text">
 Version 1.0<br>
-Last updated 2021-04-15 15:35:53 JST
+Last updated 2021-04-15 15:52:37 JST
 </div>
 </div>
 </body>

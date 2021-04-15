@@ -408,7 +408,7 @@ TIP: `package.json` がまだない場合は、コマンドラインから `npm 
 ////
 You might run into errors related to missing JS dependencies. Most ClojureScript libraries do not yet declare the `npm` packages they use since they still expect to use <<cljsjs, CLJSJS>>. We want to use `npm` directly which means you must manually install the `npm` packages until libraries properly declare the `:npm-deps` themselves.
 ////
-JSの依存関係の欠落に関連するエラーに遭遇するかもしれません。ほとんどの ClojureScript ライブラリは、使用する `npm` パッケージをまだ宣言していません。なぜなら、彼らはまだ <<cljsjs, CLJSJS>> を使用することを期待しているからです。私たちは `npm` を直接使用したいと考えています。つまり、ライブラリが適切に `:npm-deps` を宣言するまで、 `npm` パッケージを手動でインストールする必要があります。
+JS の依存関係の欠落に関連するエラーに遭遇するかもしれません。ほとんどの ClojureScript ライブラリは、使用する `npm` パッケージをまだ宣言していません。なぜなら、彼らはまだ <<cljsjs, CLJSJS>> を使用することを期待しているからです。私たちは `npm` を直接使用したいと考えています。つまり、ライブラリが適切に `:npm-deps` を宣言するまで、 `npm` パッケージを手動でインストールする必要があります。
 
 ```text
 The required JS dependency "react" is not available, it was required by ...
@@ -592,7 +592,7 @@ TIP: Clojure に戻るには `:cljs/quit` を使います。
 ////
 When you use `shadow-cljs` embedded in other tools that provide their own nREPL server (eg. `lein`) you need to configure the `shadow-cljs` middleware. Otherwise you won't be able to switch between CLJ and CLJS REPLs.
 ////
-独自の nREPL サーバを提供する他のツール（例：`lein`）に `shadow-cljs` を組み込んで使用する場合は、 `shadow-cljs` ミドルウェアを設定する必要があります。そうしないと、CLJ とCLJSの REPL の間で切り替えることができません。
+独自の nREPL サーバを提供する他のツール（例：`lein`）に `shadow-cljs` を組み込んで使用する場合は、 `shadow-cljs` ミドルウェアを設定する必要があります。そうしないと、CLJ とCLJS の REPL の間で切り替えることができません。
 
 
 ////
@@ -1096,7 +1096,7 @@ Since the JS world is still evolving rapidly and not everyone is using the same 
 distribute code there are some things `shadow-cljs` cannot work around automatically. These
 can usually be solved with custom `:resolve` configs, but there may also be bugs or oversights.
 ////
-JSの世界は今でも急速に進化しており、誰もが同じ方法でコードを書いたり配布したりしているわけではありません。
+JS の世界は今でも急速に進化しており、誰もが同じ方法でコードを書いたり配布したりしているわけではありません。
 `shadow-cljs` では自動的に回避できないものがあります。これらは
 通常はカスタムの `:resolve` 設定で解決できますが、バグや見落としもあるかもしれません。
 
