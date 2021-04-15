@@ -401,7 +401,7 @@ TIP: If you don’t have a `package.json` yet run `npm init` from a command line
 TIP: `package.json` がまだない場合は、コマンドラインから `npm init` を実行してください。
 
 
-==== JS 依存性の欠如?
+==== JS 依存関係の欠如?
 
 //Missing JS Dependency?
 
