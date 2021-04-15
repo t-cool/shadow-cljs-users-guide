@@ -72,7 +72,7 @@ This will generate the required `pom.xml` and put all sources from `src/main` in
 ////
 これにより、必要な `pom.xml` が生成され、 `src/main` からのすべてのソースが、公開された `.jar` ファイルに格納されます。あとは `lein deploy clojars` を実行するだけで公開されます。この作業を初めて行う場合は、まず適切な認証を設定する必要があります。その設定方法については、公式の https://github.com/technomancy/leiningen/blob/stable/doc/DEPLOY.md[Leiningen] および https://github.com/clojars/clojars-web/wiki/Tutorial[Clojars] のドキュメントを参照してください。
 
-### JAR署名の無効化
+### JAR 署名の無効化
 //Disable JAR Signing
 
 ////
@@ -89,7 +89,7 @@ Leiningenはライブラリを公開する前に GPG で署名することをデ
   ...)
 ```
 
-### JARをクリーンに保つ
+### JAR をクリーンに保つ
 //Keep your JAR clean
 
 ////
@@ -107,7 +107,7 @@ IMPORTANT: You can and should verify that everything is clean by running `lein j
 ////
 IMPORTANT: lein jarを実行し、jar -tvf target/library-1.0.0.jarで最終的に含まれるファイルを検査することで、すべてがクリーンであることを確認できますし、そうすべきです。
 
-## JSの依存関係を宣言する [[publish-deps-cljs]]
+## JS の依存関係を宣言する [[publish-deps-cljs]]
 // Declaring JS dependencies [[publish-deps-cljs]]
 
 ////

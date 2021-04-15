@@ -7,7 +7,7 @@ CLJS REPLを動作させることは、時として厄介であり、すべて�
 
 image::shadow-cljs-repl.png[]
 
-### CLJS REPLの分析 [[cljs-repl-anatomy]]
+### CLJS REPL の分析 [[cljs-repl-anatomy]]
 //Anatomy of the CLJS REPL [[cljs-repl-anatomy]]
 
 ////

@@ -961,14 +961,14 @@ include::build-config.adoc[]
 
 include::target-browser.adoc[]
 
-= React Nativeをターゲットにする [[target-react-native]] 
+= React Native をターゲットにする [[target-react-native]] 
 
 
 //Targeting React Native [[target-react-native]]
 
 include::target-react-native.adoc[]
 
-= node.jsを対象とする [[target-node]] 
+= Node.js を対象とする [[target-node]] 
 
 
 //Targeting node.js [[target-node]]
@@ -998,13 +998,13 @@ include::target-node-library.adoc[]
 // TODO: Thomas: I think it would be useful to show a package.json and a little bit of an example
 // on how you could set up to deploy this on NPM.
 
-= JSエコシステムへの組み込み -- `:npm-module` ターゲット [[target-npm-module]]
+= JS エコシステムへの組み込み -- `:npm-module` ターゲット [[target-npm-module]]
 
 ////
 Embedding in the JS Ecosystem -- The `:npm-module` Target 
 ////
 
-= JSエコシステムへの組み込み - :npm-module ターゲット [[target-npm-module]]
+= JS エコシステムへの組み込み - :npm-module ターゲット [[target-npm-module]]
 
 include::target-npm-module.adoc[]
 

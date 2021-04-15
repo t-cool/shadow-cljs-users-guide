@@ -5,7 +5,7 @@ https://www.npmjs.com/[npm] has become the de-facto standard package manager for
 ////
 https://www.npmjs.com/[npm] は、JavaScript のデファクトスタンダードのパッケージマネージャとなっています。ほとんどすべての JS ライブラリはそこで見つけることができ、shadow-cljs はそれらのパッケージにアクセスするためのシームレスな統合を提供します。
 
-=== npmパッケージの使用
+=== npm パッケージの使用
 //Using npm packages
 
 ////
@@ -432,7 +432,7 @@ Relative paths will be resolved relative to the project root directory. Paths wi
 ```
 
 
-== .jsファイルへの対応 [[classpath-js]]
+==　 .jsファイルへの対応 [[classpath-js]]
 //Dealing with .js Files [[classpath-js]]
 
 ////
@@ -461,7 +461,7 @@ There are only a few conventions you need to follow in order for this to work re
 
 
 
-=== JSを requrie する
+=== JS を require する
 //Requiring JS
 
 ////
@@ -562,7 +562,7 @@ IMPORTANT: Due to strict checking of the Closure Compiler it is not possible to 
 ////
 IMPORTANT: Closure Compilerの厳密なチェックにより、CLJS やnpmのコードを必要とする場合、 `import * as X from "npm";` の構文を使用することはできません。他の JS ファイルを必要とする場合には問題なく使用できます。
 
-=== JavaScriptの方言
+=== JavaScript の方言
 //JavaScript Dialects
 
 ////
@@ -652,7 +652,7 @@ Once `babel` writes the `src/gen/demo/bar.js` it will be available to use via Cl
 IMPORTANT: `shadow-cljs` currently does not provide any support for running those transformation steps. Please use the standard tools (eg. `babel`, `coffeescript`, etc.) directly until it does.
 ////
 
-=== JSから CLJS へのアクセス
+=== JS から CLJS へのアクセス
 //Access CLJS from JS
 
 ////
@@ -723,7 +723,7 @@ NOTE: The `shadow-cljsjs` library only provides the shim files. You’ll still n
 自分で実際のパッケージを `npm install` する必要があります。
 
 
-=== CLJSJSを使いませんか?
+=== CLJSJS を使いませんか?
 //Why not use CLJSJS?
 
 ////

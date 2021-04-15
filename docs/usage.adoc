@@ -379,7 +379,7 @@ https://github.com/jgdavey/boot-shadow-cljs
 https://github.com/jgdavey/boot-shadow-cljs
 
 
-== Clojureコードの実行 [[clj-run]] 
+== Clojure コードの実行 [[clj-run]] 
 
 ////
 Running Clojure Code [[clj-run]]

@@ -54,7 +54,7 @@ This section is written for CIDER version 0.20.0 and above. Ensure your Emacs en
 ////
 このセクションは、CIDER のバージョン 0.20.0 以上を対象に書かれています。お使いの Emacs にこのバージョンの `cider` パッケージが入っていることを確認してください。インストールの詳細については、リンク: https://docs.cider.mx[CIDER documentation] を参照してください。
 
-=== ClojureScript REPLの起動
+=== ClojureScript REPL の起動
 //Launch the ClojureScript REPL
 
 ////
@@ -114,7 +114,7 @@ For example, to display an alert in the browser:
 cljs.repl> (js/alert "Jurassic Park!")
 ```
 
-=== dir-localによるスタートアップの簡素化
+=== dir-local によるスタートアップの簡素化
 //Simplify startup with dir-local
 
 ////
@@ -250,7 +250,7 @@ Calva は nREPL と `cider-nrepl` のミドルウェアを使用しているの�
 ////
 `shadow-cljs` は、この依存関係を確認すると、必要な `cider-nrepl` ミドルウェアを注入します。
 
-=== Calvaと REPL の接続
+=== Calva と REPL の接続
 //Connecting Calva to the REPLs
 
 ////
