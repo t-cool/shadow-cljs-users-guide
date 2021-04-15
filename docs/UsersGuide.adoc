@@ -401,7 +401,9 @@ TIP: If you don’t have a `package.json` yet run `npm init` from a command line
 TIP: `package.json` がまだない場合は、コマンドラインから `npm init` を実行してください。
 
 
-==== Missing JS Dependency?
+==== JS 依存性の欠如?
+
+//Missing JS Dependency?
 
 ////
 You might run into errors related to missing JS dependencies. Most ClojureScript libraries do not yet declare the `npm` packages they use since they still expect to use <<cljsjs, CLJSJS>>. We want to use `npm` directly which means you must manually install the `npm` packages until libraries properly declare the `:npm-deps` themselves.
