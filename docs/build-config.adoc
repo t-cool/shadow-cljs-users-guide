@@ -170,7 +170,7 @@ Reactと ClojureScript のエコシステムを組み合わせることで、こ
 ////
 In order to use it you simply run:
 ////
-使うには、単に実行するだけです。
+使うには、以下のように実行するだけです。
 
 ```
 shadow-cljs watch build-id
