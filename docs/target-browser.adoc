@@ -178,9 +178,9 @@ Declaring more than one Module requires a tiny bit of additional static configur
 複数のモジュールを宣言すると、モジュール同士がどのように関連しているか、また後でどのようにロードするかをコンパイラが把握できるように、ほんの少しだけ静的な設定を追加する必要があります。
 
 ////
-In addition to `:entries` you'll need to declare which module depends on which (via `:depends-on`). How you structure this is entirely up to your needs and there is no one-size-fits-all solution unfortunately.
+In addition to `:entries` you'll need to declare which module depends on which (via `:depends-on` ). How you structure this is entirely up to your needs and there is no one-size-fits-all solution unfortunately.
 ////
-`entries` に加えて、どのモジュールがどのモジュールに依存しているか（`:depend-on` で）を宣言する必要があります。これをどのように構成するかはニーズ次第で、残念ながら万能のソリューションはありません。
+`entries` に加えて、どのモジュールがどのモジュールに依存しているか（ `:depend-on` で）を宣言する必要があります。これをどのように構成するかはニーズ次第で、残念ながら万能のソリューションはありません。
 
 ////
 Say you have a traditional website with actual different pages.
@@ -261,7 +261,7 @@ In your HTML for the Homepage you'd then always include the `shared.js` on each 
 ////
 IMPORTANT: The `.js` files must be included in the correct order. The <<BrowserManifest, `manifest.edn`>> can help with this.
 ////
-IMPORTANT: `.js` ファイルは正しい順序でインクルードする必要があります。これには <<BrowserManifest, `manifest.edn`> が役立ちます。
+IMPORTANT: `.js` ファイルは正しい順序でインクルードする必要があります。これには <<BrowserManifest, `manifest.edn` > が役立ちます。
 
 === 動的にコードを読み込む
 //Loading code dynamically
@@ -423,7 +423,7 @@ This will only create the `MY_APP` global variable. Since every "global" variabl
 ////
 IMPORTANT: Note that the created variable isn't actually useful directly. It will contain a lot of munged/minified properties. All exported (eg. `^:export`) variables will still be exported into the global scope and are not affect by this setting. The setting only serves to limit the amount of global variables created, nothing else. Do not use it directly.
 ////
-IMPORTANT: 作成された変数は、実際には直接使えないことに注意してください。作成された変数は、実際には使い物になりませんが、多くのプロパティを含んでいます。エクスポートされた（例：`^:export`）変数はすべてグローバルスコープにエクスポートされ、この設定の影響を受けません。この設定は、グローバル変数の作成量を制限するためだけのもので、それ以外には何もありません。直接使用しないでください。
+IMPORTANT: 作成された変数は、実際には直接使えないことに注意してください。作成された変数は、実際には使い物になりませんが、多くのプロパティを含んでいます。エクスポートされた（例: `^:export` ）変数はすべてグローバルスコープにエクスポートされ、この設定の影響を受けません。この設定は、グローバル変数の作成量を制限するためだけのもので、それ以外には何もありません。直接使用しないでください。
 
 
 == ウェブ・ワーカー
@@ -431,16 +431,10 @@ IMPORTANT: 作成された変数は、実際には直接使えないことに注
 
 ////
 The `:modules` configuration may also be used to generate files intended to be used as a Web Workers.
-You may declare any module as a Web Worker by setting `:web-worker true`. The
-generated file will contain some additional bootstrap code which will load its dependencies
-automatically. The way `:modules` work also ensures that code used only by the worker will also only
-be in the final file for the worker. Each worker should have a dedicated CLJS namespace.
+You may declare any module as a Web Worker by setting `:web-worker true`. The generated file will contain some additional bootstrap code. which will load its dependencies automatically. The way `:modules` work also ensures that code used only by the worker will also only be in the final file for the worker. Each worker should have a dedicated CLJS namespace.
 ////
-`modules` の設定は、Web Workerとして使用されるファイルを生成するためにも使用できます。
-`web-worker true` を設定することで、任意のモジュールを Web Worker として宣言することができます。生成される
-生成されたファイルには、依存関係を自動的に読み込む追加のブートストラップコードが
-を自動的にロードします。この `:modules` の働きにより、ワーカーだけが使用するコードは、ワーカー用の最終ファイルにのみ含まれることになります。
-ワーカーでのみ使用されるコードは、そのワーカーの最終ファイルにのみ含まれることになります。各ワーカーは、専用の CLJS 名前空間を持つ必要があります。
+`modules` の設定は、Web Worker として使用されるファイルを生成するためにも使用できます。
+`web-worker true` を設定することで、任意のモジュールを Web Worker として宣言することができます。生成されたファイルには、いくつかの追加ブートストラップコードが含まれます。 `:modules` の働きにより、ワーカーのみが使用するコードは、ワーカーの最終ファイルにのみ含まれることになります。各ワーカーは専用の CLJS 名前空間を持つべきです。
 
 ////
 .An example of generating a web worker script
@@ -470,13 +464,11 @@ be in the final file for the worker. Each worker should have a dedicated CLJS na
 
 ////
 The above configuration will generate `worker.js` which you can use to start the Web Worker.
-It will have all code from the `:shared` module available (but not `:main`). The code in the
-`my.app.worker` namespace will only ever execute in the worker. Worker generation happens in
-both development and release modes.
+It will have all code from the `:shared` module available (but not `:main`). The code in the `my.app.worker` namespace will only ever execute in the worker. Worker generation happens in both development and release modes.
 ////
 上記の設定を行うと、Web Worker を起動するための `worker.js` が生成されます。
-このファイルには、 `:shared` モジュールのすべてのコードが含まれています (ただし、 `:main` は含まれていません)。名前空間 `my.app.worker` のコードは、Worker の中でのみ実行されます。ワーカーの生成は、開発モードとリリースモードの両方で行われます。
-ワーカーの生成は、開発モードとリリースモードの両方で行われます。
+Worker.js は `:shared` モジュールのすべてのコードを利用できます (ただし `:main` は利用できません)。 `my.app.worker` 名前空間にあるコードは、ワーカーの中でのみ実行されます。ワーカーの生成は、開発モードとリリースモードの両方で行われます。
+
 
 ////
 Note that the empty `:entries []` in the `:shared` module will make it collect all the code shared between the `:main` and `:worker` modules.

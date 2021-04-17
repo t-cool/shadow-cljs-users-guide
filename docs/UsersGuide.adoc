@@ -1,4 +1,4 @@
-= Shadow CLJS User's Guide (邦訳)
+= Shadow CLJS User's Guide 邦訳
 :author: Thomas Heller , Tony Kay
 :revdate: Jan 10, 2018
 :revnumber: 1.0

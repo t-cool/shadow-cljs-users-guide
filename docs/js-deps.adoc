@@ -680,7 +680,7 @@ TIP: 現在、 `goog:` という接頭辞は、ES6 ファイルにしか使え�
 ////
 > CLJSJS is an effort to package Javascript libraries to be able to use them from within ClojureScript.
 ////
-> CLJSJSは、Javascript のライブラリをパッケージ化して、ClojureScript から利用できるようにしようという試みです。
+> CLJSJS は、Javascript のライブラリをパッケージ化して、ClojureScript から利用できるようにしようという試みです。
 
 ////
 Since `shadow-cljs` can access <<npm, npm packages>> directly we do not need to rely on re-packaged https://github.com/cljsjs/packages[CLJSJS] packages.

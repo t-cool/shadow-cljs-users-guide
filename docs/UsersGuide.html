@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.6.1">
 <meta name="author" content="Thomas Heller , Tony Kay">
-<title>Shadow CLJS User&#8217;s Guide (邦訳)</title>
+<title>Shadow CLJS User&#8217;s Guide 邦訳</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -519,7 +519,7 @@ table.CodeRay td.code>pre{padding:0}
 </head>
 <body class="book toc2 toc-left">
 <div id="header">
-<h1>Shadow CLJS User&#8217;s Guide (邦訳)</h1>
+<h1>Shadow CLJS User&#8217;s Guide 邦訳</h1>
 <div class="details">
 <span id="author" class="author">Thomas Heller , Tony Kay</span><br>
 <span id="revnumber">version 1.0,</span>
@@ -3555,7 +3555,7 @@ Javascriptのファイル名を生成するためにも使用されます。モ�
 <p>複数のモジュールを宣言すると、モジュール同士がどのように関連しているか、また後でどのようにロードするかをコンパイラが把握できるように、ほんの少しだけ静的な設定を追加する必要があります。</p>
 </div>
 <div class="paragraph">
-<p><code>entries</code> に加えて、どのモジュールがどのモジュールに依存しているか（<code>:depend-on</code> で）を宣言する必要があります。これをどのように構成するかはニーズ次第で、残念ながら万能のソリューションはありません。</p>
+<p><code>entries</code> に加えて、どのモジュールがどのモジュールに依存しているか（ <code>:depend-on</code> で）を宣言する必要があります。これをどのように構成するかはニーズ次第で、残念ながら万能のソリューションはありません。</p>
 </div>
 <div class="paragraph">
 <p>例えば、従来の Web サイトでは、さまざまなページがあります。</p>
@@ -3636,7 +3636,7 @@ Javascriptのファイル名を生成するためにも使用されます。モ�
 <div class="title">Important</div>
 </td>
 <td class="content">
-<code>.js</code> ファイルは正しい順序でインクルードする必要があります。これには &lt;&lt;BrowserManifest, <code>manifest.edn</code>&gt; が役立ちます。
+<code>.js</code> ファイルは正しい順序でインクルードする必要があります。これには &lt;&lt;BrowserManifest, <code>manifest.edn</code> &gt; が役立ちます。
 </td>
 </tr>
 </table>
@@ -3757,7 +3757,7 @@ Javascriptのファイル名を生成するためにも使用されます。モ�
 <div class="title">Important</div>
 </td>
 <td class="content">
-作成された変数は、実際には直接使えないことに注意してください。作成された変数は、実際には使い物になりませんが、多くのプロパティを含んでいます。エクスポートされた（例：<code>^:export</code>）変数はすべてグローバルスコープにエクスポートされ、この設定の影響を受けません。この設定は、グローバル変数の作成量を制限するためだけのもので、それ以外には何もありません。直接使用しないでください。
+作成された変数は、実際には直接使えないことに注意してください。作成された変数は、実際には使い物になりませんが、多くのプロパティを含んでいます。エクスポートされた（例: <code>^:export</code> ）変数はすべてグローバルスコープにエクスポートされ、この設定の影響を受けません。この設定は、グローバル変数の作成量を制限するためだけのもので、それ以外には何もありません。直接使用しないでください。
 </td>
 </tr>
 </table>
@@ -3766,11 +3766,8 @@ Javascriptのファイル名を生成するためにも使用されます。モ�
 <div class="sect2">
 <h3 id="_ウェブ_ワーカー"><a class="anchor" href="#_ウェブ_ワーカー"></a><a class="link" href="#_ウェブ_ワーカー">7.5. ウェブ・ワーカー</a></h3>
 <div class="paragraph">
-<p><code>modules</code> の設定は、Web Workerとして使用されるファイルを生成するためにも使用できます。
-<code>web-worker true</code> を設定することで、任意のモジュールを Web Worker として宣言することができます。生成される
-生成されたファイルには、依存関係を自動的に読み込む追加のブートストラップコードが
-を自動的にロードします。この <code>:modules</code> の働きにより、ワーカーだけが使用するコードは、ワーカー用の最終ファイルにのみ含まれることになります。
-ワーカーでのみ使用されるコードは、そのワーカーの最終ファイルにのみ含まれることになります。各ワーカーは、専用の CLJS 名前空間を持つ必要があります。</p>
+<p><code>modules</code> の設定は、Web Worker として使用されるファイルを生成するためにも使用できます。
+<code>web-worker true</code> を設定することで、任意のモジュールを Web Worker として宣言することができます。生成されたファイルには、いくつかの追加ブートストラップコードが含まれます。 <code>:modules</code> の働きにより、ワーカーのみが使用するコードは、ワーカーの最終ファイルにのみ含まれることになります。各ワーカーは専用の CLJS 名前空間を持つべきです。</p>
 </div>
 <div class="listingblock">
 <div class="title">ウェブ・ワーカースクリプトの生成の一例</div>
@@ -3797,8 +3794,7 @@ Javascriptのファイル名を生成するためにも使用されます。モ�
 </div>
 <div class="paragraph">
 <p>上記の設定を行うと、Web Worker を起動するための <code>worker.js</code> が生成されます。
-このファイルには、 <code>:shared</code> モジュールのすべてのコードが含まれています (ただし、 <code>:main</code> は含まれていません)。名前空間 <code>my.app.worker</code> のコードは、Worker の中でのみ実行されます。ワーカーの生成は、開発モードとリリースモードの両方で行われます。
-ワーカーの生成は、開発モードとリリースモードの両方で行われます。</p>
+Worker.js は <code>:shared</code> モジュールのすべてのコードを利用できます (ただし <code>:main</code> は利用できません)。 <code>my.app.worker</code> 名前空間にあるコードは、ワーカーの中でのみ実行されます。ワーカーの生成は、開発モードとリリースモードの両方で行われます。</p>
 </div>
 <div class="paragraph">
 <p>なお、 <code>:shared</code> モジュールで空の <code>:entries []</code> を指定すると、 <code>:main</code> モジュールと <code>:worker</code> モジュールの間で共有されるすべてのコードを収集するようになります。</p>
@@ -5656,7 +5652,7 @@ cljs.array_map(<span class="keyword">keyword</span>(<span class="string"><span c
 <div class="quoteblock">
 <blockquote>
 <div class="paragraph">
-<p>CLJSJSは、Javascript のライブラリをパッケージ化して、ClojureScript から利用できるようにしようという試みです。</p>
+<p>CLJSJS は、Javascript のライブラリをパッケージ化して、ClojureScript から利用できるようにしようという試みです。</p>
 </div>
 </blockquote>
 </div>
@@ -6818,7 +6814,7 @@ lein jarを実行し、 <code>jar -tvf target/library-1.0.0.jar</code> で最終
 <div id="footer">
 <div id="footer-text">
 Version 1.0<br>
-Last updated 2021-04-15 15:52:37 JST
+Last updated 2021-04-17 15:58:04 JST
 </div>
 </div>
 </body>
