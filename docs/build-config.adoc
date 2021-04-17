@@ -661,7 +661,7 @@ Currently supported options include
 - `:rename-prefix` and `:rename-prefix-namespace`
 - `:warnings` as a map of `{warning-type true|false}`, eg. `:warnings {:undeclared-var false}` to turn off specific warnings.
 ////
-- `:optimizations` は `:advanced`, `:simple`, `:whitespace` のいずれかをサポートしていますが、デフォルトは `:advanced` です。 `none` は開発時のデフォルトで、手動で設定することはできません。none` を指定した `release` は動作しません。
+- `:optimizations` は `:advanced`, `:simple`, `:whitespace` のいずれかをサポートしていますが、デフォルトは `:advanced` です。 `none` は開発時のデフォルトで、手動で設定することはできません。 `none` を指定した `release` は動作しません。
 - `:infer-externs` `:all`, `:auto`, `true` または `false`, デフォルトは `true` です。
 - `:static-fns` (ブール値) デフォルトでは `true` です。
 - `:fn-invoke-direct` (Boolean) デフォルトは `false` です。
