@@ -862,6 +862,7 @@ Example: Some `npm` packages only work when targeting the `:browser`, but you ma
 ////
 例 一部の `npm` パッケージは `:browser` をターゲットにしたときにのみ動作しますが、 `:node-script` のビルドでも使用したい `ns` があるかもしれません。これは、React アプリでサーバサイドレンダリング(SSR)を使おうとしているときに頻繁に起こるかもしれません。 `codemirror` はそのようなパッケージの一つです。
 
+////
 ```clojure
 (ns my.awesome.component
   (:require
@@ -875,6 +876,23 @@ Example: Some `npm` packages only work when targeting the `:browser`, but you ma
 
 ...
 ```
+////
+
+
+```clojure
+(ns my.awesome.component
+  (:require
+    ["react" :as react]
+    ["codemirror" :as CodeMirror]))
+
+;; React :ref に CodeMirror のインスタンスを作成する場合
+(defn init-cm [dom-node]
+  (let [cm (CodeMirror/fromTextArea dom-node #js {...})]
+    ...))
+
+...
+```
+
 
 ////
 This namespace will compile fine for both builds (`:node-script` and `:browser`) but when trying to run the `:node-script` it will fail since the `codemirror` package tries to access the DOM. Since `react-dom/server` does not use refs the `init-cm` function will never be called anyways.

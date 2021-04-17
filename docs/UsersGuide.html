@@ -3145,7 +3145,7 @@ preloads オプションは、単に <code>:devtools</code>/<code>:preloads</cod
     [<span class="string"><span class="delimiter">&quot;</span><span class="content">react</span><span class="delimiter">&quot;</span></span> <span class="symbol">:as</span> react]
     [<span class="string"><span class="delimiter">&quot;</span><span class="content">codemirror</span><span class="delimiter">&quot;</span></span> <span class="symbol">:as</span> CodeMirror]))
 
-<span class="comment">;; suppose you create a CodeMirror instance on some React :ref</span>
+<span class="comment">;; React :ref に CodeMirror のインスタンスを作成する場合</span>
 (<span class="keyword">defn</span> <span class="function">init-cm</span> [dom-node]
   (<span class="keyword">let</span> [cm (CodeMirror/fromTextArea dom-node <span class="error">#</span>js {<span class="keyword">..</span><span class="keyword">.</span>})]
     <span class="keyword">..</span><span class="keyword">.</span>))
@@ -3691,7 +3691,7 @@ Javascriptのファイル名を生成するためにも使用されます。モ�
 <div class="listingblock">
 <div class="title">モジュールの読み込み</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="clojure"><span class="comment">;; load returns a goog.async.Deferred, and can be used like a promise</span>
+<pre class="CodeRay highlight"><code data-lang="clojure"><span class="comment">;; load は goog.async.Deferred を返し、promise のように使うことができます</span>
 (<span class="keyword">-&gt;</span> (loader/load <span class="string"><span class="delimiter">&quot;</span><span class="content">extra</span><span class="delimiter">&quot;</span></span>)
     (<span class="keyword">.</span>then fn-to-call-on-load fn-to-call-on-error))</code></pre>
 </div>
@@ -5795,10 +5795,10 @@ cljs.array_map(<span class="keyword">keyword</span>(<span class="string"><span c
    <span class="symbol">:asset-path</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">/js</span><span class="delimiter">&quot;</span></span>
    <span class="symbol">:modules</span> {<span class="symbol">:base</span> {<span class="symbol">:entries</span> [my.app.core]}}
 
-   <span class="comment">;; Here is some dev-specific config</span>
+   <span class="comment">;; 開発向けの設定</span>
    <span class="symbol">:dev</span> {<span class="symbol">:compiler-options</span> {<span class="symbol">:devcards</span> <span class="predefined-constant">true</span>}}
 
-   <span class="comment">;; Here is some production config</span>
+   <span class="comment">;; 本番環境向けの設定</span>
    <span class="symbol">:release</span> {<span class="symbol">:compiler-options</span> {<span class="symbol">:optimizations</span> <span class="symbol">:simple</span>}}}}}</code></pre>
 </div>
 </div>

@@ -327,11 +327,20 @@ Then the following expressions can be used for loading code:
 ////
 .モジュールの読み込み
 
+////
 ```
 ;; load returns a goog.async.Deferred, and can be used like a promise
 (-> (loader/load "extra")
     (.then fn-to-call-on-load fn-to-call-on-error))
 ```
+////
+
+```
+;; load は goog.async.Deferred を返し、promise のように使うことができます
+(-> (loader/load "extra")
+    (.then fn-to-call-on-load fn-to-call-on-error))
+```
+
 
 //.Loading many modules
 .多数のモジュールの読み込み

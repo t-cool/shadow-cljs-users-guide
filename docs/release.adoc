@@ -80,6 +80,7 @@ can override settings by including a `:dev` and/or `:release` section in the bui
 ////
 .Example shadow-cljs.edn ビルド設定
 
+////
 ```clojure
 {:source-paths ["src"]
  :dependencies []
@@ -96,6 +97,26 @@ can override settings by including a `:dev` and/or `:release` section in the bui
    ;; Here is some production config
    :release {:compiler-options {:optimizations :simple}}}}}
 ```
+////
+
+
+```clojure
+{:source-paths ["src"]
+ :dependencies []
+ :builds
+ {:app
+  {:target :browser
+   :output-dir "public/js"
+   :asset-path "/js"
+   :modules {:base {:entries [my.app.core]}}
+
+   ;; 開発向けの設定
+   :dev {:compiler-options {:devcards true}}
+
+   ;; 本番環境向けの設定
+   :release {:compiler-options {:optimizations :simple}}}}}
+```
+
 
 == エクスターン [[externs]]
 // Externs [[externs]]
