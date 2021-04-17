@@ -115,16 +115,9 @@ As a developer most of your time is spent in development mode. You're probably f
 `boot-reload`、 `devtools` などのツールをご存知でしょう。これらのツールの 1 つ以上を自分のビルドに使用することはほぼ確実でしょう。
 
 ////
-Preloads are used to force certain namespaces into the front of your generated Javascript. This is
-generally used to inject tools and instrumentation before the application actually loads and runs. The
-preloads option is simply a list of namespaces in the `:devtools`/`:preloads` section of
-`shadow-cljs-edn`:
+Preloads are used to force certain namespaces into the front of your generated Javascript. This is generally used to inject tools and instrumentation before the application actually loads and runs. The preloads option is simply a list of namespaces either in the `:devtools`/`:preloads` section of `shadow-cljs.edn` or within the `:preloads` key of a specific module:
 ////
-プリロードは、生成された Javascript の先頭に特定の名前空間を強制的に導入するために使用されます。これは
-一般的には、アプリケーションが実際にロードされて実行される前に、ツールやインスツルメンテーションを注入するために使用されます。プリロードは
-preloads オプションは、単に `:devtools`/`:preloads` セクションの名前空間のリストです。
-
-`shadow-cljs.edn` :
+プリロードは、生成された Javascript の先頭に特定の名前空間を強制的に導入するために使用されます。これは一般的に、アプリケーションが実際にロードされて実行される前に、ツールやインスツルメンテーションを注入するために使用されます。preloads オプションは、 `shadow-cljs.edn` の `:devtools` / `:preloads` セクション内、または特定のモジュールの `:preloads` キー内にある名前空間の単純なリストです。
 
 ```
 {...
@@ -132,7 +125,33 @@ preloads オプションは、単に `:devtools`/`:preloads` セクションの�
  {:app {...
         :devtools {:preloads [fulcro.inspect.preload]
                    ...}}}}
+
 ```
+
+////
+For example to only include the preloads within a main module during development, and not in a web worker:
+////
+例えば、開発中のメインモジュール内でのみプリロードを行い、ウェブワーカーでは行わないようにするなどです。
+
+```
+{...
+ :builds
+ {:app {...
+        :modules {:main {...
+                         :preloads
+                         [com.fulcrologic.fulcro.inspect.preload
+                          com.fulcrologic.fulcro.inspect.dom-picker-preload]
+                         :depends-on #{:shared}}
+                  :shared {:entries []}
+                  :web-worker {...
+                    :depends-on #{:shared}
+                    :web-worker true}}}}}
+```
+
+////
+`:preloads` are only applied to development builds and will not be applied to release builds.
+////
+`:preloads` は開発用ビルドにのみ適用され、リリース用ビルドには適用されません。
 
 ////
 NOTE: Since version 2.0.130 shadow-cljs automatically adds `cljs-devtools` to the preloads in `watch` and `compile` if they are on the classpath. All you need to do is make sure `binaryage/devtools` is in your `dependencies` list. (Note, *not* binaryage/**cljs-**devtools.) If you don't want to have `cljs-devtools` in specific targets, you can suppress this by adding `:console-support false` to the `:devtools` section of those targets.

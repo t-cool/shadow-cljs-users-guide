@@ -2436,12 +2436,7 @@ localhost（または使用するホスト）のSAN（Subject Alternative Name�
 <code>boot-reload</code>、 <code>devtools</code> などのツールをご存知でしょう。これらのツールの 1 つ以上を自分のビルドに使用することはほぼ確実でしょう。</p>
 </div>
 <div class="paragraph">
-<p>プリロードは、生成された Javascript の先頭に特定の名前空間を強制的に導入するために使用されます。これは
-一般的には、アプリケーションが実際にロードされて実行される前に、ツールやインスツルメンテーションを注入するために使用されます。プリロードは
-preloads オプションは、単に <code>:devtools</code>/<code>:preloads</code> セクションの名前空間のリストです。</p>
-</div>
-<div class="paragraph">
-<p><code>shadow-cljs.edn</code> :</p>
+<p>プリロードは、生成された Javascript の先頭に特定の名前空間を強制的に導入するために使用されます。これは一般的に、アプリケーションが実際にロードされて実行される前に、ツールやインスツルメンテーションを注入するために使用されます。preloads オプションは、 <code>shadow-cljs.edn</code> の <code>:devtools</code> / <code>:preloads</code> セクション内、または特定のモジュールの <code>:preloads</code> キー内にある名前空間の単純なリストです。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2451,6 +2446,28 @@ preloads オプションは、単に <code>:devtools</code>/<code>:preloads</cod
         <span class="symbol">:devtools</span> {<span class="symbol">:preloads</span> [fulcro.inspect.preload]
                    <span class="keyword">..</span><span class="keyword">.</span>}}}}</code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>例えば、開発中のメインモジュール内でのみプリロードを行い、ウェブワーカーでは行わないようにするなどです。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
+ <span class="symbol">:builds</span>
+ {<span class="symbol">:app</span> {<span class="keyword">..</span><span class="keyword">.</span>
+        <span class="symbol">:modules</span> {<span class="symbol">:main</span> {<span class="keyword">..</span><span class="keyword">.</span>
+                         <span class="symbol">:preloads</span>
+                         [com.fulcrologic.fulcro.inspect.preload
+                          com.fulcrologic.fulcro.inspect.dom-picker-preload]
+                         <span class="symbol">:depends-on</span> #{<span class="symbol">:shared</span>}}
+                  <span class="symbol">:shared</span> {<span class="symbol">:entries</span> []}
+                  <span class="symbol">:web-worker</span> {<span class="keyword">..</span><span class="keyword">.</span>
+                    <span class="symbol">:depends-on</span> #{<span class="symbol">:shared</span>}
+                    <span class="symbol">:web-worker</span> <span class="predefined-constant">true</span>}}}}}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>:preloads</code> は開発用ビルドにのみ適用され、リリース用ビルドには適用されません。</p>
 </div>
 <div class="paragraph">
 <p>注意: バージョン 2.0.130 以降の shadow-cljs は、 <code>watch</code> と <code>compile</code> のクラスパス上に <code>cljs-devtools</code> がある場合、自動的にそのプリロードに <code>cljs-devtools</code> を追加します。必要なことは、 <code>binaryage/devtools</code> があなたの <code>dependencies</code> リストにあることを確認するだけです。(注意: binaryage/cljs-devtools ではない) もし、特定のターゲットに <code>cljs-devtools</code> を入れたくない場合は、それらのターゲットの <code>:devtools</code> セクションに <code>:console-support false</code> を追加することで、これを抑制することができます。</p>
@@ -3385,7 +3402,7 @@ preloads オプションは、単に <code>:devtools</code>/<code>:preloads</cod
  {<span class="symbol">:app</span> {<span class="symbol">:target</span> <span class="symbol">:browser</span>
         <span class="symbol">:output-dir</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">public/assets/app/js</span><span class="delimiter">&quot;</span></span>
         <span class="symbol">:asset-path</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">/assets/app/js</span><span class="delimiter">&quot;</span></span>
-        <span class="symbol">:modules</span> {<span class="symbol">:main</span> {<span class="symbol">:entries</span> [my.app]}}}]}</code></pre>
+        <span class="symbol">:modules</span> {<span class="symbol">:main</span> {<span class="symbol">:entries</span> [my.app]}}}}}</code></pre>
 </div>
 </div>
 <div class="sect2">
