@@ -3,7 +3,7 @@
 ////
 Getting a CLJS REPL working can sometimes be tricky and a lot can go wrong since all the moving parts can be quite complicated. This guide hopes to address the most common issues that people run into and how to fix them.
 ////
-CLJS REPLを動作させることは、時として厄介であり、すべての可動部品が非常に複雑であるため、多くの問題が発生する可能性があります。このガイドでは、人々が遭遇する最も一般的な問題と、その解決方法を取り上げたいと思います。
+CLJS REPL を動作させることは、時として厄介であり、すべての可動部品が非常に複雑であるため、多くの問題が発生する可能性があります。このガイドでは、人々が遭遇する最も一般的な問題と、その解決方法を取り上げたいと思います。
 
 image::shadow-cljs-repl.png[]
 
@@ -13,12 +13,12 @@ image::shadow-cljs-repl.png[]
 ////
 A REPL in Clojure does exactly what the name implies: Read one form, Eval it, Print the result, Loop to do it again.
 ////
-Clojureの REPL は、その名が示す通りのことを行います。 1 つのフォームを読み、それを評価し、結果を print し、それを再び行うためにループします。
+Clojure の REPL は、その名が示す通りのことを行います。 1 つのフォームを読み、それを評価し、結果を print し、それを再び行うためにループします。
 
 ////
 In ClojureScript however things are a bit more complicated since compilation happens on the JVM but the results are eval'd in a JavaScript runtime. There are a couple more steps that need to be done due in order to "emulate" the plain REPL experience. Although things are implemented a bit differently in `shadow-cljs` over regular CLJS the basic principles remain the same.
 ////
-しかし、ClojureScript では、コンパイルはJVM上で行われますが、結果は JavaScript ランタイムで評価されるので、もう少し複雑です。普通の REPL の経験をエミュレートするためには、さらにいくつかのステップが必要になります。 `shadow-cljs` では、通常の CLJS とは実装が少し異なりますが、基本的な原理は同じです。
+しかし、ClojureScript では、コンパイルは JVM上で行われますが、結果は JavaScript ランタイムで評価されるので、もう少し複雑です。普通の REPL の経験をエミュレートするためには、さらにいくつかのステップが必要になります。 `shadow-cljs` では、通常の CLJS とは実装が少し異なりますが、基本的な原理は同じです。
 
 ////
 First you'll need a REPL client. This could just be the CLI (eg. `shadow-cljs cljs-repl app`) or your Editor connected via `nREPL`. The Client will always talk directly to the `shadow-cljs` server and it'll handle the rest. From the Client side it still looks like a regular REPL but there are a few more steps happening in the background.
@@ -28,13 +28,13 @@ First you'll need a REPL client. This could just be the CLI (eg. `shadow-cljs cl
 ////
 1) Read: It all starts with reading a singular CLJS form from a given InputStream. That is either a blocking read directly from `stdin` or read from a string in case of `nREPL`. A Stream of characters are turned into actual datastructures, `"(+ 1 2)"` (a string) becomes `(+ 1 2)` (a list).
 ////
-1) Read : すべては与えられた InputStream から単数のCLJSフォームを読み取ることから始まります。これは `stdin` から直接ブロック化して読み取るか、 `nREPL` の場合は文字列から読み取ることになります。文字のストリームは実際のデータストラクチャーに変えられ、 `"(+ 1 2)"` (文字列)は `(+ 1 2)` (リスト)になります。
+1) Read : すべては与えられた InputStream から単数の CLJS フォームを読み取ることから始まります。これは `stdin` から直接ブロック化して読み取るか、 `nREPL` の場合は文字列から読み取ることになります。文字のストリームは実際のデータストラクチャーに変えられ、 `"(+ 1 2)"` (文字列)は `(+ 1 2)` (リスト)になります。
 
 
 ////
 2) Compile: That form is then compiled on the `shadow-cljs` JVM side and transformed to a set of instructions.
 ////
-2）Compile : そのフォームは、 `shadow-cljs` JVM側でコンパイルされ、一連の命令に変換されます。
+2）Compile : そのフォームは、 `shadow-cljs` JVM 側でコンパイルされ、一連の命令に変換されます。
 
 ////
 3) Transfer Out: Those instructions are transferred to a connected JavaScript runtime. This could be a Browser or a `node` process.
@@ -73,7 +73,7 @@ First you'll need a REPL client. This could just be the CLI (eg. `shadow-cljs cl
 ////
 The `shadow-cljs` JVM side of things will require one running `watch` for a given build which will handle all the related REPL commands as well. It uses a dedicated thread and manages all the given events that can happen during development (eg. REPL input, changing files, etc).
 ////
-`shadow-cljs` の JVM 側では、関連するすべての REPL コマンドを処理する、与えられたビルドのための `watch` の実行が必要になります。これは専用のスレッドを使用し、開発中に起こりうるすべてのイベントを管理します（例：REPLの入力、ファイルの変更など）。
+`shadow-cljs` の JVM 側では、関連するすべての REPL コマンドを処理する、与えられたビルドのための `watch` の実行が必要になります。これは専用のスレッドを使用し、開発中に起こりうるすべてのイベントを管理します（例：REPL の入力、ファイルの変更など）。
 
 ////
 The compiled JS code however must also be loaded by a JS runtime (eg. Browser or `node` process) and that JS runtime must connect back to the running `shadow-cljs` process. Most `:target` configurations will have the necessary code added by default and should just connect automatically. How that connect is happening is dependent on the runtime but usually it is using a WebSocket to connect to the running `shadow-cljs` <<http, HTTP server>>.

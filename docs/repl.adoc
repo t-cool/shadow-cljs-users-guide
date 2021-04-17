@@ -3,7 +3,7 @@
 ////
 The REPL is a very powerful tool to have when working with Clojure(Script) code. `shadow-cljs` provides several built-in variants that let you get started quickly as well as variants that are integrated into your standard builds.
 ////
-REPLは、Clojure(Script)のコードを扱う際に、非常に強力なツールです。 `shadow-cljs` は、すぐに始められるいくつかのビルトインバージョンと、標準的なビルドに統合されるバージョンを提供します。
+REPL は、Clojure(Script)のコードを扱う際に、非常に強力なツールです。 `shadow-cljs` は、すぐに始められるいくつかのビルトインバージョンと、標準的なビルドに統合されるバージョンを提供します。
 
 ////
 When you quickly want to test out some code the built-in REPLs should be enough. If you need more complex setups that also do stuff on their own it is best to use an actual build.
@@ -30,7 +30,7 @@ This starts a blank CLJS REPL with an already connected `node` process.
 ////
 IMPORTANT: If you exit the Node REPL the `node` process is also killed!
 ////
-IMPORTANT: Node REPLを終了すると、 `node` プロセスもキルされます。
+IMPORTANT: Node REPL を終了すると、 `node` プロセスもキルされます。
 
 ////
 `node-repl` lets you get started without any additional configuration. It has access to all your code via the usual means, ie. `(require '[your.core :as x])`. Since it is not connected to any build it does not do any automatic rebuilding of code when your files change and does not provide hot-reload.
@@ -46,7 +46,7 @@ $ shadow-cljs browser-repl
 ////
 This starts a blank CLJS REPL and will open an associated Browser window where the code will execute. Besides running in the Browser this has all the same functionality as the above `node-repl`.
 ////
-これは、空のCLJS REPLを起動し、コードが実行される関連するブラウザのウィンドウを開きます。ブラウザ上で実行されるだけでなく、上記の `node-repl` と同じ機能を持っています。
+これは、空の CLJS REPL を起動し、コードが実行される関連するブラウザのウィンドウを開きます。ブラウザ上で実行されるだけでなく、上記の `node-repl` と同じ機能を持っています。
 
 ////
 IMPORTANT: If you close the Browser window the REPL will stop working.
@@ -63,7 +63,7 @@ IMPORTANT: ブラウザウィンドウを閉じると、REPL は動作しなく�
 ////
 If you want to build a specific thing you should configure a build using one of the provided build-targets. Most of them automatically inject the necessary code for a ClojureScript REPL. It should not require any additional configuration. For the build CLJS REPL to work you need 2 things
 ////
-特定のものをビルドしたい場合は、提供されているビルドターゲットの 1 つを使ってビルドを設定する必要があります。それらのほとんどは、ClojureScript REPLに必要なコードを自動的に注入します。それは追加の設定を必要としないはずです。ビルドCLJS REPLが動作するためには、次の 2 つが必要です。
+特定のものをビルドしたい場合は、提供されているビルドターゲットの 1 つを使ってビルドを設定する必要があります。それらのほとんどは、ClojureScript REPL に必要なコードを自動的に注入します。それは追加の設定を必要としないはずです。ビルド CLJS REPL が動作するためには、次の 2 つが必要です。
 
 ////
 . a running `watch` for your build
@@ -75,7 +75,7 @@ If you want to build a specific thing you should configure a build using one of 
 ////
 Once you have both you can connect to the CLJS REPL via the command line or from the Clojure REPL.
 ////
-両方を入手したら、コマンドラインまたはClojure REPLからCLJS REPLに接続できます。
+両方を入手したら、コマンドラインまたは Clojure REPL から CLJS REPL に接続できます。
 
 ////
 .CLI
@@ -117,7 +117,7 @@ $ shadow-cljs clj-repl
 ////
 TIP: Type `:repl/quit` to exit the REPL. This will only exit the REPL, the `watch` will remain running.
 ////
-TIP: REPLを終了するには、 `:repl/quit` と入力してください。これは REPL を終了するだけで、 `watch` は引き続き実行されます。
+TIP: REPL を終了するには、 `:repl/quit` と入力してください。これは REPL を終了するだけで、 `watch` は引き続き実行されます。
 
 ////
 TIP: You may run multiple `watch` "workers" in parallel and connect/disconnect to their REPLs at any given time.
@@ -144,12 +144,12 @@ If you see this you need to open your App in the Browser or start the `node` pro
 ////
 A Clojure REPL is also provided in addition to the provided ClojureScript REPLs. This is can be used to control the `shadow-cljs` process and run all other build commands through it. You can start with a Clojure REPL and then upgrade it to a CLJS REPL at any point (and switch back).
 ////
-提供されているClojureScript REPLに加えて、Clojure REPLも提供されています。これは、 `shadow-cljs` プロセスを制御し、他のすべてのビルドコマンドを実行するために使用できます。Clojure REPLから始めて、いつでもCLJS REPLにアップグレードすることができます(そして元に戻すこともできます)。
+提供されている ClojureScript REPL に加えて、Clojure REPL も提供されています。これは、 `shadow-cljs` プロセスを制御し、他のすべてのビルドコマンドを実行するために使用できます。Clojure REPL から始めて、いつでも CLJS REPL にアップグレードすることができます(そして元に戻すこともできます)。
 
 ////
 .Running from the CLI
 ////
-.CLIからの実行
+.CLI からの実行
 
 ```bash
 $ shadow-cljs clj-repl
@@ -200,7 +200,7 @@ The `shadow.cljs.devtools.api` namespace has functions that map more or less 1:1
 ;; shadow-cljs watch foo
 (shadow.cljs.devtools.api/watch :foo)
 
-;; nsのエイリアスが用意されているため同等
+;; ns のエイリアスが用意されているため同等
 (shadow/watch :foo)
 
 ;; shadow-cljs watch foo --verbose
@@ -221,7 +221,7 @@ The `shadow.cljs.devtools.api` namespace has functions that map more or less 1:1
 ;; shadow-cljs cljs-repl foo
 (shadow/repl :foo)
 
-;; CLJS REPLに入れば :repl/quit や cljs/quit を使って CLJ に戻ることができる
+;; CLJS REPL に入れば :repl/quit や cljs/quit を使って CLJ に戻ることができる
 
 ```
 
@@ -263,5 +263,5 @@ You can stop the embedded server by running `(shadow.cljs.devtools.server/stop!)
 ////
 IMPORTANT: If you want to switch to a CLJS REPL this may require additional setup in the tool you used to start the server in. Since `lein` will default to using nREPL it will require configuring additional nREPL `:middleware`. When using `clj` you are good to go since it doesn't use nREPL.
 ////
-IMPORTANT: CLJS REPLに切り替えたい場合は、サーバの起動に使用したツールで追加の設定が必要になる場合があります。 `lein` はデフォルトで nREPL を使用するので、追加の nREPL `:middleware` を設定する必要があります。 `clj` を使用する場合は、nREPL を使用しないので、問題ありません。
+IMPORTANT: CLJS REPL に切り替えたい場合は、サーバの起動に使用したツールで追加の設定が必要になる場合があります。 `lein` はデフォルトで nREPL を使用するので、追加の nREPL `:middleware` を設定する必要があります。 `clj` を使用する場合は、nREPL を使用しないので、問題ありません。
 

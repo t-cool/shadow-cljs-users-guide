@@ -79,7 +79,7 @@ $ shadow-cljs compile app
 # コンパイルと監視
 $ shadow-cljs watch app
 
-# ビルド用の REPL に接続 (watchの実行中に利用可能)$ shadow-cljs cljs-repl app
+# ビルド用の REPL に接続 (watch の実行中に利用可能)$ shadow-cljs cljs-repl app
 
 # スタンドアロンの Node repl への接続
 $ shadow-cljs node-repl
@@ -139,7 +139,7 @@ $ shadow-cljs clj-repl
 
 ```bash
 $ shadow-cljs server
-# または REPLにサーバプロセスを制御させたい場合
+# または REPL にサーバプロセスを制御させたい場合
 $ shadow-cljs clj-repl
 ```
 
@@ -252,7 +252,7 @@ IMPORTANT: コマンドを実行する際には、引き続き `shadow-cljs` コ
 ////
 .Just compile :dev mode once, no REPL or live-reload:
 ////
-REPLやライブリロードは不要で、dev モードで一度コンパイルするだけです。
+REPL やライブリロードは不要で、dev モードで一度コンパイルするだけです。
 
 ```bash
 $ lein run -m shadow.cljs.devtools.cli compile build-id
@@ -368,7 +368,7 @@ The authors have little Boot experience, so this chapter is in need of contribut
 that Boot allows you to build your tool chain out of functions. Since `shadow-cljs` is a normal
 JVM library, you can call functions within it to invoke tasks.
 ////
-著者は Boot の経験がほとんどないため、この章は貢献を必要としています。私たちは Boot では、関数からツールチェーンを構築できることを理解しています。 shadow-cljs は普通のJVM ライブラリなので、その中の関数を呼び出してタスクを起動することができます。
+著者は Boot の経験がほとんどないため、この章は貢献を必要としています。私たちは Boot では、関数からツールチェーンを構築できることを理解しています。 shadow-cljs は普通の JVM ライブラリなので、その中の関数を呼び出してタスクを起動することができます。
 
 ////
 Some boot tasks are available here:
@@ -388,7 +388,7 @@ Running Clojure Code [[clj-run]]
 ////
 You can use the `shadow-cljs` CLI to call specific Clojure functions from the command line. This is useful when you want to run some code before/after certain tasks. Suppose you wanted to `rsync` the output of your `release` build to a remote server.
 ////
-コマンドラインから特定のClojure関数を呼び出すために、 `shadow-cljs` という CLI を使うことができます。これは、あるタスクの前後にコードを実行したいときに便利です。例えば、 `release` ビルドの出力をリモートサーバに `rsync` したいとします。
+コマンドラインから特定の Clojure関数を呼び出すために、 `shadow-cljs` という CLI を使うことができます。これは、あるタスクの前後にコードを実行したいときに便利です。例えば、 `release` ビルドの出力をリモートサーバに `rsync` したいとします。
 
 ////
 .Example Clojure Namespace in `src/my/build.clj`
@@ -425,7 +425,7 @@ You can pass arguments to the invoked functions via the command line.
 ////
 .Using arguments via normal Clojure fn args
 ////
-. 通常のClojure fnの引数を使った引数の使用
+. 通常の Clojure fn の引数を使った引数の使用
 
 ```clojure
 ...
@@ -451,7 +451,7 @@ TIP: https://github.com/clojure/tools.cli[tools.cli] のように引数を解析
 ////
 You have access to the full power of Clojure here. You can build entire tools on top of this if you like. As a bonus everything you write this way is also directly available via the Clojure REPL.
 ////
-ここでは、Clojure のフルパワーにアクセスできます。必要に応じて、この上にツール全体を構築することができます。おまけに、この方法で書いたものはすべて、Clojure REPLで直接利用できます。
+ここでは、Clojure のフルパワーにアクセスできます。必要に応じて、この上にツール全体を構築することができます。おまけに、この方法で書いたものはすべて、Clojure REPL で直接利用できます。
 
 ////
 IMPORTANT: When the <<server-mode, server>> is running the namespace will not be reloaded automatically, it will only be loaded once. It is recommended to do the development using a REPL and reload the file as usual (eg. `(require 'my.build :reload)`). You may also run `shadow-cljs clj-eval "(require 'my.build :reload)"` to reload manually from the command line.

@@ -5,7 +5,7 @@
 ////
 ClojureScript libraries are published to `maven` repositories just like Clojure. Most commonly they are published to https://clojars.org/[Clojars] but all other standard maven repositories work too.
 ////
-ClojureScriptライブラリは、Clojure と同様に `maven` リポジトリに公開されます。最も一般的には https://clojars.org/[Clojars] に公開されますが、他のすべての標準的な maven リポジトリでも動作します。
+ClojureScript ライブラリは、Clojure と同様に `maven` リポジトリに公開されます。最も一般的には https://clojars.org/[Clojars] に公開されますが、他のすべての標準的な maven リポジトリでも動作します。
 
 ////
 `shadow-cljs` itself does not have direct support for publishing but since ClojureScript libraries are just uncompiled source files published in a JAR (basically just a ZIP compressed file) any common tool that is able to publish to maven will work. (eg. `mvn`, `gradle`, `lein`, etc). No extra compilation or other steps are required to publish. The ClojureScript compiler and therefore shadow-cljs is not involved at all.
@@ -59,7 +59,7 @@ Assuming you are already using the recommended project structure where all your 
             :url "http://www.eclipse.org/legal/epl-v10.html"}
 
   :dependencies
-  ;; Clojureでは常に provided を使用します。(Script)
+  ;; Clojure では常に provided を使用します。(Script)
   [[org.clojure/clojurescript "1.10.520" :scope "provided"]
    [some.other/library "1.0.0"]
 
@@ -78,7 +78,7 @@ This will generate the required `pom.xml` and put all sources from `src/main` in
 ////
 Leiningen defaults to signing libraries via GPG before publishing which is a good default but given that this can be a hassle to setup and not many people are actually verifying the signatures you can disable that step via adding a simple `:repositories` config to the `project.clj`.
 ////
-Leiningenはライブラリを公開する前に GPG で署名することをデフォルトとしています。これは良いデフォルトですが、設定が面倒であったり、実際に署名を検証する人があまりいないことを考えると、 `project.clj` にシンプルな `:repositories` 設定を追加することで、このステップを無効にすることができます。
+Leiningen はライブラリを公開する前に GPG で署名することをデフォルトとしています。これは良いデフォルトですが、設定が面倒であったり、実際に署名を検証する人があまりいないことを考えると、 `project.clj` にシンプルな `:repositories` 設定を追加することで、このステップを無効にすることができます。
 
 ```clojure
 (defproject your.cool/library "1.0.0"
@@ -105,7 +105,7 @@ Also avoid generating output to `resources/*` since Leiningen and other tools ma
 ////
 IMPORTANT: You can and should verify that everything is clean by running `lein jar` and inspecting the files that end up in it via `jar -tvf target/library-1.0.0.jar`.
 ////
-IMPORTANT: lein jarを実行し、 `jar -tvf target/library-1.0.0.jar` で最終的に含まれるファイルを検査することで、すべてがクリーンであることを確認できますし、そうすべきです。
+IMPORTANT: lein jar を実行し、 `jar -tvf target/library-1.0.0.jar` で最終的に含まれるファイルを検査することで、すべてがクリーンであることを確認できますし、そうすべきです。
 
 ## JS の依存関係を宣言する [[publish-deps-cljs]]
 // Declaring JS dependencies [[publish-deps-cljs]]

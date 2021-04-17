@@ -3,7 +3,7 @@
 ////
 `shadow-cljs` provides everything you need to compile your ClojureScript projects with a focus on simplicity and ease of use. The provided build targets abstract away most of the manual configuration so that you only have to configure the essentials for your build. Each target provides optimal defaults for each environment and get an optimized experience during development and in release builds.
 ////
-shadow-cljsは、シンプルさと使いやすさに重点を置いて、ClojureScript プロジェクトをコンパイルするために必要なすべてを提供します。提供されているビルドターゲットは、手動による設定のほとんどを抽象化し、ビルドに必要なものだけを設定することができます。各ターゲットはそれぞれの環境に最適なデフォルトを提供し、開発時やリリースビルド時に最適なエクスペリエンスを得ることができます。
+shadow-cljs は、シンプルさと使いやすさに重点を置いて、ClojureScript プロジェクトをコンパイルするために必要なすべてを提供します。提供されているビルドターゲットは、手動による設定のほとんどを抽象化し、ビルドに必要なものだけを設定することができます。各ターゲットはそれぞれの環境に最適なデフォルトを提供し、開発時やリリースビルド時に最適なエクスペリエンスを得ることができます。
 
 
 == 高レベルな概要
@@ -28,7 +28,7 @@ shadow-cljs は、以下の 2 つの部分から構成されています。
 ////
 If desired you can easily integrate the `shadow-cljs` Clojure library into any other Clojure/JVM build tool (eg. https://leiningen.org/[leiningen] or the https://clojure.org/guides/deps_and_cli[Clojure CLI] tools).
 ////
-必要であれば、Clojure ライブラリであるshadow-cljsを、他のClojure/JVMビルドツール（例えば https://leiningen.org/[leiningen] や https://clojure.org/guides/deps_and_cli[Clojure CLI]ツール）に簡単に統合することができます。
+必要であれば、Clojure ライブラリである shadow-cljs を、他の Clojure/JVM ビルドツール（例えば https://leiningen.org/[leiningen] や https://clojure.org/guides/deps_and_cli[Clojure CLI]ツール）に簡単に統合することができます。
 
 ////
 It is recommended to use the `npm` package as that provides a more optimized development experience tailored towards CLJS development.
@@ -62,46 +62,46 @@ All development builds are optimized for the developer experience with fast feed
 ////
 A development build should never be shipped publicly since they can become quite large and may only work on the machine they were compiled on depending on the `:target`.
 ////
-開発用のビルドは、非常に大きなサイズになる可能性があり、:targetに応じてコンパイルされたマシンでしか動作しない可能性があるため、決して一般に配布してはいけません。
+開発用のビルドは、非常に大きなサイズになる可能性があり、:target に応じてコンパイルされたマシンでしか動作しない可能性があるため、決して一般に配布してはいけません。
 
 === release モード
 
 ////
 Creating a `release` build will strip out all the development related code and finally run the code through the Closure Compiler. This is an optimizing Compiler for JavaScript which will significantly reduce the overall size of the code.
 ////
-リリース (release) ビルドを作成すると、開発モード関連のコードがすべて取り除かれ、最後にClosure Compilerにコードを通します。これにより、JavaScript用の最適化コンパイラが、コードの全体的なサイズを大幅に削減します。
+リリース (release) ビルドを作成すると、開発モード関連のコードがすべて取り除かれ、最後に Closure Compiler にコードを通します。これにより、JavaScript用の最適化コンパイラが、コードの全体的なサイズを大幅に削減します。
 
 == 重要な概念
 
 ////
 There are several important concepts that you should familiarize yourself with when using `shadow-cljs`. They are integral to understanding how everything fits together and how the tool works with your code.
 ////
-shadow-cljsを使用する際には、いくつかの重要な概念を理解しておく必要があります。これらの概念は、すべてがどのように組み合わされるのか、また、このツールがあなたのコードとどのように連動するのかを理解するために不可欠です。
+shadow-cljs を使用する際には、いくつかの重要な概念を理解しておく必要があります。これらの概念は、すべてがどのように組み合わされるのか、また、このツールがあなたのコードとどのように連動するのかを理解するために不可欠です。
 
 === Classpath
 
 ////
 `shadow-cljs` uses the Java Virtual Machine (JVM) and its "classpath" when working with files. This is a virtual filesystem composed of many classpath entries. Each entry is either
 ////
-shadow-cljsは、ファイルを扱う際に、Java Virtual Machine (JVM) とその classpath を使用します。これは、多くの classpath のエントリからなる仮想ファイルシステムです。各エントリは次のいずれかです。
+shadow-cljs は、ファイルを扱う際に、Java Virtual Machine (JVM) とその classpath を使用します。これは、多くの classpath のエントリからなる仮想ファイルシステムです。各エントリは次のいずれかです。
 
 
 ////
 - A local filesystem directory, managed by `:source-paths` entry in the configuration.
 - Or a `.jar` file, representing Clojure(Script) or JVM libraries. These are compressed archives containing many files (basically just a `.zip` file). These are added by your `:dependencies`.
 ////
-- 設定の:source-pathsエントリで管理される、ローカルファイルシステムのディレクトリです。
-- あるいは、Clojure(Script)や JVM のライブラリを表す `.jar` ファイルです。これらは、多くのファイルを含む圧縮アーカイブです(基本的には .zip ファイルです)。これらは:dependenciesによって追加されます。
+- 設定の:source-paths エントリで管理される、ローカルファイルシステムのディレクトリです。
+- あるいは、Clojure(Script)や JVM のライブラリを表す `.jar` ファイルです。これらは、多くのファイルを含む圧縮アーカイブです(基本的には .zip ファイルです)。これらは:dependencies によって追加されます。
 
 ////
 In the Clojure(Script) everything is namespaced and each name is expected to resolve to a file. If you have a `(ns demo.app)` namespace the compiler expects to find a `demo/app.cljs` (or `.cljc`) on the classpath. The classpath will be searched in order until it is found. Suppose you configured the `:source-paths ["src/main" "src/test"]` the compiler will first look for a `src/main/demo/app.cljs` and then `src/test/demo/app.cljs`. When the file is not found on any source path the JVM will begin looking into the `.jar` files on the classpath. When it finds a `demo/app.cljs` at the root of any of the libraries that file it will be used.
 ////
-Clojure(Script)では、すべてが名前空間化されていて、それぞれの名前がファイルに解決することが期待されています。(ns demo.app)という名前空間があれば、コンパイラはクラスパス上にdemo/app.cljs(または `.cljc`)があることを期待します。クラスパスは、それが見つかるまで順番に検索されます。例えば、 `:source-paths ["src/main" "src/test"]` を設定したとすると、コンパイラはまず `src/main/demo/app.cljs` を探し、次に `src/test/demo/app.cljs` を探します。どのソースパスにもファイルが見つからない場合、JVM はクラスパス上の .jar ファイルを探し始めます。そして、いずれかのライブラリのルートにdemo/app.cljsが見つかると、そのファイルが使用されます。
+Clojure(Script)では、すべてが名前空間化されていて、それぞれの名前がファイルに解決することが期待されています。(ns demo.app)という名前空間があれば、コンパイラはクラスパス上に demo/app.cljs(または `.cljc`)があることを期待します。クラスパスは、それが見つかるまで順番に検索されます。例えば、 `:source-paths ["src/main" "src/test"]` を設定したとすると、コンパイラはまず `src/main/demo/app.cljs` を探し、次に `src/test/demo/app.cljs` を探します。どのソースパスにもファイルが見つからない場合、JVM はクラスパス上の .jar ファイルを探し始めます。そして、いずれかのライブラリのルートに demo/app.cljs が見つかると、そのファイルが使用されます。
 
 ////
 IMPORTANT: When a filename exists multiple times on the classpath then only the first one is used. Everything on the JVM and Clojure(Script) is namespaced to avoid such conflicts. Very similar to `npm` where each package must have a unique name.
 ////
-IMPORTANT: あるファイル名がクラスパス上に複数回存在する場合、最初のものだけが使用されます。 JVM とClojure(Script)上のすべてのものは、このような衝突を避けるために名前空間が設けられています。各パッケージが一意の名前を持たなければならない npm と非常によく似ています。
+IMPORTANT: あるファイル名がクラスパス上に複数回存在する場合、最初のものだけが使用されます。 JVM と Clojure(Script)上のすべてのものは、このような衝突を避けるために名前空間が設けられています。各パッケージが一意の名前を持たなければならない npm と非常によく似ています。
 
 ////
 It is therefore recommended to be very disciplined about the names you choose and properly namespacing everything. It may seem repetitive to always use `(ns your-company.components.foo)` over `(ns components.foo)` but it will save you from lot of headaches later on.
@@ -119,7 +119,7 @@ This is unlike `npm` where the package name itself is never used inside the pack
 ////
 `shadow-cljs` can be started in "server" mode which is required for long-running tasks such as `watch`. A `watch` will implicitly start the server instance if it is not already running. The server will provide the Websocket endpoint that builds will connect to as well as all the other endpoints for nREPL, Socket REPL and the development HTTP servers.
 ////
-`shadow-cljs` は server モードで起動することができます。これは watch のような長時間稼働するタスクに必要です。 watch は、サーバインスタンスがまだ起動していなければ、暗黙のうちに起動します。 server は、ビルドが接続する Websocket のエンドポイントを提供します。また、nREPL、Socket REPL、開発用HTTPサーバの他のすべてのエンドポイントも同様に提供します。
+`shadow-cljs` は server モードで起動することができます。これは watch のような長時間稼働するタスクに必要です。 watch は、サーバインスタンスがまだ起動していなければ、暗黙のうちに起動します。 server は、ビルドが接続する Websocket のエンドポイントを提供します。また、nREPL、Socket REPL、開発用HTTP サーバの他のすべてのエンドポイントも同様に提供します。
 
 
 ////
@@ -130,12 +130,12 @@ CLI の shadow-cljs を使用する場合、すべてのコマンドは新しい
 ////
 Once the server is running however you only have to restart it whenever your `:dependencies` change and everything else can be done via the REPL.
 ////
-しかし、いったんサーバが稼働すれば、:dependenciesに変更があったときに再起動するだけで、あとはすべて REPL で行うことができます。
+しかし、いったんサーバが稼働すれば、:dependencies に変更があったときに再起動するだけで、あとはすべて REPL で行うことができます。
 
 === REPL
 
 ////
 The REPL is at the heart of all Clojure(Script) development and every CLI command can also be used directly from the REPL as well. It is absolutely worth getting comfortable with the REPL even if the command line may seem more familiar.
 ////
-REPLは、すべてのClojure(Script)開発の中心であり、すべての CLI コマンドはREPLから直接使用することもできます。コマンドラインの方が馴染みがあるように見えても、REPL を使いこなすことには、絶対に価値があります。
+REPL は、すべての Clojure(Script)開発の中心であり、すべての CLI コマンドは REPL から直接使用することもできます。コマンドラインの方が馴染みがあるように見えても、REPL を使いこなすことには、絶対に価値があります。
 

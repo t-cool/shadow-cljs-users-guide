@@ -57,7 +57,7 @@ The build options are:
 
 [horizontal]
 `:target` :: `:karma`(カルマ)
-`:output-to` :: `:karma`:  jsファイルのパス/ファイル名です。
+`:output-to` :: `:karma`:  js ファイルのパス/ファイル名です。
 `:ns-regexp` :: (オプション) テストの名前空間にマッチさせる正規表現、デフォルトは "-test$" です。
 
 ////

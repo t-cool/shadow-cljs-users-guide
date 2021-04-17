@@ -61,7 +61,7 @@ $ shadow-cljs compile test
 # または
 $ shadow-cljs release test
 
-# 手動でテストを実行する場合、:autorunで自動的に実行されます。
+# 手動でテストを実行する場合、:autorun で自動的に実行されます。
 $ node out/node-tests.js
 
 # コンパイルとテストの結合

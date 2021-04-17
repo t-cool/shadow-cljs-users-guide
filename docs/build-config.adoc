@@ -54,7 +54,7 @@ Here are some of them:
 <<target-npm-module, `:npm-module`>>:: Output code suitable for use as an NPM module.
 ////
 [Horizontal]
-<<target-browser, `:browser`>>:: Webブラウザでの実行に適したコードを出力します。
+<<target-browser, `:browser`>>:: Web ブラウザでの実行に適したコードを出力します。
 <<target-bootstrap, `:bootstrap`>>::ブートストラップされた cljs 環境で実行するのに適したコードを出力します。
 <<target-browser-test, `:browser-test`>>:: テストをスキャンして必要なファイルを決定し、ブラウザで実行するのに適したテストを出力します。
 <<target-karma, `:karma`>>:: テストをスキャンして必要なファイルを決定し、karma-runner互換のテストを出力します。 http://karma-runner.github.io/2.0/index.html[Karma] を参照してください。
@@ -91,7 +91,7 @@ When running `watch` code for the REPL is injected automatically and usually doe
 - `:repl-pprint` makes the REPL use `cljs.pprint` instead of the regular `pr-str` when printing eval results. Defaults to false.
 ////
 - `:repl-init-ns` では、REPL をどの名前空間で起動するかを設定することができます。デフォルトでは `cljs.user` となります。
-- `repl-pprint` では、REPL がevalの結果を print するときに、通常の `pr-str` の代わりに `cljs.pprint` を使用します。デフォルトは false です。
+- `repl-pprint` では、REPL が eval の結果を print するときに、通常の `pr-str` の代わりに `cljs.pprint` を使用します。デフォルトは false です。
 
 ```
 {...
@@ -165,7 +165,7 @@ NOTE: Since version 2.0.130 shadow-cljs automatically adds `cljs-devtools` to th
 The React and ClojureScript ecosystems combine to make this kind of thing super useful. The `shadow-cljs`
 system includes everything you need to do your hot code reload, without needing to resort to external tools.
 ////
-Reactと ClojureScript のエコシステムを組み合わせることで、このようなことが超便利になります。 `shadow-cljs` のシステムには、外部ツールに頼ることなく、ホットコードリロードを行うために必要なものがすべて含まれています。
+React と ClojureScript のエコシステムを組み合わせることで、このようなことが超便利になります。 `shadow-cljs` のシステムには、外部ツールに頼ることなく、ホットコードリロードを行うために必要なものがすべて含まれています。
 
 ////
 In order to use it you simply run:
@@ -229,7 +229,7 @@ There are also async variants of these in case you need to do some async work th
 ////
 .async hooks example
 ////
-.asyncフックの例
+.async フックの例
 
 ```clojure
 (ns my.app)
@@ -406,7 +406,7 @@ The `build-state` has some important entries which might be useful for your hook
 - `:shadow.build/stage` - the current stage
 - `:shadow.build/config` - the build config. You can either store config data for the hook in the build config directly or pass it as arguments in the hook itself
 ////
-- `:shadow.build/build-id` - 現在のビルドのID（例：`:app`）。
+- `:shadow.build/build-id` - 現在のビルドの ID（例：`:app`）。
 - `:shadow.build/mode` - `:dev` または `:release` です。
 - `:shadow.build/stage` - 現在のステージです。
 - `:shadow.build/config` - ビルドの設定。フック用の設定データは、ビルドコンフィグに直接格納するか、フック自体の引数として渡すことができます。
@@ -443,7 +443,7 @@ The possible stages the `:build-hooks` can use are:
 With a running `watch` the `:configure` is only called once. Any of the others may be called
 again (in order) for each re-compile. The `build-state` will be re-used until the build config changes at which point it will be thrown away and a fresh one will be created.
 ////
-ウォッチを実行していると、:configureは一度しか呼ばれません。再コンパイルのたびに、他の項目が
+ウォッチを実行していると、:configure は一度しか呼ばれません。再コンパイルのたびに、他の項目が
 再コンパイルのたびに（順番に）呼び出されます。`build-state` はビルドコンフィグが変更されるまで再利用され、その時点で破棄されて新しいものが作成されることになる。
 
 == コンパイラ・キャッシュ
@@ -467,7 +467,7 @@ Namespaces that are known to include side-effecting macros can be blocked from c
 ////
 .clara.rules cache blocking example (this is done by default)
 ////
-.clara.rulesのキャッシュブロックの例（これはデフォルトで行われます)
+.clara.rules のキャッシュブロックの例（これはデフォルトで行われます)
 
 ```
 {...
@@ -560,7 +560,7 @@ The `:cache-root` is always resolved relative to the project directory. You can 
 ////
 The Closure Library & Compiler allow you to define variables that are essentially compile time constants. You can use these to configure certain features of your build. Since the Closure compiler treats these as constants when running `:advanced` optimizations they are fully supported in the Dead-Code-Elimination passes and can be used to remove certain parts of the code that should not be included in `release` builds.
 ////
-Closure Library & Compilerでは、基本的にコンパイル時の定数である変数を定義することができます。これを使って、ビルドの特定の機能を設定することができます。 Closure コンパイラは、 `:advanced` 最適化を実行する際にこれらを定数として扱うため、Dead-Code-Elimination パスが完全にサポートされており、 `release` ビルドに含めるべきではないコードの特定の部分を削除するために使用することができます。
+Closure Library & Compiler では、基本的にコンパイル時の定数である変数を定義することができます。これを使って、ビルドの特定の機能を設定することができます。 Closure コンパイラは、 `:advanced` 最適化を実行する際にこれらを定数として扱うため、Dead-Code-Elimination パスが完全にサポートされており、 `release` ビルドに含めるべきではないコードの特定の部分を削除するために使用することができます。
 
 ////
 You can define them in your code
@@ -629,7 +629,7 @@ Closure Defines from the Closure Library
 - `goog.DEBUG`: The Closure Library uses this for many development features. `shadow-cljs` automatically sets this to `false` for `release` builds.
 - `goog.LOCALE` can be used to configure certain localization features like `goog.i18n.DateTimeFormat`. It accepts a standard locale string and defaults to `en`. Pretty much all locales are supported, see https://github.com/google/closure-library/blob/master/closure/goog/i18n/datetimesymbols.js[here] and https://github.com/google/closure-library/blob/master/closure/goog/i18n/datetimesymbolsext.js[here] .
 ////
-- `goog.DEBUG` です。Closure Libraryでは、多くの開発機能でこれを使用しています。 `shadow-cljs` は、 `release` のビルドでは、自動的にこれを `false` に設定します。
+- `goog.DEBUG` です。Closure Library では、多くの開発機能でこれを使用しています。 `shadow-cljs` は、 `release` のビルドでは、自動的にこれを `false` に設定します。
 - `goog.LOCALE` : `goog.i18n.DateTimeFormat` のような、ある種のローカリゼーション機能を設定するために使用されます。これは標準的なロケール文字列を受け入れ、デフォルトでは `en` となります。ほとんどすべてのロケールがサポートされています。 https://github.com/google/closure-library/blob/master/closure/goog/i18n/datetimesymbols.js[こちら] と https://github.com/google/closure-library/blob/master/closure/goog/i18n/datetimesymbolsext.js[こちら] を参照してください。
 
 == コンパイラのオプション [[compiler-options]]
@@ -657,7 +657,7 @@ These are all grouped under the `:compiler-options` key in your build config.
 ////
 Most of the standard ClojureScript https://clojurescript.org/reference/compiler-options[Compiler Options] are either enabled by default or do not apply. So very few of them actually have an effect. A lot of them are also specific to certain `:target` types and do not apply universally (e.g. `:compiler-options {:output-wrapper true}` is only relevant for `:target :browser`).
 ////
-標準的なClojureScript https://clojurescript.org/reference/compiler-options[Compiler Options]のほとんどは、デフォルトで有効になっているか、適用されていません。そのため、実際に効果があるものはほとんどありません。また、多くのオプションは特定の `:target` タイプに固有のもので、普遍的に適用されるわけではありません (例えば、 `:compiler-options {:output-wrapper true}` は `:target :browser` にのみ関係します)。
+標準的な ClojureScript https://clojurescript.org/reference/compiler-options[Compiler Options]のほとんどは、デフォルトで有効になっているか、適用されていません。そのため、実際に効果があるものはほとんどありません。また、多くのオプションは特定の `:target` タイプに固有のもので、普遍的に適用されるわけではありません (例えば、 `:compiler-options {:output-wrapper true}` は `:target :browser` にのみ関係します)。
 
 ////
 Currently supported options include
@@ -805,7 +805,7 @@ A set of possible warning-type keywords can be found https://github.com/clojure/
 ////
 By default the generated JS output will be compatible with ES5 and all "newer" features will be transpiled to compatible code using polyfills. This is currently the safest default and supports most browsers in active use (including IE10+).
 ////
-デフォルトでは、生成される JS 出力はES5と互換性があり、すべてのより新しい機能はポリフィルを使用して互換性のあるコードに変換されます。これは現在のところ最も安全なデフォルトであり、現在使用されているほとんどのブラウザ（IE10+を含む）をサポートしています。
+デフォルトでは、生成される JS 出力は ES5と互換性があり、すべてのより新しい機能はポリフィルを使用して互換性のあるコードに変換されます。これは現在のところ最も安全なデフォルトであり、現在使用されているほとんどのブラウザ（IE10+を含む）をサポートしています。
 
 ////
 You can select other output options if you only care about more modern environments and want to keep the original code without replacements (eg. `node`, Chrome Extensions, ...)
@@ -956,7 +956,7 @@ While you can use <<closure-defines, :closure-defines>> to conditionally compile
    #?@(:node [[]]
        :cljs [["codemirror" :as CodeMirror]])))
 
-#?(:node ;; Nodeプラットフォームのオーバーライド
+#?(:node ;; Node プラットフォームのオーバーライド
    (defn init-cm [dom-node]
     :no-op)
    :cljs ;; デフォルトの処理系
@@ -1043,7 +1043,7 @@ IMPORTANT: This feature is only available in `.cljc` files and will fail in `.cl
 ////
 IMPORTANT: この機能は、 `.cljc` ファイルでのみ利用可能で、 `.cljs` ファイルでは失敗します。
 
-== CLIからのオーバーライド [[config-merge]]
+== CLI からのオーバーライド [[config-merge]]
 //Overriding from the CLI [[config-merge]]
 
 ////
@@ -1073,7 +1073,7 @@ You can pass additional config data via the `--config-merge {:some "data"}` comm
 ////
 .Overriding the `:output-dir` from the CLI
 ////
-.CLIからの `:output-dir` をオーバーライドする
+.CLI からの `:output-dir` をオーバーライドする
 
 ```bash
 $ shadow-cljs release app --config-merge '{:output-dir "somewhere/else"}'
@@ -1082,7 +1082,7 @@ $ shadow-cljs release app --config-merge '{:output-dir "somewhere/else"}'
 ////
 .Overriding the `:closure-defines` from the CLI
 ////
-.CLIからの `:closure-defines` をオーバーライドする
+.CLI からの `:closure-defines` をオーバーライドする
 
 ```bash
 $ shadow-cljs release app --config-merge '{:closure-defines {your.app/DEBUG true}}'
@@ -1091,7 +1091,7 @@ $ shadow-cljs release app --config-merge '{:closure-defines {your.app/DEBUG true
 ////
 `--config-merge` expects one EDN map and can be used multiple times, they will be merged left to right. The data added is also visible to build-hooks.
 ////
-`--config-merge` は 1 つのEDNマップを想定していますが、複数回使用することができ、左から右に向かってマージされます。追加されたデータは build-hooks でも確認できます。
+`--config-merge` は 1 つの EDN マップを想定していますが、複数回使用することができ、左から右に向かってマージされます。追加されたデータは build-hooks でも確認できます。
 
 ////
 IMPORTANT: If you specify multiple build ids the data will be merged into all specified builds. `shadow-cljs release frontend backend --config-merge '{:hello "world"}'` will be applied to both.
@@ -1144,7 +1144,7 @@ The are also a few more supported forms that you can use `#shadow/env` with.
 ;; デフォルトの値で、env 変数が設定されていない場合に使用される
 #shadow/env ["APP_URL" "default-value"]
 #shadow/env ["APP_URL" :default "default-value"]
-;; PORT envをデフォルトで整数に変換する
+;; PORT env をデフォルトで整数に変換する
 #shadow/env ["PORT" :as :int :default 8080]
 ```
 

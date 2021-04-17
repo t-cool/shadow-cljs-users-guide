@@ -49,7 +49,7 @@ In general you will need a config that looks like this:
 ////
 Remember that the test directory will have the index.html, and a js folder.
 ////
-testディレクトリには、index.html とjsフォルダがあることを覚えておいてください。
+test ディレクトリには、index.html と js フォルダがあることを覚えておいてください。
 
 ////
 If you choose to supply a custom `:runner-ns`, it might look like this:
@@ -116,5 +116,5 @@ auto-generated.
 * `index.html` - `index.html` ファイルがまだ存在していない場合に限ります。デフォルトでは、生成された
 ファイルはテストをロードし、 `:runner-ns` で `init` を実行します。上書きされないカスタムバージョンを編集または追加することができます。
 上書きされません。
-* `js/test.js` - Javascriptのテストです。テストは常にこの名前になります。このモジュールのエントリは
+* `js/test.js` - Javascript のテストです。テストは常にこの名前になります。このモジュールのエントリは
 自動生成されます。

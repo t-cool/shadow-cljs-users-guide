@@ -19,7 +19,7 @@ The target-specific options are:
 `:output-dir` :: (optional). The path for supporting files in development mode. Defaults to a cache directory.
 ////
 [horizontal]
-`:target`: :node-libraryを使用します。
+`:target`: :node-library を使用します。
 `:output-to` : (必須) 生成されるライブラリのパスとファイル名です。
 `:output-dir` : (オプション) 開発モードでサポートするファイルのパスです。デフォルトではキャッシュディレクトリになります。
 
@@ -169,7 +169,7 @@ In addition you may specify `:exports-fn` as a fully qualified symbol. This shou
 ////
 NOTE: The exports config automatically tracks exported symbols and passes them on to the optimization stage. This means that anything listed in `:exports` will not be renamed by Google Closure optimizations.
 ////
-注：exportsコンフィグはエクスポートされたシンボルを自動的に追跡し、最適化ステージに渡します。つまり、 `:exports` に記載されているものは、Google Closureの最適化によって名前が変更されることはありません。
+注：exports コンフィグはエクスポートされたシンボルを自動的に追跡し、最適化ステージに渡します。つまり、 `:exports` に記載されているものは、Google Closure の最適化によって名前が変更されることはありません。
 
 === 完全な例
 //Full Example

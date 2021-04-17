@@ -73,12 +73,12 @@ You will often write scripts that run as servers or some other long-running proc
 ////
 Here is an example http server in node:
 ////
-ここでは、node のhttpサーバーの例を紹介します。
+ここでは、node の http サーバーの例を紹介します。
 
 ////
 .Sample node script with start/stop hooks for hot code reload.
 ////
-.ホットコードリロードのための start/stopフックを備えた Node スクリプトのサンプル
+.ホットコードリロードのための start/stop フックを備えた Node スクリプトのサンプル
 
 ////
 ```

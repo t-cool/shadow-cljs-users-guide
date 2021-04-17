@@ -17,7 +17,7 @@ You will need the same basic <<config,main configuration>> as in other targets (
 `:output-dir` :: (required). The directory used to write output files.
 ////
 [horizontal]
-`:init-fn` :: (必須) アプリのinit関数の名前空間修飾されたシンボルです。この関数は起動時に一度だけ呼び出され、おそらく何かをレンダリングするはずです。
+`:init-fn` :: (必須) アプリの init関数の名前空間修飾されたシンボルです。この関数は起動時に一度だけ呼び出され、おそらく何かをレンダリングするはずです。
 `:output-dir` :: (必須) (必須). 出力ファイルを書き込むためのディレクトリです。
 
 // TODO: Thomas mentioned that node can be picky and sometimes output-dir is useful...an example would be nice.
@@ -104,4 +104,4 @@ Both examples where generated using `expo init ...` and the only adjusted change
 ////
 `init` is called once on startup. Since the example doesn't need to do any special setup it just calls `start` directly. `start` will be called repeatedly when `watch` is running each time after the code changes were reloaded. The `reagent.core/as-element` function can be used to generate the required React Element from the reagent hiccup markup.
 ////
-`init` は起動時に一度だけ呼ばれます。この例では特別な設定をする必要がないので、単に `start` を直接呼び出します。 `start` は、コードの変更がリロードされた後に `watch` が実行されるたびに、繰り返し呼び出されます。 `reagent.core/as-element` 関数は、reagent hiccupのマークアップから必要なReact Elementを生成するために使用することができます。
+`init` は起動時に一度だけ呼ばれます。この例では特別な設定をする必要がないので、単に `start` を直接呼び出します。 `start` は、コードの変更がリロードされた後に `watch` が実行されるたびに、繰り返し呼び出されます。 `reagent.core/as-element` 関数は、reagent hiccup のマークアップから必要な React Element を生成するために使用することができます。
