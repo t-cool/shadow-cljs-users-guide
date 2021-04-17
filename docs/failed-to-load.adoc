@@ -96,7 +96,7 @@ Please refer to the official https://clojure.org/reference/deps_and_cli[tools.de
 ////
 When using `project.clj` to manage you dependencies you'll need to specify your configured `:lein` profiles from `shadow-cljs.edn` when using `lein` directly to diagnose the problem. For example `:lein {:profiles "+cljs"}` would require `lein with-profiles +cljs` for every command.
 ////
-project.clj` を使って依存関係を管理している場合、 `lein` を直接使って問題を診断するときには、 `shadow-cljs.edn` から設定した `:lein` プロファイルを指定する必要があります。例えば、 `:lein {:profiles "+cljs"}` とすると、すべてのコマンドに対して `lein with-profiles +cljs` が必要になります。
+`project.clj` を使って依存関係を管理している場合、 `lein` を直接使って問題を診断するときには、 `shadow-cljs.edn` から設定した `:lein` プロファイルを指定する必要があります。例えば、 `:lein {:profiles "+cljs"}` とすると、すべてのコマンドに対して `lein with-profiles +cljs` が必要になります。
 
 ////
 .Example listing of deps

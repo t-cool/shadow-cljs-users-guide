@@ -258,7 +258,7 @@ user=> (shadow/compile :foo)
 ////
 You can stop the embedded server by running `(shadow.cljs.devtools.server/stop!)`. This will also stop all running build processes.
 ////
-(shadow.cljs.devtools.server/stop!)` を実行することで、組み込みサーバを停止することができます。これにより、実行中のすべてのビルドプロセスも停止します。
+`(shadow.cljs.devtools.server/stop!)` を実行することで、組み込みサーバを停止することができます。これにより、実行中のすべてのビルドプロセスも停止します。
 
 ////
 IMPORTANT: If you want to switch to a CLJS REPL this may require additional setup in the tool you used to start the server in. Since `lein` will default to using nREPL it will require configuring additional nREPL `:middleware`. When using `clj` you are good to go since it doesn't use nREPL.

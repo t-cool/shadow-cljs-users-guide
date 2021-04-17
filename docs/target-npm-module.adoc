@@ -29,7 +29,7 @@ create-react-appなど）とシームレスに統合できます。
 ////
 If you use the default `:output-dir` of `"node_modules/shadow-cljs"` you can access the declared namespaces by using `require("shadow-cljs/demo.foo")` in JS. When using something not in `node_modules` you must include them using a relative path. With `:output-dir "out"` that would be `require("./out/demo.foo")` from your project root.
 ////
-デフォルトの `:output-dir` である `"node_modules/shadow-cljs"` を使用すると、JS で `require("shadow-cljs/demo.foo")` を使用して、宣言された名前空間にアクセスすることができます。node_modules` にないものを使用する場合は、相対パスを使ってインクルードする必要があります。:output-dir "out"` では、プロジェクトルートからの `require("./out/demo.foo")` となります。
+デフォルトの `:output-dir` である `"node_modules/shadow-cljs"` を使用すると、JS で `require("shadow-cljs/demo.foo")` を使用して、宣言された名前空間にアクセスすることができます。 `node_modules` にないものを使用する場合は、相対パスを使ってインクルードする必要があります。 `:output-dir "out"` では、プロジェクトルートからの `require("./out/demo.foo")` となります。
 
 
 ////
@@ -43,7 +43,7 @@ NPMでコードを配布する予定であれば、代わりに<<NodeLibrary, `:
 ////
 Unlike the `:node-library` target, the module target does not know what you want to call the symbols you're exporting, so it just exports them as-is. If you use advanced compilation, then everything will get a minified munged name!
 ////
-gnome-library` ターゲットとは異なり、module ターゲットはエクスポートするシンボルをどのように呼びたいかわからないので、そのままエクスポートします。高度なコンパイルを使用している場合は、すべてのシンボルにminified mungedの名前が付けられます。
+`gnome-library` ターゲットとは異なり、module ターゲットはエクスポートするシンボルをどのように呼びたいかわからないので、そのままエクスポートします。高度なコンパイルを使用している場合は、すべてのシンボルにminified mungedの名前が付けられます。
 
 ////
 This is easy to remedy, simply add `:export` metadata on any symbols that you want to preserve:
@@ -63,7 +63,7 @@ This is a standard annotation that is understood by ClojureScript and prevents G
 renaming an artifact. JS code will still be able to access them after optimizations. Without the `^:export` hint the closure-compiler will likely have removed or renamed them.
 ////
 これは、ClojureScript で理解される標準的なアノテーションで、Google Closureがアーティファクトの名前を変更するのを防ぎます。
-がアーティファクトの名前を変更するのを防ぎます。 JS コードは最適化後もそれらにアクセスすることができます。^:export` のヒントがなければ、クロージャコンパイラがそれらを削除したり、名前を変更したりするでしょう。
+がアーティファクトの名前を変更するのを防ぎます。 JS コードは最適化後もそれらにアクセスすることができます。 `^:export` のヒントがなければ、クロージャコンパイラがそれらを削除したり、名前を変更したりするでしょう。
 
 ```
 var ns = require("shadow-cljs/demo.foo");

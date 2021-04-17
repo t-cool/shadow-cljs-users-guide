@@ -39,7 +39,7 @@ First you'll need a REPL client. This could just be the CLI (eg. `shadow-cljs cl
 ////
 3) Transfer Out: Those instructions are transferred to a connected JavaScript runtime. This could be a Browser or a `node` process.
 ////
-3）Transfer Out : これらの命令は、接続された JavaScript ランタイムに転送されます。これはブラウザであったり、 ` ノード ` プロセスであったりします。
+3）Transfer Out : これらの命令は、接続された JavaScript ランタイムに転送されます。これはブラウザであったり、 `node` プロセスであったりします。
 
 ////
 4) Eval: The connected runtime will take the received instructions and `eval` them.

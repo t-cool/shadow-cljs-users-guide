@@ -91,7 +91,7 @@ shadow-cljsは、ファイルを扱う際に、Java Virtual Machine (JVM) とそ
 - Or a `.jar` file, representing Clojure(Script) or JVM libraries. These are compressed archives containing many files (basically just a `.zip` file). These are added by your `:dependencies`.
 ////
 - 設定の:source-pathsエントリで管理される、ローカルファイルシステムのディレクトリです。
-- あるいは、Clojure(Script)や JVM のライブラリを表す.jar` ファイルです。これらは、多くのファイルを含む圧縮アーカイブです(基本的には .zip ファイルです)。これらは:dependenciesによって追加されます。
+- あるいは、Clojure(Script)や JVM のライブラリを表す `.jar` ファイルです。これらは、多くのファイルを含む圧縮アーカイブです(基本的には .zip ファイルです)。これらは:dependenciesによって追加されます。
 
 ////
 In the Clojure(Script) everything is namespaced and each name is expected to resolve to a file. If you have a `(ns demo.app)` namespace the compiler expects to find a `demo/app.cljs` (or `.cljc`) on the classpath. The classpath will be searched in order until it is found. Suppose you configured the `:source-paths ["src/main" "src/test"]` the compiler will first look for a `src/main/demo/app.cljs` and then `src/test/demo/app.cljs`. When the file is not found on any source path the JVM will begin looking into the `.jar` files on the classpath. When it finds a `demo/app.cljs` at the root of any of the libraries that file it will be used.

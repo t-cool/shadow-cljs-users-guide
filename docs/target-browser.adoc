@@ -1,7 +1,7 @@
 ////
 The `:browser` target produces output intended to run in a Browser environment. During development it supports live code reloading, REPL, CSS reloading. The `release` output will be minified by the Closure Compiler with `:advanced` optimizations.
 ////
-ブラウザ ` ターゲットは、ブラウザ環境での実行を想定した出力を行います。開発時には、ライブコードリロード、REPL 、CSSリロードをサポートします。release` の出力は、Closure Compilerによって `:advanced` の最適化でミニマイズされます。
+:browser ターゲットは、ブラウザ環境での実行を想定した出力を行います。開発時には、ライブコードリロード、REPL 、CSSリロードをサポートします。 `release` の出力は、Closure Compilerによって `:advanced` の最適化でミニマイズされます。
 
 ////
 A basic browser configuration looks like this:
@@ -740,7 +740,7 @@ You can either configure this in your `shadow-cljs.edn` config for the project o
 ////
 The `:open-file-command` expects a vector representing a very simple DSL. Strings are kept as they are and keyword are replaced by their respective values. A nested vector can be used in case you need to combine multiple params, using `clojure.core/format` style pattern.
 ////
-open-file-command` では、非常にシンプルな DSL を表すベクターを想定しています。文字列はそのままで、キーワードはそれぞれの値で置き換えられます。 `clojure.core/format` スタイルのパターンを使用して、複数のパラメータを組み合わせる必要がある場合には、ネストしたベクターを使用することができます。
+`open-file-command` では、非常にシンプルな DSL を表すベクターを想定しています。文字列はそのままで、キーワードはそれぞれの値で置き換えられます。 `clojure.core/format` スタイルのパターンを使用して、複数のパラメータを組み合わせる必要がある場合には、ネストしたベクターを使用することができます。
 
 ////
 The above example would execute

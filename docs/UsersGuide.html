@@ -904,7 +904,7 @@ table.CodeRay td.code>pre{padding:0}
 <p>設定の:source-pathsエントリで管理される、ローカルファイルシステムのディレクトリです。</p>
 </li>
 <li>
-<p>あるいは、Clojure(Script)や JVM のライブラリを表す.jar` ファイルです。これらは、多くのファイルを含む圧縮アーカイブです(基本的には .zip ファイルです)。これらは:dependenciesによって追加されます。</p>
+<p>あるいは、Clojure(Script)や JVM のライブラリを表す <code>.jar</code> ファイルです。これらは、多くのファイルを含む圧縮アーカイブです(基本的には .zip ファイルです)。これらは:dependenciesによって追加されます。</p>
 </li>
 </ul>
 </div>
@@ -1712,7 +1712,7 @@ user=&gt; (shadow/compile :foo)
 </div>
 </div>
 <div class="paragraph">
-<p>(shadow.cljs.devtools.server/stop!)` を実行することで、組み込みサーバを停止することができます。これにより、実行中のすべてのビルドプロセスも停止します。</p>
+<p><code>(shadow.cljs.devtools.server/stop!)</code> を実行することで、組み込みサーバを停止することができます。これにより、実行中のすべてのビルドプロセスも停止します。</p>
 </div>
 <div class="admonitionblock important">
 <table>
@@ -2356,7 +2356,7 @@ localhost（または使用するホスト）のSAN（Subject Alternative Name�
 <div class="sect2">
 <h3 id="_ビルドターゲット"><a class="anchor" href="#_ビルドターゲット"></a><a class="link" href="#_ビルドターゲット">6.1. ビルドターゲット</a></h3>
 <div class="paragraph">
-<p><code>shadow-cljs</code> の各ビルドでは、コードをどこで実行するかを定義する <code>:target</code> を定義する必要があります。<a href="#target-browser">browser</a> と <a href="#target-node"><code>node.js</code></a> のデフォルトのビルドインがあります。これらはすべて、 <code>:dev</code> モードと <code>:release</code> モードを持つという基本的なコンセプトを共有しています。dev` モードでは、高速なコンパイル、ライブコードリロード、REPL など、通常の開発に必要な機能をすべて提供します。 <code>release</code> モードでは、プロダクション向けに最適化された出力が得られます。</p>
+<p><code>shadow-cljs</code> の各ビルドでは、コードをどこで実行するかを定義する <code>:target</code> を定義する必要があります。<a href="#target-browser">browser</a> と <a href="#target-node"><code>node.js</code></a> のデフォルトのビルドインがあります。これらはすべて、 <code>:dev</code> モードと <code>:release</code> モードを持つという基本的なコンセプトを共有しています。 <code>dev</code> モードでは、高速なコンパイル、ライブコードリロード、REPL など、通常の開発に必要な機能をすべて提供します。 <code>release</code> モードでは、プロダクション向けに最適化された出力が得られます。</p>
 </div>
 <div class="paragraph">
 <p>ターゲットについては別の章で説明しています。</p>
@@ -2414,7 +2414,7 @@ localhost（または使用するホスト）のSAN（Subject Alternative Name�
 <p><code>:repl-init-ns</code> では、REPL をどの名前空間で起動するかを設定することができます。デフォルトでは <code>cljs.user</code> となります。</p>
 </li>
 <li>
-<p>repl-pprint` では、REPL がevalの結果を print するときに、通常の <code>pr-str</code> の代わりに <code>cljs.pprint</code> を使用します。デフォルトは false です。</p>
+<p><code>repl-pprint</code> では、REPL がevalの結果を print するときに、通常の <code>pr-str</code> の代わりに <code>cljs.pprint</code> を使用します。デフォルトは false です。</p>
 </li>
 </ul>
 </div>
@@ -2714,7 +2714,7 @@ preloads オプションは、単に <code>:devtools</code>/<code>:preloads</cod
 <p><code>:compile-finish</code> - すべてのコンパイルが終了した後に呼び出されます。</p>
 </li>
 <li>
-<p>optimize-prepare` - Closure Compiler の最適化フェーズを実行する前に呼び出されます (<code>:release</code> のみ)</p>
+<p><code>optimize-prepare</code> - Closure Compiler の最適化フェーズを実行する前に呼び出されます (<code>:release</code> のみ)</p>
 </li>
 <li>
 <p><code>:optime-finish</code> - Closure が終了した後に呼び出されます (<code>:release</code> のみ)</p>
@@ -2909,7 +2909,7 @@ preloads オプションは、単に <code>:devtools</code>/<code>:preloads</cod
 <div class="ulist">
 <ul>
 <li>
-<p><code>:optimizations</code> は <code>:advanced</code>, <code>:simple</code>, <code>:whitespace</code> のいずれかをサポートしていますが、デフォルトは <code>:advanced</code> です。none` は開発時のデフォルトで、手動で設定することはできません。none` を指定した <code>release</code> は動作しません。</p>
+<p><code>:optimizations</code> は <code>:advanced</code>, <code>:simple</code>, <code>:whitespace</code> のいずれかをサポートしていますが、デフォルトは <code>:advanced</code> です。 <code>none</code> は開発時のデフォルトで、手動で設定することはできません。none` を指定した <code>release</code> は動作しません。</p>
 </li>
 <li>
 <p><code>:infer-externs</code> <code>:all</code>, <code>:auto</code>, <code>true</code> または <code>false</code>, デフォルトは <code>true</code> です。</p>
@@ -2924,7 +2924,7 @@ preloads オプションは、単に <code>:devtools</code>/<code>:preloads</cod
 <p><code>:ide-asserts</code> (Boolean) のデフォルトは、開発版では <code>false</code> 、 <code>release</code> ビルドでは <code>true</code> です。</p>
 </li>
 <li>
-<p><code>:pretty-print</code> と <code>:pseudo-names</code> はデフォルトで <code>false</code> になります。shadow-cljs release app --debug` を使用すると、設定に手を加えることなく、一時的に両方を有効にすることができます。これは <code>release</code> のビルドで問題が発生したときにとても便利です。</p>
+<p><code>:pretty-print</code> と <code>:pseudo-names</code> はデフォルトで <code>false</code> になります。 <code>shadow-cljs release app --debug</code> を使用すると、設定に手を加えることなく、一時的に両方を有効にすることができます。これは <code>release</code> のビルドで問題が発生したときにとても便利です。</p>
 </li>
 <li>
 <p><code>:source-map</code> (Boolean) 開発中のデフォルトは <code>true</code> で、 <code>release</code> では <code>false</code> です。</p>
@@ -3013,7 +3013,7 @@ preloads オプションは、単に <code>:devtools</code>/<code>:preloads</cod
 <div class="sect3">
 <h4 id="warnigs-as-errors"><a class="anchor" href="#warnigs-as-errors"></a><a class="link" href="#warnigs-as-errors">6.6.1. エラーとしてのワーニング</a></h4>
 <div class="paragraph">
-<p>ビルドを続行するのではなく、警告を表示してビルドを失敗させたい場合があります（例：CI環境など）。warnings-as-errors` コンパイラオプションを使って、その処理方法をカスタマイズすることができます。</p>
+<p>ビルドを続行するのではなく、警告を表示してビルドを失敗させたい場合があります（例：CI環境など）。 <code>warnings-as-errors</code> コンパイラオプションを使って、その処理方法をカスタマイズすることができます。</p>
 </div>
 <div class="listingblock">
 <div class="title">すべての警告をエラーとして扱う</div>
@@ -3136,7 +3136,7 @@ preloads オプションは、単に <code>:devtools</code>/<code>:preloads</cod
 <p><code>shadow-cljs</code> では、 <code>.cljc</code> ファイルに追加のリーダ機能を設定することができます。デフォルトでは、リーダの条件式を使用して、 <code>:clj</code>、 <code>:cljs</code>、または <code>:cljr</code> 用の個別のコードを生成することしかできません。しかし、多くの CLJS のビルドでは、 <code>:target</code> に基づいて、どのコードを生成するかを選択することも望ましいことです。</p>
 </div>
 <div class="paragraph">
-<p>例 一部の <code>npm</code> パッケージは <code>:browser</code> をターゲットにしたときにのみ動作しますが、 <code>:node-script</code> のビルドでも使用したい <code>ns</code> があるかもしれません。これは、React アプリでサーバサイドレンダリング(SSR)を使おうとしているときに頻繁に起こるかもしれません。codemirror` はそのようなパッケージの一つです。</p>
+<p>例 一部の <code>npm</code> パッケージは <code>:browser</code> をターゲットにしたときにのみ動作しますが、 <code>:node-script</code> のビルドでも使用したい <code>ns</code> があるかもしれません。これは、React アプリでサーバサイドレンダリング(SSR)を使おうとしているときに頻繁に起こるかもしれません。 <code>codemirror</code> はそのようなパッケージの一つです。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3371,7 +3371,7 @@ preloads オプションは、単に <code>:devtools</code>/<code>:preloads</cod
 <h2 id="target-browser"><a class="anchor" href="#target-browser"></a><a class="link" href="#target-browser">7. ブラウザを対象とする</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>ブラウザ ` ターゲットは、ブラウザ環境での実行を想定した出力を行います。開発時には、ライブコードリロード、REPL 、CSSリロードをサポートします。release` の出力は、Closure Compilerによって <code>:advanced</code> の最適化でミニマイズされます。</p>
+<p>:browser ターゲットは、ブラウザ環境での実行を想定した出力を行います。開発時には、ライブコードリロード、REPL 、CSSリロードをサポートします。 <code>release</code> の出力は、Closure Compilerによって <code>:advanced</code> の最適化でミニマイズされます。</p>
 </div>
 <div class="paragraph">
 <p>基本的なブラウザの設定は以下のようになります。</p>
@@ -3998,7 +3998,7 @@ HTMLに含めるのは少し複雑です。<a href="#BrowserManifest">Output Man
 </div>
 </div>
 <div class="paragraph">
-<p>open-file-command` では、非常にシンプルな DSL を表すベクターを想定しています。文字列はそのままで、キーワードはそれぞれの値で置き換えられます。 <code>clojure.core/format</code> スタイルのパターンを使用して、複数のパラメータを組み合わせる必要がある場合には、ネストしたベクターを使用することができます。</p>
+<p><code>open-file-command</code> では、非常にシンプルな DSL を表すベクターを想定しています。文字列はそのままで、キーワードはそれぞれの値で置き換えられます。 <code>clojure.core/format</code> スタイルのパターンを使用して、複数のパラメータを組み合わせる必要がある場合には、ネストしたベクターを使用することができます。</p>
 </div>
 <div class="paragraph">
 <p>上記の例では、以下のように実行されます。</p>
@@ -4206,7 +4206,7 @@ HTMLに含めるのは少し複雑です。<a href="#BrowserManifest">Output Man
 </div>
 </div>
 <div class="paragraph">
-<p>これをコンパイルすると、 <code>react-native</code> ツールのエントリーポイントとして使用される <code>app/index.js</code> ファイルが生成されます。開発中、 <code>:output-dir</code> にはさらに多くのファイルが格納されますが、生成された <code>app/index.js</code> を直接参照するだけにしてください。リリース ` のビルドでは、最適化された <code>app/index.js</code> が生成されるだけで、追加のファイルは必要ありません。</p>
+<p>これをコンパイルすると、 <code>react-native</code> ツールのエントリーポイントとして使用される <code>app/index.js</code> ファイルが生成されます。開発中、 <code>:output-dir</code> にはさらに多くのファイルが格納されますが、生成された <code>app/index.js</code> を直接参照するだけにしてください。 <code>release</code> のビルドでは、最適化された <code>app/index.js</code> が生成されるだけで、追加のファイルは必要ありません。</p>
 </div>
 <div class="sect2">
 <h3 id="_react_native"><a class="anchor" href="#_react_native"></a><a class="link" href="#_react_native">8.1. React Native</a></h3>
@@ -4268,7 +4268,7 @@ HTMLに含めるのは少し複雑です。<a href="#BrowserManifest">Output Man
 </div>
 </div>
 <div class="paragraph">
-<p><code>init</code> は起動時に一度だけ呼ばれます。この例では特別な設定をする必要がないので、単に <code>start</code> を直接呼び出します。 <code>start</code> は、コードの変更がリロードされた後に <code>watch</code> が実行されるたびに、繰り返し呼び出されます。 `reagent.core/as-element`関数は、reagent hiccupのマークアップから必要なReact Elementを生成するために使用することができます。</p>
+<p><code>init</code> は起動時に一度だけ呼ばれます。この例では特別な設定をする必要がないので、単に <code>start</code> を直接呼び出します。 <code>start</code> は、コードの変更がリロードされた後に <code>watch</code> が実行されるたびに、繰り返し呼び出されます。 <code>reagent.core/as-element</code> 関数は、reagent hiccupのマークアップから必要なReact Elementを生成するために使用することができます。</p>
 </div>
 </div>
 </div>
@@ -4670,7 +4670,7 @@ create-react-appなど）とシームレスに統合できます。</p>
 </div>
 </div>
 <div class="paragraph">
-<p>デフォルトの <code>:output-dir</code> である <code>"node_modules/shadow-cljs"</code> を使用すると、JS で <code>require("shadow-cljs/demo.foo")</code> を使用して、宣言された名前空間にアクセスすることができます。node_modules` にないものを使用する場合は、相対パスを使ってインクルードする必要があります。:output-dir "out"` では、プロジェクトルートからの <code>require("./out/demo.foo")</code> となります。</p>
+<p>デフォルトの <code>:output-dir</code> である <code>"node_modules/shadow-cljs"</code> を使用すると、JS で <code>require("shadow-cljs/demo.foo")</code> を使用して、宣言された名前空間にアクセスすることができます。 <code>node_modules</code> にないものを使用する場合は、相対パスを使ってインクルードする必要があります。 <code>:output-dir "out"</code> では、プロジェクトルートからの <code>require("./out/demo.foo")</code> となります。</p>
 </div>
 <div class="paragraph">
 <p>NPMでコードを配布する予定であれば、代わりに<a href="#NodeLibrary"><code>:node-library</code> target</a>を使用した方が、エクスポートや最適化をより細かく制御できるので良いでしょう。</p>
@@ -4678,7 +4678,7 @@ create-react-appなど）とシームレスに統合できます。</p>
 <div class="sect2">
 <h3 id="_最適化の作業"><a class="anchor" href="#_最適化の作業"></a><a class="link" href="#_最適化の作業">11.1. 最適化の作業</a></h3>
 <div class="paragraph">
-<p>gnome-library` ターゲットとは異なり、module ターゲットはエクスポートするシンボルをどのように呼びたいかわからないので、そのままエクスポートします。高度なコンパイルを使用している場合は、すべてのシンボルにminified mungedの名前が付けられます。</p>
+<p><code>gnome-library</code> ターゲットとは異なり、module ターゲットはエクスポートするシンボルをどのように呼びたいかわからないので、そのままエクスポートします。高度なコンパイルを使用している場合は、すべてのシンボルにminified mungedの名前が付けられます。</p>
 </div>
 <div class="paragraph">
 <p>保存したいシンボルに <code>:export</code> メタデータを追加するだけで、簡単に解決できます。</p>
@@ -4694,7 +4694,7 @@ create-react-appなど）とシームレスに統合できます。</p>
 </div>
 <div class="paragraph">
 <p>これは、ClojureScript で理解される標準的なアノテーションで、Google Closureがアーティファクトの名前を変更するのを防ぎます。
-がアーティファクトの名前を変更するのを防ぎます。 JS コードは最適化後もそれらにアクセスすることができます。^:export` のヒントがなければ、クロージャコンパイラがそれらを削除したり、名前を変更したりするでしょう。</p>
+がアーティファクトの名前を変更するのを防ぎます。 JS コードは最適化後もそれらにアクセスすることができます。 <code>^:export</code> のヒントがなければ、クロージャコンパイラがそれらを削除したり、名前を変更したりするでしょう。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -5842,7 +5842,7 @@ cljs.array_map(<span class="keyword">keyword</span>(<span class="string"><span c
 </div>
 </div>
 <div class="paragraph">
-<p><code>auto</code> では、コンパイラはコンパイル時にあなたのファイルだけを対象に追加のチェックを行います。また、ライブラリコードに含まれる externs の問題については警告しません。all` では、すべてのファイルに対して有効になりますが、多くの警告を受ける可能性があることに注意してください。</p>
+<p><code>auto</code> では、コンパイラはコンパイル時にあなたのファイルだけを対象に追加のチェックを行います。また、ライブラリコードに含まれる externs の問題については警告しません。 <code>all</code> では、すべてのファイルに対して有効になりますが、多くの警告を受ける可能性があることに注意してください。</p>
 </div>
 <div class="paragraph">
 <p>有効にすると、コンパイラが JS とCLJS のどちらのコードを使用しているかを判断できない場合に警告が表示されます。</p>
@@ -6319,7 +6319,7 @@ cljs.repl&gt;</code></pre>
 <div class="ulist">
 <ul>
 <li>
-<p>ファイルの評価を行います。ctrl+alt+c enter` (ファイルを開くときに自動的に行われます。)</p>
+<p>ファイルの評価を行います。 <code>ctrl+alt+c enter</code> (ファイルを開くときに自動的に行われます。)</p>
 </li>
 <li>
 <p>インラインで評価する: <code>ctrl+alt+c e</code>.</p>
@@ -6548,7 +6548,7 @@ Press ENTER <span class="keyword">or</span> <span class="keyword">type</span> co
 <div class="sect3">
 <h4 id="_project_clj_leiningen"><a class="anchor" href="#_project_clj_leiningen"></a><a class="link" href="#_project_clj_leiningen">16.1.2. project.clj / Leiningen</a></h4>
 <div class="paragraph">
-<p>project.clj` を使って依存関係を管理している場合、 <code>lein</code> を直接使って問題を診断するときには、 <code>shadow-cljs.edn</code> から設定した <code>:lein</code> プロファイルを指定する必要があります。例えば、 <code>:lein {:profiles "+cljs"}</code> とすると、すべてのコマンドに対して <code>lein with-profiles +cljs</code> が必要になります。</p>
+<p><code>project.clj</code> を使って依存関係を管理している場合、 <code>lein</code> を直接使って問題を診断するときには、 <code>shadow-cljs.edn</code> から設定した <code>:lein</code> プロファイルを指定する必要があります。例えば、 <code>:lein {:profiles "+cljs"}</code> とすると、すべてのコマンドに対して <code>lein with-profiles +cljs</code> が必要になります。</p>
 </div>
 <div class="listingblock">
 <div class="title">Example deps のリスト</div>
@@ -6596,7 +6596,7 @@ $ lein with-profiles +cljs deps <span class="symbol">:tree</span></code></pre>
 <p>2）Compile : そのフォームは、 <code>shadow-cljs</code> JVM側でコンパイルされ、一連の命令に変換されます。</p>
 </div>
 <div class="paragraph">
-<p>3）Transfer Out : これらの命令は、接続された JavaScript ランタイムに転送されます。これはブラウザであったり、 ` ノード ` プロセスであったりします。</p>
+<p>3）Transfer Out : これらの命令は、接続された JavaScript ランタイムに転送されます。これはブラウザであったり、 <code>node</code> プロセスであったりします。</p>
 </div>
 <div class="paragraph">
 <p>4) 評価 : 接続されたランタイムは、受け取った命令を <code>eval</code> します。</p>
@@ -6723,7 +6723,7 @@ $ lein with-profiles +cljs deps <span class="symbol">:tree</span></code></pre>
 <div class="sect3">
 <h4 id="_jar_署名の無効化"><a class="anchor" href="#_jar_署名の無効化"></a><a class="link" href="#_jar_署名の無効化">17.1.1. JAR 署名の無効化</a></h4>
 <div class="paragraph">
-<p>Leiningenはライブラリを公開する前に GPG で署名することをデフォルトとしています。これは良いデフォルトですが、設定が面倒であったり、実際に署名を検証する人があまりいないことを考えると、 <code>project.clj</code> にシンプルな `:repositories`設定を追加することで、このステップを無効にすることができます。</p>
+<p>Leiningenはライブラリを公開する前に GPG で署名することをデフォルトとしています。これは良いデフォルトですが、設定が面倒であったり、実際に署名を検証する人があまりいないことを考えると、 <code>project.clj</code> にシンプルな <code>:repositories</code> 設定を追加することで、このステップを無効にすることができます。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -6742,7 +6742,7 @@ $ lein with-profiles +cljs deps <span class="symbol">:tree</span></code></pre>
 <p>ライブラリのテストやその他の開発関連のコードを書く場合は、ライブラリと一緒に公開しないように、必ず <code>src/dev</code> や <code>src/test</code> に置いてください。</p>
 </div>
 <div class="paragraph">
-<p>また、 <code>resources/*</code> に出力することも避けてください。Leiningen や他のツールが <code>.jar</code> にそれらのファイルを含める可能性があり、下流のユーザーに問題を引き起こす可能性があります。.jar` には実際のソースファイルのみを入れ、コンパイルされたコードは一切入れないようにしてください。</p>
+<p>また、 <code>resources/*</code> に出力することも避けてください。Leiningen や他のツールが <code>.jar</code> にそれらのファイルを含める可能性があり、下流のユーザーに問題を引き起こす可能性があります。 <code>.jar</code> には実際のソースファイルのみを入れ、コンパイルされたコードは一切入れないようにしてください。</p>
 </div>
 <div class="admonitionblock important">
 <table>

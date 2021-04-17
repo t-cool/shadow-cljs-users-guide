@@ -304,7 +304,7 @@ Some of the things you can now do:
 - Pretty print evaluation resuls: `ctrl+alt+c p`
 - Send forms to the integrated terminal repls for evaluation: `ctrl+alt+c alt+e`
 ////
-- ファイルの評価を行います。ctrl+alt+c enter` (ファイルを開くときに自動的に行われます。)
+- ファイルの評価を行います。 `ctrl+alt+c enter` (ファイルを開くときに自動的に行われます。)
 - インラインで評価する: `ctrl+alt+c e`.
 - エディタ内で評価して置換する: `ctrl+alt+c r`.
 - 評価結果をプリティプリントする: `ctrl+alt+c p`.

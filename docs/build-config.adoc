@@ -31,7 +31,7 @@ Each build describes artifacts that the compiler will build. The build target is
 ////
 Each build in `shadow-cljs` must define a `:target` which defines where you intend your code to be executed. There are default built-ins for the <<target-browser,browser>> and <<target-node,`node.js`>>. They all share the basic concept of having `:dev` and `:release` modes. `:dev` mode provides all the usual development goodies like fast compilation, live code reloading and a REPL. `:release` mode will produce optimized output intended for production.
 ////
-`shadow-cljs` の各ビルドでは、コードをどこで実行するかを定義する `:target` を定義する必要があります。<<target-browser,browser>> と <<target-node,`node.js`>> のデフォルトのビルドインがあります。これらはすべて、 `:dev` モードと `:release` モードを持つという基本的なコンセプトを共有しています。dev` モードでは、高速なコンパイル、ライブコードリロード、REPL など、通常の開発に必要な機能をすべて提供します。 `release` モードでは、プロダクション向けに最適化された出力が得られます。
+`shadow-cljs` の各ビルドでは、コードをどこで実行するかを定義する `:target` を定義する必要があります。<<target-browser,browser>> と <<target-node,`node.js`>> のデフォルトのビルドインがあります。これらはすべて、 `:dev` モードと `:release` モードを持つという基本的なコンセプトを共有しています。 `dev` モードでは、高速なコンパイル、ライブコードリロード、REPL など、通常の開発に必要な機能をすべて提供します。 `release` モードでは、プロダクション向けに最適化された出力が得られます。
 
 ////
 Targets are covered in separate chapters.
@@ -91,7 +91,7 @@ When running `watch` code for the REPL is injected automatically and usually doe
 - `:repl-pprint` makes the REPL use `cljs.pprint` instead of the regular `pr-str` when printing eval results. Defaults to false.
 ////
 - `:repl-init-ns` では、REPL をどの名前空間で起動するかを設定することができます。デフォルトでは `cljs.user` となります。
-- repl-pprint` では、REPL がevalの結果を print するときに、通常の `pr-str` の代わりに `cljs.pprint` を使用します。デフォルトは false です。
+- `repl-pprint` では、REPL がevalの結果を print するときに、通常の `pr-str` の代わりに `cljs.pprint` を使用します。デフォルトは false です。
 
 ```
 {...
@@ -416,7 +416,7 @@ The possible stages the `:build-hooks` can use are:
 - `:configure` - 初期の `:target` 特定のコンフィギュレーション
 - `:compile-prepare` - コンパイルが行われる前に呼び出されます。
 - `:compile-finish` - すべてのコンパイルが終了した後に呼び出されます。
-- optimize-prepare` - Closure Compiler の最適化フェーズを実行する前に呼び出されます (`:release` のみ)
+- `optimize-prepare` - Closure Compiler の最適化フェーズを実行する前に呼び出されます (`:release` のみ)
 - `:optime-finish` - Closure が終了した後に呼び出されます (`:release` のみ)
 - `:flush` - すべてがディスクにフラッシュされた後に呼び出されます。
 
@@ -661,12 +661,12 @@ Currently supported options include
 - `:rename-prefix` and `:rename-prefix-namespace`
 - `:warnings` as a map of `{warning-type true|false}`, eg. `:warnings {:undeclared-var false}` to turn off specific warnings.
 ////
-- `:optimizations` は `:advanced`, `:simple`, `:whitespace` のいずれかをサポートしていますが、デフォルトは `:advanced` です。none` は開発時のデフォルトで、手動で設定することはできません。none` を指定した `release` は動作しません。
+- `:optimizations` は `:advanced`, `:simple`, `:whitespace` のいずれかをサポートしていますが、デフォルトは `:advanced` です。 `none` は開発時のデフォルトで、手動で設定することはできません。none` を指定した `release` は動作しません。
 - `:infer-externs` `:all`, `:auto`, `true` または `false`, デフォルトは `true` です。
 - `:static-fns` (ブール値) デフォルトでは `true` です。
 - `:fn-invoke-direct` (Boolean) デフォルトは `false` です。
 - `:ide-asserts` (Boolean) のデフォルトは、開発版では `false` 、 `release` ビルドでは `true` です。
-- `:pretty-print` と `:pseudo-names` はデフォルトで `false` になります。shadow-cljs release app --debug` を使用すると、設定に手を加えることなく、一時的に両方を有効にすることができます。これは `release` のビルドで問題が発生したときにとても便利です。
+- `:pretty-print` と `:pseudo-names` はデフォルトで `false` になります。 `shadow-cljs release app --debug` を使用すると、設定に手を加えることなく、一時的に両方を有効にすることができます。これは `release` のビルドで問題が発生したときにとても便利です。
 - `:source-map` (Boolean) 開発中のデフォルトは `true` で、 `release` では `false` です。
 - `:source-map-include-sources-content` (Boolean) デフォルトは `true` で、ソースマップが `.map` ファイルに直接ソースを含めるかどうかを決定します。
 - `:source-map-detail-level` `:all` または `:symbols` (`:symbols` は全体のサイズを少し小さくしますが、精度も少し低くなります)
@@ -728,7 +728,7 @@ Options that don't have any effect at all include
 ////
 It is sometimes desireable to fail a build with warnings rather than continuing with the build (eg. in CI envs). You can use the `:warnings-as-errors` compiler options to customize how that is handled.
 ////
-ビルドを続行するのではなく、警告を表示してビルドを失敗させたい場合があります（例：CI環境など）。warnings-as-errors` コンパイラオプションを使って、その処理方法をカスタマイズすることができます。
+ビルドを続行するのではなく、警告を表示してビルドを失敗させたい場合があります（例：CI環境など）。 `warnings-as-errors` コンパイラオプションを使って、その処理方法をカスタマイズすることができます。
 
 ////
 .Treat all warnings as errors
@@ -860,7 +860,7 @@ CAUTION: この機能は `shadow-cljs` でのみ動作します。これは Cloj
 ////
 Example: Some `npm` packages only work when targeting the `:browser`, but you may have a `ns` that you also want to use in a `:node-script` build. This might happen frequently when trying to use Server-Side Rendering (SSR) with your React App. `codemirror` is one such package.
 ////
-例 一部の `npm` パッケージは `:browser` をターゲットにしたときにのみ動作しますが、 `:node-script` のビルドでも使用したい `ns` があるかもしれません。これは、React アプリでサーバサイドレンダリング(SSR)を使おうとしているときに頻繁に起こるかもしれません。codemirror` はそのようなパッケージの一つです。
+例 一部の `npm` パッケージは `:browser` をターゲットにしたときにのみ動作しますが、 `:node-script` のビルドでも使用したい `ns` があるかもしれません。これは、React アプリでサーバサイドレンダリング(SSR)を使おうとしているときに頻繁に起こるかもしれません。 `codemirror` はそのようなパッケージの一つです。
 
 ```clojure
 (ns my.awesome.component
