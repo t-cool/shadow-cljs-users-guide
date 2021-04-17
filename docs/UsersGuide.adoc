@@ -156,7 +156,7 @@ You will need:
 ////
 - https://nodejs.org[`node.js`] (v6.0.0+, 最新のバージョンが望ましいです)
 - https://www.npmjs.com[`npm`] or https://www.yarnpkg.com[`yarn`]
-- 任意の Java SDK (バージョン 8 以上) http://openjdk.java.net/install/[OpenJDK] or http://www.oracle.com/technetwork/java/javase/downloads/index.html[Oracle]
+- 任意の Java SDK (バージョン 8 以上) http://openjdk.java.net/install/[OpenJDK] もしくは http://www.oracle.com/technetwork/java/javase/downloads/index.html[Oracle]
 
 
 ////
