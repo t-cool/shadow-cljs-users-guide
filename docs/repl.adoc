@@ -30,7 +30,7 @@ This starts a blank CLJS REPL with an already connected `node` process.
 ////
 IMPORTANT: If you exit the Node REPL the `node` process is also killed!
 ////
-IMPORTANT: Node REPL を終了すると、 `node` プロセスもキルされます。
+IMPORTANT: Node REPL を終了すると、 `node` プロセスも kill されます。
 
 ////
 `node-repl` lets you get started without any additional configuration. It has access to all your code via the usual means, ie. `(require '[your.core :as x])`. Since it is not connected to any build it does not do any automatic rebuilding of code when your files change and does not provide hot-reload.
