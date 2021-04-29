@@ -412,8 +412,8 @@ JS の依存関係の欠落に関連するエラーに遭遇するかもしれ�
 
 ```text
 The required JS dependency "react" is not available, it was required by ...
-```
 (必要な JS の依存関係である "react "が利用できません。これは、 ... によって必要とされていました。)
+```
 
 ////
 This means that you should `npm install react`.
