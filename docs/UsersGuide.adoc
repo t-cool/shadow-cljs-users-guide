@@ -603,7 +603,7 @@ When you use `shadow-cljs` embedded in other tools that provide their own nREPL 
 (defproject my-amazing-project "1.0.0"
   ...
   :repl-options
-  {:init-ns shadow.user ;; or any of your choosing
+  {:init-ns shadow.user ;; または、あなたが選んだもの
    :nrepl-middleware
    [shadow.cljs.devtools.server.nrepl/middleware]}
   ...)
