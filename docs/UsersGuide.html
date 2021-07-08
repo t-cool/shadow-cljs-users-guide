@@ -3425,26 +3425,21 @@ localhost（または使用するホスト）の SAN（Subject Alternative Name�
 <td class="content">
 各ビルドにはそれぞれ :output-dir が必要で、複数のビルドを同じディレクトリに置くことはできません。
 また、このディレクトリは、そのビルドが独占的に所有するものでなければなりません。そこには他のファイルがあってはいけません。
-<code>shadow-cljs</code> は何も削除しませんが、そのままにしておいた方が安全です。コンパイル
-は、開発中にメインのエントリーポイントとなる javascript ファイル以外にも、ソースマップ、オリジナルソース、生成ソースなど、多くのファイルを作成します。
+<code>shadow-cljs</code> は何も削除しませんが、そのままにしておいた方が安全です。
+コンパイルでは、ソースマップ、オリジナルソース、生成ソースなど、開発中のメインエントリーポイントの javascript ファイル以外にも多くのファイルが作成されます。
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p><code>:asset-path</code> は、モジュールの読み込みコードのパスに追加されるプレフィックスで、生成された javascript の中に含まれます。
-プレフィックスです。これにより、ウェブサーバのルートの特定のサブディレクトリに javascript モジュールを出力することができます。
-に出力することができます。開発時の動的な読み込み（ホットコードリロード）や生産時の動的な読み込み（コード分割）には、このプレフィックスが必要です。
-コード分割）は、ファイルを正しく配置するためにこれを必要とします。</p>
+<p><code>:asset-path</code> は、生成された javascript の中のモジュール読み込みコードのパスに追加されるプレフィックスです。これにより、javascript モジュールを Web サーバーのルートの特定のサブディレクトリに出力することができます。動的な読み込み（開発時のホットコードリロードや運用時のコード分​​割）では、ファイルを正しく配置するためにこれが必要です。</p>
 </div>
 <div class="paragraph">
-<p>このように生成したファイルをディレクトリとアセットパスに配置することで、他のアセット
-画像や CSS など）が同じサーバ上で偶然にも衝突することなく共存できるようになります。</p>
+<p>このように、生成したファイルをディレクトリやアセットパスに配置することで、他のアセット（画像やCSSなど）が同じサーバー上で不用意に衝突することなく共存できるようになります。</p>
 </div>
 <div class="paragraph">
-<p>例えば、 <code>/x</code> という URI を求められたときに、Web サーバが <code>public/x</code> というフォルダを提供する場合。
-そして、モジュールの <code>output-dir</code> が <code>public/assets/app/js</code> であれば、アセットパスは <code>/assets/app/js</code> となります。
-アセットパスの絶対値を使用する必要はありませんが、強く推奨します。</p>
+<p>例えば、<code>/x</code> というURIを求められたときに、Webサーバーが <code>public/x</code> というフォルダを提供し、モジュールの <code>output-dir</code> が <code>public/assets/app/js</code> である場合、アセットパスは <code>/assets/app/js</code> となります。
+アセットパスの絶対指定は必須ではありませんが、強く推奨します。</p>
 </div>
 </div>
 <div class="sect2">
@@ -3465,8 +3460,8 @@ localhost（または使用するホスト）の SAN（Subject Alternative Name�
 </table>
 </div>
 <div class="paragraph">
-<p>コンフィグの <code>:modules</code> セクションは、常にモジュール ID をキーとしたマップです。モジュール ID は、Javascript のファイル名の生成にも使われます。
-Javascript のファイル名を生成するためにも使用されます。モジュール <code>:main</code> は <code>:output-dir</code> に <code>main.js</code> を生成します。</p>
+<p>コンフィグの <code>:modules</code> セクションは、常にモジュール ID をキーとしたマップです。モジュールIDは、Javascript のファイル名を生成する際にも使用されます。
+モジュール <code>:main</code> は <code>:output-dir</code> に <code>main.js</code> を生成します。</p>
 </div>
 <div class="paragraph">
 <p>1つのモジュールで利用できるオプションは以下の通りです。</p>
@@ -3532,7 +3527,7 @@ Javascript のファイル名を生成するためにも使用されます。モ
 </table>
 </div>
 <div class="paragraph">
-<p>以下の例では、最小のモジュール構成を示しています。</p>
+<p>以下の例では、最小のモジュール構成を示しています:</p>
 </div>
 <div class="listingblock">
 <div class="title">Example :browser config</div>
@@ -3954,13 +3949,10 @@ HTML に含めるのは少し複雑です。<a href="#BrowserManifest">Output Ma
 </div>
 </div>
 <div class="paragraph">
-<p>マニフェストには、すべての <code>:module</code> を依存関係のある順に並べたものが含まれています。これを使って、 <code>:module-id</code> を実際に生成されたファイル名にマッピングすることができます。
-実際に生成されたファイル名に戻すために使用できます。</p>
+<p>マニフェストには、すべての <code>:module</code> が依存関係のある順に並べられています。これを使って、<code>:module-id</code> を実際に生成されたファイル名にマッピングすることができます。</p>
 </div>
 <div class="paragraph">
-<p>開発用のビルドでもこのファイルが作成されるので、新しいビルドが完了したことを知るために、修正のためにチェックすることができます。
-新しいビルドが完了したかどうかを確認することができます。開発中は <code>:module-hash-names</code> が適用されないので、通常のファイル名が表示されます。
-ファイル名が表示されます。</p>
+<p>開発用のビルドでもこのファイルが生成されますので、新しいビルドが完了したときに修正のためにチェックすることができます。開発中は <code>:module-hash-names</code> が適用されないので、通常のファイル名が表示されます。</p>
 </div>
 <div class="paragraph">
 <p>生成されるマニフェストファイルの名前は、 <code>:build-options :manifest-name</code> エントリで設定できます。デフォルトでは <code>manifest.edn</code> となります。ファイル名の最後に <code>.json</code> を設定すると、EDN ではなく JSON が出力されます。ファイルは構成された <code>:output-dir</code> からの相対パスになります。</p>
@@ -3983,13 +3975,12 @@ HTML に含めるのは少し複雑です。<a href="#BrowserManifest">Output Ma
 <div class="sect2">
 <h3 id="_開発サポート"><a class="anchor" href="#_開発サポート"></a><a class="link" href="#_開発サポート">7.8. 開発サポート</a></h3>
 <div class="paragraph">
-<p>ブラウザーのコンフィギュレーションの <code>:devtools</code> セクションでは、いくつかの追加オプションをサポートしています。
-ビルドや CSS のリロードのために、オプションで dev-time HTTP サーバを設定するための、いくつかの追加オプションをサポートしています。</p>
+<p><code>:browser</code> の設定の <code>:devtools</code> セクションでは、ビルドやCSSのリロードのために、オプションで dev-time HTTP サーバーを設定するために、いくつかの追加オプションをサポートしています。</p>
 </div>
 <div class="sect3">
 <h4 id="hud"><a class="anchor" href="#hud"></a><a class="link" href="#hud">7.8.1. ヘッドアップディスプレイ（HUD）</a></h4>
 <div class="paragraph">
-<p>:browser ターゲットは、HUD を使って、ビルドが開始されたときにローディング・インジケータを表示するようになりました。また、警告やエラーが発生した場合にも表示されます。</p>
+<p><code>:browser</code> ターゲットは、HUD を使って、ビルドが開始されたときにローディング・インジケータを表示するようになりました。また、警告やエラーが発生した場合にも表示されます。</p>
 </div>
 <div class="paragraph">
 <p><code>devtools</code> セクションで <code>:hud false</code> を設定することで、完全に無効にすることができます。</p>
@@ -4096,8 +4087,7 @@ HTML に含めるのは少し複雑です。<a href="#BrowserManifest">Output Ma
 を別途実行する必要があります。ただ、出力が正しい場所に生成されることを確認してください。</p>
 </div>
 <div class="paragraph">
-<p>組み込みの HTTP サーバを使用していない場合は、代わりに <code>:watch-dir</code> を指定することができます。
-ドキュメントルートへのパスです。</p>
+<p>組み込みのHTTPサーバーを使用しない場合は、代わりに <code>:watch-dir</code> を指定することができ、コンテンツの配信に使用されるドキュメントルートへのパスを指定します。</p>
 </div>
 <div class="listingblock">
 <div class="title">Example :watch-dir の設定</div>
