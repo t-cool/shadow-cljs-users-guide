@@ -422,7 +422,7 @@ IMPORTANT: Note that the created variable isn't actually useful directly. It wil
 IMPORTANT: 作成された変数は、実際には直接使えないことに注意してください。作成された変数は、実際には使い物になりませんが、多くのプロパティを含んでいます。エクスポートされた（例: `^:export` ）変数はすべてグローバルスコープにエクスポートされ、この設定の影響を受けません。この設定は、グローバル変数の作成量を制限するためだけのもので、それ以外には何もありません。直接使用しないでください。
 
 
-== ウェブ・ワーカー
+== Web Worker 
 //Web Workers
 
 ////
@@ -435,7 +435,7 @@ You may declare any module as a Web Worker by setting `:web-worker true`. The ge
 ////
 .An example of generating a web worker script
 ////
-.ウェブ・ワーカースクリプトの生成の一例
+.Web Worker スクリプトの生成の一例
 
 ```
 {...
