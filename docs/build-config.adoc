@@ -36,12 +36,12 @@ Each build in `shadow-cljs` must define a `:target` which defines where you inte
 ////
 Targets are covered in separate chapters.
 ////
-ターゲットについては別の章で説明しています。
+ターゲットについては別の章で説明します。
 
 ////
 Here are some of them:
 ////
-一部をご紹介します。
+ここでは一部をご紹介します。
 
 ////
 [Horizontal]
@@ -67,8 +67,7 @@ Here are some of them:
 Each target is covered in more detail in its own chapter since the remaining build options vary on
 the target you select.
 ////
-各ターゲットについては、それぞれの章で詳しく説明します。
-ターゲットを選択すると、残りのビルドオプションが変わるからです。
+ターゲットを選択すると残りのビルドオプションが変わるため、ターゲットについては各々の章で詳しく説明します。
 
 == 開発オプション [[devtools]]
 
@@ -77,7 +76,7 @@ the target you select.
 ////
 Each build `:target` typically provides some development support. They are grouped under the `:devtools` key for each `:build`.
 ////
-各ビルド `:target` は通常、いくつかの開発サポートを提供します。それらは、各 `:build` の `:devtools` キーの下にまとめられています。
+通常、各ビルド `:target` は複数の開発サポートを提供します。それらは各 `:build` の `:devtools` キーの下にまとめられています。
 
 === REPL
 
