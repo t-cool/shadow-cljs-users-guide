@@ -1371,7 +1371,7 @@ $ shadow-cljs restart</code></pre>
 <div class="sect3">
 <h4 id="_boot"><a class="anchor" href="#_boot"></a><a class="link" href="#_boot">3.2.3. Boot</a></h4>
 <div class="paragraph">
-<p>著者は Boot の経験がほとんどないため、この章は貢献を必要としています。私たちは Boot では、関数からツールチェーンを構築できることを理解しています。 shadow-cljs は普通の JVM ライブラリなので、その中の関数を呼び出してタスクを起動することができます。</p>
+<p>著者は Boot の経験がほとんどないため、この章は貢献を必要としています。私たちは Boot では、関数からツールチェーンを構築できることを理解しています。shadow-cljs は普通の JVM ライブラリなので、その中の関数を呼び出してタスクを起動することができます。</p>
 </div>
 <div class="paragraph">
 <p>いくつかの Boot タスクは以下のリンクで入手できます。</p>
@@ -3386,7 +3386,7 @@ localhost（または使用するホスト）の SAN（Subject Alternative Name�
 <h2 id="target-browser"><a class="anchor" href="#target-browser"></a><a class="link" href="#target-browser">7. ブラウザを対象とする</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>:browser ターゲットは、ブラウザ環境での実行を想定した出力を行います。開発時には、ライブコードリロード、REPL 、CSS リロードをサポートします。 <code>release</code> の出力は、Closure Compiler によって <code>:advanced</code> の最適化でミニマイズされます。</p>
+<p><code>:browser</code> ターゲットは、ブラウザ環境での実行を想定した出力を行います。開発時には、ライブコードリロード、REPL 、CSS リロードをサポートします。 <code>release</code> の出力は、Closure Compiler によって <code>:advanced</code> の最適化でミニマイズされます。</p>
 </div>
 <div class="paragraph">
 <p>基本的なブラウザの設定は以下のようになります。</p>
@@ -3552,8 +3552,7 @@ localhost（または使用するホスト）の SAN（Subject Alternative Name�
 </div>
 </div>
 <div class="paragraph">
-<p><code>shadow-cljs</code> は、 <code>:entries</code> にあるコードエントリポイントのルートセットから依存関係グラフをたどります。
-にあるコードエントリポイントのルートセットから依存関係グラフをたどり、実際にコンパイルして出力に含めるために必要なものをすべて見つけます。必要とされない名前空間は含まれません。</p>
+<p><code>shadow-cljs</code> は、<code>:entries</code> にあるコードエントリポイントのルートセットから依存関係グラフをたどり、実際にコンパイルして出力に含めるために必要なものをすべて見つけます。必要とされない名前空間は含まれません。</p>
 </div>
 <div class="paragraph">
 <p>上記の設定では、 <code>public/js/main.js</code> というファイルが作成されます。開発段階では、多くのファイルが格納された <code>public/js/cljs-runtime</code> ディレクトリが追加されます。このディレクトリは <code>release</code> のビルドでは必要ありません。</p>
@@ -4174,8 +4173,7 @@ HTML に含めるのは少し複雑です。<a href="#BrowserManifest">Output Ma
 <p><code>:target :react-native</code> は、デフォルトの <code>react-native</code> ツール (例: <code>metro</code> ) に統合することを意図したコードを生成します。これらのツールをラップした <code>expo</code> のようなツールは自動的に動作し、追加の設定は必要ありません。</p>
 </div>
 <div class="paragraph">
-<p>他のターゲット（<code>:source-paths</code> など）と同じ基本的な <a href="#config">main configuration</a> が必要です。
-<code>:source-paths</code>), ビルド固有の設定は非常に少なく、少なくとも 2 つのオプションが必要です (<code>:target</code> 自体の他に)。</p>
+<p>他のターゲット（<code>:source-paths`など）と同じ基本的な <a href="#config">main configuration</a> が必要になります。ビルド専用の設定は非常に少なく、（</code>:target` 自体の他に）少なくとも2つのオプションが必要です。</p>
 </div>
 <div class="hdlist">
 <table>
@@ -4282,10 +4280,7 @@ HTML に含めるのは少し複雑です。<a href="#BrowserManifest">Output Ma
 <h2 id="target-node"><a class="anchor" href="#target-node"></a><a class="link" href="#target-node">9. Node.js を対象とする</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>スタンドアロンのスクリプトとして使用するためのコードや、ライブラリとして使用するためのコードを生成する機能が組み込まれています。
-スクリプトとして使用するためのコードや、ライブラリとして使用するためのコードの生成がサポートされています。コード生成に必要な基本設定については
-設定ファイルに必要な基本的な設定については、<a href="#config">共通設定</a>のセクションを参照してください。
-設定ファイルに必要な基本的な設定については</p>
+<p>独立したスクリプトとして使用することを目的としたコードや、ライブラリとして使用することを目的としたコードの生成をサポートしています。設定ファイルに必要な基本的な設定については、<a href="#config">common configuration</a> の項を参照してください。</p>
 </div>
 <div class="sect2">
 <h3 id="target-node-script"><a class="anchor" href="#target-node-script"></a><a class="link" href="#target-node-script">9.1. Node.js のスクリプト</a></h3>
@@ -4304,8 +4299,7 @@ HTML に含めるのは少し複雑です。<a href="#BrowserManifest">Output Ma
 <div class="sect3">
 <h4 id="_ビルドオプション"><a class="anchor" href="#_ビルドオプション"></a><a class="link" href="#_ビルドオプション">9.1.1. ビルドオプション</a></h4>
 <div class="paragraph">
-<p>他のターゲットと同じ基本的な <a href="#config">main configuration</a> が必要になります（例えば
- <code>:source-paths</code> ) ですが、いくつかのノード固有のビルドターゲットオプションが必要になります。</p>
+<p>他のターゲット（ <code>:source-paths</code> など）と同じ基本的な <a href="#config">main configuration</a> が必要になりますが、いくつかのノード固有のビルドターゲットオプションが必要になります。</p>
 </div>
 <div class="hdlist">
 <table>
@@ -4451,8 +4445,7 @@ HTML に含めるのは少し複雑です。<a href="#BrowserManifest">Output Ma
 <div class="sect2">
 <h3 id="target-node-library"><a class="anchor" href="#target-node-library"></a><a class="link" href="#target-node-library">9.2. Node.js ライブラリ</a></h3>
 <div class="paragraph">
-<p><code>target :node-library</code> は、標準のノードライブラリとして（<code>require</code> を通して）使用できるコードを出力します。
-これは、コンパイルされた Javascript の成果物として再利用するためにコードを公開するのに便利です。</p>
+<p><code>:target :node-library</code> は、標準的なノードライブラリとして（ <code>require</code> を介して）使用できるコードを出力します。これは、コンパイルされたJavascript の成果物として再利用するためにコードを公開するのに便利です。</p>
 </div>
 <div class="paragraph">
 <p>他のモードと同様に、<a href="#config">main configuration options</a>が適用され、設定する必要があります。
@@ -4531,8 +4524,7 @@ f(); // 実際の demo.ns/f 関数</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>このキーワードは、エクスポートされたオブジェクトのエントリの名前として使用されます。このキーワード名には、一切の処理が行われません。
-しかし、名前空間は削除されます）。したがって、上記の例では、cljs の <code>f</code> を <code>g</code> にマッピングする、といった具合です。</p>
+<p>このキーワードは、エクスポートされたオブジェクトのエントリの名前として使用されます。このキーワード名には、一切の処理が行われません。(しかし、名前空間は削除されます）。したがって、上記の例では、cljs の <code>f</code> を <code>g</code> にマッピングします。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4641,8 +4633,7 @@ hello
 <h2 id="target-npm-module"><a class="anchor" href="#target-npm-module"></a><a class="link" href="#target-npm-module">11. JS エコシステムへの組み込み - :npm-module ターゲット</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>既存の JS プロジェクトに CLJS を統合することを目的とした追加ターゲットがあります。この出力は、既存の JS ツール（例：webpack、browserify 、babel.com）とシームレスに統合することができます。
-create-react-app など）とシームレスに統合できます。</p>
+<p>既存のJSプロジェクトにCLJSを統合することを目的とした追加ターゲットがあります。この出力は、既存のJSツール（例：webpack、browserify、babel、create-react-appなど）とわずかな設定でシームレスに統合できます。</p>
 </div>
 <div class="hdlist">
 <table>
@@ -4698,8 +4689,7 @@ create-react-app など）とシームレスに統合できます。</p>
 </div>
 </div>
 <div class="paragraph">
-<p>これは、ClojureScript で理解される標準的なアノテーションで、Google Closure がアーティファクトの名前を変更するのを防ぎます。
-がアーティファクトの名前を変更するのを防ぎます。 JS コードは最適化後もそれらにアクセスすることができます。 <code>^:export</code> のヒントがなければ、クロージャコンパイラがそれらを削除したり、名前を変更したりするでしょう。</p>
+<p>これは、ClojureScriptで理解される標準的なアノテーションで、Google Closure がアーティファクトの名前を変更するのを防ぎます。JS コードは最適化後もそれらにアクセスすることができます。 <code>^:export</code> のヒントがなければ、Closure コンパイラがそれらを削除したり、名前を変更したりするでしょう。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4817,9 +4807,7 @@ $ shadow-cljs compile test &amp;&amp; node out/node-tests.js</code></pre>
 <div class="sect2">
 <h3 id="target-browser-test"><a class="anchor" href="#target-browser-test"></a><a class="link" href="#target-browser-test">12.2. ブラウザにおけるテスト</a></h3>
 <div class="paragraph">
-<p>このターゲットは、（ファイル名のパターンマッチに基づいて）テストを含む名前空間を集めるためのものです。
-テストランナーを起動するためのものです。このターゲットには、自動的に <code>cljs.test</code> テストをスキャンして実行するビルトインのランナーが含まれています。
-テストを自動的にスキャンして実行します。</p>
+<p>このターゲットは、（ファイル名のパターンマッチに基づいて）テストを含む名前空間を集めて、テストランナーを起動するためのものです。このターゲットには、<code>cljs.test</code> テストを自動的にスキャンして実行する、ビルトインのランナーが含まれています。</p>
 </div>
 <div class="paragraph">
 <p>関連する設定オプションは以下の通りです。</p>
@@ -4913,13 +4901,10 @@ $ shadow-cljs compile test &amp;&amp; node out/node-tests.js</code></pre>
 <div class="ulist">
 <ul>
 <li>
-<p><code>index.html</code> - <code>index.html</code> ファイルがまだ存在していない場合に限ります。デフォルトでは、生成された
-ファイルはテストをロードし、 <code>:runner-ns</code> で <code>init</code> を実行します。上書きされないカスタムバージョンを編集または追加することができます。
-上書きされません。</p>
+<p><code>index.html</code> - <code>index.html</code> ファイルがまだ存在していない場合に限ります。デフォルトでは、生成されたファイルはテストをロードして、<code>:runner-ns</code> で <code>init</code> を実行します。上書きされないカスタムバージョンを編集または追加することができます。</p>
 </li>
 <li>
-<p><code>js/test.js</code> - Javascript のテストです。テストは常にこの名前になります。このモジュールのエントリは
-自動生成されます。</p>
+<p><code>js/test.js</code> - Javascriptのテストです。テストは常にこの名前になります。モジュールのエントリーは自動生成されます。</p>
 </li>
 </ul>
 </div>
@@ -4928,15 +4913,12 @@ $ shadow-cljs compile test &amp;&amp; node out/node-tests.js</code></pre>
 <div class="sect2">
 <h3 id="target-karma"><a class="anchor" href="#target-karma"></a><a class="link" href="#target-karma">12.3. 継続的インテグレーションのためにテストを Karma にターゲットする</a></h3>
 <div class="paragraph">
-<p>CLJS のテストをある種の CI サーバ上でブラウザに対して実行したい場合、次のことが必要になります。
-コマンドラインからテストを実行して、ステータスコードを返すことができる必要があります。 Karma はよく知られており
-そして、 <code>shadow-cljs</code> には、あなたのテストの周りに適切なラッパーを追加できるターゲットが含まれています。
-ターゲットが含まれており、テストに適切なラッパーを追加することで、テストが Karma で動作するようになります。</p>
+<p>CLJS のテストをある種の CI サーバー上でブラウザに対して実行したい場合、コマンドラインからテストを実行してステータスコードを返すことができる必要があります。Karma はよく知られていてサポートされているテストランナーで、これを実行することができます。また、<code>shadow-cljs</code> にはターゲットが含まれており、テストの周りに適切なラッパーを追加することができるので、それによりテストが動作するようになります。</p>
 </div>
 <div class="sect3">
 <h4 id="_karma_のインストール"><a class="anchor" href="#_karma_のインストール"></a><a class="link" href="#_karma_のインストール">12.3.1. Karma のインストール</a></h4>
 <div class="paragraph">
-<p>詳しい説明は、http://karma-runner.github.io[website] をご覧ください。通常、次のようなものが必要になります。 <code>package.json</code> には以下のようなものが必要です。</p>
+<p>詳しい説明は <a href="http://karma-runner.github.io">website</a> をご覧ください。通常、<code>package.json</code> には以下のようなものが必要になります。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -5031,7 +5013,7 @@ $ shadow-cljs compile test &amp;&amp; node out/node-tests.js</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>とすると、以下のようにテストを実行することができます（ツールのグローバル実行ファイルがインストールされていることが前提です）。</p>
+<p>すると、以下のようにテストを実行することができます（ツールのグローバル実行ファイルがインストールされていることが前提です）。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -5785,8 +5767,7 @@ cljs.array_map(<span class="keyword">keyword</span>(<span class="string"><span c
 <div class="sect3">
 <h4 id="_release_に特異_vs_開発環境"><a class="anchor" href="#_release_に特異_vs_開発環境"></a><a class="link" href="#_release_に特異_vs_開発環境">14.1.2. release に特異 vs 開発環境</a></h4>
 <div class="paragraph">
-<p>リリース用のビルドを実行する際に、ビルド内で別々の設定値を使用したい場合は
-ビルドセクションに <code>:dev</code> や <code>:release</code> セクションを含めることで設定を上書きすることができます。</p>
+<p>リリースビルドを実行する際に、ビルド内の設定値を別々にしたい場合は、ビルドセクションに <code>:dev</code> や <code>:release</code> セクションを含めることで、設定を上書きすることができます。</p>
 </div>
 <div class="listingblock">
 <div class="title">Example shadow-cljs.edn ビルド設定</div>
@@ -6790,9 +6771,7 @@ lein jar を実行し、 <code>jar -tvf target/library-1.0.0.jar</code> で最�
 <h2 id="_上手くいかない場合はどうすればいいか"><a class="anchor" href="#_上手くいかない場合はどうすればいいか"></a><a class="link" href="#_上手くいかない場合はどうすればいいか">18. 上手くいかない場合はどうすればいいか</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>JS の世界は今でも急速に進化しており、誰もが同じ方法でコードを書いたり配布したりしているわけではありません。
-<code>shadow-cljs</code> では自動的に回避できないものがあります。これらは
-通常はカスタムの <code>:resolve</code> 設定で解決できますが、バグや見落としもあるかもしれません。</p>
+<p>JS の世界は今でも急速に進化しており、誰もが同じ方法でコードを書いたり配布したりしているわけではないので、<code>shadow-cljs</code> が自動的に回避できないものもあります。これらは通常、カスタムの <code>:resolve</code> 設定で解決できますが、バグや見落としもあるかもしれません。</p>
 </div>
 <div class="paragraph">
 <p>この章の説明で解決できない場合は、次のような場所で質問してみてください。
@@ -6819,7 +6798,7 @@ lein jar を実行し、 <code>jar -tvf target/library-1.0.0.jar</code> で最�
 <div id="footer">
 <div id="footer-text">
 Version 1.0<br>
-Last updated 2021-07-08 17:30:12 JST
+Last updated 2021-07-08 17:54:54 JST
 </div>
 </div>
 </body>

@@ -4,12 +4,9 @@ The `:target :react-native` produces code that is meant to integrate into the de
 `:target :react-native` は、デフォルトの `react-native` ツール (例: `metro` ) に統合することを意図したコードを生成します。これらのツールをラップした `expo` のようなツールは自動的に動作し、追加の設定は必要ありません。
 
 ////
-You will need the same basic <<config,main configuration>> as in other targets (like
-`:source-paths`), the build specific config is very minimal and requires at least 2 options (besides `:target` itself)
+You will need the same basic <<config,main configuration>> as in other targets (like `:source-paths`), the build specific config is very minimal and requires at least 2 options (besides `:target` itself)
 ////
-他のターゲット（`:source-paths` など）と同じ基本的な <<config,main configuration>> が必要です。
-`:source-paths`), ビルド固有の設定は非常に少なく、少なくとも 2 つのオプションが必要です (`:target` 自体の他に)。
-
+他のターゲット（`:source-paths`など）と同じ基本的な <<config,main configuration>> が必要になります。ビルド専用の設定は非常に少なく、（`:target` 自体の他に）少なくとも2つのオプションが必要です。
 
 ////
 [horizontal]

@@ -1,7 +1,7 @@
 ////
 The `:browser` target produces output intended to run in a Browser environment. During development it supports live code reloading, REPL, CSS reloading. The `release` output will be minified by the Closure Compiler with `:advanced` optimizations.
 ////
-:browser ターゲットは、ブラウザ環境での実行を想定した出力を行います。開発時には、ライブコードリロード、REPL 、CSS リロードをサポートします。 `release` の出力は、Closure Compiler によって `:advanced` の最適化でミニマイズされます。
+`:browser` ターゲットは、ブラウザ環境での実行を想定した出力を行います。開発時には、ライブコードリロード、REPL 、CSS リロードをサポートします。 `release` の出力は、Closure Compiler によって `:advanced` の最適化でミニマイズされます。
 
 ////
 A basic browser configuration looks like this:
@@ -146,11 +146,9 @@ The following example shows a minimum module configuration:
         :modules {:main {:init-fn my.app/init}}}}}
 ```
 ////
-`shadow-cljs` will follow the dependency graph from the root set of code entry points in the `:entries`
-to find everything needed to actually compile and include in the output. Namespaces that are not required will not be included.
+`shadow-cljs` will follow the dependency graph from the root set of code entry points in the `:entries` to find everything needed to actually compile and include in the output. Namespaces that are not required will not be included.
 ////
-`shadow-cljs` は、 `:entries` にあるコードエントリポイントのルートセットから依存関係グラフをたどります。
-にあるコードエントリポイントのルートセットから依存関係グラフをたどり、実際にコンパイルして出力に含めるために必要なものをすべて見つけます。必要とされない名前空間は含まれません。
+`shadow-cljs` は、`:entries` にあるコードエントリポイントのルートセットから依存関係グラフをたどり、実際にコンパイルして出力に含めるために必要なものをすべて見つけます。必要とされない名前空間は含まれません。
 
 ////
 The above config will create a `public/js/main.js` file. During development there will be an additional `public/js/cljs-runtime` directory with lots of files. This directory is not required for `release` builds.

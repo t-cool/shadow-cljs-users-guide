@@ -1,23 +1,15 @@
 ////
-When you want to run your CLJS tests against a browser on some kind of CI server you'll need to
-be able to run the tests from a command line and get back a status code. Karma is a well-known
-and supported test runner that can do this for you, and `shadow-cljs` includes a target that
-can add the appropriate wrappers around your tests so they will work in it.
+When you want to run your CLJS tests against a browser on some kind of CI server you'll need to be able to run the tests from a command line and get back a status code. Karma is a well-known and supported test runner that can do this for you, and `shadow-cljs` includes a target that can add the appropriate wrappers around your tests so they will work in it.
 ////
-CLJS のテストをある種の CI サーバ上でブラウザに対して実行したい場合、次のことが必要になります。
-コマンドラインからテストを実行して、ステータスコードを返すことができる必要があります。 Karma はよく知られており
-そして、 `shadow-cljs` には、あなたのテストの周りに適切なラッパーを追加できるターゲットが含まれています。
-ターゲットが含まれており、テストに適切なラッパーを追加することで、テストが Karma で動作するようになります。
+CLJS のテストをある種の CI サーバー上でブラウザに対して実行したい場合、コマンドラインからテストを実行してステータスコードを返すことができる必要があります。Karma はよく知られていてサポートされているテストランナーで、これを実行することができます。また、`shadow-cljs` にはターゲットが含まれており、テストの周りに適切なラッパーを追加することができるので、それによりテストが動作するようになります。
 
 === Karma のインストール
 //Installing Karma
 
 ////
-See their http://karma-runner.github.io[website] for full instructions. You'll typically need
-something like this is your `package.json`:
+See their http://karma-runner.github.io[website] for full instructions. You'll typically need something like this is your `package.json`:
 ////
-詳しい説明は、http://karma-runner.github.io[website] をご覧ください。通常、次のようなものが必要になります。 `package.json` には以下のようなものが必要です。
-
+詳しい説明は http://karma-runner.github.io[website] をご覧ください。通常、`package.json` には以下のようなものが必要になります。
 
 ```json
 {
@@ -124,7 +116,7 @@ module.exports = function (config) {
 ////
 then you can run the tests as follows (assuming you've installed global executables of the tools):
 ////
-とすると、以下のようにテストを実行することができます（ツールのグローバル実行ファイルがインストールされていることが前提です）。
+すると、以下のようにテストを実行することができます（ツールのグローバル実行ファイルがインストールされていることが前提です）。
 
 ```bash
 $ shadow-cljs compile ci

@@ -974,15 +974,9 @@ include::target-react-native.adoc[]
 //Targeting node.js [[target-node]]
 
 ////
-There is built-in support for generating code that is intended to be used as a stand-alone
-script, and also for code that is intended to be used as a library. See the
-section on <<config,common configuration>> for the base settings needed in
-a configuration file.
+There is built-in support for generating code that is intended to be used as a stand-alone script, and also for code that is intended to be used as a library. See the section on <<config,common configuration>> for the base settings needed in a configuration file.
 ////
-スタンドアロンのスクリプトとして使用するためのコードや、ライブラリとして使用するためのコードを生成する機能が組み込まれています。
-スクリプトとして使用するためのコードや、ライブラリとして使用するためのコードの生成がサポートされています。コード生成に必要な基本設定については
-設定ファイルに必要な基本的な設定については、<<config,共通設定>>のセクションを参照してください。
-設定ファイルに必要な基本的な設定については
+独立したスクリプトとして使用することを目的としたコードや、ライブラリとして使用することを目的としたコードの生成をサポートしています。設定ファイルに必要な基本的な設定については、<<config,common configuration>> の項を参照してください。
 
 == Node.js のスクリプト [[target-node-script]]
 
@@ -1092,14 +1086,9 @@ include::maven-publish.adoc[]
 // What to do when things don’t work?
 
 ////
-Since the JS world is still evolving rapidly and not everyone is using the same way to write and
-distribute code there are some things `shadow-cljs` cannot work around automatically. These
-can usually be solved with custom `:resolve` configs, but there may also be bugs or oversights.
+Since the JS world is still evolving rapidly and not everyone is using the same way to write and distribute code there are some things `shadow-cljs` cannot work around automatically. These can usually be solved with custom `:resolve` configs, but there may also be bugs or oversights.
 ////
-JS の世界は今でも急速に進化しており、誰もが同じ方法でコードを書いたり配布したりしているわけではありません。
-`shadow-cljs` では自動的に回避できないものがあります。これらは
-通常はカスタムの `:resolve` 設定で解決できますが、バグや見落としもあるかもしれません。
-
+JS の世界は今でも急速に進化しており、誰もが同じ方法でコードを書いたり配布したりしているわけではないので、`shadow-cljs` が自動的に回避できないものもあります。これらは通常、カスタムの `:resolve` 設定で解決できますが、バグや見落としもあるかもしれません。
 
 ////
 If you cannot resolve such an issue with the instructions in this chapter, then try asking on the

@@ -69,11 +69,9 @@ See the https://developers.google.com/closure/compiler/docs/compilation_levels[t
 //Release-Specific vs. Development Configuration
 
 ////
-If you wish to have separate configuration values in a build when running a release build then you
-can override settings by including a `:dev` and/or `:release` section in the build section:
+If you wish to have separate configuration values in a build when running a release build then you can override settings by including a `:dev` and/or `:release` section in the build section:
 ////
-リリース用のビルドを実行する際に、ビルド内で別々の設定値を使用したい場合は
-ビルドセクションに `:dev` や `:release` セクションを含めることで設定を上書きすることができます。
+リリースビルドを実行する際に、ビルド内の設定値を別々にしたい場合は、ビルドセクションに `:dev` や `:release` セクションを含めることで、設定を上書きすることができます。
 
 ////
 .Example `shadow-cljs.edn` build config
@@ -246,7 +244,7 @@ Interop コールをいちいちアノテーションするのは面倒なので
 
 ////
 IMPORTANT: Don't annotate everything with `^js`. Sometimes you may be doing interop on CLJS or ClosureJS objects. Those do not require externs. If you are certain you are working with a CLJS Object prefer using the `^clj` hint.
- It is not the end of the world when using `^js` incorrectly but it may affect some optimizations when a variable is not renamed when it could be.
+It is not the end of the world when using `^js` incorrectly but it may affect some optimizations when a variable is not renamed when it could be.
 ////
 
 

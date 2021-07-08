@@ -16,11 +16,9 @@ The code is just ClojureScript, and an entry point is easy to define:
 //Build Options
 
 ////
-You will need the same basic <<config,main configuration>> as in other targets (like
-`:source-paths`), but you'll need some node-specific build target options:
+You will need the same basic <<config,main configuration>> as in other targets (like `:source-paths`), but you'll need some node-specific build target options:
 ////
-他のターゲットと同じ基本的な <<config,main configuration>> が必要になります（例えば
- `:source-paths` ) ですが、いくつかのノード固有のビルドターゲットオプションが必要になります。
+他のターゲット（ `:source-paths` など）と同じ基本的な <<config,main configuration>> が必要になりますが、いくつかのノード固有のビルドターゲットオプションが必要になります。
 
 ////
 [horizontal]

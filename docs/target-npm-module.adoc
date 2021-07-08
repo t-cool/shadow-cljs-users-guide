@@ -1,9 +1,7 @@
 ////
-There is an additional target that is intended to integrate CLJS into an existing JS project. The output can seamlessly integrate with existing JS tools (eg. webpack, browserify, babel,
-create-react-app, ...) with little configuration.
+There is an additional target that is intended to integrate CLJS into an existing JS project. The output can seamlessly integrate with existing JS tools (eg. webpack, browserify, babel, create-react-app, ...) with little configuration.
 ////
-既存の JS プロジェクトに CLJS を統合することを目的とした追加ターゲットがあります。この出力は、既存の JS ツール（例：webpack、browserify 、babel.com）とシームレスに統合することができます。
-create-react-app など）とシームレスに統合できます。
+既存のJSプロジェクトにCLJSを統合することを目的とした追加ターゲットがあります。この出力は、既存のJSツール（例：webpack、browserify、babel、create-react-appなど）とわずかな設定でシームレスに統合できます。
 
 ////
 [horizontal]
@@ -59,11 +57,9 @@ This is easy to remedy, simply add `:export` metadata on any symbols that you wa
 ```
 
 ////
-This is a standard annotation that is understood by ClojureScript and prevents Google Closure from
-renaming an artifact. JS code will still be able to access them after optimizations. Without the `^:export` hint the closure-compiler will likely have removed or renamed them.
+This is a standard annotation that is understood by ClojureScript and prevents Google Closure from renaming an artifact. JS code will still be able to access them after optimizations. Without the `^:export` hint the closure-compiler will likely have removed or renamed them.
 ////
-これは、ClojureScript で理解される標準的なアノテーションで、Google Closure がアーティファクトの名前を変更するのを防ぎます。
-がアーティファクトの名前を変更するのを防ぎます。 JS コードは最適化後もそれらにアクセスすることができます。 `^:export` のヒントがなければ、クロージャコンパイラがそれらを削除したり、名前を変更したりするでしょう。
+これは、ClojureScriptで理解される標準的なアノテーションで、Google Closure がアーティファクトの名前を変更するのを防ぎます。JS コードは最適化後もそれらにアクセスすることができます。 `^:export` のヒントがなければ、Closure コンパイラがそれらを削除したり、名前を変更したりするでしょう。
 
 ```
 var ns = require("shadow-cljs/demo.foo");
