@@ -116,7 +116,7 @@ If you wish to have separate configuration values in a build when running a rele
 ```
 
 
-== エクスターン [[externs]]
+== extern  [[externs]]
 // Externs [[externs]]
 
 ////
@@ -132,9 +132,9 @@ Typically all JS Dependencies are foreign and won't be passed through `:advanced
 ////
 TIP: Externs are only required for `:advanced`, they are not required in `:simple` mode.
 ////
-TIP: エクスターンが必要なのは `:advanced` モードのみで、 `:simple` モードでは必要ありません。
+TIP: extern が必要なのは `:advanced` モードのみで、 `:simple` モードでは必要ありません。
 
-=== エクスターンズの推論 [[infer-externs]]
+=== Externs の推論 [[infer-externs]]
 //Externs Inference [[infer-externs]]
 
 ////
@@ -203,7 +203,7 @@ In `:advanced` the compiler will be renaming `.baz` to something "shorter" and E
 ////
 .Type-hint to help externs generation
 ////
-.エクスターンの生成を助ける型ヒント
+.extern の生成を助ける型ヒント
 
 ```clojure
 (defn wrap-baz [x]
@@ -229,7 +229,7 @@ typehint の `^js` を指定すると、コンパイラが適切な externs を�
 ////
 It can get tedious to annotate every single interop call so you can annotate the variable binding itself. It will be used in the entire scope for this variable. Externs for both calls will still be generated.
 ////
-Interop コールをいちいちアノテーションするのは面倒なので、変数のバインディング自体をアノテーションすることができます。この変数は、この変数のスコープ全体で使用されます。両方の呼び出しのエクスターンはまだ生成されます。
+Interop コールをいちいちアノテーションするのは面倒なので、変数のバインディング自体をアノテーションすることができます。この変数は、この変数のスコープ全体で使用されます。両方の呼び出しのextern はまだ生成されます。
 
 ////
 .Annotate `x` directly
@@ -251,13 +251,13 @@ It is not the end of the world when using `^js` incorrectly but it may affect so
 ////
 Calls on globals do not require a typehint when using direct `js/` calls.
 ////
-IMPORTANT: すべてを `^js` でアノテーションしないでください。時には、CLJS や ClosureJS のオブジェクトでインターロップを行うことがあります。これらはエクスターンを必要としません。 CLJS オブジェクトを扱うことが確実な場合は、 `^clj` のヒントを使うことをお勧めします。
+IMPORTANT: すべてを `^js` でアノテーションしないでください。時には、CLJS や ClosureJS のオブジェクトでインターロップを行うことがあります。これらはextern を必要としません。 CLJS オブジェクトを扱うことが確実な場合は、 `^clj` のヒントを使うことをお勧めします。
 間違って `^js` を使用しても世界の終わりではありませんが、変数の名前を変更できるのに変更されない場合、いくつかの最適化に影響を与える可能性があります。
 
 ////
 .No hint required, externs inferred automatically
 ////
-.ヒントは不要、エクスターンは自動的に推測される
+.ヒントは不要、extern は自動的に推測される
 
 ```
 (js/Some.Thing.coolFunction)
@@ -281,18 +281,18 @@ Calls on `:require` bindings are also inferred automatically.
 (createElement "div" nil "hello world")
 ```
 
-=== 手動のエクスターン
+=== 手動のextern 
 //Manual Externs
 
 ////
 Some libraries provide Externs as separate `.js` files. You can include them into your build via the `:externs` compiler options.
 ////
-一部のライブラリでは、エクスターンを個別の `.js` ファイルとして提供しています。 Externs は、 `:externs` コンパイラオプションを使って、ビルドに組み込むことができます。
+一部のライブラリでは、extern を個別の `.js` ファイルとして提供しています。 Externs は、 `:externs` コンパイラオプションを使って、ビルドに組み込むことができます。
 
 ////
 .Manual Externs Config
 ////
-.手動のエクスターン設定
+.手動のextern 設定
 
 ```
 {...
@@ -309,7 +309,7 @@ TIP: The compiler looks for files relative to the project root first. It will al
 ////
 TIP: コンパイラは、プロジェクトルートに相対するファイルを最初に探します。ファイルが見つからない場合は、クラスパスからの読み込みも試みます。
 
-=== 簡易なエクスターン
+=== 簡易なextern 
 //Simplified Externs
 
 ////

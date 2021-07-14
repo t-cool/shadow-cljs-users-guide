@@ -752,11 +752,11 @@ table.CodeRay td.code>pre{padding:0}
 <li><a href="#_release_に特異_vs_開発環境">14.1.2. release に特異 vs 開発環境</a></li>
 </ul>
 </li>
-<li><a href="#externs">14.2. エクスターン</a>
+<li><a href="#externs">14.2. extern </a>
 <ul class="sectlevel3">
-<li><a href="#infer-externs">14.2.1. エクスターンズの推論</a></li>
-<li><a href="#_手動のエクスターン">14.2.2. 手動のエクスターン</a></li>
-<li><a href="#_簡易なエクスターン">14.2.3. 簡易なエクスターン</a></li>
+<li><a href="#infer-externs">14.2.1. Externs の推論</a></li>
+<li><a href="#_手動のextern">14.2.2. 手動のextern</a></li>
+<li><a href="#_簡易なextern">14.2.3. 簡易なextern</a></li>
 </ul>
 </li>
 <li><a href="#_コード_ストリッピング">14.3. コード・ストリッピング</a></li>
@@ -5790,7 +5790,7 @@ cljs.array_map(<span class="keyword">keyword</span>(<span class="string"><span c
 </div>
 </div>
 <div class="sect2">
-<h3 id="externs"><a class="anchor" href="#externs"></a><a class="link" href="#externs">14.2. エクスターン</a></h3>
+<h3 id="externs"><a class="anchor" href="#externs"></a><a class="link" href="#externs">14.2. extern </a></h3>
 <div class="paragraph">
 <p>Closure Compiler <code>:advanced</code> のコンパイルによってビルドを完全に最適化したいので <a href="https://developers.google.com/closure/compiler/docs/api-tutorial3">Externs</a> を扱う必要があります。 Externs は、 <code>:advanced</code> のコンパイルの際に含まれないコードの断片を表します。 <code>advanced</code> はプログラム全体の最適化を行いますが、どうしても含まれないコードもあるため、Externs はコンパイラにそのコードを知らせます。 Externs がないと、コンパイラは含めるべきでないコードの名前を変えたり、削除したりすることがあります。</p>
 </div>
@@ -5804,13 +5804,13 @@ cljs.array_map(<span class="keyword">keyword</span>(<span class="string"><span c
 <div class="title">Tip</div>
 </td>
 <td class="content">
-エクスターンが必要なのは <code>:advanced</code> モードのみで、 <code>:simple</code> モードでは必要ありません。
+extern が必要なのは <code>:advanced</code> モードのみで、 <code>:simple</code> モードでは必要ありません。
 </td>
 </tr>
 </table>
 </div>
 <div class="sect3">
-<h4 id="infer-externs"><a class="anchor" href="#infer-externs"></a><a class="link" href="#infer-externs">14.2.1. エクスターンズの推論</a></h4>
+<h4 id="infer-externs"><a class="anchor" href="#infer-externs"></a><a class="link" href="#infer-externs">14.2.1. Externs の推論</a></h4>
 <div class="paragraph">
 <p>Externs を扱うために、 <code>shadow-cljs</code> コンパイラは強化された externs 推論を提供しています。</p>
 </div>
@@ -5860,7 +5860,7 @@ cljs.array_map(<span class="keyword">keyword</span>(<span class="string"><span c
 <p><code>shadow-cljs</code> は、ネイティブな相互運用を行うオブジェクトに typehint を追加すると、適切な externs を生成することができます。</p>
 </div>
 <div class="listingblock">
-<div class="title">エクスターンの生成を助ける型ヒント</div>
+<div class="title">extern の生成を助ける型ヒント</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">(<span class="keyword">defn</span> <span class="function">wrap-baz</span> [x]
   (<span class="keyword">.</span>baz ^js x))</code></pre>
@@ -5878,7 +5878,7 @@ cljs.array_map(<span class="keyword">keyword</span>(<span class="string"><span c
 </div>
 </div>
 <div class="paragraph">
-<p>Interop コールをいちいちアノテーションするのは面倒なので、変数のバインディング自体をアノテーションすることができます。この変数は、この変数のスコープ全体で使用されます。両方の呼び出しのエクスターンはまだ生成されます。</p>
+<p>Interop コールをいちいちアノテーションするのは面倒なので、変数のバインディング自体をアノテーションすることができます。この変数は、この変数のスコープ全体で使用されます。両方の呼び出しのextern はまだ生成されます。</p>
 </div>
 <div class="listingblock">
 <div class="title">x を直接アノテーションする</div>
@@ -5895,14 +5895,14 @@ cljs.array_map(<span class="keyword">keyword</span>(<span class="string"><span c
 <div class="title">Important</div>
 </td>
 <td class="content">
-すべてを <code>^js</code> でアノテーションしないでください。時には、CLJS や ClosureJS のオブジェクトでインターロップを行うことがあります。これらはエクスターンを必要としません。 CLJS オブジェクトを扱うことが確実な場合は、 <code>^clj</code> のヒントを使うことをお勧めします。
+すべてを <code>^js</code> でアノテーションしないでください。時には、CLJS や ClosureJS のオブジェクトでインターロップを行うことがあります。これらはextern を必要としません。 CLJS オブジェクトを扱うことが確実な場合は、 <code>^clj</code> のヒントを使うことをお勧めします。
 間違って <code>^js</code> を使用しても世界の終わりではありませんが、変数の名前を変更できるのに変更されない場合、いくつかの最適化に影響を与える可能性があります。
 </td>
 </tr>
 </table>
 </div>
 <div class="listingblock">
-<div class="title">ヒントは不要、エクスターンは自動的に推測される</div>
+<div class="title">ヒントは不要、extern は自動的に推測される</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">(js/Some.Thing.coolFunction)</code></pre>
 </div>
@@ -5924,12 +5924,12 @@ cljs.array_map(<span class="keyword">keyword</span>(<span class="string"><span c
 </div>
 </div>
 <div class="sect3">
-<h4 id="_手動のエクスターン"><a class="anchor" href="#_手動のエクスターン"></a><a class="link" href="#_手動のエクスターン">14.2.2. 手動のエクスターン</a></h4>
+<h4 id="_手動のextern"><a class="anchor" href="#_手動のextern"></a><a class="link" href="#_手動のextern">14.2.2. 手動のextern</a></h4>
 <div class="paragraph">
-<p>一部のライブラリでは、エクスターンを個別の <code>.js</code> ファイルとして提供しています。 Externs は、 <code>:externs</code> コンパイラオプションを使って、ビルドに組み込むことができます。</p>
+<p>一部のライブラリでは、extern を個別の <code>.js</code> ファイルとして提供しています。 Externs は、 <code>:externs</code> コンパイラオプションを使って、ビルドに組み込むことができます。</p>
 </div>
 <div class="listingblock">
-<div class="title">手動のエクスターン設定</div>
+<div class="title">手動のextern 設定</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
  <span class="symbol">:builds</span>
@@ -5954,7 +5954,7 @@ cljs.array_map(<span class="keyword">keyword</span>(<span class="string"><span c
 </div>
 </div>
 <div class="sect3">
-<h4 id="_簡易なエクスターン"><a class="anchor" href="#_簡易なエクスターン"></a><a class="link" href="#_簡易なエクスターン">14.2.3. 簡易なエクスターン</a></h4>
+<h4 id="_簡易なextern"><a class="anchor" href="#_簡易なextern"></a><a class="link" href="#_簡易なextern">14.2.3. 簡易なextern</a></h4>
 <div class="paragraph">
 <p>Externs を手で書くことは困難ですが、 <code>shadow-cljs</code> はより便利な書き方を提供します。また、 <code>shadow-cljs check &lt;your-build&gt;</code> と組み合わせることで、不足している Externs を素早く追加することができます。</p>
 </div>
