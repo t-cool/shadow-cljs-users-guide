@@ -431,7 +431,7 @@ The possible stages the `:build-hooks` can use are:
 - `:optimize-finish` - called after Closure is done (`:release` only)
 - `:flush` - called after everything was flushed to disk
 ////
-- `:configure` - 初期の `:target` 特定のコンフィギュレーション
+- `:configure` - 初期の `:target` 特定の設定
 - `:compile-prepare` - コンパイルが行われる前に呼び出されます。
 - `:compile-finish` - すべてのコンパイルが終了した後に呼び出されます。
 - `optimize-prepare` - Closure Compiler の最適化フェーズを実行する前に呼び出されます (`:release` のみ)
@@ -1170,7 +1170,7 @@ It is possible to use set defaults that will be used for all builds, or for all 
 ////
 Configuration merge order is as follows `:build-defaults` -> `:target-defaults` -> actual build config -> extra config overrides.
 ////
-コンフィギュレーションのマージ順序は以下の通りです。 `:build-defaults` -> `:target-defaults` -> 実際のビルドコンフィグ -> エクストラコンフィグのオーバーライド。
+設定のマージ順序は以下の通りです。 `:build-defaults` -> `:target-defaults` -> 実際のビルドコンフィグ -> エクストラコンフィグのオーバーライド。
 
 ////
 .Example `shadow-cljs.edn` config

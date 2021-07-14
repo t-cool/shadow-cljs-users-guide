@@ -40,7 +40,7 @@ Each `:target` already provides good defaults optimized for each platform so you
 ////
 You can choose the optimization level using the `:compiler-options` section of the configuration:
 ////
-最適化レベルは、コンフィギュレーションの `:compiler-options` セクションで選択できます。
+最適化レベルは、設定の `:compiler-options` セクションで選択できます。
 
 ////
 IMPORTANT: You do not usually need to set `:optimizations` since the `:target` already sets it to an appropriate level.
@@ -140,7 +140,7 @@ TIP: extern が必要なのは `:advanced` モードのみで、 `:simple` モ�
 ////
 To help deal with Externs the `shadow-cljs` compiler provides enhanced externs inference which can be enabled by setting `:infer-externs :auto` for your build.
 ////
-Externs を扱うために、 `shadow-cljs` コンパイラは強化された externs 推論を提供しています。
+Externs を扱うために、 `shadow-cljs` コンパイラは、強化された externs の推論を提供します。
 
 ////
 .Example Config
@@ -160,7 +160,7 @@ Externs を扱うために、 `shadow-cljs` コンパイラは強化された ex
 ////
 With `:auto` the compiler will perform additional checks at compile time for your files only. It won't warn you about possible externs issues in library code. `:all` will enable it for everthing but be aware that you may get a lot of warnings.
 ////
-`auto` では、コンパイラはコンパイル時にあなたのファイルだけを対象に追加のチェックを行います。また、ライブラリコードに含まれる externs の問題については警告しません。 `all` では、すべてのファイルに対して有効になりますが、多くの警告を受ける可能性があることに注意してください。
+`auto` では、コンパイラはコンパイル時にあなたのファイルだけを対象に追加のチェックを行います。また、ライブラリコードに含まれる externs の問題については警告しません。`all` では、すべてのファイルに対して有効になりますが、多くの警告を受ける可能性があることに注意してください。
 
 ////
 When enabled you'll get warnings whenever the Compiler cannot figure out whether you are working with JS or CLJS code.

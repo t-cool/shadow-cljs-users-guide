@@ -2719,7 +2719,7 @@ localhost（または使用するホスト）の SAN（Subject Alternative Name�
 <div class="ulist">
 <ul>
 <li>
-<p><code>:configure</code> - 初期の <code>:target</code> 特定のコンフィギュレーション</p>
+<p><code>:configure</code> - 初期の <code>:target</code> 特定の設定</p>
 </li>
 <li>
 <p><code>:compile-prepare</code> - コンパイルが行われる前に呼び出されます。</p>
@@ -3341,7 +3341,7 @@ localhost（または使用するホスト）の SAN（Subject Alternative Name�
 <p>すべてのビルド、または特定のタイプのすべてのターゲットに使用されるデフォルトの設定を使用することができます。</p>
 </div>
 <div class="paragraph">
-<p>コンフィギュレーションのマージ順序は以下の通りです。 <code>:build-defaults</code> &#8594; <code>:target-defaults</code> &#8594; 実際のビルドコンフィグ &#8594; エクストラコンフィグのオーバーライド。</p>
+<p>設定のマージ順序は以下の通りです。 <code>:build-defaults</code> &#8594; <code>:target-defaults</code> &#8594; 実際のビルドコンフィグ &#8594; エクストラコンフィグのオーバーライド。</p>
 </div>
 <div class="listingblock">
 <div class="title">Example <code>shadow-cljs.edn</code> の設定</div>
@@ -5724,7 +5724,7 @@ cljs.array_map(<span class="keyword">keyword</span>(<span class="string"><span c
 <div class="sect3">
 <h4 id="Optimization"><a class="anchor" href="#Optimization"></a><a class="link" href="#Optimization">14.1.1. 最適化</a></h4>
 <div class="paragraph">
-<p>最適化レベルは、コンフィギュレーションの <code>:compiler-options</code> セクションで選択できます。</p>
+<p>最適化レベルは、設定の <code>:compiler-options</code> セクションで選択できます。</p>
 </div>
 <div class="admonitionblock important">
 <table>
@@ -5812,7 +5812,7 @@ extern が必要なのは <code>:advanced</code> モードのみで、 <code>:si
 <div class="sect3">
 <h4 id="infer-externs"><a class="anchor" href="#infer-externs"></a><a class="link" href="#infer-externs">14.2.1. Externs の推論</a></h4>
 <div class="paragraph">
-<p>Externs を扱うために、 <code>shadow-cljs</code> コンパイラは強化された externs 推論を提供しています。</p>
+<p>Externs を扱うために、 <code>shadow-cljs</code> コンパイラは、強化された externs の推論を提供します。</p>
 </div>
 <div class="listingblock">
 <div class="title">Example Config</div>
@@ -5827,7 +5827,7 @@ extern が必要なのは <code>:advanced</code> モードのみで、 <code>:si
 </div>
 </div>
 <div class="paragraph">
-<p><code>auto</code> では、コンパイラはコンパイル時にあなたのファイルだけを対象に追加のチェックを行います。また、ライブラリコードに含まれる externs の問題については警告しません。 <code>all</code> では、すべてのファイルに対して有効になりますが、多くの警告を受ける可能性があることに注意してください。</p>
+<p><code>auto</code> では、コンパイラはコンパイル時にあなたのファイルだけを対象に追加のチェックを行います。また、ライブラリコードに含まれる externs の問題については警告しません。<code>all</code> では、すべてのファイルに対して有効になりますが、多くの警告を受ける可能性があることに注意してください。</p>
 </div>
 <div class="paragraph">
 <p>有効にすると、コンパイラが JS と CLJS のどちらのコードを使用しているかを判断できない場合に警告が表示されます。</p>
