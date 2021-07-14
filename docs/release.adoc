@@ -65,7 +65,7 @@ See the https://developers.google.com/closure/compiler/docs/compilation_levels[t
 ////
 利用可能な最適化レベルの詳細については https://developers.google.com/closure/compiler/docs/compilation_levels[Closure コンパイラのドキュメント] を参照してください。
 
-=== release に特異 vs 開発環境
+=== release 固有 vs 開発環境
 //Release-Specific vs. Development Configuration
 
 ////
