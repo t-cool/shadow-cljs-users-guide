@@ -5795,7 +5795,7 @@ cljs.array_map(<span class="keyword">keyword</span>(<span class="string"><span c
 <p>Closure Compiler <code>:advanced</code> のコンパイルによってビルドを完全に最適化したいので <a href="https://developers.google.com/closure/compiler/docs/api-tutorial3">Externs</a> を扱う必要があります。 Externs は、 <code>:advanced</code> のコンパイルの際に含まれないコードの断片を表します。 <code>advanced</code> はプログラム全体の最適化を行いますが、どうしても含まれないコードもあるため、Externs はコンパイラにそのコードを知らせます。 Externs がないと、コンパイラは含めるべきでないコードの名前を変えたり、削除したりすることがあります。</p>
 </div>
 <div class="paragraph">
-<p>通常、すべての JS Dependencies は外国のものであり、 <code>:advanced</code> ではパスされないため、Externs が必要となります。</p>
+<p>通常、すべての JS Dependencies は外部の扱い(foreign) であり、 <code>:advanced</code> ではパスされないため、Externs が必要となります。</p>
 </div>
 <div class="admonitionblock tip">
 <table>

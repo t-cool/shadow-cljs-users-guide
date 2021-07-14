@@ -127,7 +127,7 @@ Closure Compiler `:advanced` のコンパイルによってビルドを完全に
 ////
 Typically all JS Dependencies are foreign and won't be passed through `:advanced` and thus require Externs.
 ////
-通常、すべての JS Dependencies は外国のものであり、 `:advanced` ではパスされないため、Externs が必要となります。
+通常、すべての JS Dependencies は外部の扱い(foreign) であり、 `:advanced` ではパスされないため、Externs が必要となります。
 
 ////
 TIP: Externs are only required for `:advanced`, they are not required in `:simple` mode.
