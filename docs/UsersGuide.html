@@ -5,7 +5,7 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.6.1">
-<meta name="author" content="Thomas Heller , Tony Kay">
+<meta name="author" content="Thomas Heller , Tony Kay (邦訳: Hiroki Noguchi)">
 <title>Shadow CLJS User&#8217;s Guide 邦訳</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
@@ -521,7 +521,7 @@ table.CodeRay td.code>pre{padding:0}
 <div id="header">
 <h1>Shadow CLJS User&#8217;s Guide 邦訳</h1>
 <div class="details">
-<span id="author" class="author">Thomas Heller , Tony Kay</span><br>
+<span id="author" class="author">Thomas Heller , Tony Kay (邦訳: Hiroki Noguchi)</span><br>
 <span id="revnumber">version 1.0,</span>
 <span id="revdate">Jan 10, 2018</span>
 </div>
@@ -5041,7 +5041,7 @@ HeadlessChrome 0.0.0 (Mac OS X 10.12.6): Executed 1 of 1 SUCCESS (0.007 secs / 0
 <div class="sect3">
 <h4 id="_npm_パッケージの使用"><a class="anchor" href="#_npm_パッケージの使用"></a><a class="link" href="#_npm_パッケージの使用">13.1.1. npm パッケージの使用</a></h4>
 <div class="paragraph">
-<p>ほとんどの npm パッケージには、実際のコードの使用方法に関する説明も含まれています。古い CommonJS のスタイルでは、直接翻訳する <code>require</code> コールがあるだけです。</p>
+<p>ほとんどの npm パッケージには、実際のコードの使用方法に関する説明も含まれています。古い CommonJS のスタイルでは、直接翻訳する <code>require</code> の呼び出しがあるだけです。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -5687,7 +5687,7 @@ cljs.array_map(<span class="keyword">keyword</span>(<span class="string"><span c
 <p><code>shadow-cljs</code> は、コード内の競合を避けるために、CLJSJS を全くサポートしません。あるライブラリが古い <code>cljsjs.react</code> を使おうとする一方で、別のライブラリはより新しい <code>(:require ["react"])</code> を直接使うかもしれません。そうすると、再びページ上に 2 つのバージョンの <code>react</code> が存在することになります。</p>
 </div>
 <div class="paragraph">
-<p>そのため、唯一欠けているのはバンドルされている Externs です。多くの場合、<a href="#infer-externs">externs inference</a>が改善されたため、これらは必要ありません。また、これらの Externs はサードパーティのツールを使って生成されていることが多いので、いずれにしても完全には正確ではありません。</p>
+<p>そのため、唯一欠けているのはバンドルされた Externs です。多くの場合、<a href="#infer-externs">externs inference</a>が改善されたため、これらは必要ありません。また、これらの Externs はサードパーティのツールを使って生成されていることが多いので、いずれにしても完全には正確ではありません。</p>
 </div>
 <div class="paragraph">
 <p>結論: <a href="#npm">npm</a> を直接使う。<a href="#infer-externs">:infer-externs auto</a>を使う。</p>
@@ -6797,7 +6797,7 @@ lein jar を実行し、 <code>jar -tvf target/library-1.0.0.jar</code> で最�
 <div id="footer">
 <div id="footer-text">
 Version 1.0<br>
-Last updated 2021-07-08 17:54:54 JST
+Last updated 2021-07-20 08:15:10 JST
 </div>
 </div>
 </body>

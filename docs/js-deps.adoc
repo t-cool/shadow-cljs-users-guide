@@ -11,7 +11,7 @@ https://www.npmjs.com/[npm] は、JavaScript のデファクトスタンダー�
 ////
 Most npm packages will also include some instructions on how to use the actual code. The “old” CommonJS style just has `require` calls which translate directly:
 ////
-ほとんどの npm パッケージには、実際のコードの使用方法に関する説明も含まれています。古い CommonJS のスタイルでは、直接翻訳する `require` コールがあるだけです。
+ほとんどの npm パッケージには、実際のコードの使用方法に関する説明も含まれています。古い CommonJS のスタイルでは、直接翻訳する `require` の呼び出しがあるだけです。
 
 ```js
 var react = require("react");
@@ -749,7 +749,7 @@ Apart from that not every `npm` package is available via CLJSJS and keeping the 
 ////
 So the only thing we are missing are the bundled Externs. In many instances these are not required due to improved <<infer-externs, externs inference>>. Often those Externs are generated using third-party tools which means they are not totally accurate anyways.
 ////
-そのため、唯一欠けているのはバンドルされている Externs です。多くの場合、<<infer-externs, externs inference>>が改善されたため、これらは必要ありません。また、これらの Externs はサードパーティのツールを使って生成されていることが多いので、いずれにしても完全には正確ではありません。
+そのため、唯一欠けているのはバンドルされた Externs です。多くの場合、<<infer-externs, externs inference>>が改善されたため、これらは必要ありません。また、これらの Externs はサードパーティのツールを使って生成されていることが多いので、いずれにしても完全には正確ではありません。
 
 ////
 Conclusion: Use <<npm, npm>> directly. Use <<infer-externs, :infer-externs auto>>.

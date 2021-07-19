@@ -1,5 +1,5 @@
 = Shadow CLJS User's Guide 邦訳
-:author: Thomas Heller , Tony Kay
+:author: Thomas Heller , Tony Kay (邦訳: Hiroki Noguchi)
 :revdate: Jan 10, 2018
 :revnumber: 1.0
 :lang: en
