@@ -936,10 +936,10 @@ table.CodeRay td.code>pre{padding:0}
 <p><code>shadow-cljs</code> は server モードで起動することができます。これは watch のような長時間稼働するタスクに必要です。 watch は、サーバインスタンスがまだ起動していなければ、暗黙のうちに起動します。 server は、ビルドが接続する Websocket のエンドポイントを提供します。また、nREPL、Socket REPL、開発用HTTP サーバの他のすべてのエンドポイントも同様に提供します。</p>
 </div>
 <div class="paragraph">
-<p>CLI の shadow-cljs を使用する場合、すべてのコマンドは新しい JVM を起動する代わりに、実行中のサーバインスタンスの JVM を再利用します。起動時間がかなり遅くなることがあるため、動作が大幅に速くなります。</p>
+<p>CLI の shadow-cljs を使用する場合、すべてのコマンドは新しい JVM を起動する代わりに、実行中のサーバインスタンスの JVM を再利用します。起動時間がかなり遅くなることがありますが、動作が大幅に速くなります。</p>
 </div>
 <div class="paragraph">
-<p>しかし、いったんサーバが稼働すれば、:dependencies に変更があったときに再起動するだけで、あとはすべて REPL で行うことができます。</p>
+<p>しかし一度サーバが稼働すれば、:dependencies に変更があったときに再起動するだけで、あとはすべて REPL で行うことができます。</p>
 </div>
 </div>
 <div class="sect3">

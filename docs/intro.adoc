@@ -125,12 +125,12 @@ This is unlike `npm` where the package name itself is never used inside the pack
 ////
 When using the `shadow-cljs` CLI all commands will re-use a running server instance JVM instead of starting a new JVM. This is substantially faster since start-up time can be quite slow.
 ////
-CLI の shadow-cljs を使用する場合、すべてのコマンドは新しい JVM を起動する代わりに、実行中のサーバインスタンスの JVM を再利用します。起動時間がかなり遅くなることがあるため、動作が大幅に速くなります。
+CLI の shadow-cljs を使用する場合、すべてのコマンドは新しい JVM を起動する代わりに、実行中のサーバインスタンスの JVM を再利用します。起動時間がかなり遅くなることがありますが、動作が大幅に速くなります。
 
 ////
 Once the server is running however you only have to restart it whenever your `:dependencies` change and everything else can be done via the REPL.
 ////
-しかし、いったんサーバが稼働すれば、:dependencies に変更があったときに再起動するだけで、あとはすべて REPL で行うことができます。
+しかし一度サーバが稼働すれば、:dependencies に変更があったときに再起動するだけで、あとはすべて REPL で行うことができます。
 
 === REPL
 
