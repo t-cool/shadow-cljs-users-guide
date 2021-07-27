@@ -1031,15 +1031,15 @@ project.clj
 <p><a href="https://nodejs.org"><code>node.js</code></a> (v6.0.0+, 最新のバージョンが望ましいです)</p>
 </li>
 <li>
-<p><a href="https://www.npmjs.com"><code>npm</code></a> or <a href="https://www.yarnpkg.com"><code>yarn</code></a></p>
+<p><a href="https://www.npmjs.com"><code>npm</code></a> または <a href="https://www.yarnpkg.com"><code>yarn</code></a></p>
 </li>
 <li>
-<p>任意の Java SDK (バージョン 8 以上) <a href="http://openjdk.java.net/install/">OpenJDK</a> もしくは <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">Oracle</a></p>
+<p>任意の Java SDK (バージョン 8 以上): <a href="http://openjdk.java.net/install/">OpenJDK</a> もしくは <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">Oracle</a></p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>プロジェクトのディレクトリには、package.json が必要です。まだない場合は、 <code>npm init -y</code> を実行して作成することができます。プロジェクトディレクトリがない場合は、次のコマンドを実行して作成してください。</p>
+<p>プロジェクトのディレクトリには、<code>package.json</code> が必要です。ない場合は <code>npm init -y</code> を実行して作成することができます。プロジェクトディレクトリがない場合は、次のコマンドを実行して作成してください。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1817,7 +1817,7 @@ CLJS REPL に切り替えたい場合は、サーバの起動に使用したツ�
 <p>依存関係は、 <code>shadow-cljs.edn</code> 設定ファイルのルートにある <code>:dependencies</code> キーによって管理されます。これらは <code>lein</code> や <code>boot</code> のような他の Clojure ツールが使用するのと同じ記法で宣言されます。</p>
 </div>
 <div class="paragraph">
-<p>各依存関係は <code>[ライブラリ名 "バージョン - 文字列"]</code> を使ったベクターとして書かれ、 1 つの外側のベクターに入れ子になっています。</p>
+<p>各依存関係は <code>[ライブラリ名 "バージョン文字列"]</code> を使ったベクターとして書かれ、 1 つの外側のベクターに入れ子になっています。</p>
 </div>
 <div class="listingblock">
 <div class="title">Example :dependencies</div>
@@ -1933,7 +1933,7 @@ $ yarn add the-thing</code></pre>
 <p>デフォルトでは、 <code>shadow-cljs</code> サーバモードでは、組み込まれた nREPL サーバが起動しますが、これは必要ないかもしれません。これを無効にするには、ユーザー設定で <code>:nrepl false</code> を設定します。</p>
 </div>
 <div class="paragraph">
-<p>ユーザー設定で現在受け入れられている値は、<a href="#open-file-command">:open-file-command</a>のみです。他のオプションは現在のところ何の効果もありません。</p>
+<p>ユーザー設定で現在受け入れられている値は、<a href="#open-file-command">:open-file-command</a> のみです。他のオプションは現在のところ何の効果もありません。</p>
 </div>
 </div>
 <div class="sect2">
@@ -2132,7 +2132,7 @@ localhost（または使用するホスト）の SAN（Subject Alternative Name�
 <p>代わりに独自のポートを設定したい場合は、 <code>:http</code> の設定で行うことができます。</p>
 </div>
 <div class="listingblock">
-<div class="title"><code>shadow-cljs.edn</code> に <code>:http</code> の設定をする。</div>
+<div class="title"><code>shadow-cljs.edn</code> 内の <code>:http</code> の設定</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
  <span class="symbol">:http</span> {<span class="symbol">:port</span> <span class="integer">12345</span>
@@ -2276,19 +2276,19 @@ localhost（または使用するホスト）の SAN（Subject Alternative Name�
 <dl>
 <dt><code>:proxy-rewrite-host-header</code> </dt>
 <dd>
-<p>boolean, デフォルトは true です。オリジナルの Host ヘッダーを使用するか、 <code>:proxy-url</code> からのヘッダーを使用するかを決定します。上記の例では、 <code>localhost</code> と <code>some.host</code> のどちらを使用するかを決定します。</p>
+<p>boolean で、デフォルトは true です。オリジナルの Host ヘッダーを使用するか、 <code>:proxy-url</code> からのヘッダーを使用するかを決定します。上記の例では、 <code>localhost</code> と <code>some.host</code> のどちらを使用するかを決定します。</p>
 </dd>
 <dt><code>:proxy-reuse-x-forwarded</code> </dt>
 <dd>
-<p>boolean, デフォルトは false です。プロキシが自分自身を <code>X-Forwarded-For</code> リストに追加するか、新しいリストを開始するかを設定します。</p>
+<p>boolean で、デフォルトは false です。プロキシが自分自身を <code>X-Forwarded-For</code> リストに追加するか、新しいリストを開始するかを設定します。</p>
 </dd>
 <dt><code>:proxy-max-connection-retries</code> </dt>
 <dd>
-<p>int, デフォルトは 1 です。</p>
+<p>int で、デフォルトは 1 です。</p>
 </dd>
 <dt><code>:proxy-max-request-time</code> </dt>
 <dd>
-<p>int としてのミリ秒、デフォルトは 30000 です。30秒のリクエストタイムアウトです。</p>
+<p>int でミリ秒を表し、デフォルトは 30000 です。30秒のリクエストタイムアウトです。</p>
 </dd>
 </dl>
 </div>
@@ -4714,7 +4714,7 @@ ns.bar()<span class="comment">;</span></code></pre>
 <p>デフォルトの <code>:ns-regexp</code> は <code>"-test$"</code> なので、最初のテストは以下のようになります。</p>
 </div>
 <div class="listingblock">
-<div class="title">ファイル： <code>src/test/demo/app_test.cljs</code>.</div>
+<div class="title">File: <code>src/test/demo/app_test.cljs</code>.</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">(<span class="keyword">ns</span> <span class="namespace">demo.app-test</span>
   (<span class="symbol">:require</span> [cljs.test <span class="symbol">:refer</span> (deftest is)]))
@@ -6787,7 +6787,7 @@ lein jar を実行し、 <code>jar -tvf target/library-1.0.0.jar</code> で最�
 <p><code>shadow-cljs</code> コンパイラは、あなたのソースパス上にあるものが最初にコンパイルされるようにし、JAR からのファイルを優先します。つまり、ライブラリからソースファイルをコピーしてパッチを当て、それを自分のソースディレクトリにインクルードすることができるのです。</p>
 </div>
 <div class="paragraph">
-<p>これは、そのプロジェクトをクローンして、そのセットアップやビルドなどを理解しなくても、修正（ <code>shadow-cljs</code> 自体も！）をテストするための便利な方法です。
+<p>これは、そのプロジェクトをクローンして、そのセットアップやビルドなどを理解しなくても、修正をテストするための便利な方法です(<code>shadow-cljs</code> 自体もテストできます!)。
 プロジェクトをクローンして、そのセットアップやビルドなどを理解することなく、修正をテストする便利な方法です。</p>
 </div>
 </div>
@@ -6797,7 +6797,7 @@ lein jar を実行し、 <code>jar -tvf target/library-1.0.0.jar</code> で最�
 <div id="footer">
 <div id="footer-text">
 Version 1.0<br>
-Last updated 2021-07-26 17:28:52 JST
+Last updated 2021-07-27 11:59:21 JST
 </div>
 </div>
 </body>

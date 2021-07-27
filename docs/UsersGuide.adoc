@@ -151,19 +151,18 @@ You will need:
 
 ////
 - https://nodejs.org[`node.js`] (v6.0.0+, most recent version preferred)
-- https://www.npmjs.com[`npm`] または https://www.yarnpkg.com[`yarn`]
+- https://www.npmjs.com[`npm`] or https://www.yarnpkg.com[`yarn`]
 - Any Java SDK (Version 8 or higher). http://openjdk.java.net/install/[OpenJDK] or http://www.oracle.com/technetwork/java/javase/downloads/index.html[Oracle]
 ////
 - https://nodejs.org[`node.js`] (v6.0.0+, 最新のバージョンが望ましいです)
-- https://www.npmjs.com[`npm`] or https://www.yarnpkg.com[`yarn`]
-- 任意の Java SDK (バージョン 8 以上) http://openjdk.java.net/install/[OpenJDK] もしくは http://www.oracle.com/technetwork/java/javase/downloads/index.html[Oracle]
+- https://www.npmjs.com[`npm`] または https://www.yarnpkg.com[`yarn`]
+- 任意の Java SDK (バージョン 8 以上): http://openjdk.java.net/install/[OpenJDK] もしくは http://www.oracle.com/technetwork/java/javase/downloads/index.html[Oracle]
 
 
 ////
 In your project directory you'll need a `package.json`. If you do not have one yet you can create one by running `npm init -y`. If you don't have a project directory yet consider creating it by running
 ////
-プロジェクトのディレクトリには、package.json が必要です。まだない場合は、 `npm init -y` を実行して作成することができます。プロジェクトディレクトリがない場合は、次のコマンドを実行して作成してください。
-
+プロジェクトのディレクトリには、`package.json` が必要です。ない場合は `npm init -y` を実行して作成することができます。プロジェクトディレクトリがない場合は、次のコマンドを実行して作成してください。
 
 ```
 $ npx create-cljs-project my-project
@@ -331,7 +330,7 @@ Your dependencies are managed via the `:dependencies` key at the root of the `sh
 ////
 Each dependency is written as a vector using `[library-name "version-string"]` nested in one outer vector.
 ////
-各依存関係は `[ライブラリ名 "バージョン - 文字列"]` を使ったベクターとして書かれ、 1 つの外側のベクターに入れ子になっています。
+各依存関係は `[ライブラリ名 "バージョン文字列"]` を使ったベクターとして書かれ、 1 つの外側のベクターに入れ子になっています。
 
 
 ////
@@ -490,7 +489,7 @@ By default the `shadow-cljs` server-mode will launch an embedded nREPL server wh
 ////
 The only other currently accepted value in the user config is the <<open-file-command, :open-file-command>>. No other options are currently have any effect.
 ////
-ユーザー設定で現在受け入れられている値は、<<open-file-command, :open-file-command>>のみです。他のオプションは現在のところ何の効果もありません。
+ユーザー設定で現在受け入れられている値は、<<open-file-command, :open-file-command>> のみです。他のオプションは現在のところ何の効果もありません。
 
 == サーバのオプション
 
@@ -732,7 +731,7 @@ If you prefer to set your own port instead you can do this via the `:http` confi
 ////
 .`shadow-cljs.edn` with `:http` config
 ////
-.`shadow-cljs.edn` に `:http` の設定をする。
+.`shadow-cljs.edn` 内の `:http` の設定
 
 ```
 {...
@@ -906,10 +905,10 @@ Additional optional Options to configure the connection handling are:
 ////
 接続処理を設定するオプションは以下の通りです。
 [Horizontal]
-`:proxy-rewrite-host-header` :: boolean, デフォルトは true です。オリジナルの Host ヘッダーを使用するか、 `:proxy-url` からのヘッダーを使用するかを決定します。上記の例では、 `localhost` と `some.host` のどちらを使用するかを決定します。
-`:proxy-reuse-x-forwarded` :: boolean, デフォルトは false です。プロキシが自分自身を `X-Forwarded-For` リストに追加するか、新しいリストを開始するかを設定します。
-`:proxy-max-connection-retries` :: int, デフォルトは 1 です。
-`:proxy-max-request-time` :: int としてのミリ秒、デフォルトは 30000 です。30秒のリクエストタイムアウトです。
+`:proxy-rewrite-host-header` :: boolean で、デフォルトは true です。オリジナルの Host ヘッダーを使用するか、 `:proxy-url` からのヘッダーを使用するかを決定します。上記の例では、 `localhost` と `some.host` のどちらを使用するかを決定します。
+`:proxy-reuse-x-forwarded` :: boolean で、デフォルトは false です。プロキシが自分自身を `X-Forwarded-For` リストに追加するか、新しいリストを開始するかを設定します。
+`:proxy-max-connection-retries` :: int で、デフォルトは 1 です。
+`:proxy-max-request-time` :: int でミリ秒を表し、デフォルトは 30000 です。30秒のリクエストタイムアウトです。
 
 == JVM の設定 [[jvm-opts]]
 
@@ -1023,7 +1022,7 @@ The default `:ns-regexp` is `"-test$"`, so your first test could look like:
 ////
 .File: `src/test/demo/app_test.cljs`
 ////
-.ファイル： `src/test/demo/app_test.cljs`.
+.File: `src/test/demo/app_test.cljs`.
 
 
 ```clojure
@@ -1112,5 +1111,5 @@ The `shadow-cljs` compiler ensures that things on your source paths are compiled
 This is a convenient way to test out fixes (even to `shadow-cljs` itself!) without having to clone
 that project and understand its setup, build, etc.
 ////
-これは、そのプロジェクトをクローンして、そのセットアップやビルドなどを理解しなくても、修正（ `shadow-cljs` 自体も！）をテストするための便利な方法です。
+これは、そのプロジェクトをクローンして、そのセットアップやビルドなどを理解しなくても、修正をテストするための便利な方法です(`shadow-cljs` 自体もテストできます!)。
 プロジェクトをクローンして、そのセットアップやビルドなどを理解することなく、修正をテストする便利な方法です。
