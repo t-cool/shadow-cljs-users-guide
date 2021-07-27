@@ -33,26 +33,26 @@ If desired you can easily integrate the `shadow-cljs` Clojure library into any o
 ////
 It is recommended to use the `npm` package as that provides a more optimized development experience tailored towards CLJS development.
 ////
-CLJS の開発に合わせて、より最適化された開発環境を提供するので、npm パッケージを使用することをお勧めします。
+ClojureScript の開発に合わせて、より最適化された開発環境を提供するので、npm パッケージを使用することをお勧めします。
 
 == 基本的なワークフロー
 
 ////
 When working with `shadow-cljs` you will be defining one or more builds in the `shadow-cljs.edn` configuration file. Each build will have a `:target` property which represents a configuration preset optimized for the target environment (eg. the Browser, a `node.js` application or a Chrome Extension).
 ////
-shadow-cljs を使用する際には、設定ファイル shadow-cljs.edn で 1 つ以上のビルドを定義します。それぞれのビルドは、ターゲットとなる環境（例えば、ブラウザ、node.js アプリケーション、Chrome 拡張機能等）に最適化された構成プリセットを表す :target プロパティをもちます。
+`shadow-cljs` を使用する際には、設定ファイル `shadow-cljs.edn` で 1 つ以上のビルドを定義します。それぞれのビルドは、ターゲットとなる環境（例えば、ブラウザ、node.js アプリケーション、Chrome 拡張機能等）に最適化された構成プリセットを表す `:target` プロパティをもちます。
 
 ////
 Each build can either produce development or release output depending on the command used to trigger the compilation. The standard build commands are: `compile`, `watch` and `release`.
 ////
-各ビルドは、コンパイルのトリガーとなったコマンドに応じて、開発用またはリリース用の出力を生成します。標準的なビルドコマンドは、compile 、watch、release です。
+各ビルドは、コンパイルのトリガーとなったコマンドに応じて、開発用またはリリース用の出力を生成します。標準的なビルドコマンドは、`compile` 、`watch` 、 `release` です。
 
 === development モード
 
 ////
 You can either `compile` a development build once or run a `watch` process which will monitor your source files and re-compile them automatically (and live-reload the code if desired).
 ////
-開発ビルドを一度だけコンパイルすることも、watch プロセスを実行してソースファイルを監視して自動的に再コンパイルすることもできます（必要に応じてコードをライブロードすることもできます）。
+開発ビルドを一度だけコンパイルすることも、 `watch` プロセスを実行してソースファイルを監視して自動的に再コンパイルすることもできます（必要に応じてコードをライブロードすることもできます）。
 
 ////
 All development builds are optimized for the developer experience with fast feedback cycles and other features like a REPL to directly interact with your running code.
@@ -62,21 +62,21 @@ All development builds are optimized for the developer experience with fast feed
 ////
 A development build should never be shipped publicly since they can become quite large and may only work on the machine they were compiled on depending on the `:target`.
 ////
-開発用のビルドは、非常に大きなサイズになる可能性があり、:target に応じてコンパイルされたマシンでしか動作しない可能性があるため、決して一般に配布してはいけません。
+開発用のビルドは、非常に大きなサイズになる可能性があり、 `:target` に応じてコンパイルされたマシンでしか動作しない可能性があるため、決して一般に配布してはいけません。
 
 === release モード
 
 ////
 Creating a `release` build will strip out all the development related code and finally run the code through the Closure Compiler. This is an optimizing Compiler for JavaScript which will significantly reduce the overall size of the code.
 ////
-リリース (release) ビルドを作成すると、開発モード関連のコードがすべて取り除かれ、最後に Closure Compiler にコードを通します。これにより、JavaScript用の最適化コンパイラが、コードの全体的なサイズを大幅に削減します。
+`release` ビルドを作成すると、開発モード関連のコードがすべて取り除かれ、最後に Closure Compiler にコードを通します。これにより、JavaScript用の最適化コンパイラが、コードの全体的なサイズを大幅に削減します。
 
 == 重要な概念
 
 ////
 There are several important concepts that you should familiarize yourself with when using `shadow-cljs`. They are integral to understanding how everything fits together and how the tool works with your code.
 ////
-shadow-cljs を使用する際には、いくつかの重要な概念を理解しておく必要があります。これらの概念は、すべてがどのように組み合わされるのか、また、このツールがあなたのコードとどのように連動するのかを理解するために不可欠です。
+`shadow-cljs` を使用する際には、いくつかの重要な概念を理解しておく必要があります。これらの概念は、すべてがどのように組み合わされるのか、また、このツールがあなたのコードとどのように連動するのかを理解するために不可欠です。
 
 === Classpath
 
@@ -90,28 +90,28 @@ shadow-cljs は、ファイルを扱う際に、Java Virtual Machine (JVM) と�
 - A local filesystem directory, managed by `:source-paths` entry in the configuration.
 - Or a `.jar` file, representing Clojure(Script) or JVM libraries. These are compressed archives containing many files (basically just a `.zip` file). These are added by your `:dependencies`.
 ////
-- 設定の:source-paths エントリで管理される、ローカルファイルシステムのディレクトリです。
-- あるいは、Clojure(Script)や JVM のライブラリを表す `.jar` ファイルです。これらは、多くのファイルを含む圧縮アーカイブです(基本的には .zip ファイルです)。これらは:dependencies によって追加されます。
+- 設定の `:source-paths` エントリで管理される、ローカルファイルシステムのディレクトリです。
+- あるいは、Clojure(Script)や JVM のライブラリを表す `.jar` ファイルです。これらは、多くのファイルを含む圧縮アーカイブです(基本的には `.zip` ファイルです)。これらは `:dependencies` によって追加されます。
 
 ////
 In the Clojure(Script) everything is namespaced and each name is expected to resolve to a file. If you have a `(ns demo.app)` namespace the compiler expects to find a `demo/app.cljs` (or `.cljc`) on the classpath. The classpath will be searched in order until it is found. Suppose you configured the `:source-paths ["src/main" "src/test"]` the compiler will first look for a `src/main/demo/app.cljs` and then `src/test/demo/app.cljs`. When the file is not found on any source path the JVM will begin looking into the `.jar` files on the classpath. When it finds a `demo/app.cljs` at the root of any of the libraries that file it will be used.
 ////
-Clojure(Script)では、すべてが名前空間化されていて、それぞれの名前がファイルに解決することが期待されています。(ns demo.app)という名前空間があれば、コンパイラはクラスパス上に demo/app.cljs(または `.cljc`)があることを期待します。クラスパスは、それが見つかるまで順番に検索されます。例えば、 `:source-paths ["src/main" "src/test"]` を設定したとすると、コンパイラはまず `src/main/demo/app.cljs` を探し、次に `src/test/demo/app.cljs` を探します。どのソースパスにもファイルが見つからない場合、JVM はクラスパス上の .jar ファイルを探し始めます。そして、いずれかのライブラリのルートに demo/app.cljs が見つかると、そのファイルが使用されます。
+Clojure(Script) では、すべてが名前空間化されていて、それぞれの名前がファイルに解決することが期待されています。 `(ns demo.app)` という名前空間があれば、コンパイラはクラスパス上に `demo/app.cljs` (または `.cljc`)があることを期待します。クラスパスは、それが見つかるまで順番に検索されます。例えば、 `:source-paths ["src/main" "src/test"]` を設定したとすると、コンパイラはまず `src/main/demo/app.cljs` を探し、次に `src/test/demo/app.cljs` を探します。どのソースパスにもファイルが見つからない場合、JVM はクラスパス上の `.jar` ファイルを探し始めます。そして、いずれかのライブラリのルートに `demo/app.cljs` が見つかると、そのファイルが使用されます。
 
 ////
 IMPORTANT: When a filename exists multiple times on the classpath then only the first one is used. Everything on the JVM and Clojure(Script) is namespaced to avoid such conflicts. Very similar to `npm` where each package must have a unique name.
 ////
-IMPORTANT: あるファイル名がクラスパス上に複数回存在する場合、最初のものだけが使用されます。 JVM と Clojure(Script)上のすべてのものは、このような衝突を避けるために名前空間が設けられています。各パッケージが一意の名前を持たなければならない npm と非常によく似ています。
+IMPORTANT: あるファイル名がクラスパス上に複数回存在する場合、最初のものだけが使用されます。 JVM と Clojure(Script)上のすべてのものは、このような衝突を避けるために名前空間が設けられています。各パッケージが一意の名前を持たなければならない `npm` と非常によく似ています。
 
 ////
 It is therefore recommended to be very disciplined about the names you choose and properly namespacing everything. It may seem repetitive to always use `(ns your-company.components.foo)` over `(ns components.foo)` but it will save you from lot of headaches later on.
 ////
-そのため、名前の選択には細心の注意を払い、すべてのものに適切な名前空間をつけることをお勧めします。(ns component.foo)よりも(ns your-company.components.foo)を常に使うことは反復的に見えるかもしれませんが、後で多くの頭痛の種をなくすことができます。
+そのため、名前の選択には細心の注意を払い、すべてのものに適切な名前空間をつけることをお勧めします。`(ns component.foo)` よりも `(ns your-company.components.foo)` を常に使うことは反復的に見えるかもしれませんが、後で多くの頭痛の種をなくすことができます。
 
 ////
 This is unlike `npm` where the package name itself is never used inside the package itself and only relative paths are used.
 ////
-これは npm とは異なり、パッケージ名自体がパッケージ内部で使用されることはなく、相対パスのみが使用されます。
+これは `npm` とは異なり、パッケージ名自体がパッケージ内部で使用されることはなく、相対パスのみが使用されます。
 
 
 === server モード
@@ -119,23 +119,23 @@ This is unlike `npm` where the package name itself is never used inside the pack
 ////
 `shadow-cljs` can be started in "server" mode which is required for long-running tasks such as `watch`. A `watch` will implicitly start the server instance if it is not already running. The server will provide the Websocket endpoint that builds will connect to as well as all the other endpoints for nREPL, Socket REPL and the development HTTP servers.
 ////
-`shadow-cljs` は server モードで起動することができます。これは watch のような長時間稼働するタスクに必要です。 watch は、サーバインスタンスがまだ起動していなければ、暗黙のうちに起動します。 server は、ビルドが接続する Websocket のエンドポイントを提供します。また、nREPL、Socket REPL、開発用HTTP サーバの他のすべてのエンドポイントも同様に提供します。
+`shadow-cljs` は `server` モードで起動することができます。これは `watch` のような長時間稼働するタスクに必要です。 `watch` は、サーバインスタンスがまだ起動していなければ、暗黙のうちに起動します。 `server` は、ビルドが接続する Websocket のエンドポイントを提供します。また、nREPL、Socket REPL、開発用 HTTP サーバの他のすべてのエンドポイントも同様に提供します。
 
 
 ////
 When using the `shadow-cljs` CLI all commands will re-use a running server instance JVM instead of starting a new JVM. This is substantially faster since start-up time can be quite slow.
 ////
-CLI の shadow-cljs を使用する場合、すべてのコマンドは新しい JVM を起動する代わりに、実行中のサーバインスタンスの JVM を再利用します。起動時間がかなり遅くなることがありますが、動作が大幅に速くなります。
+`shadow-cljs` CLI を使用する場合、すべてのコマンドは新しい JVM を起動する代わりに、実行中のサーバインスタンスの JVM を再利用します。起動時間がかなり遅くなることがありますが、動作が大幅に速くなります。
 
 ////
 Once the server is running however you only have to restart it whenever your `:dependencies` change and everything else can be done via the REPL.
 ////
-しかし一度サーバが稼働すれば、:dependencies に変更があったときに再起動するだけで、あとはすべて REPL で行うことができます。
+しかし一度サーバが稼働すれば、 `:dependencies` に変更があったときに再起動するだけで、あとはすべて REPL で行うことができます。
 
 === REPL
 
 ////
 The REPL is at the heart of all Clojure(Script) development and every CLI command can also be used directly from the REPL as well. It is absolutely worth getting comfortable with the REPL even if the command line may seem more familiar.
 ////
-REPL は、すべての Clojure(Script)開発の中心であり、すべての CLI コマンドは REPL から直接使用することもできます。コマンドラインの方が馴染みがあるように見えても、REPL を使いこなすことには、絶対に価値があります。
+REPL は、すべての Clojure(Script) 開発の中心であり、すべての CLI コマンドは REPL から直接使用することもできます。コマンドラインの方が馴染みがあるように見えても、REPL を使いこなすことには、絶対に価値があります。
 

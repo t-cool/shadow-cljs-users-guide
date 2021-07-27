@@ -858,40 +858,40 @@ table.CodeRay td.code>pre{padding:0}
 <p>必要であれば、Clojure ライブラリである shadow-cljs を、他の Clojure/JVM ビルドツール（例えば <a href="https://leiningen.org/">leiningen</a> や <a href="https://clojure.org/guides/deps_and_cli">Clojure CLI</a>ツール）に簡単に統合することができます。</p>
 </div>
 <div class="paragraph">
-<p>CLJS の開発に合わせて、より最適化された開発環境を提供するので、npm パッケージを使用することをお勧めします。</p>
+<p>ClojureScript の開発に合わせて、より最適化された開発環境を提供するので、npm パッケージを使用することをお勧めします。</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_基本的なワークフロー"><a class="anchor" href="#_基本的なワークフロー"></a><a class="link" href="#_基本的なワークフロー">1.2. 基本的なワークフロー</a></h3>
 <div class="paragraph">
-<p>shadow-cljs を使用する際には、設定ファイル shadow-cljs.edn で 1 つ以上のビルドを定義します。それぞれのビルドは、ターゲットとなる環境（例えば、ブラウザ、node.js アプリケーション、Chrome 拡張機能等）に最適化された構成プリセットを表す :target プロパティをもちます。</p>
+<p><code>shadow-cljs</code> を使用する際には、設定ファイル <code>shadow-cljs.edn</code> で 1 つ以上のビルドを定義します。それぞれのビルドは、ターゲットとなる環境（例えば、ブラウザ、node.js アプリケーション、Chrome 拡張機能等）に最適化された構成プリセットを表す <code>:target</code> プロパティをもちます。</p>
 </div>
 <div class="paragraph">
-<p>各ビルドは、コンパイルのトリガーとなったコマンドに応じて、開発用またはリリース用の出力を生成します。標準的なビルドコマンドは、compile 、watch、release です。</p>
+<p>各ビルドは、コンパイルのトリガーとなったコマンドに応じて、開発用またはリリース用の出力を生成します。標準的なビルドコマンドは、<code>compile</code> 、<code>watch</code> 、 <code>release</code> です。</p>
 </div>
 <div class="sect3">
 <h4 id="_development_モード"><a class="anchor" href="#_development_モード"></a><a class="link" href="#_development_モード">1.2.1. development モード</a></h4>
 <div class="paragraph">
-<p>開発ビルドを一度だけコンパイルすることも、watch プロセスを実行してソースファイルを監視して自動的に再コンパイルすることもできます（必要に応じてコードをライブロードすることもできます）。</p>
+<p>開発ビルドを一度だけコンパイルすることも、 <code>watch</code> プロセスを実行してソースファイルを監視して自動的に再コンパイルすることもできます（必要に応じてコードをライブロードすることもできます）。</p>
 </div>
 <div class="paragraph">
 <p>すべての開発ビルドは、高速なフィードバックサイクルや、実行中のコードと直接やりとりできる REPL などの機能により、開発者の体験を最適化します。</p>
 </div>
 <div class="paragraph">
-<p>開発用のビルドは、非常に大きなサイズになる可能性があり、:target に応じてコンパイルされたマシンでしか動作しない可能性があるため、決して一般に配布してはいけません。</p>
+<p>開発用のビルドは、非常に大きなサイズになる可能性があり、 <code>:target</code> に応じてコンパイルされたマシンでしか動作しない可能性があるため、決して一般に配布してはいけません。</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_release_モード"><a class="anchor" href="#_release_モード"></a><a class="link" href="#_release_モード">1.2.2. release モード</a></h4>
 <div class="paragraph">
-<p>リリース (release) ビルドを作成すると、開発モード関連のコードがすべて取り除かれ、最後に Closure Compiler にコードを通します。これにより、JavaScript用の最適化コンパイラが、コードの全体的なサイズを大幅に削減します。</p>
+<p><code>release</code> ビルドを作成すると、開発モード関連のコードがすべて取り除かれ、最後に Closure Compiler にコードを通します。これにより、JavaScript用の最適化コンパイラが、コードの全体的なサイズを大幅に削減します。</p>
 </div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_重要な概念"><a class="anchor" href="#_重要な概念"></a><a class="link" href="#_重要な概念">1.3. 重要な概念</a></h3>
 <div class="paragraph">
-<p>shadow-cljs を使用する際には、いくつかの重要な概念を理解しておく必要があります。これらの概念は、すべてがどのように組み合わされるのか、また、このツールがあなたのコードとどのように連動するのかを理解するために不可欠です。</p>
+<p><code>shadow-cljs</code> を使用する際には、いくつかの重要な概念を理解しておく必要があります。これらの概念は、すべてがどのように組み合わされるのか、また、このツールがあなたのコードとどのように連動するのかを理解するために不可欠です。</p>
 </div>
 <div class="sect3">
 <h4 id="_classpath"><a class="anchor" href="#_classpath"></a><a class="link" href="#_classpath">1.3.1. Classpath</a></h4>
@@ -901,15 +901,15 @@ table.CodeRay td.code>pre{padding:0}
 <div class="ulist">
 <ul>
 <li>
-<p>設定の:source-paths エントリで管理される、ローカルファイルシステムのディレクトリです。</p>
+<p>設定の <code>:source-paths</code> エントリで管理される、ローカルファイルシステムのディレクトリです。</p>
 </li>
 <li>
-<p>あるいは、Clojure(Script)や JVM のライブラリを表す <code>.jar</code> ファイルです。これらは、多くのファイルを含む圧縮アーカイブです(基本的には .zip ファイルです)。これらは:dependencies によって追加されます。</p>
+<p>あるいは、Clojure(Script)や JVM のライブラリを表す <code>.jar</code> ファイルです。これらは、多くのファイルを含む圧縮アーカイブです(基本的には <code>.zip</code> ファイルです)。これらは <code>:dependencies</code> によって追加されます。</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>Clojure(Script)では、すべてが名前空間化されていて、それぞれの名前がファイルに解決することが期待されています。(ns demo.app)という名前空間があれば、コンパイラはクラスパス上に demo/app.cljs(または <code>.cljc</code>)があることを期待します。クラスパスは、それが見つかるまで順番に検索されます。例えば、 <code>:source-paths ["src/main" "src/test"]</code> を設定したとすると、コンパイラはまず <code>src/main/demo/app.cljs</code> を探し、次に <code>src/test/demo/app.cljs</code> を探します。どのソースパスにもファイルが見つからない場合、JVM はクラスパス上の .jar ファイルを探し始めます。そして、いずれかのライブラリのルートに demo/app.cljs が見つかると、そのファイルが使用されます。</p>
+<p>Clojure(Script) では、すべてが名前空間化されていて、それぞれの名前がファイルに解決することが期待されています。 <code>(ns demo.app)</code> という名前空間があれば、コンパイラはクラスパス上に <code>demo/app.cljs</code> (または <code>.cljc</code>)があることを期待します。クラスパスは、それが見つかるまで順番に検索されます。例えば、 <code>:source-paths ["src/main" "src/test"]</code> を設定したとすると、コンパイラはまず <code>src/main/demo/app.cljs</code> を探し、次に <code>src/test/demo/app.cljs</code> を探します。どのソースパスにもファイルが見つからない場合、JVM はクラスパス上の <code>.jar</code> ファイルを探し始めます。そして、いずれかのライブラリのルートに <code>demo/app.cljs</code> が見つかると、そのファイルが使用されます。</p>
 </div>
 <div class="admonitionblock important">
 <table>
@@ -918,34 +918,34 @@ table.CodeRay td.code>pre{padding:0}
 <div class="title">Important</div>
 </td>
 <td class="content">
-あるファイル名がクラスパス上に複数回存在する場合、最初のものだけが使用されます。 JVM と Clojure(Script)上のすべてのものは、このような衝突を避けるために名前空間が設けられています。各パッケージが一意の名前を持たなければならない npm と非常によく似ています。
+あるファイル名がクラスパス上に複数回存在する場合、最初のものだけが使用されます。 JVM と Clojure(Script)上のすべてのものは、このような衝突を避けるために名前空間が設けられています。各パッケージが一意の名前を持たなければならない <code>npm</code> と非常によく似ています。
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>そのため、名前の選択には細心の注意を払い、すべてのものに適切な名前空間をつけることをお勧めします。(ns component.foo)よりも(ns your-company.components.foo)を常に使うことは反復的に見えるかもしれませんが、後で多くの頭痛の種をなくすことができます。</p>
+<p>そのため、名前の選択には細心の注意を払い、すべてのものに適切な名前空間をつけることをお勧めします。<code>(ns component.foo)</code> よりも <code>(ns your-company.components.foo)</code> を常に使うことは反復的に見えるかもしれませんが、後で多くの頭痛の種をなくすことができます。</p>
 </div>
 <div class="paragraph">
-<p>これは npm とは異なり、パッケージ名自体がパッケージ内部で使用されることはなく、相対パスのみが使用されます。</p>
+<p>これは <code>npm</code> とは異なり、パッケージ名自体がパッケージ内部で使用されることはなく、相対パスのみが使用されます。</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_server_モード"><a class="anchor" href="#_server_モード"></a><a class="link" href="#_server_モード">1.3.2. server モード</a></h4>
 <div class="paragraph">
-<p><code>shadow-cljs</code> は server モードで起動することができます。これは watch のような長時間稼働するタスクに必要です。 watch は、サーバインスタンスがまだ起動していなければ、暗黙のうちに起動します。 server は、ビルドが接続する Websocket のエンドポイントを提供します。また、nREPL、Socket REPL、開発用HTTP サーバの他のすべてのエンドポイントも同様に提供します。</p>
+<p><code>shadow-cljs</code> は <code>server</code> モードで起動することができます。これは <code>watch</code> のような長時間稼働するタスクに必要です。 <code>watch</code> は、サーバインスタンスがまだ起動していなければ、暗黙のうちに起動します。 <code>server</code> は、ビルドが接続する Websocket のエンドポイントを提供します。また、nREPL、Socket REPL、開発用 HTTP サーバの他のすべてのエンドポイントも同様に提供します。</p>
 </div>
 <div class="paragraph">
-<p>CLI の shadow-cljs を使用する場合、すべてのコマンドは新しい JVM を起動する代わりに、実行中のサーバインスタンスの JVM を再利用します。起動時間がかなり遅くなることがありますが、動作が大幅に速くなります。</p>
+<p><code>shadow-cljs</code> CLI を使用する場合、すべてのコマンドは新しい JVM を起動する代わりに、実行中のサーバインスタンスの JVM を再利用します。起動時間がかなり遅くなることがありますが、動作が大幅に速くなります。</p>
 </div>
 <div class="paragraph">
-<p>しかし一度サーバが稼働すれば、:dependencies に変更があったときに再起動するだけで、あとはすべて REPL で行うことができます。</p>
+<p>しかし一度サーバが稼働すれば、 <code>:dependencies</code> に変更があったときに再起動するだけで、あとはすべて REPL で行うことができます。</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_repl"><a class="anchor" href="#_repl"></a><a class="link" href="#_repl">1.3.3. REPL</a></h4>
 <div class="paragraph">
-<p>REPL は、すべての Clojure(Script)開発の中心であり、すべての CLI コマンドは REPL から直接使用することもできます。コマンドラインの方が馴染みがあるように見えても、REPL を使いこなすことには、絶対に価値があります。</p>
+<p>REPL は、すべての Clojure(Script) 開発の中心であり、すべての CLI コマンドは REPL から直接使用することもできます。コマンドラインの方が馴染みがあるように見えても、REPL を使いこなすことには、絶対に価値があります。</p>
 </div>
 </div>
 </div>
@@ -1483,7 +1483,7 @@ $ shadow-cljs run my.build/release</code></pre>
   [&amp; args]
   (shadow/watch <span class="symbol">:my-build</span>))
 
-<span class="comment">;; このメタデータは、時計が動作するようにサーバを起動することを保証します</span>
+<span class="comment">;; このメタデータは、watch が動作するようにサーバを起動することを保証します</span>
 (<span class="keyword">defn</span> <span class="function">foo</span>
   {<span class="symbol">:shadow/requires-server</span> <span class="predefined-constant">true</span>}
   [&amp; args]
@@ -5147,8 +5147,8 @@ HeadlessChrome 0.0.0 (Mac OS X 10.12.6): Executed 1 of 1 SUCCESS (0.007 secs / 0
 <pre class="CodeRay highlight"><code data-lang="js"><span class="comment">// react-virtualized から名前付きでエクスポートすることで、任意のコンポーネントをインポートすることができます。</span>
 <span class="reserved">import</span> { Column, Table } from <span class="string"><span class="delimiter">'</span><span class="content">react-virtualized</span><span class="delimiter">'</span></span>
 
-<span class="comment">// しかし、いくつかの react-virtualized コンポーネントしか使用していない場合、</span>
-<span class="comment">// また、アプリケーションのバンドルサイズが大きくなることを懸念している場合、</span>
+<span class="comment">// いくつかの react-virtualized コンポーネントしか使用していない場合、</span>
+<span class="comment">// またはアプリケーションのバンドルサイズが大きくなることを懸念している場合、</span>
 <span class="comment">// 必要なコンポーネントだけを直接インポートすることができます。</span>
 <span class="reserved">import</span> AutoSizer from <span class="string"><span class="delimiter">'</span><span class="content">react-virtualized/dist/commonjs/AutoSizer</span><span class="delimiter">'</span></span>
 <span class="reserved">import</span> List from <span class="string"><span class="delimiter">'</span><span class="content">react-virtualized/dist/commonjs/List</span><span class="delimiter">'</span></span></code></pre>
@@ -5238,7 +5238,7 @@ HeadlessChrome 0.0.0 (Mac OS X 10.12.6): Executed 1 of 1 SUCCESS (0.007 secs / 0
 </div>
 </div>
 <div class="listingblock">
-<div class="title">Example :browser のビルドで :closure を使用するための設定</div>
+<div class="title">Example <code>:browser</code> のビルドで <code>:closure</code> を使用するための設定</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">{<span class="keyword">..</span><span class="keyword">.</span>
  <span class="symbol">:builds</span>
@@ -5827,7 +5827,7 @@ extern が必要なのは <code>:advanced</code> モードのみで、 <code>:si
 </div>
 </div>
 <div class="paragraph">
-<p><code>auto</code> では、コンパイラはコンパイル時にあなたのファイルだけを対象に追加のチェックを行います。また、ライブラリコードに含まれる externs の問題については警告しません。<code>all</code> では、すべてのファイルに対して有効になりますが、多くの警告を受ける可能性があることに注意してください。</p>
+<p><code>auto</code> では、コンパイラはコンパイル時にあなたのファイルだけを対象に追加のチェックを行います。また、ライブラリコードに含まれる externs の問題については警告しません。 <code>all</code> では、すべてのファイルに対して有効になりますが、多くの警告を受ける可能性があることに注意してください。</p>
 </div>
 <div class="paragraph">
 <p>有効にすると、コンパイラが JS と CLJS のどちらのコードを使用しているかを判断できない場合に警告が表示されます。</p>

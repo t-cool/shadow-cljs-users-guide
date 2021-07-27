@@ -500,7 +500,7 @@ If you want to start a `watch` for a given build you need to declare that the fu
   [& args]
   (shadow/watch :my-build))
 
-;; このメタデータは、時計が動作するようにサーバを起動することを保証します
+;; このメタデータは、watch が動作するようにサーバを起動することを保証します
 (defn foo
   {:shadow/requires-server true}
   [& args]

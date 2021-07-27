@@ -160,7 +160,7 @@ Externs を扱うために、 `shadow-cljs` コンパイラは、強化された
 ////
 With `:auto` the compiler will perform additional checks at compile time for your files only. It won't warn you about possible externs issues in library code. `:all` will enable it for everthing but be aware that you may get a lot of warnings.
 ////
-`auto` では、コンパイラはコンパイル時にあなたのファイルだけを対象に追加のチェックを行います。また、ライブラリコードに含まれる externs の問題については警告しません。`all` では、すべてのファイルに対して有効になりますが、多くの警告を受ける可能性があることに注意してください。
+`auto` では、コンパイラはコンパイル時にあなたのファイルだけを対象に追加のチェックを行います。また、ライブラリコードに含まれる externs の問題については警告しません。 `all` では、すべてのファイルに対して有効になりますが、多くの警告を受ける可能性があることに注意してください。
 
 ////
 When enabled you'll get warnings whenever the Compiler cannot figure out whether you are working with JS or CLJS code.

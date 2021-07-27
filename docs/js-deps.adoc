@@ -123,8 +123,8 @@ import List from 'react-virtualized/dist/commonjs/List'
 // react-virtualized から名前付きでエクスポートすることで、任意のコンポーネントをインポートすることができます。
 import { Column, Table } from 'react-virtualized'
 
-// しかし、いくつかの react-virtualized コンポーネントしか使用していない場合、
-// また、アプリケーションのバンドルサイズが大きくなることを懸念している場合、
+// いくつかの react-virtualized コンポーネントしか使用していない場合、
+// またはアプリケーションのバンドルサイズが大きくなることを懸念している場合、
 // 必要なコンポーネントだけを直接インポートすることができます。
 import AutoSizer from 'react-virtualized/dist/commonjs/AutoSizer'
 import List from 'react-virtualized/dist/commonjs/List'
@@ -231,7 +231,7 @@ Closure のサポートがより確実なものになるまでは、 `:shadow` �
 ////
 .Example config for using `:closure` in a `:browser` build.
 ////
-.Example :browser のビルドで :closure を使用するための設定
+.Example `:browser` のビルドで `:closure` を使用するための設定
 
 ```clojure
 {...
