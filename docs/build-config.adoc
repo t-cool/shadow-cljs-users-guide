@@ -442,7 +442,7 @@ The possible stages the `:build-hooks` can use are:
 With a running `watch` the `:configure` is only called once. Any of the others may be called
 again (in order) for each re-compile. The `build-state` will be re-used until the build config changes at which point it will be thrown away and a fresh one will be created.
 ////
-ウォッチを実行していると、:configure は一度しか呼ばれません。再コンパイルのたびに、他の項目が
+watch を実行していると、:configure は一度しか呼ばれません。再コンパイルのたびに、他の項目が
 再コンパイルのたびに（順番に）呼び出されます。`build-state` はビルドコンフィグが変更されるまで再利用され、その時点で破棄されて新しいものが作成されることになる。
 
 == コンパイラ・キャッシュ
