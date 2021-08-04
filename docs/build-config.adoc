@@ -1032,7 +1032,7 @@ The `:server` build will then no longer have the `codemirror` require and the `i
     ["react" :as react]))
 
 ;; 実際にどこにも呼び出されなければ、
-;; これはデッドコードとして削除されるでしょう。
+;; 以下はデッドコードとして削除されるでしょう。
 
 (defn init-cm [dom-node] :no-op)
 ...
