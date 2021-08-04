@@ -913,9 +913,11 @@ Example: Some `npm` packages only work when targeting the `:browser`, but you ma
 
 
 ////
-This namespace will compile fine for both builds (`:node-script` and `:browser`) but when trying to run the `:node-script` it will fail since the `codemirror` package tries to access the DOM. Since `react-dom/server` does not use refs the `init-cm` function will never be called anyways.
+This namespace will compile fine for both builds (`:node-script` and `:browser`) but when trying to run the `:node-script` it will fail since the `codemirror` package tries to access the DOM. 
+Since `react-dom/server` does not use refs the `init-cm` function will never be called anyways.
 ////
-この名前空間は、両方のビルド( `:node-script` と `:browser` )で正常にコンパイルされますが、 `:node-script` を実行しようとすると、 `codemirror` パッケージが DOM にアクセスしようとするため、失敗します。しかし、 `:node-script` を実行しようとすると、 `codemirror` パッケージが DOM にアクセスしようとするので失敗します。
+この名前空間は、両方のビルド( `:node-script` と `:browser` )で正常にコンパイルされますが、 `:node-script` を実行しようとすると、 `codemirror` パッケージが DOM にアクセスしようとするため、失敗します。 `react-dom/server` は refs を使用しないので、 `init-cm` 関数が呼び出されることはありません。
+
 
 ////
 While you can use <<closure-defines, :closure-defines>> to conditionally compile away the `init-cm` fn you can not use it to get rid of the extra `:require`. Reader conditionals let you do this easily.

@@ -3172,7 +3172,7 @@ localhost（または使用するホスト）の SAN（Subject Alternative Name�
 </div>
 </div>
 <div class="paragraph">
-<p>この名前空間は、両方のビルド( <code>:node-script</code> と <code>:browser</code> )で正常にコンパイルされますが、 <code>:node-script</code> を実行しようとすると、 <code>codemirror</code> パッケージが DOM にアクセスしようとするため、失敗します。しかし、 <code>:node-script</code> を実行しようとすると、 <code>codemirror</code> パッケージが DOM にアクセスしようとするので失敗します。</p>
+<p>この名前空間は、両方のビルド( <code>:node-script</code> と <code>:browser</code> )で正常にコンパイルされますが、 <code>:node-script</code> を実行しようとすると、 <code>codemirror</code> パッケージが DOM にアクセスしようとするため、失敗します。 <code>react-dom/server</code> は refs を使用しないので、 <code>init-cm</code> 関数が呼び出されることはありません。</p>
 </div>
 <div class="paragraph">
 <p><a href="#closure-defines">:closure-defines</a> を使って条件付きで <code>init-cm</code> fn をコンパイルすることはできますが、余分な <code>:require</code> を取り除くために使うことはできません。リーダの条件式を使えば、これが簡単にできます。</p>
