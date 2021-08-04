@@ -724,7 +724,7 @@ table.CodeRay td.code>pre{padding:0}
 </li>
 <li><a href="#js-deps">13. JavaScript との統合</a>
 <ul class="sectlevel2">
-<li><a href="#npm">13.1. NPM</a>
+<li><a href="#_npm_a_id_npm_a">13.1. npm<a id="npm"></a></a>
 <ul class="sectlevel3">
 <li><a href="#_npm_パッケージの使用">13.1.1. npm パッケージの使用</a></li>
 <li><a href="#js-provider">13.1.2. パッケージプロバイダ</a></li>
@@ -2391,7 +2391,7 @@ localhost（または使用するホスト）の SAN（Subject Alternative Name�
 </dd>
 <dt><a href="#target-npm-module"><code>:npm-module</code></a></dt>
 <dd>
-<p>ノードスクリプトとしての使用に適したコードを出力します。 NPM モジュールとして使用するのに適したコードを出力します。</p>
+<p>ノードスクリプトとしての使用に適したコードを出力します。 npm モジュールとして使用するのに適したコードを出力します。</p>
 </dd>
 </dl>
 </div>
@@ -4672,7 +4672,7 @@ hello
 <p>デフォルトの <code>:output-dir</code> である <code>"node_modules/shadow-cljs"</code> を使用すると、JS で <code>require("shadow-cljs/demo.foo")</code> を使用して、宣言された名前空間にアクセスすることができます。 <code>node_modules</code> にないものを使用する場合は、相対パスを使ってインクルードする必要があります。 <code>:output-dir "out"</code> では、プロジェクトルートからの <code>require("./out/demo.foo")</code> となります。</p>
 </div>
 <div class="paragraph">
-<p>NPM でコードを配布する予定であれば、代わりに<a href="#NodeLibrary"><code>:node-library</code> target</a>を使用した方が、エクスポートや最適化をより細かく制御できるので良いでしょう。</p>
+<p>npm でコードを配布する予定であれば、代わりに<a href="#NodeLibrary"><code>:node-library</code> target</a>を使用した方が、エクスポートや最適化をより細かく制御できるので良いでしょう。</p>
 </div>
 <div class="sect2">
 <h3 id="_最適化の作業"><a class="anchor" href="#_最適化の作業"></a><a class="link" href="#_最適化の作業">11.1. 最適化の作業</a></h3>
@@ -5038,7 +5038,7 @@ HeadlessChrome 0.0.0 (Mac OS X 10.12.6): Executed 1 of 1 SUCCESS (0.007 secs / 0
 <h2 id="js-deps"><a class="anchor" href="#js-deps"></a><a class="link" href="#js-deps">13. JavaScript との統合</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="npm"><a class="anchor" href="#npm"></a><a class="link" href="#npm">13.1. NPM</a></h3>
+<h3 id="_npm_a_id_npm_a"><a class="anchor" href="#_npm_a_id_npm_a"></a><a class="link" href="#_npm_a_id_npm_a">13.1. npm<a id="npm"></a></a></h3>
 <div class="paragraph">
 <p><a href="https://www.npmjs.com/">npm</a> は、JavaScript のデファクトスタンダードのパッケージマネージャとなっています。ほとんどすべての JS ライブラリはそこで見つけることができ、shadow-cljs はそれらのパッケージにアクセスするためのシームレスな統合を提供します。</p>
 </div>

@@ -1,4 +1,4 @@
-== NPM [[npm]]
+== npm[[npm]]
 
 ////
 https://www.npmjs.com/[npm] has become the de-facto standard package manager for JavaScript. Almost all JS libraries can be found there and shadow-cljs provides seamless integration for accessing those packages.

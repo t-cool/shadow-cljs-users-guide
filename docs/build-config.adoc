@@ -60,7 +60,7 @@ Here are some of them:
 <<target-karma, `:karma`>>:: テストをスキャンして必要なファイルを決定し、karma-runner互換のテストを出力します。 http://karma-runner.github.io/2.0/index.html[Karma] を参照してください。
 <<target-node-library, `:node-library`>>:: ノードライブラリとして使用するのに適したコードを出力します。
 <<target-node-script, `:node-script`>>:: ノードスクリプトとして使用するのに適したコードを出力します。
-<<target-npm-module, `:npm-module`>>:: ノードスクリプトとしての使用に適したコードを出力します。 NPM モジュールとして使用するのに適したコードを出力します。
+<<target-npm-module, `:npm-module`>>:: ノードスクリプトとしての使用に適したコードを出力します。 npm モジュールとして使用するのに適したコードを出力します。
 
 
 ////
