@@ -740,7 +740,7 @@ Options that don't have any effect at all include
 - `:watch-fn`
 - `:process-shim`
 
-=== エラーとしてのワーニング [[warnigs-as-errors]]
+=== エラーとしての警告 [[warnigs-as-errors]]
 //Warnings as Errors [[warnigs-as-errors]]
 
 ////
@@ -804,7 +804,7 @@ A set of possible warning-type keywords can be found https://github.com/clojure/
 ////
 By default the generated JS output will be compatible with ES5 and all "newer" features will be transpiled to compatible code using polyfills. This is currently the safest default and supports most browsers in active use (including IE10+).
 ////
-デフォルトでは、生成される JS 出力は ES5と互換性があり、すべてのより新しい機能はポリフィルを使用して互換性のあるコードに変換されます。これは現在のところ最も安全なデフォルトであり、現在使用されているほとんどのブラウザ（IE10+を含む）をサポートしています。
+デフォルトでは、生成される JS の出力は ES5と互換性があり、すべての新しい機能はポリフィルを使用して互換性のあるコードに変換されます。これは現在のところ最も安全なデフォルトであり、現在使用されているほとんどのブラウザ（IE10+を含む）をサポートしています。
 
 ////
 You can select other output options if you only care about more modern environments and want to keep the original code without replacements (eg. `node`, Chrome Extensions, ...)

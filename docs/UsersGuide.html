@@ -638,7 +638,7 @@ table.CodeRay td.code>pre{padding:0}
 <li><a href="#closure-defines">6.5. Closure の定義</a></li>
 <li><a href="#compiler-options">6.6. コンパイラのオプション</a>
 <ul class="sectlevel3">
-<li><a href="#warnigs-as-errors">6.6.1. エラーとしてのワーニング</a></li>
+<li><a href="#warnigs-as-errors">6.6.1. エラーとしての警告</a></li>
 </ul>
 </li>
 <li><a href="#_出力言語オプション">6.7. 出力言語オプション</a></li>
@@ -3029,7 +3029,7 @@ localhost（または使用するホスト）の SAN（Subject Alternative Name�
 </ul>
 </div>
 <div class="sect3">
-<h4 id="warnigs-as-errors"><a class="anchor" href="#warnigs-as-errors"></a><a class="link" href="#warnigs-as-errors">6.6.1. エラーとしてのワーニング</a></h4>
+<h4 id="warnigs-as-errors"><a class="anchor" href="#warnigs-as-errors"></a><a class="link" href="#warnigs-as-errors">6.6.1. エラーとしての警告</a></h4>
 <div class="paragraph">
 <p>ビルドを続行するのではなく、警告を表示してビルドを失敗させたい場合があります（例：CI環境など）。 <code>warnings-as-errors</code> コンパイラオプションを使って、その処理方法をカスタマイズすることができます。</p>
 </div>
@@ -3075,7 +3075,7 @@ localhost（または使用するホスト）の SAN（Subject Alternative Name�
 <div class="sect2">
 <h3 id="_出力言語オプション"><a class="anchor" href="#_出力言語オプション"></a><a class="link" href="#_出力言語オプション">6.7. 出力言語オプション</a></h3>
 <div class="paragraph">
-<p>デフォルトでは、生成される JS 出力は ES5と互換性があり、すべてのより新しい機能はポリフィルを使用して互換性のあるコードに変換されます。これは現在のところ最も安全なデフォルトであり、現在使用されているほとんどのブラウザ（IE10+を含む）をサポートしています。</p>
+<p>デフォルトでは、生成される JS の出力は ES5と互換性があり、すべての新しい機能はポリフィルを使用して互換性のあるコードに変換されます。これは現在のところ最も安全なデフォルトであり、現在使用されているほとんどのブラウザ（IE10+を含む）をサポートしています。</p>
 </div>
 <div class="paragraph">
 <p>よりモダンな環境にのみ関心があり、置換せずに元のコードを維持したい場合は、他の出力オプションを選択することができます（例：<code>node</code>、Chrome Extensions、&#8230;&#8203;）。</p>
