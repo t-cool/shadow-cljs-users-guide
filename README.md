@@ -8,7 +8,9 @@
 
 ## 邦訳の書籍
 
-[t-cool.github.io/shadow-cljs-users-guide-ja/UsersGuide.pdf](t-cool.github.io/shadow-cljs-users-guide-ja/UsersGuide.pdf) から電子版を閲覧できます。イベントでの印刷版の配布に向けて準備中です。
+[t-cool.github.io/shadow-cljs-users-guide-ja/docs/UsersGuide.pdf](t-cool.github.io/shadow-cljs-users-guide-ja/docs/UsersGuide.pdf) から電子版を閲覧できます。
+
+イベントでの印刷版の配布に向けて準備中です。
 
 ## ライセンス
 
