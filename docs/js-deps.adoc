@@ -734,7 +734,7 @@ CLJSJS のパッケージは、基本的に `npm` からパッケージを取り
 ////
 This was very useful when we had no access to `npm` directly but has certain issues since not all packages are easily combined with others. A package might rely on `react` but instead of expressing this via `npm` https://github.com/cljsjs/packages/tree/master/material-ui[they] bundle their own `react`. If you are not careful you could end up including 2 different `react` versions in your build which may lead to very confusing errors or at the very least increase the build size substantially.
 ////
-これは、 `npm` に直接アクセスできないときには非常に便利でしたが、すべてのパッケージが他のパッケージと簡単に結合できるわけではないので、ある種の問題があります。あるパッケージは `react` に依存しているかもしれませんが、 `npm` を通してこれを表現するのではなく、https://github.com/cljsjs/packages/tree/master/material-ui[それらは] 自分自身の `react` をバンドルします。注意しないと、 2 つの異なる `react` バージョンをビルドに含めることになり、非常に紛らわしいエラーが発生したり、少なくともビルドサイズが大幅に大きくなったりする可能性があります。
+これは、 `npm` に直接アクセスできないときには非常に便利でしたが、すべてのパッケージが他のパッケージと簡単に結合できるわけではないので、ある種の問題があります。あるパッケージは `react` に依存しているかもしれませんが、 `npm` を通してこれを表現するのではなく、 https://github.com/cljsjs/packages/tree/master/material-ui[それらは] 自分自身の `react` をバンドルします。注意しないと、 2 つの異なる `react` バージョンをビルドに含めることになり、非常に紛らわしいエラーが発生したり、少なくともビルドサイズが大幅に大きくなったりする可能性があります。
 
 ////
 Apart from that not every `npm` package is available via CLJSJS and keeping the package versions in sync requires manual work, which means packages are often out of date.
