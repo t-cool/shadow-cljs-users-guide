@@ -1,24 +1,16 @@
-# shadow-cljs User's Guide
+# shadow-cljs User's Guide 邦訳
 
-See https://shadow-cljs.github.io/docs/UsersGuide.html
+原著のレポジトリーは、 [shadow-cljs/shadow-cljs.github.io](https://github.com/shadow-cljs/shadow-cljs.github.io) をご参照ください。
 
+## 邦訳の Website
 
-The guide is written in asciidoc format available in the `/docs` directory.
+[t-cool.github.io/shadow-cljs-users-guide-ja/html/index.html](t-cool.github.io/shadow-cljs-users-guide-ja/html/index.html) から閲覧できます。
 
-`make` is used to build the primary HTML file via [asciidoctor](http://asciidoctor.org/).
+## 邦訳の書籍
 
-## Contribution
+[t-cool.github.io/shadow-cljs-users-guide-ja/](t-cool.github.io/shadow-cljs-users-guide-ja/) から閲覧できます。イベントでの配布に向けて準備中です。
 
-Contributions are very welcome. Just open an issue or pull request.
+## ライセンス
 
-### Dockerfile
+原著に準じます。
 
-People who prefer developing against a Docker container can use the `Dockerfile` provided in this repository. It contains everything that you need:
-
-- Ruby
-- Bundler
-- Make
-
-### Visual Studio Code
-
-Provided that you have you have the "Visual Studio Code Remote - Container" extension installed, Visual Studio Code users will be able to develop against the Docker container immediately.

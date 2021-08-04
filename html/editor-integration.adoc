@@ -1,0 +1,483 @@
+== Cursive
+
+////
+Cursive does not currently support resolving dependencies via `shadow-cljs.edn`. You can run `shadow-cljs pom` to generate a `pom.xml` and import that using the IntelliJ.
+////
+Cursive は現在、 `shadow-cljs.edn` による依存関係の解決をサポートしていません。 `shadow-cljs pom` を実行して `pom.xml` を生成し、それを IntelliJ.NET を使ってインポートすることができます。
+
+```
+$ shadow-cljs pom
+```
+
+////
+Then in Cursive *File -> New -> Project from Existing Sources* then select the generated `pom.xml` in the project directory.
+////
+続いて、Cursive の File -> New -> Project from Existing Sources で、プロジェクトディレクトリに生成された `pom.xml` を選択します。
+
+////
+IMPORTANT: You need to have the "Build Tools" -> "Maven" Plugin enabled for this. It might not be enabled by default.
+////
+IMPORTANT: このためには、Build Tools→Maven プラグインを有効にする必要があります。デフォルトでは有効になっていない場合があります。
+
+////
+Alternatively you can create a dummy `project.clj` or use the full <<Leiningen, Leiningen integration>>.
+////
+あるいは、ダミーの `project.clj` を作成したり、完全な<<Leiningen, Leiningen integration>>を使用することもできます。
+
+```
+(defproject your/project "0.0.0"
+  :dependencies
+  [[thheller/shadow-cljs "X.Y.Z"]]
+
+  :source-paths
+  ["src"])
+```
+
+////
+You can run `npx shadow-cljs server` inside the Terminal provided by IntelliJ and use `Clojure REPL -> Remote` Run Configuration to connect to the provided <<nREPL, nREPL server>>. Just select the "Use port from nREPL file" option in Cursive Clojure REPL -> Remote or configure a fixed nREPL port if you prefer.
+////
+IntelliJ が提供する Terminal の中で `npx shadow-cljs server` を実行し、 `Clojure REPL -> Remote` Run Configuration を使って、提供される<<nREPL, nREPL server>>に接続することができます。Cursive Clojure REPL -> Remote で "Use port from nREPL file "オプションを選択するか、お好みで固定の nREPL ポートを設定するだけです。
+
+////
+Note that the Cursive REPL when first connected always starts out as a CLJ REPL. You can switch it to CLJS by calling `(shadow/repl :your-build-id)`. This will automatically switch the Cursive option as well. You can type `:cljs/quit` to drop back down to the CLJ REPL.
+////
+最初に接続したときの Cursive REPL は、常に CLJ REPL として起動することに注意してください。これを CLJS に切り替えるには、 `(shadow/repl :your-build-id)` を呼び出します。これにより、自動的に Cursive オプションも切り替わります。CLJ REPL に戻るには、 `:cljs/quit` と入力します。
+
+////
+NOTE: You cannot switch from CLJ->CLJS via the Cursive select box. Make sure you use the call above to switch.
+////
+
+== Emacs / CIDER [[cider]]
+
+////
+This section is written for CIDER version 0.20.0 and above. Ensure your Emacs environment has this version of the `cider` package or later. Refer to the link:https://docs.cider.mx[CIDER documentation] for full installation details.
+////
+このセクションは、CIDER のバージョン 0.20.0 以上を対象に書かれています。お使いの Emacs にこのバージョンの `cider` パッケージが入っていることを確認してください。インストールの詳細については、リンク: https://docs.cider.mx[CIDER documentation] を参照してください。
+
+=== ClojureScript REPL の起動
+//Launch the ClojureScript REPL
+
+////
+Launch the nREPL and a ClojureScript REPL.
+////
+
+```console
+M-x cider-jack-in-cljs
+```
+
+////
+CIDER will prompt you for the type of ClojureScript REPL:
+////
+CIDER は、ClojureScript REPL の種類を尋ねてきます。
+
+```console
+Select ClojureScript REPL type:
+```
+ClojureScript REPL タイプを選択します。
+
+////
+Enter `shadow`.
+////
+shadow と入力します。
+
+```console
+Select shadow-cljs build:
+```
+
+////
+Enter the name of your build target, for example, `app`.
+////
+ビルドターゲットの名前を入力してください（例：`app`）。
+
+////
+Emacs should now open a new nREPL connection to the `shadow-cljs` server of its sibling, bootstrapping into a ClojureScript REPL environment:
+////
+Emacs は、その兄弟の `shadow-cljs` サーバへの新しい nREPL 接続を開き、ClojureScript REPL 環境にブートストラップします。
+
+```console
+shadow.user> To quit, type: :cljs/quit
+[:selected :app]
+cljs.repl>
+```
+
+////
+You should now be able to eval ClojureScript, jump to the definitions of vars (with `cider-find-var`) and much more.
+////
+これで、ClojureScript を評価したり、 `cider-find-var` で変数の定義にジャンプしたりすることができるようになります。
+
+////
+For example, to display an alert in the browser:
+////
+例えば、ブラウザにアラートを表示する場合などです。
+
+```console
+cljs.repl> (js/alert "Jurassic Park!")
+```
+
+=== dir-local によるスタートアップの簡素化
+//Simplify startup with dir-local
+
+////
+You can simplify startup flow by a creating a `.dir-locals.el` file at project root.
+////
+プロジェクトのルートに `.dir-locals.el` ファイルを作成することで、スタートアップの流れを簡単にすることができます。
+
+```
+((nil . ((cider-default-cljs-repl . shadow)
+	 (cider-shadow-default-options . "<自身のビルド名>"))))
+```
+
+== Proto REPL (Atom)
+
+////
+Proto REPL is mostly intended for Clojure development so most features do not work for ClojureScript. It is however possible to use it for simple evals.
+////
+Proto REPL は主に Clojure の開発を目的としているため、ほとんどの機能は ClojureScript では動作しません。しかし、単純な評価のためにそれを使用することは可能です。
+
+////
+You need to setup a couple of things to get it working.
+////
+使えるようにするには、いくつかの設定が必要です。
+
+////
+1)  Create a `user.clj` in on of your `:source-paths`.
+////
+1) `:source-paths` の中に、 `user.clj` を作成します。
+
+```clojure
+ (ns user)
+
+ (defn reset [])
+```
+
+////
+The file must define the `user/reset` fn since Proto REPL will call that when connecting. If `user/reset` is not found it will call `tools.namespace` which destroys the running `shadow-cljs` server. We don't want that. You could do something here but we don't need to do anything for CLJS.
+////
+Proto REPL は接続時にこの fn を呼び出すので、このファイルは `user/reset` fn を定義していなければなりません。もし、 `user/reset` が見つからなければ、 `tools.namespace` が呼び出され、実行中の `shadow-cljs` サーバが破壊されます。私たちはこれを望んでいません。ここで何かできるかもしれませんが、CLJS のために何かする必要はありません。
+
+////
+2) add `[proto-repl "0.3.1"]` to your `:dependencies` in <<user-config, ~/.shadow-cljs/config.edn>> or `shadow-cljs.edn`.
+////
+2) <<user-config, ~/.shadow-cljs/config.edn>> または `shadow-cljs.edn` の `:dependencies` に `[proto-repl "0.3.1"]` を追加してください。
+
+////
+3) Configure a fixed <<nREPL, nREPL port>>
+////
+3) 固定の<<nREPL, nREPL ポート>>を設定する
+
+////
+4) Start `shadow-cljs server` or `shadow-cljs watch your-build`.
+////
+4) `shadow-cljs server` または `shadow-cljs watch your-build` を起動します。
+
+////
+5) Run the Atom Command `Proto Repl: Remote Nrepl Connection` connect to `localhost` and the port you configured
+////
+5) Atom コマンド `Proto Repl: Remote Nrepl Connection` で `localhost` と設定したポートに接続します。
+
+////
+6) Eval `(shadow.cljs.devtools.api/watch :your-build)` (if you used `server` in 4)
+////
+6) `(shadow.cljs.devtools.api/watch :your-build)` を評価する (4 で `server` を使用した場合)
+
+////
+7) Eval `(shadow.cljs.devtools.api/nrepl-select :your-build)`. The REPL connection is now in CLJS mode, meaning that everything you eval will be eval'd in JS. You can eval `:repl/quit` to get back to Clojure Mode. If you get `[:no-worker :browser]` you need to start the `watch` first.
+////
+7) `(shadow.cljs.devtools.api/nrepl-select :your-build)` を評価します。 REPL 接続は CLJS モードになり、評価するものはすべて JS で評価されることになります。 Clojure モードに戻るには、 `:repl/quit` とすることができます。もし `[:no-worker :browser]` が出たら、まず `watch` を起動する必要があります。
+
+////
+8) Before you can eval CLJS you need to connect your client (eg. your Browser when building a `:browser` App).
+////
+8) CLJS を評価する前に、クライアントを接続する必要があります（例：`:browser` App を構築する際のブラウザ）。
+
+////
+9) Eval some JS, eg. `(js/alert "foo")`. If you get `There is no connected JS runtime` the client is not connected properly. Otherwise the Browser should show an alert.
+////
+9) `(js/alert "foo")` のように、いくつかの JS を評価します。接続されている JS ランタイムがありませんと表示される場合は、クライアントが正しく接続されていません。それ以外の場合は、ブラウザにアラートが表示されます。
+
+== Chlorine (Atom)
+
+////
+Chlorine connects Atom to a Socket REPL, but also tries to refresh namespace. So first, open up Chlorine package config and check if configuration `Should we use clojure.tools.namespace to refresh` is set to `simple`, otherwise it'll destroy the running `shadow-cljs` server.
+////
+Chlorine は、Atom を Socket REPL に接続しますが、同時に名前空間のリフレッシュも試みます。まず、Chlorine パッケージのコンフィグを開き、コンフィグ `Should we use clojure.tools.namespace to refresh` が `simple` に設定されているかどうかを確認します。そうしないと、実行中の `shadow-cljs` サーバが破壊されてしまいます。
+
+////
+Once you checked that the configuration is right, you can start your shadow app (replace `app` with whatever build):
+////
+設定が正しいことを確認したら、shadow アプリを起動できます（`app` は任意のビルドに置き換えてください）。
+
+```
+$ shadow-cljs watch app
+```
+
+////
+Now, all you have to do is to run the atom command `Chlorine: Connect Clojure Socket Repl`. This will connect a REPL to evaluate Clojure code. Next you need to run `Chlorine: Connect Embeded`, and it'll connect the ClojureScript REPL too.
+////
+あとは、atom コマンドの `Chlorine: Connect Clojure Socket Repl`. これで Clojure のコードを評価する REPL が接続されます。次に、 `Chlorine: Connect Clojure Socket Repl` を実行してください。 `Connect Embeded` を実行すると、ClojureScript の REPL も接続されます。
+
+////
+Now, you can use the `Chlorine: Evaluate...` commands to evaluate any Clojure or ClojureScript REPL. It'll evaluate `.clj` files as Clojure, and `cljc` files as ClojureScript.
+////
+これで、 `Chlorine: Evaluate...` コマンドを使って、任意の Clojure または ClojureScript REPL を評価することができます。 `.clj` ファイルは Clojure として、 `cljc` ファイルは ClojureScript として評価されます。
+
+== Calva (VS Code)
+
+////
+(Only tested with `browser` targets so far. Probably works with other targets too.)
+////
+(今のところ `browser` ターゲットでしかテストしていません。おそらく他のターゲットでも動作するでしょう)。
+
+=== 依存関係
+// Dependencies
+
+////
+You need VS Code and install the https://marketplace.visualstudio.com/items?itemName=betterthantomorrow.calva#overview[Calva] extension.
+////
+VS Code が必要で https://marketplace.visualstudio.com/items?itemName=betterthantomorrow.calva#overview[Calva]エクステンションをインストールする必要があります。
+
+////
+Since Calva uses nREPL and the `cider-nrepl` middlewares you need to include this dependency in <<user-config, ~/.shadow-cljs/config.edn>> or `shadow-cljs.edn`:
+////
+Calva は nREPL と `cider-nrepl` のミドルウェアを使用しているので、この依存関係を <<user-config, ~/.shadow-cljs/config.edn>> または `shadow-cljs.edn` に含める必要があります。
+
+```clojure
+[cider/cider-nrepl "0.21.0"]
+```
+
+////
+`shadow-cljs` will inject the required `cider-nrepl` middleware once it sees this dependency.
+////
+`shadow-cljs` は、この依存関係を確認すると、必要な `cider-nrepl` ミドルウェアを注入します。
+
+=== Calva と REPL の接続
+//Connecting Calva to the REPLs
+
+////
+Once that is done start your shadow app. (Using whatever build instead of `app`.):
+////
+それが終わったら、シャドウアプリを起動します。(`app` の代わりにどんなビルドでも使用します)。
+
+```
+$ shadow-cljs watch app
+```
+
+////
+Once the app is loaded in the browser, and you see `JS runime connected` in the terminal where you started the app, Calva can connect to its repl. Open the project in VS Code and Calva will by default try to auto connect and prompt you with a list of builds read from `shadow-cljs.edn`. Select the right one (`:app` in this example) and Calva's Clojure and Clojurescript support is activated.
+////
+アプリがブラウザに読み込まれ、アプリを起動したターミナルに JS runime connected と表示されると、Calva はそのレプリケーションに接続できるようになります。VS Code でプロジェクトを開くと、Calva はデフォルトで自動接続を試み、 `shadow-cljs.edn` から読み込んだビルドのリストを表示します。正しいもの(この例では `:app`)を選択すると、Calva の Clojure と Clojurescript のサポートが有効になります。
+
+////
+(If you already have the project open in VS Code when you start the app, issue the `Calva: Connect to a Running REPL Server in the Project` command.)
+////
+(アプリ起動時にすでに VS Code でプロジェクトを開いている場合は、Calva: Connect to a Running REPL Server in the Project コマンドを発行してください)。
+
+=== 特徴
+
+//Features
+
+////
+Some of the things you can now do:
+////
+できるようになったことの一部をご紹介します。
+
+==== Intellisense など
+
+//Intellisense and stuff
+
+////
+- Peek at definitions on hover.
+- Get auto completion help.
+- Navigate to definitions (`cmd-click` on Mac, might be `ctrl-click` on Windows and Linux).
+////
+- ホバーで定義を見ることができます。
+- 自動補完のヘルプを表示します。
+- 定義ファイルへのナビゲート（Mac では `cmd-click`、Windows や Linux では `ctrl-click` になるかもしれません）。
+
+==== ファイル、フォーム、セレクションの評価
+//Evaluation of the file, forms and selection
+
+////
+- Evaluate the file: `ctrl+alt+c enter` (This is done automatically one opening files.)
+- Evaluate inline: `ctrl+alt+c e`
+- Evaluate and replace them in the editor: `ctrl+alt+c r`
+- Pretty print evaluation resuls: `ctrl+alt+c p`
+- Send forms to the integrated terminal repls for evaluation: `ctrl+alt+c alt+e`
+////
+- ファイルの評価を行います。 `ctrl+alt+c enter` (ファイルを開くときに自動的に行われます。)
+- インラインで評価する: `ctrl+alt+c e`.
+- エディタ内で評価して置換する: `ctrl+alt+c r`.
+- 評価結果をプリティプリントする: `ctrl+alt+c p`.
+- 評価のために統合ターミナルレプリスにフォームを送る: `ctrl+alt+c alt+e`.
+
+==== テストの実行
+
+//Run tests
+
+////
+- Run namespace tests: `ctrl+alt+c t`
+- Run all tests: `ctrl+alt+c shift+t` (Really clunky in large projects so far.)
+- Rerun previously failing tests: `ctrl+alt+c ctrl+t`
+- Test failures are marked in the explorer and editors and listed in the Problem tab for easy access.
+////
+- 名前空間のテストを実行します。 `ctrl+alt+c t` とする。
+- すべてのテストを実行します。 `ctrl+alt+c shift+t` (これまでの大規模プロジェクトでは非常に不便でした。)
+- 以前に失敗したテストを再実行します。`ctrl+alt+c ctrl+t` です。
+- テストの失敗はエクスプローラーやエディタでマークされ、簡単にアクセスできるように Problem タブにリストアップされます。
+
+==== ターミナルの REPL
+//Terminal repls
+
+////
+- Switch namespace in terminal repl to that of the currently open file: `ctrl+alt+c n`
+- Load current file and switch namespace in: `ctrl+alt+c alt+n`
+////
+- ターミナルレプリの名前空間を、現在開いているファイルの名前空間に切り替えます。 `ctrl+alt+c n`
+- 現在のファイルを読み込んで、名前空間を切り替えます。 `ctrl+alt+c alt+n`
+
+==== Cljc のファイル群
+// Cljc files
+
+////
+- Switch between Clojure and Clojurescript repl `ctrl+alt+c ctrl+alt+t` (or click the green `cljc/clj` button in the status bar). This determines both which repl is backing the editor and what terminal repl is being accessed, see above.
+////
+- Clojure と Clojurescript の repl を `ctrl+alt+c ctrl+alt+t` (またはステータスバーの緑の `cljc/clj` ボタンをクリック)で切り替えます。これにより、どの repl がエディタをバックアップしているか、どの端末の repl にアクセスしているかの両方が決定されます（上記参照）。
+
+== Fireplace.vim (Vim/Neovim)
+
+////
+https://www.vim.org/scripts/script.php?script_id=4978[Fireplace.vim] is a Vim/Neovim plug-in which provides Clojure REPL integration by acting as an https://nrepl.org/[nREPL] client. When combined with Shadow-CLJS, it also provides ClojureScript REPL integration.
+////
+https://www.vim.org/scripts/script.php?script_id=4978[Fireplace.vim]は https://nrepl.org/[nREPL] クライアントとして動作することで、Clojure REPL の統合を提供する Vim/Neovim プラグインです。Shadow-CLJS と組み合わせることで、ClojureScript REPL の統合も可能になります。
+
+////
+This guide uses as an example the app created in the official https://github.com/thheller/shadow-cljs#quick-start[Shadow-CLJS Quick Start] guide therefore refers to a few configuration items in the app's `shadow-cljs.edn`. That being said, these configuration items are fairly generic so should be applicable to other apps with minor modifications.
+////
+このガイドでは、公式 https://github.com/thheller/shadow-cljs#quick-start[Shadow-CLJS Quick Start] ガイドで作成されたアプリを例にしているため、アプリの `shadow-cljs.edn` にあるいくつかの設定項目を参照しています。とはいえ、これらの設定項目はかなり一般的なものなので、ちょっとした修正で他のアプリにも適用できるはずです。
+
+=== 依存関係
+//Dependencies
+
+////
+Install https://www.vim.org/scripts/script.php?script_id=4978[Fireplace.vim] using your favorite method of installing plug-ins in Vim/Neovim.
+////
+https://www.vim.org/scripts/script.php?script_id=4978[Fireplace.vim] を、Vim/Neovim でプラグインをインストールするお好みの方法でインストールします。
+
+////
+As an https://nrepl.org/[nREPL] client, https://www.vim.org/scripts/script.php?script_id=4978[Fireplace.vim] depends on https://docs.cider.mx/cider-nrepl/[CIDER-nREPL] (which is nREPL middleware that provides common, editor-agnostic REPL operations) therefore you need to include this dependency in <<user-config, ~/.shadow-cljs/config.edn>> or `shadow-cljs.edn` (as shown in the next sub-section.) Shadow-CLJS will inject the required CIDER-nREPL middleware once it sees this dependency.
+////
+https://nrepl.org/[nREPL] クライアントとして https://www.vim.org/scripts/script.php?script_id=4978[Fireplace.vim] は https://docs.cider.mx/cider-nrepl/[CIDER-nREPL] (これは、一般的な、エディタに依存しない REPL 操作を提供する nREPL ミドルウェアです)に依存しているため、この依存関係を<<user-config, ~/.shadow-cljs/config.edn >> または `shadow-cljs.edn` (次のサブセクションで示すように) にこの依存関係を含める必要があります。Shadow-CLJS は、この依存関係を確認すると、必要な CIDER-nREPL ミドルウェアを注入します。
+
+=== アプリの準備
+//Preparing the app
+
+////
+Create the example app by following the official https://github.com/thheller/shadow-cljs#quick-start[Shadow-CLJS Quick Start] guide and modify its `shadow-cljs.edn` as follows:
+////
+公式 https://github.com/thheller/shadow-cljs#quick-start[Shadow-CLJS Quick Start] ガイドに沿ってサンプルアプリを作成し、その `shadow-cljs.edn` を以下のように修正します。
+
+////
+```clojure
+;; shadow-cljs configuration
+{:source-paths
+ ["src/dev"
+  "src/main"
+  "src/test"]
+
+ ;; ADD - CIDER-nREPL middleware required by Fireplace.vim
+ :dependencies
+ [[cider/cider-nrepl "0.22.4"]]
+
+ ;; ADD - a port (e.g., 3333) for the REPL server to which Fireplace.vim connects
+ :nrepl
+ {:port 3333}
+
+ ;; ADD - a port (e.g., 8080) for the development-time HTTP server that serves the app
+ :dev-http
+ {8080 "public"}
+
+ :builds
+ {:frontend  ; NOTE - This is the build ID referenced at various places below.
+  {:target :browser
+   :modules {:main {:init-fn acme.frontend.app/init}}}}}
+```
+////
+
+```clojure
+;; shadow-cljs の設定
+{:source-paths
+ ["src/dev"
+  "src/main"
+  "src/test"]
+
+ ;; 追加 - Fireplace.vim で必要な CIDER-nREPL ミドルウェア
+ :dependencies
+ [[cider/cider-nrepl "0.22.4"]]
+
+ ;; 追加 - Fireplace.vim が接続する REPL サーバーのポート(例：3333)
+ :nrepl
+ {:port 3333}
+
+ ;; 追加 - アプリを提供する開発時の HTTP サーバーのポート(例：8080)
+ :dev-http
+ {8080 "public"}
+
+ :builds
+ {:frontend  ; 注：これは以下の各所で参照されているビルド ID です。
+  {:target :browser
+   :modules {:main {:init-fn acme.frontend.app/init}}}}}
+```
+
+////
+Once that is done, start the app (note the Shadow-CLJS build ID, `frontend`, specified in `shadow-cljs.edn`):
+////
+これが完了したら、アプリを起動します（ `shadow-cljs.edn` で指定されている Shadow-CLJS のビルド ID、`frontend` に注意してください）。
+
+```sh
+npx shadow-cljs watch frontend
+```
+
+////
+Open the app in a browser at http://localhost:8080/. Without this step, you would get the following error message from https://www.vim.org/scripts/script.php?script_id=4978[Fireplace.vim] if you attempt to connect to the REPL server from within Vim/Neovim:
+////
+http://localhost:8080/ 、ブラウザでアプリを開きます。この手順を行わないと、Vim/Neovim 内から REPL サーバに接続しようとすると https://www.vim.org/scripts/script.php?script_id=4978[Fireplace.vim] から次のようなエラーメッセージが表示されます。
+
+```
+No application has connected to the REPL server. 
+Make sure your JS environment has loaded your compiled ClojureScript code.
+```
+どのアプリケーションも REPL サーバに接続していません。
+JS環境がコンパイルした ClojureScript コードを読み込んでいることを確認してください。
+
+=== Fireplace.vim と REPL サーバの接続
+//Connecting Fireplace.vim to REPL Server
+
+////
+Open a ClojureScript source file in Vim/Neovim and execute the following command to connect https://www.vim.org/scripts/script.php?script_id=4978[Fireplace.vim] to the REPL server (note the port for the REPL server, `3333`, specified in `shadow-cljs.edn`):
+////
+Vim/Neovim で ClojureScript のソースファイルを開き、以下のコマンドを実行して https://www.vim.org/scripts/script.php?script_id=4978[Fireplace.vim] を REPL サーバに接続します（REPL サーバのポートは、 `shadow-cljs.edn` で指定されている `3333` であることに注意してください）。
+
+```
+:Connect 3333
+=>
+Connected to nrepl://localhost:3333/                                                              
+Scope connection to: ~/code/clojurescript/acme-app (ENTER)
+```
+
+////
+This creates a Clojure (instead of ClojureScript) REPL session. Execute the following command to add ClojureScript support to the session (note the Shadow-CLJS build ID, `frontend`, specified in `shadow-cljs.edn`):
+////
+これにより、（ClojureScript ではなく）Clojure の REPL セッションが作成されます。次のコマンドを実行して、セッションに ClojureScript のサポートを追加します ( `shadow-CLJS.edn` で指定されている Shadow-CLJS のビルド ID、 `frontend` に注意してください)。
+
+```
+:CljEval (shadow/repl :frontend)
+=>
+To quit, type: :cljs/quit                                                                      
+[:selected :frontend]
+Press ENTER or type command to continue
+```
+
+////
+You should now be able to execute https://www.vim.org/scripts/script.php?script_id=4978[Fireplace.vim] commands against the REPL server. Please refer to the https://www.vim.org/scripts/script.php?script_id=4978[Fireplace.vim] documentation for the full list of commands you can execute.
+////
+これで、REPL サーバに対して https://www.vim.org/scripts/script.php?script_id=4978[Fireplace.vim] コマンドが実行できるようになります。実行可能なコマンドの全リストについては https://www.vim.org/scripts/script.php?script_id=4978[Fireplace.vim] のドキュメントを参照してください。

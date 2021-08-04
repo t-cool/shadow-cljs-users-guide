@@ -1,0 +1,206 @@
+////
+The `:target :node-script` produces single-file stand-alone output that can be run using `node.js`.
+The code is just ClojureScript, and an entry point is easy to define:
+////
+`target :node-script` は、`Node.js` を使用して実行できるシングルファイルのスタンドアローン出力を生成します。
+コードは単なる ClojureScript であり、エントリーポイントの定義も簡単です。
+
+```
+(ns demo.script)
+
+(defn main [& cli-args]
+  (prn "hello world"))
+```
+
+=== ビルドオプション
+//Build Options
+
+////
+You will need the same basic <<config,main configuration>> as in other targets (like `:source-paths`), but you'll need some node-specific build target options:
+////
+他のターゲット（ `:source-paths` など）と同じ基本的な <<config,main configuration>> が必要になりますが、いくつかのノード固有のビルドターゲットオプションが必要になります。
+
+////
+[horizontal]
+`:main` :: (required). The namespace-qualified symbol of your script's entry point function.
+`:output-to` :: (required). The path and filename for the generated script.
+`:output-dir` :: (optional). The path for supporting files in development mode. Defaults to a cache directory.
+////
+[horizontal]
+`:main` :: (必須) スクリプトのエントリーポイントとなる関数の名前空間修飾されたシンボルです。
+`:output-to` :: (必須) 生成されるスクリプトのパスとファイル名です。
+`:output-dir` :: (オプション) 開発モードでサポートするファイルのパスです。デフォルトではキャッシュディレクトリになります。
+
+// TODO: Thomas mentioned that node can be picky and sometimes output-dir is useful...an example would be nice.
+
+////
+.Sample node script build
+////
+. Node スクリプトのビルド例
+
+```
+{:source-paths [...]
+ ...
+ :builds
+ {:script
+  {:target :node-script
+   :main demo.script/main
+   :output-to "out/demo-script/script.js"}}}
+```
+
+////
+When compiled this results in a standalone `out/demo-script/script.js` file intended to be called via `node script.js <command line args>`. When run it will call `(demo.script/main <command line args>)` function on startup. This only ever produces the file specified in `:output-to`. Any other support files (e.g. for development mode) are written to a temporary support directory.
+////
+これをコンパイルすると、スタンドアロンの `out/demo-script/script.js` ファイルが作成され、 `node script.js <command line args>` で呼び出されるようになります。実行すると、起動時に `(demo.script/main <command line args>)` 関数が呼び出されます。これは `:output-to` で指定されたファイルのみを生成します。その他のサポートファイル(開発モード用など)は、一時的なサポートディレクトリに書き込まれます。
+
+=== ホットコードリロード [[NodeHotCodeReload]]
+//Hot Code Reload [[NodeHotCodeReload]]
+
+////
+You will often write scripts that run as servers or some other long-running process. Hot code reload can be quite useful when working with these, and it is simple to set up:
+////
+サーバーやその他の長時間実行されるプロセスとして動作するスクリプトを書くことがよくあります。ホットコードリロードは、これらの作業を行う際に非常に便利で、設定も簡単です。
+
+////
+. Add start/stop callback functions.
+. Configure the build use those hooks.
+////
+. start/stop コールバック機能の追加
+.これらのフックを使用するようにビルドを設定する
+
+////
+Here is an example http server in node:
+////
+ここでは、node の http サーバーの例を紹介します。
+
+////
+.Sample node script with start/stop hooks for hot code reload.
+////
+.ホットコードリロードのための start/stop フックを備えた Node スクリプトのサンプル
+
+////
+```
+(ns demo.script
+  (:require ["http" :as http]))
+
+(defn request-handler [req res]
+  (.end res "foo"))
+
+; a place to hang onto the server so we can stop/start it
+(defonce server-ref
+  (volatile! nil))
+
+(defn main [& args]
+  (js/console.log "starting server")
+  (let [server (http/createServer #(request-handler %1 %2))]
+
+    (.listen server 3000
+      (fn [err]
+        (if err
+          (js/console.error "server start failed")
+          (js/console.info "http server running"))
+        ))
+
+    (vreset! server-ref server)))
+
+(defn start
+  "Hook to start. Also used as a hook for hot code reload."
+  []
+  (js/console.warn "start called")
+  (main))
+
+(defn stop
+  "Hot code reload hook to shut down resources so hot code reload can work"
+  [done]
+  (js/console.warn "stop called")
+  (when-some [srv @server-ref]
+    (.close srv
+      (fn [err]
+        (js/console.log "stop completed" err)
+        (done)))))
+
+(js/console.log "__filename" js/__filename)
+```
+////
+
+```
+(ns demo.script
+  (:require ["http" :as http]))
+
+(defn request-handler [req res]
+  (.end res "foo"))
+
+; サーバーを停止/起動できるようにするための、サーバーに接続するための場所
+(defonce server-ref
+  (volatile! nil))
+
+(defn main [& args]
+  (js/console.log "starting server")
+  (let [server (http/createServer #(request-handler %1 %2))]
+
+    (.listen server 3000
+      (fn [err]
+        (if err
+          (js/console.error "server start failed")
+          (js/console.info "http server running"))
+        ))
+
+    (vreset! server-ref server)))
+
+(defn start
+  "開始するためのフック。また、ホットコードのリロード用のフックとしても使用されます。"
+  []
+  (js/console.warn "start called")
+  (main))
+
+(defn stop
+  "ホットコードリロードフックで、ホットコードリロードが機能するようにリソースをシャットダウンする。"
+  [done]
+  (js/console.warn "stop called")
+  (when-some [srv @server-ref]
+    (.close srv
+      (fn [err]
+        (js/console.log "stop completed" err)
+        (done)))))
+
+(js/console.log "__filename" js/__filename)
+```
+
+////
+The associated configuration is (`shadow-cljs.edn`):
+////
+関連する設定は（ `shadow-cljs.edn` ）です。
+
+////
+.Adding hooks for hot code reload.
+////
+.ホットコードリロードのためのフックの追加
+
+////
+```
+{...
+ :builds
+   { :script {... as before
+
+              ; add in reload hooks
+              :devtools {:before-load-async demo.script/stop
+                         :after-load demo.script/start}}}}
+```
+////
+
+```
+{...
+ :builds
+   { :script {... as before
+
+              ; リロードフックの追加
+              :devtools {:before-load-async demo.script/stop
+                         :after-load demo.script/start}}}}
+```
+
+////
+WARNING: Many libraries hide state or do actions that prevent hot code reloading from working well. There is nothing the compiler can do to improve this since it has no idea what those libraries are doing.
+Hot code reload will only work well in situations where you can cleanly "stop" and "restart" the artifacts used.
+////
+WARNING:  多くのライブラリは状態を隠したり、ホットコードのリロードがうまく機能しないような動作をします。コンパイラはこれらのライブラリが何をしているのかを知らないので、これを改善することはできません。
+ホットコードリロードは、使用されているアーティファクトをきれいに stop および restart できる状況でのみうまく機能します。

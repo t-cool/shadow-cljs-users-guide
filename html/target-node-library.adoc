@@ -1,0 +1,223 @@
+////
+The `:target :node-library` emits code that can be used (via `require`) as a standard node library, and is useful for publishing your code for re-use as a compiled Javascript artifact.
+////
+`:target :node-library` は、標準的なノードライブラリとして（ `require` を介して）使用できるコードを出力します。これは、コンパイルされたJavascript の成果物として再利用するためにコードを公開するのに便利です。
+
+////
+As with other modes the <<config, main configuration options>> apply and must be set.
+The target-specific options are:
+////
+他のモードと同様に、<<config, main configuration options>>が適用され、設定する必要があります。
+ターゲット固有のオプションは以下の通りです。
+
+////
+[horizontal]
+`:target` :: Use :node-library
+`:output-to` :: (required). The path and filename for the generated library.
+`:output-dir` :: (optional). The path for supporting files in development mode. Defaults to a cache directory.
+////
+[horizontal]
+`:target`: :node-library を使用します。
+`:output-to` : (必須) 生成されるライブラリのパスとファイル名です。
+`:output-dir` : (オプション) 開発モードでサポートするファイルのパスです。デフォルトではキャッシュディレクトリになります。
+
+
+////
+The hot code reload story is similar to <<NodeHotCodeReload, the script target>>, but may not work as well
+since it cannot as easily control all of the code that is loaded.
+////
+ホットコードリロードのストーリーは、<<NodeHotCodeReload, the script target>>と似ていますが、すべてのコードを簡単にコントロールできないため、うまく機能しないかもしれません。
+ロードされるすべてのコードを簡単にコントロールすることができないからです。
+
+////
+Controlling what code is actually exported is done via one of the following options:
+////
+実際にエクスポートされるコードを制御するには、以下のオプションがあります。
+
+////
+- `:exports` -  a map of keyword to fully qualified symbols
+- `:exports-var` - a fully qualified symbol
+- `:exports-fn` - a fully qualified symbol
+////
+- `:exports` - キーワードから完全修飾シンボルへのマップ
+- `:exports-var` - 完全修飾形式のシンボル
+- `:exports-fn` - 完全修飾されたシンボル
+
+=== 単一で静的な デフォルト・エクスポート
+//Single static "default" export
+
+////
+`:exports-var` will just return whatever is declared under that var. It can point to a `defn` or normal `def`.
+////
+`:exports-var` は、その var の下で宣言されているものをそのまま返します。 これは `defn` や通常の `def` を指しています。
+
+
+////
+.Build config using `:exports-var`
+////
+.:exports-var を使用してコンフィグを構築する
+
+```
+{...
+ :builds {:lib {:output-to "lib.js"
+                :exports-var demo.ns/f
+                ...}}}
+```
+
+////
+.Example CLJS
+////
+.Example CLJS
+
+```
+(ns demo.ns)
+
+(defn f [...] ...)
+;; または
+(def f #js {:foo ...})
+```
+
+////
+.Consuming the generated code
+////
+
+////
+```bash
+$ node
+> var f = require('./lib.js');
+f(); // the actual demo.ns/f function
+```
+////
+
+```bash
+$ node
+> var f = require('./lib.js');
+f(); // 実際の demo.ns/f 関数
+```
+
+
+////
+It is effectively generating `module.exports = demo.ns.f;`
+////
+事実上モジュールを生成しています。 `exports = demo.ns.f;`
+
+=== 複数の静的な名前付きエクスポート
+//Multiple static named exports
+
+////
+.Build configuration with multiple exports
+////
+.複数のエクスポートを行うビルド構成
+
+```
+{...
+ :builds {:lib {:exports {:g       demo.ns/f
+                          :h       other.ns/thing
+                          :ns/ok?  another.ns/ok?}
+                ...}}}
+```
+
+////
+The keyword is used as the name of the entry in the exported object. *No munging is done* to this keyword name
+(but namespaces are dropped). So, the above example maps cljs `f` to `g`, etc.:
+////
+このキーワードは、エクスポートされたオブジェクトのエントリの名前として使用されます。このキーワード名には、一切の処理が行われません。(しかし、名前空間は削除されます）。したがって、上記の例では、cljs の `f` を `g` にマッピングします。
+
+```bash
+$ node
+> var lib = require('./lib.js');
+lib.g(); // call demo-ns/f
+lib["ok?"](); // another-ns/ok? を呼び出す
+```
+
+////
+You can achieve the exact same thing by using `:exports-var` pointing to a `def`
+////
+全く同じことをするには、 `:exports-var` で `def` を指定します。
+
+```
+(def exports #js {:g f
+                  ...})
+```
+
+=== 動的エクスポート
+
+////
+In addition you may specify `:exports-fn` as a fully qualified symbol. This should point to a function with no arguments which should return a JS object (or function). This function will only ever be called ONCE as `node` caches the return value.
+////
+さらに、完全修飾シンボルとして `:exports-fn` を指定することもできます。これは、JS オブジェクト(または関数)を返す、引数のない関数を指す必要があります。この関数は、 `node` が戻り値をキャッシュするため、一度だけ呼ばれます。
+
+```clojure
+(ns demo.ns
+  (:require [demo.other :as other]))
+
+(defn generate-exports []
+  #js {:hello hello
+       :foo other/foo})
+```
+
+
+```clojure
+{...
+ :builds {:lib {:exports-fn demo.ns/generate-exports
+                ...}}}
+```
+
+////
+NOTE: The exports config automatically tracks exported symbols and passes them on to the optimization stage. This means that anything listed in `:exports` will not be renamed by Google Closure optimizations.
+////
+注：exports コンフィグはエクスポートされたシンボルを自動的に追跡し、最適化ステージに渡します。つまり、 `:exports` に記載されているものは、Google Closure の最適化によって名前が変更されることはありません。
+
+=== 完全な例
+//Full Example
+
+////
+The example below creates a `lib.js` file intended to be consumed via the normal Node `require` mechanism.
+////
+以下の例では、通常の Node `require` メカニズムで使われることを想定して `lib.js` ファイルを作成します。
+
+```
+(ns demo.lib)
+
+(defn hello []
+  (prn "hello")
+  "hello")
+```
+
+////
+The build configuration would be:
+////
+ビルド構成は以下のようになります。
+
+```
+{...
+ :builds {:library {:target    :node-library
+                    :output-to "out/demo-library/lib.js"
+                    :exports   {:hello demo.lib/hello}}}}
+```
+
+////
+and the runtime use is as you would expect:
+////
+ランタイムの使用感は期待通りです。
+
+```
+$ cd out/demo-library
+$ node
+> var x = require('./lib');
+undefined
+> x.hello()
+hello
+'hello'
+```
+
+////
+As `:node-script` this will only create the file specified in `:output-to`. The `:exports` map maps CLJS vars to the name they should be exported to.
+////
+`node-script` と同様に、 `:output-to` で指定されたファイルのみを作成します。`exports` マップは、CLJS の変数を、エクスポートされるべき名前にマッピングします。
+
+////
+NOTE: Development mode has the <<NodeModes,same setup>> as for node scripts (extra dependencies).
+////
+注：開発モードでは、ノードスクリプトと同じ<<NodeModes,同じ設定>>になります（追加の依存関係があります）。
+
