@@ -4,7 +4,7 @@
 
 ## 邦訳の Website
 
-[t-cool.github.io/shadow-cljs-users-guide-ja/](t-cool.github.io/shadow-cljs-users-guide-ja/) から閲覧できます。
+[(https://t-cool.github.io/shadow-cljs-users-guide-ja/]((https://t-cool.github.io/shadow-cljs-users-guide-ja/) から閲覧できます。
 
 ## 邦訳の書籍
 
