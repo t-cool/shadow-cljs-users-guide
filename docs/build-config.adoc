@@ -553,13 +553,13 @@ The `:cache-root` is always resolved relative to the project directory. You can 
 ////
 また、 `:cache-root` は常にプロジェクトディレクトリからの相対パスで指定します。絶対パスを指定することもできます (例: `/tmp/shadow-cljs`)。
 
-== クロージャの定義 [[closure-defines]]
+== Closure の定義 [[closure-defines]]
 //Closure Defines [[closure-defines]]
 
 ////
 The Closure Library & Compiler allow you to define variables that are essentially compile time constants. You can use these to configure certain features of your build. Since the Closure compiler treats these as constants when running `:advanced` optimizations they are fully supported in the Dead-Code-Elimination passes and can be used to remove certain parts of the code that should not be included in `release` builds.
 ////
-Closure Library & Compiler では、基本的にコンパイル時の定数である変数を定義することができます。これを使って、ビルドの特定の機能を設定することができます。 Closure コンパイラは、 `:advanced` 最適化を実行する際にこれらを定数として扱うため、Dead-Code-Elimination パスが完全にサポートされており、 `release` ビルドに含めるべきではないコードの特定の部分を削除するために使用することができます。
+Closure Library と Compiler では、基本的にコンパイル時の定数である変数を定義することができます。これを使って、ビルドの特定の機能を設定することができます。 Closure コンパイラは、 `:advanced` 最適化を実行する際にこれらを定数として扱うため、Dead-Code-Elimination パスが完全にサポートされており、 `release` ビルドに含めるべきではないコードの特定の部分を削除するために使用することができます。
 
 ////
 You can define them in your code
@@ -622,7 +622,7 @@ TIP: 一般的には、disabled バリアントをデフォルトで使用する
 ////
 Closure Defines from the Closure Library
 ////
-クロージャ・ライブラリのクロージャ定義
+Closure ライブラリの Closure 定義
 
 ////
 - `goog.DEBUG`: The Closure Library uses this for many development features. `shadow-cljs` automatically sets this to `false` for `release` builds.
@@ -839,7 +839,7 @@ Supported options are:
 - `:es6` - `class`, `const`, `let`, ...
 - `:es7` - 指数演算子 `**` 。
 - `:es8` - `async/await`, `generators`, スプレッド付きオブジェクトリテラル, ...
-- `es-next` - クロージャ・コンパイラが現在サポートしているすべての機能です。
+- `es-next` - Closure コンパイラが現在サポートしているすべての機能です。
 
 ////
 .Example

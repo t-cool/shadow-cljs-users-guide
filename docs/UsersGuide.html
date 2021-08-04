@@ -635,7 +635,7 @@ table.CodeRay td.code>pre{padding:0}
 </ul>
 </li>
 <li><a href="#_コンパイラ_キャッシュ">6.4. コンパイラ・キャッシュ</a></li>
-<li><a href="#closure-defines">6.5. クロージャの定義</a></li>
+<li><a href="#closure-defines">6.5. Closure の定義</a></li>
 <li><a href="#compiler-options">6.6. コンパイラのオプション</a>
 <ul class="sectlevel3">
 <li><a href="#warnigs-as-errors">6.6.1. エラーとしてのワーニング</a></li>
@@ -2833,9 +2833,9 @@ localhost（または使用するホスト）の SAN（Subject Alternative Name�
 </div>
 </div>
 <div class="sect2">
-<h3 id="closure-defines"><a class="anchor" href="#closure-defines"></a><a class="link" href="#closure-defines">6.5. クロージャの定義</a></h3>
+<h3 id="closure-defines"><a class="anchor" href="#closure-defines"></a><a class="link" href="#closure-defines">6.5. Closure の定義</a></h3>
 <div class="paragraph">
-<p>Closure Library &amp; Compiler では、基本的にコンパイル時の定数である変数を定義することができます。これを使って、ビルドの特定の機能を設定することができます。 Closure コンパイラは、 <code>:advanced</code> 最適化を実行する際にこれらを定数として扱うため、Dead-Code-Elimination パスが完全にサポートされており、 <code>release</code> ビルドに含めるべきではないコードの特定の部分を削除するために使用することができます。</p>
+<p>Closure Library と Compiler では、基本的にコンパイル時の定数である変数を定義することができます。これを使って、ビルドの特定の機能を設定することができます。 Closure コンパイラは、 <code>:advanced</code> 最適化を実行する際にこれらを定数として扱うため、Dead-Code-Elimination パスが完全にサポートされており、 <code>release</code> ビルドに含めるべきではないコードの特定の部分を削除するために使用することができます。</p>
 </div>
 <div class="paragraph">
 <p>コードの中で定義することができます。</p>
@@ -2883,7 +2883,7 @@ localhost（または使用するホスト）の SAN（Subject Alternative Name�
 </table>
 </div>
 <div class="paragraph">
-<p>クロージャ・ライブラリのクロージャ定義</p>
+<p>Closure ライブラリの Closure 定義</p>
 </div>
 <div class="ulist">
 <ul>
@@ -3112,7 +3112,7 @@ localhost（または使用するホスト）の SAN（Subject Alternative Name�
 <p><code>:es8</code> - <code>async/await</code>, <code>generators</code>, スプレッド付きオブジェクトリテラル, &#8230;&#8203;</p>
 </li>
 <li>
-<p><code>es-next</code> - クロージャ・コンパイラが現在サポートしているすべての機能です。</p>
+<p><code>es-next</code> - Closure コンパイラが現在サポートしているすべての機能です。</p>
 </li>
 </ul>
 </div>
@@ -3512,7 +3512,7 @@ localhost（または使用するホスト）の SAN（Subject Alternative Name�
 <code>:prepend-js</code> 
 </td>
 <td class="hdlist2">
-<p>クロージャオプティマイザーで実行される、有効な javascript をモジュールの出力に追加する文字列です。</p>
+<p>Closure オプティマイザーで実行される、有効な javascript をモジュールの出力に追加する文字列です。</p>
 </td>
 </tr>
 <tr>
@@ -3520,7 +3520,7 @@ localhost（または使用するホスト）の SAN（Subject Alternative Name�
 <code>:append-js</code> 
 </td>
 <td class="hdlist2">
-<p>クロージャオプティマイザーで実行される有効な javascript をモジュールの出力に追加する文字列です。</p>
+<p>Closure オプティマイザーで実行される有効な javascript をモジュールの出力に追加する文字列です。</p>
 </td>
 </tr>
 </table>
@@ -5956,15 +5956,15 @@ extern が必要なのは <code>:advanced</code> モードのみで、 <code>:si
 <div class="sect3">
 <h4 id="_簡易なextern"><a class="anchor" href="#_簡易なextern"></a><a class="link" href="#_簡易なextern">14.2.3. 簡易なextern</a></h4>
 <div class="paragraph">
-<p>Externs を手で書くことは困難ですが、 <code>shadow-cljs</code> はより便利な書き方を提供します。また、 <code>shadow-cljs check &lt;your-build&gt;</code> と組み合わせることで、不足している Externs を素早く追加することができます。</p>
+<p>Externs を手動で書くことは困難ですが、<code>shadow-cljs</code> にはより便利な書き方があります。<code>shadow-cljs check &lt;your-build&gt;</code> とすることで、不足している Externs を素速く追加することができます。</p>
 </div>
 <div class="paragraph">
-<p>まず、 <code>externs/&lt;your-build&gt;.txt</code> を作成します。ビルド <code>:app</code> は <code>externs/app.txt</code> となります。このファイルの各行は、名前を変更してはいけない JS のプロパティを1つの単語で指定します。グローバル変数の前には、 <code>global:</code> を付けてください。</p>
+<p>まず、 <code>externs/&lt;your-build&gt;.txt</code> を作成します。ビルド <code>:app</code> は <code>externs/app.txt</code> となります。このファイルの各行は、名前を変更してはいけない JS のプロパティを1つの単語で指定します。グローバル変数の前には、 <code>global:</code> をつけます。</p>
 </div>
 <div class="listingblock">
 <div class="title">Example externs/app.txt</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="clojure"><span class="error">#</span> this is a <span class="keyword">comment</span>
+<pre class="CodeRay highlight"><code data-lang="clojure"><span class="error">#</span> <span class="error">こ</span><span class="error">れ</span><span class="error">は</span><span class="error">コ</span><span class="error">メ</span><span class="error">ン</span><span class="error">ト</span><span class="error">で</span><span class="error">す</span><span class="error">。</span>
 foo
 bar
 global<span class="symbol">:SomeGlobalVariable</span></code></pre>
@@ -5978,7 +5978,7 @@ global<span class="symbol">:SomeGlobalVariable</span></code></pre>
 <div class="sect2">
 <h3 id="_コード_ストリッピング"><a class="anchor" href="#_コード_ストリッピング"></a><a class="link" href="#_コード_ストリッピング">14.3. コード・ストリッピング</a></h3>
 <div class="paragraph">
-<p>クロージャ・コンパイラは、不要なコードを名前で削除することをサポートしています。これにより、通常のデッドコード除去では除去できない、あるいは除去したくないコードを除去することができます。これは、実際に気になるコードが削除される可能性があるため非常に危険ですが、多くの開発者専用コードを簡単に削除することができます。これは 4 つのオプションに分類されていて、そのうち ClojureScript に関連するのはほぼ <code>:strip-type-prefixes</code> だけですが、他にも有用なオプションがあるかもしれません。</p>
+<p>Closure コンパイラは、不要なコードを名前で削除することをサポートしています。これにより、通常のデッドコード除去では除去できない、あるいは除去したくないコードを除去することができます。これは、実際に気になるコードが削除される可能性があるため非常に危険ですが、多くの開発者専用コードを簡単に削除することができます。これは 4 つのオプションに分類されていて、そのうち ClojureScript に関連するのはほぼ <code>:strip-type-prefixes</code> だけですが、他にも有用なオプションがあるかもしれません。</p>
 </div>
 <div class="listingblock">
 <div class="title">Example cljs.pprint のすべての使用を削除</div>
