@@ -1009,7 +1009,7 @@ While you can use <<closure-defines, :closure-defines>> to conditionally compile
 ////
 The `:server` build will then no longer have the `codemirror` require and the `init-cm` function is removed. Becoming only
 ////
-これにより、 `:server` のビルドには `codemirror` の必要性がなくなり、 `init-cm` の機能も削除されます。ベコミングのみ
+これにより、 `:server` のビルドには `codemirror` の必要性がなくなり、 `init-cm` の機能も削除されます。以下のようになります。
 
 
 ////
