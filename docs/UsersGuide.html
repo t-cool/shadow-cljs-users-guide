@@ -731,15 +731,19 @@ table.CodeRay td.code>pre{padding:0}
 <li><a href="#js-entry-keys">13.1.3. CommonJS vs ESM</a></li>
 <li><a href="#js-resolve">13.1.4. パッケージを解決する</a></li>
 <li><a href="#alt-node-modules">13.1.5. 代替モジュールのディレクトリ</a></li>
-<li><a href="#_js_を_require_する">13.1.6. JS を require する</a></li>
-<li><a href="#_言語サポート">13.1.7. 言語サポート</a></li>
-<li><a href="#_javascript_の方言">13.1.8. JavaScript の方言</a></li>
-<li><a href="#_js_から_cljs_へのアクセス">13.1.9. JS から CLJS へのアクセス</a></li>
 </ul>
 </li>
-<li><a href="#cljsjs">13.2. cljsjs.* の移行について</a>
+<li><a href="#classpath-js">13.2. .js ファイルへの対応</a>
 <ul class="sectlevel3">
-<li><a href="#_cljsjs_を使いませんか">13.2.1. CLJSJS を使いませんか?</a></li>
+<li><a href="#_js_を_require_する">13.2.1. JS を require する</a></li>
+<li><a href="#_言語サポート">13.2.2. 言語サポート</a></li>
+<li><a href="#_javascript_の方言">13.2.3. JavaScript の方言</a></li>
+<li><a href="#_js_から_cljs_へのアクセス">13.2.4. JS から CLJS へのアクセス</a></li>
+</ul>
+</li>
+<li><a href="#cljsjs">13.3. cljsjs.* の移行について</a>
+<ul class="sectlevel3">
+<li><a href="#_cljsjs_を使いませんか">13.3.1. CLJSJS を使いませんか?</a></li>
 </ul>
 </li>
 </ul>
@@ -5396,9 +5400,10 @@ HeadlessChrome 0.0.0 (Mac OS X 10.12.6): Executed 1 of 1 SUCCESS (0.007 secs / 0
    <span class="symbol">:js-options</span> {<span class="symbol">:js-package-dirs</span> [<span class="string"><span class="delimiter">&quot;</span><span class="content">node_modules</span><span class="delimiter">&quot;</span></span> <span class="string"><span class="delimiter">&quot;</span><span class="content">../node_modules</span><span class="delimiter">&quot;</span></span>]}}}}</code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p>==　 .js ファイルへの対応 <a id="classpath-js"></a></p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="classpath-js"><a class="anchor" href="#classpath-js"></a><a class="link" href="#classpath-js">13.2. .js ファイルへの対応</a></h3>
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
@@ -5415,9 +5420,8 @@ HeadlessChrome 0.0.0 (Mac OS X 10.12.6): Executed 1 of 1 SUCCESS (0.007 secs / 0
 <div class="paragraph">
 <p>この機能を確実に動作させるためには、いくつかの規則に従わなければなりませんが、すでに実行していることもあるでしょう。</p>
 </div>
-</div>
 <div class="sect3">
-<h4 id="_js_を_require_する"><a class="anchor" href="#_js_を_require_する"></a><a class="link" href="#_js_を_require_する">13.1.6. JS を require する</a></h4>
+<h4 id="_js_を_require_する"><a class="anchor" href="#_js_を_require_する"></a><a class="link" href="#_js_を_require_する">13.2.1. JS を require する</a></h4>
 <div class="paragraph">
 <p>先ほど、 <code>npm</code> パッケージに名前でアクセスする方法を説明しましたが、クラスパス上では、 <code>.js</code> ファイルにフルパスまたは現在の名前空間からの相対パスでアクセスします。</p>
 </div>
@@ -5477,7 +5481,7 @@ HeadlessChrome 0.0.0 (Mac OS X 10.12.6): Executed 1 of 1 SUCCESS (0.007 secs / 0
 </div>
 </div>
 <div class="sect3">
-<h4 id="_言語サポート"><a class="anchor" href="#_言語サポート"></a><a class="link" href="#_言語サポート">13.1.7. 言語サポート</a></h4>
+<h4 id="_言語サポート"><a class="anchor" href="#_言語サポート"></a><a class="link" href="#_言語サポート">13.2.2. 言語サポート</a></h4>
 <div class="admonitionblock important">
 <table>
 <tr>
@@ -5529,7 +5533,7 @@ Closure Compiler の厳密なチェックにより、CLJS や npm のコード�
 </div>
 </div>
 <div class="sect3">
-<h4 id="_javascript_の方言"><a class="anchor" href="#_javascript_の方言"></a><a class="link" href="#_javascript_の方言">13.1.8. JavaScript の方言</a></h4>
+<h4 id="_javascript_の方言"><a class="anchor" href="#_javascript_の方言"></a><a class="link" href="#_javascript_の方言">13.2.3. JavaScript の方言</a></h4>
 <div class="paragraph">
 <p>一般的な JavaScript の方言（JSX、CoffeeScript など）には、Closure Compiler では直接解析できないものが多いため、クラスパスに置く前に前処理を行う必要があります。 <a href="https://babeljs.io/">babel</a> は JavaScript の世界でよく使われているので、ここでは例として <code>.jsx</code> ファイルを処理するために <code>babel</code> を使用します。</p>
 </div>
@@ -5607,7 +5611,7 @@ $ babel src/js --out-dir src/gen --watch</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_js_から_cljs_へのアクセス"><a class="anchor" href="#_js_から_cljs_へのアクセス"></a><a class="link" href="#_js_から_cljs_へのアクセス">13.1.9. JS から CLJS へのアクセス</a></h4>
+<h4 id="_js_から_cljs_へのアクセス"><a class="anchor" href="#_js_から_cljs_へのアクセス"></a><a class="link" href="#_js_から_cljs_へのアクセス">13.2.4. JS から CLJS へのアクセス</a></h4>
 <div class="paragraph">
 <p>JS ソースは、名前空間を <code>goog:</code> というプレフィックスでインポートすることで、すべての ClojureScript（および Closure Library）に直接アクセスすることができます。このプレフィックスは、コンパイラが名前空間をデフォルトの ES6 エクスポートとして公開するように書き換えます。</p>
 </div>
@@ -5634,7 +5638,7 @@ cljs.array_map(<span class="keyword">keyword</span>(<span class="string"><span c
 </div>
 </div>
 <div class="sect2">
-<h3 id="cljsjs"><a class="anchor" href="#cljsjs"></a><a class="link" href="#cljsjs">13.2. cljsjs.* の移行について</a></h3>
+<h3 id="cljsjs"><a class="anchor" href="#cljsjs"></a><a class="link" href="#cljsjs">13.3. cljsjs.* の移行について</a></h3>
 <div class="quoteblock">
 <blockquote>
 <div class="paragraph">
@@ -5673,7 +5677,7 @@ cljs.array_map(<span class="keyword">keyword</span>(<span class="string"><span c
 自分で実際のパッケージを <code>npm install</code> する必要があります。</p>
 </div>
 <div class="sect3">
-<h4 id="_cljsjs_を使いませんか"><a class="anchor" href="#_cljsjs_を使いませんか"></a><a class="link" href="#_cljsjs_を使いませんか">13.2.1. CLJSJS を使いませんか?</a></h4>
+<h4 id="_cljsjs_を使いませんか"><a class="anchor" href="#_cljsjs_を使いませんか"></a><a class="link" href="#_cljsjs_を使いませんか">13.3.1. CLJSJS を使いませんか?</a></h4>
 <div class="paragraph">
 <p>CLJSJS のパッケージは、基本的に <code>npm</code> からパッケージを取り出し、 <code>.jar</code> に入れて <a href="https://clojars.org">clojars</a> で再公開するだけです。おまけに Externs もバンドルされています。コンパイラはこれらのファイルに対して何もせず、生成された出力の先頭に追加するだけです。</p>
 </div>

@@ -432,7 +432,7 @@ Relative paths will be resolved relative to the project root directory. Paths wi
 ```
 
 
-==　 .js ファイルへの対応 [[classpath-js]]
+== .js ファイルへの対応 [[classpath-js]]
 //Dealing with .js Files [[classpath-js]]
 
 ////
