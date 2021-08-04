@@ -622,7 +622,7 @@ TIP: 一般的には、disabled バリアントをデフォルトで使用する
 ////
 Closure Defines from the Closure Library
 ////
-Closure ライブラリの Closure 定義
+Closure Library の Closure 定義
 
 ////
 - `goog.DEBUG`: The Closure Library uses this for many development features. `shadow-cljs` automatically sets this to `false` for `release` builds.
