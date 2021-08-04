@@ -15,7 +15,7 @@ When you quickly want to test out some code the built-in REPLs should be enough.
 ////
 By default you can choose between a `node-repl` and a `browser-repl`. They both work similarly and the differentiating factor is that one runs in a managed `node.js` process while the others opens a Browser Window that will be used to eval the actual code.
 ////
-デフォルトでは、 `node-repl` と `browser-repl` のどちらかを選択することができます。どちらも似たような動作をしますが、違いは、一方がマネージドな `node.js` プロセスで動作するのに対し、他方は実際のコードを評価するために使用されるブラウザウィンドウを開くことです。
+デフォルトでは、 `node-repl` と `browser-repl` のどちらかを選択することができます。どちらも似た動作をしますが、違いは、一方が `node.js` が管理するプロセスで動作するのに対し、他方は実際のコードを評価するために使用されるブラウザウィンドウを開くことです。
 
 === Node REPL [[node-repl]]
 

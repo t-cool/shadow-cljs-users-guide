@@ -124,7 +124,7 @@ You can simplify startup flow by a creating a `.dir-locals.el` file at project r
 
 ```
 ((nil . ((cider-default-cljs-repl . shadow)
-	 (cider-shadow-default-options . "<your-build-name-here>"))))
+	 (cider-shadow-default-options . "<自身のビルド名>"))))
 ```
 
 == Proto REPL (Atom)

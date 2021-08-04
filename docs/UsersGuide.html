@@ -1510,7 +1510,7 @@ $ shadow-cljs run my.build/release</code></pre>
 <div class="sect2">
 <h3 id="_clojurescript_repl"><a class="anchor" href="#_clojurescript_repl"></a><a class="link" href="#_clojurescript_repl">4.1. ClojureScript REPL</a></h3>
 <div class="paragraph">
-<p>デフォルトでは、 <code>node-repl</code> と <code>browser-repl</code> のどちらかを選択することができます。どちらも似たような動作をしますが、違いは、一方がマネージドな <code>node.js</code> プロセスで動作するのに対し、他方は実際のコードを評価するために使用されるブラウザウィンドウを開くことです。</p>
+<p>デフォルトでは、 <code>node-repl</code> と <code>browser-repl</code> のどちらかを選択することができます。どちらも似た動作をしますが、違いは、一方が <code>node.js</code> が管理するプロセスで動作するのに対し、他方は実際のコードを評価するために使用されるブラウザウィンドウを開くことです。</p>
 </div>
 <div class="sect3">
 <h4 id="node-repl"><a class="anchor" href="#node-repl"></a><a class="link" href="#node-repl">4.1.1. Node REPL</a></h4>
@@ -1838,7 +1838,7 @@ CLJS REPL に切り替えたい場合は、サーバの起動に使用したツ�
 <div class="sect3">
 <h4 id="npm-install"><a class="anchor" href="#npm-install"></a><a class="link" href="#npm-install">5.2.2. JavaScript</a></h4>
 <div class="paragraph">
-<p><code>shadow-cljs</code> は、https://www.npmjs.com/[<code>npm</code>] エコシステムと完全に統合して、JavaScript の依存関係を管理します。</p>
+<p><code>shadow-cljs</code> は、 <a href="https://www.npmjs.com/"><code>npm</code></a> エコシステムと完全に統合して、JavaScript の依存関係を管理します。</p>
 </div>
 <div class="paragraph">
 <p>依存関係の管理には、 <code>npm</code> や <code>yarn</code> を使うことができますが、それぞれのドキュメントを参照してください。</p>
@@ -6172,7 +6172,7 @@ cljs.repl&gt;</code></pre>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="clojure">((<span class="predefined-constant">nil</span> <span class="keyword">.</span> ((cider-default-cljs-repl <span class="keyword">.</span> shadow)
-         (cider-shadow-default-options <span class="keyword">.</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">&lt;your-build-name-here&gt;</span><span class="delimiter">&quot;</span></span>))))</code></pre>
+         (cider-shadow-default-options <span class="keyword">.</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">&lt;自身のビルド名&gt;</span><span class="delimiter">&quot;</span></span>))))</code></pre>
 </div>
 </div>
 </div>
@@ -6801,7 +6801,7 @@ lein jar を実行し、 <code>jar -tvf target/library-1.0.0.jar</code> で最�
 <div id="footer">
 <div id="footer-text">
 Version 1.0<br>
-Last updated 2021-08-04 19:16:14 JST
+Last updated 2021-08-04 20:41:04 JST
 </div>
 </div>
 </body>
