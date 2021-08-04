@@ -4,11 +4,11 @@
 
 ## 邦訳の Website
 
-[t-cool.github.io/shadow-cljs-users-guide-ja/html/index.html](t-cool.github.io/shadow-cljs-users-guide-ja/html/index.html) から閲覧できます。
+[t-cool.github.io/shadow-cljs-users-guide-ja/](t-cool.github.io/shadow-cljs-users-guide-ja/) から閲覧できます。
 
 ## 邦訳の書籍
 
-[t-cool.github.io/shadow-cljs-users-guide-ja/](t-cool.github.io/shadow-cljs-users-guide-ja/) から閲覧できます。イベントでの配布に向けて準備中です。
+[t-cool.github.io/shadow-cljs-users-guide-ja/UsersGuide.pdf](t-cool.github.io/shadow-cljs-users-guide-ja/UsersGuide.pdf) から電子版を閲覧できます。イベントでの印刷版の配布に向けて準備中です。
 
 ## ライセンス
 

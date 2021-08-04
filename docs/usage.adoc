@@ -1,0 +1,508 @@
+= 利用法
+
+////
+Usage
+////
+
+////
+`shadow-cljs` can be used in many different ways but the general workflow stays the same.
+////
+shadow-cljs は様々な方法で使用できますが、一般的なワークフローは同じです。
+
+////
+During development you have the option to `compile` a build once or run a `watch` worker which watches your source files for changes and re-compiles them automatically. When <<devtools, enabled>> the `watch` will also hot-reload your code and provide a REPL. During development the focus is on developer experience with fast feedback cycles. Development code should never be shipped to the public.
+////
+開発中には、ビルドを一度だけ `compile` するか、ソースファイルの変更を監視して自動的に再コンパイルする `watch` ワーカーを実行するかのオプションがあります。このワーカーはソースファイルの変更を監視し、自動的に再コンパイルします。<<devtools, enabled>> の場合、 `watch` はコードをホットリロードし、REPL を提供します。開発中は、迅速なフィードバックサイクルによる開発者の経験に重点を置いています。開発コードは決して一般に出荷してはいけません。
+
+////
+When it is time to get serious you create a <<release, `release`>> build which creates an optimized build suitable for production. For this the https://developers.google.com/closure/compiler/[Closure Compiler] is used which applies some seriously `:advanced` optimizations to your code to create the most optimal output available. This may require some <<externs, tuning>> to work properly when using lots of interop with native JavaScript but works flawlessly for ClojureScript (and the code from the https://developers.google.com/closure/library/[Closure Library]).
+////
+本格的に開発する場合には、<<release, `release`>>というビルドを作成し、本番環境に適した最適化されたビルドを作成します。これには https://developers.google.com/closure/compiler/[Closure Compiler] が使用され、利用可能な最も最適な出力を作成するために、コードに深刻な `:advanced` 最適化を適用します。ネイティブ JavaScript とのインターロップを多用している場合には、適切に動作させるためにいくつかの<<externs, チューニング>>が必要になるかもしれませんが、ClojureScript(および https://developers.google.com/closure/library/[Closure Library] のコード)では完璧に動作します。
+
+== コマンドライン
+
+////
+If <<Installation, installed>> globally, you can use the `shadow-cljs` command directly.
+////
+グローバル環境にインストールされている場合は、 `shadow-cljs` コマンドを直接使用することができます。
+
+```bash
+$ shadow-cljs help
+```
+
+////
+If you prefer to only use the local `npm` install you can invoke it via `npx` or `yarn`.
+////
+ローカルにインストールした `npm` のみを使用したい場合は、 `npx` や `yarn` を介して起動することができます。
+
+```bash
+# npm
+$ npx shadow-cljs help
+
+# yarn
+$ yarn shadow-cljs help
+
+# 手動で行う場合
+$ ./node_modules/.bin/shadow-cljs help
+```
+// 手動: manually
+
+////
+The guide will assume there is a global install to keep examples short but this is not required.
+////
+このガイドでは、例を短くするためにグローバルインストールを前提としていますが、これは必須ではありません。
+
+////
+.Commonly used shadow-cljs commands during development
+////
+開発中によく使う shadow-cljs コマンドは以下の通りです。
+
+////
+```bash
+# compile a build once and exit
+$ shadow-cljs compile app
+
+# compile and watch
+$ shadow-cljs watch app
+
+# connect to REPL for the build (available while watch is running)
+$ shadow-cljs cljs-repl app
+
+# connect to standalone node repl
+$ shadow-cljs node-repl
+```
+////
+```bash
+# ビルドを一度コンパイルして終了
+$ shadow-cljs compile app
+
+# コンパイルと監視
+$ shadow-cljs watch app
+
+# ビルド用の REPL に接続 (watch の実行中に利用可能)$ shadow-cljs cljs-repl app
+
+# スタンドアロンの Node repl への接続
+$ shadow-cljs node-repl
+```
+
+////
+.Running a release build optimized for production use.
+////
+次のように、本番使用に最適化されたリリースビルドを実行します。
+
+```
+$ shadow-cljs release app
+```
+
+////
+Sometimes you may run into some release issues due to `:advanced` compilation. These
+commands can help track down the causes.
+////
+`:advanced` のコンパイルが原因で、リリース上の問題に遭遇することがあります。これらのコマンドは、その原因を追跡するのに役立ちます。
+
+////
+.Release debugging commands.
+////
+Release デバッグコマンド
+
+```
+$ shadow-cljs check app
+$ shadow-cljs release app --debug
+```
+
+=== サーバ・モード [[server-mode]]
+
+////
+A `shadow-cljs` command can be fairly slow to start. To improve this `shadow-cljs` can run in "server mode" which means that a dedicated process is started which all other commands can use to execute a lot faster since they won't have to start a new JVM/Clojure instance.
+////
+shadow-cljs コマンドは起動にかなり時間がかかります。これを改善するために、 `shadow-cljs` は "サーバ・モード" で動作させることができます。これは、専用のプロセスが開始され、他のすべてのコマンドがそれを利用して、新しい JVM/Clojure インスタンスを開始する必要がないため、より速く実行できることを意味します。
+
+////
+Commands that do long-running things implicitly start a server instance (eg. `watch`) but it is often advisable to have
+a dedicated server process running.
+////
+長時間実行される処理を行うコマンドは、暗黙のうちにサーバインスタンスを起動しますが（例：`watch`）、多くの場合、専用のサーバ・プロセスを起動することが望ましいでしょう。専用のサーバ・プロセスを実行することが望ましい場合もあります。
+
+////
+You can run the process in the foreground in a dedicated terminal. Use `CTRL+C` to terminate the server.
+////
+専用端末のフォアグラウンドでプロセスを実行することができます。サーバを終了するには `CTRL+C` を押してください。
+
+////
+```bash
+$ shadow-cljs server
+# or (if you'd like REPL to control the server process)
+$ shadow-cljs clj-repl
+```
+////
+
+
+```bash
+$ shadow-cljs server
+# または REPL にサーバプロセスを制御させたい場合
+$ shadow-cljs clj-repl
+```
+
+////
+You can also run the server in the background controlled via the common `start|stop|restart` functions.
+////
+また、一般的な `start|stop|restart` 関数を使って、バックグランドでサーバを制御することもできます。
+
+```bash
+$ shadow-cljs start
+$ shadow-cljs stop
+$ shadow-cljs restart
+```
+
+////
+Once any server is running every other command will use that and run much faster.
+////
+いずれかのサーバが起動していれば、他のすべてのコマンドはそのサーバを使用し、より速く動作します。
+
+== ビルドツールの統合
+
+////
+Build Tool Integration
+////
+
+////
+`shadow-cljs` can integrate with other Clojure tools since the primary distribution is just a `.jar` file available via https://clojars.org/thheller/shadow-cljs[Clojars] . By default your `:dependencies` are managed via `shadow-cljs.edn` but you can use other builds tools to manage your dependencies as well.
+////
+`shadow-cljs` は他の Clojure ツールと統合することができます。なぜなら、主要な配布物は https://clojars.org/thheller/shadow-cljs[Clojars] を通じて入手できる `.jar` ファイルだからです。デフォルトでは `:dependencies` は `shadow-cljs.edn` で管理されますが、他のビルドツールを使って依存関係を管理することもできます。
+
+////
+CAUTION: It is strongly recommended to use the standalone `shadow-cljs` version. The command does a lot of things to optimize the user experience (e.g. faster startup) which are not done by other tools. You'll also save yourself a lot of headaches dealing with dependency conflicts and other related errors.
+////
+注意: スタンドアロンの `shadow-cljs` バージョンを使用することを強くお勧めします。このコマンドは、UX を最適化するために、他のツールでは行われない多くのことを行います (例えば、起動の高速化など)。また、依存関係の衝突やその他の関連するエラーに対処するための多くの頭痛の種を避けることができるでしょう。
+
+=== Leiningen [[Leiningen]]
+
+////
+If you'd like to use https://leiningen.org/[Leiningen] to manage your dependencies, you can do so by adding a `:lein` entry to your `shadow-cljs.edn` config. With this setting, the `shadow-cljs` command will use `lein` to launch the JVM, ignoring any `:source-paths` and `:dependencies` in `shadow-cljs.edn`; relying instead on `lein` to set them from `project.clj`.
+////
+https://leiningen.org/[Leiningen] を使って依存関係を管理したい場合は、 `shadow-cljs.edn` の設定に `:lein` エントリを追加することで可能になります。この設定により、 `shadow-cljs` コマンドは JVM を起動する際に `lein` を使用し、 `shadow-cljs.edn` 内の `:source-paths` や `:dependencies` は一切無視し、代わりに `project.clj` から設定された `lein` を使用します。
+
+////
+```
+{:lein true
+ ; :source-paths and :dependencies are now ignored in this file
+
+ ; configure them via project.clj
+ :builds { ... }
+```
+////
+
+```
+{:lein true
+; :source-paths と :dependencies はこのファイルでは無視されます
+
+; これらを project.clj で設定する
+ :builds { ... }
+```
+
+////
+.Using a dedicated `lein` profile
+////
+
+.専用の `lein` プロファイルの使用
+
+```
+{:lein {:profile "+cljs"}
+ :builds {...}}
+```
+
+.Sample project.clj
+
+```
+(defproject my-awesome-project
+  ...
+  :profiles
+  {:cljs
+   {:source-paths ["src/cljs"]
+    :dependencies [[thheller/shadow-cljs "..."]
+                   [reagent "0.8.1"]]}})
+```
+
+////
+When using `project.clj` to manage your `:dependencies` you must manually include the https://clojars.org/thheller/shadow-cljs[thheller/shadow-cljs] artifact in your `:dependencies` (directly or in a profile).
+////
+project.clj を使って :dependencies を管理する場合、 https://clojars.org/thheller/shadow-cljs[thheller/shadow-cljs] アーティファクトを :dependencies に (直接またはプロファイルで) 手動で含める必要があります。
+
+////
+IMPORTANT: When you are running into weird Java Stackstraces when starting `shadow-cljs` or trying compile builds you may have a dependency conflict. It is very important that `shadow-cljs` is used with proper matching `org.clojure/clojurescript` and `closure-compiler` versions. You can check via `lein deps :tree` and the required versions are listed on https://clojars.org/thheller/shadow-cljs[clojars] (on the right side).
+////
+IMPORTANT: `shadow-cljs` の起動時やコンパイル・ビルド時に奇妙な Java Stackstraces に遭遇した場合、依存関係の衝突が考えられます。重要なのは、 `shadow-cljs` が、適切にマッチした `org.clojure/clojurescript` と `closure-compiler` のバージョンと一緒に使われていることです。必要なバージョンは https://clojars.org/thheller/shadow-cljs[clojars] (右側)にリストアップされていますので、 `lein deps :tree` で確認できます。
+
+==== Leiningen から直接タスクを実行する
+
+////
+Running Tasks Directly From Leiningen
+////
+
+////
+You may also directly execute `shadow-cljs` commands via `lein` if you prefer to not use the `shadow-cljs` command itself.
+////
+また、 `shadow-cljs` コマンド自体を使いたくない場合は、 `lein` を使って `shadow-cljs` コマンドを直接実行することもできます。
+
+////
+IMPORTANT: It is recommended to still use the `shadow-cljs` command to run commands since that will take full advantage of a running server mode instance. This will run commands substantially faster than launching additional JVMs when using `lein` directly.
+////
+IMPORTANT: コマンドを実行する際には、引き続き `shadow-cljs` コマンドを使用することをお勧めします。このコマンドは、実行中のサーバモードのインスタンスを最大限に活用します。これにより、 `lein` を直接使用して追加の JVM を起動するよりも、大幅に速くコマンドを実行することができます。
+
+////
+.Just compile :dev mode once, no REPL or live-reload:
+////
+REPL やライブリロードは不要で、dev モードで一度コンパイルするだけです。
+
+```bash
+$ lein run -m shadow.cljs.devtools.cli compile build-id
+```
+
+////
+.Create a :release mode optimized build:
+////
+リリースモードに最適化されたビルドを作成するには、次のようにします。
+
+```bash
+$ lein run -m shadow.cljs.devtools.cli release build-id
+```
+
+=== tools.deps / deps.edn [[deps-edn]]
+
+////
+The new https://clojure.org/guides/deps_and_cli[deps.edn] can also be used to manage your `:dependencies` and `:source-paths` instead of using the built-in methods or `lein`. All `shadow-cljs` commands will then be launched via the new `clojure` utility instead.
+////
+新しい https://clojure.org/guides/deps_and_cli[deps.edn] は、ビルトインのメソッドや `lein` を使用する代わりに、 `:dependencies` や `:source-paths` を管理するのにも使用できます。すべての `shadow-cljs` コマンドは、代わりに新しい `clojure` ユーティリティを介して起動されます。
+
+////
+IMPORTANT: `tools.deps` is still changing quite frequently. Make sure you are using the latest version.
+////
+IMPORTANT: `tools.deps` は現在も頻繁に変更されています。必ず最新のバージョンを使用してください。
+
+////
+To use this set the `:deps true` property in your config. It is also possible to configure which `deps.edn` aliases should be used.
+////
+これを使うには、設定で `:deps true` プロパティを設定します。また、どの `deps.edn` のエイリアスを使用するかを設定することもできます。
+
+////
+You must add the `thheller/shadow-cljs` artifact to your `deps.edn` manually.
+////
+`thheller/shadow-cljs` の artifact(成果物) を手動で `deps.edn` に追加する必要があります。
+
+////
+.Simple `shadow-cljs.edn` example
+////
+.シンプルな shadow-cljs.edn の例
+
+```clojure
+{:deps true
+ :builds ...}
+```
+
+////
+.Simple `deps.edn` example
+////
+.シンプルな `deps.edn` の例
+
+```clojure
+{:paths [...]
+ :deps {thheller/shadow-cljs {:mvn/version <latest>}}}
+```
+
+////
+.Example `shadow-cljs.edn` with :cljs alias
+////
+.Example `shadow-cljs.edn` に :cljs のエイリアスをつけたもの
+
+```clojure
+{:deps {:aliases [:cljs]}
+ :builds ...}
+```
+
+////
+.Example `deps.edn`
+////
+.Example deps.edn
+
+```clojure
+{:paths [...]
+ :deps {...}
+ :aliases
+ {:cljs
+  {:extra-deps {thheller/shadow-cljs {:mvn/version <latest>}}}}
+```
+
+////
+Running with `clj` directly.
+////
+
+clj で直接実行するには、次のように指定します。
+
+```
+{:paths [...]
+ :deps {...}
+ :aliases
+ {:shadow-cljs
+  {:extra-deps {thheller/shadow-cljs {:mvn/version <latest>}}
+   :main-opts ["-m" "shadow.cljs.devtools.cli"]}}}
+```
+
+```
+clj -A:shadow-cljs watch app
+```
+
+////
+You may also specify additional aliases via the command line using `-A`, eg. `shadow-cljs -A:foo:bar ...`.
+////
+また、 `shadow-cljs -A:foo:bar ...` のように、コマンドラインで `-A` を使って追加のエイリアスを指定することもできます。
+
+////
+IMPORTANT: Aliases are only applied when a new instance/server is started. They do not apply when connecting to a running server using the `shadow-cljs` command. Running via `clj` will always start a new JVM and does not support server-mode.
+////
+IMPORTANT: エイリアスは、新しいインスタンか/サーバを起動したときにのみ適用されます。shadow-cljs コマンドを使って稼働中のサーバに接続するときには適用されません。 `clj` で起動すると、常に新しい JVM を起動することになり、サーバ・モードをサポートしません。
+
+=== Boot
+
+////
+The authors have little Boot experience, so this chapter is in need of contributions. We understand that Boot allows you to build your tool chain out of functions. Since `shadow-cljs` is a normal JVM library, you can call functions within it to invoke tasks.
+////
+著者は Boot の経験がほとんどないため、この章は貢献を必要としています。私たちは Boot では、関数からツールチェーンを構築できることを理解しています。shadow-cljs は普通の JVM ライブラリなので、その中の関数を呼び出してタスクを起動することができます。
+
+////
+Some boot tasks are available here:
+https://github.com/jgdavey/boot-shadow-cljs
+////
+いくつかの Boot タスクは以下のリンクで入手できます。
+
+https://github.com/jgdavey/boot-shadow-cljs
+
+
+== Clojure コードの実行 [[clj-run]] 
+
+////
+Running Clojure Code [[clj-run]]
+////
+
+////
+You can use the `shadow-cljs` CLI to call specific Clojure functions from the command line. This is useful when you want to run some code before/after certain tasks. Suppose you wanted to `rsync` the output of your `release` build to a remote server.
+////
+コマンドラインから特定の Clojure関数を呼び出すために、 `shadow-cljs` という CLI を使うことができます。これは、あるタスクの前後にコードを実行したいときに便利です。例えば、 `release` ビルドの出力をリモートサーバに `rsync` したいとします。
+
+////
+.Example Clojure Namespace in `src/my/build.clj`
+////
+.Example `src/my/build.clj` における Clojure の名前空間
+
+```clojure
+(ns my.build
+  (:require
+    [shadow.cljs.devtools.api :as shadow]
+    [clojure.java.shell :refer (sh)]))
+
+(defn release []
+  (shadow/release :my-build)
+  (sh "rsync" "-arzt" "path/to/output-dir" "my@server.com:some/path"))
+```
+
+////
+.Running the `release` function
+////
+. release 関数の実行
+
+```bash
+$ shadow-cljs clj-run my.build/release
+# または
+$ shadow-cljs run my.build/release
+```
+
+////
+You can pass arguments to the invoked functions via the command line.
+////
+呼び出された関数には、コマンドラインから引数を渡すことができます。
+
+////
+.Using arguments via normal Clojure fn args
+////
+. 通常の Clojure fn の引数を使った引数の使用
+
+```clojure
+...
+(defn release [server]
+  (shadow/release :my-build)
+  (sh "rsync" "-arzt" "path/to/output-dir" server))
+```
+
+////
+.Passing the server from the command line
+////
+.コマンドラインからのサーバの受け渡し
+
+```bash
+$ shadow-cljs clj-run my.build/release my@server.com:some/path
+```
+
+////
+TIP: The usual `(defn release [& args])` structure also works if you want to parse the args with something like https://github.com/clojure/tools.cli[tools.cli] .
+////
+TIP: https://github.com/clojure/tools.cli[tools.cli] のように引数を解析したい場合は、通常の `(defn release [& args])` の構造でも動作します。
+
+////
+You have access to the full power of Clojure here. You can build entire tools on top of this if you like. As a bonus everything you write this way is also directly available via the Clojure REPL.
+////
+ここでは、Clojure のフルパワーにアクセスできます。必要に応じて、この上にツール全体を構築することができます。おまけに、この方法で書いたものはすべて、Clojure REPL で直接利用できます。
+
+////
+IMPORTANT: When the <<server-mode, server>> is running the namespace will not be reloaded automatically, it will only be loaded once. It is recommended to do the development using a REPL and reload the file as usual (eg. `(require 'my.build :reload)`). You may also run `shadow-cljs clj-eval "(require 'my.build :reload)"` to reload manually from the command line.
+////
+IMPORTANT: <<server-mode, server>> が実行されている場合、名前空間は自動的にはリロードされず、一度だけロードされます。 REPL を使って開発を行い、通常通りファイルをリロードすることをお勧めします（例：`(require 'my.build :reload)`)。
+`shadow-cljs clj-eval "(require 'my.build :reload)"` を実行して、コマンドラインから手動でリロードすることもできます。
+
+=== clj-run による watch の呼び出し
+
+////
+Calling watch via clj-run
+////
+
+////
+By default the functions called by `clj-run` only have access to a minimal `shadow-cljs` runtime which is enough to run `compile`, `release` and any other Clojure functionality. The JVM will terminate when your function completes.
+////
+デフォルトでは、 `clj-run` から呼び出された関数は、 `compile`, `release` やその他の Clojure 機能を実行するのに十分な、最小限の `shadow-cljs` ランタイムにしかアクセスできません。関数が完了すると、JVM は終了します。
+
+////
+If you want to start a `watch` for a given build you need to declare that the function you are calling requires a full server. This will cause the process to stay alive until you explicitly call `(shadow.cljs.devtools.server/stop!)` or `CTRL+C` the process.
+////
+あるビルドに対して `watch` を開始したい場合は、呼び出している関数が完全なサーバを必要とすることを宣言する必要があります。これにより、あなたが明示的に `(shadow.cljs.devtools.server/stop!)` を呼び出すか、 `CTRL+C` でプロセスを停止させるまで、そのプロセスは生き続けます。
+
+////
+```clojure
+(ns demo.run
+  (:require [shadow.cljs.devtools.api :as shadow]))
+
+;; this fails because a full server instance is missing
+(defn foo
+  [& args]
+  (shadow/watch :my-build))
+
+;; this metadata will ensure that the server is started so watch works
+(defn foo
+  {:shadow/requires-server true}
+  [& args]
+  (shadow/watch :my-build))
+```
+////
+
+```clojure
+(ns demo.run
+  (:require [shadow.cljs.devtools.api :as shadow]))
+
+;; これは完全なサーバ・インスタンスがないために失敗します
+(defn foo
+  [& args]
+  (shadow/watch :my-build))
+
+;; このメタデータは、watch が動作するようにサーバを起動することを保証します
+(defn foo
+  {:shadow/requires-server true}
+  [& args]
+  (shadow/watch :my-build))
+```
