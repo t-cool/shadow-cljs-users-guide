@@ -726,19 +726,19 @@ Options that don't have any effect at all include
 - `:verbose` は、 `shadow-cljs compile app --verbose` を実行することで制御されますが、ビルド設定にはありません。
 - `:foreign-libs` と `:libs` です。
 - `:stable-names` は常に有効で、無効にすることはできません。
-- `:install-deps` (インストールディプス)
+- `:install-deps`
 - `:source-map-path`, `:source-asset-path`, `:source-map-timestamp` です。
 - `:cache-analysis` 常に有効で、無効にすることはできません。
-- `:recompile-dependents` (リコンパイル依存)
-- `:preamble` (前置き)
+- `:recompile-dependents` (再コンパイル依存)
+- `:preamble`
 - `:hashbang` (`:node-script` ターゲットはこれをサポートしていますが、他のターゲットはサポートしていません)
 - `:compiler-stats` 詳細な情報を得るには、代わりに `--verbose` を使用してください。
 - `:optimize-constants` は `release` のビルドでは常に行われ、無効にはできません。
 - `:parallel-build` は常に有効です。
-- `:aot-cache` (キャッシュ)
+- `:aot-cache`
 - `:package-json-resolution` 代わりに <<js-resolve, :js-options :resolve>> を参照してください。
 - `:watch-fn`
-- `:process-shim` (プロセスシム)
+- `:process-shim`
 
 === エラーとしてのワーニング [[warnigs-as-errors]]
 //Warnings as Errors [[warnigs-as-errors]]
@@ -777,7 +777,7 @@ It is sometimes desireable to fail a build with warnings rather than continuing 
 ////
 A set of possible warning-type keywords can be found https://github.com/clojure/clojurescript/blob/5ad96a8b3ae2e3616a19715ba9ba2471a36933a2/src/main/clojure/cljs/analyzer.cljc#L124-L163[here].
 ////
-可能な警告タイプのキーワードのセットは、https://github.com/clojure/clojurescript/blob/5ad96a8b3ae2e3616a19715ba9ba2471a36933a2/src/main/clojure/cljs/analyzer.cljc#L124-L163[こちら] にあります。
+可能な警告タイプのキーワードのセットは、 https://github.com/clojure/clojurescript/blob/5ad96a8b3ae2e3616a19715ba9ba2471a36933a2/src/main/clojure/cljs/analyzer.cljc#L124-L163[こちら] にあります。
 
 ////
 .Only throw for certain namespaces
