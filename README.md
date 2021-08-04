@@ -8,7 +8,7 @@
 
 ## 邦訳の書籍
 
-[./docs/UsersGuide.pdf](./docs/UsersGuide.pdf) から電子版を閲覧できます。
+[こちら](https://t-cool.github.io/shadow-cljs-users-guide-ja/docs/UsersGuide.pdf) から電子版を閲覧できます。
 
 イベントでの印刷版の配布に向けて準備中です。
 
