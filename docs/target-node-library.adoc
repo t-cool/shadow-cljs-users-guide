@@ -16,10 +16,10 @@ The target-specific options are:
 `:output-to` :: (required). The path and filename for the generated library.
 `:output-dir` :: (optional). The path for supporting files in development mode. Defaults to a cache directory.
 ////
-[horizontal]
-`:target`: :node-library を使用します。
-`:output-to` : (必須) 生成されるライブラリのパスとファイル名です。
-`:output-dir` : (オプション) 開発モードでサポートするファイルのパスです。デフォルトではキャッシュディレクトリになります。
+
+- `:target`: `:node-library` を使用します。
+- `:output-to` : (必須) 生成されるライブラリのパスとファイル名です。
+- `:output-dir` : (オプション) 開発モードでサポートするファイルのパスです。デフォルトではキャッシュディレクトリになります。
 
 
 ////
@@ -166,9 +166,10 @@ In addition you may specify `:exports-fn` as a fully qualified symbol. This shou
 ////
 NOTE: The exports config automatically tracks exported symbols and passes them on to the optimization stage. This means that anything listed in `:exports` will not be renamed by Google Closure optimizations.
 ////
-注：exports コンフィグはエクスポートされたシンボルを自動的に追跡し、最適化ステージに渡します。つまり、`:exports` に記載されているものは、Google Closure の最適化によって名前が変更されることはありません。
+NOTE: exports コンフィグはエクスポートされたシンボルを自動的に追跡し、最適化ステージに渡します。つまり、`:exports` に記載されているものは、Google Closure の最適化によって名前が変更されることはありません。
 
 === 完全な例
+
 //Full Example
 
 ////
@@ -214,10 +215,12 @@ hello
 ////
 As `:node-script` this will only create the file specified in `:output-to`. The `:exports` map maps CLJS vars to the name they should be exported to.
 ////
-`node-script` と同様に、`:output-to` で指定されたファイルのみを作成します。`exports` マップは、CLJS の変数を、エクスポートされるべき名前にマッピングします。
+`node-script` と同様に `:output-to` で指定されたファイルのみが作成されます。
+
+`exports` マップは CLJS の変数をエクスポートされるべき名前にマッピングします。
 
 ////
 NOTE: Development mode has the <<NodeModes,same setup>> as for node scripts (extra dependencies).
 ////
-注：開発モードでは、ノードスクリプトと同じ<<NodeModes,同じ設定>>になります（追加の依存関係があります）。
+NOTE: 開発モードでは、ノードスクリプトと同じ<<NodeModes,同じ設定>>になります（追加の依存関係があります）。
 

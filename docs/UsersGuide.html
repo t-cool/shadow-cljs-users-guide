@@ -606,7 +606,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_完全な例">9.2.4. 完全な例</a></li>
 </ul>
 </li>
-<li><a href="#_npm_パッケージの作成">9.3. npm パッケージの作成</a></li>
 </ul>
 </li>
 <li><a href="#target-npm-module">10. JS エコシステムへの組み込み - :npm-module ターゲット</a>
@@ -4039,7 +4038,7 @@ HTML に含めるのは少し複雑です。<a href="#BrowserManifest">Output Ma
 <div class="sect3">
 <h4 id="proxy-support"><a class="anchor" href="#proxy-support"></a><a class="link" href="#proxy-support">7.8.3. プロキシサポート</a></h4>
 <div class="paragraph">
-<p>デフォルトでは、devtools クライアントは、設定された <a href="#http">HTTP server</a> (通常は <code>localhost</code> ) 経由で <code>shadow-cljs</code> プロセスへの接続を試みます。リバースプロキシを使用して HTML を配信している場合は、それができない場合があります。また、<code>:devtools-url</code> を設定することで、使用する URL を設定することができます。</p>
+<p>デフォルトでは、devtools クライアントは、設定された HTTP server (通常は <code>localhost</code> ) 経由で <code>shadow-cljs</code> プロセスへの接続を試みます。リバースプロキシを使用して HTML を配信している場合、接続できない場合があります。 <code>:devtools-url</code> を設定することにより、使用する URL を設定することができます。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4072,7 +4071,7 @@ HTML に含めるのは少し複雑です。<a href="#BrowserManifest">Output Ma
 </div>
 </div>
 <div class="paragraph">
-<p>クライアントは、ファイルを読み込むための通常の XHR リクエストだけでなく、WebSocket リクエストも行います。プロキシが WebSocket を適切にアップグレードするようにしてください。</p>
+<p>クライアントは、ファイルを読み込むため、通常の XHR リクエストだけでなく WebSocket リクエストも行います。プロキシが WebSocket を適切にアップグレードするようにしてください。</p>
 </div>
 <div class="admonitionblock important">
 <table>
@@ -4081,7 +4080,7 @@ HTML に含めるのは少し複雑です。<a href="#BrowserManifest">Output Ma
 <div class="title">Important</div>
 </td>
 <td class="content">
-リクエストは、ビルド自体で設定したものではなく、メインの <a href="#http">HTTP server</a> に転送されなければなりません。
+リクエストは、ビルド自体で設定したものではなく、メインの HTTP server に転送されなければなりません。
 </td>
 </tr>
 </table>
@@ -4097,7 +4096,7 @@ HTML に含めるのは少し複雑です。<a href="#BrowserManifest">Output Ma
 <p><code>:target :react-native</code> は、デフォルトの <code>react-native</code> ツール (例: <code>metro</code> ) に統合することを意図したコードを生成します。これらのツールをラップした <code>expo</code> のようなツールは自動的に動作し、追加の設定は必要ありません。</p>
 </div>
 <div class="paragraph">
-<p>他のターゲット（<code>:source-paths`など）と同じ基本的な <a href="#config">main configuration</a> が必要になります。ビルド専用の設定は非常に少なく、（</code>:target` 自体の他に）少なくとも2つのオプションが必要です。</p>
+<p>他のターゲット（ <code>:source-paths</code> など）と同じ基本的な <a href="#config">main configuration</a> が必要になります。ビルド専用の設定は非常に少なく、（ <code>:target</code> 自体の他に）少なくとも2つのオプションが必要です。</p>
 </div>
 <div class="hdlist">
 <table>
@@ -4114,7 +4113,7 @@ HTML に含めるのは少し複雑です。<a href="#BrowserManifest">Output Ma
 <code>:output-dir</code> 
 </td>
 <td class="hdlist2">
-<p>(必須) (必須). 出力ファイルを書き込むためのディレクトリです。</p>
+<p>(必須) 出力ファイルを書き込むためのディレクトリです。</p>
 </td>
 </tr>
 </table>
@@ -4138,7 +4137,7 @@ HTML に含めるのは少し複雑です。<a href="#BrowserManifest">Output Ma
 <div class="sect2">
 <h3 id="_react_native"><a class="anchor" href="#_react_native"></a><a class="link" href="#_react_native">8.1. React Native</a></h3>
 <div class="paragraph">
-<p><code>react-native</code> には、ネイティブコードやライブラリを使用できるプレーンな <code>react-native</code> と <a href="https://expo.io/">expo</a> （後述）でラップされた <code>react-native</code> の 2 つの使用方法があります。上記で説明したすべての手順は、プレーンな <code>react-native</code> で shadow-cljs を使い始めるのに十分なものです。このサンプルレポをご覧ください。</p>
+<p><code>react-native</code> には、ネイティブコードやライブラリを使用できるプレーンな <code>react-native</code> と <a href="https://expo.io/">expo</a> （後述）でラップされた <code>react-native</code> の 2 つの使用方法があります。上記で説明したすべての手順は、プレーンな <code>react-native</code> で <code>shadow-cljs</code> を使い始めるのに十分なものです。このサンプルレポをご覧ください。</p>
 </div>
 <div class="ulist">
 <ul>
@@ -4164,7 +4163,7 @@ HTML に含めるのは少し複雑です。<a href="#BrowserManifest">Output Ma
 </ul>
 </div>
 <div class="paragraph">
-<p>どちらの例も <code>expo init &#8230;&#8203;</code> を使用して生成されており、設定で調整した点は、生成された <code>app.json</code> に適切な <code>entryPoint</code> を追加しただけです。</p>
+<p>どちらの例も <code>expo init</code> を使用して生成されています。設定で調整した唯一の変更点は、生成された <code>app.json</code> に適切な <code>entryPoint</code> を追加したことです。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4375,10 +4374,18 @@ HTML に含めるのは少し複雑です。<a href="#BrowserManifest">Output Ma
 <p>他のモードと同様に、<a href="#config">main configuration options</a>が適用され、設定する必要があります。
 ターゲット固有のオプションは以下の通りです。</p>
 </div>
-<div class="paragraph">
-<p><code>:target</code>: :node-library を使用します。
-<code>:output-to</code> : (必須) 生成されるライブラリのパスとファイル名です。
-<code>:output-dir</code> : (オプション) 開発モードでサポートするファイルのパスです。デフォルトではキャッシュディレクトリになります。</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>:target</code>: <code>:node-library</code> を使用します。</p>
+</li>
+<li>
+<p><code>:output-to</code> : (必須) 生成されるライブラリのパスとファイル名です。</p>
+</li>
+<li>
+<p><code>:output-dir</code> : (オプション) 開発モードでサポートするファイルのパスです。デフォルトではキャッシュディレクトリになります。</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p>ホットコードリロードのストーリーは、<a href="#NodeHotCodeReload">the script target</a>と似ていますが、すべてのコードを簡単にコントロールできないため、うまく機能しないかもしれません。
@@ -4490,8 +4497,17 @@ lib["ok?"](); // another-ns/ok? を呼び出す</code></pre>
                 ...}}}</code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p>注：exports コンフィグはエクスポートされたシンボルを自動的に追跡し、最適化ステージに渡します。つまり、<code>:exports</code> に記載されているものは、Google Closure の最適化によって名前が変更されることはありません。</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+exports コンフィグはエクスポートされたシンボルを自動的に追跡し、最適化ステージに渡します。つまり、<code>:exports</code> に記載されているものは、Google Closure の最適化によって名前が変更されることはありません。
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect3">
@@ -4534,16 +4550,24 @@ hello
 </div>
 </div>
 <div class="paragraph">
-<p><code>node-script</code> と同様に、<code>:output-to</code> で指定されたファイルのみを作成します。<code>exports</code> マップは、CLJS の変数を、エクスポートされるべき名前にマッピングします。</p>
+<p><code>node-script</code> と同様に <code>:output-to</code> で指定されたファイルのみが作成されます。</p>
 </div>
 <div class="paragraph">
-<p>注：開発モードでは、ノードスクリプトと同じ<a href="#NodeModes">同じ設定</a>になります（追加の依存関係があります）。</p>
+<p><code>exports</code> マップは CLJS の変数をエクスポートされるべき名前にマッピングします。</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+開発モードでは、ノードスクリプトと同じ<a href="#NodeModes">同じ設定</a>になります（追加の依存関係があります）。
+</td>
+</tr>
+</table>
 </div>
 </div>
-</div>
-<div class="sect2">
-<h3 id="_npm_パッケージの作成"><a class="anchor" href="#_npm_パッケージの作成"></a><a class="link" href="#_npm_パッケージの作成">9.3. npm パッケージの作成</a></h3>
-
 </div>
 </div>
 </div>
@@ -4789,7 +4813,9 @@ $ shadow-cljs compile test &amp;&amp; node out/node-tests.js</code></pre>
   ... run the tests...)
 
 (defn stop [done]
-  ; テストは非同期にすることができます。ランナーが実際に終了したことがわかるように、done を呼ばなければなりません。
+  ; テストは非同期にすることができます。
+  ; ランナーが実際に終了したことがわかるように、
+  ; done を呼ばなければなりません。
   (done))
 
 (defn ^:export init []
@@ -4831,7 +4857,10 @@ $ shadow-cljs compile test &amp;&amp; node out/node-tests.js</code></pre>
 <div class="sect2">
 <h3 id="target-karma"><a class="anchor" href="#target-karma"></a><a class="link" href="#target-karma">11.3. 継続的インテグレーションのためにテストを Karma にターゲットする</a></h3>
 <div class="paragraph">
-<p>CLJS のテストをある種の CI サーバー上でブラウザに対して実行したい場合、コマンドラインからテストを実行してステータスコードを返すことができる必要があります。Karma はよく知られていてサポートされているテストランナーで、これを実行することができます。また、<code>shadow-cljs</code> にはターゲットが含まれており、テストの周りに適切なラッパーを追加することができるので、それによりテストが動作するようになります。</p>
+<p>CLJS のテストをある種の CI サーバー上でブラウザに対して実行したい場合、コマンドラインからテストを実行してステータスコードを返すことができる必要があります。Karma はよく知られていてサポートされているテストランナーで、これを実行することができます。</p>
+</div>
+<div class="paragraph">
+<p>また、<code>shadow-cljs</code> にはターゲットが含まれており、テストの周りに適切なラッパーを追加することができるので、それによりテストが動作するようになります。</p>
 </div>
 <div class="sect3">
 <h4 id="_karma_のインストール"><a class="anchor" href="#_karma_のインストール"></a><a class="link" href="#_karma_のインストール">11.3.1. Karma のインストール</a></h4>
@@ -5110,7 +5139,10 @@ nil</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>任意の JS オブジェクトを表示することは必ずしも便利ではないので（上の例のように）、代わりに <code>(js/console.dir x)</code> を使用すると、ブラウザのコンソールでより便利な表現を得ることができます。また、 <code>goog/typeOf</code> が役に立つ場合もあります。上の例では <code>"function"</code> を示しているので、<code>:default</code> を使ってもうまくいきません。<code>:default</code> は基本的に <code>x/default</code> のシンタックスシュガーに過ぎないからです。</p>
+<p>任意の JS オブジェクトを表示することは必ずしも便利ではないので（上の例のように）、代わりに <code>(js/console.dir x)</code> を使用すると、ブラウザのコンソールでより便利な表現を得ることができます。</p>
+</div>
+<div class="paragraph">
+<p>また、 <code>goog/typeOf</code> が役に立つ場合もあります。上の例では <code>"function"</code> を示しているので、<code>:default</code> を使ってもうまくいきません。<code>:default</code> は基本的に <code>x/default</code> のシンタックスシュガーに過ぎないからです。</p>
 </div>
 </div>
 </div>
@@ -6716,7 +6748,7 @@ lein jar を実行し、 <code>jar -tvf target/library-1.0.0.jar</code> で最�
 <div id="footer">
 <div id="footer-text">
 Version 1.0<br>
-Last updated 2021-08-05 16:04:29 JST
+Last updated 2021-08-05 18:04:12 JST
 </div>
 </div>
 </body>

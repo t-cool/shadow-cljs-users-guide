@@ -979,8 +979,8 @@ include::target-node-script.adoc[]
 
 include::target-node-library.adoc[]
 
-
-== npm パッケージの作成
+ 
+//== npm パッケージの作成 
 
 // TODO: Thomas: I think it would be useful to show a package.json and a little bit of an example
 // on how you could set up to deploy this on NPM.

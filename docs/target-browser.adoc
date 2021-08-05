@@ -893,7 +893,7 @@ HTTP サーバが仮想ディレクトリからファイルを提供していて
 ////
 By default the devtools client will attempt to connect to the `shadow-cljs` process via the configured <<http, HTTP server>> (usually `localhost`). If you are using a reverse proxy to serve your HTML that might not be possible. You can set `:devtools-url` to configure which URL to use.
 ////
-デフォルトでは、devtools クライアントは、設定された <<http, HTTP server>> (通常は `localhost` ) 経由で `shadow-cljs` プロセスへの接続を試みます。リバースプロキシを使用して HTML を配信している場合は、それができない場合があります。また、`:devtools-url` を設定することで、使用する URL を設定することができます。
+デフォルトでは、devtools クライアントは、設定された HTTP server (通常は `localhost` ) 経由で `shadow-cljs` プロセスへの接続を試みます。リバースプロキシを使用して HTML を配信している場合、接続できない場合があります。 `:devtools-url` を設定することにより、使用する URL を設定することができます。
 
 ```
 {...
@@ -932,9 +932,9 @@ http://localhost:9630/foo/bar?asdf
 ////
 The client will make WebSocket request as well as normal XHR requests to load files. Ensure that your proxy properly upgrades WebSockets.
 ////
-クライアントは、ファイルを読み込むための通常の XHR リクエストだけでなく、WebSocket リクエストも行います。プロキシが WebSocket を適切にアップグレードするようにしてください。
+クライアントは、ファイルを読み込むため、通常の XHR リクエストだけでなく WebSocket リクエストも行います。プロキシが WebSocket を適切にアップグレードするようにしてください。
 
 ////
 IMPORTANT: The requests must be forwarded to the main <<http, HTTP server>>, not the one configured in the build itself.
 ////
-IMPORTANT: リクエストは、ビルド自体で設定したものではなく、メインの <<http, HTTP server>> に転送されなければなりません。
+IMPORTANT: リクエストは、ビルド自体で設定したものではなく、メインの HTTP server に転送されなければなりません。

@@ -75,7 +75,9 @@ If you choose to supply a custom `:runner-ns`, it might look like this:
   ... run the tests...)
 
 (defn stop [done]
-  ; テストは非同期にすることができます。ランナーが実際に終了したことがわかるように、done を呼ばなければなりません。
+  ; テストは非同期にすることができます。
+  ; ランナーが実際に終了したことがわかるように、
+  ; done を呼ばなければなりません。
   (done))
 
 (defn ^:export init []
