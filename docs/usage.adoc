@@ -12,7 +12,7 @@ Usage
 ////
 During development you have the option to `compile` a build once or run a `watch` worker which watches your source files for changes and re-compiles them automatically. When <<devtools, enabled>> the `watch` will also hot-reload your code and provide a REPL. During development the focus is on developer experience with fast feedback cycles. Development code should never be shipped to the public.
 ////
-開発中には、ビルドを一度だけ `compile` するか、ソースファイルの変更を監視して自動的に再コンパイルする `watch` ワーカーを実行するかのオプションがあります。このワーカーはソースファイルの変更を監視し、自動的に再コンパイルします。<<devtools, enabled>> の場合、 `watch` はコードをホットリロードし、REPL を提供します。開発中は、迅速なフィードバックサイクルによる開発者の経験に重点を置いています。開発コードは決して一般に出荷してはいけません。
+開発中には、ビルドを一度だけ `compile` するか、ソースファイルの変更を監視して自動的に再コンパイルする `watch` ワーカーを実行するかのオプションがあります。このワーカーはソースファイルの変更を監視し、自動的に再コンパイルします。<<devtools, enabled>> の場合、 `watch` はコードをホットリロードし、REPL を提供します。開発中は、迅速なフィードバックサイクルによる開発者の経験に重点を置いています。開発コードは決して公開してはいけません。
 
 ////
 When it is time to get serious you create a <<release, `release`>> build which creates an optimized build suitable for production. For this the https://developers.google.com/closure/compiler/[Closure Compiler] is used which applies some seriously `:advanced` optimizations to your code to create the most optimal output available. This may require some <<externs, tuning>> to work properly when using lots of interop with native JavaScript but works flawlessly for ClojureScript (and the code from the https://developers.google.com/closure/library/[Closure Library]).
@@ -110,18 +110,20 @@ $ shadow-cljs check app
 $ shadow-cljs release app --debug
 ```
 
-=== サーバ・モード [[server-mode]]
+=== サーバモード [[server-mode]]
 
 ////
 A `shadow-cljs` command can be fairly slow to start. To improve this `shadow-cljs` can run in "server mode" which means that a dedicated process is started which all other commands can use to execute a lot faster since they won't have to start a new JVM/Clojure instance.
 ////
-`shadow-cljs` コマンドは起動にかなり時間がかかります。これを改善するために、 `shadow-cljs` はサーバ・モードで動作させることができます。これは、専用のプロセスが開始され、他のすべてのコマンドがそれを利用して、新しい JVM/Clojure インスタンスを開始する必要がないため、より速く実行できることを意味します。
+`shadow-cljs` コマンドは起動にかなり時間がかかります。これを改善するために、 `shadow-cljs` はサーバモードで動作させることができます。
+
+これにより専用のプロセスが開始され、他のすべてのコマンドがそれを利用して、新しい JVM/Clojure インスタンスを開始する必要がないため、より速く実行できます。
 
 ////
 Commands that do long-running things implicitly start a server instance (eg. `watch`) but it is often advisable to have
 a dedicated server process running.
 ////
-長時間実行される処理を行うコマンドは、暗黙のうちにサーバインスタンスを起動しますが（例：`watch`）、多くの場合、専用のサーバ・プロセスを起動することが望ましいでしょう。専用のサーバ・プロセスを実行することが望ましい場合もあります。
+長時間実行される処理を行うコマンドは、暗黙のうちにサーバインスタンスを起動しますが（例えば `watch` の場合）、多くの場合は専用のサーバプロセスを起動することが望ましいでしょう。専用のサーバプロセスを実行することが望ましい場合もあります。
 
 ////
 You can run the process in the foreground in a dedicated terminal. Use `CTRL+C` to terminate the server.
@@ -360,7 +362,7 @@ You may also specify additional aliases via the command line using `-A`, eg. `sh
 ////
 IMPORTANT: Aliases are only applied when a new instance/server is started. They do not apply when connecting to a running server using the `shadow-cljs` command. Running via `clj` will always start a new JVM and does not support server-mode.
 ////
-IMPORTANT: エイリアスは、新しいインスタンか/サーバを起動したときにのみ適用されます。shadow-cljs コマンドを使って稼働中のサーバに接続するときには適用されません。 `clj` で起動すると、常に新しい JVM を起動することになり、サーバ・モードをサポートしません。
+IMPORTANT: エイリアスは、新しいインスタンか/サーバを起動したときにのみ適用されます。shadow-cljs コマンドを使って稼働中のサーバに接続するときには適用されません。 `clj` で起動すると、常に新しい JVM を起動することになり、サーバモードをサポートしません。
 
 === Boot
 
@@ -496,7 +498,7 @@ If you want to start a `watch` for a given build you need to declare that the fu
 (ns demo.run
   (:require [shadow.cljs.devtools.api :as shadow]))
 
-;; これは完全なサーバ・インスタンスがないために失敗します
+;; これは完全なサーバインスタンスがないために失敗します
 (defn foo
   [& args]
   (shadow/watch :my-build))

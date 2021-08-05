@@ -69,7 +69,7 @@ A development build should never be shipped publicly since they can become quite
 ////
 Creating a `release` build will strip out all the development related code and finally run the code through the Closure Compiler. This is an optimizing Compiler for JavaScript which will significantly reduce the overall size of the code.
 ////
-`release` ビルドを作成すると、開発モード関連のコードがすべて取り除かれ、最後に Closure Compiler にコードを通します。これにより、JavaScript用の最適化コンパイラが、コードの全体的なサイズを大幅に削減します。
+`release` ビルドを作成すると、開発モード関連のコードがすべて取り除かれ、最後に Closure Compiler にコードを通します。これにより、JavaScript 用の最適化コンパイラが、コードの全体的なサイズを大幅に削減します。
 
 == 重要な概念
 
@@ -83,7 +83,9 @@ There are several important concepts that you should familiarize yourself with w
 ////
 `shadow-cljs` uses the Java Virtual Machine (JVM) and its "classpath" when working with files. This is a virtual filesystem composed of many classpath entries. Each entry is either
 ////
-`shadow-cljs` は、ファイルを扱う際に、Java Virtual Machine (JVM) とその classpath を使用します。これは、多くの classpath のエントリからなる仮想ファイルシステムです。各エントリは次のいずれかです。
+`shadow-cljs` は、ファイルを扱う際に Java Virtual Machine (JVM) とその classpath を使用します。
+
+これは、多くの classpath のエントリからなる仮想ファイルシステムです。各エントリは次のいずれかです。
 
 
 ////
@@ -91,7 +93,7 @@ There are several important concepts that you should familiarize yourself with w
 - Or a `.jar` file, representing Clojure(Script) or JVM libraries. These are compressed archives containing many files (basically just a `.zip` file). These are added by your `:dependencies`.
 ////
 - 設定の `:source-paths` エントリで管理される、ローカルファイルシステムのディレクトリです。
-- あるいは、Clojure(Script)や JVM のライブラリを表す `.jar` ファイルです。これらは、多くのファイルを含む圧縮アーカイブです(基本的には `.zip` ファイルです)。これらは `:dependencies` によって追加されます。
+- あるいは Clojure(Script)や JVM のライブラリを表す `.jar` ファイルです。これらは多くのファイルを含む圧縮アーカイブです(基本的には単なる `.zip` ファイルです)。これらは `:dependencies` によって追加されます。
 
 ////
 In the Clojure(Script) everything is namespaced and each name is expected to resolve to a file. If you have a `(ns demo.app)` namespace the compiler expects to find a `demo/app.cljs` (or `.cljc`) on the classpath. The classpath will be searched in order until it is found. Suppose you configured the `:source-paths ["src/main" "src/test"]` the compiler will first look for a `src/main/demo/app.cljs` and then `src/test/demo/app.cljs`. When the file is not found on any source path the JVM will begin looking into the `.jar` files on the classpath. When it finds a `demo/app.cljs` at the root of any of the libraries that file it will be used.
@@ -115,7 +117,9 @@ IMPORTANT: あるファイル名がクラスパス上に複数回存在する場
 ////
 It is therefore recommended to be very disciplined about the names you choose and properly namespacing everything. It may seem repetitive to always use `(ns your-company.components.foo)` over `(ns components.foo)` but it will save you from lot of headaches later on.
 ////
-そのため、名前の選択には細心の注意を払い、すべてのものに適切な名前空間をつけることをお勧めします。`(ns component.foo)` よりも `(ns your-company.components.foo)` を常に使うことは反復的に見えるかもしれませんが、後で多くの頭痛の種をなくすことができます。
+そのため、名前の選択には細心の注意を払い、すべてのものに適切な名前空間をつけることをお勧めします。
+
+`(ns component.foo)` よりも `(ns your-company.components.foo)` を常に使うことは反復的に見えるかもしれませんが、後で多くの頭痛の種をなくすことができます。
 
 ////
 This is unlike `npm` where the package name itself is never used inside the package itself and only relative paths are used.

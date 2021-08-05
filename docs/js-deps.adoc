@@ -40,7 +40,8 @@ In `shadow-cljs`: *always use the `ns` form and whatever `:as` alias you provide
 Some packages just export a single function which you can call directly by
 using `(:require ["thing" :as thing])` and then `(thing)`.
 ////
-パッケージの中には、 1 つの関数をエクスポートするものもあります。
+パッケージの中には、1 つの関数をエクスポートするものもあります。
+
 `(:require ["thing" :as thing])` と書くと `(thing)` で直接呼び出すことができます。
 
 ////

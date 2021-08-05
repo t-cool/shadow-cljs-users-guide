@@ -399,7 +399,9 @@ The advantage of using the standard API is that your code will play well with ot
 ////
 When using multiple `:modules` (a.k.a <<CodeSplitting, code splitting>>) this is not enabled by default since each module must be able to access the variables created by the modules it depends on. The Closure Compiler supports an additional option to enable the use of an output wrapper in combination with multiple `:modules` named `:rename-prefix-namespace`. This will cause the Compiler to scope all "global" variables used by the build into one actual global variable. By default this is set to `:rename-prefix-namespace "$APP"` when `:output-wrapper` is set to `true`.
 ////
-複数の `:module` (別名 <<CodeSplitting, コードスプリッティング>>) を使用している場合、各モジュールは依存しているモジュールが作成した変数にアクセスできなければならないため、このオプションはデフォルトでは有効になっていません。Closure Compiler は、`:rename-prefix-namespace` という名前の複数の `:modules` と組み合わせた出力ラッパーの使用を有効にする追加オプションをサポートしています。これにより、コンパイラはビルドで使用されるすべてのグローバル変数を、実際のグローバル変数 1 つにスコープします。デフォルトでは、`:output-wrapper` が `true` に設定されている場合、これは `:rename-prefix-namespace "$APP"` に設定されます。
+複数の `:module` (別名 <<CodeSplitting, コードスプリッティング>>) を使用している場合、各モジュールは依存しているモジュールが作成した変数にアクセスできなければならないため、このオプションはデフォルトでは有効になっていません。
+
+Closure Compiler は、`:rename-prefix-namespace` という名前の複数の `:modules` と組み合わせた出力ラッパーの使用を有効にする追加オプションをサポートしています。これにより、コンパイラはビルドで使用されるすべてのグローバル変数を、実際のグローバル変数 1 つにスコープします。デフォルトでは、`:output-wrapper` が `true` に設定されている場合、これは `:rename-prefix-namespace "$APP"` に設定されます。
 
 ```clojure
 {...

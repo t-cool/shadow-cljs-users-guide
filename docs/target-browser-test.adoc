@@ -109,4 +109,4 @@ The output includes two primary artifacts in your `test-dir` folder:
 * `js/test.js` - The Javascript tests. The tests will always have this name. The entries for the module are auto-generated.
 ////
 * `index.html` - `index.html` ファイルがまだ存在していない場合に限ります。デフォルトでは、生成されたファイルはテストをロードして、`:runner-ns` で `init` を実行します。上書きされないカスタムバージョンを編集または追加することができます。
-* `js/test.js` - Javascriptのテストです。テストは常にこの名前になります。モジュールのエントリーは自動生成されます。
+* `js/test.js` - Javascript のテストです。テストは常にこの名前になります。モジュールのエントリーは自動生成されます。

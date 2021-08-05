@@ -613,7 +613,9 @@ TIP: CLJS REPL を使用する前に、<<embedded, embedded server>>を手動で
 ////
 A Clojure Socket REPL is started automatically in server-mode and uses a random port by default. Tools can find the port it was started under by checking `.shadow-cljs/socket-repl.port` which will contain the port number.
 ////
-Clojure Socket REPL は、サーバモードで自動的に起動され、デフォルトでランダムなポートを使用します。ツールは、ポート番号を含む `.shadow-cljs/socket-repl.port` をチェックすることで、起動されたポートを見つけることができます。
+Clojure Socket REPL は、サーバモードで自動的に起動され、デフォルトでランダムなポートを使用します。
+
+ツールはポート番号を含む `.shadow-cljs/socket-repl.port` を確認することで、起動されたポートを見つけることができます。
 
 ////
 You can also set a fixed port by via `shadow-cljs.edn`.
@@ -684,7 +686,7 @@ $ keytool -importkeystore -destkeystore keystore.jks -srcstoretype PKCS12 -srcke
 ////
 IMPORTANT: You must generate the Certificate with a SAN (Subject Alternative Name) for "localhost" (or whichever host you want to use). SAN is required to get Chrome to trust the Certificate and not show warnings. The password used when exporting must match the password assigned to the Keystore.
 ////
-IMPORTANT: localhost（または使用するホスト）の SAN（Subject Alternative Name）を含む証明書を作成する必要があります。 SAN は、Chrome が証明書を信頼して警告を表示しないようにするために必要です。エクスポート時に使用するパスワードは、キーストアに割り当てられたパスワードと一致する必要があります。
+IMPORTANT: localhost（または使用する任意のホスト）の SAN（Subject Alternative Name）を含む証明書を作成する必要があります。SAN は、Chrome が証明書を信頼して警告を表示しないようにするために必要です。エクスポート時に使用するパスワードは、キーストアに割り当てられたパスワードと一致する必要があります。
 
 // TODO: full guide, other platforms
 
@@ -820,8 +822,13 @@ This would attempt to find a request to `/index.html` via `public/index.html` on
 ////
 This would first attempt to find `<project-root>/a/index.html` then `<project-root>/b/index.html` then `c/index.html` on the classpath. If nothing is found the default handler will be called.
 ////
-これはまず、クラスパス上の `<project-root>/a/index.html` 、 `<project-root>/b/index.html` 、 `c/index.html` の順に検索を試みます。もし何も見つからなければ、デフォルトのハンドラが呼び出されます。
+これはまず、以下の順にクラスパス上で検索を試みます。
 
+-  `<project-root>/a/index.html`
+- `<project-root>/b/index.html`
+- `c/index.html` 
+
+もし何も見つからなければ、デフォルトのハンドラが呼び出されます。
 
 ////
 The longer config version expects a map and the supported options are:
