@@ -133,7 +133,7 @@ lib["ok?"](); // another-ns/ok? を呼び出す
 ////
 You can achieve the exact same thing by using `:exports-var` pointing to a `def`
 ////
-全く同じことをするには、 `:exports-var` で `def` を指定します。
+全く同じことをするには、`:exports-var` で `def` を指定します。
 
 ```
 (def exports #js {:g f
@@ -166,7 +166,7 @@ In addition you may specify `:exports-fn` as a fully qualified symbol. This shou
 ////
 NOTE: The exports config automatically tracks exported symbols and passes them on to the optimization stage. This means that anything listed in `:exports` will not be renamed by Google Closure optimizations.
 ////
-注：exports コンフィグはエクスポートされたシンボルを自動的に追跡し、最適化ステージに渡します。つまり、 `:exports` に記載されているものは、Google Closure の最適化によって名前が変更されることはありません。
+注：exports コンフィグはエクスポートされたシンボルを自動的に追跡し、最適化ステージに渡します。つまり、`:exports` に記載されているものは、Google Closure の最適化によって名前が変更されることはありません。
 
 === 完全な例
 //Full Example
@@ -214,7 +214,7 @@ hello
 ////
 As `:node-script` this will only create the file specified in `:output-to`. The `:exports` map maps CLJS vars to the name they should be exported to.
 ////
-`node-script` と同様に、 `:output-to` で指定されたファイルのみを作成します。`exports` マップは、CLJS の変数を、エクスポートされるべき名前にマッピングします。
+`node-script` と同様に、`:output-to` で指定されたファイルのみを作成します。`exports` マップは、CLJS の変数を、エクスポートされるべき名前にマッピングします。
 
 ////
 NOTE: Development mode has the <<NodeModes,same setup>> as for node scripts (extra dependencies).

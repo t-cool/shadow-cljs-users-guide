@@ -70,7 +70,7 @@ If you want to build a specific thing you should configure a build using one of 
 . connect the JS runtime of the `:target`. Meaning if you are using the `:browser` target you need to open a Browser that has the generated JS loaded. For node.js builds that means running the `node` process.
 ////
 ビルドのための実行中の `watch` です。
-ターゲットの JS ランタイムを接続します。つまり、 `:browser` ターゲットを使用している場合、生成された JS がロードされているブラウザを開く必要があります。 node.js のビルドの場合は、 `node` プロセスの実行を意味します。
+ターゲットの JS ランタイムを接続します。つまり、`:browser` ターゲットを使用している場合、生成された JS がロードされているブラウザを開く必要があります。 node.js のビルドの場合は、 `node` プロセスの実行を意味します。
 
 ////
 Once you have both you can connect to the CLJS REPL via the command line or from the Clojure REPL.
@@ -117,7 +117,7 @@ $ shadow-cljs clj-repl
 ////
 TIP: Type `:repl/quit` to exit the REPL. This will only exit the REPL, the `watch` will remain running.
 ////
-TIP: REPL を終了するには、 `:repl/quit` と入力してください。これは REPL を終了するだけで、 `watch` は引き続き実行されます。
+TIP: REPL を終了するには、`:repl/quit` と入力してください。これは REPL を終了するだけで、 `watch` は引き続き実行されます。
 
 ////
 TIP: You may run multiple `watch` "workers" in parallel and connect/disconnect to their REPLs at any given time.
@@ -235,7 +235,7 @@ It is also possible to use `shadow-cljs` entirely from within any other CLJ proc
 ////
 .Example using `lein repl`
 ////
-. `lein repl` を使った例
+.lein repl を使った例
 
 ```bash
 $ lein repl

@@ -122,17 +122,17 @@ If you wish to have separate configuration values in a build when running a rele
 ////
 Since we want builds to be fully optimized by the Closure Compiler `:advanced` compilation we need to deal with https://developers.google.com/closure/compiler/docs/api-tutorial3[Externs] . Externs represent pieces of code that are not included when doing `:advanced` compilation. `:advanced` works by doing whole program optimizations but some code we just won't be able to include so Externs inform the Compiler about this code. Without Externs the Compiler may rename or remove some code that it shouldn't.
 ////
-Closure Compiler `:advanced` のコンパイルによってビルドを完全に最適化したいので https://developers.google.com/closure/compiler/docs/api-tutorial3[Externs] を扱う必要があります。 Externs は、 `:advanced` のコンパイルの際に含まれないコードの断片を表します。 `advanced` はプログラム全体の最適化を行いますが、どうしても含まれないコードもあるため、Externs はコンパイラにそのコードを知らせます。 Externs がないと、コンパイラは含めるべきでないコードの名前を変えたり、削除したりすることがあります。
+Closure Compiler `:advanced` のコンパイルによってビルドを完全に最適化したいので https://developers.google.com/closure/compiler/docs/api-tutorial3[Externs] を扱う必要があります。 Externs は、`:advanced` のコンパイルの際に含まれないコードの断片を表します。 `advanced` はプログラム全体の最適化を行いますが、どうしても含まれないコードもあるため、Externs はコンパイラにそのコードを知らせます。 Externs がないと、コンパイラは含めるべきでないコードの名前を変えたり、削除したりすることがあります。
 
 ////
 Typically all JS Dependencies are foreign and won't be passed through `:advanced` and thus require Externs.
 ////
-通常、すべての JS Dependencies は外部の扱い(foreign) であり、 `:advanced` ではパスされないため、Externs が必要となります。
+通常、すべての JS Dependencies は外部の扱い(foreign) であり、`:advanced` ではパスされないため、Externs が必要となります。
 
 ////
 TIP: Externs are only required for `:advanced`, they are not required in `:simple` mode.
 ////
-TIP: extern が必要なのは `:advanced` モードのみで、 `:simple` モードでは必要ありません。
+TIP: extern が必要なのは `:advanced` モードのみで、`:simple` モードでは必要ありません。
 
 === Externs の推論 [[infer-externs]]
 //Externs Inference [[infer-externs]]
@@ -266,7 +266,7 @@ IMPORTANT: すべてを `^js` でアノテーションしないでください�
 ////
 Calls on `:require` bindings are also inferred automatically.
 ////
-また、 `:require` バインディングの呼び出しも自動的に推論されます。
+また、`:require` バインディングの呼び出しも自動的に推論されます。
 
 ////
 .No hint required for `:as` and `:refer` bindings
@@ -287,7 +287,7 @@ Calls on `:require` bindings are also inferred automatically.
 ////
 Some libraries provide Externs as separate `.js` files. You can include them into your build via the `:externs` compiler options.
 ////
-一部のライブラリでは、extern を個別の `.js` ファイルとして提供しています。 Externs は、 `:externs` コンパイラオプションを使って、ビルドに組み込むことができます。
+一部のライブラリでは、extern を個別の `.js` ファイルとして提供しています。 Externs は、`:externs` コンパイラオプションを使って、ビルドに組み込むことができます。
 
 ////
 .Manual Externs Config
@@ -412,7 +412,7 @@ $ npx shadow-cljs run shadow.cljs.build-report app report.html
 ////
 The above example will generate a `report.html` in the project directory for the `:app` build.
 ////
-上記の例では、 `:app` をビルドする際に、プロジェクトディレクトリに `report.html` を生成します。
+上記の例では、`:app` をビルドする際に、プロジェクトディレクトリに `report.html` を生成します。
 
 ////
 TIP: The generated `report.html` is entirely self-contained and includes all the required data/js/css. No other external sources are required.

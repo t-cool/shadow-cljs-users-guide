@@ -118,7 +118,7 @@ Please note that currently only `shadow-cljs` has a clean automatic interop stor
 ////
 You can declare `npm` dependencies directly by including a `deps.cljs` with `:npm-deps` in your project (eg. `src/main/deps.cljs`).
 ////
-プロジェクト（例：`src/main/deps.cljs`）の中に、 `:npm-deps` 付きの `deps.cljs` を含めることで、 `npm` の依存関係を直接宣言することができます。
+プロジェクト（例：`src/main/deps.cljs`）の中に、`:npm-deps` 付きの `deps.cljs` を含めることで、 `npm` の依存関係を直接宣言することができます。
 
 ////
 .Example src/main/deps.cljs

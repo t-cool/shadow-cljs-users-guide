@@ -38,7 +38,7 @@ You will need the same basic <<config,main configuration>> as in other targets (
 ////
 When compiled this results in a `app/index.js` file intended to be used as an entry point for the `react-native` tools. During development the `:output-dir` will contain many more files but you should only reference the generated `app/index.js` directly. A `release` build will only generated the optimized `app/index.js` and requires no additional files.
 ////
-これをコンパイルすると、 `react-native` ツールのエントリーポイントとして使用される `app/index.js` ファイルが生成されます。開発中、 `:output-dir` にはさらに多くのファイルが格納されますが、生成された `app/index.js` を直接参照するだけにしてください。 `release` のビルドでは、最適化された `app/index.js` が生成されるだけで、追加のファイルは必要ありません。
+これをコンパイルすると、 `react-native` ツールのエントリーポイントとして使用される `app/index.js` ファイルが生成されます。開発中、`:output-dir` にはさらに多くのファイルが格納されますが、生成された `app/index.js` を直接参照するだけにしてください。 `release` のビルドでは、最適化された `app/index.js` が生成されるだけで、追加のファイルは必要ありません。
 
 == React Native
 
@@ -62,7 +62,7 @@ https://expo.io/[expo] を使うと、 `react-native` の作業がとても簡�
 ////
 Both examples where generated using `expo init ...` and the only adjusted change in the config was adding the proper `entryPoint` to the generated `app.json`.
 ////
-どちらの例も `expo init ...` を使用して生成されており、設定で調整した唯一の変更点は、生成された `app.json` に適切な `entryPoint` を追加したことです。
+どちらの例も `expo init ...` を使用して生成されており、設定で調整した点は、生成された `app.json` に適切な `entryPoint` を追加しただけです。
 
 
 ```

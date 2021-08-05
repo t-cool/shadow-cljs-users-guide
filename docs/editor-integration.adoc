@@ -41,7 +41,7 @@ IntelliJ が提供する Terminal の中で `npx shadow-cljs server` を実行�
 ////
 Note that the Cursive REPL when first connected always starts out as a CLJ REPL. You can switch it to CLJS by calling `(shadow/repl :your-build-id)`. This will automatically switch the Cursive option as well. You can type `:cljs/quit` to drop back down to the CLJ REPL.
 ////
-最初に接続したときの Cursive REPL は、常に CLJ REPL として起動することに注意してください。これを CLJS に切り替えるには、 `(shadow/repl :your-build-id)` を呼び出します。これにより、自動的に Cursive オプションも切り替わります。CLJ REPL に戻るには、 `:cljs/quit` と入力します。
+最初に接続したときの Cursive REPL は、常に CLJ REPL として起動することに注意してください。これを CLJS に切り替えるには、 `(shadow/repl :your-build-id)` を呼び出します。これにより、自動的に Cursive オプションも切り替わります。CLJ REPL に戻るには、`:cljs/quit` と入力します。
 
 ////
 NOTE: You cannot switch from CLJ->CLJS via the Cursive select box. Make sure you use the call above to switch.
@@ -183,7 +183,7 @@ Proto REPL は接続時にこの fn を呼び出すので、このファイル�
 ////
 7) Eval `(shadow.cljs.devtools.api/nrepl-select :your-build)`. The REPL connection is now in CLJS mode, meaning that everything you eval will be eval'd in JS. You can eval `:repl/quit` to get back to Clojure Mode. If you get `[:no-worker :browser]` you need to start the `watch` first.
 ////
-7) `(shadow.cljs.devtools.api/nrepl-select :your-build)` を評価します。 REPL 接続は CLJS モードになり、評価するものはすべて JS で評価されることになります。 Clojure モードに戻るには、 `:repl/quit` とすることができます。もし `[:no-worker :browser]` が出たら、まず `watch` を起動する必要があります。
+7) `(shadow.cljs.devtools.api/nrepl-select :your-build)` を評価します。 REPL 接続は CLJS モードになり、評価するものはすべて JS で評価されることになります。 Clojure モードに戻るには、`:repl/quit` とすることができます。もし `[:no-worker :browser]` が出たら、まず `watch` を起動する必要があります。
 
 ////
 8) Before you can eval CLJS you need to connect your client (eg. your Browser when building a `:browser` App).

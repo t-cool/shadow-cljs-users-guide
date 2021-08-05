@@ -34,7 +34,7 @@ The browser target outputs a lot of files, and a directory is needed for them al
 `:asset-path` :: The relative path from *web server's root* to the resources in `:output-dir`.
 ////
 [Horizontal]
-:output-dir` :: コンパイラのすべての出力に使用するディレクトリです。
+`:output-dir` :: コンパイラのすべての出力に使用するディレクトリです。
 `:asset-path` :: Web サーバのルートから `:output-dir` にあるリソースへの相対パスです。
 
 ////
@@ -155,7 +155,7 @@ The above config will create a `public/js/main.js` file. During development ther
 ////
 上記の設定では、 `public/js/main.js` というファイルが作成されます。開発段階では、多くのファイルが格納された `public/js/cljs-runtime` ディレクトリが追加されます。このディレクトリは `release` のビルドでは必要ありません。
 
-== コード・スプリッティング [[CodeSplitting]]
+== コードスプリッティング [[CodeSplitting]]
 
 //Code Splitting [[CodeSplitting]]
 
@@ -368,7 +368,7 @@ You can check if a module is loaded using `(loaded? "module-name")`.
 ////
 Using the loader is very lightweight. It has a few dependencies which you may not be otherwise using. In practice using `:module-loader true` adds about 8KB gzip'd to the default module. This will vary depending on how much of `goog.net` and `goog.events` you are already using, and what level of optimization you use for your release builds.
 ////
-ローダーの使用は非常に軽量です。ローダーにはいくつかの依存関係がありますが、他に使用することはないでしょう。実際には、 `:module-loader true` を使用すると、デフォルトのモジュールに約8KB の gzip が追加されます。これは、すでに使用している `goog.net` や `goog.events` の量や、リリースビルドでどの程度の最適化を行っているかによって変わってきます。
+ローダーの使用は非常に軽量です。ローダーにはいくつかの依存関係がありますが、他に使用することはないでしょう。実際には、`:module-loader true` を使用すると、デフォルトのモジュールに約8KB の gzip が追加されます。これは、すでに使用している `goog.net` や `goog.events` の量や、リリースビルドでどの程度の最適化を行っているかによって変わってきます。
 
 ==== 標準的な ClojureScript API の使用
 //Using the Standard ClojureScript API
@@ -381,7 +381,7 @@ The generated code is capable of using the standard ClojureScript `cljs.loader` 
 ////
 The advantage of using the standard API is that your code will play well with others. This may be of particular importance to library authors. The disadvantage is that the dynamic module loading API in the standard distribution is currently somewhat less easy-to-use than the support in `shadow-cljs`.
 ////
-標準 API を使用することの利点は、自分のコードが他の人とうまく調和することです。これはライブラリの作者にとっては特に重要なことでしょう。不利な点は、標準配布の動的なモジュールローディング API は、現在のところ `shadow-cljs` のサポートに比べてやや使いにくいことです。
+標準API を使用することの利点は、自分のコードが他の人とうまく調和することです。これはライブラリの作者にとっては特に重要なことでしょう。不利な点は、標準配布の動的なモジュールローディング API は、現在のところ `shadow-cljs` のサポートに比べてやや使いにくいことです。
 
 == アウトプット・ラッパー [[output-wrapper]]
 //Output Wrapper [[output-wrapper]]
@@ -399,7 +399,7 @@ The advantage of using the standard API is that your code will play well with ot
 ////
 When using multiple `:modules` (a.k.a <<CodeSplitting, code splitting>>) this is not enabled by default since each module must be able to access the variables created by the modules it depends on. The Closure Compiler supports an additional option to enable the use of an output wrapper in combination with multiple `:modules` named `:rename-prefix-namespace`. This will cause the Compiler to scope all "global" variables used by the build into one actual global variable. By default this is set to `:rename-prefix-namespace "$APP"` when `:output-wrapper` is set to `true`.
 ////
-複数の `:module` (別名 <<CodeSplitting, コードスプリッティング>>) を使用している場合、各モジュールは依存しているモジュールが作成した変数にアクセスできなければならないため、このオプションはデフォルトでは有効になっていません。Closure Compiler は、 `:rename-prefix-namespace` という名前の複数の `:modules` と組み合わせた出力ラッパーの使用を有効にする追加オプションをサポートしています。これにより、コンパイラはビルドで使用されるすべてのグローバル変数を、実際のグローバル変数 1 つにスコープします。デフォルトでは、 `:output-wrapper` が `true` に設定されている場合、これは `:rename-prefix-namespace "$APP"` に設定されます。
+複数の `:module` (別名 <<CodeSplitting, コードスプリッティング>>) を使用している場合、各モジュールは依存しているモジュールが作成した変数にアクセスできなければならないため、このオプションはデフォルトでは有効になっていません。Closure Compiler は、`:rename-prefix-namespace` という名前の複数の `:modules` と組み合わせた出力ラッパーの使用を有効にする追加オプションをサポートしています。これにより、コンパイラはビルドで使用されるすべてのグローバル変数を、実際のグローバル変数 1 つにスコープします。デフォルトでは、`:output-wrapper` が `true` に設定されている場合、これは `:rename-prefix-namespace "$APP"` に設定されます。
 
 ```clojure
 {...
@@ -469,7 +469,7 @@ Worker.js は `:shared` モジュールのすべてのコードを利用でき�
 ////
 Note that the empty `:entries []` in the `:shared` module will make it collect all the code shared between the `:main` and `:worker` modules.
 ////
-なお、 `:shared` モジュールで空の `:entries []` を指定すると、 `:main` モジュールと `:worker` モジュールの間で共有されるすべてのコードを収集するようになります。
+なお、`:shared` モジュールで空の `:entries []` を指定すると、`:main` モジュールと `:worker` モジュールの間で共有されるすべてのコードを収集するようになります。
 
 ////
 .Sample echo worker
@@ -502,7 +502,7 @@ Note that the empty `:entries []` in the `:shared` module will make it collect a
 ////
 IMPORTANT: Since we now have a `:shared` module you must ensure to load it properly in your HTML. If you just load `main.js` you will get an error.
 ////
-IMPORTANT: 現在、 `:shared` モジュールがあるので、HTML で適切にロードする必要があります。単に `main.js` をロードしただけでは、エラーが発生します。
+IMPORTANT: 現在、`:shared` モジュールがあるので、HTML で適切にロードする必要があります。単に `main.js` をロードしただけでは、エラーが発生します。
 
 ////
 .HTML Loading shared.js and main.js
@@ -528,7 +528,7 @@ Web環境では、余分なリクエストを避けるために、 `.js` ファ�
 ////
 Creating unique filenames for each release can be done via the `:release-version` config setting. Generally you'll pass this in from the command line via <<config-merge, --config-merge>>.
 ////
-各リリースに固有のファイル名を作成するには、 `:release-version` という設定を使用します。一般的には、コマンドラインから <<config-merge, --config-merge>> でこの設定を渡します。
+各リリースに固有のファイル名を作成するには、`:release-version` という設定を使用します。一般的には、コマンドラインから <<config-merge, --config-merge>> でこの設定を渡します。
 
 ```
 shadow-cljs release app --config-merge '{:release-version "v1"}'
@@ -568,7 +568,7 @@ You can use manual versions or something automated like the `git` sha at the tim
 ////
 You can add `:module-hash-names true` to your build config to automatically create a MD5 signature for each generated output module file. That means that a `:main` module will generate a `main.<md5hash>.js` instead of just the default `main.js`.
 ////
-ビルド設定に `:module-hash-names true` を追加すると、生成される各出力モジュールファイルに MD5 署名を自動的に作成することができます。つまり、 `:main` モジュールは、デフォルトの `main.js` ではなく、 `main.<md5hash>.js` を生成することになります。
+ビルド設定に `:module-hash-names true` を追加すると、生成される各出力モジュールファイルに MD5 署名を自動的に作成することができます。つまり、`:main` モジュールは、デフォルトの `main.js` ではなく、 `main.<md5hash>.js` を生成することになります。
 
 ////
 `:module-hash-names true` will include the full 32-length md5 hash, if you prefer a shorter version you can specify a
@@ -602,7 +602,7 @@ of generating conflicts. I recommend using the full hash.
 ////
 Instead of generating `main.js` it will now generate `main.<hash>.js` in the `:output-dir`.
 ////
-`main.js` を生成するのではなく、 `:output-dir` に `main.<hash>.js` を生成するようになりました。
+`main.js` を生成するのではなく、`:output-dir` に `main.<hash>.js` を生成するようになりました。
 
 ////
 Since the filename can change with every release it gets a little bit more complicated to include them
@@ -657,7 +657,7 @@ Development builds also produce this file and you may check if for modifications
 ////
 You can configure the name of the generated manifest file via the `:build-options :manifest-name` entry. It defaults to `manifest.edn`. If you configure a filename with `.json` ending the output will be JSON instead of EDN. The file will be relative to the configured `:output-dir`.
 ////
-生成されるマニフェストファイルの名前は、 `:build-options :manifest-name` エントリで設定できます。デフォルトでは `manifest.edn` となります。ファイル名の最後に `.json` を設定すると、EDN ではなく JSON が出力されます。ファイルは構成された `:output-dir` からの相対パスになります。
+生成されるマニフェストファイルの名前は、`:build-options :manifest-name` エントリで設定できます。デフォルトでは `manifest.edn` となります。ファイル名の最後に `.json` を設定すると、EDN ではなく JSON が出力されます。ファイルは構成された `:output-dir` からの相対パスになります。
 
 ////
 .Example manifest.json config
@@ -700,7 +700,7 @@ You can disable it completely by setting `:hud false` in the `:devtools` section
 ////
 You may also toggle certain features by specifying which features you care about via setting `:hud #{:errors :warnings}`. This will show errors/warnings but no progress indicator. Available options are `:errors`, `:warnings`, `:progress`. Only options included will be enabled, all other will be disabled.
 ////
-また、 `:hud #{:errors :warnings}` という設定で気になる機能を指定して、特定の機能を切り替えることもできます。これにより、エラーや警告は表示されますが、進捗状況は表示されません。利用可能なオプションは `:errors` `:warnings` `:progress` です。含まれるオプションのみが有効になり、それ以外は無効になります。
+また、`:hud #{:errors :warnings}` という設定で気になる機能を指定して、特定の機能を切り替えることもできます。これにより、エラーや警告は表示されますが、進捗状況は表示されません。利用可能なオプションは `:errors` `:warnings` `:progress` です。含まれるオプションのみが有効になり、それ以外は無効になります。
 
 ==== ファイルを開く [[open-file-command]]
 //Opening Files [[open-file-command]]
@@ -893,7 +893,7 @@ HTTP サーバが仮想ディレクトリからファイルを提供していて
 ////
 By default the devtools client will attempt to connect to the `shadow-cljs` process via the configured <<http, HTTP server>> (usually `localhost`). If you are using a reverse proxy to serve your HTML that might not be possible. You can set `:devtools-url` to configure which URL to use.
 ////
-デフォルトでは、devtools クライアントは、設定された <<http, HTTP server>> (通常は `localhost` ) 経由で `shadow-cljs` プロセスへの接続を試みます。リバースプロキシを使用して HTML を配信している場合は、それができない場合があります。また、 `:devtools-url` を設定することで、使用する URL を設定することができます。
+デフォルトでは、devtools クライアントは、設定された <<http, HTTP server>> (通常は `localhost` ) 経由で `shadow-cljs` プロセスへの接続を試みます。リバースプロキシを使用して HTML を配信している場合は、それができない場合があります。また、`:devtools-url` を設定することで、使用する URL を設定することができます。
 
 ```
 {...

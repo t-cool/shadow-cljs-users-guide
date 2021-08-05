@@ -124,7 +124,7 @@ For <<target-browser, `:target :browser`>> builds the `watch` process will have 
 ////
 These targets will have produced a `.js` file that are intended to run in a `node` process. Given the variety of options however you'll need to run them yourself. For example a `:node-script` you'd run via `node the-script.js` and on startup it'll try to connect to the `shadow-cljs` server. You should see a `WebSocket connected` message on startup. The output is designed to only run on the machine they were compiled on, don't copy `watch` output to other machines.
 ////
-これらのターゲットは、 `.js` ファイルを作成し、 `node` プロセスで実行することを意図しています。しかし、様々なオプションがあるため、それらを自分で実行する必要があります。例えば、 `:node-script` を `node the-script.js` 経由で実行すると、起動時に `shadow-cljs` サーバへの接続を試みます。起動時には `WebSocket connected` というメッセージが表示されるはずです。出力はコンパイルされたマシン上でのみ動作するように設計されていますので、 `watch` の出力を他のマシンにコピーしないでください。
+これらのターゲットは、 `.js` ファイルを作成し、 `node` プロセスで実行することを意図しています。しかし、様々なオプションがあるため、それらを自分で実行する必要があります。例えば、`:node-script` を `node the-script.js` 経由で実行すると、起動時に `shadow-cljs` サーバへの接続を試みます。起動時には `WebSocket connected` というメッセージが表示されるはずです。出力はコンパイルされたマシン上でのみ動作するように設計されていますので、 `watch` の出力を他のマシンにコピーしないでください。
 
 #### :target :react-native [[repl-trouble-react-native]]
 
