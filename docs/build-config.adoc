@@ -333,7 +333,7 @@ IMPORTANT: フックは `cljs.user` 名前空間では宣言できません。�
 ////
 TIP: If neither `:after-load` nor `:before-load` are set the compiler will only attempt to hot reload the code in the `:browser` target. If you still want hot reloading but don't need any of the callbacks you can set `:autoload true` instead.
 ////
-TIP: `:after-load` や `:before-load` が設定されていない場合、コンパイラは `:browser` ターゲットのコードのホットリロードのみを試みます。もし、ホットリロードを行いたいが、コールバックが不要な場合は、代わりに `:autoload true` を設定してください。
+TIP: `:after-load` や `:before-load` が設定されていない場合、コンパイラは `:browser` ターゲットのコード内においてホットリロードのみを試みます。もしホットリロードを行いたいが、コールバックが不要な場合は、代わりに `:autoload true` を設定してください。
 
 == ビルドフック [[build-hooks]]
 //Build Hooks [[build-hooks]]
