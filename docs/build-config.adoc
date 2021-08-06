@@ -110,8 +110,7 @@ When running `watch` code for the REPL is injected automatically and usually doe
 As a developer most of your time is spent in development mode. You're probably familiar with tools like `figwheel`,
 `boot-reload`, and `devtools`. It's almost certain that you want one or more of these in your builds.
 ////
-開発者は、そのほとんどの時間を開発モードで過ごします。おそらく、 `figwheel`、 `boot-reload`、 `devtools` などのツールに精通していることでしょう。
-`boot-reload`、 `devtools` などのツールをご存知でしょう。これらのツールの 1 つ以上を自分のビルドに使用することはほぼ確実でしょう。
+開発者は開発モードで大半の時間を費やします。`figwheel`、`boot-reload`、`devtools` などのツールに精通し、`boot-reload` や `devtools` などのツールをご存知でしょう。これらのツールの 1 つ以上を自分のビルドに使用するはずです。
 
 ////
 Preloads are used to force certain namespaces into the front of your generated Javascript. This is generally used to inject tools and instrumentation before the application actually loads and runs. The preloads option is simply a list of namespaces either in the `:devtools`/`:preloads` section of `shadow-cljs.edn` or within the `:preloads` key of a specific module:
@@ -155,7 +154,7 @@ For example to only include the preloads within a main module during development
 ////
 NOTE: Since version 2.0.130 shadow-cljs automatically adds `cljs-devtools` to the preloads in `watch` and `compile` if they are on the classpath. All you need to do is make sure `binaryage/devtools` is in your `dependencies` list. (Note, *not* binaryage/**cljs-**devtools.) If you don't want to have `cljs-devtools` in specific targets, you can suppress this by adding `:console-support false` to the `:devtools` section of those targets.
 ////
-注意: バージョン 2.0.130 以降の shadow-cljs は、 `watch` と `compile` のクラスパス上に `cljs-devtools` がある場合、自動的にそのプリロードに `cljs-devtools` を追加します。必要なことは、 `binaryage/devtools` があなたの `dependencies` リストにあることを確認するだけです。(注意: binaryage/cljs-devtools ではない) もし、特定のターゲットに `cljs-devtools` を入れたくない場合は、それらのターゲットの `:devtools` セクションに `:console-support false` を追加することで、これを抑制することができます。
+NOTE: バージョン 2.0.130 以降の shadow-cljs は、 `watch` と `compile` のクラスパス上に `cljs-devtools` がある場合、自動的にそのプリロードに `cljs-devtools` を追加します。必要なことは、 `binaryage/devtools` があなたの `dependencies` リストにあることを確認するだけです。(注意: binaryage/cljs-devtools ではない) もし、特定のターゲットに `cljs-devtools` を入れたくない場合は、それらのターゲットの `:devtools` セクションに `:console-support false` を追加することで、これを抑制することができます。
 
 === ホットコードリロード
 //Hot Code Reload
