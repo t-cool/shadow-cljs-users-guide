@@ -2664,7 +2664,7 @@ localhost（または使用する任意のホスト）の SAN（Subject Alternat
 <p>フックが複数のステージの後に呼び出されるべきであれば、代わりに <code>{:shadow.build/stages #{:configure :flush}}</code> を設定することができます。そうしないとフックは何もしないので、少なくともひとつの設定済みステージが必要です。</p>
 </div>
 <div class="paragraph">
-<p>すべてのビルドフックは、<code>:target</code> の作業が終わった後に呼び出されます。これらのフックは、最初の引数として <code>build-state</code> (現在のすべてのビルドデータを含む clojure マップ) を受け取り、 <strong>必ず</strong> この <code>build-state</code> を修正して、または修正しないで返します。複数のステージを使用する場合、後のステージが見ることができる追加データを <code>build-state</code> に追加することができます。誤ってビルド全体を壊してしまわないように、名前付きのキーのみを使用することを強くお勧めします。</p>
+<p>全てのビルドフックは、<code>:target</code> の作業が終わった後に呼び出されます。これらのフックは、最初の引数として、現在の全てのビルドデータを含む clojure マップの <code>build-state</code> を受け取り、 <strong>必ず</strong> この <code>build-state</code> を修正して、または修正しないで返します。複数のステージを使用する場合、後のステージが見ることができる追加データを <code>build-state</code> に追加することができます。誤ってビルド全体を壊してしまわないように、名前付きのキーのみを使用することを強くお勧めします。</p>
 </div>
 <div class="paragraph">
 <p><code>build-state</code> には、フックに有用ないくつかの重要なエントリがあります。</p>
@@ -2672,7 +2672,7 @@ localhost（または使用する任意のホスト）の SAN（Subject Alternat
 <div class="ulist">
 <ul>
 <li>
-<p><code>:shadow.build/build-id</code> - 現在のビルドの ID です。例： <code>:app</code></p>
+<p><code>:shadow.build/build-id</code> - 現在のビルドの ID です。(例： <code>:app</code>)</p>
 </li>
 <li>
 <p><code>:shadow.build/mode</code> - <code>:dev</code> または <code>:release</code> です。</p>
@@ -2952,10 +2952,7 @@ localhost（または使用する任意のホスト）の SAN（Subject Alternat
 </ul>
 </div>
 <div class="paragraph">
-<p>サポートされていない、または適用されていないオプション、</p>
-</div>
-<div class="paragraph">
-<p>全く効果がない選択肢は、以下の通りです。</p>
+<p>サポートされていないか適用されていないオプション、また全く影響がない選択肢は以下の通りです。</p>
 </div>
 <div class="ulist">
 <ul>

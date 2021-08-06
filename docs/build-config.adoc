@@ -395,7 +395,7 @@ The hook is a just a normal *Clojure* function with some additional metadata. Th
 ////
 All build hooks will be called after the `:target` work is done. They will receive the `build-state` (a clojure map with all the current build data) as their first argument and *must* return this `build-state` modified or unmodified. When using multiple stages you can add additional data to the `build-state` that later stages can see. It is strongly advised to use namespaced keys only to ensure not accidentally breaking the entire build.
 ////
-すべてのビルドフックは、`:target` の作業が終わった後に呼び出されます。これらのフックは、最初の引数として `build-state` (現在のすべてのビルドデータを含む clojure マップ) を受け取り、 *必ず* この `build-state` を修正して、または修正しないで返します。複数のステージを使用する場合、後のステージが見ることができる追加データを `build-state` に追加することができます。誤ってビルド全体を壊してしまわないように、名前付きのキーのみを使用することを強くお勧めします。
+全てのビルドフックは、`:target` の作業が終わった後に呼び出されます。これらのフックは、最初の引数として、現在の全てのビルドデータを含む clojure マップの `build-state` を受け取り、 *必ず* この `build-state` を修正して、または修正しないで返します。複数のステージを使用する場合、後のステージが見ることができる追加データを `build-state` に追加することができます。誤ってビルド全体を壊してしまわないように、名前付きのキーのみを使用することを強くお勧めします。
 
 ////
 The `build-state` has some important entries which might be useful for your hooks:
@@ -408,7 +408,7 @@ The `build-state` has some important entries which might be useful for your hook
 - `:shadow.build/stage` - the current stage
 - `:shadow.build/config` - the build config. You can either store config data for the hook in the build config directly or pass it as arguments in the hook itself
 ////
-- `:shadow.build/build-id` - 現在のビルドの ID です。例： `:app`
+- `:shadow.build/build-id` - 現在のビルドの ID です。(例： `:app`)
 - `:shadow.build/mode` - `:dev` または `:release` です。
 - `:shadow.build/stage` - 現在のステージです。
 - `:shadow.build/config` - ビルドの設定。フック用の設定データは、ビルドコンフィグに直接格納するか、フック自体の引数として渡すことができます。
@@ -700,12 +700,10 @@ Currently supported options include
 ////
 Unsupported or non-applicable Options
 ////
-サポートされていない、または適用されていないオプション、
-
 ////
 Options that don't have any effect at all include
 ////
-全く効果がない選択肢は、以下の通りです。
+サポートされていないか適用されていないオプション、また全く影響がない選択肢は以下の通りです。
 
 ////
 - `:verbose` is controlled by running `shadow-cljs compile app --verbose` not in the build config.
