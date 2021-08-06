@@ -2444,7 +2444,7 @@ localhost（または使用する任意のホスト）の SAN（Subject Alternat
 <div class="title">Note</div>
 </td>
 <td class="content">
-バージョン 2.0.130 以降の shadow-cljs は、 <code>watch</code> と <code>compile</code> のクラスパス上に <code>cljs-devtools</code> がある場合、自動的にそのプリロードに <code>cljs-devtools</code> を追加します。必要なことは、 <code>binaryage/devtools</code> があなたの <code>dependencies</code> リストにあることを確認するだけです。(注意: binaryage/cljs-devtools ではない) もし、特定のターゲットに <code>cljs-devtools</code> を入れたくない場合は、それらのターゲットの <code>:devtools</code> セクションに <code>:console-support false</code> を追加することで、これを抑制することができます。
+バージョン 2.0.130 以降の shadow-cljs は、 <code>watch</code> と <code>compile</code> のクラスパス上に <code>cljs-devtools</code> がある場合、自動的にそのプリロードに <code>cljs-devtools</code> を追加します。必要なことは、<code>dependencies</code> リストに <code>binaryage/cljs-devtools</code> ではなく <code>binaryage/devtools</code> があることを確認するだけです。もし特定のターゲットに <code>cljs-devtools</code> を入れない場合は、ターゲットの <code>:devtools</code> セクションに <code>:console-support false</code> を追加することで、これを抑制することができます。
 </td>
 </tr>
 </table>
@@ -2453,10 +2453,10 @@ localhost（または使用する任意のホスト）の SAN（Subject Alternat
 <div class="sect3">
 <h4 id="_ホットコードリロード"><a class="anchor" href="#_ホットコードリロード"></a><a class="link" href="#_ホットコードリロード">6.2.3. ホットコードリロード</a></h4>
 <div class="paragraph">
-<p>React と ClojureScript のエコシステムを組み合わせることで、このようなことが超便利になります。 <code>shadow-cljs</code> のシステムには、外部ツールに頼ることなく、ホットコードリロードを行うために必要なものがすべて含まれています。</p>
+<p>React と ClojureScript のエコシステムを組み合わせることで、このようなことが大変便利になります。<code>shadow-cljs</code> のシステムには、外部ツールに頼ることなく、ホットコードリロードを行うために必要なものがすべて含まれています。</p>
 </div>
 <div class="paragraph">
-<p>使うには、以下のように実行するだけです。</p>
+<p>ホットコードリロードを行うには、以下のようにするだけです。</p>
 </div>
 <div class="listingblock">
 <div class="content">

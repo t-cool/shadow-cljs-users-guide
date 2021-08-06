@@ -154,7 +154,7 @@ For example to only include the preloads within a main module during development
 ////
 NOTE: Since version 2.0.130 shadow-cljs automatically adds `cljs-devtools` to the preloads in `watch` and `compile` if they are on the classpath. All you need to do is make sure `binaryage/devtools` is in your `dependencies` list. (Note, *not* binaryage/**cljs-**devtools.) If you don't want to have `cljs-devtools` in specific targets, you can suppress this by adding `:console-support false` to the `:devtools` section of those targets.
 ////
-NOTE: バージョン 2.0.130 以降の shadow-cljs は、 `watch` と `compile` のクラスパス上に `cljs-devtools` がある場合、自動的にそのプリロードに `cljs-devtools` を追加します。必要なことは、 `binaryage/devtools` があなたの `dependencies` リストにあることを確認するだけです。(注意: binaryage/cljs-devtools ではない) もし、特定のターゲットに `cljs-devtools` を入れたくない場合は、それらのターゲットの `:devtools` セクションに `:console-support false` を追加することで、これを抑制することができます。
+NOTE: バージョン 2.0.130 以降の shadow-cljs は、 `watch` と `compile` のクラスパス上に `cljs-devtools` がある場合、自動的にそのプリロードに `cljs-devtools` を追加します。必要なことは、`dependencies` リストに `binaryage/cljs-devtools` ではなく `binaryage/devtools` があることを確認するだけです。もし特定のターゲットに `cljs-devtools` を入れない場合は、ターゲットの `:devtools` セクションに `:console-support false` を追加することで、これを抑制することができます。
 
 === ホットコードリロード
 //Hot Code Reload
@@ -163,12 +163,12 @@ NOTE: バージョン 2.0.130 以降の shadow-cljs は、 `watch` と `compile`
 The React and ClojureScript ecosystems combine to make this kind of thing super useful. The `shadow-cljs`
 system includes everything you need to do your hot code reload, without needing to resort to external tools.
 ////
-React と ClojureScript のエコシステムを組み合わせることで、このようなことが超便利になります。 `shadow-cljs` のシステムには、外部ツールに頼ることなく、ホットコードリロードを行うために必要なものがすべて含まれています。
+React と ClojureScript のエコシステムを組み合わせることで、このようなことが大変便利になります。`shadow-cljs` のシステムには、外部ツールに頼ることなく、ホットコードリロードを行うために必要なものがすべて含まれています。
 
 ////
 In order to use it you simply run:
 ////
-使うには、以下のように実行するだけです。
+ホットコードリロードを行うには、以下のようにするだけです。
 
 ```
 shadow-cljs watch build-id
