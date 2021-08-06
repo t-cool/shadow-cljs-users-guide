@@ -2270,7 +2270,7 @@ localhost（または使用する任意のホスト）の SAN（Subject Alternat
 <p>JVM の起動に <code>shadow-cljs.edn</code> を使用する場合、JVM に直接渡される追加のコマンドライン引数を設定することができます。</p>
 </div>
 <div class="paragraph">
-<p>例えば、shadow-cljs.edn が使用する RAM の量を減らしたり増やしたりしたい場合があります。</p>
+<p>avsxza nm例えば、shadow-cljs.edn が使用する RAM の量を減らしたり増やしたりしたい場合があります。</p>
 </div>
 <div class="paragraph">
 <p>これは、 <code>shadow-cljs.edn</code> のルートに <code>:jvm-opts</code> を設定して、文字列のベクトルを期待することで行われます。</p>
@@ -2960,7 +2960,7 @@ localhost（または使用する任意のホスト）の SAN（Subject Alternat
 <p><code>:verbose</code> は、 <code>shadow-cljs compile app --verbose</code> を実行することで制御されますが、ビルド設定にはありません。</p>
 </li>
 <li>
-<p><code>:foreign-libs</code> と <code>:libs</code> です。</p>
+<p><code>:foreign-libs</code> と <code>:libs</code></p>
 </li>
 <li>
 <p><code>:stable-names</code> は常に有効で、無効にすることはできません。</p>
@@ -2969,13 +2969,13 @@ localhost（または使用する任意のホスト）の SAN（Subject Alternat
 <p><code>:install-deps</code></p>
 </li>
 <li>
-<p><code>:source-map-path</code>, <code>:source-asset-path</code>, <code>:source-map-timestamp</code> です。</p>
+<p><code>:source-map-path</code> <code>:source-asset-path</code> <code>:source-map-timestamp</code></p>
 </li>
 <li>
 <p><code>:cache-analysis</code> 常に有効で、無効にすることはできません。</p>
 </li>
 <li>
-<p><code>:recompile-dependents</code> (再コンパイル依存)</p>
+<p><code>:recompile-dependents</code></p>
 </li>
 <li>
 <p><code>:preamble</code></p>
@@ -3012,7 +3012,7 @@ localhost（または使用する任意のホスト）の SAN（Subject Alternat
 <p>ビルドを続行するのではなく、警告を表示してビルドを失敗させたい場合があります（例：CI 環境など）。 <code>warnings-as-errors</code> コンパイラオプションを使って、その処理方法をカスタマイズすることができます。</p>
 </div>
 <div class="listingblock">
-<div class="title">すべての警告をエラーとして扱う</div>
+<div class="title">すべての警告をエラーとして扱うための設定</div>
 <div class="content">
 <pre class="highlight"><code class="language-clojure" data-lang="clojure">{...
  :builds
@@ -5460,7 +5460,10 @@ nil</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>私たちは <a href="#npm">npm</a> パッケージがどのように使用されるかをカバーしましたが、あなたはすでに多くのプレーンな JavaScript を持つコードベースに取り組んでいるかもしれず、まだすべてを ClojureScript で書き直したくはないでしょう。 <code>shadow-cljs</code> は、JavaScript と ClojureScript の間の100%完全な相互運用性を提供します。つまり、あなたの JS はあなたの CLJS を使うことができ、CLJS はあなたの JS を使うことができるということです。</p>
+<p>私たちは <a href="#npm">npm</a> パッケージがどのように使用されるかをカバーしましたが、あなたはすでに多くのプレーンな JavaScript を持つコードベースに取り組んでいるかもしれず、すべてを ClojureScript で書き直したくはないでしょう。</p>
+</div>
+<div class="paragraph">
+<p><code>shadow-cljs</code> は、JavaScript と ClojureScript の間の100%完全な相互運用性を提供します。つまり、JS から CLJS を使うことができ、CLJS から JS  使うことができます。</p>
 </div>
 <div class="paragraph">
 <p>この機能を確実に動作させるためには、いくつかの規則に従わなければなりませんが、すでに実行していることもあるでしょう。</p>
@@ -6189,7 +6192,7 @@ $ npx shadow-cljs run shadow.cljs.build-report app report.html</code></pre>
 <p>ビルドターゲットの名前を入力してください（例：<code>app</code>）。</p>
 </div>
 <div class="paragraph">
-<p>Emacs は、その兄弟の <code>shadow-cljs</code> サーバへの新しい nREPL 接続を開き、ClojureScript REPL 環境にブートストラップします。</p>
+<p>Emacs は <code>shadow-cljs</code> サーバへの新しい nREPL 接続を開き、ClojureScript REPL 環境にブートストラップを行います。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -6624,7 +6627,7 @@ $ lein with-profiles +cljs deps :tree</code></pre>
 <p>Clojure の REPL は、その名が示す通りのことを行います。 1 つのフォームを読み、それを評価し、結果を print し、それを再び行うためにループします。</p>
 </div>
 <div class="paragraph">
-<p>しかし、ClojureScript では、コンパイルは JVM上で行われますが、結果は JavaScript ランタイムで評価されるので、もう少し複雑です。普通の REPL の経験をエミュレートするためには、さらにいくつかのステップが必要になります。 <code>shadow-cljs</code> では、通常の CLJS とは実装が少し異なりますが、基本的な原理は同じです。</p>
+<p>しかし ClojureScript では、コンパイルは JVM上で行われますが、結果は JavaScript のランタイムで評価されるので少し複雑です。普通の REPL の経験をエミュレートするためには、さらにいくつかのステップが必要になります。<code>shadow-cljs</code> では、通常の CLJS とは実装が少し異なりますが、基本的な原理は同じです。</p>
 </div>
 <div class="paragraph">
 <p>まず、REPL クライアントが必要です。これは単に CLI (例: <code>shadow-cljs cljs-repl app</code>) または <code>nREPL</code> を介して接続されたエディタかもしれません。クライアントは常に <code>shadow-cljs</code> サーバと直接会話し、残りの部分は <code>shadow-cljs</code> が処理します。クライアント側からは、まだ通常の REPL のように見えますが、バックグラウンドではさらにいくつかのステップが行われています。</p>
@@ -6677,9 +6680,12 @@ $ lein with-profiles +cljs deps :tree</code></pre>
 <div class="quoteblock">
 <blockquote>
 <div class="paragraph">
-<p>どのアプリケーションも REPL サーバに接続していません。JS環境がコンパイルした ClojureScript コードを読み込んでいることを確認してください。</p>
+<p>No application has connected to the REPL server. Make sure your JS environment has loaded your compiled ClojureScript code.</p>
 </div>
 </blockquote>
+</div>
+<div class="paragraph">
+<p>(どのアプリケーションも REPL サーバに接続していません。JS環境がコンパイルした ClojureScript コードを読み込んでいることを確認してください。)</p>
 </div>
 <div class="paragraph">
 <p>このエラーメッセージは、JS ランタイム (例: ブラウザ) が <code>shadow-cljs</code> サーバに接続していないことを意味します。 REPL クライアントは正常に <code>shadow-cljs</code> サーバに接続しましたが、上で説明したように、実際に <code>eval</code> するためにはまだ JS ランタイムが必要です。</p>
@@ -6825,7 +6831,10 @@ lein jar を実行し、 <code>jar -tvf target/library-1.0.0.jar</code> で最�
 <h2 id="_上手くいかない場合はどうすればいいか"><a class="anchor" href="#_上手くいかない場合はどうすればいいか"></a><a class="link" href="#_上手くいかない場合はどうすればいいか">17. 上手くいかない場合はどうすればいいか</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>JS の世界は今でも急速に進化しており、誰もが同じ方法でコードを書いたり配布したりしているわけではないので、<code>shadow-cljs</code> が自動的に回避できないものもあります。これらは通常、カスタムの <code>:resolve</code> 設定で解決できますが、バグや見落としもあるかもしれません。</p>
+<p>JS の世界は今でも急速に進化しており、誰もが同じ方法でコードを書いたり配布したりしているわけではないので、<code>shadow-cljs</code> が自動的に回避できないものもあります。</p>
+</div>
+<div class="paragraph">
+<p>これらは通常、カスタムの <code>:resolve</code> 設定で解決できますが、バグや見落としもあるかもしれません。</p>
 </div>
 <div class="paragraph">
 <p>この章の説明で解決できない場合は、次のような場所で質問してみてください。
@@ -6852,7 +6861,7 @@ lein jar を実行し、 <code>jar -tvf target/library-1.0.0.jar</code> で最�
 <div id="footer">
 <div id="footer-text">
 Version 1.0<br>
-Last updated 2021-08-06 20:36:15 JST
+Last updated 2021-08-06 21:28:37 JST
 </div>
 </div>
 </body>

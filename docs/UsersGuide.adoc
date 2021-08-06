@@ -920,7 +920,7 @@ When `shadow-cljs.edn` is used in charge of starting the JVM you can configure a
 ////
 JVM の起動に `shadow-cljs.edn` を使用する場合、JVM に直接渡される追加のコマンドライン引数を設定することができます。
 
-例えば、shadow-cljs.edn が使用する RAM の量を減らしたり増やしたりしたい場合があります。
+avsxza nm例えば、shadow-cljs.edn が使用する RAM の量を減らしたり増やしたりしたい場合があります。
 
 
 ////
@@ -1090,7 +1090,9 @@ include::maven-publish.adoc[]
 ////
 Since the JS world is still evolving rapidly and not everyone is using the same way to write and distribute code there are some things `shadow-cljs` cannot work around automatically. These can usually be solved with custom `:resolve` configs, but there may also be bugs or oversights.
 ////
-JS の世界は今でも急速に進化しており、誰もが同じ方法でコードを書いたり配布したりしているわけではないので、`shadow-cljs` が自動的に回避できないものもあります。これらは通常、カスタムの `:resolve` 設定で解決できますが、バグや見落としもあるかもしれません。
+JS の世界は今でも急速に進化しており、誰もが同じ方法でコードを書いたり配布したりしているわけではないので、`shadow-cljs` が自動的に回避できないものもあります。
+
+これらは通常、カスタムの `:resolve` 設定で解決できますが、バグや見落としもあるかもしれません。
 
 ////
 If you cannot resolve such an issue with the instructions in this chapter, then try asking on the

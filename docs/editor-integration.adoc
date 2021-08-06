@@ -92,7 +92,7 @@ Enter the name of your build target, for example, `app`.
 ////
 Emacs should now open a new nREPL connection to the `shadow-cljs` server of its sibling, bootstrapping into a ClojureScript REPL environment:
 ////
-Emacs は、その兄弟の `shadow-cljs` サーバへの新しい nREPL 接続を開き、ClojureScript REPL 環境にブートストラップします。
+Emacs は `shadow-cljs` サーバへの新しい nREPL 接続を開き、ClojureScript REPL 環境にブートストラップを行います。
 
 ```console
 shadow.user> To quit, type: :cljs/quit

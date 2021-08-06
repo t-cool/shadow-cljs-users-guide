@@ -724,12 +724,12 @@ Options that don't have any effect at all include
 - `:process-shim`
 ////
 - `:verbose` は、 `shadow-cljs compile app --verbose` を実行することで制御されますが、ビルド設定にはありません。
-- `:foreign-libs` と `:libs` です。
+- `:foreign-libs` と `:libs`
 - `:stable-names` は常に有効で、無効にすることはできません。
 - `:install-deps`
-- `:source-map-path`, `:source-asset-path`, `:source-map-timestamp` です。
+- `:source-map-path` `:source-asset-path` `:source-map-timestamp`
 - `:cache-analysis` 常に有効で、無効にすることはできません。
-- `:recompile-dependents` (再コンパイル依存)
+- `:recompile-dependents`
 - `:preamble`
 - `:hashbang` (`:node-script` ターゲットはこれをサポートしていますが、他のターゲットはサポートしていません)
 - `:compiler-stats` 詳細な情報を得るには、代わりに `--verbose` を使用してください。
@@ -751,7 +751,7 @@ It is sometimes desireable to fail a build with warnings rather than continuing 
 ////
 .Treat all warnings as errors
 ////
-.すべての警告をエラーとして扱う
+.すべての警告をエラーとして扱うための設定
 
 ```
 {...

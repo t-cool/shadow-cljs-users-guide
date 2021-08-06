@@ -466,7 +466,9 @@ CLJS には https://clojurescript.org/guides/javascript-modules[implementation] 
 ////
 We covered how <<npm, npm>> packages are used but you may be working on a codebase that already has lots of plain JavaScript and you don't want to rewrite everything in ClojureScript just yet. `shadow-cljs` provides 100% full interop between JavaScript and ClojureScript. Which means your JS can use your CLJS and CLJS can use your JS.
 ////
-私たちは <<npm, npm>> パッケージがどのように使用されるかをカバーしましたが、あなたはすでに多くのプレーンな JavaScript を持つコードベースに取り組んでいるかもしれず、まだすべてを ClojureScript で書き直したくはないでしょう。 `shadow-cljs` は、JavaScript と ClojureScript の間の100%完全な相互運用性を提供します。つまり、あなたの JS はあなたの CLJS を使うことができ、CLJS はあなたの JS を使うことができるということです。
+私たちは <<npm, npm>> パッケージがどのように使用されるかをカバーしましたが、あなたはすでに多くのプレーンな JavaScript を持つコードベースに取り組んでいるかもしれず、すべてを ClojureScript で書き直したくはないでしょう。
+
+`shadow-cljs` は、JavaScript と ClojureScript の間の100%完全な相互運用性を提供します。つまり、JS から CLJS を使うことができ、CLJS から JS  使うことができます。
 
 ////
 There are only a few conventions you need to follow in order for this to work reliably but chances are that you are already doing that anyways.
