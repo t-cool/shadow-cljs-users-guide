@@ -918,7 +918,9 @@ Additional optional Options to configure the connection handling are:
 ////
 When `shadow-cljs.edn` is used in charge of starting the JVM you can configure additional command line arguments to be passed directly to the JVM. For example you may want to decrease or increase the amount of RAM used by shadow-cljs.
 ////
-JVM の起動に `shadow-cljs.edn` を使用する場合、JVM に直接渡される追加のコマンドライン引数を設定することができます。例えば、shadow-cljs.edn が使用する RAM の量を減らしたり増やしたりしたい場合があります。
+JVM の起動に `shadow-cljs.edn` を使用する場合、JVM に直接渡される追加のコマンドライン引数を設定することができます。
+
+例えば、shadow-cljs.edn が使用する RAM の量を減らしたり増やしたりしたい場合があります。
 
 
 ////
