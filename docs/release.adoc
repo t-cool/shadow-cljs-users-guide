@@ -229,7 +229,7 @@ typehint の `^js` を指定すると、コンパイラが適切な externs を�
 ////
 It can get tedious to annotate every single interop call so you can annotate the variable binding itself. It will be used in the entire scope for this variable. Externs for both calls will still be generated.
 ////
-Interop コールをいちいちアノテーションするのは面倒なので、変数のバインディング自体をアノテーションすることができます。この変数は、この変数のスコープ全体で使用されます。両方の呼び出しのextern はまだ生成されます。
+Interop コールを個別にアノテーションするのは面倒なので、変数のバインディング自体をアノテーションすることができます。この変数は、この変数のスコープ全体で使用されます。両方の呼び出しのextern はまだ生成されます。
 
 ////
 .Annotate `x` directly

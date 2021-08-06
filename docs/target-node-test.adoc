@@ -72,4 +72,4 @@ $ shadow-cljs compile test && node out/node-tests.js
 ////
 The `node` process exit code will be set to `0` when successful and `1` on any failures. (The `node` process exit code will not be returned when using `:autorun`.)
 ////
-成功すると `node` プロセスの終了コードは `0` に設定され、失敗すると `1` に設定されます。(`:autorun` を使用している場合は、 `node` プロセスの終了コードは返されません)。
+成功すると `node` プロセスの終了コードは `0` に設定され、失敗すると `1` に設定されます。`:autorun` を使用している場合は、`node` プロセスの終了コードは返されません。

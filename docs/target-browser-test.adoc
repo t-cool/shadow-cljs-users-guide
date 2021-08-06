@@ -1,7 +1,9 @@
 ////
 This target is meant for gathering up namespaces that contain tests (based on a filename pattern match), and triggering a test runner. It contains a built-in runner that will automatically scan for `cljs.test` tests and run them.
 ////
-このターゲットは、（ファイル名のパターンマッチに基づいて）テストを含む名前空間を集めて、テストランナーを起動するためのものです。このターゲットには、`cljs.test` テストを自動的にスキャンして実行する、ビルトインのランナーが含まれています。
+このターゲットは、(ファイル名のパターンマッチに基づいて) テストを含む名前空間を集めて、テストランナーを起動するためのものです。
+
+このターゲットには `cljs.test` テストを自動的にスキャンして実行するビルトインのランナーが含まれています。
 
 ////
 The relevant configuration options are:
@@ -18,7 +20,7 @@ will not scan jars. Defaults to "-test$".
 `shadow.test.browser`.
 ////
 [horizontal]
-`:target` :: `:browser-test` (ブラウザテスト)
+`:target` :: `:browser-test`
 `:test-dir` :: ファイルを出力するフォルダです。以下を参照してください。
 `:ns-regexp` :: (オプション) プロジェクトファイルの名前空間にマッチする正規表現です。これはファイルをスキャンするだけで、jar ファイルはスキャンしません。
 ジャーのスキャンは行いません。デフォルトは"-test$"です。

@@ -780,7 +780,7 @@ It is sometimes desireable to fail a build with warnings rather than continuing 
 ////
 A set of possible warning-type keywords can be found https://github.com/clojure/clojurescript/blob/5ad96a8b3ae2e3616a19715ba9ba2471a36933a2/src/main/clojure/cljs/analyzer.cljc#L124-L163[here].
 ////
-可能な警告タイプのキーワードのセットは、 https://github.com/clojure/clojurescript/blob/5ad96a8b3ae2e3616a19715ba9ba2471a36933a2/src/main/clojure/cljs/analyzer.cljc#L124-L163[こちら] にあります。
+可能な警告タイプのキーワードのセットは、 https://github.com/clojure/clojurescript/blob/5ad96a8b3ae2e3616a19715ba9ba2471a36933a2/src/main/clojure/cljs/analyzer.cljc#L124-L163[https://github.com/clojure/clojurescript/blob/5ad96a8b3ae2e3616a19715ba9ba2471a36933a2/src/main/clojure/cljs/analyzer.cljc#L124-L163] にあります。
 
 ////
 .Only throw for certain namespaces
@@ -871,7 +871,7 @@ Documentation on these options is a bit sparse and is mostly documented in the c
 ////
 CAUTION: This feature only works in `shadow-cljs`. It was officially https://dev.clojure.org/jira/browse/CLJS-2396[rejected] by the ClojureScript project. It will still compile fine in CLJS but only the official branches work (e.g. `:cljs`). It might still be https://groups.google.com/d/msg/clojure-dev/8YJJM8lJuQs/hR5_vUZPCQAJ[supported] one day but as of now it is not.
 ////
-CAUTION: この機能は `shadow-cljs` でのみ動作します。この機能は ClojureScript プロジェクトで公式に https://dev.clojure.org/jira/browse/CLJS-2396[rejected] されました。 CLJS でもコンパイルは可能ですが、公式のブランチでのみ動作します(例: `:cljs`)。いつかは https://groups.google.com/d/msg/clojure-dev/8YJJM8lJuQs/hR5_vUZPCQAJ[support] になるかもしれませんが、今のところはそうではありません。
+CAUTION: Conditional Reading は `shadow-cljs` でしか動作しません。この機能は ClojureScript プロジェクトで公式に https://dev.clojure.org/jira/browse/CLJS-2396[rejected] されました。 CLJS でもコンパイルは可能ですが、公式のブランチでのみ動作します(例: `:cljs`)。いつかは https://groups.google.com/d/msg/clojure-dev/8YJJM8lJuQs/hR5_vUZPCQAJ[support] になるかもしれませんが、今のところはそうではありません。
 
 ////
 `shadow-cljs` lets you configure additional reader features in `.cljc` files. By default you can only use reader conditionals to generate separate code for `:clj`, `:cljs` or `:cljr`. In many CLJS builds however it is also desirable to select which code is generated based on your `:target`.
@@ -1039,7 +1039,7 @@ The `:server` build will then no longer have the `codemirror` require and the `i
     ["react" :as react]))
 
 ;; 実際にどこにも呼び出されなければ、
-;; 以下はデッドコードとして削除されるでしょう。
+;; 以下はデッドコードとして削除されます。
 
 (defn init-cm [dom-node] :no-op)
 ...
@@ -1179,7 +1179,12 @@ It is possible to use set defaults that will be used for all builds, or for all 
 ////
 Configuration merge order is as follows `:build-defaults` -> `:target-defaults` -> actual build config -> extra config overrides.
 ////
-設定のマージ順序は以下の通りです。 `:build-defaults` -> `:target-defaults` -> 実際のビルドコンフィグ -> エクストラコンフィグのオーバーライド。
+設定のマージ順序は以下の通りです。 
+
+1. `:build-defaults`
+2. `:target-defaults` 
+3. 実際のビルドコンフィグ
+4. 追加の設定によるオーバーライド
 
 ////
 .Example `shadow-cljs.edn` config

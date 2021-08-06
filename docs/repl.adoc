@@ -35,9 +35,9 @@ IMPORTANT: Node REPL を終了すると、 `node` プロセスも kill されま
 ////
 `node-repl` lets you get started without any additional configuration. It has access to all your code via the usual means, ie. `(require '[your.core :as x])`. Since it is not connected to any build it does not do any automatic rebuilding of code when your files change and does not provide hot-reload.
 ////
-`node-repl` を使えば、追加の設定をすることなく、すぐに使い始めることができます。
+`node-repl` により、追加設定をする必要がなく、すぐに使い始めることができます。
 
-node-repl は、 `(require '[your.core :as x])` という通常の方法で、あなたのすべてのコードにアクセスします。ビルドに接続されていないので、ファイルが変更されてもコードの自動再構築は行われず、ホットリロードも提供されません。
+`node-repl` は、 `(require '[your.core :as x])` という通常の方法で、あなたのすべてのコードにアクセスします。ビルドに接続されていないので、ファイルが変更されてもコードの自動再構築は行われず、ホットリロードも提供されません。
 
 === Browser REPL [[browser-repl]]
 
@@ -226,6 +226,8 @@ The `shadow.cljs.devtools.api` namespace has functions that map more or less 1:1
 ;; CLJS REPL に入れば :repl/quit や cljs/quit を使って CLJ に戻ることができる
 
 ```
+
+<<<
 
 === 組み込み [[embedded]]
 

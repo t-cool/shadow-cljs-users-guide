@@ -1,7 +1,7 @@
 ////
 There is an additional target that is intended to integrate CLJS into an existing JS project. The output can seamlessly integrate with existing JS tools (eg. webpack, browserify, babel, create-react-app, ...) with little configuration.
 ////
-既存のJSプロジェクトにCLJSを統合することを目的とした追加ターゲットがあります。この出力は、既存のJSツール（例：webpack、browserify、babel、create-react-appなど）とわずかな設定でシームレスに統合できます。
+既存のJSプロジェクトにCLJSを統合することを目的とした追加ターゲットがあります。この出力は、既存のJSツール (webpack、browserify、babel、create-react-app 等）とわずかな設定で途切れなく統合できます。
 
 ////
 [horizontal]
@@ -9,8 +9,8 @@ There is an additional target that is intended to integrate CLJS into an existin
 `:entries` :: (required) A vector of namespace symbols that should be compiled
 ////
 [horizontal]
-`:output-dir` :: デフォルトでは `node_modules/shadow-cljs` となります。
-`:entries` :: (必須) コンパイルされるべき名前空間シンボルのベクトル。
+`:output-dir` :: (デフォルト) `node_modules/shadow-cljs`
+`:entries` :: (必須) コンパイルされるべき名前空間シンボルのベクトル
 
 ////
 .Example `shadow-cljs.edn` config

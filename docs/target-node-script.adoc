@@ -36,7 +36,7 @@ You will need the same basic <<config,main configuration>> as in other targets (
 ////
 .Sample node script build
 ////
-. Node スクリプトのビルド例
+.Node スクリプトのビルド例
 
 ```
 {:source-paths [...]
@@ -65,8 +65,8 @@ You will often write scripts that run as servers or some other long-running proc
 . Add start/stop callback functions.
 . Configure the build use those hooks.
 ////
-. start/stop コールバック機能の追加
-.これらのフックを使用するようにビルドを設定する
+
+start/stop コールバック関数の追加して、これらのフックを使用するようにビルドを設定します。
 
 ////
 Here is an example http server in node:

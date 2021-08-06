@@ -417,7 +417,7 @@ This means that you should `npm install react`.
 ////
 TIP: In the case of `react` you probably need these 3 packages: `npm install react react-dom create-react-class`.
 ////
-TIP: `react` の場合は、おそらく以下の3つのパッケージが必要です。`npm install react react-dom create-react-class`.
+TIP: `react` を利用する場合は、おそらく以下の3つのパッケージが必要です。`npm install react react-dom create-react-class`.
 
 
 == ユーザの設定 [[user-config]]
@@ -471,7 +471,9 @@ When using `deps.edn` to resolve dependencies you may sometimes want to activate
 ////
 This will make the `shadow-cljs` command use the `[:cider :cljs]` aliases in projects using `deps.edn`. This might be useful if you have an additional `:cider` alias in your `~/.clojure/deps.edn`.
 ////
-これにより、 `deps.edn` を使用しているプロジェクトでは、 `shadow-cljs` コマンドが `[:cider :cljs]` のエイリアスを使用するようになります。これは、あなたの `~/.clojure/deps.edn` に追加の `:cider` エイリアスがある場合に便利かもしれません。
+これにより、 `deps.edn` を使用しているプロジェクトでは、 `shadow-cljs` コマンドが `[:cider :cljs]` のエイリアスを使用するようになります。
+
+これは、あなたの `~/.clojure/deps.edn` に追加の `:cider` エイリアスがある場合に便利かもしれません。
 
 
 ////
@@ -770,7 +772,7 @@ IMPORTANT:: These are just generic web servers that server static files. They ar
 ////
 .Basic example serving the `public` directory via `http://localhost:8000`
 ////
-.基本的な例では、 `http://localhost:8000` を介して `public` ディレクトリを提供しています。
+基本的な例では、 `http://localhost:8000` を介して `public` ディレクトリを serve します。
 
 ```
 {...
@@ -847,7 +849,7 @@ if a resource is not found for the given request. Defaults to `shadow.http.push-
 `:root` :: (String) リクエストを処理するためのパスです。 `classpath:` で始まるパスは、ファイルシステムではなく、クラスパスからリクエストを処理します。すべてのファイルシステムのパスは、プロジェクトのルートからの相対パスです。
 `:roots` :: 複数のルートパスが必要な場合は、`:root` の代わりに使用します。
 `:ssl-port`  :: `(文字列のベクトル) ssl` が設定されている場合、ssl 接続にはこのポートを使用し、通常の HTTP サーバは通常のポートを使用します。 `ssl-port` が設定されておらず、`:ssl` が設定されている場合、デフォルトのポートは SSL リクエストのみをサーバします。
-`:host` :: オプションです。リッスンするホスト名を指定します。デフォルトでは localhost になります。
+`:host` :: オプションです。listen するホストを指定します。デフォルトは localhost です。
 `:handler` :: オプションです。完全に修飾されたシンボルです。与えられたリクエストに対してリソースが見つからない場合に使用される `(defn handler [req] resp)` です。
 `(defn handler [req] resp)` は、与えられたリクエストに対してリソースが見つからない場合に使用されます。デフォルトでは `shadow.http.push-state/handle` となります。
 
@@ -909,7 +911,7 @@ Additional optional Options to configure the connection handling are:
 `:proxy-rewrite-host-header` :: boolean で、デフォルトは true です。オリジナルの Host ヘッダーを使用するか、`:proxy-url` からのヘッダーを使うかを決めます。上記の例では `localhost` と `some.host` のどちらを使用するかを決定します。
 `:proxy-reuse-x-forwarded` :: boolean で、デフォルトは false です。プロキシが自分自身を `X-Forwarded-For` リストに追加するか、新しいリストを開始するかを設定します。
 `:proxy-max-connection-retries` :: int で、デフォルトは 1 です。
-`:proxy-max-request-time` :: int でミリ秒を表し、デフォルトは 30000 です。30秒のリクエストタイムアウトです。
+`:proxy-max-request-time` :: int でミリ秒を表し、デフォルトは 30000(30秒のリクエストタイムアウト)です。
 
 == JVM の設定 [[jvm-opts]]
 
@@ -940,7 +942,7 @@ This is done by configuring `:jvm-opts` at the root of `shadow-cljs.edn` expecti
 ////
 The arguments that can be passed to the JVM vary depending on the version but you can find an example list https://docs.oracle.com/javase/8/docs/technotes/tools/windows/java.html[here] . Please note that assigning too little or too much RAM can degrade performance. The defaults are usually good enough.
 ////
-JVM に渡すことができる引数はバージョンによって異なりますが https://docs.oracle.com/javase/8/docs/technotes/tools/windows/java.html[here] のリストの例があります。 RAM の割り当てが少なすぎたり多すぎたりすると、パフォーマンスが低下することがありますのでご注意ください。通常は、デフォルトの設定で十分です。
+JVM に渡すことができる引数はバージョンによって異なります。RAM の割り当てが少なすぎたり多すぎたりすると、パフォーマンスが低下することがあるので注意してください。通常はデフォルトの設定で十分です。
 
 ////
 IMPORTANT: When using `deps.edn` or `project.clj` the `:jvm-opts` need to be configured there.

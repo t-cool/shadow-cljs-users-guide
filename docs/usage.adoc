@@ -50,7 +50,7 @@ $ ./node_modules/.bin/shadow-cljs help
 ////
 The guide will assume there is a global install to keep examples short but this is not required.
 ////
-このガイドでは、例を短くするためにグローバルインストールを前提としていますが、これは必須ではありません。
+例を短くするため、このガイドではグローバルインストールを前提としていますが、これは必須ではありません。
 
 ////
 .Commonly used shadow-cljs commands during development
@@ -115,7 +115,7 @@ $ shadow-cljs release app --debug
 ////
 A `shadow-cljs` command can be fairly slow to start. To improve this `shadow-cljs` can run in "server mode" which means that a dedicated process is started which all other commands can use to execute a lot faster since they won't have to start a new JVM/Clojure instance.
 ////
-`shadow-cljs` コマンドは起動にかなり時間がかかります。これを改善するために、 `shadow-cljs` はサーバモードで動作させることができます。
+`shadow-cljs` コマンドを使う際、起動にかなり時間がかかります。この点を改善するために、`shadow-cljs` はサーバモードで動作させることができます。
 
 これにより専用のプロセスが開始され、他のすべてのコマンドがそれを利用して、新しい JVM/Clojure インスタンスを開始する必要がないため、より速く実行できます。
 
@@ -175,7 +175,9 @@ Build Tool Integration
 ////
 CAUTION: It is strongly recommended to use the standalone `shadow-cljs` version. The command does a lot of things to optimize the user experience (e.g. faster startup) which are not done by other tools. You'll also save yourself a lot of headaches dealing with dependency conflicts and other related errors.
 ////
-注意: スタンドアロンの `shadow-cljs` バージョンを使用することを強くお勧めします。このコマンドは、UX を最適化するために、他のツールでは行われない多くのことを行います (例えば、起動の高速化など)。また、依存関係の衝突やその他の関連するエラーに対処するための多くの頭痛の種を避けることができるでしょう。
+CAUTION: スタンドアロンの `shadow-cljs` バージョンを使用することを強くお勧めします。このコマンドは、UX を最適化するために、他のツールでは行われない多くのことを行います (例えば、起動の高速化など)。また、依存関係の衝突やその他の関連するエラーに対処するための多くの頭痛の種を避けることができるでしょう。
+
+<<<
 
 === Leiningen [[Leiningen]]
 
@@ -335,6 +337,8 @@ You must add the `thheller/shadow-cljs` artifact to your `deps.edn` manually.
   {:extra-deps {thheller/shadow-cljs {:mvn/version <latest>}}}}
 ```
 
+<<<
+
 ////
 Running with `clj` directly.
 ////
@@ -379,6 +383,7 @@ https://github.com/jgdavey/boot-shadow-cljs
 
 https://github.com/jgdavey/boot-shadow-cljs
 
+<<<
 
 == Clojure コードの実行 [[clj-run]] 
 

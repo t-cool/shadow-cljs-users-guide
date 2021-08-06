@@ -48,8 +48,7 @@ While `shadow-cljs` won't delete anything it is safer to leave it alone. Compila
 ////
 WARNING: 各ビルドにはそれぞれ :output-dir が必要で、複数のビルドを同じディレクトリに置くことはできません。
 また、このディレクトリは、そのビルドが独占的に所有するものでなければなりません。そこには他のファイルがあってはいけません。
-`shadow-cljs` は何も削除しませんが、そのままにしておいた方が安全です。
-コンパイルでは、ソースマップ、オリジナルソース、生成ソースなど、開発中のメインエントリーポイントの javascript ファイル以外にも多くのファイルが作成されます。
+`shadow-cljs` は何も削除しませんが、そのままにしておいた方が安全です。コンパイルでは、ソースマップ、オリジナルソース、生成ソースなど、開発中のメインエントリーポイントの javascript ファイル以外にも多くのファイルが作成されます。
 
 ////
 The `:asset-path` is a prefix that gets added to the paths of module loading code inside of the generated javascript. It allows you to output your javascript module to a particular subdirectory of your web server's root. The dynamic loading during development (hot code reload) and production (code splitting) need this to correctly locate files.
@@ -153,7 +152,7 @@ The following example shows a minimum module configuration:
 ////
 The above config will create a `public/js/main.js` file. During development there will be an additional `public/js/cljs-runtime` directory with lots of files. This directory is not required for `release` builds.
 ////
-上記の設定では、 `public/js/main.js` というファイルが作成されます。開発段階では、多くのファイルが格納された `public/js/cljs-runtime` ディレクトリが追加されます。このディレクトリは `release` のビルドでは必要ありません。
+上記の設定により、`public/js/main.js` というファイルが作成されます。開発段階では、多くのファイルが格納された `public/js/cljs-runtime` ディレクトリが追加されます。このディレクトリは `release` のビルドでは必要ありません。
 
 == コードスプリッティング [[CodeSplitting]]
 
@@ -248,7 +247,7 @@ In your HTML for the Homepage you'd then always include the `shared.js` on each 
 ////
 IMPORTANT: The `.js` files must be included in the correct order. The <<BrowserManifest, `manifest.edn`>> can help with this.
 ////
-IMPORTANT: `.js` ファイルは正しい順序でインクルードする必要があります。これには <<BrowserManifest, `manifest.edn` > が役立ちます。
+IMPORTANT: `.js` ファイルは正しい順序でインクルードする必要があります。これには `manifest.edn` が役立ちます。
 
 === 動的にコードを読み込む
 //Loading code dynamically
@@ -621,8 +620,8 @@ HTML に含めるのは少し複雑です。<<BrowserManifest, Output Manifest>>
 This file contains a description of the module config together with an extra `:output-name` property which
 maps the original module name to actual filename (important when using the `:module-hash-names` feature).
 ////
-`shadow-cljs` は設定された `:output-dir` に `manifest.edn` ファイルを生成します。
-このファイルには、モジュール設定の説明と、追加の `:output-name` プロパティが含まれています。
+`shadow-cljs` は設定された `:output-dir` に `manifest.edn` ファイルを生成します。このファイルには、モジュール設定の説明と、追加の `:output-name` プロパティが含まれています。
+
 オリジナルのモジュール名を実際のファイル名にマッピングします (`:module-hash-names` 機能を使用する際に重要です)。
 
 ////
