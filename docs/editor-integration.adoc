@@ -258,7 +258,7 @@ Calva は nREPL と `cider-nrepl` のミドルウェアを使用しているの�
 ////
 Once that is done start your shadow app. (Using whatever build instead of `app`.):
 ////
-それが終わったら、shadow app を起動します。(`app` の代わりにどんなビルドでも使用します)。
+その後、shadow 製アプリケーションを起動します。`app` 以外のビルドでも使用できます。
 
 ```
 $ shadow-cljs watch app
@@ -267,7 +267,7 @@ $ shadow-cljs watch app
 ////
 Once the app is loaded in the browser, and you see `JS runime connected` in the terminal where you started the app, Calva can connect to its repl. Open the project in VS Code and Calva will by default try to auto connect and prompt you with a list of builds read from `shadow-cljs.edn`. Select the right one (`:app` in this example) and Calva's Clojure and Clojurescript support is activated.
 ////
-アプリがブラウザに読み込まれ、アプリを起動したターミナルに JS runime connected と表示されると、Calva はそのレプリケーションに接続できるようになります。VS Code でプロジェクトを開くと、Calva はデフォルトで自動接続を試み、 `shadow-cljs.edn` から読み込んだビルドのリストを表示します。正しいもの(この例では `:app`)を選択すると、Calva の Clojure と Clojurescript のサポートが有効になります。
+アプリがブラウザに読み込まれ、アプリを起動したターミナルに JS runime connected と表示されると、Calva はその REPL に接続できるようになります。VS Code でプロジェクトを開くと、Calva はデフォルトで自動接続を試み、`shadow-cljs.edn` から読み込んだビルドのリストを表示します。正しいもの(この例では `:app`)を選択すると、Calva の Clojure と Clojurescript のサポートが有効になります。
 
 ////
 (If you already have the project open in VS Code when you start the app, issue the `Calva: Connect to a Running REPL Server in the Project` command.)

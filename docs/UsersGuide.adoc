@@ -1,7 +1,7 @@
 = Shadow CLJS User's Guide 邦訳
-:author: Thomas Heller , Tony Kay
-:revdate: Jan 10, 2018
-:revnumber: 1.0
+:author: Thomas Heller・Tony Kay 著
+:revdate:  2022 年 5 月 11 日 (翻訳版)
+:revnumber: 1.1
 :lang: ja
 :encoding: UTF-8
 :doctype: book
@@ -53,7 +53,7 @@ This is a work in progress. If you find an error, please submit a PR to fix it, 
 ////
 This source for this book is hosted on https://github.com/shadow-cljs/shadow-cljs.github.io[Github] .
 ////
-この本のソースは https://github.com/shadow-cljs/shadow-cljs.github.io[Github] にあります。
+この本のソースは https://github.com/shadow-cljs/shadow-cljs.github.io にあります。
 
 
 === 使用した規約
@@ -62,14 +62,14 @@ This source for this book is hosted on https://github.com/shadow-cljs/shadow-clj
 There are many examples in this book. Most things used in these should be obvious from their context,
 but to prevent misunderstanding it is important to know the author's intentions.
 ////
-この本にはたくさんの例題があります。これらの中で使われているほとんどのものは、その文脈から明らかなはずです。
+この本にはたくさんの例があります。これらの中で使われているほとんどのものは、その文脈から明らかなはずです。
 しかし、誤解を防ぐためには、作者の意図を知ることが大切です。
 
 ////
 When command-line examples are given we may include BASH comments (starting with `#`), and will
 usually include the standard user UNIX prompt of `$` to indicate separation of the command from its output.
 ////
-コマンドラインの例を示すときには、BASH のコメント（ `#` で始まる）を含めることがあります。通常は、コマンドとその出力の分離を示すために、標準的なユーザー UNIX プロンプトである `$` を含めます。
+コマンドラインの例を示すときには、BASH のコメント（ `#` ）を含めることがあります。また、コマンドとその出力の分離を示すために、標準的なユーザー UNIX プロンプトである `$` を含めます。
 
 ////
 ```bash
@@ -92,8 +92,7 @@ project.clj
 ////
 Many of the examples are of the configuration file for the compiler. This file contains an EDN map. Where we have already discussed required options we will often elide them for clarity. In this case we'll usually include an ellipsis to indicate "content that is required but isn't in our current focus":
 ////
-例題の多くは、コンパイラの設定ファイルです。このファイルには、EDN マップが含まれています。必要なオプションについてすでに説明している場合は、わかりやすくするために省略することがあります。この場合、必要だが、現在の焦点ではない内容を示すために省略記号を入れるのが普通です。
-
+多くの例はコンパイラの設定ファイルで、EDN マップが含まれています。必要なオプションについてすでに説明している場合は、わかりやすくするために省略することがあります。この場合、焦点ではない内容を示すために省略記号を入れるのが普通です。
 
 ////
 .Example 1. Specify dependencies
@@ -117,7 +116,7 @@ Many of the examples are of the configuration file for the compiler. This file c
 ////
 This allows us to concisely include enough context to understand the nesting of the configuration of interest:
 ////
-これにより、対象となる構成の入れ子を理解するのに十分なコンテキストを簡潔に含めることができます。
+これにより、関心のある設定のネストを理解するのに十分なコンテキストを簡潔に含めることができます。
 
 ////
 .Example 3. Nested option
@@ -159,7 +158,7 @@ You will need:
 ////
 In your project directory you'll need a `package.json`. If you do not have one yet you can create one by running `npm init -y`. If you don't have a project directory yet consider creating it by running
 ////
-プロジェクトのディレクトリには、`package.json` が必要です。ない場合は `npm init -y` を実行して作成することができます。プロジェクトディレクトリがない場合は、次のコマンドを実行して作成してください。
+プロジェクトのディレクトリには `package.json` が必要であり、ない場合は `npm init -y` を実行して作成することができます。プロジェクトのディレクトリがない場合は、次のコマンドを実行して作成します。
 
 ```
 $ npx create-cljs-project my-project
@@ -173,7 +172,7 @@ This will create all the necessary basic files and you can skip the following co
 ////
 If you have a `package.json` already and just want to add `shadow-cljs` run
 ////
-すでに `package.json` があり、 `shadow-cljs` を追加したいだけの場合は、以下を実行します。
+すでに `package.json` があり `shadow-cljs` を追加する場合は、以下を実行します。
 
 .NPM
 ```bash
@@ -188,7 +187,7 @@ $ yarn add --dev shadow-cljs
 ////
 For convenience you can run `npm install -g shadow-cljs` or `yarn global add shadow-cljs`. This will let you run the `shadow-cljs` command directly later. There should always be a shadow-cljs version installed in your project, the global install is optional.
 ////
-便宜上、 `npm install -g shadow-cljs` または `yarn global add shadow-cljs` を実行することができます。これにより、後で `shadow-cljs` コマンドを直接実行できるようになります。あなたのプロジェクトには常に shadow-cljs のバージョンがインストールされている必要があり、グローバル・インストールは任意です。
+`npm install -g shadow-cljs` か `yarn global add shadow-cljs` とすることにより、後で `shadow-cljs` コマンドを直接実行できるようになります。あなたのプロジェクトには常に shadow-cljs のバージョンがインストールされている必要がありますが、グローバル環境へのインストールは任意です。
 
 
 == ライブラリ
@@ -216,13 +215,9 @@ include::repl.adoc[]
 // Configuration [[config]]
 
 ////
-`shadow-cljs` is configured by a `shadow-cljs.edn` file in your project root directory. You can
-create a default one by running `shadow-cljs init`. It should contain a map with some global
-configuration and a `:builds` entry for all your builds.
+`shadow-cljs` is configured by a `shadow-cljs.edn` file in your project root directory. You can create a default one by running `shadow-cljs init`. It should contain a map with some global configuration and a `:builds` entry for all your builds.
 ////
-`shadow-cljs` は、プロジェクトのルートディレクトリにある `shadow-cljs.edn` ファイルによって設定されます。デフォルトのファイルを作成するには
- `shadow-cljs init` を実行することで、デフォルトのファイルを作成することができます。このファイルには、いくつかのグローバルな設定を含むマップと
-マップと、すべてのビルドのための `:builds` エントリが含まれています。
+`shadow-cljs` はプロジェクトのルートディレクトリにある `shadow-cljs.edn` ファイルによって設定され、`shadow-cljs init` を実行して初期用のファイルを作成できます。このファイルには、グローバルな設定を行うためのマップと、すべてのビルドのための `:builds` エントリが含まれています。
 
 
 ```
@@ -809,14 +804,14 @@ IMPORTANT:: These are just generic web servers that server static files. They ar
 ////
 This would attempt to find a request to `/index.html` via `public/index.html` on the classpath. Which may include files in `.jar` files.
 ////
-これは、クラスパス上の `public/index.html` から `/index.html` へのリクエストを見つけようとするものです。これは `.jar` ファイルの中のファイルを含む可能性があります。
+これは、クラスパス上の `public/index.html` から `/index.html` へのリクエストを見つけようとするものであり、`.jar` ファイルの中にファイルを含む場合があります。
 
 
 ////
 .Serve from multiple roots
 ////
-複数のルートから serve する
 
+.複数のルートから serve する
 ```
 :dev-http {8000 ["a" "b" "classpath:c"]}
 ```

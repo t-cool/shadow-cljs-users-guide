@@ -17,7 +17,7 @@ During development you have the option to `compile` a build once or run a `watch
 ////
 When it is time to get serious you create a <<release, `release`>> build which creates an optimized build suitable for production. For this the https://developers.google.com/closure/compiler/[Closure Compiler] is used which applies some seriously `:advanced` optimizations to your code to create the most optimal output available. This may require some <<externs, tuning>> to work properly when using lots of interop with native JavaScript but works flawlessly for ClojureScript (and the code from the https://developers.google.com/closure/library/[Closure Library]).
 ////
-本格的に開発する場合には、<<release, `release`>>というビルドを作成し、本番環境に適した最適化されたビルドを作成します。これには https://developers.google.com/closure/compiler/[Closure Compiler] が使用され、利用可能な最も最適な出力を作成するために、コードに深刻な `:advanced` 最適化を適用します。ネイティブ JavaScript とのインターロップを多用している場合には、適切に動作させるためにいくつかの<<externs, チューニング>>が必要になるかもしれませんが、ClojureScript(および https://developers.google.com/closure/library/[Closure Library] のコード)では完璧に動作します。
+本格的に開発する場合には、<<release, `release`>> というビルドを作成し、本番環境に適した最適化されたビルドを作成します。これには https://developers.google.com/closure/compiler/[Closure Compiler] が使用され、利用可能な最も最適な出力を作成するために、コードに深刻な `:advanced` 最適化を適用します。ネイティブ JavaScript とのインターロップを多用している場合には、適切に動作させるためにいくつかの<<externs, チューニング>>が必要になるかもしれませんが、ClojureScript(および https://developers.google.com/closure/library/[Closure Library] のコード)では完璧に動作します。
 
 == コマンドライン
 
