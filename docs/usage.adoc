@@ -24,7 +24,7 @@ When it is time to get serious you create a <<release, `release`>> build which c
 ////
 If <<Installation, installed>> globally, you can use the `shadow-cljs` command directly.
 ////
-グローバル環境にインストールされている場合は、 `shadow-cljs` コマンドを直接使用することができます。
+グローバル環境にインストールされている場合は、 `shadow-cljs` コマンドを直接使用できます。
 
 ```bash
 $ shadow-cljs help
@@ -33,7 +33,7 @@ $ shadow-cljs help
 ////
 If you prefer to only use the local `npm` install you can invoke it via `npx` or `yarn`.
 ////
-ローカルにインストールした `npm` のみを使用したい場合は、 `npx` や `yarn` を介して起動することができます。
+ローカルにインストールした `npm` のみを使用したい場合は、 `npx` や `yarn` を介して起動できます。
 
 ```bash
 # npm
@@ -72,14 +72,20 @@ $ shadow-cljs cljs-repl app
 $ shadow-cljs node-repl
 ```
 ////
+
 ```bash
 # ビルドを一度コンパイルして終了
 $ shadow-cljs compile app
 
 # コンパイルと監視
 $ shadow-cljs watch app
+```
 
-# ビルド用の REPL に接続 (watch の実行中に利用可能)$ shadow-cljs cljs-repl app
+<<<
+
+```bash
+# ビルド用の REPL に接続 (watch の実行中に利用可能)
+$ shadow-cljs cljs-repl app
 
 # スタンドアロンの Node repl への接続
 $ shadow-cljs node-repl
@@ -148,7 +154,7 @@ $ shadow-cljs clj-repl
 ////
 You can also run the server in the background controlled via the common `start|stop|restart` functions.
 ////
-また、一般的な `start|stop|restart` 関数を使って、バックグランドでサーバを制御することもできます。
+一般的な `start|stop|restart` 関数で制御されたバックグランドでサーバを実行することもできます。
 
 ```bash
 $ shadow-cljs start
@@ -159,7 +165,9 @@ $ shadow-cljs restart
 ////
 Once any server is running every other command will use that and run much faster.
 ////
-いずれかのサーバが起動していれば、他のすべてのコマンドはそのサーバを使用し、より速く動作します。
+いずれかサーバが起動していれば、他のコマンドはそのサーバを使用し、より速く動作します。
+
+<<<
 
 == ビルドツールの統合
 
@@ -176,8 +184,6 @@ Build Tool Integration
 CAUTION: It is strongly recommended to use the standalone `shadow-cljs` version. The command does a lot of things to optimize the user experience (e.g. faster startup) which are not done by other tools. You'll also save yourself a lot of headaches dealing with dependency conflicts and other related errors.
 ////
 CAUTION: スタンドアロンの `shadow-cljs` バージョンを使用することを強くお勧めします。このコマンドは、UX を最適化するために、他のツールでは行われない多くのことを行います (例えば、起動の高速化など)。また、依存関係の衝突やその他の関連するエラーに対処するための多くの頭痛の種を避けることができるでしょう。
-
-<<<
 
 === Leiningen [[Leiningen]]
 
@@ -336,8 +342,6 @@ You must add the `thheller/shadow-cljs` artifact to your `deps.edn` manually.
  {:cljs
   {:extra-deps {thheller/shadow-cljs {:mvn/version <latest>}}}}
 ```
-
-<<<
 
 ////
 Running with `clj` directly.

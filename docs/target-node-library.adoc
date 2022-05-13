@@ -197,6 +197,7 @@ The build configuration would be:
                     :exports   {:hello demo.lib/hello}}}}
 ```
 
+<<<
 ////
 and the runtime use is as you would expect:
 ////

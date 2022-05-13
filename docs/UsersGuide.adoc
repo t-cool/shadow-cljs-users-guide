@@ -1,8 +1,8 @@
-= Shadow CLJS User's Guide 邦訳
+= Shadow CLJS User's Guide
 :author: Thomas Heller・Tony Kay 著
-:revdate:  2022 年 5 月 11 日 (翻訳版)
-:revnumber: 1.1
+:revdate:  Hiroki Noguchi 訳
 :lang: ja
+:revnumber: 2022.5.13
 :encoding: UTF-8
 :doctype: book
 :source-language: clojure
@@ -16,6 +16,8 @@
 :imagesdir: assets/img
 :scriptsdir: js
 :imagesoutdir: assets/img
+
+//:title-page-background-image: image:shadow_cljs.svg[]
 
 ifdef::env-github[]
 :tip-caption: :bulb:
@@ -40,6 +42,8 @@ endif::[]
 
 include::intro.adoc[]
 
+<<<
+        
 == 本書について
 
 === 進行中
@@ -86,7 +90,6 @@ project.clj
 $ ls -l
 shadow-cljs.edn
 project.clj
-...
 ```
 
 ////
@@ -116,7 +119,7 @@ Many of the examples are of the configuration file for the compiler. This file c
 ////
 This allows us to concisely include enough context to understand the nesting of the configuration of interest:
 ////
-これにより、関心のある設定のネストを理解するのに十分なコンテキストを簡潔に含めることができます。
+これにより、設定のネスト構造を理解するのに十分なコンテキストを含めることができます。
 
 ////
 .Example 3. Nested option
@@ -414,7 +417,7 @@ TIP: In the case of `react` you probably need these 3 packages: `npm install rea
 ////
 TIP: `react` を利用する場合は、おそらく以下の3つのパッケージが必要です。`npm install react react-dom create-react-class`.
 
-
+<<<
 == ユーザの設定 [[user-config]]
 
 ////
@@ -482,6 +485,7 @@ The only other currently accepted value in the user config is the <<open-file-co
 ////
 ユーザー設定で現在受け入れられている値は、<<open-file-command, :open-file-command>> のみです。他のオプションは現在のところ何の効果もありません。
 
+<<<
 == サーバのオプション
 
 ////
@@ -908,6 +912,8 @@ Additional optional Options to configure the connection handling are:
 `:proxy-max-connection-retries` :: int で、デフォルトは 1 です。
 `:proxy-max-request-time` :: int でミリ秒を表し、デフォルトは 30000(30秒のリクエストタイムアウト)です。
 
+<<<
+
 == JVM の設定 [[jvm-opts]]
 
 ////
@@ -962,13 +968,11 @@ include::target-browser.adoc[]
 
 = React Native をターゲットにする [[target-react-native]] 
 
-
 //Targeting React Native [[target-react-native]]
 
 include::target-react-native.adoc[]
 
 = Node.js を対象とする [[target-node]] 
-
 
 //Targeting node.js [[target-node]]
 
@@ -980,6 +984,8 @@ There is built-in support for generating code that is intended to be used as a s
 == Node.js のスクリプト [[target-node-script]]
 
 include::target-node-script.adoc[]
+
+<<<
 
 == Node.js ライブラリ [[target-node-library]]
 
@@ -1044,6 +1050,7 @@ include::target-node-test.adoc[]
 
 include::target-browser-test.adoc[]
 
+<<<
 == 継続的インテグレーションのためにテストを Karma にターゲットする [[target-karma]] 
 
 //Targeting Tests to Karma for Continuous Integration [[target-karma]]
@@ -1113,3 +1120,6 @@ that project and understand its setup, build, etc.
 ////
 これは、そのプロジェクトをクローンして、そのセットアップやビルドなどを理解しなくても、修正をテストするための便利な方法です(`shadow-cljs` 自体もテストできます!)。
 プロジェクトをクローンして、そのセットアップやビルドなどを理解することなく、修正をテストする便利な方法です。
+
+<<<
+

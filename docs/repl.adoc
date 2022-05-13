@@ -141,12 +141,14 @@ If you see this you need to open your App in the Browser or start the `node` pro
 ////
 これが表示された場合、ブラウザでアプリを開くか、 `node` プロセスを開始する必要があります。
 
+<<<
+
 == Clojure REPL
 
 ////
 A Clojure REPL is also provided in addition to the provided ClojureScript REPLs. This is can be used to control the `shadow-cljs` process and run all other build commands through it. You can start with a Clojure REPL and then upgrade it to a CLJS REPL at any point (and switch back).
 ////
-提供されている ClojureScript REPL に加えて、Clojure REPL も提供されています。これは、 `shadow-cljs` プロセスを制御し、他のすべてのビルドコマンドを実行するために使用できます。Clojure REPL から始めて、いつでも CLJS REPL にアップグレードすることができます(そして元に戻すこともできます)。
+提供されている ClojureScript REPL に加えて、Clojure REPL も提供されています。これは、`shadow-cljs` プロセスを制御し、他のすべてのビルドコマンドを実行するために使用できます。Clojure REPL から始めて、いつでも CLJS REPL にアップグレードすることができます(そして元に戻すこともできます)。
 
 ////
 .Running from the CLI

@@ -36,12 +36,11 @@ Each build in `shadow-cljs` must define a `:target` which defines where you inte
 ////
 Targets are covered in separate chapters.
 ////
-ターゲットについては別の章で説明します。
+ターゲットについては別章で説明しますが、一部をご紹介します。
 
 ////
 Here are some of them:
 ////
-ここでは一部をご紹介します。
 
 ////
 [Horizontal]
@@ -57,17 +56,19 @@ Here are some of them:
 <<target-browser, `:browser`>>:: Web ブラウザでの実行に適したコードを出力します。
 <<target-bootstrap, `:bootstrap`>>::ブートストラップされた cljs 環境で実行するのに適したコードを出力します。
 <<target-browser-test, `:browser-test`>>:: テストをスキャンして必要なファイルを決定し、ブラウザで実行するのに適したテストを出力します。
-<<target-karma, `:karma`>>:: テストをスキャンして必要なファイルを決定し、karma-runner互換のテストを出力します。 http://karma-runner.github.io/2.0/index.html[Karma] を参照してください。
+<<target-karma, `:karma`>>:: テストをスキャンして必要なファイルを決定し、karma-runner互換のテストを出力します。
 <<target-node-library, `:node-library`>>:: ノードライブラリとして使用するのに適したコードを出力します。
 <<target-node-script, `:node-script`>>:: ノードスクリプトとして使用するのに適したコードを出力します。
-<<target-npm-module, `:npm-module`>>:: ノードスクリプトとしての使用に適したコードを出力します。 npm モジュールとして使用するのに適したコードを出力します。
+<<target-npm-module, `:npm-module`>>:: npm モジュールとして使用するのに適したコードを出力します。
 
 
 ////
 Each target is covered in more detail in its own chapter since the remaining build options vary on
 the target you select.
 ////
-ターゲットを選択すると残りのビルドオプションが変わるため、ターゲットについては各々の章で詳しく説明します。
+ターゲットを選択すると残りのビルドオプションが変わるため、各々の章で詳しく説明します。
+
+<<<
 
 == 開発オプション [[devtools]]
 
@@ -221,8 +222,7 @@ This would call `my.app/stop` before loading any new code and `my.app/start` whe
 ////
 There are also async variants of these in case you need to do some async work that should complete before proceeding with the reload process.
 ////
-また、リロード処理を行う前に完了すべき非同期処理を行う必要がある場合は、これらの非同期版もあります。
-
+リロード処理の前に完了すべき非同期処理を行う場合、これらの非同期版もあります。
 
 ////
 .async hooks example
@@ -250,13 +250,13 @@ There are also async variants of these in case you need to do some async work th
 ////
 IMPORTANT: The functions will receive one callback function that must be called when their work is completed. If the callback function is not called the reload process will not proceed.
 ////
-IMPORTANT: 各関数には、それぞれの作業が完了したときに呼び出されるべきコールバック関数が 1 つあります。このコールバック関数が呼び出されないと、リロード処理は進みません。
+IMPORTANT: 各関数には各々の作業が完了したときに呼び出されるべきコールバック関数が 1 つあり、このコールバック関数が呼び出されないとリロード処理は進みません。
 
 
 ////
 It is possible to tag namespaces with metadata so they will never be reloaded even if they are recompiled.
 ////
-名前空間にメタデータをタグ付けすることで、再コンパイルされても再読み込みされないようにすることが可能です。
+名前空間にメタデータをタグ付けすれば、再コンパイルされてもリロードされないようにできます。
 
 ////
 .A non-reloadable ns
@@ -264,7 +264,6 @@ It is possible to tag namespaces with metadata so they will never be reloaded ev
 
 ```
 (ns ^:dev/once my.thing)
-
 (js/console.warn "will only execute once")
 ```
 
@@ -279,12 +278,13 @@ Namespaces can also be tagged to always reload.
 
 ```
 (ns ^:dev/always my.thing)
-
 (js/console.warn "will execute on every code change")
 ```
 
+<<
 
 ==== 設定
+
 //Config
 
 ////
@@ -305,11 +305,11 @@ files that have been recompiled.  This function *must* be synchronous in nature.
 [Horizontal]
 `:before-load` :: 再コンパイルされたファイルを更新する直前に実行される関数のシンボル（名前空間付き）です。
 関数のシンボル（名前空間付き）です。 この関数は本質的に同期的でなければなりません。
-`:before-load-async` :: リフレッシュする直前に実行する関数 `(fn [done])` のシンボル（名前空間付き）です。この関数は非同期処理を行うことができますが、処理が完了したことを示すために、 `(done)` を必ず*呼び出さなければなりません。
+`:before-load-async` :: リフレッシュする直前に実行する関数の(名前空間がついた)シンボルです。この関数は非同期処理を行うことができますが、処理が完了したことを示すために`(done)` を必ず呼び出します。
 `:after-load` :: ホットコードのリロードが完了した後に実行する関数のシンボル(名前空間付き)です。
 `:after-load-async` :: ホットコードのリロードが完了した後に実行される関数 `(fn [done])` のシンボル(名前空間を含む)です。この関数は非同期処理を行うことができますが、完了したことを示すために、 `(done)` を必ず呼び出さなければなりません。
-`:autoload` :: コードをホットロードするかどうかを制御するブール値です。いずれかのコールバックが設定されると、暗黙的に `true` に設定されます。デフォルトでは `:browser` ターゲットに対して常に有効で、無効にするには `false` を設定します。
-`:deignore-warnings` :: 警告を含むコードをリロードするかどうかを制御するブール値です。デフォルトでは `false` に設定されます。
+`:autoload` :: コードをホットロードするかどうかを制御する真偽値です。コールバックが設定されると暗黙的に `true` に設定されます。デフォルトは `:browser` ターゲットに対して常に有効で、無効にするには `false` を設定します。
+`:deignore-warnings` :: 警告を含むコードをリロードするかどうかを制御する真偽値です。デフォルトは `false` です。
 
 ////
 .A sample of lifecycle hooks.
@@ -334,6 +334,8 @@ IMPORTANT: フックは `cljs.user` 名前空間では宣言できません。�
 TIP: If neither `:after-load` nor `:before-load` are set the compiler will only attempt to hot reload the code in the `:browser` target. If you still want hot reloading but don't need any of the callbacks you can set `:autoload true` instead.
 ////
 TIP: `:after-load` や `:before-load` が設定されていない場合、コンパイラは `:browser` ターゲットのコード内においてホットリロードのみを試みます。もしホットリロードを行いたいが、コールバックが不要な場合は、代わりに `:autoload true` を設定してください。
+
+<<
 
 == ビルドフック [[build-hooks]]
 //Build Hooks [[build-hooks]]
@@ -397,6 +399,8 @@ All build hooks will be called after the `:target` work is done. They will recei
 ////
 全てのビルドフックは、`:target` の作業が終わった後に呼び出されます。これらのフックは、最初の引数として、現在の全てのビルドデータを含む clojure マップの `build-state` を受け取り、 *必ず* この `build-state` を修正して、または修正しないで返します。複数のステージを使用する場合、後のステージが見ることができる追加データを `build-state` に追加することができます。誤ってビルド全体を壊してしまわないように、名前付きのキーのみを使用することを強くお勧めします。
 
+<<<
+
 ////
 The `build-state` has some important entries which might be useful for your hooks:
 ////
@@ -434,18 +438,20 @@ The possible stages the `:build-hooks` can use are:
 - `:optimize-finish` - called after Closure is done (`:release` only)
 - `:flush` - called after everything was flushed to disk
 ////
-- `:configure` - 初期の `:target` 特定の設定
-- `:compile-prepare` - コンパイルが行われる前に呼び出されます。
-- `:compile-finish` - すべてのコンパイルが終了した後に呼び出されます。
-- `optimize-prepare` - Closure Compiler の最適化フェーズを実行する前に呼び出されます (`:release` のみ)
+- `:configure` - 初期の `:target` 特定の設定です
+- `:compile-prepare` - コンパイルが行われる前に呼び出されます
+- `:compile-finish` - すべてのコンパイルが終了した後に呼び出されます
+- `optimize-prepare` - Closure コンパイラの最適化フェーズを実行する前に呼び出されます (`:release` のみ)
 - `:optime-finish` - Closure が終了した後に呼び出されます (`:release` のみ)
-- `:flush` - すべてがディスクにフラッシュされた後に呼び出されます。
+- `:flush` - すべてがディスクにフラッシュされた後に呼び出されます
 
 ////
 With a running `watch` the `:configure` is only called once. Any of the others may be called
 again (in order) for each re-compile. The `build-state` will be re-used until the build config changes at which point it will be thrown away and a fresh one will be created.
 ////
 `watch` を実行していると、 `:configure` は一度しか呼ばれません。再コンパイルのたびに、他の項目が再コンパイルのたびに（順に）呼び出されます。 `build-state` はビルドコンフィグが変更されるまで再利用され、その時点で破棄されて新しいものが作成されることになる。
+
+<<<
 
 == コンパイラ・キャッシュ
 //Compiler Cache
@@ -489,7 +495,7 @@ In addition you can control how much caching is done more broadly via the `:buil
 ////
 [horizontal]
 `:all` :: デフォルトでは、すべての CLJS ファイルがキャッシュされます。
-`:jars` :: ライブラリからのファイル、つまり `.jar` ファイル内のソースファイルのみをキャッシュします。
+`:jars` :: ライブラリ内の `.jar` 形式のソースファイルのみをキャッシュします。
 `:off` :: CLJS のコンパイル結果を一切キャッシュしません（圧倒的に遅いオプションです）。
 
 ////
@@ -511,7 +517,7 @@ In addition you can control how much caching is done more broadly via the `:buil
 ////
 The cache files are stored in a dedicated directory for each build so the cache is never shared between builds. A build with the id `:app` will have the `:dev` cache in the directory:
 ////
-キャッシュファイルは、ビルドごとに専用のディレクトリに保存されるので、ビルド間でキャッシュが共有されることはありません。 id が `:app` のビルドには、`:dev` のキャッシュがディレクトリに格納されます。
+キャッシュファイルはビルドごとのディレクトリに保存され、ビルド間でキャッシュは共有されません。 id が `:app` のビルドには `:dev` のキャッシュがディレクトリに格納されます。
 
 ////
 .Cache location for `cljs/core.cljs`
@@ -525,7 +531,7 @@ target/shadow-cljs/builds/app/dev/ana/cljs/core.cljs.cache.transit.json
 ////
 The `:cache-root` setting defaults to `target/shadow-cljs` and controls where ALL cache files will be written. It can only be configured globally, not per build.
 ////
-`:cache-root` の設定は、デフォルトでは `target/shadow-cljs` となり、すべてのキャッシュファイルがどこに書き込まれるかを制御します。これはグローバルにのみ設定可能で、ビルドごとに設定することはできません。
+デフォルトの `:cache-root` は `target/shadow-cljs` であり、すべてのキャッシュファイルの書き込み先を制御します。これはグローバルにのみ設定可能で、ビルドごとに設定することはできません。
 
 ////
 ```
@@ -548,12 +554,12 @@ The `:cache-root` setting defaults to `target/shadow-cljs` and controls where AL
 ;; キャッシュは、.shadow-cljs/builds/app/dev/ana/cljs/core.cljs.cache.transit.json になります。
 ```
 
-
-
 ////
 The `:cache-root` is always resolved relative to the project directory. You can also specify absolute paths (eg. `/tmp/shadow-cljs`).
 ////
 また、`:cache-root` は常にプロジェクトディレクトリからの相対パスで指定します。絶対パスを指定することもできます (例: `/tmp/shadow-cljs`)。
+
+<<<
 
 == Closure の定義 [[closure-defines]]
 //Closure Defines [[closure-defines]]
@@ -561,12 +567,12 @@ The `:cache-root` is always resolved relative to the project directory. You can 
 ////
 The Closure Library & Compiler allow you to define variables that are essentially compile time constants. You can use these to configure certain features of your build. Since the Closure compiler treats these as constants when running `:advanced` optimizations they are fully supported in the Dead-Code-Elimination passes and can be used to remove certain parts of the code that should not be included in `release` builds.
 ////
-Closure Library と Compiler では、基本的にコンパイル時の定数である変数を定義することができます。これを使って、ビルドの特定の機能を設定することができます。 Closure コンパイラは、`:advanced` 最適化を実行する際にこれらを定数として扱うため、Dead-Code-Elimination パスが完全にサポートされており、 `release` ビルドに含めるべきではないコードの特定の部分を削除するために使用することができます。
+Closure Library と Compiler では、基本的にコンパイル時の定数である変数を定義できます。これを用いてビルドの特定の機能を設定することができます。 Closure コンパイラは `:advanced` 最適化を実行する際にこれらを定数として扱うため、Dead-Code-Elimination パスが完全にサポートされており、`release` ビルドに含めるべきではないコードの特定の部分を削除するために使用することができます。
 
 ////
 You can define them in your code
 ////
-コードの中で定義することができます。
+次のようにコードの中で定義することができます。
 
 ```clojure
 (ns your.app)
@@ -658,12 +664,13 @@ These are all grouped under the `:compiler-options` key in your build config.
 ////
 Most of the standard ClojureScript https://clojurescript.org/reference/compiler-options[Compiler Options] are either enabled by default or do not apply. So very few of them actually have an effect. A lot of them are also specific to certain `:target` types and do not apply universally (e.g. `:compiler-options {:output-wrapper true}` is only relevant for `:target :browser`).
 ////
-標準的な ClojureScript https://clojurescript.org/reference/compiler-options[Compiler Options]のほとんどは、デフォルトで有効になっているか、適用されていません。そのため、実際に効果があるものはほとんどありません。また、多くのオプションは特定の `:target` タイプに固有のもので、普遍的に適用されるわけではありません (例えば、`:compiler-options {:output-wrapper true}` は `:target :browser` にのみ関係します)。
+標準的な ClojureScript https://clojurescript.org/reference/compiler-options[Compiler Options]のほとんどは、デフォルトで有効になっているか、適用されていません。そのため、実際に効果があるものはほとんどありません。また、多くのオプションは特定の `:target` タイプに固有のもので、普遍的に適用されるわけではありません。例えば、`:compiler-options {:output-wrapper true}` は `:target :browser` にのみ関係します。
 
 ////
 Currently supported options include
 ////
 現在サポートされているオプションは以下の通りです。
+
 
 ////
 - `:optimizations` supports `:advanced`, `:simple` or `:whitespace`, defaults to `:advanced`. `:none` is the default for development and cannot be set manually. `release` with `:none` won't work.
@@ -681,21 +688,21 @@ Currently supported options include
 - `:rename-prefix` and `:rename-prefix-namespace`
 - `:warnings` as a map of `{warning-type true|false}`, eg. `:warnings {:undeclared-var false}` to turn off specific warnings.
 ////
-- `:optimizations` は `:advanced`, `:simple`, `:whitespace` のいずれかをサポートしていますが、デフォルトは `:advanced` です。 `none` は開発時のデフォルトで、手動で設定することはできません。 `none` を指定した `release` は動作しません。
-- `:infer-externs` `:all`, `:auto`, `true` または `false`, デフォルトは `true` です。
-- `:static-fns` (ブール値) デフォルトでは `true` です。
-- `:fn-invoke-direct` (Boolean) デフォルトは `false` です。
-- `:ide-asserts` (Boolean) のデフォルトは、開発版では `false` 、 `release` ビルドでは `true` です。
-- `:pretty-print` と `:pseudo-names` はデフォルトで `false` になります。 `shadow-cljs release app --debug` を使用すると、設定に手を加えることなく、一時的に両方を有効にすることができます。これは `release` のビルドで問題が発生したときにとても便利です。
-- `:source-map` (Boolean) 開発中のデフォルトは `true` で、 `release` では `false` です。
-- `:source-map-include-sources-content` (Boolean) デフォルトは `true` で、ソースマップが `.map` ファイルに直接ソースを含めるかどうかを決定します。
-- `:source-map-detail-level` `:all` または `:symbols` (`:symbols` は全体のサイズを少し小さくしますが、精度も少し低くなります)
-- `:externs` パスのベクトル、デフォルトでは `[]` です。
-- `:checked-arrays` (Boolean), デフォルトは `false` です。
-- `:anon-fn-naming-policy` (論理値)
-- `:rename-prefix` と `:rename-prefix-namespace` の対応表です。
-- 例えば、`:warnings {:undeclared-var false}` とすると、特定の警告を消すことができます。
-
+[horizontal]
+`:optimizations` :: `:advanced`, `:simple`, `:whitespace` のいずれかをサポートしていますが、デフォルトは `:advanced` です。 `none` は開発時のデフォルトで、手動で設定することはできません。 `none` を指定した `release` は動作しません。
+`:infer-externs` :: `:all`, `:auto`, `true` または `false`。デフォルトは `true` です。
+`:static-fns` :: 真偽値。デフォルトでは `true` です。
+`:fn-invoke-direct` : 真偽値。デフォルトは `false` です。
+`:ide-asserts` :: 真偽値。デフォルトは、開発版では `false` 、`release` ビルドでは `true` です。
+`:pretty-print` `:pseudo-names` :: 真偽値。デフォルトで `false` です。`shadow-cljs release app --debug` を使用すると、設定に手を加えることなく、一時的に両方を有効にすることができます。これは `release` のビルドで問題が発生したときにとても便利です。
+`:source-map` :: 真偽値。開発中のデフォルトは `true` 、`release` では `false` です。
+`:source-map-include-sources-content` :: 真偽値。デフォルトは `true` で、ソースマップが `.map` ファイルに直接ソースを含めるかどうかを決定します。
+`:source-map-detail-level` :: `:all` または `:symbols`。`:symbols` は全体のサイズを少し小さくしますが、精度も少し低くなります。
+`:externs` :: パスのベクトル。デフォルトでは `[]` です。
+`:checked-arrays` :: 真偽値。デフォルトは `false` です。
+`:anon-fn-naming-policy` :: 真偽値
+`:warnings` :: `{warning-type true|false}` のマップとして指定します。`:warnings {:undeclared-var false}` と指定すると、特定の警告をオフにすることができます。
+その他 :: `:rename-prefix`、`:rename-prefix-namespace`
 
 ////
 Unsupported or non-applicable Options
@@ -706,12 +713,12 @@ Options that don't have any effect at all include
 サポートされていないか適用されていないオプション、また全く影響がない選択肢は以下の通りです。
 
 ////
-- `:verbose` is controlled by running `shadow-cljs compile app --verbose` not in the build config.
-- `:foreign-libs` and `:libs`
-- `:stable-names` always enabled, cannot be disabled
-- `:install-deps`
-- `:source-map-path`, `:source-asset-path` and `:source-map-timestamp`
-- `:cache-analysis` always enabled, cannot be disabled.
+`:verbose` is controlled by running `shadow-cljs compile app --verbose` not in the build config.
+`:foreign-libs` and `:libs`
+`:stable-names` always enabled, cannot be disabled
+`:install-deps`
+`:source-map-path`, `:source-asset-path` and `:source-map-timestamp`
+`:cache-analysis` always enabled, cannot be disabled.
 - `:recompile-dependents`
 - `:preamble`
 - `:hashbang` (the `:node-script` target supports this, others don't)
@@ -723,22 +730,18 @@ Options that don't have any effect at all include
 - `:watch-fn`
 - `:process-shim`
 ////
-- `:verbose` は、 `shadow-cljs compile app --verbose` を実行することで制御されますが、ビルド設定にはありません。
-- `:foreign-libs` と `:libs`
-- `:stable-names` は常に有効で、無効にすることはできません。
-- `:install-deps`
-- `:source-map-path` `:source-asset-path` `:source-map-timestamp`
-- `:cache-analysis` 常に有効で、無効にすることはできません。
-- `:recompile-dependents`
-- `:preamble`
-- `:hashbang` (`:node-script` ターゲットはこれをサポートしていますが、他のターゲットはサポートしていません)
-- `:compiler-stats` 詳細な情報を得るには、代わりに `--verbose` を使用してください。
-- `:optimize-constants` は `release` のビルドでは常に行われ、無効にはできません。
-- `:parallel-build` は常に有効です。
-- `:aot-cache`
-- `:package-json-resolution` 代わりに <<js-resolve, :js-options :resolve>> を参照してください。
-- `:watch-fn`
-- `:process-shim`
+[horizontal]
+`:verbose` :: `shadow-cljs compile app --verbose` を実行することで制御されますが、ビルド設定にはありません。
+`:stable-names` :: 常に有効で、無効にすることはできません。
+`:cache-analysis` :: 常に有効で、無効にすることはできません。
+`:hashbang` :: `:node-script` ターゲットはサポートしますが、他のターゲットではサポートされません
+`:compiler-stats` :: 詳細な情報を得るには、代わりに `--verbose` を使用してください。
+`:optimize-constants` :: `release` のビルドでは常に行われ、無効にはできません。
+`:parallel-build` :: 常に有効です。
+`:package-json-resolution` :: `:js-options` `:resolve` を参照してください。
+その他 :: `:foreign-libs`、`:libs`、`:install-deps`、`:source-map-path`、`:source-asset-path`、`:source-map-timestamp`、`:recompile-dependents`、`:preamble`、`:aot-cache`、`:watch-fn`、`:process-shim`
+
+<<<
 
 === エラーとしての警告 [[warnigs-as-errors]]
 //Warnings as Errors [[warnigs-as-errors]]
@@ -746,7 +749,7 @@ Options that don't have any effect at all include
 ////
 It is sometimes desireable to fail a build with warnings rather than continuing with the build (eg. in CI envs). You can use the `:warnings-as-errors` compiler options to customize how that is handled.
 ////
-ビルドを続行するのではなく、警告を表示してビルドを失敗させたい場合があります（例：CI 環境など）。 `warnings-as-errors` コンパイラオプションを使って、その処理方法をカスタマイズすることができます。
+CI(継続的インテグレーション)の環境などでは、ビルドを続行するのではなく、警告を表示してビルドを失敗させたい場合があります。`warnings-as-errors` コンパイラオプションを用いて処理方法をカスタマイズすることができます。
 
 ////
 .Treat all warnings as errors
@@ -777,7 +780,6 @@ It is sometimes desireable to fail a build with warnings rather than continuing 
 ////
 A set of possible warning-type keywords can be found https://github.com/clojure/clojurescript/blob/5ad96a8b3ae2e3616a19715ba9ba2471a36933a2/src/main/clojure/cljs/analyzer.cljc#L124-L163[here].
 ////
-可能な警告タイプのキーワードのセットは、 https://github.com/clojure/clojurescript/blob/5ad96a8b3ae2e3616a19715ba9ba2471a36933a2/src/main/clojure/cljs/analyzer.cljc#L124-L163[https://github.com/clojure/clojurescript/blob/5ad96a8b3ae2e3616a19715ba9ba2471a36933a2/src/main/clojure/cljs/analyzer.cljc#L124-L163] にあります。
 
 ////
 .Only throw for certain namespaces
@@ -798,18 +800,18 @@ A set of possible warning-type keywords can be found https://github.com/clojure/
 ////
 `ignore` には、名前空間を参照するシンボルのセットを指定します。直接マッチするか、または `.*` のワイルドカードを使用することができます。`:warning-types` は上記と同じ機能を持っています。これを指定しないと、無視された名前空間以外のすべての警告がスローされます。
 
+<<<
+
 == 出力言語オプション
 //Output Language Options
 
 ////
 By default the generated JS output will be compatible with ES5 and all "newer" features will be transpiled to compatible code using polyfills. This is currently the safest default and supports most browsers in active use (including IE10+).
 ////
-デフォルトでは、生成される JS の出力は ES5と互換性があり、すべての新しい機能はポリフィルを使用して互換性のあるコードに変換されます。これは現在のところ最も安全なデフォルトであり、現在使用されているほとんどのブラウザ（IE10+を含む）をサポートしています。
-
 ////
-You can select other output options if you only care about more modern environments and want to keep the original code without replacements (eg. `node`, Chrome Extensions, ...)
+You can select other output options if you only care about more modern environments and want to keep the original code without replacements (eg. `node`, Chrome Extensions 等)
 ////
-よりモダンな環境にのみ関心があり、置換せずに元のコードを維持したい場合は、他の出力オプションを選択することができます（例：`node`、Chrome Extensions、...）。
+デフォルトで生成される JS の出力は ES5と互換性があり、すべての新しい機能はポリフィルを使用して互換性のあるコードに変換されます。これが現状で最も安全なデフォルトであり、現在使用されている大半のブラウザ（IE10+を含む）をサポートしています。よりモダンな環境にのみ関心があり、置換せずに元のコードを維持したい場合は、他の出力オプションを選択することができます（例：`node`、Chrome Extensions、...）。
 
 ////
 IMPORTANT: Note that this mostly affects imported JS code from <<npm, npm>> or `.js` files from the <<classpath-js, classpath>>. CLJS will currently only generate ES5 output and is not affected by setting higher options.
@@ -819,12 +821,10 @@ IMPORTANT: これは主に<<npm, npm>>からインポートされた JS コー�
 ////
 You can configure this via the `:output-feature-set` in `:compiler-options`. The older `:language-out` option should not be used as `:output-feature-set` replaced it.
 ////
-これは `:compiler-options` の `:output-feature-set` で設定できます。古い `:language-out` オプションは `:output-feature-set` に置き換わるので、使用しないでください。
-
 ////
 Supported options are:
 ////
-サポートされているオプションは以下の通りです。
+`:compiler-options` の `:output-feature-set` で設定できますが、古い `:language-out` オプションは `:output-feature-set` に置き換わるので使用しないでください。以下のオプションがサポートされます。
 
 ////
 - `:es3`
@@ -835,10 +835,10 @@ Supported options are:
 - `:es-next` - all the features the Closure Compiler currently supports
 ////
 - `:es3`
-- `:es5` - `class`, `const`, `let`, ...
-- `:es6` - `class`, `const`, `let`, ...
-- `:es7` - 指数演算子 `**` 。
-- `:es8` - `async/await`, `generators`, スプレッド付きオブジェクトリテラル, ...
+- `:es5` - `class`, `const`, `let`, `...`
+- `:es6` - `class`, `const`, `let`, `...`
+- `:es7` - 指数演算子 `**` 
+- `:es8` - `async/await`, `generators`, スプレッド付きオブジェクトリテラル, `...`
 - `es-next` - Closure コンパイラが現在サポートしているすべての機能です。
 
 ////
@@ -859,8 +859,8 @@ Supported options are:
 ////
 Documentation on these options is a bit sparse and is mostly documented in the code https://github.com/google/closure-compiler/blob/master/src/com/google/javascript/jscomp/parsing/parser/FeatureSet.java[here] .
 ////
-これらのオプションに関するドキュメントは少し少なく、ほとんどがコード https://github.com/google/closure-compiler/blob/master/src/com/google/javascript/jscomp/parsing/parser/FeatureSet.java[こちら] に記載されています。
 
+<<<
 
 == Conditional Reading
 //Conditional Reading
@@ -873,16 +873,14 @@ CAUTION: Conditional Reading は `shadow-cljs` でしか動作しません。こ
 ////
 `shadow-cljs` lets you configure additional reader features in `.cljc` files. By default you can only use reader conditionals to generate separate code for `:clj`, `:cljs` or `:cljr`. In many CLJS builds however it is also desirable to select which code is generated based on your `:target`.
 ////
-`shadow-cljs` では、 `.cljc` ファイルに追加のリーダ機能を設定することができます。デフォルトでは、リーダの条件式を使用して、`:clj`、`:cljs`、または `:cljr` 用の個別のコードを生成することしかできません。
+`shadow-cljs` では `.cljc` ファイルに追加のリーダ機能を設定できます。デフォルトでは、リーダの条件式を使用して `:clj`、`:cljs`、`:cljr` 用の個別のコードを生成することしかできません。
 
-しかし、多くの CLJS のビルドでは、`:target` に基づいて、どのコードを生成するかを選択することも望ましいことです。
+多くの CLJS のビルドでは `:target` に基づいて生成するコードを選択することも望ましいことです。
 
 ////
 Example: Some `npm` packages only work when targeting the `:browser`, but you may have a `ns` that you also want to use in a `:node-script` build. This might happen frequently when trying to use Server-Side Rendering (SSR) with your React App. `codemirror` is one such package.
 ////
-例 一部の `npm` パッケージは `:browser` をターゲットにしたときにのみ動作しますが、`:node-script` のビルドでも使用したい `ns` があるかもしれません。
-
-これは、React アプリでサーバサイドレンダリング(SSR)を使おうとしているときに頻繁に起こるかもしれません。 `codemirror` はそのようなパッケージの一つです。
+例えば、`:browser` をターゲットにしたときにのみ動作する `npm` パッケージを `:node-script` のビルドでも使用したい `ns` があるかもしれません。これは React アプリでサーバサイドレンダリングを試みるときによく起こるかもしれません。`codemirror` はそのようなパッケージの一つです。
 
 ////
 ```clojure
@@ -895,7 +893,6 @@ Example: Some `npm` packages only work when targeting the `:browser`, but you ma
 (defn init-cm [dom-node]
   (let [cm (CodeMirror/fromTextArea dom-node #js {...})]
     ...))
-
 ...
 ```
 ////
@@ -911,8 +908,6 @@ Example: Some `npm` packages only work when targeting the `:browser`, but you ma
 (defn init-cm [dom-node]
   (let [cm (CodeMirror/fromTextArea dom-node #js {...})]
     ...))
-
-...
 ```
 
 
@@ -945,7 +940,6 @@ While you can use <<closure-defines, :closure-defines>> to conditionally compile
    :cljs ;; default impl
    (defn init-cm [dom-node]
      ... actual impl ...))
-
 ...
 ```
 ////
@@ -954,10 +948,8 @@ While you can use <<closure-defines, :closure-defines>> to conditionally compile
 (ns my.awesome.component
  (:require
    ["react" :as react]
-   ;; 注：ここでの順序は重要です。
-   ;; 適用可能な最初のブランチのみが使用されます。
-   ;; もし :cljs が最初に使用されたとしても、
-   ;; それは :server build に引き継がれます。
+   ;; 注：ここでの順序は重要であり、適用可能な最初のブランチのみが使用されます。
+   ;; もし :cljs が最初に使用されたとしても、:server build に引き継がれます。
    #?@(:node [[]]
        :cljs [["codemirror" :as CodeMirror]])))
 
@@ -967,8 +959,6 @@ While you can use <<closure-defines, :closure-defines>> to conditionally compile
    :cljs ;; デフォルトの処理系
    (defn init-cm [dom-node]
      ... actual impl ...))
-
-...
 ```
 
 
@@ -1035,18 +1025,17 @@ The `:server` build will then no longer have the `codemirror` require and the `i
   (:require
     ["react" :as react]))
 
-;; 実際にどこにも呼び出されなければ、
-;; 以下はデッドコードとして削除されます。
+;; 実際にどこにも呼び出されなければ、以下はデッドコードとして削除されます。
 
 (defn init-cm [dom-node] :no-op)
-...
 ```
-
 
 ////
 IMPORTANT: This feature is only available in `.cljc` files and will fail in `.cljs` files.
 ////
-IMPORTANT: この機能は、 `.cljc` ファイルでのみ利用可能で、 `.cljs` ファイルでは失敗します。
+IMPORTANT: この機能は `.cljc` 形式でのみ可能であり、`.cljs` 形式では失敗します。
+
+<<<
 
 == CLI からのオーバーライド [[config-merge]]
 //Overriding from the CLI [[config-merge]]
@@ -1102,6 +1091,8 @@ $ shadow-cljs release app --config-merge '{:closure-defines {your.app/DEBUG true
 IMPORTANT: If you specify multiple build ids the data will be merged into all specified builds. `shadow-cljs release frontend backend --config-merge '{:hello "world"}'` will be applied to both.
 ////
 IMPORTANT: 複数のビルド ID を指定した場合、データは指定したすべてのビルドにマージされます。`shadow-cljs release frontend backend --config-merge '{:hello "world"}'` を指定すると、両方に適用されます。
+
+<<<
 
 == 環境変数の使用 [[shadow-env]]
 //Using Environment Variables [[shadow-env]]
@@ -1163,6 +1154,8 @@ Supported `:as` coercions are `:int`, `:bool`, `:keyword`, `:symbol`. Supplied `
 IMPORTANT: The environment variables used when the `shadow-cljs` process was started are used. If a server process is used its environment variables will be used over those potentially set by other commands. This is mostly relevant during development but may be confusing. `--config-merge` does not have this limitation.
 ////
 IMPORTANT: `shadow-cljs` プロセスが開始されたときに使用された環境変数が使用されます。サーバプロセスが使用されている場合、その環境変数は他のコマンドで設定されたものよりも優先して使用されます。これは主に開発中に関係することですが、混乱を招くかもしれません。また、 `--config-merge` にはこのような制限はありません。
+
+<<<
 
 == ビルドとターゲットのデフォルト [[build-target-defaults]]
 

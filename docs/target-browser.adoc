@@ -25,7 +25,7 @@ A basic browser configuration looks like this:
 ////
 The browser target outputs a lot of files, and a directory is needed for them all. You'll need to serve these assets with some kind of server, and the Javascript loading code needs to know the server-centric path to these assets. The options you need to specify are:
 ////
-ブラウザのターゲットは多くのファイルを出力し、それらすべてのためのディレクトリが必要となります。これらのアセットを何らかのサーバで提供する必要があり、Javascript のロードコードは、これらのアセットへのサーバ中心のパスを知る必要があります。指定する必要のあるオプションは以下の通りです。
+ブラウザのターゲットは多くのファイルを出力し、それらすべてのためのディレクトリが必要となります。これらのアセットを何らかのサーバで提供する必要があり、Javascript コードの読み込みのためにサーバ内でのアセットへのパスを知る必要があります。以下のオプションを指定する必要があります。
 
 
 ////
@@ -67,6 +67,7 @@ You are not required to use an absolute asset path, but it is highly recommended
 例えば、`/x` というURIを求められたときに、Webサーバーが `public/x` というフォルダを提供し、モジュールの `output-dir` が `public/assets/app/js` である場合、アセットパスは `/assets/app/js` となります。
 アセットパスの絶対指定は必須ではありませんが、強く推奨します。
 
+<<<
 
 == モジュール
 //Modules
@@ -111,6 +112,7 @@ The available options in a module are:
 `:prepend-js` :: Closure オプティマイザーで実行される、有効な javascript をモジュールの出力に追加する文字列です。
 `:append-js` :: Closure オプティマイザーで実行される有効な javascript をモジュールの出力に追加する文字列です。
 
+<<<
 
 ////
 The following example shows a minimum module configuration:
@@ -154,7 +156,9 @@ The above config will create a `public/js/main.js` file. During development ther
 ////
 上記の設定により、`public/js/main.js` というファイルが作成されます。開発段階では、多くのファイルが格納された `public/js/cljs-runtime` ディレクトリが追加されます。このディレクトリは `release` のビルドでは必要ありません。
 
-== コードスプリッティング [[CodeSplitting]]
+<<<
+
+== CodeSplitting [[CodeSplitting]]
 
 //Code Splitting [[CodeSplitting]]
 
@@ -343,11 +347,13 @@ Then the following expressions can be used for loading code:
 (loader/load-many #js ["foo" "bar"])
 ```
 
-
 ////
 .Including a callback
 ////
 .コールバックを含める場合
+```
+(loader/with-module "extra" fn-to-call-on-load)
+```
 
 ////
 ```
@@ -382,7 +388,9 @@ The advantage of using the standard API is that your code will play well with ot
 ////
 標準API を使用することの利点は、自分のコードが他の人とうまく調和することです。これはライブラリの作者にとっては特に重要なことでしょう。不利な点は、標準配布の動的なモジュールローディング API は、現在のところ `shadow-cljs` のサポートに比べてやや使いにくいことです。
 
-== アウトプット・ラッパー [[output-wrapper]]
+<<<
+
+== 出力ラッパー [[output-wrapper]]
 //Output Wrapper [[output-wrapper]]
 
 ////
@@ -398,9 +406,9 @@ The advantage of using the standard API is that your code will play well with ot
 ////
 When using multiple `:modules` (a.k.a <<CodeSplitting, code splitting>>) this is not enabled by default since each module must be able to access the variables created by the modules it depends on. The Closure Compiler supports an additional option to enable the use of an output wrapper in combination with multiple `:modules` named `:rename-prefix-namespace`. This will cause the Compiler to scope all "global" variables used by the build into one actual global variable. By default this is set to `:rename-prefix-namespace "$APP"` when `:output-wrapper` is set to `true`.
 ////
-複数の `:module` (別名 <<CodeSplitting, コードスプリッティング>>) を使用している場合、各モジュールは依存しているモジュールが作成した変数にアクセスできなければならないため、このオプションはデフォルトでは有効になっていません。
+複数の `:module` を使用している場合(別名 <<CodeSplitting, コードスプリッティング>>) 、各モジュールは依存しているモジュールが作成した変数にアクセスできなければならないため、このオプションはデフォルトでは有効になっていません。
 
-Closure Compiler は、`:rename-prefix-namespace` という名前の複数の `:modules` と組み合わせた出力ラッパーの使用を有効にする追加オプションをサポートしています。これにより、コンパイラはビルドで使用されるすべてのグローバル変数を、実際のグローバル変数 1 つにスコープします。デフォルトでは、`:output-wrapper` が `true` に設定されている場合、これは `:rename-prefix-namespace "$APP"` に設定されます。
+Closure コンパイラは、`:rename-prefix-namespace` という複数の `:modules` と組み合わせた出力ラッパーの使用を有効にする追加オプションをサポートしています。これにより、コンパイラはビルドで使用されるすべてのグローバル変数を、単一のグローバル変数にスコープします。デフォルトでは、`:output-wrapper` が `true` に設定されている場合、これは `:rename-prefix-namespace "$APP"` に設定されます。
 
 ```clojure
 {...
@@ -420,8 +428,9 @@ This will only create the `MY_APP` global variable. Since every "global" variabl
 ////
 IMPORTANT: Note that the created variable isn't actually useful directly. It will contain a lot of munged/minified properties. All exported (eg. `^:export`) variables will still be exported into the global scope and are not affect by this setting. The setting only serves to limit the amount of global variables created, nothing else. Do not use it directly.
 ////
-IMPORTANT: 作成された変数は、実際には直接使えないことに注意してください。作成された変数は、実際には使い物になりませんが、多くのプロパティを含んでいます。エクスポートされた（例: `^:export` ）変数はすべてグローバルスコープにエクスポートされ、この設定の影響を受けません。この設定は、グローバル変数の作成量を制限するためだけのもので、それ以外には何もありません。直接使用しないでください。
+IMPORTANT: 実際には作成された変数を直接使えません。作成された変数は実際には使い物になりませんが、多くのプロパティを含んでいます。エクスポートされた変数（`^:export`等）はすべてグローバルスコープにエクスポートされ、この設定の影響を受けません。この設定はグローバル変数の作成量を制限するためだけのものであり、直接使用しないでください。
 
+<<<
 
 == Web Worker 
 //Web Workers
@@ -514,6 +523,8 @@ IMPORTANT: 現在、`:shared` モジュールがあるので、HTML で適切に
 <script src="/js/shared.js"></script>
 <script src="/js/main.js"></script>
 ```
+
+<<<
 
 == キャッシュ可能な出力
 //Cacheable Output
@@ -612,6 +623,8 @@ in your HTML. The <<BrowserManifest, Output Manifest>> can help with that.
 ファイル名はリリースごとに変更される可能性があるため、それらを HTML に含めるのは少し複雑になります。
 HTML に含めるのは少し複雑です。<<BrowserManifest, Output Manifest>>はその手助けとなります。
 
+<<<
+
 == 出力マニフェスト [[BrowserManifest]]
 //Output Manifest [[BrowserManifest]]
 
@@ -676,6 +689,8 @@ You can configure the name of the generated manifest file via the `:build-option
                 :extra {:entries [my.app.extra]
                         :depends-on #{:main}}}}}}
 ```
+
+<<<
 
 == 開発サポート
 //Development Support

@@ -59,10 +59,10 @@ IMPORTANT: This table only applies if the code you are consuming is packaged as 
 ////
 IMPORTANT: この表は、消費されるコードが実際の ES6+コードとしてパッケージされている場合にのみ適用されます。コードが CommonJS としてパッケージされている場合は、`:default` は適用されないかもしれません。詳細は以下のセクションを参照してください。
 
+<<<
 ////
 .ES6 Import to CLJS Require
 ////
-
 .ES6 Import から CLJS Require へ
 
 |===
@@ -144,6 +144,7 @@ With our improved support we we can easily translate this to:
             ["react-virtualized/dist/commonjs/List" :default virtual-list]))
 ```
 
+<<<
 ==== :default Exports について
 
 //About :default Exports
@@ -162,8 +163,6 @@ https://dev.clojure.org/jira/browse/CLJS-2376[https://dev.clojure.org/jira/brows
 Default exports are a new addition in ECMAScript Modules and do not exist in CommonJS code. Sometimes you will see examples of `import Foo from "something"` when the code is actually CommonJS code. In theses cases `(:require ["something" :default Foo])` will not work and `(:require ["something" :as Foo])` must be used instead.
 ////
 デフォルトのエクスポートは ECMAScript モジュールで新たに追加されたもので、CommonJS のコードには存在しません。時々、 `import Foo from "something"` という例を見かけることがありますが、実際には CommonJS のコードです。このような場合、 `(:require ["something" :default Foo])` は動作せず、 `(:require ["something" :as Foo])` を代わりに使用する必要があります。
-
-<<<
 
 ////
 If a `:require` does not seem to work properly it is recommended to try looking at it in the REPL.
@@ -445,6 +444,7 @@ Relative paths will be resolved relative to the project root directory. Paths wi
    :js-options {:js-package-dirs ["node_modules" "../node_modules"]}}}}
 ```
 
+<<<
 
 == .js ファイルへの対応 [[classpath-js]]
 //Dealing with .js Files [[classpath-js]]
@@ -458,17 +458,15 @@ CLJS has an alternate https://clojurescript.org/guides/javascript-modules[implem
 ////
 
 ****
-*DANGER: この機能は実験的なものです！* 現在は `shadow-cljs` でのみサポートされており、これを使おうとすると他の CLJS ツールに怒られます。自分の責任で使用してください。この機能は当初、CLJS のコアでは拒否されていましたが、私は便利だと思いますし、さらなる議論なしに https://dev.clojure.org/jira/browse/CLJS-2061?focusedCommentId=46191&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-46191[dismissed] されるべきではなかったと思います。
-
-CLJS には https://clojurescript.org/guides/javascript-modules[implementation] という別の実装がありますが、これは `shadow-cljs` ではサポートされていません。私はこの実装がある種の面で不足していると感じたので、別の解決策を選びました。しかし、両方のアプローチの長所・短所を議論するのは楽しいことです。
+この機能は実験的なものであるため、自分の責任で使用してください。現在は `shadow-cljs` でのみサポートされており、これを使おうとすると他の CLJS ツールに怒られます。この機能は CLJS のコアでは拒否されましたが、私は便利だと思いますし、さらなる議論なしに破棄されるべきではなかったと思います。CLJS には別の実装もありますが `shadow-cljs` ではサポートされていません。私はこの実装がある種の面で不足していると感じたので、別の解決策を選びました。両方のアプローチの長所と短所を議論するのは楽しいことです。
 ****
 
 ////
 We covered how <<npm, npm>> packages are used but you may be working on a codebase that already has lots of plain JavaScript and you don't want to rewrite everything in ClojureScript just yet. `shadow-cljs` provides 100% full interop between JavaScript and ClojureScript. Which means your JS can use your CLJS and CLJS can use your JS.
 ////
-私たちは <<npm, npm>> パッケージがどのように使用されるかをカバーしましたが、あなたはすでに多くのプレーンな JavaScript を持つコードベースに取り組んでいるかもしれず、すべてを ClojureScript で書き直したくはないでしょう。
+私たちは <<npm, npm>> パッケージがどのように使用されるかを取り上げました。すでに JavaScript のコードを中心に進めている場合、すべてを ClojureScript で書き直したくはないでしょう。
 
-`shadow-cljs` は、JavaScript と ClojureScript の間の100%完全な相互運用性を提供します。つまり、JS から CLJS を使うことができ、CLJS から JS  使うことができます。
+`shadow-cljs` は、JavaScript と ClojureScript の間の完全な相互運用性を提供します。つまり、JS から CLJS を使うことができ、CLJS から JS  使うこともできます。
 
 ////
 There are only a few conventions you need to follow in order for this to work reliably but chances are that you are already doing that anyways.
@@ -510,12 +508,14 @@ Absolute requires like `/some-library/components/foo` mean that the compiler wil
 ////
 Relative requires are resolved by first looking at the current namespace and then resolving a relative path from that name. In the above example we are in `demo/app.cljs` to the `./bar` require resolves to `demo/bar.js`, so it is identical to `(:require ["/demo/bar"])`.
 ////
-相対的な require は、まず現在の名前空間を見て、その名前からの相対パスを解決します。上の例では、 `demo/app.cljs` から `./bar` の require は `demo/bar.js` に解決されるので、 `(:require ["/demo/bar"])` と同じになります。
+相対的な require は、まず現在の名前空間を見て、その名前からの相対パスを解決します。上の例では `demo/app.cljs` のなかで `./bar` は `demo/bar.js` に解決されるので、 `(:require ["/demo/bar"])` と同じになります。
 
 ////
 IMPORTANT: The files must not be physically located in the same directory. The lookup for the file appears on the classpath instead. This is unlike node which expects relative requires to always resolve to physical files.
 ////
-IMPORTANT: ファイルは物理的に同じディレクトリにあってはいけません。ファイルの検索は、代わりにクラスパス上で行われます。これは、相対的な要求が常に物理的なファイルに解決されることを期待する node とは異なります。
+IMPORTANT: ファイルは物理的に同じディレクトリにあってはいけません。ファイルの検索はクラスパス上で行われます。これは、相対的な要求が常に物理的なファイルに解決されることを期待する node とは異なります。
+
+<<<
 
 ////
 .Example File Structure with Separate Paths

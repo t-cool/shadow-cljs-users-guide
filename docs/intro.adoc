@@ -126,6 +126,7 @@ This is unlike `npm` where the package name itself is never used inside the pack
 ////
 これは `npm` とは異なり、パッケージ名自体がパッケージ内部で使用されることはなく、相対パスのみが使用されます。
 
+<<<
 
 === server モード
 

@@ -56,6 +56,7 @@ The build options are:
 `:output-to` :: `:karma` :  js ファイルのパス/ファイル名です。
 `:ns-regexp` :: (オプション) テストの名前空間にマッチさせる正規表現、デフォルトは "-test$" です。
 
+<<<
 ////
 So you might have something like this:
 ////

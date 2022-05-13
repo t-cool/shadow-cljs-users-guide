@@ -30,6 +30,9 @@ will not scan jars. Defaults to "-test$".
 The normal `:devtools` options are supported, so you will usually create an http server to serve the files.
 In general you will need a config that looks like this:
 ////
+
+<<<
+
 通常の `:devtools` オプションはサポートされていますので、通常はファイルを提供するための http サーバを作成します。
 一般的には、次のような設定が必要です。
 

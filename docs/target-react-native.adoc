@@ -40,23 +40,25 @@ When compiled this results in a `app/index.js` file intended to be used as an en
 ////
 これをコンパイルすると、 `react-native` ツールのエントリーポイントとして使用される `app/index.js` ファイルが生成されます。開発中、`:output-dir` にはさらに多くのファイルが格納されますが、生成された `app/index.js` を直接参照するだけにしてください。 `release` のビルドでは、最適化された `app/index.js` が生成されるだけで、追加のファイルは必要ありません。
 
-<<<
+// 改行 <<<
 
 == React Native
 
 ////
 There are two ways to use `react-native`, "plain" `react-native`, which allows you to use native code and libraries and the one "wrapped" in https://expo.io/[expo] (described below). All the steps described above are sufficient to start using shadow-cljs with the plain `react-native`. See this example repo:
 ////
-`react-native` には、ネイティブコードやライブラリを使用できるプレーンな `react-native` と https://expo.io/[expo] （後述）でラップされた `react-native` の 2 つの使用方法があります。上記で説明したすべての手順は、プレーンな `react-native` で `shadow-cljs` を使い始めるのに十分なものです。このサンプルレポをご覧ください。
+`react-native` には、ネイティブコードやライブラリを使用できる純粋な `react-native` と https://expo.io/[expo] でラップされた `react-native` の 2 つの利用法があります。上記の手順は全て、純粋な `react-native` で `shadow-cljs` を使い始めるのに十分なものです。次の例をご覧ください。
 
 - https://github.com/thheller/reagent-react-native
+
+<<<
 
 == Expo
 
 ////
 https://expo.io/[expo] makes working with `react-native` quite easy. There are two provided example setups.
 ////
-https://expo.io/[expo] を使うと、 `react-native` の作業がとても簡単になります。 2 つのサンプルセットアップが用意されています。
+https://expo.io/[expo] を使うと、 `react-native` の作業がとても簡単になります。 2 つのサンプルが用意されています。
 
 - https://github.com/thheller/fulcro-expo
 - https://github.com/thheller/reagent-expo
@@ -103,8 +105,6 @@ Both examples where generated using `expo init ...` and the only adjusted change
 ////
 `init` is called once on startup. Since the example doesn't need to do any special setup it just calls `start` directly. `start` will be called repeatedly when `watch` is running each time after the code changes were reloaded. The `reagent.core/as-element` function can be used to generate the required React Element from the reagent hiccup markup.
 ////
-`init` は起動時に一度だけ呼ばれます。この例では特別な設定をする必要がないので、単に `start` を直接呼び出します。 
-
-`start` は、コードの変更がリロードされた後に `watch` が実行されるたびに、繰り返し呼び出されます。
+`init` は起動時に一度だけ呼ばれます。この例では特別な設定をする必要がないので、単に `start` を直接呼び出します。`start` は、コードの変更がリロードされた後に `watch` が実行されるたびに、繰り返し呼び出されます。
 
 `reagent.core/as-element` 関数は、reagent hiccup のマークアップから必要な React Element を生成するために使用することができます。

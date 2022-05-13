@@ -1,16 +1,15 @@
 ////
 There is an additional target that is intended to integrate CLJS into an existing JS project. The output can seamlessly integrate with existing JS tools (eg. webpack, browserify, babel, create-react-app, ...) with little configuration.
 ////
-既存のJSプロジェクトにCLJSを統合することを目的とした追加ターゲットがあります。この出力は、既存のJSツール (webpack、browserify、babel、create-react-app 等）とわずかな設定で途切れなく統合できます。
+CLJSを既存のJSプロジェクトに統合することを目的としたターゲットがある場合、少しの設定で webpack、browserify、babel、create-react-app 等の JS ツールに統合できます。
 
 ////
 [horizontal]
 `:output-dir` :: The path for the output files are written to, defaults to `node_modules/shadow-cljs`.
 `:entries` :: (required) A vector of namespace symbols that should be compiled
 ////
-[horizontal]
-`:output-dir` :: (デフォルト) `node_modules/shadow-cljs`
-`:entries` :: (必須) コンパイルされるべき名前空間シンボルのベクトル
+
+`:output-dir` はデフォルトでは `node_modules/shadow-cljs` であり、`:entries` はコンパイルされる名前空間のシンボルを含むベクトルです。
 
 ////
 .Example `shadow-cljs.edn` config
@@ -50,9 +49,7 @@ This is easy to remedy, simply add `:export` metadata on any symbols that you wa
 
 ```
 (ns demo.foo)
-
 (def ^:export foo 5.662)
-
 (defn ^:export bar [] ...)
 ```
 

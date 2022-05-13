@@ -59,24 +59,24 @@ When compiled this results in a standalone `out/demo-script/script.js` file inte
 ////
 You will often write scripts that run as servers or some other long-running process. Hot code reload can be quite useful when working with these, and it is simple to set up:
 ////
-サーバーやその他の長時間実行されるプロセスとして動作するスクリプトを書くことがよくあります。ホットコードリロードは、これらの作業を行う際に非常に便利で、設定も簡単です。
 
 ////
 . Add start/stop callback functions.
 . Configure the build use those hooks.
 ////
 
-start/stop コールバック関数の追加して、これらのフックを使用するようにビルドを設定します。
-
 ////
 Here is an example http server in node:
 ////
-ここでは、node の http サーバーの例を紹介します。
+
+サーバーやその他の長時間実行されるプロセスとして動作するスクリプトを書くことがあります。ホットコードリロードはそのような際に非常に便利で、設定も簡単です。start/stop コールバック関数の追加してフックを使用するようにビルドを設定します。以下、node の http サーバーの例を紹介します。
+
+
 
 ////
 .Sample node script with start/stop hooks for hot code reload.
 ////
-.ホットコードリロードのための start/stop フックを備えた Node スクリプトのサンプル
+.ホットコードリロードのための start/stop フックを備えた Node のサンプル
 
 ////
 ```
@@ -137,24 +137,23 @@ Here is an example http server in node:
 (defn main [& args]
   (js/console.log "starting server")
   (let [server (http/createServer #(request-handler %1 %2))]
-
+  
     (.listen server 3000
       (fn [err]
         (if err
           (js/console.error "server start failed")
           (js/console.info "http server running"))
         ))
-
     (vreset! server-ref server)))
 
 (defn start
-  "開始するためのフック。また、ホットコードのリロード用のフックとしても使用されます。"
+  "開始するためのフック。ホットコードのリロード用のフックとしても使用される"
   []
   (js/console.warn "start called")
   (main))
 
 (defn stop
-  "ホットコードリロードフックで、ホットコードリロードが機能するようにリソースをシャットダウンする。"
+  "ホットコードリロードフックで、ホットコードリロードが機能するようにリソースをシャットダウンする"
   [done]
   (js/console.warn "stop called")
   (when-some [srv @server-ref]
@@ -169,6 +168,7 @@ Here is an example http server in node:
 ////
 The associated configuration is (`shadow-cljs.edn`):
 ////
+
 関連する設定は（ `shadow-cljs.edn` ）です。
 
 ////
