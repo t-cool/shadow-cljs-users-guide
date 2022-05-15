@@ -281,7 +281,7 @@ Namespaces can also be tagged to always reload.
 (js/console.warn "will execute on every code change")
 ```
 
-<<
+<<<
 
 ==== 設定
 
@@ -335,7 +335,7 @@ TIP: If neither `:after-load` nor `:before-load` are set the compiler will only 
 ////
 TIP: `:after-load` や `:before-load` が設定されていない場合、コンパイラは `:browser` ターゲットのコード内においてホットリロードのみを試みます。もしホットリロードを行いたいが、コールバックが不要な場合は、代わりに `:autoload true` を設定してください。
 
-<<
+<<<
 
 == ビルドフック [[build-hooks]]
 //Build Hooks [[build-hooks]]
