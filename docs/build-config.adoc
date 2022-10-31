@@ -103,7 +103,7 @@ When running `watch` code for the REPL is injected automatically and usually doe
 ```
 
 
-=== プリロード
+=== 事前ロード
 
 //Preloads
 
@@ -116,7 +116,7 @@ As a developer most of your time is spent in development mode. You're probably f
 ////
 Preloads are used to force certain namespaces into the front of your generated Javascript. This is generally used to inject tools and instrumentation before the application actually loads and runs. The preloads option is simply a list of namespaces either in the `:devtools`/`:preloads` section of `shadow-cljs.edn` or within the `:preloads` key of a specific module:
 ////
-プリロードは、生成された Javascript の先頭に特定の名前空間を強制的に導入するために使用されます。これは一般的に、アプリケーションが実際にロードされて実行される前に、ツールやインスツルメンテーションを注入するために使用されます。preloads オプションは、 `shadow-cljs.edn` の `:devtools` / `:preloads` セクション内、または特定のモジュールの `:preloads` キー内にある名前空間の単純なリストです。
+事前ロードは、生成された Javascript の先頭に特定の名前空間を強制的に導入するために使用され、一般的にアプリケーションが実際にロードされて実行される前にツール等を注入するために使用されます。事前ロードのオプションは `shadow-cljs.edn` の `:devtools` / `:preloads` セクション内、または特定のモジュールの `:preloads` キー内にある名前空間の単純なリストです。
 
 ```
 {...
@@ -127,10 +127,12 @@ Preloads are used to force certain namespaces into the front of your generated J
 
 ```
 
+<<<
+
 ////
 For example to only include the preloads within a main module during development, and not in a web worker:
 ////
-例えば、開発中のメインモジュール内でのみプリロードを行い、ウェブワーカーでは行わないようにするなどです。
+次の設定では、事前ロードを開発中のメインモジュール内でのみ行い、ウェブワーカーを停止します。
 
 ```
 {...
@@ -155,7 +157,7 @@ For example to only include the preloads within a main module during development
 ////
 NOTE: Since version 2.0.130 shadow-cljs automatically adds `cljs-devtools` to the preloads in `watch` and `compile` if they are on the classpath. All you need to do is make sure `binaryage/devtools` is in your `dependencies` list. (Note, *not* binaryage/**cljs-**devtools.) If you don't want to have `cljs-devtools` in specific targets, you can suppress this by adding `:console-support false` to the `:devtools` section of those targets.
 ////
-NOTE: バージョン 2.0.130 以降の shadow-cljs は、 `watch` と `compile` のクラスパス上に `cljs-devtools` がある場合、自動的にそのプリロードに `cljs-devtools` を追加します。必要なことは、`dependencies` リストに `binaryage/cljs-devtools` ではなく `binaryage/devtools` があることを確認するだけです。もし特定のターゲットに `cljs-devtools` を入れない場合は、ターゲットの `:devtools` セクションに `:console-support false` を追加することで、これを抑制することができます。
+NOTE: バージョン 2.0.130 以降の shadow-cljs は、 `watch` と `compile` のクラスパス上に `cljs-devtools` がある場合、自動的にその事前ロードに `cljs-devtools` を追加します。必要なことは、`dependencies` リストに `binaryage/cljs-devtools` ではなく `binaryage/devtools` があることを確認するだけです。もし特定のターゲットに `cljs-devtools` を入れない場合は、ターゲットの `:devtools` セクションに `:console-support false` を追加することで、これを抑制することができます。
 
 === ホットコードリロード
 //Hot Code Reload
@@ -182,7 +184,7 @@ shadow-cljs watch build-id
 ////
 You can configure the compiler to run functions just before hot code reload brings in updated code, and just after. These are useful for stopping/starting things that would otherwise close over old code.
 ////
-ホットコードリロードで更新されたコードが入ってくる直前と直後に関数を実行するようにコンパイラを設定することができます。これは、古いコードの上で閉じてしまうような処理を停止/開始するのに便利です。
+ホットコードリロードで更新されたコードが入る直前と直後に関数を実行するようにコンパイラを設定することができます。これは古いコードの上で閉じてしまうような処理を停止/開始するのに便利です。
 
 ////
 These can be configured via the `:devtools` section in your build config or directly in your code via metadata tags.

@@ -484,7 +484,7 @@ Note that the empty `:entries []` in the `:shared` module will make it collect a
 ////
 .Sample echo worker
 ////
-.Example エコ・ーワーカー
+.Example エコー・ワーカー
 
 ```
 (ns my.app.worker)
